@@ -63,6 +63,11 @@
       margin: 0 auto;
     }
 
+    .container-wide {
+      width: min(1440px, 92%);
+      margin: 0 auto;
+    }
+
     .topbar {
       position: sticky;
       top: 0;
@@ -188,7 +193,7 @@
 
     .hero-card {
       justify-self: end;
-      width: min(430px, 100%);
+      width: min(460px, 100%);
       border: 1px solid rgba(176, 141, 87, 0.34);
       border-radius: 30px;
       padding: 42px;
@@ -214,28 +219,24 @@
       height: auto;
     }
 
-    .hero-card ul {
-      list-style: none;
-      display: grid;
-      gap: 16px;
+    .card-texto {
+      text-align: left;
     }
 
-    .hero-card li {
-      position: relative;
-      padding-left: 28px;
+    .card-texto .destaque {
       color: var(--bege-tecnico);
-      font-size: 1.06rem;
+      font-size: 1.2rem;
+      line-height: 1.35;
+      font-weight: 700;
+      margin-bottom: 16px;
     }
 
-    .hero-card li::before {
-      content: "";
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--ouro-fosco);
-      position: absolute;
-      left: 0;
-      top: 12px;
+    .card-texto p {
+      color: rgb(225, 218, 197);
+      font-size: 1.02rem;
+      line-height: 1.72;
+      text-align: justify;
+      text-justify: inter-word;
     }
 
     section {
@@ -251,7 +252,7 @@
     }
 
     .section-head {
-      max-width: 840px;
+      max-width: 100%;
       margin-bottom: 42px;
     }
 
@@ -262,12 +263,16 @@
       font-weight: 600;
       letter-spacing: -0.025em;
       margin-bottom: 16px;
+      max-width: 1100px;
     }
 
     .section-head p {
       color: var(--cinza-suave);
-      font-size: 1.08rem;
-      line-height: 1.72;
+      font-size: 1.12rem;
+      line-height: 1.78;
+      text-align: justify;
+      text-justify: inter-word;
+      max-width: 100%;
     }
 
     .grid-3 {
@@ -348,6 +353,8 @@
 
     .timeline-item p {
       color: var(--cinza-suave);
+      text-align: justify;
+      text-justify: inter-word;
     }
 
     .split {
@@ -373,6 +380,8 @@
     .highlight p {
       color: var(--branco-suave);
       margin-bottom: 14px;
+      text-align: justify;
+      text-justify: inter-word;
     }
 
     .area-list {
@@ -388,6 +397,8 @@
       border: 1px solid rgba(214, 197, 154, 0.18);
       background: rgba(255, 255, 255, 0.03);
       color: var(--cinza-suave);
+      text-align: justify;
+      text-justify: inter-word;
     }
 
     .area-list strong {
@@ -395,6 +406,7 @@
       color: var(--bege-tecnico);
       margin-bottom: 4px;
       font-size: 1.08rem;
+      text-align: left;
     }
 
     .cta {
@@ -416,10 +428,12 @@
     }
 
     .cta p {
-      max-width: 760px;
+      max-width: 920px;
       margin: 0 auto 28px;
       color: var(--cinza-suave);
       font-size: 1.08rem;
+      text-align: justify;
+      text-justify: inter-word;
     }
 
     .faq {
@@ -444,6 +458,8 @@
     details p {
       margin-top: 12px;
       color: var(--cinza-suave);
+      text-align: justify;
+      text-justify: inter-word;
     }
 
     .footer {
@@ -549,6 +565,16 @@
       .timeline-item {
         grid-template-columns: 1fr;
       }
+
+      .section-head p,
+      .card-texto p,
+      .timeline-item p,
+      .highlight p,
+      .area-list li,
+      .cta p,
+      details p {
+        text-align: left;
+      }
     }
   </style>
 </head>
@@ -593,18 +619,19 @@
             <div class="symbol-frame">
               <img src="Simbolo.svg" alt="Símbolo Análise Legal" />
             </div>
-            <ul>
-              <li>Não é catálogo de advogados.</li>
-              <li>Não é marketplace jurídico genérico.</li>
-              <li>É uma jornada estruturada para tomada de decisão.</li>
-              <li>A agenda selecionada é sincronizada com a disponibilidade dos profissionais.</li>
-            </ul>
+
+            <div class="card-texto">
+              <p class="destaque">Seu caso não precisa de mais informação. Precisa de análise.</p>
+              <p>
+                Nosso símbolo traduz esse princípio: como um cubo em quatro dimensões, ampliamos a leitura do seu caso para além da teoria, conectando o que está na lei à forma como o direito é efetivamente aplicado e decidido nos tribunais.
+              </p>
+            </div>
           </aside>
         </div>
       </section>
 
       <section id="conceito">
-        <div class="container">
+        <div class="container-wide">
           <div class="section-head">
             <div class="eyebrow">O que é</div>
             <h2>Uma plataforma para transformar dúvida jurídica em decisão mais segura.</h2>
