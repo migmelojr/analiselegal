@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Compra de imóvel com problema | Análise Legal</title>
+
+  <meta name="description" content="Comprou ou pretende comprar imóvel com ônus, dívida, irregularidade documental ou risco na matrícula? Solicite análise jurídica antes de assumir prejuízos." />
+  <meta name="keywords" content="compra de imóvel com problema, imóvel com dívida, ônus na matrícula, advogado imobiliário Brasília, análise jurídica imobiliária, imóvel irregular, Análise Legal" />
+  <meta name="author" content="Análise Legal" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --verde-profundo: rgb(13, 22, 34);
+      --verde-militar: rgb(56, 66, 51);
+      --verde-oliva: rgb(138, 154, 107);
+      --ouro-fosco: rgb(176, 141, 87);
+      --bege-tecnico: rgb(214, 197, 154);
+      --grafite-profundo: rgb(30, 35, 41);
+      --branco-suave: rgb(246, 241, 229);
+      --cinza-suave: rgb(198, 203, 198);
+      --fonte: 'Crimson Text', Georgia, serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--fonte);
+      background: var(--verde-profundo);
+      color: var(--branco-suave);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .site {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 80% 12%, rgba(176, 141, 87, 0.12), transparent 26%),
+        radial-gradient(circle at 15% 70%, rgba(138, 154, 107, 0.10), transparent 28%),
+        linear-gradient(145deg, var(--verde-profundo) 0%, var(--grafite-profundo) 54%, var(--verde-militar) 100%);
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+
+    .container-wide {
+      width: min(1440px, 92%);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13, 22, 34, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(176, 141, 87, 0.34);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand-logo {
+      width: 255px;
+      height: auto;
+      filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.28));
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      color: var(--bege-tecnico);
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+
+    .menu a {
+      opacity: 0.92;
+      transition: 0.2s ease;
+    }
+
+    .menu a:hover {
+      color: var(--ouro-fosco);
+      opacity: 1;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 25px;
+      border-radius: 999px;
+      border: 1px solid var(--ouro-fosco);
+      background: var(--ouro-fosco);
+      color: var(--verde-profundo);
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.24);
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--bege-tecnico);
+      border-color: var(--bege-tecnico);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--bege-tecnico);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: var(--bege-tecnico);
+      color: var(--verde-profundo);
+    }
+
+    .hero {
+      min-height: calc(100vh - 82px);
+      display: grid;
+      align-items: center;
+      padding: 92px 0 100px;
+      border-bottom: 1px solid rgba(176, 141, 87, 0.22);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 72px;
+    }
+
+    .eyebrow {
+      color: var(--ouro-fosco);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.82rem;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      color: var(--bege-tecnico);
+      font-size: clamp(3rem, 6.4vw, 5.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+      font-weight: 600;
+      margin-bottom: 28px;
+      max-width: 860px;
+    }
+
+    .hero-text {
+      color: rgb(225, 218, 197);
+      font-size: 1.16rem;
+      line-height: 1.72;
+      max-width: 680px;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-card {
+      justify-self: end;
+      width: min(480px, 100%);
+      border: 1px solid rgba(176, 141, 87, 0.34);
+      border-radius: 30px;
+      padding: 42px;
+      background: linear-gradient(155deg, rgba(56, 66, 51, 0.62), rgba(13, 22, 34, 0.72));
+      box-shadow: 0 34px 90px rgba(0, 0, 0, 0.35);
+    }
+
+    .symbol-frame {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(176, 141, 87, 0.42);
+      border-radius: 28px;
+      background: rgba(13, 22, 34, 0.34);
+      box-shadow: inset 0 0 42px rgba(176, 141, 87, 0.08), 0 18px 40px rgba(0, 0, 0, 0.24);
+    }
+
+    .symbol-frame img {
+      width: 104px;
+      height: auto;
+    }
+
+    .card-texto .destaque {
+      color: var(--bege-tecnico);
+      font-size: 1.24rem;
+      line-height: 1.35;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .card-texto p,
+    .card-texto li {
+      color: rgb(225, 218, 197);
+      font-size: 1.02rem;
+      line-height: 1.72;
+    }
+
+    .card-texto ul {
+      display: grid;
+      gap: 11px;
+      padding-left: 18px;
+      margin-top: 10px;
+    }
+
+    section {
+      padding: 92px 0;
+    }
+
+    .section-dark {
+      background: var(--grafite-profundo);
+    }
+
+    .section-military {
+      background: linear-gradient(145deg, var(--verde-militar), var(--grafite-profundo));
+    }
+
+    .section-head {
+      max-width: 100%;
+      margin-bottom: 42px;
+    }
+
+    .section-head h2 {
+      color: var(--bege-tecnico);
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.08;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+      max-width: 1120px;
+    }
+
+    .section-head p {
+      color: var(--cinza-suave);
+      font-size: 1.12rem;
+      line-height: 1.78;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid rgba(214, 197, 154, 0.18);
+      border-radius: 24px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.035);
+      box-shadow: 0 18px 54px rgba(0, 0, 0, 0.18);
+    }
+
+    .card .number {
+      display: block;
+      color: var(--ouro-fosco);
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      color: var(--bege-tecnico);
+      font-size: 1.34rem;
+      line-height: 1.26;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .card p,
+    .card li {
+      color: var(--cinza-suave);
+      font-size: 1rem;
+    }
+
+    .card ul {
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .risk-card {
+      border: 1px solid rgba(176, 141, 87, 0.28);
+      border-radius: 22px;
+      padding: 24px;
+      background: rgba(13, 22, 34, 0.35);
+    }
+
+    .risk-card strong {
+      display: block;
+      color: var(--ouro-fosco);
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .risk-card span {
+      color: var(--cinza-suave);
+      font-size: 0.98rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .highlight {
+      border-radius: 28px;
+      padding: 34px;
+      background: rgba(56, 66, 51, 0.72);
+      border: 1px solid rgba(176, 141, 87, 0.36);
+    }
+
+    .highlight h3 {
+      color: var(--ouro-fosco);
+      font-size: 1.52rem;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .highlight p,
+    .highlight li {
+      color: var(--branco-suave);
+      margin-bottom: 14px;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .highlight ul {
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+      counter-reset: etapa;
+    }
+
+    .timeline-item {
+      counter-increment: etapa;
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 24px;
+      align-items: start;
+      border: 1px solid rgba(176, 141, 87, 0.28);
+      border-radius: 24px;
+      padding: 26px;
+      background: linear-gradient(135deg, rgba(56, 66, 51, 0.46), rgba(13, 22, 34, 0.44));
+    }
+
+    .timeline-item::before {
+      content: counter(etapa, decimal-leading-zero);
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ouro-fosco);
+      color: var(--verde-profundo);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .timeline-item h3 {
+      color: var(--bege-tecnico);
+      font-size: 1.28rem;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .timeline-item p {
+      color: var(--cinza-suave);
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .alerta {
+      border-left: 5px solid var(--ouro-fosco);
+      background: rgba(176, 141, 87, 0.10);
+      padding: 26px;
+      border-radius: 20px;
+      color: var(--branco-suave);
+      font-size: 1.08rem;
+      line-height: 1.7;
+      margin-top: 28px;
+    }
+
+    .check-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      list-style: none;
+    }
+
+    .check-list li {
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(214, 197, 154, 0.18);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--cinza-suave);
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .check-list strong {
+      display: block;
+      color: var(--bege-tecnico);
+      margin-bottom: 4px;
+      font-size: 1.08rem;
+      text-align: left;
+    }
+
+    .cta {
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(176, 141, 87, 0.18), transparent 36%),
+        linear-gradient(135deg, var(--verde-profundo), var(--verde-militar));
+      border-top: 1px solid rgba(176, 141, 87, 0.22);
+      border-bottom: 1px solid rgba(176, 141, 87, 0.22);
+    }
+
+    .cta h2 {
+      max-width: 900px;
+      margin: 0 auto 18px;
+      color: var(--bege-tecnico);
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.08;
+      font-weight: 600;
+    }
+
+    .cta p {
+      max-width: 920px;
+      margin: 0 auto 28px;
+      color: var(--cinza-suave);
+      font-size: 1.08rem;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .faq {
+      display: grid;
+      gap: 16px;
+    }
+
+    details {
+      border: 1px solid rgba(214, 197, 154, 0.18);
+      background: rgba(255, 255, 255, 0.035);
+      border-radius: 18px;
+      padding: 20px 22px;
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--bege-tecnico);
+      font-weight: 700;
+      font-size: 1.08rem;
+    }
+
+    details p {
+      margin-top: 12px;
+      color: var(--cinza-suave);
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .footer {
+      background: rgb(8, 14, 22);
+      border-top: 1px solid rgba(176, 141, 87, 0.24);
+      padding: 38px 0;
+      color: var(--cinza-suave);
+      font-size: 0.94rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .footer-brand img {
+      width: 40px;
+      height: auto;
+    }
+
+    .footer strong {
+      color: var(--bege-tecnico);
+      font-size: 1.06rem;
+    }
+
+    .footer-legal {
+      display: grid;
+      gap: 8px;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 980px) {
+      .menu {
+        display: none;
+      }
+
+      .hero-grid,
+      .grid-3,
+      .grid-4,
+      .split,
+      .check-list,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        justify-self: stretch;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        min-height: 72px;
+        gap: 10px;
+      }
+
+      .brand-logo {
+        width: 178px;
+      }
+
+      .nav .btn {
+        min-height: 34px;
+        padding: 7px 10px;
+        font-size: 0.76rem;
+        white-space: nowrap;
+      }
+
+      .hero {
+        padding: 54px 0 66px;
+      }
+
+      .hero-grid {
+        gap: 42px;
+      }
+
+      h1 {
+        font-size: 3.05rem;
+      }
+
+      .hero-text {
+        font-size: 1.04rem;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+
+      .hero-card {
+        padding: 28px;
+        border-radius: 24px;
+      }
+
+      .symbol-frame {
+        width: 116px;
+        height: 116px;
+      }
+
+      .symbol-frame img {
+        width: 78px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head p,
+      .timeline-item p,
+      .highlight p,
+      .highlight li,
+      .check-list li,
+      .cta p,
+      details p {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site">
+    <header class="topbar">
+      <div class="container nav">
+        <a href="#inicio" aria-label="Análise Legal">
+          <img class="brand-logo" src="Marca.svg" alt="Análise Legal | Precisão jurídica para decisões relevantes" />
+        </a>
+
+        <nav class="menu" aria-label="Menu principal">
+          <a href="#problemas">Problemas</a>
+          <a href="#riscos">Riscos</a>
+          <a href="#analise">Análise</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#duvidas">Dúvidas</a>
+        </nav>
+
+        <a class="btn" href="/funil">Solicitar análise</a>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">Compra de imóvel com problema</div>
+
+            <h1>Descobriu ônus, dívida ou irregularidade no imóvel?</h1>
+
+            <p class="hero-text">
+              Antes de pagar sinal, assinar contrato, transferir valores ou aceitar promessa de regularização futura, compreenda juridicamente o risco real da operação. A Análise Legal organiza sua situação e direciona o caso para avaliação objetiva sobre matrícula, dívidas, posse, contrato e documentação.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn" href="/funil">Solicitar análise do imóvel</a>
+              <a class="btn btn-outline" href="#problemas">Ver situações comuns</a>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Diferenciais da análise imobiliária">
+            <div class="symbol-frame">
+              <img src="Simbolo.svg" alt="Símbolo Análise Legal" />
+            </div>
+
+            <div class="card-texto">
+              <p class="destaque">O contrato não corrige uma matrícula problemática.</p>
+              <p>
+                Na compra de imóvel, o risco geralmente não está no que foi prometido verbalmente, mas no que aparece — ou deixa de aparecer — nos documentos. A análise jurídica identifica se o negócio pode avançar, se deve ser renegociado ou se precisa ser interrompido antes de gerar prejuízo.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="problemas">
+        <div class="container-wide">
+          <div class="section-head">
+            <div class="eyebrow">Situações comuns</div>
+            <h2>Problemas imobiliários costumam aparecer quando o comprador já está emocionalmente comprometido com o negócio.</h2>
+            <p>
+              Muitas compras parecem seguras porque há proposta, recibo, contrato, corretor, promessa de venda ou negociação avançada. O problema surge quando a matrícula, os débitos, a posse ou a documentação não confirmam a segurança esperada.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="card">
+              <span class="number">Matrícula</span>
+              <h3>Ônus ou restrição registral</h3>
+              <p>Alienação fiduciária, hipoteca, penhora, usufruto, indisponibilidade, averbações antigas ou restrições capazes de dificultar a transferência segura do imóvel.</p>
+            </article>
+
+            <article class="card">
+              <span class="number">Dívidas</span>
+              <h3>IPTU, condomínio ou financiamento</h3>
+              <p>Débitos que podem acompanhar o imóvel, comprometer a negociação ou gerar cobranças posteriores contra quem acreditava estar comprando sem pendências.</p>
+            </article>
+
+            <article class="card">
+              <span class="number">Documentação</span>
+              <h3>Imóvel sem regularidade completa</h3>
+              <p>Ausência de escritura, falta de registro, divergência de área, cadeia dominial incompleta, promessa antiga ou documentos insuficientes do vendedor.</p>
+            </article>
+
+            <article class="card">
+              <span class="number">Posse</span>
+              <h3>Imóvel ocupado ou sem entrega clara</h3>
+              <p>Compra de imóvel com morador, locatário, ex-proprietário, ocupante irregular ou terceiro resistente à entrega voluntária da posse.</p>
+            </article>
+
+            <article class="card">
+              <span class="number">Contrato</span>
+              <h3>Cláusulas frágeis ou perigosas</h3>
+              <p>Disposições vagas sobre sinal, arras, multa, prazo de entrega, responsabilidade por dívidas, comissão de corretagem, rescisão e restituição de valores.</p>
+            </article>
+
+            <article class="card">
+              <span class="number">Promessa</span>
+              <h3>Regularização futura sem garantia</h3>
+              <p>Situações em que o vendedor afirma que “está resolvendo”, mas não apresenta documentos suficientes para justificar pagamento ou assinatura imediata.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-dark" id="riscos">
+        <div class="container">
+          <div class="section-head">
+            <div class="eyebrow">Riscos reais</div>
+            <h2>O risco não é apenas perder o negócio. É comprar um problema.</h2>
+            <p>
+              Em compra imobiliária, uma decisão precipitada pode transformar oportunidade em litígio, perda patrimonial, cobrança inesperada ou dependência de ação judicial para obter posse, escritura ou restituição.
+            </p>
+          </div>
+
+          <div class="grid-4">
+            <div class="risk-card">
+              <strong>01</strong>
+              <span>Pagar sinal sem saber se o imóvel pode ser transferido.</span>
+            </div>
+
+            <div class="risk-card">
+              <strong>02</strong>
+              <span>Assumir dívida de condomínio, IPTU ou financiamento sem clareza.</span>
+            </div>
+
+            <div class="risk-card">
+              <strong>03</strong>
+              <span>Comprar imóvel ocupado e depender de ação judicial para entrar.</span>
+            </div>
+
+            <div class="risk-card">
+              <strong>04</strong>
+              <span>Assinar contrato que dificulta rescisão ou restituição de valores.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="analise">
+        <div class="container">
+          <div class="section-head">
+            <div class="eyebrow">Análise jurídica</div>
+            <h2>O que precisa ser analisado antes de avançar?</h2>
+            <p>
+              A segurança da compra depende da coerência entre matrícula, certidões, documentos do vendedor, situação de posse, débitos existentes, contrato e forma de pagamento. A análise jurídica não se limita a ler o contrato; ela confronta o negócio com os riscos que podem impedir ou encarecer sua concretização.
+            </p>
+
+            <div class="alerta">
+              Recibo não substitui registro. Contrato particular não elimina ônus na matrícula. Promessa verbal de regularização não garante transferência segura. Em imóvel, a pressa costuma favorecer quem vende o risco, não quem compra.
+            </div>
+          </div>
+
+          <ul class="check-list">
+            <li><strong>Matrícula atualizada</strong>Verificação de titularidade, ônus, averbações, restrições, alienação fiduciária, penhora ou indisponibilidade.</li>
+            <li><strong>Débitos do imóvel</strong>Análise de IPTU, condomínio, taxas, saldo devedor, encargos e responsabilidade por pagamentos anteriores.</li>
+            <li><strong>Documentos do vendedor</strong>Regularidade civil, poderes de representação, estado civil, procurações, sucessão, inventário ou necessidade de anuência.</li>
+            <li><strong>Contrato e pagamento</strong>Exame de sinal, arras, prazo, multa, comissão, entrega, condição suspensiva, rescisão e restituição de valores.</li>
+            <li><strong>Posse e ocupação</strong>Avaliação de risco quando o imóvel está ocupado, alugado, invadido, cedido ou sob resistência de terceiro.</li>
+            <li><strong>Estratégia de decisão</strong>Definição sobre avançar, exigir documentos, renegociar, suspender pagamento, rescindir ou judicializar.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section-military" id="como-funciona">
+        <div class="container">
+          <div class="section-head">
+            <div class="eyebrow">Como funciona</div>
+            <h2>Uma jornada encadeada para transformar dúvida imobiliária em decisão segura.</h2>
+            <p>
+              O fluxo foi pensado para que o atendimento não comece do zero. A situação é descrita, os documentos essenciais são enviados e a análise é direcionada aos pontos que realmente alteram a decisão do comprador.
+            </p>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div>
+                <h3>Você descreve a situação</h3>
+                <p>Informe se ainda está negociando, se já assinou contrato, se pagou algum valor ou se descobriu o problema depois da compra.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div>
+                <h3>Você envia os documentos disponíveis</h3>
+                <p>Matrícula, contrato, proposta, mensagens, boletos, certidões, anúncio, comprovantes e documentos do vendedor podem ser encaminhados para organização prévia.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div>
+                <h3>O caso é organizado por risco</h3>
+                <p>A demanda é separada por pontos críticos: matrícula, dívidas, posse, contrato, vendedor, forma de pagamento e urgência da decisão.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div>
+                <h3>A análise jurídica é realizada</h3>
+                <p>O advogado avalia os fatos e documentos apresentados, identifica riscos relevantes e aponta caminhos proporcionais para a situação concreta.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div>
+                <h3>Você decide com mais segurança</h3>
+                <p>Ao final, você compreende se deve avançar, exigir documentos, renegociar, suspender pagamento, rescindir, notificar ou buscar medida judicial.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="servicos">
+        <div class="container">
+          <div class="section-head">
+            <div class="eyebrow">Consulta ou parecer</div>
+            <h2>Nem toda compra problemática exige parecer escrito. Mas algumas decisões não deveriam ser tomadas apenas com conversa informal.</h2>
+            <p>
+              A escolha depende do valor envolvido, da quantidade de documentos, do estágio da compra e do risco patrimonial. Em muitos casos, a consulta inicial define se basta orientação estratégica ou se é recomendável aprofundar a análise em parecer jurídico.
+            </p>
+          </div>
+
+          <div class="split">
+            <article class="highlight">
+              <h3>Quando a consulta jurídica pode bastar</h3>
+              <p>A consulta é indicada quando a dúvida ainda é inicial e o comprador precisa compreender o risco, definir próximos passos ou decidir se deve avançar, pausar, negociar ou exigir documentos.</p>
+              <ul>
+                <li>Antes de pagar sinal ou entrada.</li>
+                <li>Antes de assinar promessa de compra e venda.</li>
+                <li>Quando há dúvida pontual sobre dívida, prazo, entrega ou documento.</li>
+              </ul>
+              <a class="btn" href="/funil">Solicitar consulta</a>
+            </article>
+
+            <article class="highlight">
+              <h3>Quando é recomendável parecer jurídico</h3>
+              <p>O parecer é indicado quando há documentos relevantes, valor expressivo, risco de perda patrimonial, contrato já assinado, dívida relevante, matrícula complexa ou necessidade de conclusão técnica por escrito.</p>
+              <ul>
+                <li>Quando há matrícula, contrato, certidões e débitos a confrontar.</li>
+                <li>Quando a compra envolve imóvel ocupado ou irregular.</li>
+                <li>Quando a decisão exige fundamentação escrita para negociação ou litígio.</li>
+              </ul>
+              <a class="btn" href="/funil">Solicitar análise</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta" id="contato">
+        <div class="container">
+          <h2>Antes de comprar o imóvel, compreenda o risco.</h2>
+          <p>
+            Envie a situação, anexe os documentos disponíveis e escolha um horário. A análise começa antes da conversa e o atendimento ocorre no dia e horário confirmados conforme a disponibilidade apresentada.
+          </p>
+          <a class="btn" href="/funil">Solicitar análise do imóvel</a>
+        </div>
+      </section>
+
+      <section id="duvidas">
+        <div class="container">
+          <div class="section-head">
+            <div class="eyebrow">Dúvidas frequentes</div>
+            <h2>Informações essenciais antes de avançar na compra.</h2>
+          </div>
+
+          <div class="faq">
+            <details>
+              <summary>Posso comprar imóvel com dívida de condomínio ou IPTU?</summary>
+              <p>Depende da extensão da dívida, da forma de negociação, da responsabilidade prevista no contrato e da documentação disponível. A análise serve para identificar se a dívida foi considerada no preço, quem deve pagar e como proteger o comprador.</p>
+            </details>
+
+            <details>
+              <summary>Se o imóvel tiver ônus na matrícula, a compra é impossível?</summary>
+              <p>Nem sempre. Alguns ônus podem ser resolvidos antes ou durante a negociação. O problema é pagar ou assinar sem compreender exatamente o que impede, limita ou condiciona a transferência segura.</p>
+            </details>
+
+            <details>
+              <summary>Contrato particular garante a propriedade do imóvel?</summary>
+              <p>Não basta contrato particular para transferir propriedade imobiliária. A segurança da aquisição exige análise da matrícula, da escritura, do registro e das condições jurídicas do negócio.</p>
+            </details>
+
+            <details>
+              <summary>É seguro comprar imóvel ocupado?</summary>
+              <p>Imóvel ocupado exige cautela adicional. É necessário compreender quem ocupa, por qual motivo, se há contrato de locação, resistência à saída, risco de ação judicial e custos para obtenção da posse.</p>
+            </details>
+
+            <details>
+              <summary>Quais documentos devo enviar para análise?</summary>
+              <p>Quando disponíveis, envie matrícula atualizada, contrato ou minuta, proposta, comprovantes de pagamento, certidões, boletos de condomínio/IPTU, mensagens com vendedor/corretor e documentos que expliquem a origem do problema.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <img src="Simbolo.svg" alt="Símbolo Análise Legal" />
+          <div>
+            <strong>Análise Legal</strong><br />
+            Precisão jurídica para decisões relevantes.
+          </div>
+        </div>
+
+        <div class="footer-legal">
+          <p>Plataforma jurídica desenvolvida para conectar pessoas com necessidades jurídicas com advogados regularmente inscritos na OAB.</p>
+          <p>Conteúdo de caráter informativo e orientativo, sem promessa de resultado.</p>
+          <p>A relação advogado-cliente somente se estabelece mediante contratação formal.</p>
+          <p>Tratamento de dados pessoais em conformidade com a LGPD (Lei nº 13.709/2018).</p>
+          <p>© 2026 Análise Legal. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
