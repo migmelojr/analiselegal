@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Distrato de Compra e Venda de Imóvel em Brasília | Análise Jurídica</title>
+
+  <meta name="description" content="Entenda seus direitos no distrato de compra e venda de imóvel, inclusive na planta. Análise jurídica antes de cancelar, pagar multa ou aceitar proposta." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --verde-profundo: rgb(13,22,34);
+      --grafite: rgb(30,35,41);
+      --militar: rgb(56,66,51);
+      --oliva: rgb(138,154,107);
+      --ouro: rgb(176,141,87);
+      --claro: rgb(246,241,229);
+      --cinza: rgb(198,203,198);
+      --fonte: 'Crimson Text', Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--fonte);
+      background: var(--verde-profundo);
+      color: var(--claro);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    header {
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header img {
+      width: 220px;
+      max-width: 70%;
+    }
+
+    section {
+      padding: 78px 0;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1.02;
+      margin: 0 0 24px;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3vw, 2.7rem);
+      line-height: 1.12;
+      margin: 0 0 20px;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      margin: 0 0 12px;
+      color: var(--ouro);
+    }
+
+    p {
+      font-size: 1.15rem;
+      line-height: 1.65;
+      color: var(--cinza);
+      margin: 0 0 18px;
+    }
+
+    ul, ol {
+      padding-left: 22px;
+      margin: 0;
+    }
+
+    li {
+      font-size: 1.12rem;
+      line-height: 1.65;
+      margin-bottom: 10px;
+      color: var(--cinza);
+    }
+
+    .hero {
+      padding: 92px 0 110px;
+      background:
+        radial-gradient(circle at 75% 20%, rgba(176,141,87,.18), transparent 34%),
+        linear-gradient(135deg, var(--verde-profundo), rgb(18,29,42));
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: 1.28rem;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--ouro);
+      border: 1px solid rgba(176,141,87,.45);
+      padding: 7px 14px;
+      border-radius: 999px;
+      margin-bottom: 22px;
+      font-size: .95rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--ouro);
+      color: var(--verde-profundo);
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1.06rem;
+      transition: .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid var(--ouro);
+      color: var(--claro);
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1.06rem;
+    }
+
+    .dark {
+      background: var(--grafite);
+    }
+
+    .militar {
+      background: var(--militar);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      border: 1px solid rgba(246,241,229,.12);
+      background: rgba(255,255,255,.035);
+      border-radius: 22px;
+      padding: 28px;
+      min-height: 100%;
+    }
+
+    .card strong {
+      color: var(--claro);
+    }
+
+    .number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--ouro);
+      color: var(--verde-profundo);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .highlight {
+      border-left: 4px solid var(--ouro);
+      padding-left: 22px;
+      margin-top: 28px;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .center p {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 720px;
+    }
+
+    footer {
+      background: #000;
+      padding: 34px 0;
+    }
+
+    footer img {
+      width: 42px;
+      margin-bottom: 14px;
+    }
+
+    footer p {
+      font-size: .95rem;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 820px) {
+      section {
+        padding: 58px 0;
+      }
+
+      .hero {
+        padding: 72px 0 82px;
+      }
+
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn,
+      .btn-outline {
+        text-align: center;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="container">
+    <img src="/Marca.svg" alt="Análise Legal">
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="eyebrow">Direito Imobiliário</span>
+
+      <h1>Quer desfazer a compra de um imóvel sem aceitar prejuízo maior que o necessário?</h1>
+
+      <p>
+        O distrato de compra e venda, especialmente de imóvel na planta, exige análise técnica antes de assinar qualquer termo, aceitar retenção elevada, desistir de valores pagos ou assumir multa contratual.
+      </p>
+
+      <div class="actions">
+        <a href="/funil" class="btn">Agendar análise jurídica</a>
+        <a href="#situacoes" class="btn-outline">Entender meu caso primeiro</a>
+      </div>
+
+      <div class="highlight">
+        <p>
+          A análise jurídica permite verificar se a desistência, a rescisão, a retenção de valores, a comissão de corretagem, a taxa de fruição e os prazos de devolução estão sendo tratados corretamente.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="situacoes" class="dark">
+    <div class="container">
+      <h2>Você pode estar enfrentando uma destas situações</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Desistência da compra</h3>
+          <p>
+            Você comprou um imóvel, percebeu que não conseguirá continuar pagando ou concluiu que o negócio deixou de fazer sentido financeiro.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Imóvel na planta</h3>
+          <p>
+            A construtora apresentou termo de distrato com retenção elevada, prazo longo para devolução ou abatimentos que você não compreende.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Atraso ou descumprimento</h3>
+          <p>
+            A entrega atrasou, as condições mudaram ou a incorporadora não cumpriu obrigações assumidas no contrato.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Pressão para assinar</h3>
+          <p>
+            A empresa afirma que a proposta é padrão, que não há margem de negociação ou que a perda será maior se você não aceitar rapidamente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container grid-2">
+      <div>
+        <h2>O risco não está apenas em cancelar. Está em cancelar mal.</h2>
+
+        <p>
+          Em muitos casos, o comprador não sabe se a rescisão decorre de culpa própria, culpa da vendedora, atraso da obra, vício de informação, cláusula abusiva ou simples impossibilidade financeira.
+        </p>
+
+        <p>
+          Essa diferença muda tudo: percentual de retenção, prazo de restituição, devolução de comissão de corretagem, cobrança de multa, possibilidade de indenização e estratégia de negociação.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Pontos que precisam ser verificados</h3>
+        <ul>
+          <li>Quem deu causa ao distrato.</li>
+          <li>Quanto já foi pago.</li>
+          <li>Qual percentual a empresa pretende reter.</li>
+          <li>Se houve atraso na entrega do imóvel.</li>
+          <li>Se a comissão de corretagem foi destacada corretamente.</li>
+          <li>Se há taxa de fruição ou ocupação.</li>
+          <li>Se o contrato é de incorporação imobiliária.</li>
+          <li>Se o termo de distrato encerra direitos relevantes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="container">
+      <h2>Antes de assinar o distrato, entenda três perguntas</h2>
+
+      <div class="grid-3">
+        <div class="card">
+          <span class="number">1</span>
+          <h3>Você está desistindo ou reagindo a um descumprimento?</h3>
+          <p>
+            A causa da rescisão influencia diretamente o valor que pode ser devolvido e o que pode ser retido.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="number">2</span>
+          <h3>A retenção proposta é justificável?</h3>
+          <p>
+            Nem toda multa contratual é automaticamente válida. É preciso verificar contrato, lei aplicável e circunstâncias do caso.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="number">3</span>
+          <h3>O termo elimina direitos futuros?</h3>
+          <p>
+            Um distrato mal assinado pode dificultar cobrança posterior, revisão de valores ou discussão sobre abusividade.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container grid-2">
+      <div>
+        <h2>Como funciona a análise</h2>
+
+        <ol>
+          <li>Você descreve a situação em linguagem simples.</li>
+          <li>Informa se o imóvel é pronto, usado, novo ou na planta.</li>
+          <li>Envia contrato, proposta, boletos, comprovantes e minuta de distrato, se houver.</li>
+          <li>O caso é organizado juridicamente.</li>
+          <li>Você recebe orientação objetiva sobre riscos, alternativas e próximos passos.</li>
+        </ol>
+
+        <p style="margin-top:22px;">
+          A agenda exibida reflete horários reais disponíveis. O atendimento ocorre no dia e horário selecionados.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Documentos úteis para análise</h3>
+        <ul>
+          <li>Contrato de compra e venda.</li>
+          <li>Quadro-resumo.</li>
+          <li>Comprovantes de pagamento.</li>
+          <li>Proposta de distrato.</li>
+          <li>E-mails, mensagens e notificações.</li>
+          <li>Comunicados da construtora ou incorporadora.</li>
+          <li>Provas de atraso, vício ou descumprimento.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="container grid-2">
+      <div>
+        <h2>Quando a consulta pode bastar</h2>
+
+        <ul>
+          <li>Você quer entender se a proposta de distrato faz sentido.</li>
+          <li>Precisa saber se deve assinar ou negociar antes.</li>
+          <li>Quer compreender o risco de aceitar determinada retenção.</li>
+          <li>Deseja orientação inicial antes de conversar com a construtora.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Quando pode ser necessário parecer jurídico</h2>
+
+        <ul>
+          <li>Há valores relevantes envolvidos.</li>
+          <li>Existe conflito documental ou cláusulas contraditórias.</li>
+          <li>A construtora apresentou cálculo complexo.</li>
+          <li>Você precisa de documento técnico para negociação.</li>
+          <li>Há possibilidade de ação judicial ou acordo formal.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>O que isso não é</h2>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Não é resposta genérica</h3>
+          <p>
+            Distrato imobiliário depende de contrato, valores pagos, causa da rescisão e conduta da vendedora.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Não é simples cálculo</h3>
+          <p>
+            Percentuais de retenção só fazem sentido quando analisados junto com a base contratual e os fatos.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Não é promessa de resultado</h3>
+          <p>
+            A finalidade é oferecer análise técnica para decisão mais segura, não antecipar desfecho.
+          </p>
+        </div>
+      </div>
+
+      <div class="highlight">
+        <p>
+          O objetivo é transformar uma decisão pressionada em uma decisão juridicamente compreendida.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="militar center">
+    <div class="container">
+      <h2>Antes de assinar o distrato, analise o cenário.</h2>
+
+      <p>
+        Em poucos minutos você organiza sua demanda, informa os dados principais e agenda uma análise jurídica sobre o caso.
+      </p>
+
+      <div class="actions" style="justify-content:center;">
+        <a href="/funil" class="btn">Agendar análise jurídica</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <img src="/Simbolo.svg" alt="Símbolo Análise Legal">
+
+      <p>
+        Plataforma jurídica desenvolvida para conectar pessoas com necessidades jurídicas a advogados regularmente inscritos na OAB.
+      </p>
+
+      <p>
+        Conteúdo de caráter informativo e orientativo, sem promessa de resultado.
+      </p>
+
+      <p>
+        A relação advogado-cliente somente se estabelece mediante contratação formal.
+      </p>
+
+      <p>
+        Tratamento de dados pessoais em conformidade com a LGPD, Lei nº 13.709/2018.
+      </p>
+
+      <p>
+        © 2026 Análise Legal. Todos os direitos reservados.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
