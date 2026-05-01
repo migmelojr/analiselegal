@@ -15,11 +15,11 @@
   <style>
     :root {
       --verde-profundo: rgb(13, 22, 34);
+      --grafite-profundo: rgb(30, 35, 41);
       --verde-militar: rgb(56, 66, 51);
       --verde-oliva: rgb(138, 154, 107);
       --ouro-fosco: rgb(176, 141, 87);
       --bege-tecnico: rgb(214, 197, 154);
-      --grafite-profundo: rgb(30, 35, 41);
       --branco-suave: rgb(246, 241, 229);
       --cinza-suave: rgb(198, 203, 198);
       --fonte: 'Crimson Text', Georgia, serif;
@@ -221,26 +221,21 @@
       height: auto;
     }
 
-    .card-texto .destaque {
+    .hero-card h2 {
       color: var(--bege-tecnico);
-      font-size: 1.24rem;
+      font-size: 1.36rem;
       line-height: 1.35;
       font-weight: 700;
       margin-bottom: 16px;
     }
 
-    .card-texto p,
-    .card-texto li {
-      color: rgb(225, 218, 197);
-      font-size: 1.02rem;
-      line-height: 1.72;
-    }
-
-    .card-texto ul {
+    .hero-card ul {
       display: grid;
       gap: 11px;
       padding-left: 18px;
-      margin-top: 10px;
+      color: rgb(225, 218, 197);
+      font-size: 1.02rem;
+      line-height: 1.72;
     }
 
     section {
@@ -319,12 +314,6 @@
     .card li {
       color: var(--cinza-suave);
       font-size: 1rem;
-    }
-
-    .card ul {
-      padding-left: 18px;
-      display: grid;
-      gap: 8px;
     }
 
     .risk-card {
@@ -643,7 +632,7 @@
   <div class="site">
     <header class="topbar">
       <div class="container nav">
-        <a href="#inicio" aria-label="Análise Legal">
+        <a href="/" aria-label="Análise Legal">
           <img class="brand-logo" src="Marca.svg" alt="Análise Legal | Precisão jurídica para decisões relevantes" />
         </a>
 
@@ -682,12 +671,14 @@
               <img src="Simbolo.svg" alt="Símbolo Análise Legal" />
             </div>
 
-            <div class="card-texto">
-              <p class="destaque">O contrato não corrige uma matrícula problemática.</p>
-              <p>
-                Na compra de imóvel, o risco geralmente não está no que foi prometido verbalmente, mas no que aparece — ou deixa de aparecer — nos documentos. A análise jurídica identifica se o negócio pode avançar, se deve ser renegociado ou se precisa ser interrompido antes de gerar prejuízo.
-              </p>
-            </div>
+            <h2>Esta análise é indicada quando há dúvida sobre:</h2>
+            <ul>
+              <li>ônus ou restrição na matrícula do imóvel;</li>
+              <li>dívidas de IPTU, condomínio ou financiamento;</li>
+              <li>imóvel prometido à venda, mas ainda não regularizado;</li>
+              <li>vendedor que não entrega documentos completos;</li>
+              <li>risco de comprar imóvel ocupado ou com disputa judicial.</li>
+            </ul>
           </aside>
         </div>
       </section>
@@ -696,9 +687,9 @@
         <div class="container-wide">
           <div class="section-head">
             <div class="eyebrow">Situações comuns</div>
-            <h2>Problemas imobiliários costumam aparecer quando o comprador já está emocionalmente comprometido com o negócio.</h2>
+            <h2>Problemas imobiliários raramente aparecem de forma clara no início.</h2>
             <p>
-              Muitas compras parecem seguras porque há proposta, recibo, contrato, corretor, promessa de venda ou negociação avançada. O problema surge quando a matrícula, os débitos, a posse ou a documentação não confirmam a segurança esperada.
+              Muitas compras parecem seguras porque há contrato, recibo, promessa de venda ou intermediação. O problema surge quando a matrícula, as dívidas, a posse ou a documentação não confirmam a segurança esperada.
             </p>
           </div>
 
@@ -780,7 +771,7 @@
         <div class="container">
           <div class="section-head">
             <div class="eyebrow">Análise jurídica</div>
-            <h2>O que precisa ser analisado antes de avançar?</h2>
+            <h2>O que deve ser analisado antes de avançar?</h2>
             <p>
               A segurança da compra depende da coerência entre matrícula, certidões, documentos do vendedor, situação de posse, débitos existentes, contrato e forma de pagamento. A análise jurídica não se limita a ler o contrato; ela confronta o negócio com os riscos que podem impedir ou encarecer sua concretização.
             </p>
@@ -886,7 +877,28 @@
         </div>
       </section>
 
-      <section class="cta" id="contato">
+      <section class="section-dark">
+        <div class="container">
+          <div class="section-head">
+            <div class="eyebrow">Momento correto</div>
+            <h2>Não espere o problema virar processo.</h2>
+            <p>
+              Em matéria imobiliária, o momento da análise é decisivo. Depois do pagamento, da assinatura ou da posse frustrada, a solução costuma ser mais cara, mais lenta e mais incerta.
+            </p>
+          </div>
+
+          <ul class="check-list">
+            <li><strong>Antes do sinal</strong>Para avaliar se há risco antes de pagar entrada ou reservar o imóvel.</li>
+            <li><strong>Antes da assinatura</strong>Para revisar promessa de compra e venda, arras, multas e condições de entrega.</li>
+            <li><strong>Antes de aceitar dívida</strong>Para entender quem responde por condomínio, IPTU, taxas e saldo devedor.</li>
+            <li><strong>Antes de comprar imóvel ocupado</strong>Para medir risco, custo e tempo de eventual imissão na posse ou desocupação.</li>
+            <li><strong>Antes de confiar na regularização futura</strong>Para exigir documentos e condições objetivas de segurança.</li>
+            <li><strong>Depois de descobrir restrição</strong>Para definir se cabe renegociar, rescindir, notificar ou judicializar.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="cta" id="agendar">
         <div class="container">
           <h2>Antes de comprar o imóvel, compreenda o risco.</h2>
           <p>
