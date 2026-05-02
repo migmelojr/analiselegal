@@ -1,304 +1,813 @@
-<section class="home-analysis-section" id="analise">
-  <div class="home-analysis-container">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <div class="home-analysis-header">
-      <p class="eyebrow">ANÁLISE LEGAL™</p>
-      <h1>Seu caso não precisa de mais informação. Precisa de análise.</h1>
-      <p class="lead">
-        A ANÁLISE LEGAL™ organiza o seu problema antes da decisão. Você passa a enxergar,
-        com clareza, o que está em jogo, quais variáveis importam e quais decisões precisam
-        ser tomadas.
-      </p>
-    </div>
+  <title>ANÁLISE LEGAL | Organização técnica de informações para consulta jurídica</title>
 
-    <div class="home-analysis-grid">
-      <div class="analysis-card highlight">
-        <h2>Se você chegou até aqui, o cenário costuma ser este:</h2>
-        <ul>
-          <li>Existe um problema, mas ele não está estruturado</li>
-          <li>Há risco, mas ele não está claramente definido</li>
-          <li>Já houve tentativa de entender, sem conclusão segura</li>
-          <li>A decisão precisa ser tomada, mas falta segurança</li>
-        </ul>
-        <p>
-          Isso é comum. O problema, em regra, não é falta de informação.
-          É desorganização.
-        </p>
-      </div>
+  <meta name="description" content="ANÁLISE LEGAL™ estrutura informações fornecidas pelo usuário para posterior análise por advogado identificado, sem prestar serviço jurídico ou emitir orientação." />
 
-      <div class="analysis-card">
-        <h2>O que a ANÁLISE LEGAL™ faz</h2>
-        <p>
-          Atua antes da consulta jurídica. Organiza o caso a partir de elementos objetivos:
-          situação, contexto, conflito, impacto financeiro, urgência e decisão pretendida.
-        </p>
-        <p>
-          Ao final, o cenário deixa de ser difuso e passa a ser claro, com leitura objetiva
-          dos pontos relevantes e dos possíveis caminhos de análise.
-        </p>
-      </div>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
 
-      <div class="analysis-card">
-        <h2>O que a ANÁLISE LEGAL™ não faz</h2>
-        <p>
-          Não presta serviços jurídicos, não intermedia honorários e não participa da relação
-          entre advogado e cliente.
-        </p>
-        <p>
-          A decisão de contratar consulta jurídica, parecer ou constituir advogado decorre
-          da compreensão do usuário, construída a partir da organização do seu caso e da
-          exposição a situações reais, com apresentação clara dos riscos e das variáveis envolvidas.
-        </p>
-        <p>
-          O atendimento, a cobrança e a condução do caso são realizados por advogado
-          devidamente identificado.
-        </p>
-      </div>
-
-      <div class="analysis-card">
-        <h2>Por que isso muda a decisão?</h2>
-        <p>
-          Sem estrutura, a decisão tende a ser intuitiva. Com o caso organizado, a decisão
-          passa a ser consciente. Isso reduz erro, retrabalho e exposição ao risco.
-        </p>
-      </div>
-    </div>
-
-    <div class="how-it-works">
-      <h2>Como funciona?</h2>
-      <div class="steps">
-        <div><span>1</span><p>Você identifica sua situação</p></div>
-        <div><span>2</span><p>Informa dados essenciais</p></div>
-        <div><span>3</span><p>O sistema organiza o cenário</p></div>
-        <div><span>4</span><p>Você entende o problema com clareza</p></div>
-        <div><span>5</span><p>Decide se deve avançar</p></div>
-      </div>
-      <p class="note">Sem exigência técnica.</p>
-    </div>
-
-    <div class="analysis-closing">
-      <h2>Quando isso é suficiente, e quando, não é?</h2>
-      <p>
-        Em alguns casos, a organização resolve. Em outros, a complexidade exige análise
-        jurídica aprofundada. Nesses casos, a consulta já começa com o problema estruturado.
-        Quando necessário, pode ser acompanhada de parecer jurídico.
-      </p>
-      <p class="closing-line">
-        O ponto central não é informação. É estrutura para decidir.
-      </p>
-      <a href="/funil" class="cta-button">Iniciar análise</a>
-    </div>
-
-  </div>
-</section>
-
-<style>
-  .home-analysis-section {
-    font-family: "Crimson Text", Georgia, serif;
-    background: rgb(13, 22, 34);
-    color: #f7f4ee;
-    padding: 88px 24px;
-  }
-
-  .home-analysis-container {
-    max-width: 1180px;
-    margin: 0 auto;
-  }
-
-  .home-analysis-header {
-    max-width: 860px;
-    margin-bottom: 52px;
-  }
-
-  .eyebrow {
-    color: rgb(176, 141, 87);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-size: 0.95rem;
-    margin-bottom: 14px;
-  }
-
-  .home-analysis-header h1 {
-    font-size: clamp(2.4rem, 5vw, 4.8rem);
-    line-height: 0.98;
-    margin: 0 0 24px;
-    font-weight: 600;
-  }
-
-  .lead {
-    font-size: 1.35rem;
-    line-height: 1.55;
-    color: #e5ded2;
-    max-width: 820px;
-  }
-
-  .home-analysis-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-    margin-bottom: 56px;
-  }
-
-  .analysis-card {
-    background: rgb(30, 35, 41);
-    border: 1px solid rgba(138, 154, 107, 0.35);
-    border-radius: 22px;
-    padding: 32px;
-  }
-
-  .analysis-card.highlight {
-    background: rgb(56, 66, 51);
-  }
-
-  .analysis-card h2,
-  .how-it-works h2,
-  .analysis-closing h2 {
-    font-size: 1.75rem;
-    line-height: 1.2;
-    margin: 0 0 18px;
-    color: #fffaf0;
-  }
-
-  .analysis-card p,
-  .analysis-closing p {
-    font-size: 1.12rem;
-    line-height: 1.62;
-    color: #e6e0d6;
-    margin: 0 0 14px;
-  }
-
-  .analysis-card ul {
-    padding-left: 22px;
-    margin: 0 0 20px;
-  }
-
-  .analysis-card li {
-    font-size: 1.12rem;
-    line-height: 1.55;
-    margin-bottom: 8px;
-    color: #f1eadf;
-  }
-
-  .how-it-works {
-    background: #f7f4ee;
-    color: rgb(30, 35, 41);
-    border-radius: 26px;
-    padding: 40px;
-    margin-bottom: 48px;
-  }
-
-  .how-it-works h2 {
-    color: rgb(13, 22, 34);
-  }
-
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 18px;
-    margin-top: 26px;
-  }
-
-  .steps div {
-    border-left: 3px solid rgb(176, 141, 87);
-    padding-left: 16px;
-  }
-
-  .steps span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgb(13, 22, 34);
-    color: #fff;
-    margin-bottom: 10px;
-  }
-
-  .steps p {
-    font-size: 1.08rem;
-    line-height: 1.35;
-    margin: 0;
-  }
-
-  .note {
-    margin-top: 28px;
-    font-size: 1.15rem;
-    color: rgb(56, 66, 51);
-  }
-
-  .analysis-closing {
-    max-width: 840px;
-  }
-
-  .closing-line {
-    font-size: 1.4rem !important;
-    color: #fffaf0 !important;
-    margin-top: 22px !important;
-  }
-
-  .cta-button {
-    display: inline-block;
-    margin-top: 24px;
-    background: rgb(176, 141, 87);
-    color: rgb(13, 22, 34);
-    text-decoration: none;
-    padding: 16px 28px;
-    border-radius: 999px;
-    font-size: 1.12rem;
-    font-weight: 700;
-    transition: 0.2s ease;
-  }
-
-  .cta-button:hover {
-    filter: brightness(1.08);
-    transform: translateY(-1px);
-  }
-
-  @media (max-width: 860px) {
-    .home-analysis-section {
-      padding: 64px 18px;
+    :root {
+      --verde-profundo: rgb(13,22,34);
+      --grafite: rgb(30,35,41);
+      --verde-militar: rgb(56,66,51);
+      --verde-oliva: rgb(138,154,107);
+      --ouro-fosco: rgb(176,141,87);
+      --claro: #f7f5ef;
+      --branco: #ffffff;
     }
 
-    .home-analysis-grid,
-    .steps {
-      grid-template-columns: 1fr;
+    * {
+      box-sizing: border-box;
     }
 
-    .analysis-card,
-    .how-it-works {
-      padding: 26px;
-    }
-  }
-
-  @media print {
-    .home-analysis-section {
-      background: #fff;
-      color: #111;
-      padding: 0;
+    body {
+      margin: 0;
+      font-family: 'Crimson Text', Georgia, serif;
+      color: var(--grafite);
+      background: var(--claro);
+      line-height: 1.55;
+      font-size: 19px;
     }
 
-    .analysis-card,
-    .how-it-works {
-      background: #fff;
-      color: #111;
-      border: 1px solid #bbb;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      background: var(--verde-profundo);
+      padding: 24px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .marca {
+      width: 210px;
+      max-width: 65vw;
+      display: block;
+    }
+
+    .top-info {
+      color: rgba(255,255,255,0.78);
+      font-size: 16px;
+      text-align: right;
+    }
+
+    main {
+      width: 100%;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--verde-profundo), var(--grafite));
+      color: var(--branco);
+      padding: 86px 7% 94px;
+    }
+
+    .hero-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--verde-oliva);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: 1.02;
+      margin: 0 0 24px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 23px;
+      max-width: 720px;
+      color: rgba(255,255,255,0.88);
+      margin: 0 0 28px;
+    }
+
+    .hero-small {
+      font-size: 18px !important;
+      color: rgba(255,255,255,0.72) !important;
+      margin-top: 18px !important;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 24px;
+      border-radius: 4px;
+      font-size: 18px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--ouro-fosco);
+      color: var(--verde-profundo);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.45);
+      color: var(--branco);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      padding: 34px;
+      border-radius: 18px;
+    }
+
+    .hero-card h2 {
+      color: var(--branco);
+      font-size: 30px;
+      margin: 0 0 16px;
+    }
+
+    .hero-card p {
+      font-size: 18px;
+      margin: 0;
+      color: rgba(255,255,255,0.78);
+    }
+
+    section {
+      padding: 72px 7%;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .section-light {
+      background: var(--branco);
+    }
+
+    .section-muted {
+      background: var(--claro);
+    }
+
+    .section-dark {
+      background: var(--verde-profundo);
+      color: var(--branco);
+    }
+
+    h2 {
+      font-size: 38px;
+      line-height: 1.15;
+      margin: 0 0 22px;
+      color: var(--verde-profundo);
+    }
+
+    .section-dark h2 {
+      color: var(--branco);
+    }
+
+    h3 {
+      font-size: 25px;
+      margin: 0 0 12px;
+      color: var(--verde-militar);
+    }
+
+    .section-dark h3 {
+      color: var(--verde-oliva);
+    }
+
+    p {
+      margin: 0 0 18px;
+    }
+
+    .lead {
+      font-size: 22px;
+      max-width: 860px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 34px;
+      margin-top: 36px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 26px;
+      margin-top: 34px;
+    }
+
+    .card {
+      background: var(--branco);
+      border: 1px solid rgba(30,35,41,0.12);
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 14px 34px rgba(13,22,34,0.06);
+    }
+
+    .section-dark .card {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.14);
       box-shadow: none;
-      break-inside: avoid;
     }
 
-    .home-analysis-header h1,
-    .analysis-card h2,
-    .how-it-works h2,
-    .analysis-closing h2,
-    .analysis-card p,
-    .analysis-card li,
-    .analysis-closing p {
-      color: #111 !important;
+    ul {
+      margin: 14px 0 0;
+      padding-left: 22px;
     }
 
-    .cta-button {
+    li {
+      margin-bottom: 9px;
+    }
+
+    .method-wrap {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .simbolo-box {
+      text-align: center;
+      background: var(--verde-profundo);
+      padding: 44px;
+      border-radius: 22px;
+    }
+
+    .simbolo {
+      width: 220px;
+      max-width: 70%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .step {
+      position: relative;
+      padding: 24px 24px 24px 72px;
+      background: var(--branco);
+      border-left: 4px solid var(--ouro-fosco);
+      border-radius: 12px;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 22px;
+      top: 22px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--ouro-fosco);
+      color: var(--verde-profundo);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+    }
+
+    .final-cta {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .final-cta h2 {
+      color: var(--branco);
+      font-size: 42px;
+    }
+
+    .final-cta p {
+      color: rgba(255,255,255,0.82);
+      font-size: 22px;
+    }
+
+    footer {
+      background: var(--grafite);
+      color: rgba(255,255,255,0.82);
+      padding: 42px 7%;
+      font-size: 15px;
+    }
+
+    footer .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    footer p {
+      margin-bottom: 12px;
+    }
+
+    .print-only {
       display: none;
     }
-  }
-</style>
+
+    @media (max-width: 850px) {
+      header {
+        align-items: flex-start;
+        gap: 18px;
+        flex-direction: column;
+      }
+
+      .top-info {
+        text-align: left;
+      }
+
+      .hero-wrap,
+      .grid-2,
+      .grid-3,
+      .method-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 54px 6%;
+      }
+
+      .hero {
+        padding: 62px 6% 72px;
+      }
+
+      .hero-card {
+        padding: 26px;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 18mm 16mm 18mm 16mm;
+      }
+
+      * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+      }
+
+      body {
+        background: #ffffff !important;
+        color: #111111 !important;
+        font-size: 11.5pt !important;
+        line-height: 1.45 !important;
+        font-family: 'Crimson Text', Georgia, serif !important;
+      }
+
+      header {
+        background: #ffffff !important;
+        color: #111111 !important;
+        padding: 0 0 10pt 0 !important;
+        border-bottom: 1px solid #cccccc !important;
+        display: block !important;
+      }
+
+      .marca {
+        width: 140px !important;
+        max-width: 140px !important;
+      }
+
+      .top-info,
+      .cta-row,
+      .btn,
+      .no-print {
+        display: none !important;
+      }
+
+      main,
+      section,
+      .hero,
+      .section-light,
+      .section-muted,
+      .section-dark,
+      footer {
+        background: #ffffff !important;
+        color: #111111 !important;
+        padding: 0 !important;
+      }
+
+      .container,
+      .hero-wrap,
+      .footer-inner {
+        max-width: none !important;
+        margin: 0 !important;
+        display: block !important;
+      }
+
+      .hero {
+        margin-top: 12pt !important;
+      }
+
+      .eyebrow {
+        color: #333333 !important;
+        font-size: 9pt !important;
+        margin-bottom: 5pt !important;
+        letter-spacing: 0.03em !important;
+      }
+
+      h1 {
+        font-size: 16pt !important;
+        line-height: 1.2 !important;
+        color: #111111 !important;
+        margin: 0 0 8pt 0 !important;
+      }
+
+      h2 {
+        font-size: 14pt !important;
+        line-height: 1.25 !important;
+        color: #111111 !important;
+        margin: 14pt 0 6pt 0 !important;
+        page-break-after: avoid;
+      }
+
+      h3 {
+        font-size: 12pt !important;
+        color: #111111 !important;
+        margin: 8pt 0 4pt 0 !important;
+        page-break-after: avoid;
+      }
+
+      p,
+      li {
+        font-size: 11.5pt !important;
+        color: #111111 !important;
+      }
+
+      p {
+        margin: 0 0 7pt 0 !important;
+      }
+
+      ul {
+        margin: 4pt 0 7pt 14pt !important;
+        padding-left: 12pt !important;
+      }
+
+      li {
+        margin-bottom: 3pt !important;
+      }
+
+      .hero p,
+      .hero-small,
+      .lead,
+      .final-cta p {
+        font-size: 11.5pt !important;
+        color: #111111 !important;
+        max-width: none !important;
+      }
+
+      .hero-card,
+      .card,
+      .step,
+      .simbolo-box {
+        background: #ffffff !important;
+        border: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+      }
+
+      .grid-2,
+      .grid-3,
+      .method-wrap,
+      .steps {
+        display: block !important;
+      }
+
+      .card,
+      .step {
+        margin-bottom: 8pt !important;
+        page-break-inside: avoid;
+      }
+
+      .step::before {
+        display: none !important;
+      }
+
+      .step {
+        border-left: none !important;
+      }
+
+      .simbolo-box {
+        text-align: left !important;
+        margin: 8pt 0 !important;
+      }
+
+      .simbolo {
+        width: 54px !important;
+        max-width: 54px !important;
+        margin: 0 0 6pt 0 !important;
+      }
+
+      footer {
+        margin-top: 18pt !important;
+        border-top: 1px solid #cccccc !important;
+        padding-top: 8pt !important;
+        font-size: 8.5pt !important;
+      }
+
+      footer p {
+        font-size: 8.5pt !important;
+        line-height: 1.35 !important;
+      }
+
+      .print-only {
+        display: block !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="/" aria-label="Página inicial da ANÁLISE LEGAL">
+      <img src="/Marca.svg" alt="ANÁLISE LEGAL" class="marca" />
+    </a>
+
+    <div class="top-info no-print">
+      Organização técnica de informações<br />
+      para posterior análise por advogado
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-wrap">
+        <div>
+          <div class="eyebrow">Plataforma de estruturação de informações</div>
+
+          <h1>Seu caso não precisa de mais informação. Precisa de organização.</h1>
+
+          <p>
+            A plataforma ANÁLISE LEGAL estrutura os dados informados pelo usuário para viabilizar posterior análise por advogado identificado.
+          </p>
+
+          <p class="hero-small">
+            Você insere as informações. O sistema organiza. A análise jurídica ocorre depois, com profissional responsável.
+          </p>
+
+          <div class="cta-row no-print">
+            <a class="btn btn-primary" href="/funil">Iniciar organização do caso</a>
+            <a class="btn btn-secondary" href="#como-funciona">Entender como funciona</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h2>Antes da análise jurídica, existe uma etapa necessária: organizar o problema.</h2>
+          <p>
+            A plataforma não emite orientação, não interpreta fatos e não indica caminhos. Sua função é estruturar informações para que a análise profissional posterior ocorra com base mais organizada.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light">
+      <div class="container">
+        <h2>A maioria das pessoas procura respostas antes de organizar o próprio problema.</h2>
+
+        <p class="lead">
+          Isso pode gerar relatos incompletos, documentos dispersos, omissões relevantes e decisões tomadas sem uma visão mínima dos elementos que precisam ser apresentados ao profissional.
+        </p>
+
+        <p>
+          ANÁLISE LEGAL não entrega respostas, não antecipa conclusões e não substitui consulta jurídica. A plataforma atua em etapa anterior: coleta, ordena e estrutura os dados fornecidos pelo usuário para posterior análise por advogado.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-muted">
+      <div class="container">
+        <h2>O que a ANÁLISE LEGAL faz?</h2>
+
+        <p>
+          A plataforma atua exclusivamente na estruturação técnica das informações fornecidas pelo usuário.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Organiza fatos</h3>
+            <p>Ajuda a reunir a situação apresentada, o histórico básico e os acontecimentos relevantes informados pelo usuário.</p>
+          </div>
+
+          <div class="card">
+            <h3>Estrutura contexto</h3>
+            <p>Ordena dados como pessoas envolvidas, valores, existência de conflito, documentos e urgência indicada.</p>
+          </div>
+
+          <div class="card">
+            <h3>Prepara informações</h3>
+            <p>Forma uma base organizada para que o advogado, posteriormente, realize a análise jurídica cabível.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light">
+      <div class="container">
+        <h2>O que a ANÁLISE LEGAL não faz?</h2>
+
+        <p>
+          Para preservar a natureza técnica da plataforma e a autonomia profissional do advogado, alguns limites são essenciais.
+        </p>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Não presta serviço jurídico</h3>
+            <ul>
+              <li>Não realiza diagnóstico jurídico.</li>
+              <li>Não interpreta fatos.</li>
+              <li>Não afirma direitos.</li>
+              <li>Não indica soluções.</li>
+              <li>Não recomenda estratégia.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Não intermedeia a relação profissional</h3>
+            <ul>
+              <li>Não seleciona advogado para o usuário.</li>
+              <li>Não recebe honorários advocatícios.</li>
+              <li>Não define valores de consulta ou parecer.</li>
+              <li>Não participa da relação contratual.</li>
+              <li>Não assume responsabilidade técnica pela análise jurídica.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-muted" id="como-funciona">
+      <div class="container">
+        <h2>Como funciona?</h2>
+
+        <div class="steps">
+          <div class="step">
+            <h3>Inserção de dados</h3>
+            <p>O usuário informa os elementos objetivos do caso por meio de etapas simples, com opções guiadas e campos de complemento.</p>
+          </div>
+
+          <div class="step">
+            <h3>Organização técnica</h3>
+            <p>O sistema estrutura as informações sem realizar interpretação jurídica, sem classificar riscos e sem sugerir caminhos.</p>
+          </div>
+
+          <div class="step">
+            <h3>Contratação direta</h3>
+            <p>Com as informações organizadas, o usuário poderá contratar diretamente advogado identificado, responsável pela consulta ou parecer.</p>
+          </div>
+
+          <div class="step">
+            <h3>Análise profissional</h3>
+            <p>A análise jurídica ocorre exclusivamente por um advogado, com autonomia técnica, responsabilidade profissional e emissão fiscal própria.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light">
+      <div class="container method-wrap">
+        <div class="simbolo-box">
+          <img src="/Simbolo.svg" alt="Símbolo da ANÁLISE LEGAL™" class="simbolo" />
+        </div>
+
+        <div>
+          <h2>Organização multifatorial do caso</h2>
+
+          <p>
+            Nem todo problema jurídico pode ser compreendido por uma única informação isolada. Em regra, o cenário depende da combinação entre fatos, documentos, contexto, valores envolvidos, urgência, pessoas relacionadas, objetivos pretendidos e limites práticos da decisão.
+          </p>
+
+          <p>
+            O símbolo da plataforma ANÁLISE LEGAL representa essa leitura multifatorial. Um hipercubo quadridimensional: diferentes dimensões do problema são organizadas em uma estrutura única, sem antecipar conclusões jurídicas e sem substituir a análise profissional.
+          </p>
+
+          <p>
+            A função da plataforma é preparar dados, não decidir. A avaliação técnica pertence exclusivamente ao advogado posteriormente contratado.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-muted">
+      <div class="container">
+        <h2>Para quem é</h2>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Adequado? Para quem:</h3>
+            <ul>
+              <li>Possui um problema ainda não estruturado.</li>
+              <li>Precisa organizar informações antes da consulta.</li>
+              <li>Tem documentos, valores ou fatos dispersos.</li>
+              <li>Busca contratar análise jurídica com base mais organizada.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Não é adequado para quem</h3>
+            <ul>
+              <li>Busca resposta jurídica imediata pela plataforma.</li>
+              <li>Deseja orientação sem consulta profissional.</li>
+              <li>Procura promessa de resultado.</li>
+              <li>Quer substituição da atuação do advogado.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark">
+      <div class="container final-cta">
+        <h2>O primeiro passo não é buscar uma resposta. É organizar as informações.</h2>
+
+        <p>
+          ANÁLISE LEGAL estrutura os dados necessários para que a análise jurídica posterior possa ocorrer de forma profissional, direta e documentada.
+        </p>
+
+        <div class="cta-row no-print" style="justify-content:center;">
+          <a class="btn btn-primary" href="/funil">Iniciar organização do caso</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>
+        ANÁLISE LEGAL™ é uma plataforma digital destinada à coleta e à estruturação de informações fornecidas pelo usuário, com a finalidade exclusiva de viabilizar posterior análise por advogado. O uso da plataforma não configura prestação de serviços jurídicos pela ANÁLISE LEGAL™, tampouco estabelece relação advogado-cliente, uma vez que não há, por parte da plataforma, qualquer atividade de análise, interpretação ou orientação jurídica, limitando-se sua atuação à organização técnica de dados para encaminhamento ao profissional competente.
+      </p>
+
+      <p>
+        A contratação de serviços jurídicos ocorre de forma direta entre o usuário e o advogado, com plena autonomia técnica deste, sem qualquer intermediação da ANÁLISE LEGAL™, que não recebe honorários advocatícios, não participa da definição de valores e não integra a relação contratual firmada entre as partes. As informações inseridas na plataforma são de responsabilidade exclusiva do usuário, e o conteúdo disponibilizado possui caráter meramente informativo, não substituindo, em nenhuma hipótese, a consulta jurídica formal.
+      </p>
+
+      <p>© ANÁLISE LEGAL™ — Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      function trackEvent(eventName, payload) {
+        try {
+          const data = {
+            event: eventName,
+            page: window.location.pathname,
+            title: document.title,
+            url: window.location.href,
+            timestamp: new Date().toISOString(),
+            ...payload
+          };
+
+          if (window.gtag) {
+            window.gtag('event', eventName, data);
+          }
+
+          // Endpoint futuro, se houver backend próprio:
+          // navigator.sendBeacon('/eventos', JSON.stringify(data));
+
+        } catch (error) {
+          console.warn('Falha no registro técnico do evento:', error);
+        }
+      }
+
+      document.querySelectorAll('a[href*="/funil"]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          trackEvent('clique_cta_funil', {
+            destino: btn.getAttribute('href')
+          });
+        });
+      });
+
+      window.addEventListener('beforeprint', function () {
+        trackEvent('acionamento_impressao', {
+          observacao: 'Evento registra intenção de imprimir, não confirmação de impressão concluída.'
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
