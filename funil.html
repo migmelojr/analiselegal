@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Organizar situação jurídica | ANÁLISE LEGAL</title>
-  <meta name="description" content="Estruture informações sobre sua situação antes da contratação direta de consulta ou parecer com advogado identificado." />
+  <title>Funil HOME | ANÁLISE LEGAL</title>
+  <meta name="description" content="Organize informações antes da contratação direta de consulta ou parecer jurídico com advogado identificado." />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -36,24 +36,25 @@
   <style>
     body {
       font-family: "Crimson Text", serif;
-      background: rgb(247, 247, 244);
+      background: #f7f7f2;
       color: rgb(30,35,41);
     }
 
+    [x-cloak] { display: none !important; }
+
     .tm {
-      font-size: 0.5em;
+      font-size: .5em;
       vertical-align: super;
       line-height: 0;
-    }
-
-    [x-cloak] {
-      display: none !important;
     }
 
     .option-card {
       border: 1px solid rgba(56,66,51,.25);
       background: #fff;
-      transition: .2s ease;
+      transition: .18s ease;
+      font-weight: 700;
+      padding: 12px 14px;
+      min-height: 58px;
     }
 
     .option-card:hover {
@@ -63,19 +64,44 @@
 
     .option-card.active {
       border-color: rgb(176,141,87);
-      background: rgba(176,141,87,.12);
+      background: rgba(176,141,87,.13);
       box-shadow: 0 0 0 2px rgba(176,141,87,.18);
     }
 
     .step-dot {
-      width: 30px;
-      height: 30px;
+      width: 26px;
+      height: 26px;
       border-radius: 999px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 13px;
+    }
+
+    .input {
+      width: 100%;
+      border: 1px solid rgba(56,66,51,.3);
+      border-radius: 12px;
+      padding: 13px 15px;
+      outline: none;
+      background: #fff;
+      font-weight: 600;
+    }
+
+    .input:focus {
+      border-color: rgb(176,141,87);
+      box-shadow: 0 0 0 2px rgba(176,141,87,.2);
+    }
+
+    .field-ok {
+      border-color: #059669 !important;
+      background: #ecfdf5 !important;
+    }
+
+    .field-error {
+      border-color: #b91c1c !important;
+      background: #fef2f2 !important;
     }
 
     .spinner {
@@ -84,7 +110,7 @@
       height: 18px;
       border: 2px solid rgba(255,255,255,.35);
       border-top-color: #fff;
-      border-radius: 50%;
+      border-radius: 999px;
       animation: spin .7s linear infinite;
     }
 
@@ -93,10 +119,7 @@
     }
 
     @media print {
-      @page {
-        size: A4;
-        margin: 18mm 16mm 18mm 16mm;
-      }
+      @page { size: A4; margin: 18mm 16mm; }
 
       body {
         background: #fff !important;
@@ -105,82 +128,49 @@
         line-height: 1.45;
       }
 
-      .no-print {
-        display: none !important;
+      .no-print { display: none !important; }
+
+      main {
+        max-width: none !important;
+        padding: 0 !important;
       }
 
-      .print-only {
-        display: block !important;
-      }
-
-      header,
-      section,
-      footer {
-        background: #fff !important;
-        color: #111 !important;
+      section {
         box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
       }
 
-      h1 {
-        font-size: 16pt !important;
-        line-height: 1.25 !important;
-        color: #111 !important;
-      }
+      h1 { font-size: 16pt !important; }
+      h2 { font-size: 14pt !important; }
+      h3 { font-size: 12pt !important; }
 
-      h2 {
-        font-size: 14pt !important;
-        color: #111 !important;
-      }
-
-      h3 {
-        font-size: 12pt !important;
-        color: #111 !important;
-      }
-
-      p, li, label, input, textarea, select {
+      p, li, span, strong {
         font-size: 11pt !important;
       }
 
-      button,
-      .decorative,
-      .progress,
-      .payment-area,
-      .upload-zone {
-        display: none !important;
-      }
-
-      .print-box {
-        border: none !important;
-        padding: 0 !important;
-        box-shadow: none !important;
-      }
-
       footer {
+        background: #fff !important;
+        color: #111 !important;
+        border-top: 1px solid #999;
+        margin-top: 12mm;
+        padding-top: 5mm;
         font-size: 8.5pt !important;
-        border-top: 1px solid #aaa !important;
-        margin-top: 18mm !important;
-        padding-top: 5mm !important;
       }
     }
   </style>
 </head>
 
-<body
-  x-data="homeFunnel()"
-  x-init="init()"
->
+<body x-data="homeFunnel()" x-init="init()">
 
 <header class="bg-profundo text-white border-b border-ouro/30 no-print">
   <div class="max-w-6xl mx-auto px-5 py-5 flex items-center justify-between">
     <a href="/" class="flex items-center gap-4">
       <img src="/Marca.svg" alt="ANÁLISE LEGAL" class="h-12 w-auto">
     </a>
-
-    <div class="hidden md:flex items-center gap-3 text-sm text-white/70">
-      <span>Coleta e estruturação de informações</span>
-      <span class="text-ouro">•</span>
-      <span>Contratação direta com advogado</span>
-    </div>
+    <span class="hidden md:block text-white/70 text-sm">
+      Coleta e estruturação de informações para posterior análise por advogado
+    </span>
   </div>
 </header>
 
@@ -190,21 +180,17 @@
     <h1 class="text-3xl md:text-5xl font-bold leading-tight">
       Organize sua situação antes da consulta jurídica
     </h1>
-    <p class="mt-4 text-lg md:text-xl text-white/78 max-w-3xl mx-auto">
-      A ANÁLISE LEGAL<span class="tm">™</span> coleta e estrutura informações fornecidas pelo usuário para viabilizar posterior análise por advogado identificado.
+    <p class="mt-4 text-lg text-white/80 max-w-3xl mx-auto">
+      A ANÁLISE LEGAL<span class="tm">™</span> estrutura informações fornecidas pelo usuário para viabilizar posterior contratação direta de consulta ou parecer com advogado identificado.
     </p>
   </div>
 </section>
 
-<section class="progress no-print bg-grafite text-white">
-  <div class="max-w-5xl mx-auto px-5 py-5">
-    <div class="grid grid-cols-5 md:grid-cols-10 gap-2 text-center">
-      <template x-for="n in 10" :key="n">
-        <div class="flex flex-col items-center gap-1">
-          <div class="step-dot"
-               :class="step >= n ? 'bg-ouro text-white' : 'bg-white/15 text-white/50'"
-               x-text="n"></div>
-        </div>
+<section class="bg-grafite text-white no-print">
+  <div class="max-w-5xl mx-auto px-5 py-4">
+    <div class="grid grid-cols-7 md:grid-cols-14 gap-2 justify-items-center">
+      <template x-for="n in 14" :key="n">
+        <div class="step-dot" :class="step >= n ? 'bg-ouro text-white' : 'bg-white/15 text-white/50'" x-text="n"></div>
       </template>
     </div>
   </div>
@@ -212,265 +198,203 @@
 
 <main class="max-w-3xl mx-auto px-5 py-10">
 
-  <!-- STEP 1 -->
-  <section x-show="step === 1" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8 print-box">
-    <h2 class="text-2xl font-bold text-profundo mb-2">1. Tipo de situação</h2>
-    <p class="text-grafite/75 mb-6">
-      Selecione a opção que mais se aproxima da situação que deseja estruturar.
-    </p>
+  <section x-show="step === 1" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">1. Situação principal</h2>
+    <p class="text-grafite/75 mb-5">Selecione a opção que mais se aproxima da situação que deseja organizar.</p>
 
-    <div class="grid gap-3">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
       <template x-for="item in situacoes" :key="item.id">
-        <button type="button"
-                @click="formData.situacao = item.id"
-                class="option-card rounded-xl p-4 text-left"
-                :class="formData.situacao === item.id ? 'active' : ''">
-          <strong class="block text-profundo" x-text="item.titulo"></strong>
-          <span class="text-sm text-grafite/70" x-text="item.desc"></span>
-        </button>
+        <button type="button" @click="formData.situacao = item.id"
+          class="option-card rounded-xl text-left"
+          :class="formData.situacao === item.id ? 'active' : ''"
+          x-text="item.titulo"></button>
       </template>
     </div>
 
     <p x-show="errors.situacao" class="text-red-700 mt-3" x-text="errors.situacao"></p>
 
     <div class="mt-8 flex justify-end">
-      <button @click="validateStep1()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">
-        Continuar
-      </button>
+      <button @click="validateStep1()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
     </div>
   </section>
 
-  <!-- STEP 2 -->
   <section x-show="step === 2" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
     <h2 class="text-2xl font-bold text-profundo mb-2">2. Estado atual</h2>
-    <p class="text-grafite/75 mb-6">
-      Indique em que ponto a situação se encontra.
-    </p>
+    <p class="text-grafite/75 mb-5">Indique em que ponto a situação se encontra.</p>
 
     <div class="grid gap-3">
       <template x-for="item in estados" :key="item.id">
-        <button type="button"
-                @click="formData.estadoSituacao = item.id"
-                class="option-card rounded-xl p-4 text-left"
-                :class="formData.estadoSituacao === item.id ? 'active' : ''">
-          <span x-text="item.titulo"></span>
-        </button>
+        <button type="button" @click="formData.estadoSituacao = item.id"
+          class="option-card rounded-xl text-left"
+          :class="formData.estadoSituacao === item.id ? 'active' : ''"
+          x-text="item.titulo"></button>
       </template>
     </div>
 
     <p x-show="errors.estadoSituacao" class="text-red-700 mt-3" x-text="errors.estadoSituacao"></p>
 
     <div class="mt-8 flex justify-between gap-3">
-      <button @click="step = 1" class="px-6 py-3 rounded-xl border border-militar/30">Voltar</button>
+      <button @click="goStep(1)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
       <button @click="validateStep2()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
     </div>
   </section>
 
-  <!-- STEP 3 -->
   <section x-show="step === 3" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
     <h2 class="text-2xl font-bold text-profundo mb-2">3. Documentos existentes</h2>
-    <p class="text-grafite/75 mb-6">
-      Informe se já existem documentos relacionados à situação.
-    </p>
+    <p class="text-grafite/75 mb-5">Informe se já existem documentos relacionados à situação.</p>
 
     <div class="grid gap-3">
       <template x-for="item in documentos" :key="item.id">
-        <button type="button"
-                @click="toggleArray('documentos', item.id)"
-                class="option-card rounded-xl p-4 text-left"
-                :class="formData.documentos.includes(item.id) ? 'active' : ''">
-          <span x-text="item.titulo"></span>
-        </button>
+        <button type="button" @click="toggleArray('documentos', item.id)"
+          class="option-card rounded-xl text-left"
+          :class="formData.documentos.includes(item.id) ? 'active' : ''"
+          x-text="item.titulo"></button>
       </template>
     </div>
 
     <p x-show="errors.documentos" class="text-red-700 mt-3" x-text="errors.documentos"></p>
 
     <div class="mt-8 flex justify-between gap-3">
-      <button @click="step = 2" class="px-6 py-3 rounded-xl border border-militar/30">Voltar</button>
+      <button @click="goStep(2)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
       <button @click="validateStep3()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
     </div>
   </section>
 
-  <!-- STEP 4 -->
   <section x-show="step === 4" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
-    <h2 class="text-2xl font-bold text-profundo mb-2">4. Valor ou impacto envolvido</h2>
-    <p class="text-grafite/75 mb-6">
-      Não é necessário informar valor exato. A indicação serve apenas para estruturar a demanda.
-    </p>
+    <h2 class="text-2xl font-bold text-profundo mb-2">4. Valor ou impacto</h2>
+    <p class="text-grafite/75 mb-5">Não é necessário informar valor exato. A indicação serve apenas para estruturar a demanda.</p>
 
     <div class="grid gap-3">
       <template x-for="item in impactos" :key="item.id">
-        <button type="button"
-                @click="formData.impacto = item.id"
-                class="option-card rounded-xl p-4 text-left"
-                :class="formData.impacto === item.id ? 'active' : ''">
-          <span x-text="item.titulo"></span>
-        </button>
+        <button type="button" @click="formData.impacto = item.id"
+          class="option-card rounded-xl text-left"
+          :class="formData.impacto === item.id ? 'active' : ''"
+          x-text="item.titulo"></button>
       </template>
     </div>
 
     <p x-show="errors.impacto" class="text-red-700 mt-3" x-text="errors.impacto"></p>
 
     <div class="mt-8 flex justify-between gap-3">
-      <button @click="step = 3" class="px-6 py-3 rounded-xl border border-militar/30">Voltar</button>
+      <button @click="goStep(3)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
       <button @click="validateStep4()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
     </div>
   </section>
 
-  <!-- STEP 5 -->
   <section x-show="step === 5" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
     <h2 class="text-2xl font-bold text-profundo mb-2">5. Urgência objetiva</h2>
-    <p class="text-grafite/75 mb-6">
-      Informe se existe prazo, risco imediato ou necessidade de decisão próxima.
-    </p>
+    <p class="text-grafite/75 mb-5">Informe se existe prazo, risco imediato ou necessidade de decisão próxima.</p>
 
     <div class="grid gap-3">
       <template x-for="item in urgencias" :key="item.id">
-        <button type="button"
-                @click="formData.urgencia = item.id"
-                class="option-card rounded-xl p-4 text-left"
-                :class="formData.urgencia === item.id ? 'active' : ''">
-          <span x-text="item.titulo"></span>
-        </button>
+        <button type="button" @click="formData.urgencia = item.id"
+          class="option-card rounded-xl text-left"
+          :class="formData.urgencia === item.id ? 'active' : ''"
+          x-text="item.titulo"></button>
       </template>
     </div>
 
     <p x-show="errors.urgencia" class="text-red-700 mt-3" x-text="errors.urgencia"></p>
 
     <div class="mt-8 flex justify-between gap-3">
-      <button @click="step = 4" class="px-6 py-3 rounded-xl border border-militar/30">Voltar</button>
+      <button @click="goStep(4)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
       <button @click="validateStep5()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
     </div>
   </section>
 
-  <!-- STEP 6 -->
   <section x-show="step === 6" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
     <h2 class="text-2xl font-bold text-profundo mb-2">6. Objetivo</h2>
-    <p class="text-grafite/75 mb-6">
-      Indique o que pretende ao organizar essas informações.
-    </p>
+    <p class="text-grafite/75 mb-5">Indique o que pretende ao organizar essas informações.</p>
 
     <div class="grid gap-3">
       <template x-for="item in objetivos" :key="item.id">
-        <button type="button"
-                @click="formData.objetivo = item.id"
-                class="option-card rounded-xl p-4 text-left"
-                :class="formData.objetivo === item.id ? 'active' : ''">
-          <span x-text="item.titulo"></span>
-        </button>
+        <button type="button" @click="formData.objetivo = item.id"
+          class="option-card rounded-xl text-left"
+          :class="formData.objetivo === item.id ? 'active' : ''"
+          x-text="item.titulo"></button>
       </template>
     </div>
 
     <p x-show="errors.objetivo" class="text-red-700 mt-3" x-text="errors.objetivo"></p>
 
     <div class="mt-8 flex justify-between gap-3">
-      <button @click="step = 5" class="px-6 py-3 rounded-xl border border-militar/30">Voltar</button>
+      <button @click="goStep(5)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
       <button @click="validateStep6()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
     </div>
   </section>
 
-  <!-- STEP 7 -->
   <section x-show="step === 7" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
-    <h2 class="text-2xl font-bold text-profundo mb-2">7. Descrição objetiva</h2>
-    <p class="text-grafite/75 mb-4">
-      Este campo é opcional. Não é necessário usar linguagem jurídica.
-    </p>
+    <h2 class="text-2xl font-bold text-profundo mb-2">7. Descrição opcional</h2>
+    <p class="text-grafite/75 mb-5">Não é necessário usar linguagem jurídica.</p>
 
-    <textarea
-      x-model="formData.descricao"
-      rows="6"
-      class="w-full rounded-xl border border-militar/30 p-4 focus:outline-none focus:ring-2 focus:ring-ouro"
+    <textarea x-model="formData.descricao" rows="6" class="input"
       placeholder="Informe, se quiser, o que aconteceu, quem está envolvido, quando ocorreu e qual decisão precisa ser tomada."></textarea>
 
     <div class="mt-8 flex justify-between gap-3">
-      <button @click="step = 6" class="px-6 py-3 rounded-xl border border-militar/30">Voltar</button>
-      <button @click="step = 8" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+      <button @click="goStep(6)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="goStep(8)" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
     </div>
   </section>
 
-  <!-- STEP 8 -->
   <section x-show="step === 8" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
-    <h2 class="text-2xl font-bold text-profundo mb-2">8. Organização inicial das informações</h2>
+    <h2 class="text-2xl font-bold text-profundo mb-2">8. Formato do atendimento</h2>
+    <p class="text-grafite/75 mb-5">Escolha o formato pretendido. A contratação será feita diretamente com advogado identificado antes do pagamento.</p>
 
-    <p class="text-grafite/80 mb-5">
-      Com base nas respostas fornecidas, a situação foi estruturada a partir dos seguintes elementos: tipo de demanda informado, estágio atual, documentos existentes, possível impacto econômico, urgência e objetivo pretendido.
-    </p>
-
-    <div class="rounded-xl border border-militar/20 bg-stone-50 p-5 space-y-3">
-      <p><strong>Situação informada:</strong> <span x-text="labelOf(situacoes, formData.situacao)"></span></p>
-      <p><strong>Estado atual:</strong> <span x-text="labelOf(estados, formData.estadoSituacao)"></span></p>
-      <p><strong>Documentos:</strong> <span x-text="labelsOf(documentos, formData.documentos)"></span></p>
-      <p><strong>Valor ou impacto:</strong> <span x-text="labelOf(impactos, formData.impacto)"></span></p>
-      <p><strong>Urgência:</strong> <span x-text="labelOf(urgencias, formData.urgencia)"></span></p>
-      <p><strong>Objetivo:</strong> <span x-text="labelOf(objetivos, formData.objetivo)"></span></p>
-    </div>
-
-    <p class="mt-5 text-sm text-grafite/75">
-      Esta organização não constitui análise jurídica, não indica direitos, não sugere providências e não substitui a atuação de advogado. A avaliação técnica somente poderá ocorrer em consulta ou parecer, por profissional devidamente identificado.
-    </p>
-
-    <div class="mt-8 flex justify-between gap-3">
-      <button @click="step = 7" class="px-6 py-3 rounded-xl border border-militar/30">Voltar</button>
-      <button @click="step = 9" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
-    </div>
-  </section>
-
-  <!-- STEP 9 -->
-  <section x-show="step === 9" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
-    <h2 class="text-2xl font-bold text-profundo mb-2">9. Formato de contratação</h2>
-    <p class="text-grafite/75 mb-6">
-      A contratação será feita diretamente com advogado identificado antes do pagamento.
-    </p>
-
-    <div class="grid gap-4">
-      <button type="button"
-              @click="formData.produto = 'consulta'"
-              class="option-card rounded-xl p-5 text-left"
-              :class="formData.produto === 'consulta' ? 'active' : ''">
-        <strong class="block text-profundo text-xl">Consulta jurídica</strong>
-        <span class="block text-grafite/70 mt-1">Atendimento por reunião, com análise verbal pelo advogado.</span>
-        <span class="block mt-3 font-bold text-profundo">R$ 500,00</span>
+    <div class="grid gap-4 mb-6">
+      <button @click="formData.produto = 'consulta'" class="option-card rounded-xl text-left"
+        :class="formData.produto === 'consulta' ? 'active' : ''">
+        Consulta jurídica — R$ 500,00
       </button>
+      <button @click="formData.produto = 'parecer'" class="option-card rounded-xl text-left"
+        :class="formData.produto === 'parecer' ? 'active' : ''">
+        Parecer jurídico — R$ 1.000,00
+      </button>
+    </div>
 
-      <button type="button"
-              @click="formData.produto = 'parecer'"
-              class="option-card rounded-xl p-5 text-left"
-              :class="formData.produto === 'parecer' ? 'active' : ''">
-        <strong class="block text-profundo text-xl">Parecer jurídico</strong>
-        <span class="block text-grafite/70 mt-1">Análise mais estruturada, com manifestação escrita posterior.</span>
-        <span class="block mt-3 font-bold text-profundo">R$ 1.000,00</span>
+    <h3 class="font-bold text-profundo mb-3">Modalidade preferencial</h3>
+    <div class="grid gap-3">
+      <button @click="formData.modalidade = 'online'" class="option-card rounded-xl text-left"
+        :class="formData.modalidade === 'online' ? 'active' : ''">
+        Online, preferencialmente
+      </button>
+      <button @click="formData.modalidade = 'presencial'" class="option-card rounded-xl text-left"
+        :class="formData.modalidade === 'presencial' ? 'active' : ''">
+        Presencial, sujeito à disponibilidade e confirmação
       </button>
     </div>
 
     <p x-show="errors.produto" class="text-red-700 mt-3" x-text="errors.produto"></p>
 
     <div class="mt-8 flex justify-between gap-3">
-      <button @click="step = 8" class="px-6 py-3 rounded-xl border border-militar/30">Voltar</button>
-      <button @click="validateStep9()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+      <button @click="goStep(7)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="validateStep8()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
     </div>
   </section>
 
-  <!-- STEP 10 -->
-  <section x-show="step === 10" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
-    <h2 class="text-2xl font-bold text-profundo mb-2">10. Dados pessoais e fiscais</h2>
-    <p class="text-grafite/75 mb-6">
-      Dados necessários para identificação, comunicação, emissão fiscal e contratação direta.
+  <section x-show="step === 9" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">9. Dados pessoais, fiscais e contato</h2>
+    <p class="text-grafite/75 mb-5">
+      Estes dados serão utilizados para identificação, comunicação, emissão fiscal e contratação direta com o advogado.
     </p>
 
-    <div class="grid gap-4">
-      <input x-model="formData.nome" class="p-4 rounded-xl border border-militar/30" placeholder="Nome completo *">
-      <input x-model="formData.documento" @input="formData.documento = formatDoc($event.target.value)" class="p-4 rounded-xl border border-militar/30" placeholder="CPF/CNPJ *">
-      <input x-model="formData.email" class="p-4 rounded-xl border border-militar/30" placeholder="E-mail *">
-      <input x-model="formData.telefone" @input="formData.telefone = formatPhone($event.target.value)" class="p-4 rounded-xl border border-militar/30" placeholder="WhatsApp *">
+    <div class="grid gap-4 mt-5">
+      <input x-model="formData.nome" class="input" placeholder="Nome completo *">
 
-      <div class="grid md:grid-cols-2 gap-4">
-        <input x-model="formData.cidade" class="p-4 rounded-xl border border-militar/30" placeholder="Cidade *">
-        <input x-model="formData.uf" maxlength="2" class="p-4 rounded-xl border border-militar/30 uppercase" placeholder="UF *">
+      <div>
+        <input x-model="formData.documento"
+               @input="formData.documento = formatCPF($event.target.value); errors.cpf = ''"
+               @blur="validateCPFField()"
+               class="input"
+               :class="errors.cpf ? 'field-error' : (cpfValido ? 'field-ok' : '')"
+               placeholder="CPF *">
+        <p x-show="errors.cpf" class="text-red-700 text-sm mt-1" x-text="errors.cpf"></p>
+        <p x-show="cpfValido && !errors.cpf" class="text-emerald-700 text-sm mt-1">CPF validado.</p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-4">
-        <select x-model="formData.estadoCivil" class="p-4 rounded-xl border border-militar/30 bg-white">
+      <input x-model="formData.profissao" class="input" placeholder="Profissão *">
+
+      <div>
+        <select x-model="formData.estadoCivil" class="input">
           <option value="">Estado civil *</option>
           <option value="solteiro">Solteiro(a)</option>
           <option value="casado">Casado(a)</option>
@@ -478,13 +402,9 @@
           <option value="viuvo">Viúvo(a)</option>
           <option value="uniao_estavel">União estável</option>
         </select>
-
-        <input x-model="formData.profissao" class="p-4 rounded-xl border border-militar/30" placeholder="Profissão *">
       </div>
 
-      <select x-show="formData.estadoCivil === 'casado' || formData.estadoCivil === 'uniao_estavel'"
-              x-model="formData.regimeCasamento"
-              class="p-4 rounded-xl border border-militar/30 bg-white">
+      <select x-show="formData.estadoCivil === 'casado' || formData.estadoCivil === 'uniao_estavel'" x-model="formData.regimeCasamento" class="input">
         <option value="">Regime de bens *</option>
         <option value="comunhao_parcial">Comunhão parcial de bens</option>
         <option value="comunhao_universal">Comunhão universal de bens</option>
@@ -492,152 +412,244 @@
         <option value="participacao_final">Participação final nos aquestos</option>
       </select>
 
-      <input x-model="formData.cep" @input="formData.cep = formatCEP($event.target.value)" class="p-4 rounded-xl border border-militar/30" placeholder="CEP">
-      <input x-model="formData.endereco" class="p-4 rounded-xl border border-militar/30" placeholder="Endereço *">
-      <input x-model="formData.bairro" class="p-4 rounded-xl border border-militar/30" placeholder="Bairro *">
-      <input x-model="formData.complemento" class="p-4 rounded-xl border border-militar/30" placeholder="Complemento">
+      <div>
+        <input x-model="formData.email"
+               @input="errors.email = ''"
+               @blur="validateEmailField()"
+               class="input"
+               :class="errors.email ? 'field-error' : (emailValido ? 'field-ok' : '')"
+               placeholder="E-mail *">
+        <p x-show="errors.email" class="text-red-700 text-sm mt-1" x-text="errors.email"></p>
+        <p x-show="emailValido && !errors.email" class="text-emerald-700 text-sm mt-1">E-mail em formato válido.</p>
+      </div>
+
+      <div>
+        <input x-model="formData.telefone"
+               @input="formData.telefone = formatPhone($event.target.value); errors.telefone = ''"
+               @blur="validateTelefoneField()"
+               class="input"
+               :class="errors.telefone ? 'field-error' : (telefoneValido ? 'field-ok' : '')"
+               placeholder="Telefone *">
+        <p x-show="errors.telefone" class="text-red-700 text-sm mt-1" x-text="errors.telefone"></p>
+        <p x-show="telefoneValido && !errors.telefone" class="text-emerald-700 text-sm mt-1">Telefone em formato válido.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-profundo mb-3">Como prefere ser contatado?</h3>
+        <div class="grid gap-3">
+          <button type="button" @click="formData.preferenciaContato = 'telefone_voz'" class="option-card rounded-xl text-left" :class="formData.preferenciaContato === 'telefone_voz' ? 'active' : ''">Telefone — voz</button>
+          <button type="button" @click="formData.preferenciaContato = 'telefone_mensagem'" class="option-card rounded-xl text-left" :class="formData.preferenciaContato === 'telefone_mensagem' ? 'active' : ''">Telefone — mensagem</button>
+          <button type="button" @click="formData.preferenciaContato = 'email'" class="option-card rounded-xl text-left" :class="formData.preferenciaContato === 'email' ? 'active' : ''">E-mail</button>
+        </div>
+      </div>
+
+      <div>
+        <input x-model="formData.cep"
+               @input="onCepInput($event.target.value)"
+               class="input"
+               :class="errors.cep ? 'field-error' : (cepValido && !cepLoading ? 'field-ok' : '')"
+               placeholder="CEP *">
+        <p x-show="cepLoading" class="text-grafite/70 text-sm mt-1">Buscando endereço...</p>
+        <p x-show="errors.cep" class="text-red-700 text-sm mt-1" x-text="errors.cep"></p>
+        <p x-show="cepValido && !cepLoading && !errors.cep" class="text-emerald-700 text-sm mt-1">CEP validado e endereço preenchido quando disponível.</p>
+      </div>
+
+      <input x-model="formData.endereco" class="input" placeholder="Endereço *">
+      <input x-model="formData.numero" class="input" placeholder="Número *">
+      <input x-model="formData.complemento" class="input" placeholder="Complemento">
+      <input x-model="formData.bairro" class="input" placeholder="Bairro *">
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <input x-model="formData.cidade" class="input" placeholder="Cidade *">
+        <input x-model="formData.uf" maxlength="2" class="input uppercase" placeholder="UF *">
+      </div>
     </div>
 
     <p x-show="errors.dados" class="text-red-700 mt-3" x-text="errors.dados"></p>
 
     <div class="mt-8 flex justify-between gap-3">
-      <button @click="step = 9" class="px-6 py-3 rounded-xl border border-militar/30">Voltar</button>
-      <button @click="validateStep10()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+      <button @click="goStep(8)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="validateStep9()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
     </div>
   </section>
 
-  <!-- STEP 11 -->
+  <section x-show="step === 10" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">10. Revisão das informações</h2>
+    <p class="text-grafite/75 mb-5">
+      Esta revisão apenas organiza os dados informados. Não constitui análise jurídica, orientação, conclusão ou indicação de providência.
+    </p>
+
+    <div class="rounded-xl border border-militar/20 bg-stone-50 p-5 space-y-3">
+      <p><strong>Situação:</strong> <span x-text="labelOf(situacoes, formData.situacao)"></span></p>
+      <p><strong>Estado atual:</strong> <span x-text="labelOf(estados, formData.estadoSituacao)"></span></p>
+      <p><strong>Documentos:</strong> <span x-text="labelsOf(documentos, formData.documentos)"></span></p>
+      <p><strong>Impacto:</strong> <span x-text="labelOf(impactos, formData.impacto)"></span></p>
+      <p><strong>Urgência:</strong> <span x-text="labelOf(urgencias, formData.urgencia)"></span></p>
+      <p><strong>Objetivo:</strong> <span x-text="labelOf(objetivos, formData.objetivo)"></span></p>
+      <p><strong>Formato:</strong> <span x-text="formData.produto === 'parecer' ? 'Parecer jurídico' : 'Consulta jurídica'"></span></p>
+      <p><strong>Modalidade:</strong> <span x-text="formData.modalidade === 'presencial' ? 'Presencial, sujeita à disponibilidade e confirmação' : 'Online, preferencialmente'"></span></p>
+      <p><strong>Nome:</strong> <span x-text="formData.nome"></span></p>
+      <p><strong>CPF:</strong> <span x-text="formData.documento"></span></p>
+      <p><strong>Profissão:</strong> <span x-text="formData.profissao"></span></p>
+      <p><strong>Estado civil:</strong> <span x-text="formData.estadoCivil"></span></p>
+      <p><strong>E-mail:</strong> <span x-text="formData.email"></span></p>
+      <p><strong>Telefone:</strong> <span x-text="formData.telefone"></span></p>
+      <p><strong>Contato preferencial:</strong> <span x-text="labelContato()"></span></p>
+      <p><strong>Endereço:</strong> <span x-text="enderecoCompleto()"></span></p>
+    </div>
+
+    <div class="mt-8 flex justify-between gap-3">
+      <button @click="goStep(9)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="goStep(11)" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+    </div>
+  </section>
+
   <section x-show="step === 11" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
-    <h2 class="text-2xl font-bold text-profundo mb-2">11. Envio de documentos</h2>
+    <h2 class="text-2xl font-bold text-profundo mb-2">11. Upload e permanência dos arquivos</h2>
     <p class="text-grafite/75 mb-5">
       O envio é facultativo. A ANÁLISE LEGAL<span class="tm">™</span> apenas organiza e encaminha arquivos, sem realizar análise, interpretação ou orientação jurídica.
     </p>
 
-    <div class="upload-zone border-2 border-dashed border-militar/30 rounded-xl p-6 text-center cursor-pointer"
-         @click="$refs.fileInput.click()">
-      <p class="text-lg font-bold text-profundo">Clique para selecionar arquivos</p>
-      <p class="text-sm text-grafite/60 mt-1">PDF, JPG, PNG ou WEBP</p>
+    <div class="border-2 border-dashed border-militar/30 rounded-xl p-6 text-center cursor-pointer mb-5" @click="$refs.fileInput.click()">
+      <p class="font-bold text-profundo">Clique para selecionar arquivos</p>
+      <p class="text-sm text-grafite/60">PDF, JPG, PNG ou WEBP</p>
     </div>
 
     <input x-ref="fileInput" type="file" multiple class="hidden" accept=".pdf,.jpg,.jpeg,.png,.webp" @change="handleFiles($event.target.files)">
 
-    <div class="mt-4 space-y-2" x-show="arquivos.length">
+    <div class="space-y-2 mb-5" x-show="arquivos.length">
       <template x-for="(file, index) in arquivos" :key="index">
         <div class="flex justify-between items-center bg-stone-50 rounded-lg px-4 py-2 border border-militar/15">
           <span x-text="file.name"></span>
-          <button @click="removeFile(index)" class="text-red-700">remover</button>
+          <button @click="removeFile(index)" class="text-red-700 font-bold">remover</button>
         </div>
       </template>
     </div>
 
+    <div x-show="arquivos.length">
+      <h3 class="font-bold text-profundo mb-3">Por quanto tempo os arquivos poderão permanecer no servidor?</h3>
+      <div class="grid gap-3">
+        <button @click="formData.retencaoArquivos = 'ate_conclusao_consulta'" class="option-card rounded-xl text-left" :class="formData.retencaoArquivos === 'ate_conclusao_consulta' ? 'active' : ''">Até a conclusão da consulta</button>
+        <button @click="formData.retencaoArquivos = 'ate_entrega_parecer'" class="option-card rounded-xl text-left" :class="formData.retencaoArquivos === 'ate_entrega_parecer' ? 'active' : ''">Até a entrega do parecer jurídico</button>
+        <button @click="formData.retencaoArquivos = 'sete_dias_apos'" class="option-card rounded-xl text-left" :class="formData.retencaoArquivos === 'sete_dias_apos' ? 'active' : ''">7 dias após a conclusão do atendimento</button>
+      </div>
+    </div>
+
+    <p x-show="errors.arquivos" class="text-red-700 mt-3" x-text="errors.arquivos"></p>
+
     <div class="mt-8 flex justify-between gap-3">
-      <button @click="step = 10" class="px-6 py-3 rounded-xl border border-militar/30">Voltar</button>
-      <button @click="buildCalendar(); step = 12" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">
-        Continuar
-      </button>
+      <button @click="goStep(10)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="validateStep11()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
     </div>
   </section>
 
-  <!-- STEP 12 -->
-  <section x-show="step === 12" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8 payment-area">
-    <h2 class="text-2xl font-bold text-profundo mb-2">12. Agenda e pagamento</h2>
-    <p class="text-grafite/75 mb-6">
-      Para PIX e cartão, o horário é escolhido antes do pagamento. Para boleto, o horário será escolhido após a compensação.
+  <section x-show="step === 12" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">12. Agenda</h2>
+    <p class="text-grafite/75 mb-5">
+      Selecione data e horário. O horário ficará pré-reservado por 15 minutos para conclusão do pagamento.
     </p>
 
-    <div class="grid md:grid-cols-3 gap-3 mb-6">
-      <button @click="payMethod = 'pix'" class="option-card rounded-xl p-4" :class="payMethod === 'pix' ? 'active' : ''">PIX</button>
-      <button @click="payMethod = 'cartao'" class="option-card rounded-xl p-4" :class="payMethod === 'cartao' ? 'active' : ''">Cartão</button>
-      <button @click="payMethod = 'boleto'" class="option-card rounded-xl p-4" :class="payMethod === 'boleto' ? 'active' : ''">Boleto</button>
-    </div>
-
-    <div x-show="payMethod !== 'boleto'" class="border border-militar/20 rounded-xl p-4 mb-6">
-      <h3 class="font-bold text-profundo mb-3">Escolha uma data</h3>
-
-      <div class="grid grid-cols-7 gap-2 text-center">
-        <template x-for="day in calDays" :key="day.date || Math.random()">
-          <button
-            type="button"
-            @click="pickDate(day)"
-            class="p-2 rounded-lg border"
-            :disabled="!day.ok"
-            :class="{
-              'opacity-0': day.type === 'empty',
-              'bg-profundo text-white': preferredDate === day.date,
-              'bg-white hover:bg-stone-100': day.ok && preferredDate !== day.date,
-              'bg-stone-100 text-stone-300': !day.ok
-            }"
-            x-text="day.day || ''"></button>
-        </template>
+    <div class="grid md:grid-cols-2 gap-5">
+      <div class="border border-militar/20 rounded-xl p-4">
+        <h3 class="font-bold text-profundo text-center mb-3" x-text="monthLabel(currentYear, currentMonth)"></h3>
+        <div class="grid grid-cols-7 gap-1">
+          <template x-for="day in calDaysA" :key="'a' + (day.date || Math.random())">
+            <button @click="pickDate(day)" :disabled="!day.ok"
+              class="p-2 rounded-lg border text-sm font-bold"
+              :class="calendarClass(day)"
+              x-text="day.day || ''"></button>
+          </template>
+        </div>
       </div>
 
-      <div class="mt-5" x-show="calSlots.length">
-        <h3 class="font-bold text-profundo mb-3">Escolha um horário</h3>
-        <div class="grid grid-cols-3 md:grid-cols-5 gap-2">
-          <template x-for="slot in calSlots" :key="slot.hour">
-            <button
-              type="button"
-              @click="pickHour(slot)"
-              class="p-3 rounded-lg border"
-              :disabled="slot.status !== 'available'"
-              :class="preferredHour === slot.hour ? 'bg-ouro text-white' : 'bg-white'"
-              x-text="slot.hour"></button>
+      <div class="border border-militar/20 rounded-xl p-4">
+        <h3 class="font-bold text-profundo text-center mb-3" x-text="monthLabel(nextYear, nextMonth)"></h3>
+        <div class="grid grid-cols-7 gap-1">
+          <template x-for="day in calDaysB" :key="'b' + (day.date || Math.random())">
+            <button @click="pickDate(day)" :disabled="!day.ok"
+              class="p-2 rounded-lg border text-sm font-bold"
+              :class="calendarClass(day)"
+              x-text="day.day || ''"></button>
           </template>
         </div>
       </div>
     </div>
 
-    <div x-show="payMethod === 'boleto'" class="bg-amber-50 border border-amber-300 rounded-xl p-5 mb-6">
-      <strong class="text-amber-900">Pagamento por boleto</strong>
-      <p class="text-amber-800 mt-1">
-        O agendamento será liberado após a confirmação do pagamento.
+    <div x-show="preferredDate" class="mt-6 border border-militar/20 rounded-xl p-5">
+      <h3 class="font-bold text-profundo mb-3">Horários disponíveis</h3>
+      <div class="grid grid-cols-3 md:grid-cols-5 gap-2">
+        <template x-for="slot in calSlots" :key="slot.hour">
+          <button @click="pickHour(slot)" :disabled="slot.status !== 'available'"
+            class="p-3 rounded-lg border font-bold"
+            :class="preferredHour === slot.hour ? 'bg-ouro text-white' : 'bg-white hover:bg-stone-50'"
+            x-text="slot.hour"></button>
+        </template>
+      </div>
+    </div>
+
+    <p x-show="errors.agenda" class="text-red-700 mt-3" x-text="errors.agenda"></p>
+
+    <div class="mt-8 flex justify-between gap-3">
+      <button @click="goStep(11)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="validateStep12()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+    </div>
+  </section>
+
+  <section x-show="step === 13" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">13. Forma de pagamento e termos finais</h2>
+
+    <div class="grid md:grid-cols-3 gap-3 my-5">
+      <button @click="payMethod = 'pix'" class="option-card rounded-xl text-left" :class="payMethod === 'pix' ? 'active' : ''">PIX</button>
+      <button @click="payMethod = 'cartao'" class="option-card rounded-xl text-left" :class="payMethod === 'cartao' ? 'active' : ''">Cartão</button>
+      <button @click="payMethod = 'boleto'" class="option-card rounded-xl text-left" :class="payMethod === 'boleto' ? 'active' : ''">Boleto</button>
+    </div>
+
+    <div class="bg-stone-50 border border-militar/20 rounded-xl p-5 text-sm leading-relaxed">
+      <p>
+        O pagamento ocorrerá na plataforma ASAAS, diretamente ao advogado responsável. A ANÁLISE LEGAL<span class="tm">™</span> não recebe honorários, não intermedeia valores e não participa da relação contratual entre usuário e advogado.
+      </p>
+      <p class="mt-3" x-show="payMethod === 'boleto'">
+        Em caso de boleto, a confirmação da agenda dependerá do processamento do pagamento. Após a compensação, o atendimento será confirmado conforme disponibilidade.
+      </p>
+      <p class="mt-3">
+        Com a confirmação do pagamento, serão encaminhadas comunicações distintas sobre reserva de horário, nota fiscal, delegação da demanda ao advogado, início da análise, conclusão da análise, lembrete da reunião e realização da consulta jurídica ou entrega do parecer jurídico.
       </p>
     </div>
 
-    <div class="border border-militar/20 rounded-xl p-5 mb-6">
-      <h3 class="font-bold text-profundo mb-3">Termos obrigatórios</h3>
-
+    <div class="border border-militar/20 rounded-xl p-5 mt-5">
       <label class="flex gap-3 mb-3">
         <input type="checkbox" x-model="termos.plataforma">
         <span>Compreendo que a ANÁLISE LEGAL<span class="tm">™</span> não presta serviços jurídicos.</span>
       </label>
-
       <label class="flex gap-3 mb-3">
         <input type="checkbox" x-model="termos.advogado">
         <span>Compreendo que a contratação será feita diretamente com advogado identificado.</span>
       </label>
-
       <label class="flex gap-3 mb-3">
         <input type="checkbox" x-model="termos.responsabilidade">
         <span>Declaro que as informações fornecidas são de minha responsabilidade.</span>
       </label>
-
-      <label class="flex gap-3 mb-3">
+      <label class="flex gap-3">
         <input type="checkbox" x-model="termos.lgpd">
         <span>Aceito o tratamento de dados para estruturação da demanda, encaminhamento ao advogado, agenda, pagamento e emissão fiscal.</span>
       </label>
     </div>
 
-    <p x-show="errors.pagamento" class="text-red-700 mb-3" x-text="errors.pagamento"></p>
+    <p x-show="errors.pagamento" class="text-red-700 mt-3" x-text="errors.pagamento"></p>
 
-    <div class="flex justify-between gap-3">
-      <button @click="step = 11" class="px-6 py-3 rounded-xl border border-militar/30">Voltar</button>
-      <button @click="goToASAAS()"
-              :disabled="payProcessing"
-              class="bg-ouro hover:opacity-90 text-white px-7 py-3 rounded-xl font-bold min-w-[220px]">
+    <div class="mt-8 flex justify-between gap-3">
+      <button @click="goStep(12)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="goToASAAS()" :disabled="payProcessing" class="bg-ouro hover:opacity-90 text-white px-7 py-3 rounded-xl font-bold min-w-[230px]">
         <span x-show="!payProcessing">Ir para pagamento seguro</span>
-        <span x-show="payProcessing" class="inline-flex items-center gap-2">
-          <span class="spinner"></span> Processando
-        </span>
+        <span x-show="payProcessing" class="inline-flex items-center gap-2"><span class="spinner"></span> Processando</span>
       </button>
     </div>
   </section>
 
-  <!-- STEP 13 -->
-  <section x-show="step === 13" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8 text-center">
-    <h2 class="text-2xl font-bold text-profundo mb-3">Pagamento em andamento</h2>
+  <section x-show="step === 14" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8 text-center">
+    <h2 class="text-2xl font-bold text-profundo mb-3">14. Pagamento em andamento</h2>
     <p class="text-grafite/75 mb-6">
-      A página de pagamento foi aberta em nova aba. Após confirmação, esta página poderá registrar o avanço do atendimento.
+      A página de pagamento foi aberta em nova aba. Após confirmação, serão encaminhadas as comunicações operacionais do atendimento.
     </p>
 
     <button @click="reopenPayment()" class="bg-ouro text-white px-7 py-3 rounded-xl font-bold">
@@ -668,15 +680,31 @@ function homeFunnel() {
   return {
     apiBase: '',
     step: 1,
+
     payMethod: 'pix',
     payProcessing: false,
     asaasInvoiceUrl: null,
     externalRef: null,
+
     arquivos: [],
-    calDays: [],
-    calSlots: [],
+    errors: {},
+
+    cpfValido: false,
+    emailValido: false,
+    telefoneValido: false,
+    cepValido: false,
+    cepLoading: false,
+
     preferredDate: '',
     preferredHour: '',
+    calSlots: [],
+
+    currentYear: null,
+    currentMonth: null,
+    nextYear: null,
+    nextMonth: null,
+    calDaysA: [],
+    calDaysB: [],
 
     termos: {
       plataforma: false,
@@ -684,8 +712,6 @@ function homeFunnel() {
       responsabilidade: false,
       lgpd: false
     },
-
-    errors: {},
 
     formData: {
       situacao: '',
@@ -696,29 +722,36 @@ function homeFunnel() {
       objetivo: '',
       descricao: '',
       produto: '',
+      modalidade: 'online',
+
       nome: '',
       documento: '',
-      email: '',
-      telefone: '',
-      cidade: '',
-      uf: '',
+      profissao: '',
       estadoCivil: '',
       regimeCasamento: '',
-      profissao: '',
+      email: '',
+      telefone: '',
+      preferenciaContato: '',
+
       cep: '',
       endereco: '',
+      numero: '',
+      complemento: '',
       bairro: '',
-      complemento: ''
+      cidade: '',
+      uf: '',
+
+      retencaoArquivos: ''
     },
 
     situacoes: [
-      { id: 'imovel', titulo: 'Imóvel, compra, venda, posse ou regularização', desc: 'Situações envolvendo imóveis, contratos, entrega, registro ou ocupação.' },
-      { id: 'familia', titulo: 'Família, herança, divórcio ou patrimônio', desc: 'Situações familiares com reflexo patrimonial.' },
-      { id: 'contrato', titulo: 'Contrato, cobrança ou obrigação financeira', desc: 'Descumprimento, pagamento, dívida ou obrigação relevante.' },
-      { id: 'empresa', titulo: 'Empresa, sociedade ou atividade profissional', desc: 'Sócios, negócios, atividade empresarial ou relação profissional.' },
-      { id: 'tributario_administrativo', titulo: 'Tributo, órgão público ou procedimento administrativo', desc: 'Exigência, procedimento, defesa ou comunicação administrativa.' },
-      { id: 'consumo_saude_servico', titulo: 'Plano de saúde, serviço, consumo ou prejuízo relevante', desc: 'Problemas de consumo com impacto concreto.' },
-      { id: 'indefinido', titulo: 'Ainda não sei enquadrar', desc: 'Quando a situação ainda não está clara.' }
+      { id: 'imovel', titulo: 'Imóvel, compra, venda, posse ou regularização' },
+      { id: 'familia', titulo: 'Família, herança, divórcio ou patrimônio' },
+      { id: 'contrato', titulo: 'Contrato, cobrança ou obrigação financeira' },
+      { id: 'empresa', titulo: 'Empresa, sociedade ou atividade profissional' },
+      { id: 'tributario_administrativo', titulo: 'Tributo, órgão público ou procedimento administrativo' },
+      { id: 'consumo_saude_servico', titulo: 'Plano de saúde, serviço, consumo ou prejuízo relevante' },
+      { id: 'indefinido', titulo: 'Ainda não sei enquadrar' }
     ],
 
     estados: [
@@ -749,7 +782,7 @@ function homeFunnel() {
     ],
 
     urgencias: [
-      { id: 'prazo', titulo: 'Sim, há prazo com data próxima' },
+      { id: 'prazo', titulo: 'Sim, há prazo judicial ou administrativo com data próxima' },
       { id: 'prejuizo', titulo: 'Sim, posso sofrer prejuízo se não decidir' },
       { id: 'responder', titulo: 'Sim, preciso responder alguém' },
       { id: 'sem_prazo', titulo: 'Não há prazo imediato' },
@@ -764,7 +797,14 @@ function homeFunnel() {
       { id: 'registrar', titulo: 'Apenas registrar a situação para análise posterior' }
     ],
 
-    init() {},
+    init() {
+      this.prepareMonths();
+    },
+
+    goStep(n) {
+      this.step = n;
+      this.$nextTick(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    },
 
     labelOf(list, id) {
       const item = list.find(i => i.id === id);
@@ -774,6 +814,29 @@ function homeFunnel() {
     labelsOf(list, ids) {
       if (!ids || !ids.length) return 'Não informado';
       return ids.map(id => this.labelOf(list, id)).join('; ');
+    },
+
+    labelContato() {
+      const map = {
+        telefone_voz: 'Telefone — voz',
+        telefone_mensagem: 'Telefone — mensagem',
+        email: 'E-mail'
+      };
+      return map[this.formData.preferenciaContato] || 'Não informado';
+    },
+
+    enderecoCompleto() {
+      const partes = [
+        this.formData.endereco,
+        this.formData.numero,
+        this.formData.complemento,
+        this.formData.bairro,
+        this.formData.cidade,
+        this.formData.uf,
+        this.formData.cep
+      ].filter(Boolean);
+
+      return partes.join(', ');
     },
 
     toggleArray(field, value) {
@@ -795,94 +858,87 @@ function homeFunnel() {
 
     validateStep1() {
       this.errors = {};
-      if (!this.formData.situacao) {
-        this.errors.situacao = 'Selecione uma situação.';
-        return;
-      }
-      this.step = 2;
+      if (!this.formData.situacao) return this.errors.situacao = 'Selecione uma situação.';
+      this.goStep(2);
     },
 
     validateStep2() {
       this.errors = {};
-      if (!this.formData.estadoSituacao) {
-        this.errors.estadoSituacao = 'Selecione o estado atual.';
-        return;
-      }
-      this.step = 3;
+      if (!this.formData.estadoSituacao) return this.errors.estadoSituacao = 'Selecione o estado atual.';
+      this.goStep(3);
     },
 
     validateStep3() {
       this.errors = {};
-      if (!this.formData.documentos.length) {
-        this.errors.documentos = 'Selecione ao menos uma opção.';
-        return;
-      }
-      this.step = 4;
+      if (!this.formData.documentos.length) return this.errors.documentos = 'Selecione ao menos uma opção.';
+      this.goStep(4);
     },
 
     validateStep4() {
       this.errors = {};
-      if (!this.formData.impacto) {
-        this.errors.impacto = 'Selecione o valor ou impacto.';
-        return;
-      }
-      this.step = 5;
+      if (!this.formData.impacto) return this.errors.impacto = 'Selecione o valor ou impacto.';
+      this.goStep(5);
     },
 
     validateStep5() {
       this.errors = {};
-      if (!this.formData.urgencia) {
-        this.errors.urgencia = 'Selecione uma opção.';
-        return;
-      }
-      this.step = 6;
+      if (!this.formData.urgencia) return this.errors.urgencia = 'Selecione uma opção.';
+      this.goStep(6);
     },
 
     validateStep6() {
       this.errors = {};
-      if (!this.formData.objetivo) {
-        this.errors.objetivo = 'Selecione o objetivo.';
-        return;
-      }
-      this.step = 7;
+      if (!this.formData.objetivo) return this.errors.objetivo = 'Selecione o objetivo.';
+      this.goStep(7);
+    },
+
+    validateStep8() {
+      this.errors = {};
+      if (!this.formData.produto) return this.errors.produto = 'Selecione consulta ou parecer.';
+      if (!this.formData.modalidade) return this.errors.produto = 'Selecione a modalidade.';
+      this.goStep(9);
     },
 
     validateStep9() {
       this.errors = {};
-      if (!this.formData.produto) {
-        this.errors.produto = 'Selecione consulta ou parecer.';
-        return;
-      }
-      this.step = 10;
-    },
-
-    validateStep10() {
-      this.errors = {};
 
       const required = [
-        'nome', 'documento', 'email', 'telefone',
-        'cidade', 'uf', 'estadoCivil', 'profissao',
-        'endereco', 'bairro'
+        'nome', 'documento', 'profissao', 'estadoCivil',
+        'email', 'telefone', 'preferenciaContato',
+        'cep', 'endereco', 'numero', 'bairro', 'cidade', 'uf'
       ];
 
       for (const field of required) {
         if (!this.formData[field] || !String(this.formData[field]).trim()) {
-          this.errors.dados = 'Preencha todos os campos obrigatórios.';
-          return;
+          return this.errors.dados = 'Preencha todos os campos obrigatórios.';
         }
       }
 
+      if (!this.validateCPFField()) return;
+      if (!this.validateEmailField()) return;
+      if (!this.validateTelefoneField()) return;
+
       if ((this.formData.estadoCivil === 'casado' || this.formData.estadoCivil === 'uniao_estavel') && !this.formData.regimeCasamento) {
-        this.errors.dados = 'Informe o regime de bens.';
-        return;
+        return this.errors.dados = 'Informe o regime de bens.';
       }
 
-      if (!this.formData.email.includes('@')) {
-        this.errors.dados = 'Informe um e-mail válido.';
-        return;
-      }
+      this.goStep(10);
+    },
 
-      this.step = 11;
+    validateStep11() {
+      this.errors = {};
+      if (this.arquivos.length && !this.formData.retencaoArquivos) {
+        return this.errors.arquivos = 'Selecione o prazo de permanência dos arquivos.';
+      }
+      this.goStep(12);
+    },
+
+    validateStep12() {
+      this.errors = {};
+      if (!this.preferredDate || !this.preferredHour) {
+        return this.errors.agenda = 'Selecione data e horário para continuar.';
+      }
+      this.goStep(13);
     },
 
     allTermsAccepted() {
@@ -895,35 +951,42 @@ function homeFunnel() {
     handleFiles(files) {
       const allowed = ['application/pdf', 'image/jpeg', 'image/png', 'image/webp'];
       for (const file of files) {
-        if (allowed.includes(file.type)) {
-          this.arquivos.push(file);
-        }
+        if (allowed.includes(file.type)) this.arquivos.push(file);
       }
     },
 
     removeFile(index) {
       this.arquivos.splice(index, 1);
+      if (!this.arquivos.length) this.formData.retencaoArquivos = '';
     },
 
-    async buildCalendar() {
+    prepareMonths() {
+      const base = new Date();
+      this.currentYear = base.getFullYear();
+      this.currentMonth = base.getMonth() + 1;
+
+      const next = new Date(this.currentYear, this.currentMonth, 1);
+      this.nextYear = next.getFullYear();
+      this.nextMonth = next.getMonth() + 1;
+
+      this.calDaysA = this.buildMonth(this.currentYear, this.currentMonth);
+      this.calDaysB = this.buildMonth(this.nextYear, this.nextMonth);
+    },
+
+    buildMonth(year, month) {
       const today = new Date();
       today.setDate(today.getDate() + 2);
       today.setHours(0,0,0,0);
 
-      const year = today.getFullYear();
-      const month = today.getMonth();
-      const lastDay = new Date(year, month + 1, 0);
-      const firstDay = new Date(year, month, 1);
-
+      const firstDay = new Date(year, month - 1, 1);
+      const lastDay = new Date(year, month, 0);
       const days = [];
 
-      for (let i = 0; i < firstDay.getDay(); i++) {
-        days.push({ type: 'empty' });
-      }
+      for (let i = 0; i < firstDay.getDay(); i++) days.push({ type: 'empty', ok: false });
 
       for (let d = 1; d <= lastDay.getDate(); d++) {
-        const date = new Date(year, month, d);
-        const dateStr = `${year}-${String(month + 1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+        const date = new Date(year, month - 1, d);
+        const dateStr = `${year}-${String(month).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
         const dow = date.getDay();
 
         days.push({
@@ -933,7 +996,19 @@ function homeFunnel() {
         });
       }
 
-      this.calDays = days;
+      return days;
+    },
+
+    monthLabel(year, month) {
+      const names = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+      return `${names[month - 1]} ${year}`;
+    },
+
+    calendarClass(day) {
+      if (day.type === 'empty') return 'opacity-0 pointer-events-none';
+      if (!day.ok) return 'bg-stone-100 text-stone-300 cursor-not-allowed';
+      if (this.preferredDate === day.date) return 'bg-profundo text-white';
+      return 'bg-white hover:bg-stone-50';
     },
 
     async pickDate(day) {
@@ -941,6 +1016,7 @@ function homeFunnel() {
 
       this.preferredDate = day.date;
       this.preferredHour = '';
+      this.calSlots = [];
 
       try {
         const res = await fetch(this.apiBase + '/api/availability/day/' + day.date);
@@ -980,13 +1056,7 @@ function homeFunnel() {
       this.errors = {};
 
       if (!this.allTermsAccepted()) {
-        this.errors.pagamento = 'Aceite todos os termos obrigatórios para prosseguir.';
-        return;
-      }
-
-      if (this.payMethod !== 'boleto' && (!this.preferredDate || !this.preferredHour)) {
-        this.errors.pagamento = 'Selecione data e horário para continuar.';
-        return;
+        return this.errors.pagamento = 'Aceite todos os termos obrigatórios para prosseguir.';
       }
 
       if (this.payProcessing) return;
@@ -1013,7 +1083,7 @@ function homeFunnel() {
           profissao: this.formData.profissao,
           cep: this.formData.cep,
           endereco: this.formData.endereco,
-          numero: '',
+          numero: this.formData.numero,
           complemento: this.formData.complemento || '',
           bairro: this.formData.bairro,
 
@@ -1021,8 +1091,8 @@ function homeFunnel() {
           assunto: this.assuntoAtual,
           descricao: this.formData.descricao || '',
 
-          preferredDate: this.payMethod === 'boleto' ? null : this.preferredDate,
-          preferredHour: this.payMethod === 'boleto' ? null : this.preferredHour,
+          preferredDate: this.preferredDate,
+          preferredHour: this.preferredHour,
 
           area: 'home-generico',
           camposArea: {
@@ -1034,6 +1104,9 @@ function homeFunnel() {
             urgencia: this.formData.urgencia,
             objetivo: this.formData.objetivo,
             produto: this.formData.produto,
+            modalidade: this.formData.modalidade,
+            preferenciaContato: this.formData.preferenciaContato,
+            retencaoArquivos: this.formData.retencaoArquivos,
             sinteseNaoJuridica: {
               situacao: this.labelOf(this.situacoes, this.formData.situacao),
               estado: this.labelOf(this.estados, this.formData.estadoSituacao),
@@ -1079,8 +1152,7 @@ function homeFunnel() {
         this.externalRef = data.externalReference || null;
 
         window.open(this.asaasInvoiceUrl, '_blank', 'noopener');
-
-        this.step = 13;
+        this.goStep(14);
 
       } catch (e) {
         this.errors.pagamento = e.message || 'Erro inesperado.';
@@ -1090,40 +1162,139 @@ function homeFunnel() {
     },
 
     reopenPayment() {
-      if (this.asaasInvoiceUrl) {
-        window.open(this.asaasInvoiceUrl, '_blank', 'noopener');
+      if (this.asaasInvoiceUrl) window.open(this.asaasInvoiceUrl, '_blank', 'noopener');
+    },
+
+    isValidCPF(cpfRaw) {
+      const cpf = (cpfRaw || '').replace(/\D/g, '');
+      if (cpf.length !== 11) return false;
+      if (/^(\d)\1+$/.test(cpf)) return false;
+
+      let sum = 0;
+      for (let i = 0; i < 9; i++) sum += parseInt(cpf[i]) * (10 - i);
+      let d1 = (sum * 10) % 11;
+      if (d1 === 10) d1 = 0;
+      if (d1 !== parseInt(cpf[9])) return false;
+
+      sum = 0;
+      for (let i = 0; i < 10; i++) sum += parseInt(cpf[i]) * (11 - i);
+      let d2 = (sum * 10) % 11;
+      if (d2 === 10) d2 = 0;
+
+      return d2 === parseInt(cpf[10]);
+    },
+
+    validateCPFField() {
+      const raw = (this.formData.documento || '').replace(/\D/g, '');
+      this.cpfValido = false;
+
+      if (!raw) {
+        this.errors.cpf = 'CPF é obrigatório.';
+        return false;
+      }
+
+      if (raw.length !== 11) {
+        this.errors.cpf = 'CPF deve ter 11 dígitos.';
+        return false;
+      }
+
+      if (!this.isValidCPF(raw)) {
+        this.errors.cpf = 'CPF inválido.';
+        return false;
+      }
+
+      this.errors.cpf = '';
+      this.cpfValido = true;
+      return true;
+    },
+
+    validateEmailField() {
+      const email = (this.formData.email || '').trim();
+      this.emailValido = false;
+
+      if (!email) {
+        this.errors.email = 'E-mail é obrigatório.';
+        return false;
+      }
+
+      if (!email.includes('@') || !email.includes('.')) {
+        this.errors.email = 'Informe um e-mail válido.';
+        return false;
+      }
+
+      this.errors.email = '';
+      this.emailValido = true;
+      return true;
+    },
+
+    validateTelefoneField() {
+      const nums = (this.formData.telefone || '').replace(/\D/g, '');
+      this.telefoneValido = false;
+
+      if (!nums) {
+        this.errors.telefone = 'Telefone é obrigatório.';
+        return false;
+      }
+
+      if (nums.length !== 10 && nums.length !== 11) {
+        this.errors.telefone = 'Telefone deve ter DDD e 10 ou 11 dígitos.';
+        return false;
+      }
+
+      this.errors.telefone = '';
+      this.telefoneValido = true;
+      return true;
+    },
+
+    async onCepInput(value) {
+      this.formData.cep = this.formatCEP(value);
+      this.errors.cep = '';
+      this.cepValido = false;
+
+      const cep = this.formData.cep.replace(/\D/g, '');
+
+      if (cep.length !== 8) return;
+
+      this.cepLoading = true;
+
+      try {
+        const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const data = await res.json();
+
+        if (data.erro) {
+          this.errors.cep = 'CEP não encontrado.';
+          return;
+        }
+
+        this.formData.endereco = data.logradouro || this.formData.endereco;
+        this.formData.bairro = data.bairro || this.formData.bairro;
+        this.formData.cidade = data.localidade || this.formData.cidade;
+        this.formData.uf = data.uf || this.formData.uf;
+
+        this.cepValido = true;
+      } catch (e) {
+        this.errors.cep = 'Erro ao consultar CEP.';
+      } finally {
+        this.cepLoading = false;
       }
     },
 
-    formatDoc(value) {
-      const nums = value.replace(/\D/g, '').slice(0, 14);
-
-      if (nums.length <= 11) {
-        return nums
-          .replace(/(\d{3})(\d)/, '$1.$2')
-          .replace(/(\d{3})\.(\d{3})(\d)/, '$1.$2.$3')
-          .replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
-      }
-
+    formatCPF(value) {
+      const nums = (value || '').replace(/\D/g, '').slice(0, 11);
       return nums
-        .replace(/(\d{2})(\d)/, '$1.$2')
-        .replace(/(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
-        .replace(/(\d{2})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3/$4')
-        .replace(/(\d{2})\.(\d{3})\.(\d{3})\/(\d{4})(\d)/, '$1.$2.$3/$4-$5');
+        .replace(/(\d{3})(\d)/, '$1.$2')
+        .replace(/(\d{3})\.(\d{3})(\d)/, '$1.$2.$3')
+        .replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
     },
 
     formatPhone(value) {
-      const nums = value.replace(/\D/g, '').slice(0, 11);
-
-      if (nums.length <= 10) {
-        return nums.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
-      }
-
+      const nums = (value || '').replace(/\D/g, '').slice(0, 11);
+      if (nums.length <= 10) return nums.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
       return nums.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
     },
 
     formatCEP(value) {
-      const nums = value.replace(/\D/g, '').slice(0, 8);
+      const nums = (value || '').replace(/\D/g, '').slice(0, 8);
       if (nums.length <= 5) return nums;
       return nums.slice(0, 5) + '-' + nums.slice(5);
     }
