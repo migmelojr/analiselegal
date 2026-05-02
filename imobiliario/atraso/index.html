@@ -5,17 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Atraso na entrega de imóvel | Análise Legal</title>
-  <meta name="description" content="Comprou imóvel na planta e a entrega atrasou? Entenda seus direitos, riscos e caminhos jurídicos antes de aceitar proposta da construtora." />
+  <meta name="description" content="Atraso na entrega de imóvel comprado na planta. Entenda seus direitos, riscos contratuais e caminhos jurídicos antes de aceitar proposta da construtora." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --verde-profundo: rgb(13, 22, 34);
-      --grafite: rgb(30, 35, 41);
+      --grafite-profundo: rgb(30, 35, 41);
       --verde-militar: rgb(56, 66, 51);
       --verde-oliva: rgb(138, 154, 107);
-      --ouro: rgb(176, 141, 87);
-      --cinza-claro: rgb(245, 246, 243);
-      --branco: #ffffff;
+      --ouro-fosco: rgb(176, 141, 87);
+      --cinza-tecnico: rgb(226, 229, 222);
+      --cinza-texto: rgb(205, 210, 203);
+      --branco-suave: rgb(246, 246, 241);
     }
 
     * {
@@ -24,75 +29,111 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: var(--cinza-claro);
-      color: var(--grafite);
+      font-family: "Crimson Text", serif;
+      background: var(--verde-profundo);
+      color: var(--branco-suave);
       line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
     }
 
     header {
       background: var(--verde-profundo);
+      border-bottom: 1px solid rgba(176, 141, 87, 0.22);
       padding: 22px 7%;
+    }
+
+    .header-inner {
+      max-width: 1180px;
+      margin: 0 auto;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .brand img {
-      height: 54px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-symbol {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .brand-logo {
+      height: 42px;
       max-width: 260px;
+      object-fit: contain;
     }
 
-    .header-cta {
-      color: var(--ouro);
-      border: 1px solid var(--ouro);
+    .header-button {
+      border: 1px solid var(--ouro-fosco);
+      color: var(--branco-suave);
       padding: 10px 18px;
       border-radius: 999px;
-      text-decoration: none;
+      font-size: 17px;
       font-weight: 600;
-      font-size: 14px;
+      transition: 0.25s ease;
+    }
+
+    .header-button:hover {
+      background: var(--ouro-fosco);
+      color: var(--verde-profundo);
     }
 
     .hero {
-      background: linear-gradient(135deg, var(--verde-profundo), var(--grafite));
-      color: var(--branco);
-      padding: 90px 7% 80px;
+      background:
+        radial-gradient(circle at 80% 15%, rgba(176, 141, 87, 0.16), transparent 32%),
+        linear-gradient(135deg, var(--verde-profundo), var(--grafite-profundo));
+      padding: 92px 7% 86px;
     }
 
-    .hero-grid {
+    .hero-inner {
       max-width: 1180px;
-      margin: auto;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 54px;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 58px;
       align-items: center;
     }
 
     .eyebrow {
-      color: var(--ouro);
+      color: var(--cinza-tecnico);
       text-transform: uppercase;
-      letter-spacing: 1.8px;
-      font-size: 13px;
+      letter-spacing: 2px;
+      font-size: 15px;
       font-weight: 700;
       margin-bottom: 18px;
     }
 
     h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(38px, 5vw, 62px);
-      line-height: 1.05;
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: 1.02;
+      font-weight: 700;
+      color: var(--branco-suave);
       margin-bottom: 24px;
+      max-width: 820px;
     }
 
-    .hero p {
-      font-size: 20px;
-      max-width: 720px;
-      color: #e8e8e8;
-      margin-bottom: 32px;
+    .hero-text {
+      font-size: 22px;
+      color: var(--cinza-texto);
+      max-width: 760px;
+      margin-bottom: 34px;
     }
 
-    .btn-group {
+    .button-row {
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
@@ -103,31 +144,41 @@
       display: inline-block;
       padding: 15px 24px;
       border-radius: 8px;
-      text-decoration: none;
+      font-size: 18px;
       font-weight: 700;
+      transition: 0.25s ease;
     }
 
     .btn-primary {
-      background: var(--ouro);
+      background: var(--ouro-fosco);
       color: var(--verde-profundo);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.08);
     }
 
     .btn-secondary {
       border: 1px solid var(--verde-oliva);
-      color: var(--branco);
+      color: var(--branco-suave);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(138, 154, 107, 0.18);
     }
 
     .hero-card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.16);
-      padding: 30px;
-      border-radius: 20px;
+      background: rgba(30, 35, 41, 0.72);
+      border: 1px solid rgba(176, 141, 87, 0.28);
+      border-radius: 22px;
+      padding: 32px;
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.22);
     }
 
     .hero-card h2 {
-      font-family: Georgia, serif;
-      color: var(--ouro);
-      font-size: 25px;
+      color: var(--branco-suave);
+      font-size: 30px;
+      line-height: 1.15;
       margin-bottom: 18px;
     }
 
@@ -136,152 +187,217 @@
     }
 
     .hero-card li {
+      color: var(--cinza-texto);
+      font-size: 18px;
       margin-bottom: 13px;
       padding-left: 24px;
       position: relative;
     }
 
     .hero-card li::before {
-      content: "•";
-      color: var(--ouro);
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--ouro-fosco);
+      border-radius: 50%;
       position: absolute;
       left: 0;
-      font-size: 24px;
-      top: -5px;
+      top: 11px;
     }
 
     section {
-      padding: 72px 7%;
+      padding: 76px 7%;
     }
 
     .container {
       max-width: 1120px;
-      margin: auto;
+      margin: 0 auto;
+    }
+
+    .section-dark {
+      background: var(--verde-profundo);
+    }
+
+    .section-graphite {
+      background: var(--grafite-profundo);
+    }
+
+    .section-military {
+      background: var(--verde-militar);
     }
 
     .section-title {
-      font-family: Georgia, serif;
-      font-size: clamp(30px, 4vw, 44px);
-      color: var(--verde-profundo);
+      color: var(--branco-suave);
+      font-size: clamp(34px, 4vw, 48px);
+      line-height: 1.12;
       margin-bottom: 18px;
+      font-weight: 700;
     }
 
     .section-lead {
-      font-size: 19px;
-      max-width: 840px;
+      color: var(--cinza-texto);
+      font-size: 21px;
+      max-width: 880px;
       margin-bottom: 36px;
     }
 
-    .pain-grid,
-    .rights-grid,
-    .steps-grid {
+    .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
     }
 
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
     .card {
-      background: var(--branco);
-      padding: 28px;
+      background: rgba(13, 22, 34, 0.62);
+      border: 1px solid rgba(226, 229, 222, 0.10);
       border-radius: 18px;
-      border: 1px solid rgba(30,35,41,0.08);
-      box-shadow: 0 12px 28px rgba(13,22,34,0.06);
+      padding: 28px;
+    }
+
+    .card.light-border {
+      border-color: rgba(176, 141, 87, 0.28);
     }
 
     .card h3 {
-      font-family: Georgia, serif;
-      font-size: 22px;
-      color: var(--verde-militar);
+      color: var(--branco-suave);
+      font-size: 27px;
+      line-height: 1.18;
       margin-bottom: 12px;
+      font-weight: 700;
     }
 
-    .highlight {
-      background: var(--verde-militar);
-      color: var(--branco);
+    .card p {
+      color: var(--cinza-texto);
+      font-size: 18px;
     }
 
-    .highlight .section-title,
-    .highlight h2,
-    .highlight h3 {
-      color: var(--ouro);
-    }
-
-    .highlight p {
-      color: #f1f1f1;
-    }
-
-    .two-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 34px;
-      align-items: start;
-    }
-
-    .number {
+    .marker {
+      display: inline-flex;
       width: 38px;
       height: 38px;
-      border-radius: 50%;
-      background: var(--ouro);
-      color: var(--verde-profundo);
-      display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
+      border-radius: 50%;
+      background: var(--ouro-fosco);
+      color: var(--verde-profundo);
+      font-weight: 700;
+      font-size: 19px;
       margin-bottom: 16px;
     }
 
+    .quote-box {
+      border-left: 4px solid var(--ouro-fosco);
+      padding: 8px 0 8px 24px;
+      color: var(--cinza-texto);
+      font-size: 22px;
+      max-width: 900px;
+      margin-top: 20px;
+    }
+
+    .warning {
+      background: rgba(176, 141, 87, 0.10);
+      border: 1px solid rgba(176, 141, 87, 0.32);
+      border-radius: 18px;
+      padding: 30px;
+      margin-top: 32px;
+    }
+
+    .warning h3 {
+      color: var(--branco-suave);
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .warning p {
+      color: var(--cinza-texto);
+      font-size: 19px;
+    }
+
     .cta-section {
-      background: var(--verde-profundo);
-      color: var(--branco);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(176, 141, 87, 0.18), transparent 30%),
+        var(--verde-profundo);
       text-align: center;
-      padding: 80px 7%;
+      padding: 86px 7%;
+      border-top: 1px solid rgba(176, 141, 87, 0.18);
+      border-bottom: 1px solid rgba(176, 141, 87, 0.18);
     }
 
     .cta-section h2 {
-      font-family: Georgia, serif;
-      font-size: clamp(32px, 4vw, 48px);
-      margin-bottom: 20px;
+      color: var(--branco-suave);
+      font-size: clamp(36px, 4vw, 54px);
+      line-height: 1.1;
+      max-width: 920px;
+      margin: 0 auto 20px;
     }
 
     .cta-section p {
+      color: var(--cinza-texto);
+      font-size: 21px;
       max-width: 760px;
-      margin: 0 auto 30px;
-      font-size: 19px;
-      color: #e6e6e6;
+      margin: 0 auto 34px;
     }
 
     footer {
-      background: var(--grafite);
-      color: #d9d9d9;
-      padding: 34px 7%;
-      font-size: 14px;
+      background: var(--grafite-profundo);
+      padding: 38px 7%;
+      color: var(--cinza-texto);
+      border-top: 1px solid rgba(176, 141, 87, 0.14);
     }
 
-    footer .footer-inner {
+    .footer-inner {
       max-width: 1120px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
     }
 
-    @media (max-width: 900px) {
-      header {
+    .footer-title {
+      color: var(--branco-suave);
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .footer-text {
+      font-size: 17px;
+    }
+
+    @media (max-width: 920px) {
+      .header-inner {
         flex-direction: column;
-        gap: 16px;
+        align-items: flex-start;
       }
 
-      .hero-grid,
-      .two-columns,
-      .pain-grid,
-      .rights-grid,
-      .steps-grid {
+      .hero-inner,
+      .grid-2,
+      .grid-3,
+      .footer-inner {
         grid-template-columns: 1fr;
       }
 
       .hero {
-        padding-top: 64px;
+        padding: 64px 6% 66px;
+      }
+
+      section {
+        padding: 58px 6%;
+      }
+
+      .brand {
+        flex-wrap: wrap;
+      }
+
+      .brand-logo {
+        max-width: 220px;
       }
     }
   </style>
@@ -289,191 +405,253 @@
 
 <body>
 
-<header>
-  <div class="brand">
-    <img src="/marca.svg" alt="Análise Legal">
-  </div>
-  <a class="header-cta" href="https://www.analiselegal.com.br/funil">Solicitar consulta</a>
-</header>
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="https://www.analiselegal.com.br" aria-label="Página inicial da Análise Legal">
+        <img class="brand-symbol" src="/assets/simbolo.svg" alt="Símbolo Análise Legal">
+        <img class="brand-logo" src="/assets/marca.svg" alt="Análise Legal">
+      </a>
 
-<main>
+      <a class="header-button" href="https://www.analiselegal.com.br/funil">
+        Solicitar consulta
+      </a>
+    </div>
+  </header>
 
-  <section class="hero">
-    <div class="hero-grid">
-      <div>
-        <div class="eyebrow">Direito Imobiliário</div>
-        <h1>A entrega do imóvel atrasou. Antes de aceitar qualquer proposta, entenda sua posição jurídica.</h1>
-        <p>
-          Atraso de obra, promessa de nova data, cobrança durante a mora da construtora e proposta de acordo precisam ser analisados com método. O problema não é apenas esperar. É saber o que pode ser exigido, quando exigir e qual caminho gera menor risco.
+  <main>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">Direito Imobiliário</div>
+
+          <h1>A entrega do imóvel atrasou. Antes de aceitar qualquer proposta, entenda sua posição jurídica.</h1>
+
+          <p class="hero-text">
+            Atraso de obra não é apenas incômodo. Pode afetar moradia, financiamento, aluguel, planejamento familiar, investimento e o valor econômico do contrato. A decisão mais segura começa pela análise técnica do contrato e dos documentos.
+          </p>
+
+          <div class="button-row">
+            <a class="btn-primary" href="https://www.analiselegal.com.br/funil">
+              Agendar análise jurídica
+            </a>
+
+            <a class="btn-secondary" href="#direitos">
+              Entender meus direitos
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h2>Esta análise é indicada quando:</h2>
+          <ul>
+            <li>o imóvel comprado na planta não foi entregue no prazo prometido;</li>
+            <li>a construtora usa o prazo de tolerância para justificar novo adiamento;</li>
+            <li>há cobrança de parcelas, juros, evolução de obra ou encargos durante o atraso;</li>
+            <li>você recebeu proposta de acordo, distrato ou desconto;</li>
+            <li>há dúvida entre manter o contrato, cobrar indenização ou pedir rescisão.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-dark" id="direitos">
+      <div class="container">
+        <h2 class="section-title">O atraso muda a leitura jurídica do contrato.</h2>
+
+        <p class="section-lead">
+          Em contratos de compra de imóvel na planta, é comum existir prazo de tolerância. Mas esse prazo não autoriza indefinição permanente, nem elimina automaticamente a responsabilidade da incorporadora. Superado o limite contratual e legalmente aceitável, o caso deixa de ser mera espera e passa a envolver inadimplemento.
         </p>
-        <div class="btn-group">
-          <a class="btn-primary" href="https://www.analiselegal.com.br/funil">Agendar análise jurídica</a>
-          <a class="btn-secondary" href="#entenda">Entender meus direitos</a>
+
+        <div class="grid-3">
+          <div class="card light-border">
+            <h3>Prazo de tolerância</h3>
+            <p>
+              A análise começa pela data prometida, pela cláusula de tolerância e pela forma como essa informação foi apresentada no contrato e no quadro-resumo.
+            </p>
+          </div>
+
+          <div class="card light-border">
+            <h3>Mora da construtora</h3>
+            <p>
+              Ultrapassado o prazo admissível, surge discussão sobre responsabilidade, indenização, restituição de valores e encargos cobrados do comprador.
+            </p>
+          </div>
+
+          <div class="card light-border">
+            <h3>Estratégia do comprador</h3>
+            <p>
+              Nem sempre rescindir é a melhor solução. Em alguns casos, manter o contrato e cobrar compensação pode ser economicamente mais eficiente.
+            </p>
+          </div>
+        </div>
+
+        <div class="warning">
+          <h3>O erro mais comum é assinar acordo sem cálculo prévio.</h3>
+          <p>
+            Propostas de postergação, desconto, distrato ou compensação podem parecer vantajosas, mas frequentemente envolvem renúncia a direitos, redução de valores recuperáveis ou aceitação de nova condição contratual menos favorável.
+          </p>
         </div>
       </div>
+    </section>
 
-      <div class="hero-card">
-        <h2>Essa análise é indicada quando:</h2>
-        <ul>
-          <li>o imóvel comprado na planta não foi entregue no prazo;</li>
-          <li>a construtora invoca prazo de tolerância sem clareza contratual;</li>
-          <li>há cobrança de parcelas, juros, condomínio ou evolução de obra mesmo sem entrega;</li>
-          <li>você recebeu proposta de acordo, distrato ou postergação da entrega;</li>
-          <li>há dúvida entre manter o contrato ou pedir rescisão com devolução dos valores.</li>
-        </ul>
+    <section class="section-graphite">
+      <div class="container grid-2">
+        <div>
+          <h2 class="section-title">O que pode ser analisado no seu caso</h2>
+
+          <p class="section-lead">
+            A análise jurídica não se limita à pergunta “atrasou ou não atrasou”. O ponto relevante é identificar o impacto jurídico e financeiro do atraso.
+          </p>
+
+          <div class="quote-box">
+            O comprador precisa saber se deve negociar, notificar, pedir indenização, rescindir o contrato ou apenas documentar melhor sua posição antes de agir.
+          </div>
+        </div>
+
+        <div class="card light-border">
+          <h3>Documentos importantes</h3>
+          <p>
+            Contrato, quadro-resumo, proposta de compra, comprovantes de pagamento, boletos, mensagens, e-mails, notificações da construtora, financiamento, previsão de entrega, habite-se, vistoria e eventual proposta de acordo.
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="entenda">
-    <div class="container">
-      <h2 class="section-title">O atraso na entrega do imóvel não deve ser tratado apenas como aborrecimento.</h2>
-      <p class="section-lead">
-        Em muitos casos, o comprador reorganizou moradia, financiamento, casamento, mudança, investimento ou renda futura com base na data prometida. Quando a obra atrasa, a discussão passa a envolver contrato, provas, prazo de tolerância, indenização, eventual rescisão e cálculo econômico do prejuízo.
+    <section class="section-military">
+      <div class="container">
+        <h2 class="section-title">Direitos que podem estar envolvidos</h2>
+
+        <p class="section-lead">
+          A resposta depende do contrato, do tempo de atraso, da postura da construtora, dos prejuízos documentados e da finalidade da aquisição.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Indenização pelo atraso</h3>
+            <p>
+              Pode haver compensação financeira pelo período de mora, especialmente quando o atraso supera o prazo juridicamente tolerável.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Rescisão contratual</h3>
+            <p>
+              Quando o atraso compromete a utilidade do contrato, pode ser avaliada a possibilidade de desfazimento com restituição dos valores pagos.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Cobranças indevidas</h3>
+            <p>
+              Juros, taxas, evolução de obra, encargos e cobranças paralelas podem exigir revisão, sobretudo quando mantidas durante atraso imputável à construtora.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Danos concretos</h3>
+            <p>
+              Aluguel, mudança, armazenamento, perda de renda locatícia ou despesas adicionais podem fortalecer a análise econômica do prejuízo.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Acordo extrajudicial</h3>
+            <p>
+              A proposta da construtora deve ser examinada antes da assinatura, pois pode conter quitação ampla ou renúncia a pedidos futuros.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Entrega formal</h3>
+            <p>
+              Obra aparentemente concluída não significa, necessariamente, entrega regular. Habite-se, vistoria, chaves e documentação precisam ser verificados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark">
+      <div class="container">
+        <h2 class="section-title">Como funciona a análise</h2>
+
+        <p class="section-lead">
+          A Análise Legal organiza a demanda antes da tomada de decisão. O objetivo é transformar uma situação confusa em um diagnóstico jurídico claro.
+        </p>
+
+        <div class="grid-3">
+          <div class="card light-border">
+            <span class="marker">1</span>
+            <h3>Você apresenta a situação</h3>
+            <p>
+              Informe o imóvel comprado, a data prometida, o tempo de atraso, o estágio atual da obra e o que a construtora está propondo.
+            </p>
+          </div>
+
+          <div class="card light-border">
+            <span class="marker">2</span>
+            <h3>Os documentos são avaliados</h3>
+            <p>
+              O contrato e os documentos principais são examinados para identificar prazo, tolerância, obrigações, cobranças e riscos.
+            </p>
+          </div>
+
+          <div class="card light-border">
+            <span class="marker">3</span>
+            <h3>A estratégia é definida</h3>
+            <p>
+              A análise indica se o melhor caminho é negociar, notificar, elaborar parecer, propor ação judicial ou aguardar com documentação adequada.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-graphite">
+      <div class="container grid-2">
+        <div class="card light-border">
+          <h3>Quando a consulta pode bastar</h3>
+          <p>
+            A consulta costuma ser suficiente quando o objetivo é entender a posição jurídica, verificar se o prazo de tolerância ainda está em curso, avaliar uma proposta simples ou saber quais documentos reunir antes de qualquer providência.
+          </p>
+        </div>
+
+        <div class="card light-border">
+          <h3>Quando pode ser necessário parecer</h3>
+          <p>
+            O parecer jurídico é mais adequado quando há valor relevante, proposta de acordo com quitação ampla, dúvida sobre rescisão, financiamento vinculado, cobrança expressiva ou necessidade de fundamentação escrita antes de negociar ou judicializar.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>Antes de aceitar nova data, desconto ou distrato, analise o impacto jurídico da decisão.</h2>
+
+      <p>
+        Seu caso não precisa apenas de informação. Precisa de análise, método e clareza para evitar renúncias indevidas e decisões precipitadas.
       </p>
 
-      <div class="pain-grid">
-        <div class="card">
-          <h3>Prazo contratual</h3>
-          <p>É preciso verificar qual era a data de entrega, se havia prazo de tolerância e se essa cláusula foi redigida de modo claro e destacado.</p>
-        </div>
+      <a class="btn-primary" href="https://www.analiselegal.com.br/funil">
+        Solicitar consulta jurídica
+      </a>
+    </section>
 
-        <div class="card">
-          <h3>Mora da construtora</h3>
-          <p>Superado o prazo juridicamente válido, o atraso pode gerar consequências patrimoniais, inclusive indenização mensal e discussão sobre encargos cobrados.</p>
-        </div>
+  </main>
 
-        <div class="card">
-          <h3>Estratégia do comprador</h3>
-          <p>Nem sempre rescindir é a melhor solução. Em alguns casos, manter o contrato e cobrar indenização pode ser mais racional.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="highlight">
-    <div class="container two-columns">
+  <footer>
+    <div class="footer-inner">
       <div>
-        <h2 class="section-title">O ponto central é separar atraso tolerável de inadimplemento relevante.</h2>
-        <p>
-          A lei admite prazo de tolerância de até 180 dias corridos, desde que previsto de forma clara e destacada no contrato. Depois desse limite, a situação muda: o atraso deixa de ser simples previsão contratual de flexibilidade e passa a exigir análise de responsabilidade da incorporadora.
-        </p>
+        <div class="footer-title">Análise Legal</div>
+        <div class="footer-text">Precisão jurídica para decisões relevantes.</div>
       </div>
 
-      <div class="card">
-        <h3>Na consulta, a análise costuma envolver:</h3>
-        <p>
-          contrato, quadro-resumo, data prometida, prazo de tolerância, notificações da construtora, comprovantes de pagamento, financiamento, encargos cobrados, status da obra, habite-se, entrega das chaves e eventuais propostas de acordo.
-        </p>
+      <div class="footer-text">
+        Conteúdo informativo. A análise do caso concreto depende da documentação, do contrato, dos pagamentos realizados, das comunicações da construtora e das circunstâncias específicas da aquisição.
       </div>
     </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <h2 class="section-title">O que pode estar em discussão</h2>
-      <p class="section-lead">
-        A solução depende do contrato, do estágio da obra, da finalidade da compra e da prova documental disponível.
-      </p>
-
-      <div class="rights-grid">
-        <div class="card">
-          <h3>Indenização pelo atraso</h3>
-          <p>Pode haver discussão sobre compensação mensal enquanto o imóvel não é entregue, observada a base de cálculo aplicável e o período efetivo de mora.</p>
-        </div>
-
-        <div class="card">
-          <h3>Rescisão contratual</h3>
-          <p>Quando o atraso supera o limite aceitável, pode ser analisada a viabilidade de desfazimento do contrato com restituição dos valores pagos.</p>
-        </div>
-
-        <div class="card">
-          <h3>Cobranças indevidas</h3>
-          <p>Encargos durante atraso, evolução de obra, juros, taxas ou cobranças paralelas podem exigir revisão técnica antes de qualquer pagamento ou acordo.</p>
-        </div>
-
-        <div class="card">
-          <h3>Acordo com a construtora</h3>
-          <p>Propostas de desconto, postergação ou distrato devem ser avaliadas antes da assinatura, pois podem importar renúncia a direitos relevantes.</p>
-        </div>
-
-        <div class="card">
-          <h3>Danos concretos</h3>
-          <p>Aluguel pago, perda de locação, despesas de mudança, armazenamento e financiamento podem reforçar a análise econômica do caso.</p>
-        </div>
-
-        <div class="card">
-          <h3>Entrega formal</h3>
-          <p>Nem sempre a obra aparentemente pronta significa entrega juridicamente regular. Habite-se, documentação e efetiva disponibilidade precisam ser avaliados.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="highlight">
-    <div class="container">
-      <h2 class="section-title">Como funciona a análise</h2>
-      <div class="steps-grid">
-        <div class="card">
-          <div class="number">1</div>
-          <h3>Você apresenta o caso</h3>
-          <p>Explique a compra, a data prevista de entrega, o tempo de atraso e o que a construtora está informando.</p>
-        </div>
-
-        <div class="card">
-          <div class="number">2</div>
-          <h3>Os documentos são organizados</h3>
-          <p>Contrato, quadro-resumo, boletos, e-mails, mensagens, notificações e proposta de acordo são analisados em conjunto.</p>
-        </div>
-
-        <div class="card">
-          <div class="number">3</div>
-          <h3>A estratégia é definida</h3>
-          <p>A consulta aponta se o caso recomenda negociação, notificação, parecer jurídico, ação judicial ou revisão da proposta recebida.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container two-columns">
-      <div>
-        <h2 class="section-title">Quando a consulta basta?</h2>
-        <p>
-          A consulta costuma bastar quando o comprador precisa entender sua posição jurídica, decidir se aceita uma proposta, avaliar se o prazo de tolerância ainda está em curso ou saber quais documentos reunir antes de agir.
-        </p>
-      </div>
-
-      <div>
-        <h2 class="section-title">Quando pode ser necessário parecer?</h2>
-        <p>
-          O parecer jurídico é mais adequado quando há valores relevantes, negociação em andamento, risco de renúncia de direitos, contrato complexo, financiamento vinculado ou necessidade de apresentar uma posição técnica por escrito antes de notificar ou judicializar.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-section">
-    <h2>Antes de aceitar nova data, desconto ou distrato, analise o impacto jurídico da decisão.</h2>
-    <p>
-      A Análise Legal organiza sua demanda, identifica os pontos críticos do contrato e orienta a escolha do caminho mais seguro.
-    </p>
-    <a class="btn-primary" href="https://www.analiselegal.com.br/funil">Solicitar consulta jurídica</a>
-  </section>
-
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <div>
-      <strong>Análise Legal</strong><br>
-      Precisão jurídica para decisões relevantes.
-    </div>
-    <div>
-      Conteúdo informativo. A análise do caso concreto depende da documentação e das circunstâncias específicas.
-    </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>
