@@ -1,190 +1,304 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<section class="home-analysis-section" id="analise">
+  <div class="home-analysis-container">
 
-<title>Análise Legal™ | Precisão jurídica para decisões relevantes</title>
-<meta name="description" content="Organize sua situação jurídica antes de contratar um advogado. Clareza, estrutura e decisão com segurança.">
+    <div class="home-analysis-header">
+      <p class="eyebrow">ANÁLISE LEGAL™</p>
+      <h1>Seu caso não precisa de mais informação. Precisa de análise.</h1>
+      <p class="lead">
+        A ANÁLISE LEGAL™ organiza o seu problema antes da decisão. Você passa a enxergar,
+        com clareza, o que está em jogo, quais variáveis importam e quais decisões precisam
+        ser tomadas.
+      </p>
+    </div>
 
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <div class="home-analysis-grid">
+      <div class="analysis-card highlight">
+        <h2>Se você chegou até aqui, o cenário costuma ser este:</h2>
+        <ul>
+          <li>Existe um problema, mas ele não está estruturado</li>
+          <li>Há risco, mas ele não está claramente definido</li>
+          <li>Já houve tentativa de entender, sem conclusão segura</li>
+          <li>A decisão precisa ser tomada, mas falta segurança</li>
+        </ul>
+        <p>
+          Isso é comum. O problema, em regra, não é falta de informação.
+          É desorganização.
+        </p>
+      </div>
+
+      <div class="analysis-card">
+        <h2>O que a ANÁLISE LEGAL™ faz</h2>
+        <p>
+          Atua antes da consulta jurídica. Organiza o caso a partir de elementos objetivos:
+          situação, contexto, conflito, impacto financeiro, urgência e decisão pretendida.
+        </p>
+        <p>
+          Ao final, o cenário deixa de ser difuso e passa a ser claro, com leitura objetiva
+          dos pontos relevantes e dos possíveis caminhos de análise.
+        </p>
+      </div>
+
+      <div class="analysis-card">
+        <h2>O que a ANÁLISE LEGAL™ não faz</h2>
+        <p>
+          Não presta serviços jurídicos, não intermedia honorários e não participa da relação
+          entre advogado e cliente.
+        </p>
+        <p>
+          A decisão de contratar consulta jurídica, parecer ou constituir advogado decorre
+          da compreensão do usuário, construída a partir da organização do seu caso e da
+          exposição a situações reais, com apresentação clara dos riscos e das variáveis envolvidas.
+        </p>
+        <p>
+          O atendimento, a cobrança e a condução do caso são realizados por advogado
+          devidamente identificado.
+        </p>
+      </div>
+
+      <div class="analysis-card">
+        <h2>Por que isso muda a decisão?</h2>
+        <p>
+          Sem estrutura, a decisão tende a ser intuitiva. Com o caso organizado, a decisão
+          passa a ser consciente. Isso reduz erro, retrabalho e exposição ao risco.
+        </p>
+      </div>
+    </div>
+
+    <div class="how-it-works">
+      <h2>Como funciona?</h2>
+      <div class="steps">
+        <div><span>1</span><p>Você identifica sua situação</p></div>
+        <div><span>2</span><p>Informa dados essenciais</p></div>
+        <div><span>3</span><p>O sistema organiza o cenário</p></div>
+        <div><span>4</span><p>Você entende o problema com clareza</p></div>
+        <div><span>5</span><p>Decide se deve avançar</p></div>
+      </div>
+      <p class="note">Sem exigência técnica.</p>
+    </div>
+
+    <div class="analysis-closing">
+      <h2>Quando isso é suficiente, e quando, não é?</h2>
+      <p>
+        Em alguns casos, a organização resolve. Em outros, a complexidade exige análise
+        jurídica aprofundada. Nesses casos, a consulta já começa com o problema estruturado.
+        Quando necessário, pode ser acompanhada de parecer jurídico.
+      </p>
+      <p class="closing-line">
+        O ponto central não é informação. É estrutura para decidir.
+      </p>
+      <a href="/funil" class="cta-button">Iniciar análise</a>
+    </div>
+
+  </div>
+</section>
 
 <style>
-:root {
-    --verde-profundo: rgb(13,22,34);
-    --grafite: rgb(30,35,41);
-    --verde-militar: rgb(56,66,51);
-    --verde-oliva: rgb(138,154,107);
-    --ouro: rgb(176,141,87);
-}
+  .home-analysis-section {
+    font-family: "Crimson Text", Georgia, serif;
+    background: rgb(13, 22, 34);
+    color: #f7f4ee;
+    padding: 88px 24px;
+  }
 
-body {
-    margin: 0;
-    font-family: 'Crimson Text', serif;
-    background: var(--verde-profundo);
-    color: #f5f5f5;
-    line-height: 1.6;
-}
+  .home-analysis-container {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
 
-header {
-    padding: 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
+  .home-analysis-header {
+    max-width: 860px;
+    margin-bottom: 52px;
+  }
 
-header img {
-    height: 50px;
-}
+  .eyebrow {
+    color: rgb(176, 141, 87);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+  }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 40px 20px;
-}
+  .home-analysis-header h1 {
+    font-size: clamp(2.4rem, 5vw, 4.8rem);
+    line-height: 0.98;
+    margin: 0 0 24px;
+    font-weight: 600;
+  }
 
-h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
-}
+  .lead {
+    font-size: 1.35rem;
+    line-height: 1.55;
+    color: #e5ded2;
+    max-width: 820px;
+  }
 
-h2 {
-    font-size: 28px;
-    margin-top: 40px;
-}
-
-p {
-    margin-bottom: 20px;
-}
-
-.cta {
-    display: inline-block;
-    background: var(--ouro);
-    color: #000;
-    padding: 15px 30px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-.section {
-    margin-top: 60px;
-}
-
-.grid {
+  .home-analysis-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-bottom: 56px;
+  }
 
-.card {
-    background: var(--grafite);
-    padding: 20px;
-    border-radius: 5px;
-}
+  .analysis-card {
+    background: rgb(30, 35, 41);
+    border: 1px solid rgba(138, 154, 107, 0.35);
+    border-radius: 22px;
+    padding: 32px;
+  }
 
-footer {
-    margin-top: 80px;
-    padding: 40px 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    font-size: 14px;
-}
+  .analysis-card.highlight {
+    background: rgb(56, 66, 51);
+  }
 
-/* PRINT */
-@media print {
-    body {
-        background: white;
-        color: black;
+  .analysis-card h2,
+  .how-it-works h2,
+  .analysis-closing h2 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin: 0 0 18px;
+    color: #fffaf0;
+  }
+
+  .analysis-card p,
+  .analysis-closing p {
+    font-size: 1.12rem;
+    line-height: 1.62;
+    color: #e6e0d6;
+    margin: 0 0 14px;
+  }
+
+  .analysis-card ul {
+    padding-left: 22px;
+    margin: 0 0 20px;
+  }
+
+  .analysis-card li {
+    font-size: 1.12rem;
+    line-height: 1.55;
+    margin-bottom: 8px;
+    color: #f1eadf;
+  }
+
+  .how-it-works {
+    background: #f7f4ee;
+    color: rgb(30, 35, 41);
+    border-radius: 26px;
+    padding: 40px;
+    margin-bottom: 48px;
+  }
+
+  .how-it-works h2 {
+    color: rgb(13, 22, 34);
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    margin-top: 26px;
+  }
+
+  .steps div {
+    border-left: 3px solid rgb(176, 141, 87);
+    padding-left: 16px;
+  }
+
+  .steps span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgb(13, 22, 34);
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  .steps p {
+    font-size: 1.08rem;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .note {
+    margin-top: 28px;
+    font-size: 1.15rem;
+    color: rgb(56, 66, 51);
+  }
+
+  .analysis-closing {
+    max-width: 840px;
+  }
+
+  .closing-line {
+    font-size: 1.4rem !important;
+    color: #fffaf0 !important;
+    margin-top: 22px !important;
+  }
+
+  .cta-button {
+    display: inline-block;
+    margin-top: 24px;
+    background: rgb(176, 141, 87);
+    color: rgb(13, 22, 34);
+    text-decoration: none;
+    padding: 16px 28px;
+    border-radius: 999px;
+    font-size: 1.12rem;
+    font-weight: 700;
+    transition: 0.2s ease;
+  }
+
+  .cta-button:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 860px) {
+    .home-analysis-section {
+      padding: 64px 18px;
     }
-    .cta, header, footer {
-        display: none;
+
+    .home-analysis-grid,
+    .steps {
+      grid-template-columns: 1fr;
     }
-}
+
+    .analysis-card,
+    .how-it-works {
+      padding: 26px;
+    }
+  }
+
+  @media print {
+    .home-analysis-section {
+      background: #fff;
+      color: #111;
+      padding: 0;
+    }
+
+    .analysis-card,
+    .how-it-works {
+      background: #fff;
+      color: #111;
+      border: 1px solid #bbb;
+      box-shadow: none;
+      break-inside: avoid;
+    }
+
+    .home-analysis-header h1,
+    .analysis-card h2,
+    .how-it-works h2,
+    .analysis-closing h2,
+    .analysis-card p,
+    .analysis-card li,
+    .analysis-closing p {
+      color: #111 !important;
+    }
+
+    .cta-button {
+      display: none;
+    }
+  }
 </style>
-</head>
-
-<body>
-
-<header>
-    <img src="/Marca.svg" alt="Análise Legal™">
-</header>
-
-<div class="container">
-
-<!-- HERO -->
-<h1>Seu caso não precisa de mais informação. Precisa de análise.</h1>
-<p>Organize sua situação jurídica com clareza antes de tomar qualquer decisão. A ANÁLISE LEGAL™ estrutura seu problema e mostra os cenários possíveis, permitindo que você decida com segurança quando e como avançar.</p>
-
-<a href="/funil" class="cta">Iniciar análise do meu caso</a>
-
-<!-- DOR -->
-<div class="section">
-<h2>Você está em uma dessas situações?</h2>
-
-<div class="grid">
-<div class="card">Comprou um imóvel e descobriu problemas depois?</div>
-<div class="card">Está em conflito familiar envolvendo patrimônio?</div>
-<div class="card">Precisa sair de um contrato sem prejuízo maior?</div>
-<div class="card">Tem dúvida se deve agir agora ou esperar?</div>
-<div class="card">Recebeu uma cobrança ou foi surpreendido juridicamente?</div>
-<div class="card">Sente que pode tomar uma decisão errada por falta de clareza?</div>
-</div>
-</div>
-
-<!-- EXPLICAÇÃO -->
-<div class="section">
-<h2>Antes de contratar um advogado, existe um problema anterior</h2>
-
-<p>A maioria das pessoas não sabe exatamente qual é o seu problema jurídico. Sabe apenas que existe um risco, uma dúvida ou uma decisão difícil a ser tomada.</p>
-
-<p>Sem organização, qualquer decisão tende a ser precipitada, atrasada ou mal direcionada.</p>
-
-<p>A ANÁLISE LEGAL™ existe para resolver esse ponto inicial: transformar dúvida difusa em compreensão estruturada.</p>
-</div>
-
-<!-- CENÁRIOS -->
-<div class="section">
-<h2>O que normalmente acontece sem clareza</h2>
-
-<p>Você pode agir cedo demais, assumindo custos desnecessários.</p>
-<p>Pode agir tarde demais, perdendo direitos importantes.</p>
-<p>Pode contratar sem entender o que realmente precisa.</p>
-<p>Ou pode simplesmente não agir — e o problema crescer.</p>
-</div>
-
-<!-- MÉTODO -->
-<div class="section">
-<h2>Como funciona a ANÁLISE LEGAL™</h2>
-
-<p>Você responde algumas perguntas objetivas.</p>
-<p>O sistema organiza sua situação com base nas informações fornecidas.</p>
-<p>Você visualiza os riscos, os cenários e as possíveis decisões.</p>
-<p>Se necessário, agenda uma consulta jurídica já com o caso estruturado.</p>
-</div>
-
-<!-- DECISÃO -->
-<div class="section">
-<h2>Nem todo caso precisa de ação imediata</h2>
-
-<p>Em alguns casos, entender o cenário já é suficiente.</p>
-<p>Em outros, a decisão precisa ser tomada com apoio técnico.</p>
-
-<p>A diferença entre os dois não é opinião. É estrutura.</p>
-</div>
-
-<!-- CTA FINAL -->
-<div class="section">
-<h2>Comece organizando seu caso</h2>
-
-<p>Em poucos minutos, você sai da dúvida para um cenário claro.</p>
-
-<a href="/funil" class="cta">Iniciar análise agora</a>
-</div>
-
-</div>
-
-<footer>
-<p>O uso da plataforma não configura prestação de serviços jurídicos pela ANÁLISE LEGAL™.</p>
-<p>A relação advogado-cliente ocorre exclusivamente por contratação direta entre as partes.</p>
-</footer>
-
-</body>
-</html>
