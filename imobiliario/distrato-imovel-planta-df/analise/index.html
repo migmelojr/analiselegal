@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Estruturação de Caso | Distrato de Imóvel na Planta no DF</title>
+  <meta name="description" content="Estruture informações sobre distrato de imóvel na planta no DF para posterior consulta jurídica ou parecer com advogado." />
+  <meta name="robots" content="noindex, follow" />
+
+  <style>
+    :root {
+      --verde-profundo: rgb(13,22,34);
+      --grafite: rgb(30,35,41);
+      --verde-militar: rgb(56,66,51);
+      --verde-oliva: rgb(138,154,107);
+      --ouro-fosco: rgb(176,141,87);
+      --fundo: rgb(247,246,242);
+      --papel: rgb(255,255,255);
+      --texto: rgb(31,31,31);
+      --texto-suave: rgb(92,92,92);
+      --linha: rgba(13,22,34,0.14);
+      --erro: rgb(130,35,35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Crimson Text", Georgia, serif;
+      background: var(--fundo);
+      color: var(--texto);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+    }
+
+    header {
+      background: var(--verde-profundo);
+      padding: 20px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .marca img {
+      height: 44px;
+      display: block;
+    }
+
+    .voltar {
+      color: var(--fundo);
+      font-size: 1rem;
+      opacity: 0.86;
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 80% 20%, rgba(138,154,107,0.22), transparent 30%),
+        linear-gradient(135deg, var(--verde-profundo), var(--grafite));
+      color: var(--fundo);
+      padding: 58px 7% 50px;
+    }
+
+    .hero-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.08;
+      margin: 0 0 18px;
+      letter-spacing: -0.025em;
+    }
+
+    .hero p {
+      max-width: 780px;
+      font-size: 1.22rem;
+      color: rgba(247,246,242,0.9);
+      margin: 0;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 44px 7% 72px;
+    }
+
+    .notice {
+      background: var(--papel);
+      border: 1px solid var(--linha);
+      border-left: 5px solid var(--ouro-fosco);
+      border-radius: 18px;
+      padding: 22px 24px;
+      margin-bottom: 26px;
+      box-shadow: 0 12px 36px rgba(13,22,34,0.05);
+    }
+
+    .notice p {
+      margin: 0;
+      font-size: 1.08rem;
+    }
+
+    .progress-wrap {
+      background: rgba(13,22,34,0.08);
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 0 0 26px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--ouro-fosco);
+      transition: width 0.25s ease;
+    }
+
+    form {
+      background: var(--papel);
+      border: 1px solid var(--linha);
+      border-radius: 24px;
+      padding: clamp(24px, 5vw, 46px);
+      box-shadow: 0 18px 48px rgba(13,22,34,0.06);
+    }
+
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    .step-label {
+      color: var(--verde-militar);
+      font-size: 1.02rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      line-height: 1.16;
+      margin: 0 0 12px;
+      color: var(--verde-profundo);
+    }
+
+    .intro {
+      font-size: 1.15rem;
+      color: var(--texto-suave);
+      margin: 0 0 28px;
+      max-width: 800px;
+    }
+
+    .field {
+      margin-bottom: 24px;
+    }
+
+    label.main-label {
+      display: block;
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--verde-profundo);
+      margin-bottom: 10px;
+    }
+
+    .hint {
+      font-size: 1rem;
+      color: var(--texto-suave);
+      margin: -4px 0 12px;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .option {
+      border: 1px solid var(--linha);
+      border-radius: 14px;
+      padding: 13px 14px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: rgba(13,22,34,0.025);
+      cursor: pointer;
+    }
+
+    .option:hover {
+      border-color: var(--ouro-fosco);
+      background: rgba(176,141,87,0.08);
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-top: 5px;
+      accent-color: var(--ouro-fosco);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--linha);
+      border-radius: 12px;
+      padding: 13px 14px;
+      font-family: "Crimson Text", Georgia, serif;
+      font-size: 1.08rem;
+      color: var(--texto);
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 104px;
+      resize: vertical;
+    }
+
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 34px;
+      border-top: 1px solid var(--linha);
+      padding-top: 24px;
+    }
+
+    button {
+      font-family: "Crimson Text", Georgia, serif;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 1.04rem;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--ouro-fosco);
+      color: var(--verde-profundo);
+      font-weight: 700;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--linha);
+      color: var(--grafite);
+    }
+
+    .btn[disabled] {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .error {
+      display: none;
+      color: var(--erro);
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+
+    .summary {
+      background: rgba(13,22,34,0.035);
+      border: 1px solid var(--linha);
+      border-radius: 18px;
+      padding: 22px;
+      margin-top: 20px;
+    }
+
+    .summary h3 {
+      margin: 0 0 12px;
+      color: var(--verde-profundo);
+      font-size: 1.34rem;
+    }
+
+    .summary p {
+      margin: 0 0 10px;
+      font-size: 1.06rem;
+    }
+
+    .service-choice {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .service-card {
+      border: 1px solid var(--linha);
+      border-radius: 18px;
+      padding: 20px;
+      background: #fff;
+    }
+
+    .service-card h3 {
+      color: var(--verde-profundo);
+      margin: 0 0 8px;
+      font-size: 1.34rem;
+    }
+
+    .service-card p {
+      margin: 0 0 12px;
+      color: var(--texto-suave);
+      font-size: 1.04rem;
+    }
+
+    .price {
+      color: var(--verde-profundo);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    footer {
+      background: var(--grafite);
+      color: rgba(247,246,242,0.78);
+      padding: 34px 7%;
+      font-size: 0.98rem;
+    }
+
+    footer .footer-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: grid;
+      gap: 10px;
+    }
+
+    footer strong {
+      color: var(--fundo);
+    }
+
+    .print-only { display: none; }
+
+    @media (max-width: 820px) {
+      header { padding: 18px 6%; }
+      .marca img { height: 39px; }
+      .voltar { display: none; }
+      .hero { padding: 46px 6% 42px; }
+      main { padding: 34px 6% 58px; }
+      .two-cols,
+      .service-choice {
+        grid-template-columns: 1fr;
+      }
+      .actions {
+        flex-direction: column-reverse;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 1.8cm 1.6cm;
+      }
+
+      body {
+        background: #fff !important;
+        color: #111 !important;
+        font-size: 11pt;
+        line-height: 1.45;
+      }
+
+      .no-print,
+      .actions,
+      .progress-wrap,
+      footer {
+        display: none !important;
+      }
+
+      .print-only {
+        display: block !important;
+      }
+
+      header {
+        background: #fff !important;
+        padding: 0 0 12px !important;
+        border-bottom: 1px solid #999;
+      }
+
+      .marca img {
+        height: 34px !important;
+      }
+
+      .hero {
+        background: #fff !important;
+        color: #111 !important;
+        padding: 14px 0 !important;
+      }
+
+      .hero h1 {
+        color: #111 !important;
+        font-size: 16pt !important;
+        line-height: 1.16;
+      }
+
+      .hero p,
+      p,
+      .intro,
+      .notice p {
+        color: #111 !important;
+        font-size: 11pt !important;
+      }
+
+      main {
+        padding: 0 !important;
+        max-width: none !important;
+      }
+
+      form,
+      .notice,
+      .summary,
+      .service-card {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        background: #fff !important;
+      }
+
+      .step {
+        display: block !important;
+        margin-bottom: 18px;
+        page-break-inside: avoid;
+      }
+
+      .step-label {
+        color: #111 !important;
+        font-size: 9pt;
+      }
+
+      h2 {
+        font-size: 14pt !important;
+        color: #111 !important;
+      }
+
+      h3 {
+        font-size: 12pt !important;
+        color: #111 !important;
+      }
+
+      .field,
+      .option,
+      .service-card {
+        margin-bottom: 8px;
+        border: none !important;
+      }
+
+      input,
+      textarea,
+      select {
+        border: 1px solid #999 !important;
+      }
+
+      .print-footer {
+        display: block !important;
+        border-top: 1px solid #999;
+        margin-top: 18px;
+        padding-top: 8px;
+        font-size: 8.5pt;
+        line-height: 1.35;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a class="marca" href="/" aria-label="Voltar para a página inicial">
+      <img src="/Marca.svg" alt="ANÁLISE LEGAL" />
+    </a>
+    <a class="voltar no-print" href="/imobiliario/distrato-imovel-planta-df/">Voltar à página do tema</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Estruturação de informações sobre distrato de imóvel na planta no DF.</h1>
+      <p>
+        Este preenchimento organiza dados fornecidos pelo usuário sobre contrato, valores, documentos, proposta de distrato e contexto do caso, com a finalidade de preparar eventual consulta jurídica ou parecer com advogado.
+      </p>
+    </div>
+  </section>
+
+  <main>
+    <div class="notice">
+      <p>
+        A ANÁLISE LEGAL<span class="tm">™</span> não presta serviços jurídicos, não realiza análise, interpretação ou orientação jurídica e não substitui consulta com advogado. O preenchimento abaixo serve apenas para estruturar informações fornecidas pelo usuário.
+      </p>
+    </div>
+
+    <div class="progress-wrap no-print">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <form id="funilDistrato">
+      <!-- ETAPA 1 -->
+      <section class="step active" data-step="1">
+        <div class="step-label">Etapa 1 de 9</div>
+        <h2>Identificação da situação</h2>
+        <p class="intro">
+          Selecione a alternativa que melhor descreve a situação atual. Esta etapa não avalia direitos; apenas classifica o tipo de informação que será organizada.
+        </p>
+
+        <div class="field required">
+          <label class="main-label">Qual é a sua situação principal?</label>
+          <div class="options">
+            <label class="option"><input type="radio" name="situacao_principal" value="quero_desistir"> Quero desistir da compra do imóvel na planta.</label>
+            <label class="option"><input type="radio" name="situacao_principal" value="proposta_distrato"> A construtora já apresentou proposta de distrato.</label>
+            <label class="option"><input type="radio" name="situacao_principal" value="atraso_obra"> Há atraso na obra ou na entrega do imóvel.</label>
+            <label class="option"><input type="radio" name="situacao_principal" value="dificuldade_pagamento"> Estou com dificuldade de continuar pagando.</label>
+            <label class="option"><input type="radio" name="situacao_principal" value="duvida_antes_assinar"> Ainda não assinei distrato e quero organizar as informações antes.</label>
+            <label class="option"><input type="radio" name="situacao_principal" value="outro"> Outra situação.</label>
+          </div>
+          <div class="error">Selecione uma opção para continuar.</div>
+        </div>
+
+        <div class="field">
+          <label class="main-label" for="situacao_complemento">Complemento opcional</label>
+          <textarea id="situacao_complemento" name="situacao_complemento" placeholder="Descreva, de forma breve, o que aconteceu até agora."></textarea>
+        </div>
+      </section>
+
+      <!-- ETAPA 2 -->
+      <section class="step" data-step="2">
+        <div class="step-label">Etapa 2 de 9</div>
+        <h2>Tipo de imóvel e contrato</h2>
+        <p class="intro">
+          Informe dados básicos sobre o contrato. Esses elementos ajudam a organizar o caso para posterior análise profissional.
+        </p>
+
+        <div class="field required">
+          <label class="main-label">O imóvel é:</label>
+          <div class="options">
+            <label class="option"><input type="radio" name="tipo_imovel" value="planta"> Imóvel na planta.</label>
+            <label class="option"><input type="radio" name="tipo_imovel" value="pronto"> Imóvel pronto.</label>
+            <label class="option"><input type="radio" name="tipo_imovel" value="lote"> Lote ou terreno.</label>
+            <label class="option"><input type="radio" name="tipo_imovel" value="nao_sei"> Não sei enquadrar.</label>
+          </div>
+          <div class="error">Selecione uma opção para continuar.</div>
+        </div>
+
+        <div class="two-cols">
+          <div class="field">
+            <label class="main-label" for="ano_contrato">Ano aproximado da assinatura</label>
+            <select id="ano_contrato" name="ano_contrato">
+              <option value="">Selecione</option>
+              <option>Antes de 2018</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
+              <option>2021</option>
+              <option>2022</option>
+              <option>2023</option>
+              <option>2024</option>
+              <option>2025</option>
+              <option>2026</option>
+              <option>Não sei informar</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label class="main-label" for="cidade_imovel">Cidade/DF</label>
+            <input type="text" id="cidade_imovel" name="cidade_imovel" placeholder="Ex.: Brasília, Águas Claras, Guará..." />
+          </div>
+        </div>
+      </section>
+
+      <!-- ETAPA 3 -->
+      <section class="step" data-step="3">
+        <div class="step-label">Etapa 3 de 9</div>
+        <h2>Forma de aquisição</h2>
+        <p class="intro">
+          Indique como a aquisição foi estruturada. Não é necessário usar linguagem técnica.
+        </p>
+
+        <div class="field required">
+          <label class="main-label">Como foi feita a compra?</label>
+          <div class="options">
+            <label class="option"><input type="radio" name="forma_compra" value="direto_construtora"> Diretamente com construtora/incorporadora.</label>
+            <label class="option"><input type="radio" name="forma_compra" value="construtora_financiamento"> Parte com construtora e parte com financiamento bancário.</label>
+            <label class="option"><input type="radio" name="forma_compra" value="financiado"> Já há financiamento bancário ativo.</label>
+            <label class="option"><input type="radio" name="forma_compra" value="intermediacao"> Compra com intermediação de imobiliária/corretor.</label>
+            <label class="option"><input type="radio" name="forma_compra" value="nao_sei"> Não sei informar.</label>
+          </div>
+          <div class="error">Selecione uma opção para continuar.</div>
+        </div>
+
+        <div class="field">
+          <label class="main-label" for="nome_construtora">Nome da construtora/incorporadora, se souber</label>
+          <input type="text" id="nome_construtora" name="nome_construtora" />
+        </div>
+      </section>
+
+      <!-- ETAPA 4 -->
+      <section class="step" data-step="4">
+        <div class="step-label">Etapa 4 de 9</div>
+        <h2>Valores envolvidos</h2>
+        <p class="intro">
+          Informe valores aproximados. O objetivo é organizar a dimensão econômica do caso, sem cálculo jurídico automatizado.
+        </p>
+
+        <div class="two-cols">
+          <div class="field">
+            <label class="main-label" for="valor_imovel">Valor aproximado do imóvel</label>
+            <select id="valor_imovel" name="valor_imovel">
+              <option value="">Selecione</option>
+              <option>Até R$ 200 mil</option>
+              <option>R$ 200 mil a R$ 500 mil</option>
+              <option>R$ 500 mil a R$ 1 milhão</option>
+              <option>Acima de R$ 1 milhão</option>
+              <option>Não sei informar</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label class="main-label" for="valor_pago">Valor aproximado já pago</label>
+            <select id="valor_pago" name="valor_pago">
+              <option value="">Selecione</option>
+              <option>Até R$ 50 mil</option>
+              <option>R$ 50 mil a R$ 150 mil</option>
+              <option>R$ 150 mil a R$ 300 mil</option>
+              <option>Acima de R$ 300 mil</option>
+              <option>Não sei informar</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="main-label" for="retencao_informada">A construtora informou algum valor ou percentual de retenção?</label>
+          <textarea id="retencao_informada" name="retencao_informada" placeholder="Ex.: informou retenção de 25%, 50%, valor fixo, devolução parcelada etc."></textarea>
+        </div>
+      </section>
+
+      <!-- ETAPA 5 -->
+      <section class="step" data-step="5">
+        <div class="step-label">Etapa 5 de 9</div>
+        <h2>Documentos disponíveis</h2>
+        <p class="intro">
+          Marque os documentos que você possui. O envio de arquivos poderá ocorrer em etapa própria, conforme o fluxo definido após a escolha de consulta ou parecer.
+        </p>
+
+        <div class="field">
+          <label class="main-label">Quais documentos você tem?</label>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="documentos" value="contrato"> Contrato de compra e venda.</label>
+            <label class="option"><input type="checkbox" name="documentos" value="aditivos"> Aditivos contratuais.</label>
+            <label class="option"><input type="checkbox" name="documentos" value="comprovantes"> Comprovantes de pagamento.</label>
+            <label class="option"><input type="checkbox" name="documentos" value="proposta"> Proposta de distrato.</label>
+            <label class="option"><input type="checkbox" name="documentos" value="mensagens"> E-mails, mensagens ou notificações.</label>
+            <label class="option"><input type="checkbox" name="documentos" value="publicidade"> Material de venda, promessa ou publicidade.</label>
+            <label class="option"><input type="checkbox" name="documentos" value="nao_organizado"> Ainda não organizei os documentos.</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ETAPA 6 -->
+      <section class="step" data-step="6">
+        <div class="step-label">Etapa 6 de 9</div>
+        <h2>Contexto de urgência</h2>
+        <p class="intro">
+          Esta etapa organiza prazos e eventos próximos. Não há análise automática de risco jurídico.
+        </p>
+
+        <div class="field required">
+          <label class="main-label">Há algum prazo ou evento próximo?</label>
+          <div class="options">
+            <label class="option"><input type="radio" name="urgencia" value="termo_para_assinar"> Recebi termo de distrato para assinar.</label>
+            <label class="option"><input type="radio" name="urgencia" value="cobranca_em_aberto"> Há cobranças em aberto.</label>
+            <label class="option"><input type="radio" name="urgencia" value="negociacao_andamento"> Estou em negociação com a construtora.</label>
+            <label class="option"><input type="radio" name="urgencia" value="prazo_obra"> Há prazo de obra, entrega ou habite-se envolvido.</label>
+            <label class="option"><input type="radio" name="urgencia" value="sem_prazo"> Não há prazo imediato.</label>
+            <label class="option"><input type="radio" name="urgencia" value="nao_sei"> Não sei informar.</label>
+          </div>
+          <div class="error">Selecione uma opção para continuar.</div>
+        </div>
+
+        <div class="field">
+          <label class="main-label" for="urgencia_detalhe">Detalhe opcional sobre prazo ou urgência</label>
+          <textarea id="urgencia_detalhe" name="urgencia_detalhe"></textarea>
+        </div>
+      </section>
+
+      <!-- ETAPA 7 -->
+      <section class="step" data-step="7">
+        <div class="step-label">Etapa 7 de 9</div>
+        <h2>Objetivo informado pelo usuário</h2>
+        <p class="intro">
+          Indique o que você pretende organizar para eventual consulta ou parecer. Esta etapa não define a melhor solução.
+        </p>
+
+        <div class="field required">
+          <label class="main-label">Qual é o seu objetivo neste momento?</label>
+          <div class="options">
+            <label class="option"><input type="radio" name="objetivo" value="entender_documentos"> Organizar documentos e informações antes de decidir.</label>
+            <label class="option"><input type="radio" name="objetivo" value="avaliar_proposta"> Preparar informações sobre proposta apresentada pela construtora.</label>
+            <label class="option"><input type="radio" name="objetivo" value="preparar_consulta"> Preparar uma consulta jurídica.</label>
+            <label class="option"><input type="radio" name="objetivo" value="preparar_parecer"> Preparar elementos para parecer jurídico.</label>
+            <label class="option"><input type="radio" name="objetivo" value="eventual_contrato"> Organizar o caso para eventual contratação advocatícia posterior.</label>
+          </div>
+          <div class="error">Selecione uma opção para continuar.</div>
+        </div>
+      </section>
+
+      <!-- ETAPA 8 -->
+      <section class="step" data-step="8">
+        <div class="step-label">Etapa 8 de 9</div>
+        <h2>Dados de identificação</h2>
+        <p class="intro">
+          Estes dados são necessários para continuidade do fluxo, contato e eventual emissão fiscal pelo advogado contratado, quando houver contratação de consulta ou parecer.
+        </p>
+
+        <div class="two-cols">
+          <div class="field required">
+            <label class="main-label" for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" />
+            <div class="error">Informe o nome completo.</div>
+          </div>
+
+          <div class="field required">
+            <label class="main-label" for="cpf">CPF</label>
+            <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" />
+            <div class="error">Informe um CPF válido.</div>
+          </div>
+        </div>
+
+        <div class="two-cols">
+          <div class="field">
+            <label class="main-label" for="profissao">Profissão</label>
+            <input type="text" id="profissao" name="profissao" />
+          </div>
+
+          <div class="field">
+            <label class="main-label" for="estado_civil">Estado civil</label>
+            <select id="estado_civil" name="estado_civil">
+              <option value="">Selecione</option>
+              <option>Solteiro(a)</option>
+              <option>Casado(a)</option>
+              <option>União estável</option>
+              <option>Divorciado(a)</option>
+              <option>Viúvo(a)</option>
+              <option>Prefiro não informar agora</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="two-cols">
+          <div class="field required">
+            <label class="main-label" for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="seunome@email.com" />
+            <div class="error">Informe um e-mail válido.</div>
+          </div>
+
+          <div class="field required">
+            <label class="main-label" for="telefone">Telefone/WhatsApp</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(61) 99999-9999" />
+            <div class="error">Informe um telefone válido.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ETAPA 9 -->
+      <section class="step" data-step="9">
+        <div class="step-label">Etapa 9 de 9</div>
+        <h2>Encaminhamento para consulta ou parecer</h2>
+        <p class="intro">
+          As informações foram organizadas para continuidade do fluxo. A contratação de consulta jurídica ou parecer, quando escolhida, ocorre diretamente com advogado responsável pelo atendimento, pela cobrança, pela emissão de nota fiscal e pela análise técnica.
+        </p>
+
+        <div class="summary">
+          <h3>Resumo técnico das informações coletadas</h3>
+          <p id="resumoTexto">
+            Este resumo apenas consolida informações inseridas pelo usuário. Não contém diagnóstico jurídico, orientação, classificação de direito, indicação de estratégia ou promessa de resultado.
+          </p>
+        </div>
+
+        <div class="service-choice">
+          <label class="service-card">
+            <input type="radio" name="servico" value="consulta_juridica" />
+            <h3>Consulta jurídica</h3>
+            <p>
+              Atendimento com advogado para exame técnico do caso a partir das informações estruturadas.
+            </p>
+            <div class="price">Valor de referência: R$ 500,00</div>
+          </label>
+
+          <label class="service-card">
+            <input type="radio" name="servico" value="parecer_juridico" />
+            <h3>Parecer jurídico</h3>
+            <p>
+              Elaboração escrita por advogado, conforme documentos, complexidade e escopo definidos.
+            </p>
+            <div class="price">Valor de referência: R$ 1.000,00</div>
+          </label>
+        </div>
+
+        <div class="notice" style="margin-top: 24px;">
+          <p>
+            A consulta ou o parecer podem, conforme o caso e a deliberação autônoma das partes, evoluir para contrato de honorários advocatícios específico. Essa eventual contratação é feita diretamente entre usuário e advogado, sem intermediação da ANÁLISE LEGAL<span class="tm">™</span>.
+          </p>
+        </div>
+      </section>
+
+      <div class="actions no-print">
+        <button type="button" class="btn btn-secondary" id="prevBtn">Voltar</button>
+        <button type="button" class="btn btn-primary" id="nextBtn">Continuar</button>
+      </div>
+
+      <div class="print-only print-footer">
+        A ANÁLISE LEGAL é uma plataforma digital destinada à coleta e à estruturação de informações fornecidas pelo usuário, com a finalidade exclusiva de viabilizar posterior análise por advogado. O uso da plataforma não configura prestação de serviços jurídicos pela ANÁLISE LEGAL, tampouco estabelece relação advogado-cliente. A contratação de serviços jurídicos ocorre de forma direta entre o usuário e o advogado, com plena autonomia técnica deste, sem qualquer intermediação da ANÁLISE LEGAL.
+        <br><br>
+        © ANÁLISE LEGAL — Todos os direitos reservados.
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <strong>ANÁLISE LEGAL<span class="tm">™</span></strong>
+      <span>
+        A ANÁLISE LEGAL<span class="tm">™</span> é uma plataforma digital destinada à coleta e à estruturação de informações fornecidas pelo usuário, com a finalidade exclusiva de viabilizar posterior análise por advogado.
+      </span>
+      <span>
+        O uso da plataforma não configura prestação de serviços jurídicos pela ANÁLISE LEGAL<span class="tm">™</span>, tampouco estabelece relação advogado-cliente, uma vez que não há, por parte da plataforma, qualquer atividade de análise, interpretação ou orientação jurídica.
+      </span>
+      <span>
+        A contratação de serviços jurídicos ocorre de forma direta entre o usuário e o advogado, sem intermediação de honorários pela plataforma.
+      </span>
+      <span>© ANÁLISE LEGAL — Todos os direitos reservados.</span>
+    </div>
+  </footer>
+
+  <script>
+    const steps = Array.from(document.querySelectorAll(".step"));
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const progressBar = document.getElementById("progressBar");
+    const form = document.getElementById("funilDistrato");
+    let currentStep = 0;
+
+    function showStep(index) {
+      steps.forEach((step, i) => step.classList.toggle("active", i === index));
+      prevBtn.disabled = index === 0;
+      nextBtn.textContent = index === steps.length - 1 ? "Finalizar preenchimento" : "Continuar";
+      progressBar.style.width = ((index + 1) / steps.length) * 100 + "%";
+
+      if (index === steps.length - 1) {
+        buildNeutralSummary();
+      }
+
+      try {
+        window.dispatchEvent(new CustomEvent("analiselegal_funil_step", {
+          detail: {
+            page: "imobiliario/distrato-imovel-planta-df/analise",
+            step: index + 1,
+            timestamp: new Date().toISOString()
+          }
+        }));
+      } catch (e) {}
+    }
+
+    function validateStep() {
+      const step = steps[currentStep];
+      let valid = true;
+
+      step.querySelectorAll(".field.required").forEach(field => {
+        const radios = field.querySelectorAll("input[type='radio']");
+        const textInput = field.querySelector("input[type='text'], input[type='email'], input[type='tel']");
+        const error = field.querySelector(".error");
+        let fieldValid = true;
+
+        if (radios.length) {
+          fieldValid = Array.from(radios).some(r => r.checked);
+        }
+
+        if (textInput) {
+          if (textInput.id === "cpf") {
+            fieldValid = validarCPF(textInput.value);
+          } else if (textInput.id === "email") {
+            fieldValid = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(textInput.value.trim());
+          } else if (textInput.id === "telefone") {
+            fieldValid = textInput.value.replace(/\\D/g, "").length >= 10;
+          } else {
+            fieldValid = textInput.value.trim().length >= 3;
+          }
+        }
+
+        if (error) error.style.display = fieldValid ? "none" : "block";
+        if (!fieldValid) valid = false;
+      });
+
+      return valid;
+    }
+
+    function getValue(name) {
+      const checked = form.querySelector(`[name="${name}"]:checked`);
+      if (checked) return checked.parentElement.textContent.trim();
+      const field = form.querySelector(`[name="${name}"]`);
+      return field ? field.value.trim() : "";
+    }
+
+    function getCheckedValues(name) {
+      return Array.from(form.querySelectorAll(`[name="${name}"]:checked`))
+        .map(el => el.parentElement.textContent.trim());
+    }
+
+    function buildNeutralSummary() {
+      const resumo = document.getElementById("resumoTexto");
+
+      const situacao = getValue("situacao_principal") || "situação principal não informada";
+      const tipoImovel = getValue("tipo_imovel") || "tipo de imóvel não informado";
+      const formaCompra = getValue("forma_compra") || "forma de aquisição não informada";
+      const urgencia = getValue("urgencia") || "urgência não informada";
+      const objetivo = getValue("objetivo") || "objetivo não informado";
+      const docs = getCheckedValues("documentos");
+
+      resumo.innerHTML = `
+        Foram informados os seguintes elementos para organização: <strong>${situacao}</strong>;
+        tipo de imóvel: <strong>${tipoImovel}</strong>;
+        forma de aquisição: <strong>${formaCompra}</strong>;
+        contexto de prazo ou urgência: <strong>${urgencia}</strong>;
+        objetivo declarado: <strong>${objetivo}</strong>.
+        ${docs.length ? "Documentos marcados como disponíveis: <strong>" + docs.join(", ") + "</strong>." : "Nenhum documento foi marcado como disponível nesta etapa."}
+        <br><br>
+        Este resumo apenas consolida os dados preenchidos pelo usuário e não contém análise jurídica, orientação, diagnóstico, classificação de risco ou indicação de estratégia.
+      `;
+    }
+
+    function validarCPF(cpf) {
+      cpf = cpf.replace(/\\D/g, "");
+      if (cpf.length !== 11 || /^(\\d)\\1+$/.test(cpf)) return false;
+
+      let soma = 0;
+      for (let i = 0; i < 9; i++) soma += parseInt(cpf.charAt(i)) * (10 - i);
+      let resto = 11 - (soma % 11);
+      let digito1 = resto >= 10 ? 0 : resto;
+      if (digito1 !== parseInt(cpf.charAt(9))) return false;
+
+      soma = 0;
+      for (let i = 0; i < 10; i++) soma += parseInt(cpf.charAt(i)) * (11 - i);
+      resto = 11 - (soma % 11);
+      let digito2 = resto >= 10 ? 0 : resto;
+
+      return digito2 === parseInt(cpf.charAt(10));
+    }
+
+    document.getElementById("cpf").addEventListener("input", function(e) {
+      let v = e.target.value.replace(/\\D/g, "").slice(0, 11);
+      v = v.replace(/(\\d{3})(\\d)/, "$1.$2");
+      v = v.replace(/(\\d{3})(\\d)/, "$1.$2");
+      v = v.replace(/(\\d{3})(\\d{1,2})$/, "$1-$2");
+      e.target.value = v;
+    });
+
+    document.getElementById("telefone").addEventListener("input", function(e) {
+      let v = e.target.value.replace(/\\D/g, "").slice(0, 11);
+      if (v.length > 10) {
+        v = v.replace(/(\\d{2})(\\d{5})(\\d{4})/, "($1) $2-$3");
+      } else {
+        v = v.replace(/(\\d{2})(\\d{4})(\\d{0,4})/, "($1) $2-$3");
+      }
+      e.target.value = v;
+    });
+
+    nextBtn.addEventListener("click", function() {
+      if (!validateStep()) return;
+
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        try {
+          window.dispatchEvent(new CustomEvent("analiselegal_funil_complete", {
+            detail: {
+              page: "imobiliario/distrato-imovel-planta-df/analise",
+              timestamp: new Date().toISOString()
+            }
+          }));
+        } catch (e) {}
+
+        alert("Informações estruturadas. Próxima etapa: escolha, agendamento e contratação direta de consulta jurídica ou parecer com advogado.");
+      }
+    });
+
+    prevBtn.addEventListener("click", function() {
+      if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+
+    window.addEventListener("beforeprint", function () {
+      try {
+        window.dispatchEvent(new CustomEvent("analiselegal_print_intent", {
+          detail: {
+            page: "imobiliario/distrato-imovel-planta-df/analise",
+            action: "beforeprint",
+            timestamp: new Date().toISOString()
+          }
+        }));
+      } catch (e) {}
+    });
+
+    showStep(currentStep);
+  </script>
+</body>
+</html>
