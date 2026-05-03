@@ -571,7 +571,7 @@
           </p>
 
           <div class="cta-row no-print">
-            <a class="btn btn-primary" href="/funil">Iniciar organização do caso</a>
+            <a class="btn btn-primary" href="/analise">Iniciar organização do caso</a>
             <a class="btn btn-secondary" href="#como-funciona">Entender como funciona</a>
           </div>
         </div>
@@ -749,7 +749,7 @@
         </p>
 
         <div class="cta-row no-print" style="justify-content:center;">
-          <a class="btn btn-primary" href="/funil">Iniciar organização do caso</a>
+          <a class="btn btn-primary" href="/analise">Iniciar organização do caso</a>
         </div>
       </div>
     </section>
@@ -794,9 +794,9 @@
         }
       }
 
-      document.querySelectorAll('a[href*="/funil"]').forEach(function (btn) {
+      document.querySelectorAll('a[href*="/analise"]').forEach(function (btn) {
         btn.addEventListener('click', function () {
-          trackEvent('clique_cta_funil', {
+          trackEvent('clique_cta_analise', {
             destino: btn.getAttribute('href')
           });
         });
