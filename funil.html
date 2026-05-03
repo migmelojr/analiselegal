@@ -647,18 +647,81 @@
   </section>
 
   <section x-show="step === 14" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8 text-center">
-    <h2 class="text-2xl font-bold text-profundo mb-3">14. Pagamento em andamento</h2>
-    <p class="text-grafite/75 mb-6">
-      A página de pagamento foi aberta em nova aba. Após confirmação, serão encaminhadas as comunicações operacionais do atendimento.
-    </p>
 
-    <button @click="reopenPayment()" class="bg-ouro text-white px-7 py-3 rounded-xl font-bold">
+  <h2 class="text-2xl font-bold text-profundo mb-3">
+    14. Pagamento em andamento
+  </h2>
+
+  <p class="text-grafite/75 mb-6">
+    A página de pagamento foi aberta em nova aba. Após confirmação, serão encaminhadas as comunicações operacionais do atendimento.
+  </p>
+
+  <!-- BOTÕES -->
+  <div class="flex flex-col items-center gap-4 no-print">
+
+    <button @click="reopenPayment()"
+      class="bg-ouro text-white px-7 py-3 rounded-xl font-bold">
       Reabrir pagamento
     </button>
 
-    <p class="text-sm text-grafite/60 mt-5">
-      Referência: <span x-text="externalRef || 'aguardando'"></span>
+    <button onclick="window.print()"
+      class="bg-profundo text-white px-7 py-3 rounded-xl font-bold">
+      Imprimir organização das informações
+    </button>
+
+  </div>
+
+  <p class="text-sm text-grafite/60 mt-5 no-print">
+    Referência: <span x-text="externalRef || 'aguardando'"></span>
+  </p>
+
+  <!-- BLOCO PARA IMPRESSÃO -->
+  <div class="print-only mt-10 text-left">
+
+    <h1 style="font-size:16pt; font-weight:700; margin-bottom:10px;">
+      Organização das Informações
+    </h1>
+
+    <p><strong>Nome:</strong> <span x-text="formData.nome"></span></p>
+    <p><strong>CPF:</strong> <span x-text="formData.documento"></span></p>
+    <p><strong>Profissão:</strong> <span x-text="formData.profissao"></span></p>
+    <p><strong>Estado civil:</strong> <span x-text="formData.estadoCivil"></span></p>
+
+    <p><strong>E-mail:</strong> <span x-text="formData.email"></span></p>
+    <p><strong>Telefone:</strong> <span x-text="formData.telefone"></span></p>
+
+    <p><strong>Endereço:</strong> <span x-text="enderecoCompleto()"></span></p>
+
+    <hr style="margin:15px 0;">
+
+    <p><strong>Situação:</strong> <span x-text="labelOf(situacoes, formData.situacao)"></span></p>
+    <p><strong>Estado:</strong> <span x-text="labelOf(estados, formData.estadoSituacao)"></span></p>
+    <p><strong>Impacto:</strong> <span x-text="labelOf(impactos, formData.impacto)"></span></p>
+    <p><strong>Urgência:</strong> <span x-text="labelOf(urgencias, formData.urgencia)"></span></p>
+    <p><strong>Objetivo:</strong> <span x-text="labelOf(objetivos, formData.objetivo)"></span></p>
+
+    <p><strong>Formato:</strong>
+      <span x-text="formData.produto === 'parecer' ? 'Parecer jurídico' : 'Consulta jurídica'"></span>
     </p>
+
+    <p><strong>Modalidade:</strong>
+      <span x-text="formData.modalidade === 'presencial' ? 'Presencial' : 'Online'"></span>
+    </p>
+
+    <p><strong>Data:</strong> <span x-text="preferredDate"></span></p>
+    <p><strong>Horário:</strong> <span x-text="preferredHour"></span></p>
+
+    <hr style="margin:15px 0;">
+
+    <p style="font-size:10pt; line-height:1.4;">
+      Este documento representa exclusivamente a organização das informações fornecidas pelo usuário,
+      não constituindo análise jurídica, parecer ou orientação profissional.
+      A contratação de serviços jurídicos ocorre diretamente com advogado identificado.
+    </p>
+
+  </div>
+
+</section>
   </section>
 
 </main>
