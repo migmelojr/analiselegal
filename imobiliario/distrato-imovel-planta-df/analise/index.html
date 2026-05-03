@@ -4,22 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Análise de Distrato de Imóvel na Planta no DF | ANÁLISE LEGAL™</title>
-  <meta name="description" content="Organize informações sobre distrato de imóvel na planta no Distrito Federal antes de contratar consulta jurídica ou parecer com advogado." />
+  <title>Funil | Distrato de Imóvel na Planta no DF | ANÁLISE LEGAL™</title>
+  <meta name="description" content="Estruture informações sobre distrato de imóvel na planta no Distrito Federal antes de contratar consulta jurídica ou parecer com advogado." />
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
 
     :root {
-      --verde-profundo: rgb(13,22,34);
-      --grafite: rgb(30,35,41);
-      --verde-militar: rgb(56,66,51);
-      --verde-oliva: rgb(138,154,107);
-      --ouro: rgb(176,141,87);
-      --claro: #f6f4ef;
-      --branco: #ffffff;
-      --cinza: #e6e1d8;
-      --texto: #1e2329;
+      --verde-profundo: rgb(13, 22, 34);
+      --grafite: rgb(30, 35, 41);
+      --verde-militar: rgb(56, 66, 51);
+      --verde-oliva: rgb(138, 154, 107);
+      --ouro: rgb(176, 141, 87);
+      --fundo: #f5f1e8;
+      --papel: #fffaf1;
+      --linha: rgba(13, 22, 34, .14);
+      --texto: rgb(30, 35, 41);
+      --muted: rgba(30, 35, 41, .72);
       --erro: #8b2f2f;
       --sucesso: #2f5f3a;
     }
@@ -28,18 +29,32 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: "Crimson Text", Georgia, serif;
-      background: var(--claro);
+      background: var(--fundo);
       color: var(--texto);
       line-height: 1.55;
     }
 
+    a {
+      color: inherit;
+    }
+
     header {
       background: var(--verde-profundo);
-      color: var(--branco);
+      color: #fff;
       padding: 22px 6%;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -49,108 +64,112 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
+      text-decoration: none;
     }
 
     .brand img {
-      height: 46px;
+      height: 44px;
       max-width: 220px;
+      display: block;
     }
 
-    .header-note {
-      font-size: 0.95rem;
-      color: var(--cinza);
-      max-width: 430px;
+    .header-text {
+      max-width: 460px;
+      font-size: .98rem;
+      color: rgba(255,255,255,.78);
       text-align: right;
     }
 
     main {
-      width: min(1120px, 92%);
-      margin: 38px auto 64px;
+      width: min(1180px, 92%);
+      margin: 36px auto 70px;
     }
 
     .hero {
-      background: linear-gradient(135deg, var(--verde-profundo), var(--grafite));
-      color: var(--branco);
-      border-radius: 26px;
-      padding: 42px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 18px 45px rgba(13,22,34,0.20);
+      background: linear-gradient(135deg, var(--verde-profundo), var(--grafite));
+      color: #fff;
+      padding: 44px;
+      border-radius: 28px;
+      box-shadow: 0 22px 54px rgba(13, 22, 34, .22);
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      right: -60px;
-      bottom: -80px;
-      width: 260px;
-      height: 260px;
-      background: url('/Simbolo.svg') center/contain no-repeat;
-      opacity: 0.08;
+      right: -54px;
+      bottom: -76px;
+      width: 270px;
+      height: 270px;
+      background: url("/Simbolo.svg") center / contain no-repeat;
+      opacity: .08;
+      pointer-events: none;
     }
 
     .eyebrow {
-      letter-spacing: 0.12em;
       text-transform: uppercase;
+      letter-spacing: .13em;
       color: var(--verde-oliva);
-      font-size: 0.82rem;
       font-weight: 700;
+      font-size: .84rem;
       margin-bottom: 12px;
     }
 
     h1 {
-      font-size: clamp(2rem, 4vw, 3.35rem);
-      line-height: 1.05;
       margin: 0 0 18px;
-      max-width: 820px;
+      max-width: 840px;
+      font-size: clamp(2.1rem, 4vw, 3.45rem);
+      line-height: 1.03;
     }
 
     .hero p {
-      font-size: 1.18rem;
-      max-width: 820px;
       margin: 0;
-      color: #f1eee8;
+      max-width: 850px;
+      color: rgba(255,255,255,.86);
+      font-size: 1.18rem;
     }
 
-    .layout {
+    .app {
       display: grid;
-      grid-template-columns: 320px 1fr;
+      grid-template-columns: 310px 1fr;
       gap: 28px;
-      margin-top: 28px;
+      margin-top: 30px;
       align-items: start;
     }
 
     aside {
-      background: var(--branco);
-      border: 1px solid var(--cinza);
-      border-radius: 22px;
-      padding: 24px;
       position: sticky;
       top: 22px;
-      box-shadow: 0 10px 28px rgba(13,22,34,0.08);
+      background: #fff;
+      border: 1px solid var(--linha);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 12px 34px rgba(13,22,34,.08);
     }
 
-    .progress-label {
-      font-size: 0.95rem;
-      color: var(--verde-militar);
-      margin-bottom: 8px;
+    .progress-title {
       font-weight: 700;
+      color: var(--verde-profundo);
+      margin-bottom: 8px;
+      font-size: 1.02rem;
     }
 
     .progress-bar {
+      width: 100%;
       height: 10px;
-      background: #eee9df;
+      background: #eee7db;
       border-radius: 999px;
       overflow: hidden;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .progress-fill {
+      width: 12.5%;
       height: 100%;
-      width: 7.69%;
       background: var(--ouro);
-      transition: width 0.25s ease;
+      transition: width .25s ease;
     }
 
     .step-list {
@@ -160,10 +179,14 @@
     }
 
     .step-list li {
-      padding: 9px 0;
-      border-bottom: 1px solid #eee9df;
-      font-size: 0.98rem;
-      color: #5a5a5a;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(13,22,34,.09);
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .step-list li:last-child {
+      border-bottom: 0;
     }
 
     .step-list li.active {
@@ -172,11 +195,11 @@
     }
 
     .form-card {
-      background: var(--branco);
-      border: 1px solid var(--cinza);
-      border-radius: 24px;
+      background: #fff;
+      border: 1px solid var(--linha);
+      border-radius: 26px;
       padding: 34px;
-      box-shadow: 0 12px 34px rgba(13,22,34,0.08);
+      box-shadow: 0 12px 36px rgba(13,22,34,.08);
     }
 
     .step {
@@ -185,97 +208,87 @@
 
     .step.active {
       display: block;
+      animation: fadeIn .18s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: .4; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h2 {
-      font-size: 2rem;
-      color: var(--verde-profundo);
       margin: 0 0 10px;
-      line-height: 1.15;
+      color: var(--verde-profundo);
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      line-height: 1.12;
+    }
+
+    h3 {
+      margin: 20px 0 10px;
+      color: var(--verde-profundo);
+      font-size: 1.35rem;
     }
 
     .step-intro {
-      color: #555;
+      color: var(--muted);
       font-size: 1.08rem;
-      margin-bottom: 24px;
-      max-width: 820px;
+      margin: 0 0 24px;
+      max-width: 840px;
     }
 
     .options {
       display: grid;
       gap: 12px;
-      margin: 22px 0;
+      margin: 18px 0 22px;
     }
 
     .option {
-      border: 1px solid var(--cinza);
-      border-radius: 16px;
-      padding: 15px 16px;
-      cursor: pointer;
       display: flex;
-      gap: 12px;
       align-items: flex-start;
-      background: #fffdf8;
-      transition: 0.18s ease;
+      gap: 12px;
+      padding: 15px 16px;
+      border: 1px solid rgba(13,22,34,.16);
+      border-radius: 17px;
+      background: var(--papel);
+      cursor: pointer;
+      transition: border-color .18s ease, transform .18s ease, background .18s ease;
     }
 
     .option:hover {
       border-color: var(--ouro);
       transform: translateY(-1px);
+      background: #fff7e7;
     }
 
     .option input {
       margin-top: 6px;
       accent-color: var(--ouro);
+      flex: 0 0 auto;
     }
 
     .option strong {
       display: block;
       color: var(--verde-profundo);
       font-size: 1.06rem;
+      line-height: 1.25;
     }
 
     .option span {
       display: block;
-      color: #666;
-      font-size: 0.96rem;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: .96rem;
     }
 
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      margin: 22px 0;
-    }
-
-    .service-card {
-      border: 1px solid var(--cinza);
-      border-radius: 20px;
-      padding: 22px;
-      background: #fffdf8;
-    }
-
-    .service-card h3 {
-      margin: 0 0 8px;
-      font-size: 1.55rem;
-      color: var(--verde-profundo);
-    }
-
-    .price {
-      font-size: 1.45rem;
-      color: var(--ouro);
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-
-    .service-card ul {
-      margin: 10px 0 18px;
-      padding-left: 20px;
+    .section-divider {
+      margin: 26px 0 16px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(13,22,34,.10);
     }
 
     .field-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0,1fr));
       gap: 16px;
     }
 
@@ -283,60 +296,125 @@
       margin-bottom: 16px;
     }
 
-    label {
+    label.label {
       display: block;
+      margin-bottom: 7px;
       font-weight: 700;
       color: var(--verde-profundo);
-      margin-bottom: 6px;
     }
 
-    input,
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="file"],
     select,
     textarea {
       width: 100%;
-      border: 1px solid var(--cinza);
-      border-radius: 13px;
+      border: 1px solid rgba(13,22,34,.18);
+      border-radius: 14px;
       padding: 13px 14px;
       font-family: "Crimson Text", Georgia, serif;
       font-size: 1.05rem;
-      background: #fffdf8;
+      background: var(--papel);
       color: var(--texto);
     }
 
     textarea {
-      min-height: 140px;
+      min-height: 145px;
       resize: vertical;
     }
 
     .small-note {
-      font-size: 0.95rem;
-      color: #666;
       margin-top: 6px;
+      color: var(--muted);
+      font-size: .95rem;
     }
 
     .error {
-      color: var(--erro);
-      font-size: 0.94rem;
-      margin-top: 6px;
       display: none;
+      margin-top: 6px;
+      color: var(--erro);
+      font-size: .94rem;
     }
 
-    .review-box,
-    .legal-box {
-      border: 1px solid var(--cinza);
-      border-radius: 18px;
-      background: #fffdf8;
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .service-card {
+      border: 1px solid rgba(13,22,34,.16);
+      background: var(--papel);
+      border-radius: 22px;
+      padding: 22px;
+    }
+
+    .service-card label {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .service-card input {
+      margin-top: 10px;
+      accent-color: var(--ouro);
+    }
+
+    .service-card h3 {
+      margin: 0;
+      font-size: 1.55rem;
+    }
+
+    .price {
+      margin: 10px 0 14px;
+      color: var(--ouro);
+      font-weight: 700;
+      font-size: 1.48rem;
+    }
+
+    .service-card ul {
+      padding-left: 22px;
+      margin: 8px 0 16px;
+    }
+
+    .legal-box,
+    .review-box {
+      border: 1px solid rgba(13,22,34,.14);
+      background: var(--papel);
+      border-radius: 20px;
       padding: 20px;
       margin: 20px 0;
     }
 
+    .legal-box p,
     .review-box p {
       margin: 8px 0;
     }
 
-    .legal-box {
-      color: #4d4d4d;
-      font-size: 0.98rem;
+    .review-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .review-item {
+      border-bottom: 1px solid rgba(13,22,34,.10);
+      padding-bottom: 10px;
+    }
+
+    .review-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .review-item strong {
+      display: block;
+      color: var(--verde-profundo);
+      margin-bottom: 2px;
     }
 
     .actions {
@@ -344,12 +422,12 @@
       justify-content: space-between;
       gap: 14px;
       margin-top: 28px;
-      border-top: 1px solid #eee9df;
       padding-top: 22px;
+      border-top: 1px solid rgba(13,22,34,.10);
     }
 
     button,
-    .pay-link {
+    .button-link {
       border: 0;
       border-radius: 999px;
       padding: 13px 24px;
@@ -358,95 +436,161 @@
       font-weight: 700;
       cursor: pointer;
       text-decoration: none;
+      min-width: 146px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 140px;
     }
 
     .btn-primary,
-    .pay-link {
+    .button-link {
       background: var(--ouro);
       color: var(--verde-profundo);
     }
 
     .btn-secondary {
-      background: #eee9df;
+      background: #ece4d8;
       color: var(--verde-profundo);
     }
 
     .btn-primary:hover,
-    .pay-link:hover {
-      filter: brightness(0.96);
+    .button-link:hover,
+    .btn-secondary:hover {
+      filter: brightness(.97);
     }
 
     .hidden {
-      display: none;
+      display: none !important;
+    }
+
+    .final-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
     }
 
     footer {
       background: var(--verde-profundo);
-      color: #eee9df;
+      color: rgba(255,255,255,.82);
       padding: 30px 6%;
-      font-size: 0.95rem;
+      font-size: .95rem;
+    }
+
+    footer .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
     }
 
     footer p {
-      max-width: 1120px;
-      margin: 0 auto 10px;
+      margin: 0 0 10px;
     }
 
     .print-only {
       display: none;
     }
 
-    @media (max-width: 860px) {
-      header {
-        flex-direction: column;
+    @media (max-width: 900px) {
+      .topbar {
         align-items: flex-start;
+        flex-direction: column;
       }
 
-      .header-note {
+      .header-text {
         text-align: left;
       }
 
-      .layout {
+      .app {
         grid-template-columns: 1fr;
       }
 
       aside {
         position: static;
+        padding: 18px;
+      }
+
+      .step-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap: 4px 14px;
+      }
+
+      .step-list li {
+        font-size: .96rem;
+        padding: 7px 0;
+      }
+
+      .hero,
+      .form-card {
+        padding: 26px;
+        border-radius: 22px;
       }
 
       .service-grid,
       .field-grid {
         grid-template-columns: 1fr;
       }
+    }
+
+    @media (max-width: 560px) {
+      main {
+        width: 94%;
+        margin-top: 22px;
+      }
+
+      header {
+        padding: 18px 4%;
+      }
+
+      .brand img {
+        height: 38px;
+      }
 
       .hero,
       .form-card {
-        padding: 26px;
+        padding: 22px;
+      }
+
+      .step-list {
+        grid-template-columns: 1fr;
+      }
+
+      .actions {
+        flex-direction: column-reverse;
+      }
+
+      button,
+      .button-link {
+        width: 100%;
+      }
+
+      .option {
+        padding: 14px;
       }
     }
 
     @media print {
       @page {
         size: A4;
-        margin: 18mm 16mm;
+        margin: 17mm 15mm;
       }
 
       body {
         background: #fff;
         color: #111;
         font-size: 11.5pt;
+        line-height: 1.45;
       }
 
       header,
       aside,
+      footer,
+      .hero,
       .actions,
       .no-print,
+      .step:not(.print-step),
       button,
-      .pay-link {
+      .button-link {
         display: none !important;
       }
 
@@ -455,11 +599,14 @@
         margin: 0;
       }
 
-      .hero,
+      .app {
+        display: block;
+        margin: 0;
+      }
+
       .form-card,
       .review-box,
-      .legal-box,
-      .service-card {
+      .legal-box {
         box-shadow: none;
         border: none;
         background: #fff;
@@ -467,59 +614,54 @@
         border-radius: 0;
       }
 
-      .hero {
-        color: #111;
-        margin-bottom: 18px;
+      .print-only {
+        display: block !important;
       }
 
-      .hero::after {
-        display: none;
+      .print-header {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        border-bottom: 1px solid #222;
+        padding-bottom: 10px;
+        margin-bottom: 16px;
       }
 
-      .eyebrow {
-        color: #111;
+      .print-header img {
+        height: 34px;
       }
 
-      h1 {
-        font-size: 20pt;
+      .print-header .print-title {
+        text-align: right;
+        font-size: 10.5pt;
       }
 
       h2 {
-        font-size: 15pt;
         color: #111;
-        margin-top: 18px;
+        font-size: 16pt;
+        margin: 0 0 8px;
       }
 
-      .step {
-        display: block !important;
+      h3 {
+        color: #111;
+        font-size: 12.5pt;
+        margin: 12px 0 6px;
+      }
+
+      .step-intro {
+        color: #111;
+        font-size: 11pt;
+      }
+
+      .review-item {
         page-break-inside: avoid;
-        margin-bottom: 18px;
       }
 
-      .options,
-      .service-grid,
-      .field-grid {
-        display: block;
-      }
-
-      .option {
-        border: none;
-        padding: 3px 0;
-        background: #fff;
-      }
-
-      input,
-      select,
-      textarea {
-        border: none;
-        border-bottom: 1px solid #888;
-        border-radius: 0;
-        background: #fff;
-        padding: 3px 0;
-      }
-
-      .print-only {
-        display: block;
+      .legal-box {
+        border-top: 1px solid #444;
+        margin-top: 14px;
+        padding-top: 10px;
       }
     }
   </style>
@@ -528,16 +670,18 @@
 <body>
 
 <header class="no-print">
-  <div class="brand">
-    <img src="/Marca.svg" alt="ANÁLISE LEGAL™" />
-  </div>
-  <div class="header-note">
-    Ambiente de estruturação de informações para posterior contratação direta de consulta jurídica ou parecer com advogado.
+  <div class="topbar">
+    <a class="brand" href="/" aria-label="Voltar para a página inicial">
+      <img src="/Marca.svg" alt="ANÁLISE LEGAL™" />
+    </a>
+    <div class="header-text">
+      Estruturação de informações para posterior contratação direta de consulta jurídica ou parecer com advogado.
+    </div>
   </div>
 </header>
 
 <main>
-  <section class="hero">
+  <section class="hero no-print">
     <div class="eyebrow">Direito Imobiliário | Distrato de Imóvel na Planta no DF</div>
     <h1>Organize seu distrato antes de qualquer decisão.</h1>
     <p>
@@ -546,152 +690,286 @@
     </p>
   </section>
 
-  <section class="layout">
+  <section class="app">
     <aside class="no-print">
-      <div class="progress-label">Etapa <span id="currentStep">1</span> de 13</div>
-      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-title">Etapa <span id="currentStep">1</span> de 8</div>
+      <div class="progress-bar" aria-hidden="true">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
 
       <ol class="step-list" id="stepList">
-        <li class="active">Situação principal</li>
-        <li>Estado atual</li>
-        <li>Documentos</li>
-        <li>Valor envolvido</li>
-        <li>Urgência</li>
-        <li>Objetivo</li>
-        <li>Descrição</li>
-        <li>Formato</li>
-        <li>Dados pessoais</li>
-        <li>Revisão</li>
-        <li>Arquivos</li>
-        <li>Agenda</li>
-        <li>Pagamento</li>
+        <li class="active">Situação e estado atual</li>
+        <li>Documentos e valores</li>
+        <li>Urgência e objetivo</li>
+        <li>Descrição complementar</li>
+        <li>Escolha do serviço</li>
+        <li>Dados pessoais e fiscais</li>
+        <li>Arquivos e agenda</li>
+        <li>Revisão e pagamento</li>
       </ol>
     </aside>
 
     <form class="form-card" id="legalForm">
 
       <!-- ETAPA 1 -->
-      <section class="step active">
-        <h2>Situação principal</h2>
-        <p class="step-intro">Qual situação mais se aproxima do seu caso?</p>
+      <section class="step active" data-step="1">
+        <h2>Situação e estado atual</h2>
+        <p class="step-intro">
+          Qual situação mais se aproxima do seu caso e em que ponto ela se encontra?
+          Selecione a alternativa que melhor representa o momento atual do contrato e da possível rescisão.
+        </p>
 
         <div class="options">
-          <label class="option"><input type="radio" name="situacao" value="Quero rescindir contrato de imóvel na planta"> <strong>Quero rescindir contrato de imóvel na planta</strong></label>
-          <label class="option"><input type="radio" name="situacao" value="Recebi proposta de distrato da construtora"> <strong>Recebi proposta de distrato da construtora</strong></label>
-          <label class="option"><input type="radio" name="situacao" value="Estou com dificuldade de continuar pagando"> <strong>Estou com dificuldade de continuar pagando</strong></label>
-          <label class="option"><input type="radio" name="situacao" value="Quero entender quanto posso receber de volta"> <strong>Quero entender quanto posso receber de volta</strong></label>
-          <label class="option"><input type="radio" name="situacao" value="Estou em negociação com a construtora"> <strong>Estou em negociação com a construtora</strong></label>
-          <label class="option"><input type="radio" name="situacao" value="Há atraso na obra ou problema no empreendimento"> <strong>Há atraso na obra ou problema no empreendimento</strong></label>
-          <label class="option"><input type="radio" name="situacao" value="Já interrompi pagamentos"> <strong>Já interrompi pagamentos</strong></label>
-          <label class="option"><input type="radio" name="situacao" value="Outro"> <strong>Outro</strong></label>
+          <label class="option">
+            <input type="radio" name="situacao_estado" value="Quero rescindir contrato de imóvel na planta e ainda estou entendendo a situação">
+            <strong>Quero rescindir contrato de imóvel na planta e ainda estou entendendo a situação</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="situacao_estado" value="Quero rescindir e já preciso tomar uma decisão">
+            <strong>Quero rescindir e já preciso tomar uma decisão</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="situacao_estado" value="Recebi proposta de distrato da construtora">
+            <strong>Recebi proposta de distrato da construtora</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="situacao_estado" value="Estou em negociação com a construtora">
+            <strong>Estou em negociação com a construtora</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="situacao_estado" value="Estou com dificuldade de continuar pagando">
+            <strong>Estou com dificuldade de continuar pagando</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="situacao_estado" value="Já interrompi pagamentos">
+            <strong>Já interrompi pagamentos</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="situacao_estado" value="Há atraso na obra ou problema no empreendimento">
+            <strong>Há atraso na obra ou problema no empreendimento</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="situacao_estado" value="Já existe cobrança, notificação ou prazo em andamento">
+            <strong>Já existe cobrança, notificação ou prazo em andamento</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="situacao_estado" value="Não sei identificar">
+            <strong>Não sei identificar</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="situacao_estado" value="Outro">
+            <strong>Outro</strong>
+          </label>
         </div>
 
         <div class="field hidden" id="situacaoOutroBox">
-          <label>Descreva brevemente</label>
-          <input type="text" name="situacao_outro" />
+          <label class="label" for="situacao_outro">Descreva brevemente a situação</label>
+          <input type="text" id="situacao_outro" name="situacao_outro" />
         </div>
       </section>
 
       <!-- ETAPA 2 -->
-      <section class="step">
-        <h2>Estado atual</h2>
-        <p class="step-intro">Em que ponto a situação se encontra?</p>
+      <section class="step" data-step="2">
+        <h2>Documentos e valores</h2>
+        <p class="step-intro">
+          Quais documentos você possui e qual o valor aproximado envolvido?
+          A indicação é estimada e serve apenas para estruturar o caso.
+        </p>
+
+        <h3>Documentos disponíveis</h3>
+        <div class="options">
+          <label class="option">
+            <input type="checkbox" name="documentos" value="Contrato de promessa de compra e venda">
+            <strong>Contrato de promessa de compra e venda</strong>
+          </label>
+
+          <label class="option">
+            <input type="checkbox" name="documentos" value="Aditivos contratuais">
+            <strong>Aditivos contratuais</strong>
+          </label>
+
+          <label class="option">
+            <input type="checkbox" name="documentos" value="Proposta de distrato da construtora">
+            <strong>Proposta de distrato da construtora</strong>
+          </label>
+
+          <label class="option">
+            <input type="checkbox" name="documentos" value="Comprovantes de pagamento, como sinal, parcelas e intermediárias">
+            <strong>Comprovantes de pagamento</strong>
+            <span>Sinal, parcelas, intermediárias ou outros pagamentos.</span>
+          </label>
+
+          <label class="option">
+            <input type="checkbox" name="documentos" value="Conversas, e-mails ou notificações">
+            <strong>Conversas, e-mails ou notificações</strong>
+          </label>
+
+          <label class="option">
+            <input type="checkbox" name="documentos" value="Boletos, planilhas ou extratos">
+            <strong>Boletos, planilhas ou extratos</strong>
+          </label>
+
+          <label class="option">
+            <input type="checkbox" name="documentos" value="Ainda não organizei os documentos">
+            <strong>Ainda não organizei os documentos</strong>
+          </label>
+
+          <label class="option">
+            <input type="checkbox" name="documentos" value="Não possuo documentos relevantes no momento">
+            <strong>Não possuo documentos relevantes no momento</strong>
+          </label>
+        </div>
+
+        <div class="section-divider">
+          <h3>Valor aproximado envolvido</h3>
+        </div>
 
         <div class="options">
-          <label class="option"><input type="radio" name="estado" value="Ainda estou tentando entender o que aconteceu"> <strong>Ainda estou tentando entender o que aconteceu</strong></label>
-          <label class="option"><input type="radio" name="estado" value="Já existe uma decisão a tomar"> <strong>Já existe uma decisão a tomar</strong></label>
-          <label class="option"><input type="radio" name="estado" value="Estou negociando com a construtora"> <strong>Estou negociando com a construtora</strong></label>
-          <label class="option"><input type="radio" name="estado" value="Já recebi proposta formal de distrato"> <strong>Já recebi proposta formal de distrato</strong></label>
-          <label class="option"><input type="radio" name="estado" value="Já há cobrança ou notificação"> <strong>Já há cobrança ou notificação</strong></label>
-          <label class="option"><input type="radio" name="estado" value="Já existe processo ou prazo em andamento"> <strong>Já existe processo ou prazo em andamento</strong></label>
-          <label class="option"><input type="radio" name="estado" value="Não sei identificar"> <strong>Não sei identificar</strong></label>
+          <label class="option">
+            <input type="radio" name="valor_aproximado" value="Até R$ 50.000">
+            <strong>Até R$ 50.000</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="valor_aproximado" value="Entre R$ 50.000 e R$ 150.000">
+            <strong>Entre R$ 50.000 e R$ 150.000</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="valor_aproximado" value="Entre R$ 150.000 e R$ 300.000">
+            <strong>Entre R$ 150.000 e R$ 300.000</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="valor_aproximado" value="Acima de R$ 300.000">
+            <strong>Acima de R$ 300.000</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="valor_aproximado" value="Não sei estimar">
+            <strong>Não sei estimar</strong>
+          </label>
         </div>
       </section>
 
       <!-- ETAPA 3 -->
-      <section class="step">
-        <h2>Documentos existentes</h2>
-        <p class="step-intro">Quais documentos você possui?</p>
+      <section class="step" data-step="3">
+        <h2>Urgência e objetivo</h2>
+        <p class="step-intro">
+          Existe urgência e o que você pretende decidir neste momento?
+        </p>
+
+        <h3>Urgência</h3>
+        <div class="options">
+          <label class="option">
+            <input type="radio" name="urgencia" value="Há prazo na proposta de distrato">
+            <strong>Há prazo na proposta de distrato</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="urgencia" value="Posso sofrer prejuízo se não decidir">
+            <strong>Posso sofrer prejuízo se não decidir</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="urgencia" value="Há cobrança ou risco de negativação">
+            <strong>Há cobrança ou risco de negativação</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="urgencia" value="Preciso responder à construtora">
+            <strong>Preciso responder à construtora</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="urgencia" value="Não há urgência imediata">
+            <strong>Não há urgência imediata</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="urgencia" value="Não sei">
+            <strong>Não sei</strong>
+          </label>
+        </div>
+
+        <div class="section-divider">
+          <h3>Objetivo</h3>
+        </div>
 
         <div class="options">
-          <label class="option"><input type="checkbox" name="documentos" value="Contrato de promessa de compra e venda"> <strong>Contrato de promessa de compra e venda</strong></label>
-          <label class="option"><input type="checkbox" name="documentos" value="Aditivos contratuais"> <strong>Aditivos contratuais</strong></label>
-          <label class="option"><input type="checkbox" name="documentos" value="Proposta de distrato da construtora"> <strong>Proposta de distrato da construtora</strong></label>
-          <label class="option"><input type="checkbox" name="documentos" value="Comprovantes de pagamento"> <strong>Comprovantes de pagamento</strong><span>Sinal, parcelas, intermediárias ou outros pagamentos.</span></label>
-          <label class="option"><input type="checkbox" name="documentos" value="Conversas, e-mails ou notificações"> <strong>Conversas, e-mails ou notificações</strong></label>
-          <label class="option"><input type="checkbox" name="documentos" value="Boletos, planilhas ou extratos"> <strong>Boletos, planilhas ou extratos</strong></label>
-          <label class="option"><input type="checkbox" name="documentos" value="Ainda não organizei os documentos"> <strong>Ainda não organizei os documentos</strong></label>
-          <label class="option"><input type="checkbox" name="documentos" value="Não possuo documentos relevantes no momento"> <strong>Não possuo documentos relevantes no momento</strong></label>
+          <label class="option">
+            <input type="radio" name="objetivo" value="Avaliar se aceito a proposta de distrato">
+            <strong>Avaliar se aceito a proposta de distrato</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="objetivo" value="Entender quanto posso receber de volta">
+            <strong>Entender quanto posso receber de volta</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="objetivo" value="Organizar contrato e pagamentos antes de decidir">
+            <strong>Organizar contrato e pagamentos antes de decidir</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="objetivo" value="Verificar se há irregularidade da construtora">
+            <strong>Verificar se há irregularidade da construtora</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="objetivo" value="Preparar uma consulta jurídica">
+            <strong>Preparar uma consulta jurídica</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="objetivo" value="Avaliar necessidade de ação judicial">
+            <strong>Avaliar necessidade de ação judicial</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="objetivo" value="Apenas registrar o caso para análise posterior">
+            <strong>Apenas registrar o caso para análise posterior</strong>
+          </label>
         </div>
       </section>
 
       <!-- ETAPA 4 -->
-      <section class="step">
-        <h2>Valor ou impacto</h2>
-        <p class="step-intro">Qual o valor aproximado envolvido? A indicação é estimada e serve apenas para estruturar o caso.</p>
+      <section class="step" data-step="4">
+        <h2>Descrição complementar</h2>
+        <p class="step-intro">
+          Deseja complementar com alguma descrição? Informe, se quiser, apenas fatos principais, valores, datas e a decisão que pretende tomar.
+        </p>
 
-        <div class="options">
-          <label class="option"><input type="radio" name="valor" value="Até R$ 50.000"> <strong>Até R$ 50.000</strong></label>
-          <label class="option"><input type="radio" name="valor" value="Entre R$ 50.000 e R$ 150.000"> <strong>Entre R$ 50.000 e R$ 150.000</strong></label>
-          <label class="option"><input type="radio" name="valor" value="Entre R$ 150.000 e R$ 300.000"> <strong>Entre R$ 150.000 e R$ 300.000</strong></label>
-          <label class="option"><input type="radio" name="valor" value="Acima de R$ 300.000"> <strong>Acima de R$ 300.000</strong></label>
-          <label class="option"><input type="radio" name="valor" value="Não sei estimar"> <strong>Não sei estimar</strong></label>
+        <div class="field">
+          <label class="label" for="descricao">Descrição do caso</label>
+          <textarea id="descricao" name="descricao" placeholder="Exemplo: assinei o contrato em 2022, paguei sinal e parcelas mensais, recebi proposta de distrato com retenção de valores e preciso decidir se aceito."></textarea>
         </div>
       </section>
 
       <!-- ETAPA 5 -->
-      <section class="step">
-        <h2>Urgência</h2>
-        <p class="step-intro">Existe urgência na decisão?</p>
-
-        <div class="options">
-          <label class="option"><input type="radio" name="urgencia" value="Sim, há prazo na proposta de distrato"> <strong>Sim, há prazo na proposta de distrato</strong></label>
-          <label class="option"><input type="radio" name="urgencia" value="Sim, posso sofrer prejuízo se não decidir"> <strong>Sim, posso sofrer prejuízo se não decidir</strong></label>
-          <label class="option"><input type="radio" name="urgencia" value="Sim, há cobrança ou risco de negativação"> <strong>Sim, há cobrança ou risco de negativação</strong></label>
-          <label class="option"><input type="radio" name="urgencia" value="Sim, preciso responder a construtora"> <strong>Sim, preciso responder a construtora</strong></label>
-          <label class="option"><input type="radio" name="urgencia" value="Não há urgência imediata"> <strong>Não há urgência imediata</strong></label>
-          <label class="option"><input type="radio" name="urgencia" value="Não sei"> <strong>Não sei</strong></label>
-        </div>
-      </section>
-
-      <!-- ETAPA 6 -->
-      <section class="step">
-        <h2>Objetivo</h2>
-        <p class="step-intro">O que você pretende neste momento?</p>
-
-        <div class="options">
-          <label class="option"><input type="radio" name="objetivo" value="Avaliar se aceito a proposta de distrato"> <strong>Avaliar se aceito a proposta de distrato</strong></label>
-          <label class="option"><input type="radio" name="objetivo" value="Entender quanto posso receber de volta"> <strong>Entender quanto posso receber de volta</strong></label>
-          <label class="option"><input type="radio" name="objetivo" value="Organizar contrato e pagamentos antes de decidir"> <strong>Organizar contrato e pagamentos antes de decidir</strong></label>
-          <label class="option"><input type="radio" name="objetivo" value="Verificar se há irregularidade da construtora"> <strong>Verificar se há irregularidade da construtora</strong></label>
-          <label class="option"><input type="radio" name="objetivo" value="Preparar uma consulta jurídica"> <strong>Preparar uma consulta jurídica</strong></label>
-          <label class="option"><input type="radio" name="objetivo" value="Avaliar necessidade de ação judicial"> <strong>Avaliar necessidade de ação judicial</strong></label>
-          <label class="option"><input type="radio" name="objetivo" value="Apenas registrar o caso para análise posterior"> <strong>Apenas registrar o caso para análise posterior</strong></label>
-        </div>
-      </section>
-
-      <!-- ETAPA 7 -->
-      <section class="step">
-        <h2>Descrição opcional</h2>
-        <p class="step-intro">Informe, se quiser, apenas fatos principais, valores, datas e o que pretende decidir.</p>
-
-        <div class="field">
-          <label>Descrição do caso</label>
-          <textarea name="descricao" placeholder="Exemplo: comprei o imóvel em 2022, paguei sinal e parcelas mensais, recebi proposta de distrato com retenção de valores e preciso decidir se aceito."></textarea>
-        </div>
-      </section>
-
-      <!-- ETAPA 8 -->
-      <section class="step">
-        <h2>Formato do atendimento</h2>
-        <p class="step-intro">A contratação será realizada diretamente com advogado identificado, conforme o formato escolhido.</p>
+      <section class="step" data-step="5">
+        <h2>Escolha do serviço</h2>
+        <p class="step-intro">
+          A contratação será realizada diretamente com advogado identificado, conforme o formato escolhido.
+        </p>
 
         <div class="service-grid">
           <div class="service-card">
             <label>
-              <input type="radio" name="servico" value="Consulta jurídica — R$ 500,00" data-price="500">
+              <input type="radio" name="servico" value="Consulta jurídica — R$ 500,00">
               <h3>Consulta jurídica</h3>
             </label>
+
             <div class="price">R$ 500,00</div>
 
             <p><strong>O que é:</strong> atendimento direto com advogado para análise inicial do caso, com base nas informações estruturadas e nos elementos apresentados.</p>
@@ -710,9 +988,10 @@
 
           <div class="service-card">
             <label>
-              <input type="radio" name="servico" value="Parecer jurídico — R$ 1.000,00" data-price="1000">
+              <input type="radio" name="servico" value="Parecer jurídico — R$ 1.000,00">
               <h3>Parecer jurídico</h3>
             </label>
+
             <div class="price">R$ 1.000,00</div>
 
             <p><strong>O que é:</strong> análise técnica aprofundada do caso com elaboração de documento jurídico escrito.</p>
@@ -722,7 +1001,7 @@
               <li>Análise detalhada do contrato e dos valores envolvidos;</li>
               <li>Enquadramento jurídico da situação;</li>
               <li>Avaliação de riscos e possíveis desfechos;</li>
-              <li>Indicação estruturada de estratégias: negociação, distrato ou judicialização.</li>
+              <li>Indicação estruturada de estratégias, como negociação, distrato ou judicialização.</li>
             </ul>
 
             <p><strong>Forma de entrega:</strong> documento escrito, enviado por meio digital.</p>
@@ -734,38 +1013,50 @@
           A consulta jurídica pode, conforme a necessidade identificada, evoluir para contratação de parecer jurídico ou atuação profissional específica, mediante ajuste direto com o advogado.
         </div>
 
-        <h3>Modalidade</h3>
+        <div class="section-divider">
+          <h3>Modalidade</h3>
+        </div>
+
         <div class="options">
-          <label class="option"><input type="radio" name="modalidade" value="Online, preferencialmente"> <strong>Online, preferencialmente</strong></label>
-          <label class="option"><input type="radio" name="modalidade" value="Presencial, sujeito à disponibilidade"> <strong>Presencial, sujeito à disponibilidade</strong></label>
+          <label class="option">
+            <input type="radio" name="modalidade" value="Online, preferencialmente">
+            <strong>Online, preferencialmente</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="modalidade" value="Presencial, sujeito à disponibilidade">
+            <strong>Presencial, sujeito à disponibilidade</strong>
+          </label>
         </div>
       </section>
 
-      <!-- ETAPA 9 -->
-      <section class="step">
-        <h2>Dados pessoais</h2>
-        <p class="step-intro">Esses dados serão utilizados para identificação, comunicação, emissão fiscal e contratação direta com advogado do serviço anteriormente selecionado.</p>
+      <!-- ETAPA 6 -->
+      <section class="step" data-step="6">
+        <h2>Dados pessoais e fiscais</h2>
+        <p class="step-intro">
+          Esses dados serão utilizados para identificação, comunicação, emissão fiscal e contratação direta com advogado do serviço anteriormente selecionado.
+        </p>
 
         <div class="field-grid">
           <div class="field">
-            <label>Nome completo</label>
-            <input type="text" name="nome" required>
+            <label class="label" for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" autocomplete="name" />
           </div>
 
           <div class="field">
-            <label>CPF</label>
-            <input type="text" name="cpf" id="cpf" maxlength="14" placeholder="000.000.000-00">
+            <label class="label" for="cpf">CPF</label>
+            <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="000.000.000-00" inputmode="numeric" />
             <div class="error" id="cpfError">CPF inválido.</div>
           </div>
 
           <div class="field">
-            <label>Profissão</label>
-            <input type="text" name="profissao">
+            <label class="label" for="profissao">Profissão</label>
+            <input type="text" id="profissao" name="profissao" />
           </div>
 
           <div class="field">
-            <label>Estado civil</label>
-            <select name="estado_civil">
+            <label class="label" for="estado_civil">Estado civil</label>
+            <select id="estado_civil" name="estado_civil">
               <option value="">Selecione</option>
               <option>Solteiro(a)</option>
               <option>Casado(a)</option>
@@ -776,8 +1067,8 @@
           </div>
 
           <div class="field">
-            <label>Regime de bens</label>
-            <select name="regime_bens">
+            <label class="label" for="regime_bens">Regime de bens</label>
+            <select id="regime_bens" name="regime_bens">
               <option value="">Selecione</option>
               <option>Não se aplica</option>
               <option>Comunhão parcial de bens</option>
@@ -790,110 +1081,106 @@
           </div>
 
           <div class="field">
-            <label>E-mail</label>
-            <input type="email" name="email" id="email" placeholder="nome@email.com">
+            <label class="label" for="email">E-mail</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="nome@email.com" />
             <div class="error" id="emailError">E-mail inválido.</div>
           </div>
 
           <div class="field">
-            <label>Telefone</label>
-            <input type="text" name="telefone" id="telefone" maxlength="15" placeholder="(61) 99999-9999">
+            <label class="label" for="telefone">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" maxlength="15" autocomplete="tel" placeholder="(61) 99999-9999" />
             <div class="error" id="telefoneError">Telefone inválido.</div>
           </div>
 
           <div class="field">
-            <label>Contato preferencial</label>
-            <select name="contato_preferencial">
+            <label class="label" for="contato_preferencial">Contato preferencial</label>
+            <select id="contato_preferencial" name="contato_preferencial">
               <option value="">Selecione</option>
-              <option>Telefone — ligação</option>
-              <option>Telefone — mensagem</option>
+              <option>Telefone, ligação</option>
+              <option>Telefone, mensagem</option>
               <option>E-mail</option>
             </select>
           </div>
 
           <div class="field">
-            <label>CEP</label>
-            <input type="text" name="cep" id="cep" maxlength="9" placeholder="00000-000">
+            <label class="label" for="cep">CEP</label>
+            <input type="text" id="cep" name="cep" maxlength="9" placeholder="00000-000" inputmode="numeric" />
           </div>
 
           <div class="field">
-            <label>Logradouro</label>
-            <input type="text" name="logradouro" id="logradouro">
+            <label class="label" for="logradouro">Logradouro</label>
+            <input type="text" id="logradouro" name="logradouro" />
           </div>
 
           <div class="field">
-            <label>Número</label>
-            <input type="text" name="numero">
+            <label class="label" for="numero">Número</label>
+            <input type="text" id="numero" name="numero" />
           </div>
 
           <div class="field">
-            <label>Complemento</label>
-            <input type="text" name="complemento">
+            <label class="label" for="complemento">Complemento</label>
+            <input type="text" id="complemento" name="complemento" />
           </div>
 
           <div class="field">
-            <label>Bairro</label>
-            <input type="text" name="bairro" id="bairro">
+            <label class="label" for="bairro">Bairro</label>
+            <input type="text" id="bairro" name="bairro" />
           </div>
 
           <div class="field">
-            <label>Cidade</label>
-            <input type="text" name="cidade" id="cidade">
+            <label class="label" for="cidade">Cidade</label>
+            <input type="text" id="cidade" name="cidade" />
           </div>
 
           <div class="field">
-            <label>Estado</label>
-            <input type="text" name="estado_uf" id="estado_uf" maxlength="2">
+            <label class="label" for="estado_uf">Estado</label>
+            <input type="text" id="estado_uf" name="estado_uf" maxlength="2" />
           </div>
         </div>
       </section>
 
-      <!-- ETAPA 10 -->
-      <section class="step">
-        <h2>Revisão</h2>
-        <p class="step-intro">Revise as informações antes de continuar. Esta etapa organiza os dados informados e não constitui análise jurídica.</p>
+      <!-- ETAPA 7 -->
+      <section class="step" data-step="7">
+        <h2>Arquivos e agenda</h2>
+        <p class="step-intro">
+          O envio de documentos é opcional e serve para organização prévia do caso. A ANÁLISE LEGAL™ apenas organiza e encaminha os arquivos, sem realizar análise, interpretação ou orientação jurídica.
+        </p>
 
-        <div class="review-box" id="reviewBox"></div>
-
-        <button type="button" class="btn-secondary no-print" onclick="window.print()">Imprimir resumo</button>
-      </section>
-
-      <!-- ETAPA 11 -->
-      <section class="step">
-        <h2>Upload de arquivos</h2>
-        <p class="step-intro">O envio é opcional. A ANÁLISE LEGAL™ apenas organiza e encaminha os arquivos, sem realizar análise, interpretação ou orientação jurídica.</p>
+        <h3>Upload de arquivos</h3>
 
         <div class="field">
-          <label>Enviar arquivos</label>
-          <input type="file" name="arquivos" multiple accept=".pdf,.jpg,.jpeg,.png,.webp">
+          <label class="label" for="arquivos">Enviar arquivos</label>
+          <input type="file" id="arquivos" name="arquivos" multiple accept=".pdf,.jpg,.jpeg,.png,.webp" />
           <div class="small-note">Formatos permitidos: PDF, JPG, PNG ou WEBP.</div>
         </div>
 
         <div class="field">
-          <label>Por quanto tempo os arquivos poderão permanecer disponíveis?</label>
-          <select name="prazo_arquivos">
+          <label class="label" for="prazo_arquivos">Por quanto tempo os arquivos poderão permanecer disponíveis?</label>
+          <select id="prazo_arquivos" name="prazo_arquivos">
             <option value="">Selecione</option>
             <option>Até a realização da consulta</option>
             <option>Até a entrega do parecer</option>
             <option>Até 7 dias após a conclusão do atendimento</option>
           </select>
         </div>
-      </section>
 
-      <!-- ETAPA 12 -->
-      <section class="step">
-        <h2>Agenda</h2>
-        <p class="step-intro">Selecione data e horário. O horário ficará reservado por 15 minutos para conclusão do pagamento do serviço selecionado.</p>
+        <div class="section-divider">
+          <h3>Agenda</h3>
+        </div>
+
+        <p class="step-intro">
+          Selecione data e horário. O horário ficará reservado por 15 minutos para conclusão do pagamento do serviço selecionado.
+        </p>
 
         <div class="field-grid">
           <div class="field">
-            <label>Data pretendida</label>
-            <input type="date" name="data_agenda">
+            <label class="label" for="data_agenda">Data pretendida</label>
+            <input type="date" id="data_agenda" name="data_agenda" />
           </div>
 
           <div class="field">
-            <label>Horário pretendido</label>
-            <select name="horario_agenda">
+            <label class="label" for="horario_agenda">Horário pretendido</label>
+            <select id="horario_agenda" name="horario_agenda">
               <option value="">Selecione</option>
               <option>09h00</option>
               <option>10h00</option>
@@ -911,35 +1198,71 @@
         </div>
       </section>
 
-      <!-- ETAPA 13 -->
-      <section class="step">
-        <h2>Pagamento e termos</h2>
-        <p class="step-intro">O pagamento será realizado via ASAAS diretamente ao advogado responsável. A ANÁLISE LEGAL™ não recebe honorários, não intermedeia valores e não participa da relação contratual entre usuário e advogado.</p>
-
-        <div class="review-box">
-          <p><strong>Serviço selecionado:</strong> <span id="finalServico">Não informado</span></p>
-          <p><strong>Modalidade:</strong> <span id="finalModalidade">Não informada</span></p>
+      <!-- ETAPA 8 -->
+      <section class="step print-step" data-step="8">
+        <div class="print-only print-header">
+          <img src="/Marca.svg" alt="ANÁLISE LEGAL™" />
+          <div class="print-title">
+            <strong>Resumo preenchido</strong><br>
+            Distrato de Imóvel na Planta no DF
+          </div>
         </div>
 
-        <div class="options">
-          <label class="option"><input type="radio" name="pagamento" value="PIX"> <strong>PIX</strong></label>
-          <label class="option"><input type="radio" name="pagamento" value="Cartão"> <strong>Cartão</strong></label>
-          <label class="option"><input type="radio" name="pagamento" value="Boleto"> <strong>Boleto</strong></label>
-        </div>
+        <h2>Revisão final e pagamento</h2>
+        <p class="step-intro">
+          Revise todas as informações antes de prosseguir. Esta etapa reúne os dados informados ao longo do preenchimento e permite a impressão do resumo completo do caso.
+        </p>
 
         <div class="legal-box">
-          <label><input type="checkbox" name="termo1"> Compreendo que a ANÁLISE LEGAL™ não presta serviços jurídicos.</label><br><br>
-          <label><input type="checkbox" name="termo2"> Compreendo que a contratação será feita diretamente com advogado identificado.</label><br><br>
-          <label><input type="checkbox" name="termo3"> Declaro que as informações fornecidas são de minha responsabilidade.</label><br><br>
-          <label><input type="checkbox" name="termo4"> Autorizo o tratamento de dados para estruturação da demanda, comunicação, agenda, pagamento e emissão fiscal.</label>
+          A impressão não constitui consulta jurídica, parecer jurídico ou orientação profissional, servindo apenas como registro organizado das informações fornecidas pelo usuário.
         </div>
 
-        <a class="pay-link" id="asaasLink" href="#" target="_blank" rel="noopener">
-          Prosseguir para pagamento
-        </a>
+        <div class="review-box" id="reviewBox"></div>
 
-        <div class="small-note">
-          Substitua o link do botão acima pelo link real do ASAAS conforme o serviço selecionado.
+        <div class="final-actions no-print">
+          <button type="button" class="btn-secondary" onclick="window.print()">Imprimir resumo preenchido</button>
+        </div>
+
+        <div class="section-divider no-print">
+          <h3>Pagamento</h3>
+        </div>
+
+        <div class="options no-print">
+          <label class="option">
+            <input type="radio" name="pagamento" value="PIX">
+            <strong>PIX</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="pagamento" value="Cartão">
+            <strong>Cartão</strong>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="pagamento" value="Boleto">
+            <strong>Boleto</strong>
+          </label>
+        </div>
+
+        <div class="legal-box no-print">
+          O pagamento será realizado diretamente ao advogado responsável, por meio da plataforma ASAAS. A ANÁLISE LEGAL™ não recebe honorários, não intermedeia valores e não participa da relação contratual entre usuário e advogado.
+        </div>
+
+        <div class="legal-box no-print">
+          <label class="option" style="margin:0;">
+            <input type="checkbox" id="declaracao" name="declaracao">
+            <strong>
+              Declaro estar ciente de que a ANÁLISE LEGAL™ não presta serviços jurídicos, atuando exclusivamente na organização das informações fornecidas, e de que eventual contratação ocorrerá diretamente com advogado, sem qualquer intermediação. Reconheço que os dados inseridos são de minha inteira responsabilidade e autorizo seu tratamento para fins de estruturação do caso, comunicação, agendamento e emissão fiscal, nos termos aplicáveis.
+            </strong>
+          </label>
+        </div>
+
+        <div class="final-actions no-print">
+          <a class="button-link" id="asaasLink" href="#" target="_blank" rel="noopener">Prosseguir para pagamento</a>
+        </div>
+
+        <div class="small-note no-print">
+          Substitua, no JavaScript, os links de pagamento do ASAAS pelos links reais da consulta e do parecer.
         </div>
       </section>
 
@@ -952,13 +1275,15 @@
   </section>
 </main>
 
-<footer>
-  <p>
-    A ANÁLISE LEGAL™ é uma plataforma digital destinada à coleta e à estruturação de informações fornecidas pelo usuário,
-    com a finalidade exclusiva de viabilizar posterior análise por advogado. O uso da plataforma não configura prestação
-    de serviços jurídicos pela ANÁLISE LEGAL™, tampouco estabelece relação advogado-cliente.
-  </p>
-  <p>© ANÁLISE LEGAL™ — Todos os direitos reservados.</p>
+<footer class="no-print">
+  <div class="footer-inner">
+    <p>
+      A ANÁLISE LEGAL™ é uma plataforma digital destinada à coleta e à estruturação de informações fornecidas pelo usuário,
+      com a finalidade exclusiva de viabilizar posterior análise por advogado. O uso da plataforma não configura prestação
+      de serviços jurídicos pela ANÁLISE LEGAL™, tampouco estabelece relação advogado-cliente.
+    </p>
+    <p>© ANÁLISE LEGAL™ — Todos os direitos reservados.</p>
+  </div>
 </footer>
 
 <script>
@@ -973,8 +1298,13 @@
   let currentStep = 0;
 
   function updateStep() {
-    steps.forEach((step, index) => step.classList.toggle("active", index === currentStep));
-    stepList.forEach((item, index) => item.classList.toggle("active", index === currentStep));
+    steps.forEach((step, index) => {
+      step.classList.toggle("active", index === currentStep);
+    });
+
+    stepList.forEach((item, index) => {
+      item.classList.toggle("active", index === currentStep);
+    });
 
     currentStepEl.textContent = currentStep + 1;
     progressFill.style.width = (((currentStep + 1) / steps.length) * 100) + "%";
@@ -982,56 +1312,142 @@
     prevBtn.style.visibility = currentStep === 0 ? "hidden" : "visible";
     nextBtn.textContent = currentStep === steps.length - 1 ? "Finalizar" : "Continuar";
 
-    if (currentStep === 9) buildReview();
-    if (currentStep === 12) updateFinalPayment();
+    if (currentStep === 7) {
+      buildReview();
+      updatePaymentLink();
+    }
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  function getValue(name) {
-    const checked = document.querySelector(`[name="${name}"]:checked`);
+  function getRadioValue(name) {
+    const checked = document.querySelector(`input[name="${name}"]:checked`);
     return checked ? checked.value : "Não informado";
   }
 
   function getCheckedValues(name) {
-    return Array.from(document.querySelectorAll(`[name="${name}"]:checked`))
-      .map(el => el.value)
-      .join(", ") || "Não informado";
+    const values = Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(el => el.value);
+    return values.length ? values.join(", ") : "Não informado";
   }
 
-  function getInput(name) {
-    const el = document.querySelector(`[name="${name}"]`);
+  function getInputValue(id) {
+    const el = document.getElementById(id);
     return el && el.value ? el.value : "Não informado";
   }
 
+  function getSelectValue(id) {
+    const el = document.getElementById(id);
+    return el && el.value ? el.value : "Não informado";
+  }
+
+  function getFileNames() {
+    const input = document.getElementById("arquivos");
+    if (!input || !input.files || input.files.length === 0) return "Nenhum arquivo selecionado";
+    return Array.from(input.files).map(file => file.name).join(", ");
+  }
+
   function buildReview() {
+    const situacao = getRadioValue("situacao_estado") === "Outro"
+      ? `Outro: ${getInputValue("situacao_outro")}`
+      : getRadioValue("situacao_estado");
+
     reviewBox.innerHTML = `
-      <p><strong>Situação:</strong> ${getValue("situacao")}</p>
-      <p><strong>Estado atual:</strong> ${getValue("estado")}</p>
-      <p><strong>Documentos:</strong> ${getCheckedValues("documentos")}</p>
-      <p><strong>Valor aproximado:</strong> ${getValue("valor")}</p>
-      <p><strong>Urgência:</strong> ${getValue("urgencia")}</p>
-      <p><strong>Objetivo:</strong> ${getValue("objetivo")}</p>
-      <p><strong>Serviço:</strong> ${getValue("servico")}</p>
-      <p><strong>Modalidade:</strong> ${getValue("modalidade")}</p>
-      <p><strong>Nome:</strong> ${getInput("nome")}</p>
-      <p><strong>CPF:</strong> ${getInput("cpf")}</p>
-      <p><strong>E-mail:</strong> ${getInput("email")}</p>
-      <p><strong>Telefone:</strong> ${getInput("telefone")}</p>
+      <div class="review-grid">
+        <div class="review-item">
+          <strong>Situação e estado atual</strong>
+          <span>${situacao}</span>
+        </div>
+
+        <div class="review-item">
+          <strong>Documentos</strong>
+          <span>${getCheckedValues("documentos")}</span>
+        </div>
+
+        <div class="review-item">
+          <strong>Valor aproximado</strong>
+          <span>${getRadioValue("valor_aproximado")}</span>
+        </div>
+
+        <div class="review-item">
+          <strong>Urgência</strong>
+          <span>${getRadioValue("urgencia")}</span>
+        </div>
+
+        <div class="review-item">
+          <strong>Objetivo</strong>
+          <span>${getRadioValue("objetivo")}</span>
+        </div>
+
+        <div class="review-item">
+          <strong>Descrição complementar</strong>
+          <span>${getInputValue("descricao")}</span>
+        </div>
+
+        <div class="review-item">
+          <strong>Serviço escolhido</strong>
+          <span>${getRadioValue("servico")}</span>
+        </div>
+
+        <div class="review-item">
+          <strong>Modalidade</strong>
+          <span>${getRadioValue("modalidade")}</span>
+        </div>
+
+        <div class="review-item">
+          <strong>Dados pessoais e fiscais</strong>
+          <span>
+            Nome: ${getInputValue("nome")}<br>
+            CPF: ${getInputValue("cpf")}<br>
+            Profissão: ${getInputValue("profissao")}<br>
+            Estado civil: ${getSelectValue("estado_civil")}<br>
+            Regime de bens: ${getSelectValue("regime_bens")}<br>
+            E-mail: ${getInputValue("email")}<br>
+            Telefone: ${getInputValue("telefone")}<br>
+            Contato preferencial: ${getSelectValue("contato_preferencial")}
+          </span>
+        </div>
+
+        <div class="review-item">
+          <strong>Endereço</strong>
+          <span>
+            CEP: ${getInputValue("cep")}<br>
+            Logradouro: ${getInputValue("logradouro")}<br>
+            Número: ${getInputValue("numero")}<br>
+            Complemento: ${getInputValue("complemento")}<br>
+            Bairro: ${getInputValue("bairro")}<br>
+            Cidade: ${getInputValue("cidade")}<br>
+            Estado: ${getInputValue("estado_uf")}
+          </span>
+        </div>
+
+        <div class="review-item">
+          <strong>Arquivos e agenda</strong>
+          <span>
+            Arquivos: ${getFileNames()}<br>
+            Permanência dos arquivos: ${getSelectValue("prazo_arquivos")}<br>
+            Data pretendida: ${getInputValue("data_agenda")}<br>
+            Horário pretendido: ${getSelectValue("horario_agenda")}
+          </span>
+        </div>
+
+        <div class="review-item">
+          <strong>Forma de pagamento</strong>
+          <span>${getRadioValue("pagamento")}</span>
+        </div>
+      </div>
     `;
   }
 
-  function updateFinalPayment() {
-    document.getElementById("finalServico").textContent = getValue("servico");
-    document.getElementById("finalModalidade").textContent = getValue("modalidade");
-
-    const servico = getValue("servico");
-    const asaasLink = document.getElementById("asaasLink");
+  function updatePaymentLink() {
+    const servico = getRadioValue("servico");
+    const link = document.getElementById("asaasLink");
 
     if (servico.includes("Parecer")) {
-      asaasLink.href = "https://www.asaas.com/c/link-parecer-distrato";
+      link.href = "https://www.asaas.com/c/link-parecer-distrato";
     } else if (servico.includes("Consulta")) {
-      asaasLink.href = "https://www.asaas.com/c/link-consulta-distrato";
+      link.href = "https://www.asaas.com/c/link-consulta-distrato";
     } else {
-      asaasLink.href = "#";
+      link.href = "#";
     }
   }
 
@@ -1039,7 +1455,9 @@
     if (currentStep < steps.length - 1) {
       currentStep++;
       updateStep();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      buildReview();
+      updatePaymentLink();
     }
   });
 
@@ -1047,19 +1465,20 @@
     if (currentStep > 0) {
       currentStep--;
       updateStep();
-      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   });
 
-  document.querySelectorAll('input[name="situacao"]').forEach(input => {
+  document.querySelectorAll('input[name="situacao_estado"]').forEach(input => {
     input.addEventListener("change", () => {
-      document.getElementById("situacaoOutroBox").classList.toggle("hidden", input.value !== "Outro" || !input.checked);
+      const box = document.getElementById("situacaoOutroBox");
+      box.classList.toggle("hidden", input.value !== "Outro" || !input.checked);
     });
   });
 
   function maskCPF(value) {
     return value
       .replace(/\D/g, "")
+      .slice(0, 11)
       .replace(/(\d{3})(\d)/, "$1.$2")
       .replace(/(\d{3})(\d)/, "$1.$2")
       .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
@@ -1067,59 +1486,94 @@
 
   function validateCPF(cpf) {
     cpf = cpf.replace(/\D/g, "");
+
     if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
 
     let sum = 0;
-    for (let i = 0; i < 9; i++) sum += parseInt(cpf.charAt(i)) * (10 - i);
-    let rest = (sum * 10) % 11;
-    if (rest === 10) rest = 0;
-    if (rest !== parseInt(cpf.charAt(9))) return false;
+    let rest;
+
+    for (let i = 1; i <= 9; i++) {
+      sum += parseInt(cpf.substring(i - 1, i), 10) * (11 - i);
+    }
+
+    rest = (sum * 10) % 11;
+    if (rest === 10 || rest === 11) rest = 0;
+    if (rest !== parseInt(cpf.substring(9, 10), 10)) return false;
 
     sum = 0;
-    for (let i = 0; i < 10; i++) sum += parseInt(cpf.charAt(i)) * (11 - i);
-    rest = (sum * 10) % 11;
-    if (rest === 10) rest = 0;
 
-    return rest === parseInt(cpf.charAt(10));
+    for (let i = 1; i <= 10; i++) {
+      sum += parseInt(cpf.substring(i - 1, i), 10) * (12 - i);
+    }
+
+    rest = (sum * 10) % 11;
+    if (rest === 10 || rest === 11) rest = 0;
+
+    return rest === parseInt(cpf.substring(10, 11), 10);
   }
 
   const cpfInput = document.getElementById("cpf");
+  const cpfError = document.getElementById("cpfError");
+
   cpfInput.addEventListener("input", () => {
     cpfInput.value = maskCPF(cpfInput.value);
   });
 
   cpfInput.addEventListener("blur", () => {
-    document.getElementById("cpfError").style.display = validateCPF(cpfInput.value) ? "none" : "block";
+    if (!cpfInput.value) {
+      cpfError.style.display = "none";
+      return;
+    }
+    cpfError.style.display = validateCPF(cpfInput.value) ? "none" : "block";
   });
 
   const emailInput = document.getElementById("email");
+  const emailError = document.getElementById("emailError");
+
   emailInput.addEventListener("blur", () => {
+    if (!emailInput.value) {
+      emailError.style.display = "none";
+      return;
+    }
     const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
-    document.getElementById("emailError").style.display = valid ? "none" : "block";
+    emailError.style.display = valid ? "none" : "block";
   });
 
-  const telInput = document.getElementById("telefone");
-  telInput.addEventListener("input", () => {
-    let v = telInput.value.replace(/\D/g, "").slice(0, 11);
+  const telefoneInput = document.getElementById("telefone");
+  const telefoneError = document.getElementById("telefoneError");
+
+  telefoneInput.addEventListener("input", () => {
+    let v = telefoneInput.value.replace(/\D/g, "").slice(0, 11);
+
     if (v.length > 10) {
       v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
-    } else {
+    } else if (v.length > 6) {
       v = v.replace(/^(\d{2})(\d{4})(\d{0,4})$/, "($1) $2-$3");
+    } else if (v.length > 2) {
+      v = v.replace(/^(\d{2})(\d{0,5})$/, "($1) $2");
+    } else if (v.length > 0) {
+      v = v.replace(/^(\d{0,2})$/, "($1");
     }
-    telInput.value = v;
+
+    telefoneInput.value = v;
   });
 
-  telInput.addEventListener("blur", () => {
-    const digits = telInput.value.replace(/\D/g, "");
-    document.getElementById("telefoneError").style.display = digits.length >= 10 ? "none" : "block";
+  telefoneInput.addEventListener("blur", () => {
+    if (!telefoneInput.value) {
+      telefoneError.style.display = "none";
+      return;
+    }
+    const digits = telefoneInput.value.replace(/\D/g, "");
+    telefoneError.style.display = digits.length >= 10 ? "none" : "block";
   });
 
   const cepInput = document.getElementById("cep");
+
   cepInput.addEventListener("input", () => {
     cepInput.value = cepInput.value
       .replace(/\D/g, "")
-      .replace(/^(\d{5})(\d)/, "$1-$2")
-      .slice(0, 9);
+      .slice(0, 8)
+      .replace(/^(\d{5})(\d)/, "$1-$2");
   });
 
   cepInput.addEventListener("blur", async () => {
@@ -1136,26 +1590,43 @@
         document.getElementById("cidade").value = data.localidade || "";
         document.getElementById("estado_uf").value = data.uf || "";
       }
-    } catch (e) {
-      console.warn("Erro ao consultar CEP.");
+    } catch (error) {
+      console.warn("Não foi possível consultar o CEP.");
     }
   });
 
-  window.addEventListener("beforeprint", () => {
+  document.getElementById("asaasLink").addEventListener("click", function(event) {
+    const declaracao = document.getElementById("declaracao");
+    const href = this.getAttribute("href");
+
+    if (!declaracao.checked) {
+      event.preventDefault();
+      alert("Para prosseguir, é necessário confirmar a declaração obrigatória.");
+      return;
+    }
+
+    if (!href || href === "#") {
+      event.preventDefault();
+      alert("Selecione o serviço antes de prosseguir para pagamento.");
+      return;
+    }
+
     if (typeof gtag === "function") {
-      gtag("event", "print_intent", {
+      gtag("event", "payment_intent", {
         page: "distrato-imovel-planta-df-analise",
-        service: getValue("servico")
+        service: getRadioValue("servico"),
+        payment_method: getRadioValue("pagamento")
       });
     }
   });
 
-  document.getElementById("asaasLink").addEventListener("click", () => {
+  window.addEventListener("beforeprint", () => {
+    buildReview();
+
     if (typeof gtag === "function") {
-      gtag("event", "payment_intent", {
+      gtag("event", "print_intent", {
         page: "distrato-imovel-planta-df-analise",
-        service: getValue("servico"),
-        payment_method: getValue("pagamento")
+        service: getRadioValue("servico")
       });
     }
   });
