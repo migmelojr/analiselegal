@@ -4,1026 +4,1212 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Estruturação de Caso | Distrato de Imóvel na Planta no DF</title>
-  <meta name="description" content="Estruture informações sobre distrato de imóvel na planta no DF para posterior consulta jurídica ou parecer com advogado." />
+  <title>Funil Distrato de Imóvel na Planta - DF | ANÁLISE LEGAL</title>
+  <meta name="description" content="Estruture informações sobre distrato de imóvel na planta no DF para posterior consulta jurídica ou parecer com advogado identificado." />
   <meta name="robots" content="noindex, follow" />
 
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            profundo: 'rgb(13,22,34)',
+            grafite: 'rgb(30,35,41)',
+            militar: 'rgb(56,66,51)',
+            oliva: 'rgb(138,154,107)',
+            ouro: 'rgb(176,141,87)'
+          },
+          fontFamily: {
+            serif: ['Crimson Text', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    :root {
-      --verde-profundo: rgb(13,22,34);
-      --grafite: rgb(30,35,41);
-      --verde-militar: rgb(56,66,51);
-      --verde-oliva: rgb(138,154,107);
-      --ouro-fosco: rgb(176,141,87);
-      --fundo: rgb(247,246,242);
-      --papel: rgb(255,255,255);
-      --texto: rgb(31,31,31);
-      --texto-suave: rgb(92,92,92);
-      --linha: rgba(13,22,34,0.14);
-      --erro: rgb(130,35,35);
-    }
-
-    * { box-sizing: border-box; }
-
     body {
-      margin: 0;
-      font-family: "Crimson Text", Georgia, serif;
-      background: var(--fundo);
-      color: var(--texto);
-      line-height: 1.55;
+      font-family: "Crimson Text", serif;
+      background: #f7f7f2;
+      color: rgb(30,35,41);
     }
 
-    a { color: inherit; text-decoration: none; }
+    [x-cloak] { display: none !important; }
 
     .tm {
-      font-size: 0.5em;
+      font-size: .5em;
       vertical-align: super;
       line-height: 0;
     }
 
-    header {
-      background: var(--verde-profundo);
-      padding: 20px 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .marca img {
-      height: 44px;
-      display: block;
-    }
-
-    .voltar {
-      color: var(--fundo);
-      font-size: 1rem;
-      opacity: 0.86;
-    }
-
-    .hero {
-      background:
-        radial-gradient(circle at 80% 20%, rgba(138,154,107,0.22), transparent 30%),
-        linear-gradient(135deg, var(--verde-profundo), var(--grafite));
-      color: var(--fundo);
-      padding: 58px 7% 50px;
-    }
-
-    .hero-inner {
-      max-width: 1050px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 4vw, 3.6rem);
-      line-height: 1.08;
-      margin: 0 0 18px;
-      letter-spacing: -0.025em;
-    }
-
-    .hero p {
-      max-width: 780px;
-      font-size: 1.22rem;
-      color: rgba(247,246,242,0.9);
-      margin: 0;
-    }
-
-    main {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 44px 7% 72px;
-    }
-
-    .notice {
-      background: var(--papel);
-      border: 1px solid var(--linha);
-      border-left: 5px solid var(--ouro-fosco);
-      border-radius: 18px;
-      padding: 22px 24px;
-      margin-bottom: 26px;
-      box-shadow: 0 12px 36px rgba(13,22,34,0.05);
-    }
-
-    .notice p {
-      margin: 0;
-      font-size: 1.08rem;
-    }
-
-    .progress-wrap {
-      background: rgba(13,22,34,0.08);
-      height: 10px;
-      border-radius: 999px;
-      overflow: hidden;
-      margin: 0 0 26px;
-    }
-
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: var(--ouro-fosco);
-      transition: width 0.25s ease;
-    }
-
-    form {
-      background: var(--papel);
-      border: 1px solid var(--linha);
-      border-radius: 24px;
-      padding: clamp(24px, 5vw, 46px);
-      box-shadow: 0 18px 48px rgba(13,22,34,0.06);
-    }
-
-    .step {
-      display: none;
-    }
-
-    .step.active {
-      display: block;
-    }
-
-    .step-label {
-      color: var(--verde-militar);
-      font-size: 1.02rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: clamp(1.65rem, 3vw, 2.35rem);
-      line-height: 1.16;
-      margin: 0 0 12px;
-      color: var(--verde-profundo);
-    }
-
-    .intro {
-      font-size: 1.15rem;
-      color: var(--texto-suave);
-      margin: 0 0 28px;
-      max-width: 800px;
-    }
-
-    .field {
-      margin-bottom: 24px;
-    }
-
-    label.main-label {
-      display: block;
-      font-size: 1.18rem;
-      font-weight: 700;
-      color: var(--verde-profundo);
-      margin-bottom: 10px;
-    }
-
-    .hint {
-      font-size: 1rem;
-      color: var(--texto-suave);
-      margin: -4px 0 12px;
-    }
-
-    .options {
-      display: grid;
-      gap: 10px;
-    }
-
-    .option {
-      border: 1px solid var(--linha);
-      border-radius: 14px;
-      padding: 13px 14px;
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      background: rgba(13,22,34,0.025);
-      cursor: pointer;
-    }
-
-    .option:hover {
-      border-color: var(--ouro-fosco);
-      background: rgba(176,141,87,0.08);
-    }
-
-    input[type="radio"],
-    input[type="checkbox"] {
-      margin-top: 5px;
-      accent-color: var(--ouro-fosco);
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    select,
-    textarea {
-      width: 100%;
-      border: 1px solid var(--linha);
-      border-radius: 12px;
-      padding: 13px 14px;
-      font-family: "Crimson Text", Georgia, serif;
-      font-size: 1.08rem;
-      color: var(--texto);
+    .option-card {
+      border: 1px solid rgba(56,66,51,.25);
       background: #fff;
+      transition: .18s ease;
+      font-weight: 700;
+      padding: 12px 14px;
+      min-height: 58px;
     }
 
-    textarea {
-      min-height: 104px;
-      resize: vertical;
+    .option-card:hover {
+      border-color: rgb(176,141,87);
+      background: rgba(176,141,87,.06);
     }
 
-    .two-cols {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
+    .option-card.active {
+      border-color: rgb(176,141,87);
+      background: rgba(176,141,87,.13);
+      box-shadow: 0 0 0 2px rgba(176,141,87,.18);
     }
 
-    .actions {
+    .step-dot {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
       display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      margin-top: 34px;
-      border-top: 1px solid var(--linha);
-      padding-top: 24px;
-    }
-
-    button {
-      font-family: "Crimson Text", Georgia, serif;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn {
-      display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 22px;
-      border-radius: 999px;
-      font-size: 1.04rem;
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background: var(--ouro-fosco);
-      color: var(--verde-profundo);
       font-weight: 700;
+      font-size: 13px;
     }
 
-    .btn-secondary {
-      background: transparent;
-      border-color: var(--linha);
-      color: var(--grafite);
-    }
-
-    .btn[disabled] {
-      opacity: 0.45;
-      cursor: not-allowed;
-    }
-
-    .error {
-      display: none;
-      color: var(--erro);
-      font-size: 1rem;
-      margin-top: 10px;
-    }
-
-    .summary {
-      background: rgba(13,22,34,0.035);
-      border: 1px solid var(--linha);
-      border-radius: 18px;
-      padding: 22px;
-      margin-top: 20px;
-    }
-
-    .summary h3 {
-      margin: 0 0 12px;
-      color: var(--verde-profundo);
-      font-size: 1.34rem;
-    }
-
-    .summary p {
-      margin: 0 0 10px;
-      font-size: 1.06rem;
-    }
-
-    .service-choice {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-top: 22px;
-    }
-
-    .service-card {
-      border: 1px solid var(--linha);
-      border-radius: 18px;
-      padding: 20px;
+    .input {
+      width: 100%;
+      border: 1px solid rgba(56,66,51,.3);
+      border-radius: 12px;
+      padding: 13px 15px;
+      outline: none;
       background: #fff;
+      font-weight: 600;
     }
 
-    .service-card h3 {
-      color: var(--verde-profundo);
-      margin: 0 0 8px;
-      font-size: 1.34rem;
+    .input:focus {
+      border-color: rgb(176,141,87);
+      box-shadow: 0 0 0 2px rgba(176,141,87,.2);
     }
 
-    .service-card p {
-      margin: 0 0 12px;
-      color: var(--texto-suave);
-      font-size: 1.04rem;
+    .field-ok {
+      border-color: #059669 !important;
+      background: #ecfdf5 !important;
     }
 
-    .price {
-      color: var(--verde-profundo);
-      font-weight: 700;
-      font-size: 1.2rem;
+    .field-error {
+      border-color: #b91c1c !important;
+      background: #fef2f2 !important;
     }
 
-    footer {
-      background: var(--grafite);
-      color: rgba(247,246,242,0.78);
-      padding: 34px 7%;
-      font-size: 0.98rem;
+    .spinner {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255,255,255,.35);
+      border-top-color: #fff;
+      border-radius: 999px;
+      animation: spin .7s linear infinite;
     }
 
-    footer .footer-inner {
-      max-width: 1050px;
-      margin: 0 auto;
-      display: grid;
-      gap: 10px;
-    }
-
-    footer strong {
-      color: var(--fundo);
-    }
-
-    .print-only { display: none; }
-
-    @media (max-width: 820px) {
-      header { padding: 18px 6%; }
-      .marca img { height: 39px; }
-      .voltar { display: none; }
-      .hero { padding: 46px 6% 42px; }
-      main { padding: 34px 6% 58px; }
-      .two-cols,
-      .service-choice {
-        grid-template-columns: 1fr;
-      }
-      .actions {
-        flex-direction: column-reverse;
-      }
-      .btn {
-        width: 100%;
-      }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
 
     @media print {
-      @page {
-        size: A4;
-        margin: 1.8cm 1.6cm;
-      }
+      @page { size: A4; margin: 18mm 16mm; }
 
       body {
         background: #fff !important;
         color: #111 !important;
-        font-size: 11pt;
+        font-size: 11.5pt;
         line-height: 1.45;
       }
 
-      .no-print,
-      .actions,
-      .progress-wrap,
+      .no-print { display: none !important; }
+
+      main {
+        max-width: none !important;
+        padding: 0 !important;
+      }
+
+      section {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+      }
+
+      h1 { font-size: 16pt !important; }
+      h2 { font-size: 14pt !important; }
+      h3 { font-size: 12pt !important; }
+
+      p, li, span, strong {
+        font-size: 11pt !important;
+      }
+
       footer {
-        display: none !important;
+        background: #fff !important;
+        color: #111 !important;
+        border-top: 1px solid #999;
+        margin-top: 12mm;
+        padding-top: 5mm;
+        font-size: 8.5pt !important;
       }
 
       .print-only {
         display: block !important;
       }
-
-      header {
-        background: #fff !important;
-        padding: 0 0 12px !important;
-        border-bottom: 1px solid #999;
-      }
-
-      .marca img {
-        height: 34px !important;
-      }
-
-      .hero {
-        background: #fff !important;
-        color: #111 !important;
-        padding: 14px 0 !important;
-      }
-
-      .hero h1 {
-        color: #111 !important;
-        font-size: 16pt !important;
-        line-height: 1.16;
-      }
-
-      .hero p,
-      p,
-      .intro,
-      .notice p {
-        color: #111 !important;
-        font-size: 11pt !important;
-      }
-
-      main {
-        padding: 0 !important;
-        max-width: none !important;
-      }
-
-      form,
-      .notice,
-      .summary,
-      .service-card {
-        box-shadow: none !important;
-        border: none !important;
-        padding: 0 !important;
-        background: #fff !important;
-      }
-
-      .step {
-        display: block !important;
-        margin-bottom: 18px;
-        page-break-inside: avoid;
-      }
-
-      .step-label {
-        color: #111 !important;
-        font-size: 9pt;
-      }
-
-      h2 {
-        font-size: 14pt !important;
-        color: #111 !important;
-      }
-
-      h3 {
-        font-size: 12pt !important;
-        color: #111 !important;
-      }
-
-      .field,
-      .option,
-      .service-card {
-        margin-bottom: 8px;
-        border: none !important;
-      }
-
-      input,
-      textarea,
-      select {
-        border: 1px solid #999 !important;
-      }
-
-      .print-footer {
-        display: block !important;
-        border-top: 1px solid #999;
-        margin-top: 18px;
-        padding-top: 8px;
-        font-size: 8.5pt;
-        line-height: 1.35;
-      }
     }
+
+    .print-only { display: none; }
   </style>
 </head>
 
-<body>
-  <header>
-    <a class="marca" href="/" aria-label="Voltar para a página inicial">
-      <img src="/Marca.svg" alt="ANÁLISE LEGAL" />
-    </a>
-    <a class="voltar no-print" href="/imobiliario/distrato-imovel-planta-df/">Voltar à página do tema</a>
-  </header>
+<body x-data="distratoFunnel()" x-init="init()">
 
-  <section class="hero">
-    <div class="hero-inner">
-      <h1>Estruturação de informações sobre distrato de imóvel na planta no DF.</h1>
+<header class="bg-profundo text-white border-b border-ouro/30 no-print">
+  <div class="max-w-6xl mx-auto px-5 py-5 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-4">
+      <img src="/Marca.svg" alt="ANÁLISE LEGAL" class="h-12 w-auto">
+    </a>
+    <a href="/imobiliario/distrato-imovel-planta-df/" class="hidden md:block text-white/70 text-sm hover:text-white">
+      Voltar à página do tema
+    </a>
+  </div>
+</header>
+
+<section class="bg-profundo text-white no-print">
+  <div class="max-w-5xl mx-auto px-5 py-10 text-center">
+    <img src="/Simbolo.svg" alt="" class="h-14 mx-auto mb-5 opacity-80">
+    <h1 class="text-3xl md:text-5xl font-bold leading-tight">
+      Estruture as informações sobre distrato de imóvel na planta no DF
+    </h1>
+    <p class="mt-4 text-lg text-white/80 max-w-3xl mx-auto">
+      A ANÁLISE LEGAL<span class="tm">™</span> coleta e organiza dados fornecidos pelo usuário para posterior consulta jurídica ou parecer com advogado identificado.
+    </p>
+  </div>
+</section>
+
+<section class="bg-grafite text-white no-print">
+  <div class="max-w-5xl mx-auto px-5 py-4">
+    <div class="grid grid-cols-7 md:grid-cols-14 gap-2 justify-items-center">
+      <template x-for="n in 14" :key="n">
+        <div class="step-dot" :class="step >= n ? 'bg-ouro text-white' : 'bg-white/15 text-white/50'" x-text="n"></div>
+      </template>
+    </div>
+  </div>
+</section>
+
+<main class="max-w-3xl mx-auto px-5 py-10">
+
+  <section x-show="step === 1" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">1. Situação principal</h2>
+    <p class="text-grafite/75 mb-5">
+      Selecione a situação que melhor descreve o motivo do preenchimento. Esta etapa apenas organiza a informação inicial.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <template x-for="item in situacoes" :key="item.id">
+        <button type="button" @click="formData.situacao = item.id"
+          class="option-card rounded-xl text-left"
+          :class="formData.situacao === item.id ? 'active' : ''"
+          x-text="item.titulo"></button>
+      </template>
+    </div>
+
+    <p x-show="errors.situacao" class="text-red-700 mt-3" x-text="errors.situacao"></p>
+
+    <div class="mt-8 flex justify-end">
+      <button @click="validateStep1()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+    </div>
+  </section>
+
+  <section x-show="step === 2" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">2. Estado atual do contrato</h2>
+    <p class="text-grafite/75 mb-5">
+      Informe em que ponto está a relação com a construtora ou incorporadora.
+    </p>
+
+    <div class="grid gap-3">
+      <template x-for="item in estadosContrato" :key="item.id">
+        <button type="button" @click="formData.estadoContrato = item.id"
+          class="option-card rounded-xl text-left"
+          :class="formData.estadoContrato === item.id ? 'active' : ''"
+          x-text="item.titulo"></button>
+      </template>
+    </div>
+
+    <p x-show="errors.estadoContrato" class="text-red-700 mt-3" x-text="errors.estadoContrato"></p>
+
+    <div class="mt-8 flex justify-between gap-3">
+      <button @click="goStep(1)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="validateStep2()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+    </div>
+  </section>
+
+  <section x-show="step === 3" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">3. Dados básicos do imóvel</h2>
+    <p class="text-grafite/75 mb-5">
+      Informe dados gerais. Não é necessário ter todos os detalhes neste momento.
+    </p>
+
+    <div class="grid gap-4">
+      <input x-model="formData.nomeEmpreendimento" class="input" placeholder="Nome do empreendimento, se souber">
+      <input x-model="formData.construtora" class="input" placeholder="Construtora/incorporadora, se souber">
+
+      <select x-model="formData.localidadeImovel" class="input">
+        <option value="">Localidade do imóvel no DF *</option>
+        <option value="brasilia">Brasília / Plano Piloto</option>
+        <option value="aguas_claras">Águas Claras</option>
+        <option value="guara">Guará</option>
+        <option value="taguatinga">Taguatinga</option>
+        <option value="samambaia">Samambaia</option>
+        <option value="ceilândia">Ceilândia</option>
+        <option value="sobradinho">Sobradinho</option>
+        <option value="sudoeste_noroeste">Sudoeste / Noroeste</option>
+        <option value="outra_df">Outra região do DF</option>
+        <option value="fora_df">Fora do DF</option>
+        <option value="nao_sei">Não sei informar</option>
+      </select>
+
+      <select x-model="formData.anoContrato" class="input">
+        <option value="">Ano aproximado da assinatura do contrato *</option>
+        <option value="antes_2018">Antes de 2018</option>
+        <option value="2018">2018</option>
+        <option value="2019">2019</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="nao_sei">Não sei informar</option>
+      </select>
+    </div>
+
+    <p x-show="errors.dadosImovel" class="text-red-700 mt-3" x-text="errors.dadosImovel"></p>
+
+    <div class="mt-8 flex justify-between gap-3">
+      <button @click="goStep(2)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="validateStep3()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+    </div>
+  </section>
+
+  <section x-show="step === 4" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">4. Forma de aquisição</h2>
+    <p class="text-grafite/75 mb-5">
+      Indique como a compra foi estruturada.
+    </p>
+
+    <div class="grid gap-3">
+      <template x-for="item in formasCompra" :key="item.id">
+        <button type="button" @click="formData.formaCompra = item.id"
+          class="option-card rounded-xl text-left"
+          :class="formData.formaCompra === item.id ? 'active' : ''"
+          x-text="item.titulo"></button>
+      </template>
+    </div>
+
+    <p x-show="errors.formaCompra" class="text-red-700 mt-3" x-text="errors.formaCompra"></p>
+
+    <div class="mt-8 flex justify-between gap-3">
+      <button @click="goStep(3)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="validateStep4()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+    </div>
+  </section>
+
+  <section x-show="step === 5" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">5. Valores envolvidos</h2>
+    <p class="text-grafite/75 mb-5">
+      Os valores são aproximados e servem apenas para organizar a dimensão econômica informada pelo usuário.
+    </p>
+
+    <div class="grid gap-4">
+      <select x-model="formData.valorImovel" class="input">
+        <option value="">Valor aproximado do imóvel *</option>
+        <option value="ate_200k">Até R$ 200.000,00</option>
+        <option value="200k_500k">Entre R$ 200.000,00 e R$ 500.000,00</option>
+        <option value="500k_1m">Entre R$ 500.000,00 e R$ 1.000.000,00</option>
+        <option value="acima_1m">Acima de R$ 1.000.000,00</option>
+        <option value="nao_sei">Não sei informar</option>
+      </select>
+
+      <select x-model="formData.valorPago" class="input">
+        <option value="">Valor aproximado já pago *</option>
+        <option value="ate_50k">Até R$ 50.000,00</option>
+        <option value="50k_150k">Entre R$ 50.000,00 e R$ 150.000,00</option>
+        <option value="150k_300k">Entre R$ 150.000,00 e R$ 300.000,00</option>
+        <option value="acima_300k">Acima de R$ 300.000,00</option>
+        <option value="nao_sei">Não sei informar</option>
+      </select>
+
+      <textarea x-model="formData.retencaoInformada" rows="4" class="input"
+        placeholder="A construtora informou retenção, multa, devolução parcelada ou valor aproximado? Descreva, se souber."></textarea>
+    </div>
+
+    <p x-show="errors.valores" class="text-red-700 mt-3" x-text="errors.valores"></p>
+
+    <div class="mt-8 flex justify-between gap-3">
+      <button @click="goStep(4)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="validateStep5()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+    </div>
+  </section>
+
+  <section x-show="step === 6" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">6. Documentos disponíveis</h2>
+    <p class="text-grafite/75 mb-5">
+      Marque os documentos existentes. O envio de arquivos será tratado em etapa própria.
+    </p>
+
+    <div class="grid gap-3">
+      <template x-for="item in documentosDistrato" :key="item.id">
+        <button type="button" @click="toggleArray('documentos', item.id)"
+          class="option-card rounded-xl text-left"
+          :class="formData.documentos.includes(item.id) ? 'active' : ''"
+          x-text="item.titulo"></button>
+      </template>
+    </div>
+
+    <p x-show="errors.documentos" class="text-red-700 mt-3" x-text="errors.documentos"></p>
+
+    <div class="mt-8 flex justify-between gap-3">
+      <button @click="goStep(5)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="validateStep6()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+    </div>
+  </section>
+
+  <section x-show="step === 7" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">7. Prazo, urgência ou evento próximo</h2>
+    <p class="text-grafite/75 mb-5">
+      Esta etapa apenas organiza prazos e eventos informados. Não há classificação automática de risco jurídico.
+    </p>
+
+    <div class="grid gap-3">
+      <template x-for="item in urgencias" :key="item.id">
+        <button type="button" @click="formData.urgencia = item.id"
+          class="option-card rounded-xl text-left"
+          :class="formData.urgencia === item.id ? 'active' : ''"
+          x-text="item.titulo"></button>
+      </template>
+    </div>
+
+    <textarea x-model="formData.urgenciaDetalhe" rows="4" class="input mt-5"
+      placeholder="Detalhe opcional sobre prazo, cobrança, assinatura de distrato, negociação ou evento próximo."></textarea>
+
+    <p x-show="errors.urgencia" class="text-red-700 mt-3" x-text="errors.urgencia"></p>
+
+    <div class="mt-8 flex justify-between gap-3">
+      <button @click="goStep(6)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="validateStep7()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+    </div>
+  </section>
+
+  <section x-show="step === 8" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">8. Objetivo do preenchimento</h2>
+    <p class="text-grafite/75 mb-5">
+      Indique o que pretende preparar para eventual consulta jurídica ou parecer.
+    </p>
+
+    <div class="grid gap-3">
+      <template x-for="item in objetivos" :key="item.id">
+        <button type="button" @click="formData.objetivo = item.id"
+          class="option-card rounded-xl text-left"
+          :class="formData.objetivo === item.id ? 'active' : ''"
+          x-text="item.titulo"></button>
+      </template>
+    </div>
+
+    <p x-show="errors.objetivo" class="text-red-700 mt-3" x-text="errors.objetivo"></p>
+
+    <div class="mt-8 flex justify-between gap-3">
+      <button @click="goStep(7)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="validateStep8()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+    </div>
+  </section>
+
+  <section x-show="step === 9" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">9. Descrição opcional</h2>
+    <p class="text-grafite/75 mb-5">
+      Descreva o ocorrido, se quiser. Não é necessário usar linguagem jurídica.
+    </p>
+
+    <textarea x-model="formData.descricao" rows="7" class="input"
+      placeholder="Informe, se quiser, o que aconteceu, quando ocorreu, quem está envolvido, se houve proposta da construtora e qual decisão precisa ser tomada."></textarea>
+
+    <div class="mt-8 flex justify-between gap-3">
+      <button @click="goStep(8)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="goStep(10)" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+    </div>
+  </section>
+
+  <section x-show="step === 10" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">10. Formato pretendido</h2>
+    <p class="text-grafite/75 mb-5">
+      Escolha o formato pretendido. A contratação será feita diretamente com advogado identificado antes do pagamento.
+    </p>
+
+    <div class="grid gap-4 mb-6">
+      <button @click="formData.produto = 'consulta'" class="option-card rounded-xl text-left"
+        :class="formData.produto === 'consulta' ? 'active' : ''">
+        Consulta jurídica — R$ 500,00
+      </button>
+
+      <button @click="formData.produto = 'parecer'" class="option-card rounded-xl text-left"
+        :class="formData.produto === 'parecer' ? 'active' : ''">
+        Parecer jurídico — R$ 1.000,00
+      </button>
+    </div>
+
+    <h3 class="font-bold text-profundo mb-3">Modalidade preferencial</h3>
+    <div class="grid gap-3">
+      <button @click="formData.modalidade = 'online'" class="option-card rounded-xl text-left"
+        :class="formData.modalidade === 'online' ? 'active' : ''">
+        Online, preferencialmente
+      </button>
+
+      <button @click="formData.modalidade = 'presencial'" class="option-card rounded-xl text-left"
+        :class="formData.modalidade === 'presencial' ? 'active' : ''">
+        Presencial, sujeito à disponibilidade e confirmação
+      </button>
+    </div>
+
+    <p x-show="errors.produto" class="text-red-700 mt-3" x-text="errors.produto"></p>
+
+    <div class="mt-8 flex justify-between gap-3">
+      <button @click="goStep(9)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="validateStep10()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+    </div>
+  </section>
+
+  <section x-show="step === 11" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">11. Dados pessoais, fiscais e contato</h2>
+    <p class="text-grafite/75 mb-5">
+      Estes dados serão utilizados para identificação, comunicação, emissão fiscal e contratação direta com o advogado, quando houver contratação.
+    </p>
+
+    <div class="grid gap-4 mt-5">
+      <input x-model="formData.nome" class="input" placeholder="Nome completo *">
+
+      <div>
+        <input x-model="formData.documento"
+               @input="formData.documento = formatCPF($event.target.value); errors.cpf = ''"
+               @blur="validateCPFField()"
+               class="input"
+               :class="errors.cpf ? 'field-error' : (cpfValido ? 'field-ok' : '')"
+               placeholder="CPF *">
+        <p x-show="errors.cpf" class="text-red-700 text-sm mt-1" x-text="errors.cpf"></p>
+        <p x-show="cpfValido && !errors.cpf" class="text-emerald-700 text-sm mt-1">CPF validado.</p>
+      </div>
+
+      <input x-model="formData.profissao" class="input" placeholder="Profissão *">
+
+      <select x-model="formData.estadoCivil" class="input">
+        <option value="">Estado civil *</option>
+        <option value="solteiro">Solteiro(a)</option>
+        <option value="casado">Casado(a)</option>
+        <option value="divorciado">Divorciado(a)</option>
+        <option value="viuvo">Viúvo(a)</option>
+        <option value="uniao_estavel">União estável</option>
+      </select>
+
+      <select x-show="formData.estadoCivil === 'casado' || formData.estadoCivil === 'uniao_estavel'" x-model="formData.regimeCasamento" class="input">
+        <option value="">Regime de bens *</option>
+        <option value="comunhao_parcial">Comunhão parcial de bens</option>
+        <option value="comunhao_universal">Comunhão universal de bens</option>
+        <option value="separacao_total">Separação total de bens</option>
+        <option value="participacao_final">Participação final nos aquestos</option>
+        <option value="nao_sei">Não sei informar</option>
+      </select>
+
+      <div>
+        <input x-model="formData.email"
+               @input="errors.email = ''"
+               @blur="validateEmailField()"
+               class="input"
+               :class="errors.email ? 'field-error' : (emailValido ? 'field-ok' : '')"
+               placeholder="E-mail *">
+        <p x-show="errors.email" class="text-red-700 text-sm mt-1" x-text="errors.email"></p>
+        <p x-show="emailValido && !errors.email" class="text-emerald-700 text-sm mt-1">E-mail em formato válido.</p>
+      </div>
+
+      <div>
+        <input x-model="formData.telefone"
+               @input="formData.telefone = formatPhone($event.target.value); errors.telefone = ''"
+               @blur="validateTelefoneField()"
+               class="input"
+               :class="errors.telefone ? 'field-error' : (telefoneValido ? 'field-ok' : '')"
+               placeholder="Telefone/WhatsApp *">
+        <p x-show="errors.telefone" class="text-red-700 text-sm mt-1" x-text="errors.telefone"></p>
+        <p x-show="telefoneValido && !errors.telefone" class="text-emerald-700 text-sm mt-1">Telefone em formato válido.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-profundo mb-3">Como prefere ser contatado?</h3>
+        <div class="grid gap-3">
+          <button type="button" @click="formData.preferenciaContato = 'telefone_voz'" class="option-card rounded-xl text-left" :class="formData.preferenciaContato === 'telefone_voz' ? 'active' : ''">Telefone — voz</button>
+          <button type="button" @click="formData.preferenciaContato = 'telefone_mensagem'" class="option-card rounded-xl text-left" :class="formData.preferenciaContato === 'telefone_mensagem' ? 'active' : ''">Telefone — mensagem</button>
+          <button type="button" @click="formData.preferenciaContato = 'email'" class="option-card rounded-xl text-left" :class="formData.preferenciaContato === 'email' ? 'active' : ''">E-mail</button>
+        </div>
+      </div>
+
+      <div>
+        <input x-model="formData.cep"
+               @input="onCepInput($event.target.value)"
+               class="input"
+               :class="errors.cep ? 'field-error' : (cepValido && !cepLoading ? 'field-ok' : '')"
+               placeholder="CEP *">
+        <p x-show="cepLoading" class="text-grafite/70 text-sm mt-1">Buscando endereço...</p>
+        <p x-show="errors.cep" class="text-red-700 text-sm mt-1" x-text="errors.cep"></p>
+        <p x-show="cepValido && !cepLoading && !errors.cep" class="text-emerald-700 text-sm mt-1">CEP validado e endereço preenchido quando disponível.</p>
+      </div>
+
+      <input x-model="formData.endereco" class="input" placeholder="Endereço *">
+      <input x-model="formData.numero" class="input" placeholder="Número *">
+      <input x-model="formData.complemento" class="input" placeholder="Complemento">
+      <input x-model="formData.bairro" class="input" placeholder="Bairro *">
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <input x-model="formData.cidade" class="input" placeholder="Cidade *">
+        <input x-model="formData.uf" maxlength="2" class="input uppercase" placeholder="UF *">
+      </div>
+    </div>
+
+    <p x-show="errors.dados" class="text-red-700 mt-3" x-text="errors.dados"></p>
+
+    <div class="mt-8 flex justify-between gap-3">
+      <button @click="goStep(10)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="validateStep11()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+    </div>
+  </section>
+
+  <section x-show="step === 12" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">12. Revisão das informações</h2>
+    <p class="text-grafite/75 mb-5">
+      Esta revisão apenas consolida dados fornecidos pelo usuário. Não constitui análise jurídica, orientação, diagnóstico ou indicação de providência.
+    </p>
+
+    <div class="rounded-xl border border-militar/20 bg-stone-50 p-5 space-y-3">
+      <p><strong>Situação:</strong> <span x-text="labelOf(situacoes, formData.situacao)"></span></p>
+      <p><strong>Estado do contrato:</strong> <span x-text="labelOf(estadosContrato, formData.estadoContrato)"></span></p>
+      <p><strong>Empreendimento:</strong> <span x-text="formData.nomeEmpreendimento || 'Não informado'"></span></p>
+      <p><strong>Construtora:</strong> <span x-text="formData.construtora || 'Não informado'"></span></p>
+      <p><strong>Localidade:</strong> <span x-text="labelLocalidade()"></span></p>
+      <p><strong>Ano do contrato:</strong> <span x-text="formData.anoContrato || 'Não informado'"></span></p>
+      <p><strong>Forma de compra:</strong> <span x-text="labelOf(formasCompra, formData.formaCompra)"></span></p>
+      <p><strong>Valor do imóvel:</strong> <span x-text="labelValorImovel()"></span></p>
+      <p><strong>Valor já pago:</strong> <span x-text="labelValorPago()"></span></p>
+      <p><strong>Documentos:</strong> <span x-text="labelsOf(documentosDistrato, formData.documentos)"></span></p>
+      <p><strong>Urgência:</strong> <span x-text="labelOf(urgencias, formData.urgencia)"></span></p>
+      <p><strong>Objetivo:</strong> <span x-text="labelOf(objetivos, formData.objetivo)"></span></p>
+      <p><strong>Formato:</strong> <span x-text="formData.produto === 'parecer' ? 'Parecer jurídico' : 'Consulta jurídica'"></span></p>
+      <p><strong>Modalidade:</strong> <span x-text="formData.modalidade === 'presencial' ? 'Presencial, sujeita à disponibilidade e confirmação' : 'Online, preferencialmente'"></span></p>
+      <p><strong>Nome:</strong> <span x-text="formData.nome"></span></p>
+      <p><strong>CPF:</strong> <span x-text="formData.documento"></span></p>
+      <p><strong>Profissão:</strong> <span x-text="formData.profissao"></span></p>
+      <p><strong>Estado civil:</strong> <span x-text="formData.estadoCivil"></span></p>
+      <p><strong>E-mail:</strong> <span x-text="formData.email"></span></p>
+      <p><strong>Telefone:</strong> <span x-text="formData.telefone"></span></p>
+      <p><strong>Contato preferencial:</strong> <span x-text="labelContato()"></span></p>
+      <p><strong>Endereço:</strong> <span x-text="enderecoCompleto()"></span></p>
+    </div>
+
+    <div class="mt-8 flex justify-between gap-3">
+      <button @click="goStep(11)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="goStep(13)" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+    </div>
+  </section>
+
+  <section x-show="step === 13" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">13. Upload e permanência dos arquivos</h2>
+    <p class="text-grafite/75 mb-5">
+      O envio é facultativo. A ANÁLISE LEGAL<span class="tm">™</span> apenas organiza e encaminha arquivos, sem realizar análise, interpretação ou orientação jurídica.
+    </p>
+
+    <div class="border-2 border-dashed border-militar/30 rounded-xl p-6 text-center cursor-pointer mb-5" @click="$refs.fileInput.click()">
+      <p class="font-bold text-profundo">Clique para selecionar arquivos</p>
+      <p class="text-sm text-grafite/60">PDF, JPG, PNG ou WEBP</p>
+    </div>
+
+    <input x-ref="fileInput" type="file" multiple class="hidden" accept=".pdf,.jpg,.jpeg,.png,.webp" @change="handleFiles($event.target.files)">
+
+    <div class="space-y-2 mb-5" x-show="arquivos.length">
+      <template x-for="(file, index) in arquivos" :key="index">
+        <div class="flex justify-between items-center bg-stone-50 rounded-lg px-4 py-2 border border-militar/15">
+          <span x-text="file.name"></span>
+          <button @click="removeFile(index)" class="text-red-700 font-bold">remover</button>
+        </div>
+      </template>
+    </div>
+
+    <div x-show="arquivos.length">
+      <h3 class="font-bold text-profundo mb-3">Por quanto tempo os arquivos poderão permanecer no servidor?</h3>
+      <div class="grid gap-3">
+        <button @click="formData.retencaoArquivos = 'ate_conclusao_consulta'" class="option-card rounded-xl text-left" :class="formData.retencaoArquivos === 'ate_conclusao_consulta' ? 'active' : ''">Até a conclusão da consulta</button>
+        <button @click="formData.retencaoArquivos = 'ate_entrega_parecer'" class="option-card rounded-xl text-left" :class="formData.retencaoArquivos === 'ate_entrega_parecer' ? 'active' : ''">Até a entrega do parecer jurídico</button>
+        <button @click="formData.retencaoArquivos = 'sete_dias_apos'" class="option-card rounded-xl text-left" :class="formData.retencaoArquivos === 'sete_dias_apos' ? 'active' : ''">7 dias após a conclusão do atendimento</button>
+      </div>
+    </div>
+
+    <p x-show="errors.arquivos" class="text-red-700 mt-3" x-text="errors.arquivos"></p>
+
+    <div class="mt-8 flex justify-between gap-3">
+      <button @click="goStep(12)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button @click="validateStep13()" class="bg-profundo hover:bg-grafite text-white px-7 py-3 rounded-xl font-bold">Continuar</button>
+    </div>
+  </section>
+
+  <section x-show="step === 14" x-transition class="bg-white rounded-2xl border border-militar/20 shadow-sm p-6 md:p-8">
+    <h2 class="text-2xl font-bold text-profundo mb-2">14. Próxima etapa</h2>
+    <p class="text-grafite/75 mb-5">
+      As informações foram estruturadas. A próxima etapa técnica, quando escolhida, é a contratação direta da consulta jurídica ou do parecer com advogado identificado.
+    </p>
+
+    <div class="bg-stone-50 border border-militar/20 rounded-xl p-5 text-sm leading-relaxed">
       <p>
-        Este preenchimento organiza dados fornecidos pelo usuário sobre contrato, valores, documentos, proposta de distrato e contexto do caso, com a finalidade de preparar eventual consulta jurídica ou parecer com advogado.
+        O pagamento deverá ocorrer diretamente ao advogado responsável. A ANÁLISE LEGAL<span class="tm">™</span> não recebe honorários, não intermedeia valores e não participa da relação contratual entre usuário e advogado.
+      </p>
+      <p class="mt-3">
+        A consulta ou o parecer podem, conforme o caso e a deliberação autônoma das partes, evoluir para contrato de honorários advocatícios específico.
+      </p>
+    </div>
+
+    <div class="border border-militar/20 rounded-xl p-5 mt-5">
+      <label class="flex gap-3 mb-3">
+        <input type="checkbox" x-model="termos.plataforma">
+        <span>Compreendo que a ANÁLISE LEGAL<span class="tm">™</span> não presta serviços jurídicos.</span>
+      </label>
+      <label class="flex gap-3 mb-3">
+        <input type="checkbox" x-model="termos.advogado">
+        <span>Compreendo que a contratação será feita diretamente com advogado identificado.</span>
+      </label>
+      <label class="flex gap-3 mb-3">
+        <input type="checkbox" x-model="termos.responsabilidade">
+        <span>Declaro que as informações fornecidas são de minha responsabilidade.</span>
+      </label>
+      <label class="flex gap-3">
+        <input type="checkbox" x-model="termos.lgpd">
+        <span>Aceito o tratamento de dados para estruturação da demanda, encaminhamento ao advogado, agenda, pagamento e emissão fiscal.</span>
+      </label>
+    </div>
+
+    <p x-show="errors.final" class="text-red-700 mt-3" x-text="errors.final"></p>
+
+    <div class="mt-8 flex flex-col md:flex-row justify-between gap-3 no-print">
+      <button @click="goStep(13)" class="px-6 py-3 rounded-xl border border-militar/30 font-bold">Voltar</button>
+      <button onclick="window.print()" class="bg-profundo text-white px-7 py-3 rounded-xl font-bold">Imprimir organização</button>
+      <button @click="finishFlow()" class="bg-ouro hover:opacity-90 text-white px-7 py-3 rounded-xl font-bold">Finalizar estruturação</button>
+    </div>
+
+    <div class="print-only mt-10 text-left">
+      <h1 style="font-size:16pt; font-weight:700; margin-bottom:10px;">Organização das Informações - Distrato de Imóvel na Planta no DF</h1>
+      <p><strong>Nome:</strong> <span x-text="formData.nome"></span></p>
+      <p><strong>CPF:</strong> <span x-text="formData.documento"></span></p>
+      <p><strong>Profissão:</strong> <span x-text="formData.profissao"></span></p>
+      <p><strong>Estado civil:</strong> <span x-text="formData.estadoCivil"></span></p>
+      <p><strong>E-mail:</strong> <span x-text="formData.email"></span></p>
+      <p><strong>Telefone:</strong> <span x-text="formData.telefone"></span></p>
+      <p><strong>Endereço:</strong> <span x-text="enderecoCompleto()"></span></p>
+      <hr style="margin:15px 0;">
+      <p><strong>Situação:</strong> <span x-text="labelOf(situacoes, formData.situacao)"></span></p>
+      <p><strong>Estado do contrato:</strong> <span x-text="labelOf(estadosContrato, formData.estadoContrato)"></span></p>
+      <p><strong>Empreendimento:</strong> <span x-text="formData.nomeEmpreendimento || 'Não informado'"></span></p>
+      <p><strong>Construtora:</strong> <span x-text="formData.construtora || 'Não informado'"></span></p>
+      <p><strong>Forma de compra:</strong> <span x-text="labelOf(formasCompra, formData.formaCompra)"></span></p>
+      <p><strong>Valor do imóvel:</strong> <span x-text="labelValorImovel()"></span></p>
+      <p><strong>Valor já pago:</strong> <span x-text="labelValorPago()"></span></p>
+      <p><strong>Documentos:</strong> <span x-text="labelsOf(documentosDistrato, formData.documentos)"></span></p>
+      <p><strong>Urgência:</strong> <span x-text="labelOf(urgencias, formData.urgencia)"></span></p>
+      <p><strong>Objetivo:</strong> <span x-text="labelOf(objetivos, formData.objetivo)"></span></p>
+      <p><strong>Formato:</strong> <span x-text="formData.produto === 'parecer' ? 'Parecer jurídico' : 'Consulta jurídica'"></span></p>
+      <p><strong>Modalidade:</strong> <span x-text="formData.modalidade === 'presencial' ? 'Presencial' : 'Online'"></span></p>
+      <hr style="margin:15px 0;">
+      <p style="font-size:10pt; line-height:1.4;">
+        Este documento representa exclusivamente a organização das informações fornecidas pelo usuário, não constituindo análise jurídica, parecer ou orientação profissional.
       </p>
     </div>
   </section>
 
-  <main>
-    <div class="notice">
-      <p>
-        A ANÁLISE LEGAL<span class="tm">™</span> não presta serviços jurídicos, não realiza análise, interpretação ou orientação jurídica e não substitui consulta com advogado. O preenchimento abaixo serve apenas para estruturar informações fornecidas pelo usuário.
-      </p>
-    </div>
+</main>
 
-    <div class="progress-wrap no-print">
-      <div class="progress-bar" id="progressBar"></div>
-    </div>
+<footer class="bg-profundo text-white/70 mt-12">
+  <div class="max-w-5xl mx-auto px-5 py-8 text-sm leading-relaxed">
+    <img src="/Marca.svg" alt="ANÁLISE LEGAL" class="h-10 mb-4">
 
-    <form id="funilDistrato">
-      <!-- ETAPA 1 -->
-      <section class="step active" data-step="1">
-        <div class="step-label">Etapa 1 de 9</div>
-        <h2>Identificação da situação</h2>
-        <p class="intro">
-          Selecione a alternativa que melhor descreve a situação atual. Esta etapa não avalia direitos; apenas classifica o tipo de informação que será organizada.
-        </p>
+    <p>
+      A ANÁLISE LEGAL<span class="tm">™</span> é uma plataforma digital destinada à coleta e à estruturação de informações fornecidas pelo usuário, com a finalidade exclusiva de viabilizar posterior análise por advogado. O uso da plataforma não configura prestação de serviços jurídicos pela ANÁLISE LEGAL<span class="tm">™</span>, tampouco estabelece relação advogado-cliente, uma vez que não há, por parte da plataforma, qualquer atividade de análise, interpretação ou orientação jurídica, limitando-se sua atuação à organização técnica de dados para encaminhamento ao profissional competente. A contratação de serviços jurídicos ocorre de forma direta entre o usuário e o advogado, com plena autonomia técnica deste, sem qualquer intermediação da ANÁLISE LEGAL<span class="tm">™</span>, que não recebe honorários advocatícios, não participa da definição de valores e não integra a relação contratual firmada entre as partes. As informações inseridas na plataforma são de responsabilidade exclusiva do usuário, e o conteúdo disponibilizado possui caráter meramente informativo, não substituindo, em nenhuma hipótese, a consulta jurídica formal.
+    </p>
 
-        <div class="field required">
-          <label class="main-label">Qual é a sua situação principal?</label>
-          <div class="options">
-            <label class="option"><input type="radio" name="situacao_principal" value="quero_desistir"> Quero desistir da compra do imóvel na planta.</label>
-            <label class="option"><input type="radio" name="situacao_principal" value="proposta_distrato"> A construtora já apresentou proposta de distrato.</label>
-            <label class="option"><input type="radio" name="situacao_principal" value="atraso_obra"> Há atraso na obra ou na entrega do imóvel.</label>
-            <label class="option"><input type="radio" name="situacao_principal" value="dificuldade_pagamento"> Estou com dificuldade de continuar pagando.</label>
-            <label class="option"><input type="radio" name="situacao_principal" value="duvida_antes_assinar"> Ainda não assinei distrato e quero organizar as informações antes.</label>
-            <label class="option"><input type="radio" name="situacao_principal" value="outro"> Outra situação.</label>
-          </div>
-          <div class="error">Selecione uma opção para continuar.</div>
-        </div>
+    <p class="mt-4">© ANÁLISE LEGAL — Todos os direitos reservados.</p>
+  </div>
+</footer>
 
-        <div class="field">
-          <label class="main-label" for="situacao_complemento">Complemento opcional</label>
-          <textarea id="situacao_complemento" name="situacao_complemento" placeholder="Descreva, de forma breve, o que aconteceu até agora."></textarea>
-        </div>
-      </section>
+<script>
+function distratoFunnel() {
+  return {
+    step: 1,
+    arquivos: [],
+    errors: {},
 
-      <!-- ETAPA 2 -->
-      <section class="step" data-step="2">
-        <div class="step-label">Etapa 2 de 9</div>
-        <h2>Tipo de imóvel e contrato</h2>
-        <p class="intro">
-          Informe dados básicos sobre o contrato. Esses elementos ajudam a organizar o caso para posterior análise profissional.
-        </p>
+    cpfValido: false,
+    emailValido: false,
+    telefoneValido: false,
+    cepValido: false,
+    cepLoading: false,
 
-        <div class="field required">
-          <label class="main-label">O imóvel é:</label>
-          <div class="options">
-            <label class="option"><input type="radio" name="tipo_imovel" value="planta"> Imóvel na planta.</label>
-            <label class="option"><input type="radio" name="tipo_imovel" value="pronto"> Imóvel pronto.</label>
-            <label class="option"><input type="radio" name="tipo_imovel" value="lote"> Lote ou terreno.</label>
-            <label class="option"><input type="radio" name="tipo_imovel" value="nao_sei"> Não sei enquadrar.</label>
-          </div>
-          <div class="error">Selecione uma opção para continuar.</div>
-        </div>
+    termos: {
+      plataforma: false,
+      advogado: false,
+      responsabilidade: false,
+      lgpd: false
+    },
 
-        <div class="two-cols">
-          <div class="field">
-            <label class="main-label" for="ano_contrato">Ano aproximado da assinatura</label>
-            <select id="ano_contrato" name="ano_contrato">
-              <option value="">Selecione</option>
-              <option>Antes de 2018</option>
-              <option>2018</option>
-              <option>2019</option>
-              <option>2020</option>
-              <option>2021</option>
-              <option>2022</option>
-              <option>2023</option>
-              <option>2024</option>
-              <option>2025</option>
-              <option>2026</option>
-              <option>Não sei informar</option>
-            </select>
-          </div>
+    formData: {
+      situacao: '',
+      estadoContrato: '',
+      nomeEmpreendimento: '',
+      construtora: '',
+      localidadeImovel: '',
+      anoContrato: '',
+      formaCompra: '',
+      valorImovel: '',
+      valorPago: '',
+      retencaoInformada: '',
+      documentos: [],
+      urgencia: '',
+      urgenciaDetalhe: '',
+      objetivo: '',
+      descricao: '',
+      produto: '',
+      modalidade: 'online',
 
-          <div class="field">
-            <label class="main-label" for="cidade_imovel">Cidade/DF</label>
-            <input type="text" id="cidade_imovel" name="cidade_imovel" placeholder="Ex.: Brasília, Águas Claras, Guará..." />
-          </div>
-        </div>
-      </section>
+      nome: '',
+      documento: '',
+      profissao: '',
+      estadoCivil: '',
+      regimeCasamento: '',
+      email: '',
+      telefone: '',
+      preferenciaContato: '',
 
-      <!-- ETAPA 3 -->
-      <section class="step" data-step="3">
-        <div class="step-label">Etapa 3 de 9</div>
-        <h2>Forma de aquisição</h2>
-        <p class="intro">
-          Indique como a aquisição foi estruturada. Não é necessário usar linguagem técnica.
-        </p>
+      cep: '',
+      endereco: '',
+      numero: '',
+      complemento: '',
+      bairro: '',
+      cidade: '',
+      uf: '',
 
-        <div class="field required">
-          <label class="main-label">Como foi feita a compra?</label>
-          <div class="options">
-            <label class="option"><input type="radio" name="forma_compra" value="direto_construtora"> Diretamente com construtora/incorporadora.</label>
-            <label class="option"><input type="radio" name="forma_compra" value="construtora_financiamento"> Parte com construtora e parte com financiamento bancário.</label>
-            <label class="option"><input type="radio" name="forma_compra" value="financiado"> Já há financiamento bancário ativo.</label>
-            <label class="option"><input type="radio" name="forma_compra" value="intermediacao"> Compra com intermediação de imobiliária/corretor.</label>
-            <label class="option"><input type="radio" name="forma_compra" value="nao_sei"> Não sei informar.</label>
-          </div>
-          <div class="error">Selecione uma opção para continuar.</div>
-        </div>
+      retencaoArquivos: ''
+    },
 
-        <div class="field">
-          <label class="main-label" for="nome_construtora">Nome da construtora/incorporadora, se souber</label>
-          <input type="text" id="nome_construtora" name="nome_construtora" />
-        </div>
-      </section>
+    situacoes: [
+      { id: 'quero_distratar', titulo: 'Quero desistir da compra do imóvel na planta' },
+      { id: 'proposta_construtora', titulo: 'A construtora já apresentou proposta de distrato' },
+      { id: 'dificuldade_pagamento', titulo: 'Estou com dificuldade de continuar pagando' },
+      { id: 'atraso_obra', titulo: 'Há atraso na obra ou na entrega' },
+      { id: 'termo_para_assinar', titulo: 'Recebi termo de distrato para assinar' },
+      { id: 'organizar_antes_decidir', titulo: 'Quero organizar as informações antes de decidir' }
+    ],
 
-      <!-- ETAPA 4 -->
-      <section class="step" data-step="4">
-        <div class="step-label">Etapa 4 de 9</div>
-        <h2>Valores envolvidos</h2>
-        <p class="intro">
-          Informe valores aproximados. O objetivo é organizar a dimensão econômica do caso, sem cálculo jurídico automatizado.
-        </p>
+    estadosContrato: [
+      { id: 'contrato_ativo_pagando', titulo: 'Contrato ativo e parcelas em pagamento' },
+      { id: 'contrato_ativo_atraso', titulo: 'Contrato ativo, mas há parcelas em atraso' },
+      { id: 'distrato_solicitado', titulo: 'Distrato já foi solicitado' },
+      { id: 'proposta_recebida', titulo: 'Proposta de distrato já foi recebida' },
+      { id: 'termo_assinado', titulo: 'Termo de distrato já foi assinado' },
+      { id: 'nao_sei', titulo: 'Não sei identificar' }
+    ],
 
-        <div class="two-cols">
-          <div class="field">
-            <label class="main-label" for="valor_imovel">Valor aproximado do imóvel</label>
-            <select id="valor_imovel" name="valor_imovel">
-              <option value="">Selecione</option>
-              <option>Até R$ 200 mil</option>
-              <option>R$ 200 mil a R$ 500 mil</option>
-              <option>R$ 500 mil a R$ 1 milhão</option>
-              <option>Acima de R$ 1 milhão</option>
-              <option>Não sei informar</option>
-            </select>
-          </div>
+    formasCompra: [
+      { id: 'direto_construtora', titulo: 'Diretamente com construtora/incorporadora' },
+      { id: 'construtora_financiamento', titulo: 'Parte com construtora e parte com financiamento bancário' },
+      { id: 'financiamento_ativo', titulo: 'Já há financiamento bancário ativo' },
+      { id: 'intermediacao_corretor', titulo: 'Compra intermediada por corretor ou imobiliária' },
+      { id: 'nao_sei', titulo: 'Não sei informar' }
+    ],
 
-          <div class="field">
-            <label class="main-label" for="valor_pago">Valor aproximado já pago</label>
-            <select id="valor_pago" name="valor_pago">
-              <option value="">Selecione</option>
-              <option>Até R$ 50 mil</option>
-              <option>R$ 50 mil a R$ 150 mil</option>
-              <option>R$ 150 mil a R$ 300 mil</option>
-              <option>Acima de R$ 300 mil</option>
-              <option>Não sei informar</option>
-            </select>
-          </div>
-        </div>
+    documentosDistrato: [
+      { id: 'contrato', titulo: 'Contrato de compra e venda' },
+      { id: 'quadro_resumo', titulo: 'Quadro-resumo' },
+      { id: 'aditivos', titulo: 'Aditivos contratuais' },
+      { id: 'comprovantes', titulo: 'Comprovantes de pagamento' },
+      { id: 'proposta_distrato', titulo: 'Proposta ou termo de distrato' },
+      { id: 'mensagens', titulo: 'E-mails, mensagens ou notificações' },
+      { id: 'publicidade', titulo: 'Material de venda, promessa ou publicidade' },
+      { id: 'nao_organizei', titulo: 'Ainda não organizei os documentos' }
+    ],
 
-        <div class="field">
-          <label class="main-label" for="retencao_informada">A construtora informou algum valor ou percentual de retenção?</label>
-          <textarea id="retencao_informada" name="retencao_informada" placeholder="Ex.: informou retenção de 25%, 50%, valor fixo, devolução parcelada etc."></textarea>
-        </div>
-      </section>
+    urgencias: [
+      { id: 'termo_assinar', titulo: 'Tenho termo de distrato para assinar' },
+      { id: 'cobranca_aberta', titulo: 'Há cobrança em aberto' },
+      { id: 'negociacao_andamento', titulo: 'Há negociação em andamento' },
+      { id: 'prazo_entrega_obra', titulo: 'Há prazo de obra, entrega ou habite-se envolvido' },
+      { id: 'sem_prazo', titulo: 'Não há prazo imediato' },
+      { id: 'nao_sei', titulo: 'Não sei informar' }
+    ],
 
-      <!-- ETAPA 5 -->
-      <section class="step" data-step="5">
-        <div class="step-label">Etapa 5 de 9</div>
-        <h2>Documentos disponíveis</h2>
-        <p class="intro">
-          Marque os documentos que você possui. O envio de arquivos poderá ocorrer em etapa própria, conforme o fluxo definido após a escolha de consulta ou parecer.
-        </p>
+    objetivos: [
+      { id: 'preparar_consulta', titulo: 'Preparar uma consulta jurídica' },
+      { id: 'preparar_parecer', titulo: 'Preparar elementos para parecer jurídico' },
+      { id: 'organizar_documentos', titulo: 'Organizar documentos e fatos antes de decidir' },
+      { id: 'avaliar_proposta', titulo: 'Organizar informações sobre proposta da construtora' },
+      { id: 'eventual_contrato', titulo: 'Organizar o caso para eventual contratação advocatícia posterior' }
+    ],
 
-        <div class="field">
-          <label class="main-label">Quais documentos você tem?</label>
-          <div class="options">
-            <label class="option"><input type="checkbox" name="documentos" value="contrato"> Contrato de compra e venda.</label>
-            <label class="option"><input type="checkbox" name="documentos" value="aditivos"> Aditivos contratuais.</label>
-            <label class="option"><input type="checkbox" name="documentos" value="comprovantes"> Comprovantes de pagamento.</label>
-            <label class="option"><input type="checkbox" name="documentos" value="proposta"> Proposta de distrato.</label>
-            <label class="option"><input type="checkbox" name="documentos" value="mensagens"> E-mails, mensagens ou notificações.</label>
-            <label class="option"><input type="checkbox" name="documentos" value="publicidade"> Material de venda, promessa ou publicidade.</label>
-            <label class="option"><input type="checkbox" name="documentos" value="nao_organizado"> Ainda não organizei os documentos.</label>
-          </div>
-        </div>
-      </section>
+    init() {},
 
-      <!-- ETAPA 6 -->
-      <section class="step" data-step="6">
-        <div class="step-label">Etapa 6 de 9</div>
-        <h2>Contexto de urgência</h2>
-        <p class="intro">
-          Esta etapa organiza prazos e eventos próximos. Não há análise automática de risco jurídico.
-        </p>
+    goStep(n) {
+      this.step = n;
+      this.$nextTick(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    },
 
-        <div class="field required">
-          <label class="main-label">Há algum prazo ou evento próximo?</label>
-          <div class="options">
-            <label class="option"><input type="radio" name="urgencia" value="termo_para_assinar"> Recebi termo de distrato para assinar.</label>
-            <label class="option"><input type="radio" name="urgencia" value="cobranca_em_aberto"> Há cobranças em aberto.</label>
-            <label class="option"><input type="radio" name="urgencia" value="negociacao_andamento"> Estou em negociação com a construtora.</label>
-            <label class="option"><input type="radio" name="urgencia" value="prazo_obra"> Há prazo de obra, entrega ou habite-se envolvido.</label>
-            <label class="option"><input type="radio" name="urgencia" value="sem_prazo"> Não há prazo imediato.</label>
-            <label class="option"><input type="radio" name="urgencia" value="nao_sei"> Não sei informar.</label>
-          </div>
-          <div class="error">Selecione uma opção para continuar.</div>
-        </div>
+    validateStep1() {
+      this.errors = {};
+      if (!this.formData.situacao) return this.errors.situacao = 'Selecione uma situação.';
+      this.goStep(2);
+    },
 
-        <div class="field">
-          <label class="main-label" for="urgencia_detalhe">Detalhe opcional sobre prazo ou urgência</label>
-          <textarea id="urgencia_detalhe" name="urgencia_detalhe"></textarea>
-        </div>
-      </section>
+    validateStep2() {
+      this.errors = {};
+      if (!this.formData.estadoContrato) return this.errors.estadoContrato = 'Selecione o estado atual do contrato.';
+      this.goStep(3);
+    },
 
-      <!-- ETAPA 7 -->
-      <section class="step" data-step="7">
-        <div class="step-label">Etapa 7 de 9</div>
-        <h2>Objetivo informado pelo usuário</h2>
-        <p class="intro">
-          Indique o que você pretende organizar para eventual consulta ou parecer. Esta etapa não define a melhor solução.
-        </p>
-
-        <div class="field required">
-          <label class="main-label">Qual é o seu objetivo neste momento?</label>
-          <div class="options">
-            <label class="option"><input type="radio" name="objetivo" value="entender_documentos"> Organizar documentos e informações antes de decidir.</label>
-            <label class="option"><input type="radio" name="objetivo" value="avaliar_proposta"> Preparar informações sobre proposta apresentada pela construtora.</label>
-            <label class="option"><input type="radio" name="objetivo" value="preparar_consulta"> Preparar uma consulta jurídica.</label>
-            <label class="option"><input type="radio" name="objetivo" value="preparar_parecer"> Preparar elementos para parecer jurídico.</label>
-            <label class="option"><input type="radio" name="objetivo" value="eventual_contrato"> Organizar o caso para eventual contratação advocatícia posterior.</label>
-          </div>
-          <div class="error">Selecione uma opção para continuar.</div>
-        </div>
-      </section>
-
-      <!-- ETAPA 8 -->
-      <section class="step" data-step="8">
-        <div class="step-label">Etapa 8 de 9</div>
-        <h2>Dados de identificação</h2>
-        <p class="intro">
-          Estes dados são necessários para continuidade do fluxo, contato e eventual emissão fiscal pelo advogado contratado, quando houver contratação de consulta ou parecer.
-        </p>
-
-        <div class="two-cols">
-          <div class="field required">
-            <label class="main-label" for="nome">Nome completo</label>
-            <input type="text" id="nome" name="nome" />
-            <div class="error">Informe o nome completo.</div>
-          </div>
-
-          <div class="field required">
-            <label class="main-label" for="cpf">CPF</label>
-            <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" />
-            <div class="error">Informe um CPF válido.</div>
-          </div>
-        </div>
-
-        <div class="two-cols">
-          <div class="field">
-            <label class="main-label" for="profissao">Profissão</label>
-            <input type="text" id="profissao" name="profissao" />
-          </div>
-
-          <div class="field">
-            <label class="main-label" for="estado_civil">Estado civil</label>
-            <select id="estado_civil" name="estado_civil">
-              <option value="">Selecione</option>
-              <option>Solteiro(a)</option>
-              <option>Casado(a)</option>
-              <option>União estável</option>
-              <option>Divorciado(a)</option>
-              <option>Viúvo(a)</option>
-              <option>Prefiro não informar agora</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="two-cols">
-          <div class="field required">
-            <label class="main-label" for="email">E-mail</label>
-            <input type="email" id="email" name="email" placeholder="seunome@email.com" />
-            <div class="error">Informe um e-mail válido.</div>
-          </div>
-
-          <div class="field required">
-            <label class="main-label" for="telefone">Telefone/WhatsApp</label>
-            <input type="tel" id="telefone" name="telefone" placeholder="(61) 99999-9999" />
-            <div class="error">Informe um telefone válido.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ETAPA 9 -->
-      <section class="step" data-step="9">
-        <div class="step-label">Etapa 9 de 9</div>
-        <h2>Encaminhamento para consulta ou parecer</h2>
-        <p class="intro">
-          As informações foram organizadas para continuidade do fluxo. A contratação de consulta jurídica ou parecer, quando escolhida, ocorre diretamente com advogado responsável pelo atendimento, pela cobrança, pela emissão de nota fiscal e pela análise técnica.
-        </p>
-
-        <div class="summary">
-          <h3>Resumo técnico das informações coletadas</h3>
-          <p id="resumoTexto">
-            Este resumo apenas consolida informações inseridas pelo usuário. Não contém diagnóstico jurídico, orientação, classificação de direito, indicação de estratégia ou promessa de resultado.
-          </p>
-        </div>
-
-        <div class="service-choice">
-          <label class="service-card">
-            <input type="radio" name="servico" value="consulta_juridica" />
-            <h3>Consulta jurídica</h3>
-            <p>
-              Atendimento com advogado para exame técnico do caso a partir das informações estruturadas.
-            </p>
-            <div class="price">Valor de referência: R$ 500,00</div>
-          </label>
-
-          <label class="service-card">
-            <input type="radio" name="servico" value="parecer_juridico" />
-            <h3>Parecer jurídico</h3>
-            <p>
-              Elaboração escrita por advogado, conforme documentos, complexidade e escopo definidos.
-            </p>
-            <div class="price">Valor de referência: R$ 1.000,00</div>
-          </label>
-        </div>
-
-        <div class="notice" style="margin-top: 24px;">
-          <p>
-            A consulta ou o parecer podem, conforme o caso e a deliberação autônoma das partes, evoluir para contrato de honorários advocatícios específico. Essa eventual contratação é feita diretamente entre usuário e advogado, sem intermediação da ANÁLISE LEGAL<span class="tm">™</span>.
-          </p>
-        </div>
-      </section>
-
-      <div class="actions no-print">
-        <button type="button" class="btn btn-secondary" id="prevBtn">Voltar</button>
-        <button type="button" class="btn btn-primary" id="nextBtn">Continuar</button>
-      </div>
-
-      <div class="print-only print-footer">
-        A ANÁLISE LEGAL é uma plataforma digital destinada à coleta e à estruturação de informações fornecidas pelo usuário, com a finalidade exclusiva de viabilizar posterior análise por advogado. O uso da plataforma não configura prestação de serviços jurídicos pela ANÁLISE LEGAL, tampouco estabelece relação advogado-cliente. A contratação de serviços jurídicos ocorre de forma direta entre o usuário e o advogado, com plena autonomia técnica deste, sem qualquer intermediação da ANÁLISE LEGAL.
-        <br><br>
-        © ANÁLISE LEGAL — Todos os direitos reservados.
-      </div>
-    </form>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <strong>ANÁLISE LEGAL<span class="tm">™</span></strong>
-      <span>
-        A ANÁLISE LEGAL<span class="tm">™</span> é uma plataforma digital destinada à coleta e à estruturação de informações fornecidas pelo usuário, com a finalidade exclusiva de viabilizar posterior análise por advogado.
-      </span>
-      <span>
-        O uso da plataforma não configura prestação de serviços jurídicos pela ANÁLISE LEGAL<span class="tm">™</span>, tampouco estabelece relação advogado-cliente, uma vez que não há, por parte da plataforma, qualquer atividade de análise, interpretação ou orientação jurídica.
-      </span>
-      <span>
-        A contratação de serviços jurídicos ocorre de forma direta entre o usuário e o advogado, sem intermediação de honorários pela plataforma.
-      </span>
-      <span>© ANÁLISE LEGAL — Todos os direitos reservados.</span>
-    </div>
-  </footer>
-
-  <script>
-    const steps = Array.from(document.querySelectorAll(".step"));
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const progressBar = document.getElementById("progressBar");
-    const form = document.getElementById("funilDistrato");
-    let currentStep = 0;
-
-    function showStep(index) {
-      steps.forEach((step, i) => step.classList.toggle("active", i === index));
-      prevBtn.disabled = index === 0;
-      nextBtn.textContent = index === steps.length - 1 ? "Finalizar preenchimento" : "Continuar";
-      progressBar.style.width = ((index + 1) / steps.length) * 100 + "%";
-
-      if (index === steps.length - 1) {
-        buildNeutralSummary();
+    validateStep3() {
+      this.errors = {};
+      if (!this.formData.localidadeImovel || !this.formData.anoContrato) {
+        return this.errors.dadosImovel = 'Informe a localidade e o ano aproximado do contrato.';
       }
+      this.goStep(4);
+    },
+
+    validateStep4() {
+      this.errors = {};
+      if (!this.formData.formaCompra) return this.errors.formaCompra = 'Selecione a forma de aquisição.';
+      this.goStep(5);
+    },
+
+    validateStep5() {
+      this.errors = {};
+      if (!this.formData.valorImovel || !this.formData.valorPago) {
+        return this.errors.valores = 'Informe o valor aproximado do imóvel e o valor aproximado já pago.';
+      }
+      this.goStep(6);
+    },
+
+    validateStep6() {
+      this.errors = {};
+      if (!this.formData.documentos.length) return this.errors.documentos = 'Selecione ao menos uma opção.';
+      this.goStep(7);
+    },
+
+    validateStep7() {
+      this.errors = {};
+      if (!this.formData.urgencia) return this.errors.urgencia = 'Selecione uma opção.';
+      this.goStep(8);
+    },
+
+    validateStep8() {
+      this.errors = {};
+      if (!this.formData.objetivo) return this.errors.objetivo = 'Selecione o objetivo do preenchimento.';
+      this.goStep(9);
+    },
+
+    validateStep10() {
+      this.errors = {};
+      if (!this.formData.produto) return this.errors.produto = 'Selecione consulta ou parecer.';
+      if (!this.formData.modalidade) return this.errors.produto = 'Selecione a modalidade.';
+      this.goStep(11);
+    },
+
+    validateStep11() {
+      this.errors = {};
+
+      const required = [
+        'nome', 'documento', 'profissao', 'estadoCivil',
+        'email', 'telefone', 'preferenciaContato',
+        'cep', 'endereco', 'numero', 'bairro', 'cidade', 'uf'
+      ];
+
+      for (const field of required) {
+        if (!this.formData[field] || !String(this.formData[field]).trim()) {
+          return this.errors.dados = 'Preencha todos os campos obrigatórios.';
+        }
+      }
+
+      if (!this.validateCPFField()) return;
+      if (!this.validateEmailField()) return;
+      if (!this.validateTelefoneField()) return;
+
+      if ((this.formData.estadoCivil === 'casado' || this.formData.estadoCivil === 'uniao_estavel') && !this.formData.regimeCasamento) {
+        return this.errors.dados = 'Informe o regime de bens.';
+      }
+
+      this.goStep(12);
+    },
+
+    validateStep13() {
+      this.errors = {};
+      if (this.arquivos.length && !this.formData.retencaoArquivos) {
+        return this.errors.arquivos = 'Selecione o prazo de permanência dos arquivos.';
+      }
+      this.goStep(14);
+    },
+
+    allTermsAccepted() {
+      return this.termos.plataforma &&
+             this.termos.advogado &&
+             this.termos.responsabilidade &&
+             this.termos.lgpd;
+    },
+
+    finishFlow() {
+      this.errors = {};
+      if (!this.allTermsAccepted()) {
+        return this.errors.final = 'Aceite os termos obrigatórios para finalizar.';
+      }
+      alert('Informações estruturadas. Próxima etapa: contratação direta de consulta jurídica ou parecer com advogado identificado.');
+    },
+
+    toggleArray(field, value) {
+      const arr = this.formData[field];
+
+      if (value === 'nao_organizei') {
+        this.formData[field] = [value];
+        return;
+      }
+
+      this.formData[field] = arr.filter(v => v !== 'nao_organizei');
+
+      if (this.formData[field].includes(value)) {
+        this.formData[field] = this.formData[field].filter(v => v !== value);
+      } else {
+        this.formData[field].push(value);
+      }
+    },
+
+    handleFiles(files) {
+      const allowed = ['application/pdf', 'image/jpeg', 'image/png', 'image/webp'];
+      for (const file of files) {
+        if (allowed.includes(file.type)) this.arquivos.push(file);
+      }
+    },
+
+    removeFile(index) {
+      this.arquivos.splice(index, 1);
+      if (!this.arquivos.length) this.formData.retencaoArquivos = '';
+    },
+
+    labelOf(list, id) {
+      const item = list.find(i => i.id === id);
+      return item ? item.titulo : 'Não informado';
+    },
+
+    labelsOf(list, ids) {
+      if (!ids || !ids.length) return 'Não informado';
+      return ids.map(id => this.labelOf(list, id)).join('; ');
+    },
+
+    labelContato() {
+      const map = {
+        telefone_voz: 'Telefone — voz',
+        telefone_mensagem: 'Telefone — mensagem',
+        email: 'E-mail'
+      };
+      return map[this.formData.preferenciaContato] || 'Não informado';
+    },
+
+    labelLocalidade() {
+      const map = {
+        brasilia: 'Brasília / Plano Piloto',
+        aguas_claras: 'Águas Claras',
+        guara: 'Guará',
+        taguatinga: 'Taguatinga',
+        samambaia: 'Samambaia',
+        ceilândia: 'Ceilândia',
+        sobradinho: 'Sobradinho',
+        sudoeste_noroeste: 'Sudoeste / Noroeste',
+        outra_df: 'Outra região do DF',
+        fora_df: 'Fora do DF',
+        nao_sei: 'Não sei informar'
+      };
+      return map[this.formData.localidadeImovel] || 'Não informado';
+    },
+
+    labelValorImovel() {
+      const map = {
+        ate_200k: 'Até R$ 200.000,00',
+        200k_500k: 'Entre R$ 200.000,00 e R$ 500.000,00',
+        500k_1m: 'Entre R$ 500.000,00 e R$ 1.000.000,00',
+        acima_1m: 'Acima de R$ 1.000.000,00',
+        nao_sei: 'Não sei informar'
+      };
+      return map[this.formData.valorImovel] || 'Não informado';
+    },
+
+    labelValorPago() {
+      const map = {
+        ate_50k: 'Até R$ 50.000,00',
+        50k_150k: 'Entre R$ 50.000,00 e R$ 150.000,00',
+        150k_300k: 'Entre R$ 150.000,00 e R$ 300.000,00',
+        acima_300k: 'Acima de R$ 300.000,00',
+        nao_sei: 'Não sei informar'
+      };
+      return map[this.formData.valorPago] || 'Não informado';
+    },
+
+    enderecoCompleto() {
+      const partes = [
+        this.formData.endereco,
+        this.formData.numero,
+        this.formData.complemento,
+        this.formData.bairro,
+        this.formData.cidade,
+        this.formData.uf,
+        this.formData.cep
+      ].filter(Boolean);
+      return partes.join(', ');
+    },
+
+    isValidCPF(cpfRaw) {
+      const cpf = (cpfRaw || '').replace(/\D/g, '');
+      if (cpf.length !== 11) return false;
+      if (/^(\d)\1+$/.test(cpf)) return false;
+
+      let sum = 0;
+      for (let i = 0; i < 9; i++) sum += parseInt(cpf[i]) * (10 - i);
+      let d1 = (sum * 10) % 11;
+      if (d1 === 10) d1 = 0;
+      if (d1 !== parseInt(cpf[9])) return false;
+
+      sum = 0;
+      for (let i = 0; i < 10; i++) sum += parseInt(cpf[i]) * (11 - i);
+      let d2 = (sum * 10) % 11;
+      if (d2 === 10) d2 = 0;
+
+      return d2 === parseInt(cpf[10]);
+    },
+
+    validateCPFField() {
+      const raw = (this.formData.documento || '').replace(/\D/g, '');
+      this.cpfValido = false;
+
+      if (!raw) {
+        this.errors.cpf = 'CPF é obrigatório.';
+        return false;
+      }
+
+      if (raw.length !== 11) {
+        this.errors.cpf = 'CPF deve ter 11 dígitos.';
+        return false;
+      }
+
+      if (!this.isValidCPF(raw)) {
+        this.errors.cpf = 'CPF inválido.';
+        return false;
+      }
+
+      this.errors.cpf = '';
+      this.cpfValido = true;
+      return true;
+    },
+
+    validateEmailField() {
+      const email = (this.formData.email || '').trim();
+      this.emailValido = false;
+
+      if (!email) {
+        this.errors.email = 'E-mail é obrigatório.';
+        return false;
+      }
+
+      if (!email.includes('@') || !email.includes('.')) {
+        this.errors.email = 'Informe um e-mail válido.';
+        return false;
+      }
+
+      this.errors.email = '';
+      this.emailValido = true;
+      return true;
+    },
+
+    validateTelefoneField() {
+      const nums = (this.formData.telefone || '').replace(/\D/g, '');
+      this.telefoneValido = false;
+
+      if (!nums) {
+        this.errors.telefone = 'Telefone é obrigatório.';
+        return false;
+      }
+
+      if (nums.length !== 10 && nums.length !== 11) {
+        this.errors.telefone = 'Telefone deve ter DDD e 10 ou 11 dígitos.';
+        return false;
+      }
+
+      this.errors.telefone = '';
+      this.telefoneValido = true;
+      return true;
+    },
+
+    async onCepInput(value) {
+      this.formData.cep = this.formatCEP(value);
+      this.errors.cep = '';
+      this.cepValido = false;
+
+      const cep = this.formData.cep.replace(/\D/g, '');
+      if (cep.length !== 8) return;
+
+      this.cepLoading = true;
 
       try {
-        window.dispatchEvent(new CustomEvent("analiselegal_funil_step", {
-          detail: {
-            page: "imobiliario/distrato-imovel-planta-df/analise",
-            step: index + 1,
-            timestamp: new Date().toISOString()
-          }
-        }));
-      } catch (e) {}
-    }
+        const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const data = await res.json();
 
-    function validateStep() {
-      const step = steps[currentStep];
-      let valid = true;
-
-      step.querySelectorAll(".field.required").forEach(field => {
-        const radios = field.querySelectorAll("input[type='radio']");
-        const textInput = field.querySelector("input[type='text'], input[type='email'], input[type='tel']");
-        const error = field.querySelector(".error");
-        let fieldValid = true;
-
-        if (radios.length) {
-          fieldValid = Array.from(radios).some(r => r.checked);
+        if (data.erro) {
+          this.errors.cep = 'CEP não encontrado.';
+          return;
         }
 
-        if (textInput) {
-          if (textInput.id === "cpf") {
-            fieldValid = validarCPF(textInput.value);
-          } else if (textInput.id === "email") {
-            fieldValid = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(textInput.value.trim());
-          } else if (textInput.id === "telefone") {
-            fieldValid = textInput.value.replace(/\\D/g, "").length >= 10;
-          } else {
-            fieldValid = textInput.value.trim().length >= 3;
-          }
-        }
+        this.formData.endereco = data.logradouro || this.formData.endereco;
+        this.formData.bairro = data.bairro || this.formData.bairro;
+        this.formData.cidade = data.localidade || this.formData.cidade;
+        this.formData.uf = data.uf || this.formData.uf;
 
-        if (error) error.style.display = fieldValid ? "none" : "block";
-        if (!fieldValid) valid = false;
-      });
-
-      return valid;
-    }
-
-    function getValue(name) {
-      const checked = form.querySelector(`[name="${name}"]:checked`);
-      if (checked) return checked.parentElement.textContent.trim();
-      const field = form.querySelector(`[name="${name}"]`);
-      return field ? field.value.trim() : "";
-    }
-
-    function getCheckedValues(name) {
-      return Array.from(form.querySelectorAll(`[name="${name}"]:checked`))
-        .map(el => el.parentElement.textContent.trim());
-    }
-
-    function buildNeutralSummary() {
-      const resumo = document.getElementById("resumoTexto");
-
-      const situacao = getValue("situacao_principal") || "situação principal não informada";
-      const tipoImovel = getValue("tipo_imovel") || "tipo de imóvel não informado";
-      const formaCompra = getValue("forma_compra") || "forma de aquisição não informada";
-      const urgencia = getValue("urgencia") || "urgência não informada";
-      const objetivo = getValue("objetivo") || "objetivo não informado";
-      const docs = getCheckedValues("documentos");
-
-      resumo.innerHTML = `
-        Foram informados os seguintes elementos para organização: <strong>${situacao}</strong>;
-        tipo de imóvel: <strong>${tipoImovel}</strong>;
-        forma de aquisição: <strong>${formaCompra}</strong>;
-        contexto de prazo ou urgência: <strong>${urgencia}</strong>;
-        objetivo declarado: <strong>${objetivo}</strong>.
-        ${docs.length ? "Documentos marcados como disponíveis: <strong>" + docs.join(", ") + "</strong>." : "Nenhum documento foi marcado como disponível nesta etapa."}
-        <br><br>
-        Este resumo apenas consolida os dados preenchidos pelo usuário e não contém análise jurídica, orientação, diagnóstico, classificação de risco ou indicação de estratégia.
-      `;
-    }
-
-    function validarCPF(cpf) {
-      cpf = cpf.replace(/\\D/g, "");
-      if (cpf.length !== 11 || /^(\\d)\\1+$/.test(cpf)) return false;
-
-      let soma = 0;
-      for (let i = 0; i < 9; i++) soma += parseInt(cpf.charAt(i)) * (10 - i);
-      let resto = 11 - (soma % 11);
-      let digito1 = resto >= 10 ? 0 : resto;
-      if (digito1 !== parseInt(cpf.charAt(9))) return false;
-
-      soma = 0;
-      for (let i = 0; i < 10; i++) soma += parseInt(cpf.charAt(i)) * (11 - i);
-      resto = 11 - (soma % 11);
-      let digito2 = resto >= 10 ? 0 : resto;
-
-      return digito2 === parseInt(cpf.charAt(10));
-    }
-
-    document.getElementById("cpf").addEventListener("input", function(e) {
-      let v = e.target.value.replace(/\\D/g, "").slice(0, 11);
-      v = v.replace(/(\\d{3})(\\d)/, "$1.$2");
-      v = v.replace(/(\\d{3})(\\d)/, "$1.$2");
-      v = v.replace(/(\\d{3})(\\d{1,2})$/, "$1-$2");
-      e.target.value = v;
-    });
-
-    document.getElementById("telefone").addEventListener("input", function(e) {
-      let v = e.target.value.replace(/\\D/g, "").slice(0, 11);
-      if (v.length > 10) {
-        v = v.replace(/(\\d{2})(\\d{5})(\\d{4})/, "($1) $2-$3");
-      } else {
-        v = v.replace(/(\\d{2})(\\d{4})(\\d{0,4})/, "($1) $2-$3");
+        this.cepValido = true;
+      } catch (e) {
+        this.errors.cep = 'Erro ao consultar CEP.';
+      } finally {
+        this.cepLoading = false;
       }
-      e.target.value = v;
-    });
+    },
 
-    nextBtn.addEventListener("click", function() {
-      if (!validateStep()) return;
+    formatCPF(value) {
+      const nums = (value || '').replace(/\D/g, '').slice(0, 11);
+      return nums
+        .replace(/(\d{3})(\d)/, '$1.$2')
+        .replace(/(\d{3})\.(\d{3})(\d)/, '$1.$2.$3')
+        .replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
+    },
 
-      if (currentStep < steps.length - 1) {
-        currentStep++;
-        showStep(currentStep);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        try {
-          window.dispatchEvent(new CustomEvent("analiselegal_funil_complete", {
-            detail: {
-              page: "imobiliario/distrato-imovel-planta-df/analise",
-              timestamp: new Date().toISOString()
-            }
-          }));
-        } catch (e) {}
+    formatPhone(value) {
+      const nums = (value || '').replace(/\D/g, '').slice(0, 11);
+      if (nums.length <= 10) return nums.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+      return nums.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+    },
 
-        alert("Informações estruturadas. Próxima etapa: escolha, agendamento e contratação direta de consulta jurídica ou parecer com advogado.");
-      }
-    });
+    formatCEP(value) {
+      const nums = (value || '').replace(/\D/g, '').slice(0, 8);
+      if (nums.length <= 5) return nums;
+      return nums.slice(0, 5) + '-' + nums.slice(5);
+    }
+  }
+}
+</script>
 
-    prevBtn.addEventListener("click", function() {
-      if (currentStep > 0) {
-        currentStep--;
-        showStep(currentStep);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    });
-
-    window.addEventListener("beforeprint", function () {
-      try {
-        window.dispatchEvent(new CustomEvent("analiselegal_print_intent", {
-          detail: {
-            page: "imobiliario/distrato-imovel-planta-df/analise",
-            action: "beforeprint",
-            timestamp: new Date().toISOString()
-          }
-        }));
-      } catch (e) {}
-    });
-
-    showStep(currentStep);
-  </script>
 </body>
 </html>
