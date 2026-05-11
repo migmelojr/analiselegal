@@ -1,36 +1,41 @@
+Index final · HTML
+Copiar
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+ 
   <title>Análise Legal™ | Organização estratégica de informações</title>
-
+ 
   <meta name="description" content="A Análise Legal™ organiza informações, documentos, cronologias e contexto para preparar situações complexas antes da etapa especializada." />
   <meta name="author" content="Análise Legal™" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0f2f28" />
-
+ 
   <link rel="canonical" href="https://www.analiselegal.com.br/" />
-
+ 
   <meta property="og:title" content="Análise Legal™ | Organização estratégica de informações" />
   <meta property="og:description" content="Organize informações, documentos, cronologias e contexto antes da etapa especializada." />
   <meta property="og:image" content="https://www.analiselegal.com.br/assets/img/og-home.jpg" />
   <meta property="og:url" content="https://www.analiselegal.com.br/" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_BR" />
-
+ 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Análise Legal™ | Organização estratégica de informações" />
   <meta name="twitter:description" content="Organize informações, documentos, cronologias e contexto antes da etapa especializada." />
   <meta name="twitter:image" content="https://www.analiselegal.com.br/assets/img/og-home.jpg" />
-
+ 
   <link rel="icon" href="/assets/img/Simbolo.svg" type="image/svg+xml" />
-
+ 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet" />
-
+ 
+  <link rel="stylesheet" href="/assets/css/style.css" />
+ 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,278 +51,12 @@
     }
   }
   </script>
-
-  <style>
-    :root {
-      --verde-profundo: #0f2f28;
-      --verde-secundario: #183d34;
-      --dourado: #c8ad72;
-      --bege: #fbf3df;
-      --bege-claro: #faf7f1;
-      --grafite: #2b2b2b;
-      --cinza: #5f5f5f;
-      --branco: #ffffff;
-      --linha: rgba(200, 173, 114, 0.38);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: "Crimson Text", Georgia, serif;
-      background: var(--bege-claro);
-      color: var(--grafite);
-      line-height: 1.65;
-      font-size: 20px;
-    }
-
-    a { color: inherit; }
-    a:focus-visible, button:focus-visible {
-      outline: 3px solid var(--dourado);
-      outline-offset: 4px;
-    }
-
-    .trademark {
-      font-size: 0.42em;
-      position: relative;
-      top: -0.55em;
-      letter-spacing: 0;
-      opacity: 0.78;
-      font-weight: 600;
-      margin-left: 0.03em;
-    }
-
-    .skip-link {
-      position: absolute; top: -48px; left: 16px;
-      background: var(--dourado); color: var(--verde-profundo);
-      padding: 10px 16px; border-radius: 8px;
-      z-index: 999; font-weight: 700; text-decoration: none;
-    }
-    .skip-link:focus { top: 16px; }
-
-    header {
-      background: var(--verde-profundo);
-      color: var(--branco);
-      padding: 28px 24px;
-      border-bottom: 1px solid var(--dourado);
-    }
-    .header-inner { max-width: 1080px; margin: 0 auto; }
-    .brand {
-      display: flex; align-items: center; gap: 16px;
-      text-decoration: none; color: inherit; width: fit-content;
-    }
-    .brand img { width: 180px; height: auto; display: block; }
-
-    main { max-width: 1080px; margin: 0 auto; padding: 72px 24px; }
-
-    section {
-      padding: 56px 0;
-      border-bottom: 1px solid var(--linha);
-    }
-    section:last-of-type { border-bottom: none; }
-
-    .hero { position: relative; padding-top: 24px; }
-
-    .tesseract-wrap {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 360px;
-      height: 360px;
-      pointer-events: none;
-      opacity: 0.85;
-      z-index: 0;
-    }
-    .tesseract-wrap svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-      overflow: visible;
-    }
-
-    .hero > *:not(.tesseract-wrap) {
-      position: relative;
-      z-index: 1;
-    }
-
-    .eyebrow {
-      color: var(--dourado);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    h1 {
-      font-size: clamp(2.4rem, 6vw, 4.8rem);
-      line-height: 1.05;
-      color: var(--verde-profundo);
-      max-width: 900px;
-      margin-bottom: 28px;
-      font-weight: 700;
-    }
-    h2 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.15;
-      color: var(--verde-profundo);
-      margin-bottom: 28px;
-      font-weight: 700;
-    }
-    h3 {
-      font-size: 1.45rem;
-      color: var(--verde-secundario);
-      margin-bottom: 8px;
-      font-weight: 700;
-    }
-    p { margin-bottom: 18px; max-width: 860px; }
-    .lead {
-      font-size: clamp(1.35rem, 3vw, 2rem);
-      line-height: 1.35;
-      color: var(--verde-secundario);
-      max-width: 860px;
-      margin-bottom: 24px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-      margin-top: 28px;
-    }
-    .card {
-      background: var(--branco);
-      border: 1px solid var(--linha);
-      border-radius: 18px;
-      padding: 26px;
-      box-shadow: 0 16px 36px rgba(15, 47, 40, 0.06);
-    }
-    .card-number {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 34px; height: 34px; border-radius: 50%;
-      background: var(--verde-profundo); color: var(--bege);
-      font-size: 1rem; font-weight: 700; margin-bottom: 18px;
-    }
-
-    .role-box {
-      background: var(--verde-profundo);
-      color: var(--bege);
-      border-radius: 24px;
-      padding: 42px;
-      margin-top: 20px;
-    }
-    .role-box h2 { color: var(--branco); }
-    .role-box p { color: var(--bege); }
-
-    ul { list-style: none; display: grid; gap: 14px; max-width: 840px; }
-    li { position: relative; padding-left: 28px; }
-    li::before {
-      content: ""; position: absolute; left: 0; top: 0.75em;
-      width: 9px; height: 9px; border-radius: 50%;
-      background: var(--dourado);
-    }
-
-    .cta {
-      text-align: center;
-      background: var(--verde-profundo);
-      color: var(--branco);
-      border-radius: 28px;
-      padding: 64px 28px;
-      margin-top: 48px;
-    }
-    .cta h2 { color: var(--branco); margin-left: auto; margin-right: auto; }
-    .cta p { margin-left: auto; margin-right: auto; color: var(--bege); font-size: 1.35rem; }
-
-    .button {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 16px 34px;
-      border-radius: 999px;
-      background: var(--dourado);
-      color: var(--verde-profundo);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.15rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .button:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18); }
-
-    footer {
-      background: var(--verde-profundo);
-      color: var(--bege);
-      padding: 40px 24px;
-      font-size: 0.92rem;
-    }
-    .footer-inner { max-width: 1080px; margin: 0 auto; }
-    footer p, footer small {
-      display: block; line-height: 1.55;
-      color: rgba(251, 243, 223, 0.92); max-width: 980px;
-    }
-    footer a {
-      color: var(--bege);
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-    .footer-links {
-      margin-top: 22px;
-      display: flex; flex-wrap: wrap; gap: 16px;
-    }
-
-    @media (max-width: 900px) {
-      .cards { grid-template-columns: 1fr 1fr; }
-      .tesseract-wrap {
-        position: relative;
-        width: 220px; height: 220px;
-        margin: 0 auto 24px;
-        top: auto; right: auto;
-      }
-    }
-
-    @media (max-width: 640px) {
-      body { font-size: 18px; }
-      header { padding: 22px 18px; }
-      .brand img { width: 150px; }
-      main { padding: 48px 18px; }
-      section { padding: 42px 0; }
-      .cards { grid-template-columns: 1fr; }
-      .role-box { padding: 30px 24px; border-radius: 20px; }
-      .cta { padding: 46px 22px; }
-      .footer-links { flex-direction: column; gap: 8px; }
-      .tesseract-wrap { width: 180px; height: 180px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .tesseract-wrap { opacity: 0.6; }
-    }
-
-    @media print {
-      @page { size: A4; margin: 18mm; }
-      body { background: #fff; color: #000; font-size: 12pt; line-height: 1.45; }
-      .skip-link, .button, .tesseract-wrap { display: none; }
-      .trademark { font-size: 0.55em; top: -0.45em; opacity: 1; }
-      header, footer, .role-box, .cta, .card {
-        background: #fff; color: #000; box-shadow: none;
-      }
-      header { border-bottom: 1px solid #000; padding: 0 0 10mm 0; }
-      main { padding: 10mm 0; }
-      section { padding: 7mm 0; border-bottom: 1px solid #ccc; }
-      h1, h2, h3,
-      .role-box h2, .role-box p,
-      .cta h2, .cta p,
-      footer p, footer small, footer a { color: #000; }
-      h1 { font-size: 24pt; } h2 { font-size: 18pt; } h3 { font-size: 13pt; }
-      .cards { display: block; }
-      .card, .role-box, .cta { border: none; padding: 0; margin: 0 0 6mm 0; }
-      .card-number, .eyebrow { display: none; }
-      footer { border-top: 1px solid #000; padding: 8mm 0 0 0; }
-    }
-  </style>
 </head>
-
+ 
 <body>
-
+ 
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-
+ 
   <header>
     <div class="header-inner">
       <a class="brand" href="/" aria-label="Página inicial da Análise Legal">
@@ -332,55 +71,55 @@
       </a>
     </div>
   </header>
-
+ 
   <main id="conteudo" role="main">
-
+ 
     <section class="hero" aria-labelledby="titulo-principal">
-
+ 
       <div class="tesseract-wrap" aria-hidden="true">
         <svg viewBox="-1.6 -1.6 3.2 3.2" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet">
           <title>Tesserato em rotação — símbolo da Análise Legal</title>
           <g id="tesseract-group"></g>
         </svg>
       </div>
-
+ 
       <div class="eyebrow">Plataforma de organização estratégica de informações</div>
-
+ 
       <h1 id="titulo-principal">Problemas complexos raramente sofrem pela falta de informação.</h1>
-
+ 
       <p class="lead">Na maioria das vezes, o problema está na desorganização dela.</p>
-
+ 
       <p>Documentos dispersos. Conversas desconexas. Datas imprecisas. Informações relevantes fora de contexto.</p>
-
+ 
       <p>Quando o cenário chega fragmentado, compreensão, comunicação e tomada de decisão também se tornam mais difíceis.</p>
-
+ 
       <p>A <strong>ANÁLISE LEGAL<span class="trademark">™</span></strong> foi criada para organizar esse cenário antes da atuação especializada.</p>
-
+ 
       <p>A plataforma transforma dados dispersos em uma base lógica, cronológica e contextualizada, permitindo que informações, documentos, contexto, riscos, objetivos e acontecimentos relevantes possam ser compreendidos de forma mais clara e estruturada.</p>
     </section>
-
+ 
     <section aria-labelledby="como-funciona">
       <h2 id="como-funciona">Como funciona</h2>
-
+ 
       <div class="cards">
         <article class="card">
           <span class="card-number" aria-hidden="true">1</span>
           <h3>Inserção orientada</h3>
           <p>O usuário preenche etapas estruturadas por contexto, cronologia, documentos, pessoas envolvidas, valores e objetivos.</p>
         </article>
-
+ 
         <article class="card">
           <span class="card-number" aria-hidden="true">2</span>
           <h3>Organização contextual</h3>
           <p>As informações são organizadas de forma lógica e contextual, sem conclusões automatizadas ou interpretação especializada.</p>
         </article>
-
+ 
         <article class="card">
           <span class="card-number" aria-hidden="true">3</span>
           <h3>Preparação do cenário</h3>
           <p>A estruturação prévia reduz ruídos informacionais e melhora a qualidade da comunicação na etapa posterior.</p>
         </article>
-
+ 
         <article class="card">
           <span class="card-number" aria-hidden="true">4</span>
           <h3>Continuidade profissional</h3>
@@ -388,22 +127,22 @@
         </article>
       </div>
     </section>
-
+ 
     <section aria-labelledby="papel-plataforma">
       <div class="role-box">
         <h2 id="papel-plataforma">O papel da plataforma</h2>
-
+ 
         <p>A <strong>ANÁLISE LEGAL<span class="trademark">™</span></strong> atua exclusivamente na coleta, organização e estruturação técnica das informações fornecidas pelo usuário.</p>
-
+ 
         <p>A plataforma não substitui atuação profissional especializada, não exerce atividade privativa de qualquer profissão e não integra relações contratuais entre usuário e profissional.</p>
-
+ 
         <p>A interpretação técnica, definição de estratégia e eventual execução profissional pertencem exclusivamente ao responsável posteriormente contratado.</p>
       </div>
     </section>
-
+ 
     <section aria-labelledby="quando-faz-sentido">
       <h2 id="quando-faz-sentido">Quando faz sentido</h2>
-
+ 
       <ul aria-label="Situações em que a plataforma pode ser útil">
         <li>Quando as informações ainda estão dispersas.</li>
         <li>Quando há dificuldade em organizar fatos, documentos e cronologia.</li>
@@ -412,44 +151,44 @@
         <li>Quando decisões relevantes exigem maior clareza informacional.</li>
       </ul>
     </section>
-
+ 
     <section class="cta" aria-labelledby="cta-final">
       <h2 id="cta-final">Clareza começa com organização.</h2>
       <p>Estruture o cenário antes da próxima decisão.</p>
       <a class="button" href="/analise.html">Organizar meu caso</a>
     </section>
-
+ 
   </main>
-
+ 
   <footer>
     <div class="footer-inner">
-
+ 
       <p>
         O tratamento de dados pessoais pela ANÁLISE LEGAL<span class="trademark">™</span> observa a Lei nº 13.709/2018 (LGPD).
         Saiba mais em nossa <a href="/privacidade.html">Política de Privacidade</a>.
         Contato do Encarregado: <a href="mailto:privacidade@analiselegal.com.br">privacidade@analiselegal.com.br</a>.
       </p>
-
+ 
       <small>
         A ANÁLISE LEGAL<span class="trademark">™</span> é uma plataforma digital destinada à coleta, organização e estruturação de informações fornecidas pelo usuário, com finalidade preparatória para eventual etapa profissional posterior. Sua atuação não constitui prestação de serviços jurídicos, parecer conclusivo, consultoria individualizada ou atividade privativa de profissão regulamentada. A contratação de serviços especializados ocorre diretamente entre usuário e profissional responsável, sem participação da plataforma na definição de honorários, execução do serviço ou relação contratual estabelecida. As informações inseridas são de responsabilidade exclusiva do usuário.
         <br><br>
         © ANÁLISE LEGAL<span class="trademark">™</span> — Todos os direitos reservados.
       </small>
-
+ 
       <nav class="footer-links" aria-label="Links institucionais">
         <a href="/privacidade.html">Política de Privacidade</a>
         <a href="/termos.html">Termos de Uso</a>
         <a href="/lgpd.html">LGPD e direitos do titular</a>
         <a href="mailto:contato@analiselegal.com.br">Contato</a>
       </nav>
-
+ 
     </div>
   </footer>
-
+ 
   <noscript>
     A ANÁLISE LEGAL<span class="trademark">™</span> funciona normalmente sem JavaScript. Apenas a animação decorativa do símbolo na página inicial requer JS.
   </noscript>
-
+ 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var group = document.getElementById("tesseract-group");
@@ -457,9 +196,9 @@
         console.warn('[tesserato] grupo SVG nao encontrado');
         return;
       }
-
+ 
       var svgNS = "http://www.w3.org/2000/svg";
-
+ 
       var vertices4D = [];
       for (var i = 0; i < 16; i++) {
         vertices4D.push([
@@ -469,7 +208,7 @@
           (i & 8) ? 1 : -1
         ]);
       }
-
+ 
       var edges = [];
       for (var a = 0; a < 16; a++) {
         for (var b = a + 1; b < 16; b++) {
@@ -480,7 +219,7 @@
           if (diff === 1) edges.push([a, b]);
         }
       }
-
+ 
       var lines = [];
       for (var e = 0; e < edges.length; e++) {
         var l = document.createElementNS(svgNS, "line");
@@ -492,37 +231,37 @@
         group.appendChild(l);
         lines.push(l);
       }
-
+ 
       function rotate4D(v, axw, ayw, azw, axy) {
         var x = v[0], y = v[1], z = v[2], w = v[3];
         var c, s, nx, nw, ny, nz;
-
+ 
         c = Math.cos(axw); s = Math.sin(axw);
         nx = x * c - w * s; nw = x * s + w * c;
         x = nx; w = nw;
-
+ 
         c = Math.cos(ayw); s = Math.sin(ayw);
         ny = y * c - w * s; nw = y * s + w * c;
         y = ny; w = nw;
-
+ 
         c = Math.cos(azw); s = Math.sin(azw);
         nz = z * c - w * s; nw = z * s + w * c;
         z = nz; w = nw;
-
+ 
         c = Math.cos(axy); s = Math.sin(axy);
         nx = x * c - y * s; ny = x * s + y * c;
         x = nx; y = ny;
-
+ 
         return [x, y, z, w];
       }
-
+ 
       function project(v) {
         var wf = 1 / (3 - v[3]);
         var x3 = v[0] * wf, y3 = v[1] * wf, z3 = v[2] * wf;
         var zf = 1 / (4 - z3);
         return [x3 * zf * 2.2, y3 * zf * 2.2];
       }
-
+ 
       function render(t) {
         var projected = [];
         for (var i = 0; i < vertices4D.length; i++) {
@@ -538,15 +277,7 @@
           lines[j].setAttribute("y2", p2[1]);
         }
       }
-
-      var reduce = window.matchMedia &&
-                   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (reduce) {
-        render(0.6);
-        return;
-      }
-
+ 
       var start = performance.now();
       function loop(now) {
         render((now - start) / 1000);
@@ -555,6 +286,7 @@
       requestAnimationFrame(loop);
     });
   </script>
-
+ 
 </body>
 </html>
+ 
