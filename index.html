@@ -60,15 +60,8 @@
       --linha: rgba(200, 173, 114, 0.38);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: "Crimson Text", Georgia, serif;
@@ -78,12 +71,8 @@
       font-size: 20px;
     }
 
-    a {
-      color: inherit;
-    }
-
-    a:focus-visible,
-    button:focus-visible {
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
       outline: 3px solid var(--dourado);
       outline-offset: 4px;
     }
@@ -99,21 +88,12 @@
     }
 
     .skip-link {
-      position: absolute;
-      top: -48px;
-      left: 16px;
-      background: var(--dourado);
-      color: var(--verde-profundo);
-      padding: 10px 16px;
-      border-radius: 8px;
-      z-index: 999;
-      font-weight: 700;
-      text-decoration: none;
+      position: absolute; top: -48px; left: 16px;
+      background: var(--dourado); color: var(--verde-profundo);
+      padding: 10px 16px; border-radius: 8px;
+      z-index: 999; font-weight: 700; text-decoration: none;
     }
-
-    .skip-link:focus {
-      top: 16px;
-    }
+    .skip-link:focus { top: 16px; }
 
     header {
       background: var(--verde-profundo);
@@ -121,46 +101,22 @@
       padding: 28px 24px;
       border-bottom: 1px solid var(--dourado);
     }
-
-    .header-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-
+    .header-inner { max-width: 1080px; margin: 0 auto; }
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      text-decoration: none;
-      color: inherit;
-      width: fit-content;
+      display: flex; align-items: center; gap: 16px;
+      text-decoration: none; color: inherit; width: fit-content;
     }
+    .brand img { width: 180px; height: auto; display: block; }
 
-    .brand img {
-      width: 180px;
-      height: auto;
-      display: block;
-    }
-
-    main {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 72px 24px;
-    }
+    main { max-width: 1080px; margin: 0 auto; padding: 72px 24px; }
 
     section {
       padding: 56px 0;
       border-bottom: 1px solid var(--linha);
     }
+    section:last-of-type { border-bottom: none; }
 
-    section:last-of-type {
-      border-bottom: none;
-    }
-
-    .hero {
-      position: relative;
-      padding-top: 24px;
-    }
+    .hero { position: relative; padding-top: 24px; }
 
     .tesseract-wrap {
       position: absolute;
@@ -172,19 +128,11 @@
       opacity: 0.85;
       z-index: 0;
     }
-
     .tesseract-wrap svg {
       width: 100%;
       height: 100%;
       display: block;
-    }
-
-    .edge {
-      fill: none;
-      stroke: var(--dourado);
-      stroke-width: 0.025;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      overflow: visible;
     }
 
     .hero > *:not(.tesseract-wrap) {
@@ -209,7 +157,6 @@
       margin-bottom: 28px;
       font-weight: 700;
     }
-
     h2 {
       font-size: clamp(2rem, 4vw, 3.2rem);
       line-height: 1.15;
@@ -217,19 +164,13 @@
       margin-bottom: 28px;
       font-weight: 700;
     }
-
     h3 {
       font-size: 1.45rem;
       color: var(--verde-secundario);
       margin-bottom: 8px;
       font-weight: 700;
     }
-
-    p {
-      margin-bottom: 18px;
-      max-width: 860px;
-    }
-
+    p { margin-bottom: 18px; max-width: 860px; }
     .lead {
       font-size: clamp(1.35rem, 3vw, 2rem);
       line-height: 1.35;
@@ -244,7 +185,6 @@
       gap: 22px;
       margin-top: 28px;
     }
-
     .card {
       background: var(--branco);
       border: 1px solid var(--linha);
@@ -252,19 +192,11 @@
       padding: 26px;
       box-shadow: 0 16px 36px rgba(15, 47, 40, 0.06);
     }
-
     .card-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: var(--verde-profundo);
-      color: var(--bege);
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 18px;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--verde-profundo); color: var(--bege);
+      font-size: 1rem; font-weight: 700; margin-bottom: 18px;
     }
 
     .role-box {
@@ -274,35 +206,14 @@
       padding: 42px;
       margin-top: 20px;
     }
+    .role-box h2 { color: var(--branco); }
+    .role-box p { color: var(--bege); }
 
-    .role-box h2 {
-      color: var(--branco);
-    }
-
-    .role-box p {
-      color: var(--bege);
-    }
-
-    ul {
-      list-style: none;
-      display: grid;
-      gap: 14px;
-      max-width: 840px;
-    }
-
-    li {
-      position: relative;
-      padding-left: 28px;
-    }
-
+    ul { list-style: none; display: grid; gap: 14px; max-width: 840px; }
+    li { position: relative; padding-left: 28px; }
     li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.75em;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
+      content: ""; position: absolute; left: 0; top: 0.75em;
+      width: 9px; height: 9px; border-radius: 50%;
       background: var(--dourado);
     }
 
@@ -314,19 +225,8 @@
       padding: 64px 28px;
       margin-top: 48px;
     }
-
-    .cta h2 {
-      color: var(--branco);
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta p {
-      margin-left: auto;
-      margin-right: auto;
-      color: var(--bege);
-      font-size: 1.35rem;
-    }
+    .cta h2 { color: var(--branco); margin-left: auto; margin-right: auto; }
+    .cta p { margin-left: auto; margin-right: auto; color: var(--bege); font-size: 1.35rem; }
 
     .button {
       display: inline-block;
@@ -340,11 +240,7 @@
       font-size: 1.15rem;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
-    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18); }
 
     footer {
       background: var(--verde-profundo);
@@ -352,194 +248,68 @@
       padding: 40px 24px;
       font-size: 0.92rem;
     }
-
-    .footer-inner {
-      max-width: 1080px;
-      margin: 0 auto;
+    .footer-inner { max-width: 1080px; margin: 0 auto; }
+    footer p, footer small {
+      display: block; line-height: 1.55;
+      color: rgba(251, 243, 223, 0.92); max-width: 980px;
     }
-
-    footer p,
-    footer small {
-      display: block;
-      line-height: 1.55;
-      color: rgba(251, 243, 223, 0.92);
-      max-width: 980px;
-    }
-
     footer a {
       color: var(--bege);
       text-decoration: underline;
       text-underline-offset: 4px;
     }
-
     .footer-links {
       margin-top: 22px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
+      display: flex; flex-wrap: wrap; gap: 16px;
     }
 
     @media (max-width: 900px) {
-      .cards {
-        grid-template-columns: 1fr 1fr;
-      }
-
+      .cards { grid-template-columns: 1fr 1fr; }
       .tesseract-wrap {
         position: relative;
-        width: 220px;
-        height: 220px;
+        width: 220px; height: 220px;
         margin: 0 auto 24px;
-        top: auto;
-        right: auto;
+        top: auto; right: auto;
       }
     }
 
     @media (max-width: 640px) {
-      body {
-        font-size: 18px;
-      }
-
-      header {
-        padding: 22px 18px;
-      }
-
-      .brand img {
-        width: 150px;
-      }
-
-      main {
-        padding: 48px 18px;
-      }
-
-      section {
-        padding: 42px 0;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .role-box {
-        padding: 30px 24px;
-        border-radius: 20px;
-      }
-
-      .cta {
-        padding: 46px 22px;
-      }
-
-      .footer-links {
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .tesseract-wrap {
-        width: 180px;
-        height: 180px;
-      }
+      body { font-size: 18px; }
+      header { padding: 22px 18px; }
+      .brand img { width: 150px; }
+      main { padding: 48px 18px; }
+      section { padding: 42px 0; }
+      .cards { grid-template-columns: 1fr; }
+      .role-box { padding: 30px 24px; border-radius: 20px; }
+      .cta { padding: 46px 22px; }
+      .footer-links { flex-direction: column; gap: 8px; }
+      .tesseract-wrap { width: 180px; height: 180px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .tesseract-wrap {
-        opacity: 0.6;
-      }
+      .tesseract-wrap { opacity: 0.6; }
     }
 
     @media print {
-      @page {
-        size: A4;
-        margin: 18mm;
+      @page { size: A4; margin: 18mm; }
+      body { background: #fff; color: #000; font-size: 12pt; line-height: 1.45; }
+      .skip-link, .button, .tesseract-wrap { display: none; }
+      .trademark { font-size: 0.55em; top: -0.45em; opacity: 1; }
+      header, footer, .role-box, .cta, .card {
+        background: #fff; color: #000; box-shadow: none;
       }
-
-      body {
-        background: #ffffff;
-        color: #000000;
-        font-size: 12pt;
-        line-height: 1.45;
-      }
-
-      .skip-link,
-      .button,
-      .tesseract-wrap {
-        display: none;
-      }
-
-      .trademark {
-        font-size: 0.55em;
-        top: -0.45em;
-        opacity: 1;
-      }
-
-      header,
-      footer,
-      .role-box,
-      .cta,
-      .card {
-        background: #ffffff;
-        color: #000000;
-        box-shadow: none;
-      }
-
-      header {
-        border-bottom: 1px solid #000000;
-        padding: 0 0 10mm 0;
-      }
-
-      main {
-        padding: 10mm 0;
-      }
-
-      section {
-        padding: 7mm 0;
-        border-bottom: 1px solid #cccccc;
-      }
-
-      h1,
-      h2,
-      h3,
-      .role-box h2,
-      .role-box p,
-      .cta h2,
-      .cta p,
-      footer p,
-      footer small,
-      footer a {
-        color: #000000;
-      }
-
-      h1 {
-        font-size: 24pt;
-      }
-
-      h2 {
-        font-size: 18pt;
-      }
-
-      h3 {
-        font-size: 13pt;
-      }
-
-      .cards {
-        display: block;
-      }
-
-      .card,
-      .role-box,
-      .cta {
-        border: none;
-        padding: 0;
-        margin: 0 0 6mm 0;
-      }
-
-      .card-number,
-      .eyebrow {
-        display: none;
-      }
-
-      footer {
-        border-top: 1px solid #000000;
-        padding: 8mm 0 0 0;
-      }
+      header { border-bottom: 1px solid #000; padding: 0 0 10mm 0; }
+      main { padding: 10mm 0; }
+      section { padding: 7mm 0; border-bottom: 1px solid #ccc; }
+      h1, h2, h3,
+      .role-box h2, .role-box p,
+      .cta h2, .cta p,
+      footer p, footer small, footer a { color: #000; }
+      h1 { font-size: 24pt; } h2 { font-size: 18pt; } h3 { font-size: 13pt; }
+      .cards { display: block; }
+      .card, .role-box, .cta { border: none; padding: 0; margin: 0 0 6mm 0; }
+      .card-number, .eyebrow { display: none; }
+      footer { border-top: 1px solid #000; padding: 8mm 0 0 0; }
     }
   </style>
 </head>
@@ -568,9 +338,9 @@
     <section class="hero" aria-labelledby="titulo-principal">
 
       <div class="tesseract-wrap" aria-hidden="true">
-        <svg id="tesseractSvg" viewBox="-1.6 -1.6 3.2 3.2" xmlns="http://www.w3.org/2000/svg" role="img">
+        <svg viewBox="-1.6 -1.6 3.2 3.2" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet">
           <title>Tesserato em rotação — símbolo da Análise Legal</title>
-          <g id="tesseract"></g>
+          <g id="tesseract-group"></g>
         </svg>
       </div>
 
@@ -681,9 +451,17 @@
   </noscript>
 
   <script>
-    (function () {
-      const vertices4D = [];
-      for (let i = 0; i < 16; i++) {
+    document.addEventListener('DOMContentLoaded', function () {
+      var group = document.getElementById("tesseract-group");
+      if (!group) {
+        console.warn('[tesserato] grupo SVG nao encontrado');
+        return;
+      }
+
+      var svgNS = "http://www.w3.org/2000/svg";
+
+      var vertices4D = [];
+      for (var i = 0; i < 16; i++) {
         vertices4D.push([
           (i & 1) ? 1 : -1,
           (i & 2) ? 1 : -1,
@@ -692,75 +470,90 @@
         ]);
       }
 
-      const edges = [];
-      for (let i = 0; i < 16; i++) {
-        for (let j = i + 1; j < 16; j++) {
-          let diff = 0;
-          for (let k = 0; k < 4; k++) {
-            if (vertices4D[i][k] !== vertices4D[j][k]) diff++;
+      var edges = [];
+      for (var a = 0; a < 16; a++) {
+        for (var b = a + 1; b < 16; b++) {
+          var diff = 0;
+          for (var k = 0; k < 4; k++) {
+            if (vertices4D[a][k] !== vertices4D[b][k]) diff++;
           }
-          if (diff === 1) edges.push([i, j]);
+          if (diff === 1) edges.push([a, b]);
         }
       }
 
-      const svgNS = "http://www.w3.org/2000/svg";
-      const group = document.getElementById("tesseract");
-      if (!group) return;
-
-      const lines = edges.map(() => {
-        const l = document.createElementNS(svgNS, "line");
-        l.setAttribute("class", "edge");
+      var lines = [];
+      for (var e = 0; e < edges.length; e++) {
+        var l = document.createElementNS(svgNS, "line");
+        l.setAttribute("fill", "none");
+        l.setAttribute("stroke", "#c8ad72");
+        l.setAttribute("stroke-width", "0.025");
+        l.setAttribute("stroke-linecap", "round");
+        l.setAttribute("stroke-linejoin", "round");
         group.appendChild(l);
-        return l;
-      });
+        lines.push(l);
+      }
 
       function rotate4D(v, axw, ayw, azw, axy) {
-        let [x, y, z, w] = v;
-        let c = Math.cos(axw), s = Math.sin(axw);
-        [x, w] = [x * c - w * s, x * s + w * c];
+        var x = v[0], y = v[1], z = v[2], w = v[3];
+        var c, s, nx, nw, ny, nz;
+
+        c = Math.cos(axw); s = Math.sin(axw);
+        nx = x * c - w * s; nw = x * s + w * c;
+        x = nx; w = nw;
+
         c = Math.cos(ayw); s = Math.sin(ayw);
-        [y, w] = [y * c - w * s, y * s + w * c];
+        ny = y * c - w * s; nw = y * s + w * c;
+        y = ny; w = nw;
+
         c = Math.cos(azw); s = Math.sin(azw);
-        [z, w] = [z * c - w * s, z * s + w * c];
+        nz = z * c - w * s; nw = z * s + w * c;
+        z = nz; w = nw;
+
         c = Math.cos(axy); s = Math.sin(axy);
-        [x, y] = [x * c - y * s, x * s + y * c];
+        nx = x * c - y * s; ny = x * s + y * c;
+        x = nx; y = ny;
+
         return [x, y, z, w];
       }
 
       function project(v) {
-        const wf = 1 / (3 - v[3]);
-        const x3 = v[0] * wf, y3 = v[1] * wf, z3 = v[2] * wf;
-        const zf = 1 / (4 - z3);
+        var wf = 1 / (3 - v[3]);
+        var x3 = v[0] * wf, y3 = v[1] * wf, z3 = v[2] * wf;
+        var zf = 1 / (4 - z3);
         return [x3 * zf * 2.2, y3 * zf * 2.2];
       }
 
       function render(t) {
-        const projected = vertices4D.map(v =>
-          project(rotate4D(v, t * 0.35, t * 0.25, t * 0.45, t * 0.15))
-        );
-        for (let i = 0; i < edges.length; i++) {
-          const [a, b] = edges[i];
-          lines[i].setAttribute("x1", projected[a][0]);
-          lines[i].setAttribute("y1", projected[a][1]);
-          lines[i].setAttribute("x2", projected[b][0]);
-          lines[i].setAttribute("y2", projected[b][1]);
+        var projected = [];
+        for (var i = 0; i < vertices4D.length; i++) {
+          var r = rotate4D(vertices4D[i], t * 0.35, t * 0.25, t * 0.45, t * 0.15);
+          projected.push(project(r));
+        }
+        for (var j = 0; j < edges.length; j++) {
+          var p1 = projected[edges[j][0]];
+          var p2 = projected[edges[j][1]];
+          lines[j].setAttribute("x1", p1[0]);
+          lines[j].setAttribute("y1", p1[1]);
+          lines[j].setAttribute("x2", p2[0]);
+          lines[j].setAttribute("y2", p2[1]);
         }
       }
 
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var reduce = window.matchMedia &&
+                   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       if (reduce) {
         render(0.6);
         return;
       }
 
-      const start = performance.now();
+      var start = performance.now();
       function loop(now) {
         render((now - start) / 1000);
         requestAnimationFrame(loop);
       }
       requestAnimationFrame(loop);
-    })();
+    });
   </script>
 
 </body>
