@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1.6 -1.6 3.2 3.2" width="400" height="400" style="background:transparent">
+  <defs>
+    <style>
+      .edge {
+        fill: none;
+        stroke: #b89b5e;
+        stroke-width: 0.025;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+
+  <g id="tesseract">
+    <!-- Arestas geradas via JS -->
+  </g>
+
+  <script type="application/ecmascript"><![CDATA[
+    // 16 vértices de um tesserato em 4D
+    const vertices4D = [];
+    for (let i = 0; i < 16; i++) {
+      vertices4D.push([
+        (i & 1) ? 1 : -1,
+        (i & 2) ? 1 : -1,
+        (i & 4) ? 1 : -1,
+        (i & 8) ? 1 : -1
+      ]);
+    }
+
+    // 32 arestas: dois vértices são conectados se diferem em exatamente 1 coordenada
+    const edges = [];
+    for (let i = 0; i < 16; i++) {
+      for (let j = i + 1; j < 16; j++) {
+        let diff = 0;
+        for (let k = 0; k < 4; k++) {
+          if (vertices4D[i][k] !== vertices4D[j][k]) diff++;
+        }
+        if (diff === 1) edges.push([i, j]);
+      }
+    }
+
+    const svgNS = "http://www.w3.org/2000/svg";
+    const group = document.getElementById("tesseract");
+
+    // Cria os elementos de linha
+    const lines = edges.map(() => {
+      const l = document.createElementNS(svgNS, "line");
+      l.setAttribute("class", "edge");
+      group.appendChild(l);
+      return l;
+    });
+
+    function rotate4D(v, a_xw, a_yw, a_zw, a_xy) {
+      let [x, y, z, w] = v;
+      // Rotação no plano XW
+      let c = Math.cos(a_xw), s = Math.sin(a_xw);
+      [x, w] = [x * c - w * s, x * s + w * c];
+      // Rotação no plano YW
+      c = Math.cos(a_yw); s = Math.sin(a_yw);
+      [y, w] = [y * c - w * s, y * s + w * c];
+      // Rotação no plano ZW
+      c = Math.cos(a_zw); s = Math.sin(a_zw);
+      [z, w] = [z * c - w * s, z * s + w * c];
+      // Rotação no plano XY
+      c = Math.cos(a_xy); s = Math.sin(a_xy);
+      [x, y] = [x * c - y * s, x * s + y * c];
+      return [x, y, z, w];
+    }
+
+    function project(v) {
+      // Projeção 4D -> 3D (perspectiva no eixo W)
+      const distance4 = 3;
+      const w_factor = 1 / (distance4 - v[3]);
+      let x3 = v[0] * w_factor;
+      let y3 = v[1] * w_factor;
+      let z3 = v[2] * w_factor;
+
+      // Projeção 3D -> 2D (perspectiva no eixo Z)
+      const distance3 = 4;
+      const z_factor = 1 / (distance3 - z3);
+      const x2 = x3 * z_factor * 2.2;
+      const y2 = y3 * z_factor * 2.2;
+      return [x2, y2];
+    }
+
+    const start = performance.now();
+    function animate(now) {
+      const t = (now - start) / 1000;
+      const a_xw = t * 0.35;
+      const a_yw = t * 0.25;
+      const a_zw = t * 0.45;
+      const a_xy = t * 0.15;
+
+      const projected = vertices4D.map(v => {
+        const rotated = rotate4D(v, a_xw, a_yw, a_zw, a_xy);
+        return project(rotated);
+      });
+
+      for (let i = 0; i < edges.length; i++) {
+        const [a, b] = edges[i];
+        lines[i].setAttribute("x1", projected[a][0]);
+        lines[i].setAttribute("y1", projected[a][1]);
+        lines[i].setAttribute("x2", projected[b][0]);
+        lines[i].setAttribute("y2", projected[b][1]);
+      }
+
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+  ]]></script>
+</svg>
