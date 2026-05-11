@@ -1,1 +1,848 @@
+<!-- Arquivo: /administrativo/pad-df/saude/analise/index.html -->
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Diagnóstico Inicial de PAD na Saúde do DF | ANÁLISE LEGAL</title>
+  <meta name="description" content="Formulário de estruturação inicial para servidores da Secretaria de Saúde do DF submetidos a sindicância ou PAD." />
+
+  <style>
+    :root {
+      --verde-profundo: rgb(13,22,34);
+      --grafite: rgb(30,35,41);
+      --verde-militar: rgb(56,66,51);
+      --ouro-fosco: rgb(176,141,87);
+      --fundo: rgb(247,246,242);
+      --papel: rgb(255,255,255);
+      --texto: rgb(31,31,31);
+      --texto-suave: rgb(92,92,92);
+      --linha: rgba(13,22,34,0.14);
+      --alerta: rgb(111,43,43);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Crimson Text", Georgia, serif;
+      background: var(--fundo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--verde-profundo);
+      padding: 22px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .marca img {
+      height: 46px;
+      display: block;
+    }
+
+    .header-note {
+      color: rgba(247,246,242,0.82);
+      font-size: 1rem;
+    }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 56px 7%;
+    }
+
+    .hero {
+      margin-bottom: 34px;
+    }
+
+    .eyebrow {
+      color: var(--ouro-fosco);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+
+    h1 {
+      color: var(--verde-profundo);
+      font-size: clamp(2.1rem, 5vw, 3.6rem);
+      line-height: 1.05;
+      margin: 0 0 20px;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+    }
+
+    h2 {
+      color: var(--verde-profundo);
+      font-size: clamp(1.55rem, 3vw, 2.2rem);
+      line-height: 1.15;
+      margin: 0 0 18px;
+    }
+
+    h3 {
+      color: var(--verde-profundo);
+      font-size: 1.3rem;
+      margin: 0 0 10px;
+    }
+
+    p {
+      font-size: 1.13rem;
+      margin: 0 0 16px;
+    }
+
+    .lead {
+      font-size: 1.23rem;
+      color: var(--grafite);
+    }
+
+    .card {
+      background: var(--papel);
+      border: 1px solid var(--linha);
+      border-radius: 24px;
+      padding: clamp(24px, 5vw, 42px);
+      box-shadow: 0 18px 48px rgba(13,22,34,0.06);
+      margin-bottom: 28px;
+    }
+
+    .warning {
+      border-left: 5px solid var(--alerta);
+      background: rgba(111,43,43,0.055);
+      padding: 18px 20px;
+      border-radius: 16px;
+      margin: 22px 0;
+    }
+
+    .progress {
+      height: 8px;
+      background: rgba(13,22,34,0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    .progress-bar {
+      width: 10%;
+      height: 100%;
+      background: var(--ouro-fosco);
+      transition: width 0.25s ease;
+    }
+
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    label {
+      display: block;
+      color: var(--verde-profundo);
+      font-weight: 700;
+      font-size: 1.14rem;
+      margin: 18px 0 8px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--linha);
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-family: inherit;
+      font-size: 1.06rem;
+      background: #fff;
+      color: var(--texto);
+    }
+
+    textarea {
+      min-height: 108px;
+      resize: vertical;
+    }
+
+    .options {
+      display: grid;
+      gap: 12px;
+      margin: 14px 0 20px;
+    }
+
+    .option {
+      border: 1px solid var(--linha);
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      background: rgba(13,22,34,0.025);
+      cursor: pointer;
+      font-size: 1.08rem;
+    }
+
+    .option input {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-family: inherit;
+      font-size: 1.04rem;
+      cursor: pointer;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--ouro-fosco);
+      color: var(--verde-profundo);
+      font-weight: 700;
+    }
+
+    .btn-dark {
+      background: var(--verde-profundo);
+      color: var(--fundo);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--verde-profundo);
+      border-color: var(--linha);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .small {
+      color: var(--texto-suave);
+      font-size: 0.98rem;
+    }
+
+    .summary {
+      background: rgba(13,22,34,0.035);
+      border: 1px solid var(--linha);
+      border-radius: 18px;
+      padding: 18px;
+      white-space: pre-wrap;
+      font-size: 1rem;
+      overflow-x: auto;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    footer {
+      background: var(--grafite);
+      color: rgba(247,246,242,0.78);
+      padding: 34px 7%;
+      font-size: 0.96rem;
+    }
+
+    .footer-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 10px;
+    }
+
+    @media (max-width: 760px) {
+      header {
+        padding: 18px 6%;
+      }
+
+      .header-note {
+        display: none;
+      }
+
+      main {
+        padding: 42px 6%;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .actions {
+        display: grid;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 1.8cm 1.6cm;
+      }
+
+      body {
+        background: #fff !important;
+        color: #111 !important;
+      }
+
+      header {
+        background: #fff !important;
+        border-bottom: 1px solid #999;
+      }
+
+      .marca img {
+        height: 34px !important;
+      }
+
+      .no-print,
+      .actions,
+      footer {
+        display: none !important;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+      }
+
+      .card {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+      }
+
+      h1 {
+        font-size: 16pt;
+      }
+
+      h2 {
+        font-size: 14pt;
+      }
+
+      p,
+      label,
+      .summary {
+        font-size: 11pt;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="/" class="marca" aria-label="Página inicial">
+      <img
+        id="marcaPrincipal"
+        src="/Marca.svg"
+        data-print-src="/Marca-PB.svg"
+        alt="ANÁLISE LEGAL"
+      />
+    </a>
+
+    <div class="header-note">
+      Diagnóstico inicial | PAD na Saúde do DF
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="eyebrow">Funil de análise inicial</span>
+      <h1>Estruture seu PAD antes de enviar documentos sensíveis ou assumir uma versão definitiva.</h1>
+      <p class="lead">
+        Este formulário organiza as informações iniciais sobre sindicância ou PAD envolvendo servidor da Secretaria de Saúde do DF. Ao final, será gerado um resumo para envio pelo WhatsApp da ANÁLISE LEGAL™.
+      </p>
+
+      <div class="warning">
+        <strong>Importante:</strong> nesta etapa, não envie prontuários, dados de pacientes, documentos sigilosos ou arquivos internos. A coleta documental, se necessária, ocorre apenas depois da validação humana, aceite de escopo, tratamento de dados e confirmação da contratação da análise inicial.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Estruturação inicial da demanda</h2>
+
+      <div class="progress no-print">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <form id="funilForm">
+
+        <div class="step active" data-step="1">
+          <h3>1. Dados de identificação</h3>
+
+          <label for="nome">Nome completo</label>
+          <input id="nome" name="nome" type="text" required />
+
+          <div class="grid">
+            <div>
+              <label for="telefone">Telefone / WhatsApp</label>
+              <input id="telefone" name="telefone" type="tel" required />
+            </div>
+
+            <div>
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="step" data-step="2">
+          <h3>2. Posição no procedimento</h3>
+
+          <label>Qual situação melhor descreve seu caso?</label>
+          <div class="options">
+            <label class="option"><input type="radio" name="posicao" value="Sou servidor acusado ou investigado" required /> Sou servidor acusado ou investigado</label>
+            <label class="option"><input type="radio" name="posicao" value="Fui chamado como testemunha" /> Fui chamado como testemunha</label>
+            <label class="option"><input type="radio" name="posicao" value="Sou denunciante ou vítima de irregularidade" /> Sou denunciante ou vítima de irregularidade</label>
+            <label class="option"><input type="radio" name="posicao" value="Já tenho advogado e busco segunda opinião técnica" /> Já tenho advogado e busco segunda opinião técnica</label>
+          </div>
+
+          <label>Você já possui advogado constituído neste procedimento?</label>
+          <div class="options">
+            <label class="option"><input type="radio" name="advogado" value="Sim" required /> Sim</label>
+            <label class="option"><input type="radio" name="advogado" value="Não" /> Não</label>
+            <label class="option"><input type="radio" name="advogado" value="Não sei informar" /> Não sei informar</label>
+          </div>
+        </div>
+
+        <div class="step" data-step="3">
+          <h3>3. Fase e urgência</h3>
+
+          <label for="fase">Em que fase está o procedimento?</label>
+          <select id="fase" name="fase" required>
+            <option value="">Selecione</option>
+            <option>Sindicância ou apuração preliminar</option>
+            <option>PAD instaurado</option>
+            <option>Recebi termo de indiciação</option>
+            <option>Tenho prazo para defesa</option>
+            <option>Tenho prazo para recurso ou reconsideração</option>
+            <option>Já houve penalidade aplicada</option>
+            <option>Não sei informar</option>
+          </select>
+
+          <label>Existe prazo em curso?</label>
+          <div class="options">
+            <label class="option"><input type="radio" name="prazo" value="Sim" required /> Sim</label>
+            <label class="option"><input type="radio" name="prazo" value="Não" /> Não</label>
+            <label class="option"><input type="radio" name="prazo" value="Não sei" /> Não sei</label>
+          </div>
+
+          <div id="prazoBox" class="hidden">
+            <label for="dataPrazo">Data final do prazo</label>
+            <input id="dataPrazo" name="dataPrazo" type="date" />
+          </div>
+        </div>
+
+        <div class="step" data-step="4">
+          <h3>4. Tema principal</h3>
+
+          <label for="tema">Qual tema mais se aproxima do caso?</label>
+          <select id="tema" name="tema" required>
+            <option value="">Selecione</option>
+            <option>Frequência, escala, ponto ou jornada</option>
+            <option>Plantão, ausência ou abandono de plantão</option>
+            <option>Evento assistencial, falha técnica ou evento adverso</option>
+            <option>Evento adverso com óbito</option>
+            <option>Prontuário, sistema interno ou dados sensíveis</option>
+            <option>Acúmulo de cargos ou incompatibilidade de horários</option>
+            <option>Assédio moral, conflito funcional ou retaliação</option>
+            <option>Gratificação, pagamento ou vantagem funcional</option>
+            <option>Exercício de atividade privada</option>
+            <option>Denúncia de paciente, familiar, chefia ou colega</option>
+            <option>Outro</option>
+          </select>
+
+          <label for="unidade">Unidade, hospital, setor ou local relacionado aos fatos</label>
+          <input id="unidade" name="unidade" type="text" placeholder="Ex.: hospital, UBS, UPA, setor, gerência..." />
+        </div>
+
+        <div class="step" data-step="5">
+          <h3>5. Cronologia resumida</h3>
+
+          <p class="small">
+            Liste apenas 3 a 5 marcos principais, em ordem cronológica. Evite dados de pacientes ou informações sigilosas.
+          </p>
+
+          <label for="marco1">Marco 1</label>
+          <input id="marco1" name="marco1" type="text" placeholder="Ex.: recebi comunicação em XX/XX/XXXX..." />
+
+          <label for="marco2">Marco 2</label>
+          <input id="marco2" name="marco2" type="text" />
+
+          <label for="marco3">Marco 3</label>
+          <input id="marco3" name="marco3" type="text" />
+
+          <label for="resumo">Resumo objetivo da situação</label>
+          <textarea id="resumo" name="resumo" maxlength="1200" placeholder="Descreva de forma objetiva, sem anexar documentos e sem inserir dados de pacientes." required></textarea>
+        </div>
+
+        <div class="step" data-step="6">
+          <h3>6. Pré-agendamento</h3>
+
+          <p class="small">
+            O horário permanecerá pré-reservado por 15 minutos para conclusão da contratação da análise inicial. A agenda somente será confirmada após validação humana, verificação de disponibilidade, conflito e pagamento.
+          </p>
+
+          <div class="grid">
+            <div>
+              <label for="dataPretendida">Data pretendida</label>
+              <input id="dataPretendida" name="dataPretendida" type="date" required />
+            </div>
+
+            <div>
+              <label for="horarioPretendido">Horário pretendido</label>
+              <select id="horarioPretendido" name="horarioPretendido" required>
+                <option value="">Selecione</option>
+                <option>08h00</option>
+                <option>09h00</option>
+                <option>10h00</option>
+                <option>11h00</option>
+                <option>14h00</option>
+                <option>15h00</option>
+                <option>16h00</option>
+                <option>17h00</option>
+              </select>
+            </div>
+          </div>
+
+          <label>Modalidade pretendida</label>
+          <div class="options">
+            <label class="option"><input type="radio" name="modalidade" value="On-line" required /> On-line</label>
+            <label class="option"><input type="radio" name="modalidade" value="Presencial" /> Presencial</label>
+          </div>
+        </div>
+
+        <div class="step" data-step="7">
+          <h3>7. Ciência inicial</h3>
+
+          <div class="options">
+            <label class="option">
+              <input type="checkbox" name="ciencia1" required />
+              Estou ciente de que este formulário não substitui consulta jurídica, parecer ou defesa administrativa.
+            </label>
+
+            <label class="option">
+              <input type="checkbox" name="ciencia2" required />
+              Estou ciente de que a análise inicial depende de aceite, pagamento, validação humana e verificação de disponibilidade.
+            </label>
+
+            <label class="option">
+              <input type="checkbox" name="ciencia3" required />
+              Estou ciente de que não devo inserir nesta etapa prontuários, dados de pacientes, documentos sigilosos ou dados sensíveis de terceiros.
+            </label>
+
+            <label class="option">
+              <input type="checkbox" name="ciencia4" required />
+              Estou ciente de que o horário permanecerá pré-reservado por 15 minutos até confirmação da contratação da análise inicial.
+            </label>
+          </div>
+        </div>
+
+        <div class="step" data-step="8">
+          <h3>8. Resumo para envio</h3>
+
+          <p>
+            Revise o resumo abaixo. Ao clicar no botão, o WhatsApp será aberto com a mensagem pronta para envio à ANÁLISE LEGAL™.
+          </p>
+
+          <div id="summaryBox" class="summary"></div>
+
+          <div class="warning">
+            <strong>Pagamento:</strong> após o contato, serão encaminhadas as condições da análise inicial, consentimentos aplicáveis, valor e forma de pagamento. Se utilizado PIX manual, a chave informada será CNPJ 18.096.007/0001-14. Após o pagamento, o comprovante deverá ser encaminhado no atendimento para validação manual e confirmação definitiva do horário.
+          </div>
+
+          <a id="whatsappBtn" class="btn btn-primary" target="_blank" rel="noopener">
+            Enviar resumo pelo WhatsApp
+          </a>
+        </div>
+
+        <div class="actions no-print">
+          <button type="button" class="btn btn-ghost" id="prevBtn" style="display:none;">Voltar</button>
+          <button type="button" class="btn btn-dark" id="nextBtn">Avançar</button>
+          <button type="button" class="btn btn-primary" id="generateBtn" style="display:none;">Gerar resumo</button>
+        </div>
+
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>O que acontece depois do envio</h2>
+      <p>
+        O escritório receberá o resumo pelo WhatsApp, validará disponibilidade, possível conflito, urgência e viabilidade operacional. Somente após essa validação, aceite das condições e pagamento, o horário será definitivamente confirmado.
+      </p>
+      <p>
+        A solicitação de documentos ocorre apenas depois da confirmação, com orientação objetiva e ambiente adequado para tratamento de dados.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <strong>ANÁLISE LEGAL™</strong>
+      <span>Plataforma de estruturação de informações para posterior análise profissional. Não há promessa de resultado nem prestação automática de serviços jurídicos pela plataforma.</span>
+      <span>© ANÁLISE LEGAL — Todos os direitos reservados.</span>
+    </div>
+  </footer>
+
+  <script>
+    const WHATSAPP_NUMBER = "5561999616757";
+    const STORAGE_KEY = "analiselegal_pad_saude_funil";
+
+    const steps = Array.from(document.querySelectorAll(".step"));
+    const progressBar = document.getElementById("progressBar");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const generateBtn = document.getElementById("generateBtn");
+    const form = document.getElementById("funilForm");
+    const prazoBox = document.getElementById("prazoBox");
+    const summaryBox = document.getElementById("summaryBox");
+    const whatsappBtn = document.getElementById("whatsappBtn");
+
+    const marcaPrincipal = document.getElementById("marcaPrincipal");
+    const marcaOriginal = marcaPrincipal ? marcaPrincipal.getAttribute("src") : null;
+    const marcaPrint = marcaPrincipal ? marcaPrincipal.getAttribute("data-print-src") : null;
+
+    let currentStep = 0;
+
+    function updateStep() {
+      steps.forEach((step, index) => {
+        step.classList.toggle("active", index === currentStep);
+      });
+
+      progressBar.style.width = ((currentStep + 1) / steps.length * 100) + "%";
+      prevBtn.style.display = currentStep === 0 ? "none" : "inline-flex";
+      nextBtn.style.display = currentStep >= steps.length - 2 ? "none" : "inline-flex";
+      generateBtn.style.display = currentStep === steps.length - 2 ? "inline-flex" : "none";
+    }
+
+    function validateCurrentStep() {
+      const active = steps[currentStep];
+      const fields = active.querySelectorAll("[required]");
+
+      for (const field of fields) {
+        if (field.type === "radio") {
+          const checked = active.querySelector(`input[name="${field.name}"]:checked`);
+          if (!checked) return false;
+        } else if (field.type === "checkbox") {
+          if (!field.checked) return false;
+        } else if (!field.value.trim()) {
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    function collectData() {
+      const data = new FormData(form);
+      const obj = {};
+
+      for (const [key, value] of data.entries()) {
+        if (obj[key]) {
+          obj[key] = Array.isArray(obj[key]) ? [...obj[key], value] : [obj[key], value];
+        } else {
+          obj[key] = value;
+        }
+      }
+
+      return obj;
+    }
+
+    function saveProgress() {
+      try {
+        const data = collectData();
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ currentStep, data }));
+      } catch (e) {}
+    }
+
+    function restoreProgress() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (!saved || !saved.data) return;
+
+        Object.entries(saved.data).forEach(([key, value]) => {
+          const fields = form.querySelectorAll(`[name="${key}"]`);
+          fields.forEach(field => {
+            if (field.type === "radio" || field.type === "checkbox") {
+              field.checked = Array.isArray(value) ? value.includes(field.value) : field.value === value || value === "on";
+            } else {
+              field.value = value;
+            }
+          });
+        });
+
+        currentStep = Math.min(saved.currentStep || 0, steps.length - 1);
+      } catch (e) {}
+    }
+
+    function buildSummary() {
+      const d = collectData();
+
+      const marcos = [d.marco1, d.marco2, d.marco3]
+        .filter(Boolean)
+        .map((m, i) => `${i + 1}. ${m}`)
+        .join("\n");
+
+      return `Olá. Acabei de concluir o formulário de análise inicial pelo site da ANÁLISE LEGAL™.
+
+Nome: ${d.nome || ""}
+Telefone: ${d.telefone || ""}
+E-mail: ${d.email || ""}
+Tema: PAD / Sindicância — Servidor da Saúde do DF
+
+Posição no procedimento:
+${d.posicao || ""}
+
+Já possui advogado constituído?
+${d.advogado || ""}
+
+Fase do procedimento:
+${d.fase || ""}
+
+Existe prazo em curso?
+${d.prazo || ""}
+
+Data final do prazo:
+${d.dataPrazo || "Não informado"}
+
+Tema principal:
+${d.tema || ""}
+
+Unidade / setor relacionado:
+${d.unidade || "Não informado"}
+
+Marcos principais:
+${marcos || "Não informado"}
+
+Resumo:
+${d.resumo || ""}
+
+Data pretendida:
+${d.dataPretendida || ""}
+
+Horário pretendido:
+${d.horarioPretendido || ""}
+
+Modalidade:
+${d.modalidade || ""}
+
+Estou ciente de que o horário permanecerá pré-reservado por 15 minutos até confirmação da contratação da análise inicial.
+
+Estou ciente de que ainda não devo encaminhar documentos sensíveis, prontuários, dados de pacientes ou documentos sigilosos sem orientação específica.`;
+    }
+
+    function generateWhatsappLink(summary) {
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(summary)}&utm_source=analiselegal&utm_medium=funil&utm_campaign=pad_saude_df`;
+    }
+
+    document.querySelectorAll("input[name='prazo']").forEach(radio => {
+      radio.addEventListener("change", () => {
+        prazoBox.classList.toggle("hidden", radio.value !== "Sim" || !radio.checked);
+        saveProgress();
+      });
+    });
+
+    form.addEventListener("input", saveProgress);
+    form.addEventListener("change", saveProgress);
+
+    nextBtn.addEventListener("click", () => {
+      if (!validateCurrentStep()) {
+        alert("Preencha os campos obrigatórios desta etapa antes de avançar.");
+        return;
+      }
+
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        updateStep();
+        saveProgress();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+
+    prevBtn.addEventListener("click", () => {
+      if (currentStep > 0) {
+        currentStep--;
+        updateStep();
+        saveProgress();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+
+    generateBtn.addEventListener("click", () => {
+      if (!validateCurrentStep()) {
+        alert("Confirme as ciências obrigatórias antes de gerar o resumo.");
+        return;
+      }
+
+      const summary = buildSummary();
+      summaryBox.textContent = summary;
+      whatsappBtn.href = generateWhatsappLink(summary);
+
+      currentStep++;
+      updateStep();
+      saveProgress();
+
+      try {
+        window.dispatchEvent(new CustomEvent("analiselegal_funil_pad_saude_resumo", {
+          detail: {
+            page: "administrativo/pad-df/saude/analise",
+            timestamp: new Date().toISOString()
+          }
+        }));
+      } catch (e) {}
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    window.addEventListener("beforeprint", function () {
+      if (marcaPrincipal && marcaPrint) {
+        marcaPrincipal.setAttribute("src", marcaPrint);
+      }
+
+      try {
+        window.dispatchEvent(new CustomEvent("analiselegal_print_intent", {
+          detail: {
+            page: "administrativo/pad-df/saude/analise",
+            action: "beforeprint",
+            timestamp: new Date().toISOString()
+          }
+        }));
+      } catch (e) {}
+    });
+
+    window.addEventListener("afterprint", function () {
+      if (marcaPrincipal && marcaOriginal) {
+        marcaPrincipal.setAttribute("src", marcaOriginal);
+      }
+    });
+
+    restoreProgress();
+    updateStep();
+  </script>
+</body>
+</html>
