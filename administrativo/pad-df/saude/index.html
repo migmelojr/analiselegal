@@ -1,16 +1,18 @@
+<!-- Arquivo: /administrativo/pad-df/saude/index.html -->
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>PAD na Saúde do DF | Diagnóstico Estratégico Inicial | ANÁLISE LEGAL</title>
-  <meta name="description" content="Estruture informações sobre PAD ou sindicância envolvendo servidor da saúde no Distrito Federal antes de eventual consulta jurídica, parecer técnico ou defesa administrativa." />
-  <meta name="keywords" content="PAD saúde DF, PAD SES DF, sindicância SES DF, processo administrativo disciplinar saúde DF, LC 840 PAD, defesa PAD servidor saúde DF, PAD enfermagem DF, PAD médico DF, sindicância servidor saúde DF" />
+  <title>PAD na Saúde do DF | ANÁLISE LEGAL</title>
+  <meta name="description" content="Servidor da Secretaria de Saúde do DF em sindicância ou PAD: organize fase, prazo, documentos e risco funcional antes de eventual análise técnica." />
+  <meta name="keywords" content="PAD SES DF, PAD saúde DF, sindicância SES DF, processo administrativo disciplinar saúde DF, LC 840 PAD, defesa PAD servidor saúde DF, PAD enfermagem DF, PAD médico DF" />
   <meta name="author" content="ANÁLISE LEGAL" />
 
   <meta property="og:title" content="PAD na Saúde do DF | ANÁLISE LEGAL" />
-  <meta property="og:description" content="Organize fase, prazo, documentos e risco funcional antes de eventual análise profissional em PAD ou sindicância." />
+  <meta property="og:description" content="Organize informações sobre sindicância ou PAD na Secretaria de Saúde do DF antes de eventual diagnóstico estratégico inicial." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.analiselegal.com.br/administrativo/pad-df/saude/index.html" />
 
@@ -309,7 +311,6 @@
     }
 
     .question { display: none; }
-
     .question.active { display: block; }
 
     .question label {
@@ -347,8 +348,7 @@
     input[type="email"],
     input[type="tel"],
     input[type="date"],
-    select,
-    textarea {
+    select {
       width: 100%;
       border: 1px solid var(--linha);
       border-radius: 16px;
@@ -357,11 +357,6 @@
       font-size: 1.08rem;
       background: #fff;
       color: var(--texto);
-    }
-
-    textarea {
-      min-height: 110px;
-      resize: vertical;
     }
 
     .form-actions {
@@ -480,11 +475,8 @@
 
     @media (max-width: 860px) {
       header { padding: 18px 6%; }
-
       .header-link { display: none; }
-
       .marca img { height: 40px; }
-
       .hero { padding: 70px 6% 64px; }
 
       .hero-inner {
@@ -493,16 +485,10 @@
       }
 
       .hero-symbol { justify-content: flex-start; }
-
       .hero-symbol img { width: 145px; }
-
       main { padding: 54px 6%; }
-
-      .grid,
-      .split { grid-template-columns: 1fr; }
-
+      .grid, .split { grid-template-columns: 1fr; }
       .btn { width: 100%; }
-
       .form-actions { display: grid; }
     }
 
@@ -665,7 +651,12 @@
 
     <header>
       <a href="/" class="marca" aria-label="Voltar para a página inicial">
-        <img src="/Marca.svg" alt="ANÁLISE LEGAL" />
+        <img
+          id="marcaPrincipal"
+          src="/Marca.svg"
+          data-print-src="/Marca-PB.svg"
+          alt="ANÁLISE LEGAL"
+        />
       </a>
 
       <a class="header-link no-print" href="#triagem">
@@ -705,7 +696,7 @@
       <section class="section-card">
         <h2>Para quem esta página foi criada</h2>
         <p class="lead">
-          Para servidores da saúde no Distrito Federal que receberam portaria, comunicação, citação, termo de indiciação, convocação para esclarecimentos, notícia de sindicância ou penalidade administrativa.
+          Para servidores da Secretaria de Saúde do Distrito Federal que receberam portaria, comunicação, citação, termo de indiciação, convocação para esclarecimentos, notícia de sindicância ou penalidade administrativa.
         </p>
 
         <div class="grid">
@@ -719,7 +710,7 @@
       <section class="section-card">
         <h2>Por que PAD na saúde exige leitura contextual</h2>
         <p>
-          Na área da saúde pública, uma ocorrência disciplinar raramente pode ser compreendida apenas pela leitura isolada de um relatório. Plantões sobrecarregados, equipes incompletas, protocolos assistenciais, prontuários, ordens de serviço, registros de ponto e decisões tomadas em ambiente de urgência podem alterar a leitura do caso.
+          Na saúde pública, uma ocorrência disciplinar raramente pode ser compreendida apenas pela leitura isolada de um relatório. Plantões sobrecarregados, equipes incompletas, protocolos assistenciais, prontuários, ordens de serviço, registros de ponto e decisões tomadas em ambiente de urgência podem alterar a leitura do caso.
         </p>
         <p>
           A organização técnica busca separar falha individual, falha de comunicação, falha estrutural, insuficiência de prova, divergência de versões e efetiva responsabilidade funcional.
@@ -868,6 +859,7 @@
               <input type="text" name="nome" placeholder="Nome completo" required style="margin-bottom:12px;" />
               <input type="tel" name="whatsapp" placeholder="WhatsApp" required style="margin-bottom:12px;" />
               <input type="email" name="email" placeholder="E-mail" required />
+
               <p class="small-note">
                 Nesta etapa inicial, evite inserir dados de pacientes, prontuários ou documentos sigilosos. O envio documental, se necessário, ocorrerá apenas em ambiente reservado e após aceite específico de escopo e tratamento de dados.
               </p>
@@ -884,11 +876,8 @@
             <h3 id="resultTitle"></h3>
             <p id="resultText"></p>
             <div class="hero-actions" style="margin-top:20px;">
-              <a class="btn btn-primary" href="/administrativo/pad-df/saude/analise/index.html">
+              <a class="btn btn-primary" href="https://www.analiselegal.com.br/administrativo/pad-df/saude/analise/index.html">
                 Prosseguir para diagnóstico estratégico inicial
-              </a>
-              <a class="btn btn-secondary" style="color:var(--verde-profundo); border-color:var(--linha);" href="/administrativo/pad-df/saude/escopo-lgpd/index.html">
-                Ler escopo e tratamento de dados
               </a>
             </div>
           </div>
@@ -1003,6 +992,10 @@
     const resultTitle = document.getElementById("resultTitle");
     const resultText = document.getElementById("resultText");
 
+    const marcaPrincipal = document.getElementById("marcaPrincipal");
+    const marcaOriginal = marcaPrincipal ? marcaPrincipal.getAttribute("src") : null;
+    const marcaPrint = marcaPrincipal ? marcaPrincipal.getAttribute("data-print-src") : null;
+
     let currentStep = 0;
 
     function updateStep() {
@@ -1059,7 +1052,7 @@
       if (!dataPrazo) return false;
 
       const hoje = new Date();
-      hoje.setHours(0,0,0,0);
+      hoje.setHours(0, 0, 0, 0);
 
       const prazo = new Date(dataPrazo + "T00:00:00");
       const diffMs = prazo - hoje;
@@ -1118,6 +1111,10 @@
     });
 
     window.addEventListener("beforeprint", function () {
+      if (marcaPrincipal && marcaPrint) {
+        marcaPrincipal.setAttribute("src", marcaPrint);
+      }
+
       try {
         window.dispatchEvent(new CustomEvent("analiselegal_print_intent", {
           detail: {
@@ -1129,7 +1126,15 @@
       } catch (e) {}
     });
 
-    document.querySelectorAll("a[href*='/administrativo/pad-df/saude/analise/'], a[href='#triagem']").forEach(function (link) {
+    window.addEventListener("afterprint", function () {
+      if (marcaPrincipal && marcaOriginal) {
+        marcaPrincipal.setAttribute("src", marcaOriginal);
+      }
+    });
+
+    document.querySelectorAll(
+      "a[href='https://www.analiselegal.com.br/administrativo/pad-df/saude/analise/index.html'], a[href='#triagem']"
+    ).forEach(function (link) {
       link.addEventListener("click", function () {
         try {
           window.dispatchEvent(new CustomEvent("analiselegal_cta_click", {
