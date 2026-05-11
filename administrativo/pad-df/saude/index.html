@@ -1,1072 +1,524 @@
 <!DOCTYPE html>
-<html lang="pt-BR" dir="ltr">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>PAD e Sindicância na Saúde do DF | ANÁLISE LEGAL</title>
-  <meta name="description" content="Servidor da Secretaria de Saúde do DF em PAD ou sindicância: organize documentos, prazos, contexto funcional e informações relevantes antes de qualquer manifestação funcional." />
-  <meta name="keywords" content="PAD saúde DF, PAD SES DF, sindicância SES DF, servidor saúde DF PAD, processo administrativo disciplinar DF, LC 840 PAD, defesa PAD servidor público DF, Secretaria de Saúde do DF sindicância" />
-  <meta name="author" content="ANÁLISE LEGAL" />
+  <title>Análise inicial | PAD e Sindicância na Saúde do DF</title>
 
-  <link rel="canonical" href="https://www.analiselegal.com.br/administrativo/pad-df/saude/" />
-
-  <meta property="og:title" content="PAD e Sindicância na Saúde do DF | ANÁLISE LEGAL" />
-  <meta property="og:description" content="Antes de qualquer manifestação funcional, o contexto precisa estar organizado." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.analiselegal.com.br/administrativo/pad-df/saude/" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="PAD e Sindicância na Saúde do DF | ANÁLISE LEGAL" />
-  <meta name="twitter:description" content="Organização inicial de informações para servidores da saúde do DF em PAD, sindicância ou apuração funcional." />
+  <meta
+    name="description"
+    content="Formulário inicial para organização de solicitação relacionada a PAD, sindicância ou apuração funcional na saúde do DF."
+  />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-    :root {
+
+    :root{
       --verde-profundo: rgb(13,22,34);
       --grafite: rgb(30,35,41);
-      --verde-militar: rgb(56,66,51);
-      --verde-oliva: rgb(138,154,107);
       --ouro-fosco: rgb(176,141,87);
       --fundo: rgb(247,246,242);
       --papel: rgb(255,255,255);
       --texto: rgb(31,31,31);
-      --texto-suave: rgb(92,92,92);
-      --linha: rgba(13,22,34,0.14);
+      --suave: rgb(92,92,92);
+      --linha: rgba(13,22,34,0.16);
+      --erro: #8b1e1e;
     }
 
-    * {
-      box-sizing: border-box;
+    *{
+      box-sizing:border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
+    html{
+      scroll-behavior:smooth;
     }
 
-    body {
-      margin: 0;
-      font-family: "Crimson Text", Georgia, serif;
-      background: var(--fundo);
-      color: var(--texto);
-      line-height: 1.62;
+    body{
+      margin:0;
+      font-family:"Crimson Text", Georgia, serif;
+      background:var(--fundo);
+      color:var(--texto);
+      line-height:1.45;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    a{
+      color:inherit;
+      text-decoration:none;
     }
 
-    .skip-link {
-      position: absolute;
-      left: -999px;
-      top: 12px;
-      background: var(--ouro-fosco);
-      color: var(--verde-profundo);
-      padding: 10px 14px;
-      border-radius: 999px;
-      z-index: 9999;
-      font-weight: 700;
+    .page{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
     }
 
-    .skip-link:focus {
-      left: 12px;
+    header{
+      background:var(--verde-profundo);
+      padding:16px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-bottom:1px solid rgba(255,255,255,0.08);
     }
 
-    .print-only {
-      display: none;
+    header img{
+      height:38px;
+      width:auto;
+      display:block;
     }
 
-    header {
-      background: var(--verde-profundo);
-      padding: 22px 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+    main{
+      width:100%;
+      max-width:760px;
+      margin:0 auto;
+      padding:22px 16px 34px;
+      flex:1;
     }
 
-    .marca img {
-      height: 46px;
-      width: auto;
-      display: block;
+    .intro{
+      margin-bottom:18px;
     }
 
-    .trademark {
-      font-size: 0.52em;
-      vertical-align: super;
-      line-height: 0;
-      letter-spacing: 0;
+    .eyebrow{
+      color:var(--ouro-fosco);
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      font-size:0.78rem;
+      font-weight:700;
+      margin-bottom:8px;
+      display:block;
     }
 
-    .header-link {
-      color: var(--fundo);
-      font-size: 1rem;
-      opacity: 0.88;
-      border-bottom: 1px solid transparent;
+    .intro h1{
+      font-size:1.7rem;
+      line-height:1.08;
+      margin:0 0 10px;
+      color:var(--verde-profundo);
+      letter-spacing:-0.02em;
     }
 
-    .header-link:hover {
-      border-bottom-color: var(--ouro-fosco);
+    .intro p{
+      margin:0;
+      font-size:1.02rem;
+      color:var(--suave);
     }
 
-    .hero {
-      min-height: 72vh;
-      background:
-        radial-gradient(circle at 82% 22%, rgba(138,154,107,0.22), transparent 32%),
-        linear-gradient(135deg, var(--verde-profundo), var(--grafite));
-      color: var(--fundo);
-      padding: 92px 7% 86px;
-      display: flex;
-      align-items: center;
+    .progress-area{
+      margin:22px 0 18px;
     }
 
-    .hero-inner {
-      width: 100%;
-      max-width: 1280px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.18fr 0.82fr;
-      gap: 56px;
-      align-items: center;
+    .progress-text{
+      display:flex;
+      justify-content:space-between;
+      font-size:0.9rem;
+      color:var(--suave);
+      margin-bottom:8px;
     }
 
-    .eyebrow {
-      display: inline-block;
-      color: var(--ouro-fosco);
-      font-size: 1.02rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
+    .progress-track{
+      height:8px;
+      border-radius:999px;
+      background:rgba(13,22,34,0.12);
+      overflow:hidden;
     }
 
-    .hero h1 {
-      font-size: clamp(2.25rem, 5vw, 4.25rem);
-      line-height: 1.05;
-      margin: 0 0 24px;
-      font-weight: 600;
-      letter-spacing: -0.03em;
+    .progress-bar{
+      height:100%;
+      width:0%;
+      background:var(--ouro-fosco);
+      transition:width 0.25s ease;
     }
 
-    .hero p {
-      font-size: clamp(1.1rem, 2vw, 1.28rem);
-      max-width: 780px;
-      margin: 0 0 20px;
-      color: rgba(247,246,242,0.9);
+    form{
+      background:var(--papel);
+      border:1px solid var(--linha);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 18px 42px rgba(13,22,34,0.08);
     }
 
-    .hero-symbol {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .step{
+      display:none;
+      padding:24px 18px 20px;
+      min-height:390px;
     }
 
-    .hero-symbol img {
-      width: min(280px, 70%);
-      height: auto;
-      filter: drop-shadow(0 24px 45px rgba(0,0,0,0.28));
+    .step.active{
+      display:block;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
+    .step-label{
+      color:var(--ouro-fosco);
+      font-weight:700;
+      font-size:0.9rem;
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+      margin-bottom:10px;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px 24px;
-      border-radius: 999px;
-      font-size: 1.04rem;
-      transition: 0.2s ease;
-      cursor: pointer;
-      border: 1px solid transparent;
+    .step h2{
+      margin:0 0 10px;
+      color:var(--verde-profundo);
+      font-size:1.52rem;
+      line-height:1.12;
+      letter-spacing:-0.015em;
     }
 
-    .btn-primary {
-      background: var(--ouro-fosco);
-      color: var(--verde-profundo);
-      font-weight: 700;
+    .helper{
+      font-size:0.98rem;
+      color:var(--suave);
+      margin:0 0 18px;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.04);
+    .options{
+      display:grid;
+      gap:10px;
     }
 
-    .btn-secondary {
-      color: var(--fundo);
-      border-color: rgba(247,246,242,0.55);
+    .options.single{
+      grid-template-columns:1fr;
     }
 
-    .btn-secondary:hover {
-      border-color: var(--ouro-fosco);
+    .option{
+      position:relative;
     }
 
-    main {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 76px 7%;
+    .option input{
+      position:absolute;
+      opacity:0;
+      pointer-events:none;
     }
 
-    section {
-      margin-bottom: 72px;
+    .option span{
+      display:block;
+      width:100%;
+      border:1px solid var(--linha);
+      border-radius:16px;
+      padding:13px 14px;
+      background:#fff;
+      font-size:1.05rem;
+      cursor:pointer;
+      transition:0.15s ease;
     }
 
-    .section-card {
-      background: var(--papel);
-      border: 1px solid var(--linha);
-      border-radius: 24px;
-      padding: clamp(28px, 5vw, 48px);
-      box-shadow: 0 18px 48px rgba(13,22,34,0.06);
+    .option input:checked + span{
+      border-color:var(--ouro-fosco);
+      background:rgba(176,141,87,0.12);
+      color:var(--verde-profundo);
+      font-weight:700;
     }
 
-    h2 {
-      font-size: clamp(1.68rem, 3vw, 2.45rem);
-      line-height: 1.16;
-      color: var(--verde-profundo);
-      margin: 0 0 22px;
-      letter-spacing: -0.02em;
+    input,
+    textarea{
+      width:100%;
+      border:1px solid var(--linha);
+      border-radius:14px;
+      padding:13px 14px;
+      background:#fff;
+      font-family:"Crimson Text", Georgia, serif;
+      font-size:1.05rem;
+      color:var(--texto);
+      outline:none;
     }
 
-    h3 {
-      font-size: 1.32rem;
-      color: var(--verde-profundo);
-      margin: 0 0 10px;
-      line-height: 1.25;
+    input:focus,
+    textarea:focus{
+      border-color:var(--ouro-fosco);
+      box-shadow:0 0 0 3px rgba(176,141,87,0.16);
     }
 
-    p {
-      font-size: 1.14rem;
-      margin: 0 0 18px;
+    textarea{
+      min-height:140px;
+      resize:vertical;
     }
 
-    .lead {
-      font-size: 1.22rem;
-      color: var(--grafite);
+    .field-group{
+      display:grid;
+      gap:14px;
     }
 
-    .muted {
-      color: var(--texto-suave);
+    .field label{
+      display:block;
+      font-size:1rem;
+      font-weight:700;
+      color:var(--verde-profundo);
+      margin-bottom:6px;
     }
 
-    .table-wrap {
-      overflow-x: auto;
-      margin-top: 28px;
+    .consent{
+      display:grid;
+      gap:12px;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: var(--papel);
-      font-size: 1.05rem;
+    .check{
+      display:grid;
+      grid-template-columns:24px 1fr;
+      gap:10px;
+      align-items:start;
+      padding:12px;
+      border:1px solid var(--linha);
+      border-radius:14px;
+      background:#fff;
     }
 
-    caption {
-      caption-side: top;
-      text-align: left;
-      font-size: 0.92rem;
-      color: var(--texto-suave);
-      padding-bottom: 10px;
-      font-style: italic;
+    .check input{
+      width:20px;
+      height:20px;
+      margin-top:2px;
+      accent-color:var(--ouro-fosco);
     }
 
-    th,
-    td {
-      border: 1px solid var(--linha);
-      padding: 14px 16px;
-      text-align: left;
-      vertical-align: top;
+    .check span{
+      font-size:0.98rem;
+      color:var(--texto);
     }
 
-    th {
-      background: rgba(13,22,34,0.055);
-      color: var(--verde-profundo);
-      font-weight: 700;
+    .nav{
+      display:flex;
+      gap:10px;
+      padding:14px 18px 18px;
+      background:rgba(13,22,34,0.035);
+      border-top:1px solid var(--linha);
     }
 
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 26px;
-      align-items: stretch;
+    button{
+      appearance:none;
+      border:0;
+      border-radius:999px;
+      font-family:"Crimson Text", Georgia, serif;
+      font-size:1.05rem;
+      padding:13px 18px;
+      cursor:pointer;
     }
 
-    .box-dark {
-      background: var(--verde-profundo);
-      color: var(--fundo);
-      border-radius: 24px;
-      padding: clamp(28px, 4vw, 42px);
+    .btn-prev{
+      background:transparent;
+      color:var(--verde-profundo);
+      border:1px solid var(--linha);
+      flex:0 0 auto;
     }
 
-    .box-dark h2,
-    .box-dark h3 {
-      color: var(--fundo);
+    .btn-next,
+    .btn-submit{
+      background:var(--ouro-fosco);
+      color:var(--verde-profundo);
+      font-weight:700;
+      flex:1;
     }
 
-    .box-dark p {
-      color: rgba(247,246,242,0.9);
+    .error{
+      color:var(--erro);
+      font-size:0.92rem;
+      margin-top:12px;
+      display:none;
     }
 
-    .box-light {
-      background: var(--papel);
-      border: 1px solid var(--linha);
-      border-radius: 24px;
-      padding: clamp(28px, 4vw, 42px);
+    .final-screen{
+      display:none;
+      background:var(--papel);
+      border:1px solid var(--linha);
+      border-radius:22px;
+      box-shadow:0 18px 42px rgba(13,22,34,0.08);
+      padding:28px 20px;
+      text-align:center;
     }
 
-    .cta-final {
-      text-align: center;
-      background:
-        linear-gradient(135deg, rgba(56,66,51,0.95), rgba(13,22,34,0.98));
-      color: var(--fundo);
-      border-radius: 28px;
-      padding: clamp(38px, 6vw, 68px);
+    .final-screen.active{
+      display:block;
     }
 
-    .cta-final h2 {
-      color: var(--fundo);
-      margin-bottom: 18px;
+    .final-screen h2{
+      color:var(--verde-profundo);
+      font-size:1.7rem;
+      line-height:1.1;
+      margin:0 0 12px;
     }
 
-    .cta-final p {
-      max-width: 760px;
-      margin-left: auto;
-      margin-right: auto;
-      color: rgba(247,246,242,0.9);
+    .final-screen p{
+      font-size:1.02rem;
+      color:var(--suave);
+      margin:0 0 18px;
     }
 
-    .indexacao {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 7% 56px;
+    .btn-final{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      width:100%;
+      background:var(--ouro-fosco);
+      color:var(--verde-profundo);
+      border-radius:999px;
+      padding:14px 18px;
+      font-weight:700;
+      font-size:1.08rem;
     }
 
-    .indexacao-bloco {
-      border-top: 1px solid var(--linha);
-      border-bottom: 1px solid var(--linha);
-      padding: 28px 0;
-      font-size: 0.96rem;
-      color: var(--texto-suave);
+    .trademark{
+      font-size:0.52em;
+      vertical-align:super;
+      line-height:0;
     }
 
-    .indexacao-titulo {
-      font-style: italic;
-      font-size: 0.88rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--texto-suave);
-      margin: 0 0 12px;
-      display: block;
+    footer{
+      padding:22px 18px;
+      text-align:center;
+      font-size:0.88rem;
+      color:var(--suave);
     }
 
-    .indexacao-texto {
-      font-variant: small-caps;
-      letter-spacing: 0.02em;
-      line-height: 1.55;
-      color: var(--verde-profundo);
-      font-size: 1rem;
-      margin: 0;
-    }
+    @media (min-width:720px){
 
-    .indexacao-texto strong {
-      font-weight: 600;
-    }
-
-    footer {
-      background: var(--grafite);
-      color: rgba(247,246,242,0.78);
-      padding: 34px 7%;
-      font-size: 0.98rem;
-    }
-
-    footer .footer-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: grid;
-      gap: 14px;
-    }
-
-    footer strong {
-      color: var(--fundo);
-      font-weight: 600;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      margin-top: 6px;
-      font-size: 0.92rem;
-    }
-
-    .footer-links a {
-      opacity: 0.85;
-      border-bottom: 1px solid transparent;
-    }
-
-    .footer-links a:hover {
-      border-bottom-color: var(--ouro-fosco);
-    }
-
-    @media (max-width: 860px) {
-      body {
-        line-height: 1.5;
+      main{
+        padding-top:42px;
       }
 
-      header {
-        padding: 16px 5%;
+      .intro h1{
+        font-size:2.2rem;
       }
 
-      .header-link {
-        display: none;
+      .step{
+        padding:34px 34px 28px;
       }
 
-      .marca img {
-        height: 38px;
+      .step h2{
+        font-size:1.92rem;
       }
 
-      .hero {
-        min-height: auto;
-        padding: 64px 5% 58px;
+      .options{
+        grid-template-columns:1fr 1fr;
       }
 
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .hero-symbol {
-        justify-content: flex-start;
-      }
-
-      .hero-symbol img {
-        width: 132px;
-      }
-
-      .eyebrow {
-        font-size: 0.78rem;
-        margin-bottom: 10px;
-      }
-
-      .hero h1 {
-        font-size: 2.05rem;
-        line-height: 1.08;
-        margin-bottom: 16px;
-      }
-
-      .hero p,
-      p,
-      .lead {
-        font-size: 0.98rem;
-        line-height: 1.48;
-      }
-
-      main {
-        padding: 42px 5%;
-      }
-
-      section {
-        margin-bottom: 34px;
-      }
-
-      .section-card,
-      .box-dark,
-      .box-light,
-      .cta-final {
-        padding: 24px 18px;
-        border-radius: 18px;
-      }
-
-      h2 {
-        font-size: 1.45rem;
-        line-height: 1.15;
-      }
-
-      h3 {
-        font-size: 1.12rem;
-      }
-
-      table {
-        font-size: 0.92rem;
-      }
-
-      th,
-      td {
-        padding: 10px 11px;
-      }
-
-      .split {
-        grid-template-columns: 1fr;
-      }
-
-      .btn {
-        width: 100%;
-        font-size: 0.96rem;
-        padding: 13px 16px;
-      }
-
-      .indexacao {
-        padding: 0 5% 36px;
-      }
-
-      .indexacao-texto {
-        font-size: 0.92rem;
+      .field-group.two-cols{
+        grid-template-columns:1fr 1fr;
       }
     }
 
-    @media print {
-      @page {
-        size: A4;
-        margin: 1.8cm 1.6cm;
-      }
-
-      * {
-        box-shadow: none !important;
-        text-shadow: none !important;
-      }
-
-      body {
-        background: #fff !important;
-        color: #111 !important;
-        font-family: "Crimson Text", Georgia, serif;
-        line-height: 1.45;
-      }
-
-      .no-print,
-      .hero-actions,
-      .header-link,
-      .hero-symbol,
-      .skip-link,
-      footer {
-        display: none !important;
-      }
-
-      .print-only {
-        display: block !important;
-      }
-
-      header {
-        background: #fff !important;
-        padding: 0 0 14px !important;
-        border-bottom: 1px solid #999 !important;
-      }
-
-      .marca img {
-        height: 34px !important;
-        filter: none !important;
-      }
-
-      .hero {
-        min-height: auto !important;
-        display: block !important;
-        background: #fff !important;
-        color: #111 !important;
-        padding: 18px 0 14px !important;
-      }
-
-      .hero-inner {
-        display: block !important;
-      }
-
-      .eyebrow {
-        color: #111 !important;
-        font-size: 9pt !important;
-        margin-bottom: 8px !important;
-      }
-
-      .hero h1 {
-        color: #111 !important;
-        font-size: 16pt !important;
-        line-height: 1.16 !important;
-        margin-bottom: 10px !important;
-        letter-spacing: 0 !important;
-      }
-
-      .hero p,
-      p,
-      .lead,
-      table {
-        color: #111 !important;
-        font-size: 11pt !important;
-        line-height: 1.45 !important;
-      }
-
-      main {
-        max-width: none !important;
-        padding: 0 !important;
-      }
-
-      section {
-        margin-bottom: 18px !important;
-        page-break-inside: avoid;
-      }
-
-      .section-card,
-      .box-light,
-      .box-dark,
-      .cta-final {
-        background: #fff !important;
-        color: #111 !important;
-        border: none !important;
-        border-radius: 0 !important;
-        padding: 0 !important;
-      }
-
-      h2,
-      .box-dark h2,
-      .cta-final h2 {
-        color: #111 !important;
-        font-size: 14pt !important;
-        line-height: 1.2 !important;
-        margin: 0 0 7px !important;
-      }
-
-      h3,
-      .box-dark h3 {
-        color: #111 !important;
-        font-size: 12pt !important;
-        margin: 0 0 4px !important;
-      }
-
-      .split {
-        display: block !important;
-      }
-
-      th,
-      td {
-        border: 1px solid #999 !important;
-        padding: 6px !important;
-      }
-
-      th {
-        background: #fff !important;
-        color: #111 !important;
-      }
-
-      .indexacao {
-        padding: 0 !important;
-        margin: 18px 0 0 !important;
-      }
-
-      .indexacao-bloco {
-        border-top: 1px solid #999 !important;
-        border-bottom: 1px solid #999 !important;
-        padding: 10px 0 !important;
-      }
-
-      .indexacao-texto {
-        color: #111 !important;
-        font-size: 10pt !important;
-      }
-
-      .indexacao-titulo {
-        color: #111 !important;
-        font-size: 8.5pt !important;
-      }
-
-      .print-footer {
-        display: block !important;
-        border-top: 1px solid #999;
-        margin-top: 18px;
-        padding-top: 8px;
-        font-size: 8.5pt;
-        line-height: 1.35;
-        color: #111;
-      }
-    }
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LegalService",
-    "name": "ANÁLISE LEGAL — PAD e Sindicância na Saúde do DF",
-    "description": "Organização técnica inicial de informações em procedimentos administrativos disciplinares, sindicâncias e apurações funcionais envolvendo servidores públicos da saúde no Distrito Federal.",
-    "areaServed": {
-      "@type": "AdministrativeArea",
-      "name": "Distrito Federal"
-    },
-    "url": "https://www.analiselegal.com.br/administrativo/pad-df/saude/"
-  }
-  </script>
 </head>
 
 <body>
-  <a class="skip-link" href="#conteudo">Pular para conteúdo</a>
 
-  <div class="page">
+<div class="page">
 
-    <header>
-      <a href="/" class="marca" aria-label="Voltar para a página inicial">
-        <img
-          id="marcaPrincipal"
-          src="/Marca.svg"
-          data-print-src="/Marca-PB.svg"
-          alt="ANÁLISE LEGAL"
-        />
-      </a>
+  <header>
 
-      <a class="header-link no-print" href="https://www.analiselegal.com.br/administrativo/pad-df/saude/analise/index.html">
-        Estruturar caso
-      </a>
-    </header>
+    <a href="/" aria-label="Voltar para a página inicial">
 
-    <section class="hero">
-      <div class="hero-inner">
-        <div>
-          <span class="eyebrow">PAD · Sindicância · Servidor público da saúde no DF</span>
+      <img
+        id="marcaPrincipal"
+        src="/assets/img/Marca.svg"
+        data-print-src="/assets/img/Marca-PB.svg"
+        alt="ANÁLISE LEGAL"
+      />
 
-          <h1>Antes de qualquer manifestação funcional, o contexto precisa estar organizado.</h1>
+    </a>
 
-          <p>
-            PADs e sindicâncias raramente começam com a penalidade. Começam com dúvidas, pressão, prazos curtos, documentos dispersos e necessidade de compreender o que realmente está acontecendo.
-          </p>
+  </header>
 
-          <p>
-            Antes de responder à chefia, prestar esclarecimentos, participar de oitiva, juntar documentos ou assumir uma versão sobre os fatos, o servidor precisa entender a fase em curso, os prazos aplicáveis, o contexto funcional envolvido e as repercussões possíveis.
-          </p>
+  <main>
 
-          <p>
-            A ANÁLISE LEGAL<span class="trademark">™</span> organiza tecnicamente as informações iniciais do caso, permitindo leitura mais clara da situação e definição mais segura dos próximos passos.
-          </p>
+    <section class="intro" id="intro">
 
-          <div class="hero-actions no-print">
-            <a class="btn btn-primary" href="https://www.analiselegal.com.br/administrativo/pad-df/saude/analise/index.html">
-              Iniciar diagnóstico
-            </a>
-            <a class="btn btn-secondary" href="#rito">
-              Entender o rito
-            </a>
-          </div>
-        </div>
+      <span class="eyebrow">
+        PAD · Sindicância · Saúde do DF
+      </span>
 
-        <div class="hero-symbol no-print" aria-hidden="true">
-          <img src="/Simbolo.svg" alt="" />
-        </div>
-      </div>
+      <h1>
+        Organize sua solicitação inicial.
+      </h1>
+
+      <p>
+        Responda apenas o necessário para avaliação de proposta de análise inicial.
+      </p>
+
     </section>
 
-    <main id="conteudo">
+    <section class="progress-area">
 
-      <section class="section-card">
-        <h2>Para quem esta página foi criada</h2>
-
-        <p>
-          Esta página foi criada para servidores públicos do Distrito Federal submetidos a sindicância, PAD ou apuração funcional, especialmente em estruturas de alta complexidade operacional, como a Secretaria de Saúde do DF.
-        </p>
-
-        <p>
-          Aplica-se a situações envolvendo recebimento de portaria, citação, convocação para esclarecimentos, oitivas, termo de indiciação, manifestação preliminar, apresentação de informações, recurso administrativo, penalidade em curso ou simples necessidade de compreender melhor o procedimento.
-        </p>
-
-        <p>
-          A estruturação também é útil ao servidor chamado como testemunha, ao servidor denunciante, ao servidor que busca compreender riscos antes de se manifestar formalmente e ao servidor que já possui acompanhamento profissional, mas precisa organizar cronologia, documentos e pontos críticos.
-        </p>
-      </section>
-
-      <section class="section-card">
-        <h2>O problema costuma começar antes da penalidade</h2>
-
-        <p>
-          Muitos servidores só buscam orientação quando já existe indiciação, suspensão, relatório desfavorável ou proximidade do julgamento. Em diversos casos, porém, as informações mais importantes já foram prestadas antes disso.
-        </p>
-
-        <p>
-          Esclarecimentos iniciais, mensagens funcionais, documentos juntados sem ordem, versões incompletas, ausência de contextualização e perda de prazos podem influenciar a leitura posterior do procedimento.
-        </p>
-
-        <p>
-          Por isso, a organização inicial do caso não serve apenas para “responder” a uma apuração. Serve para compreender corretamente o cenário antes que decisões precipitadas produzam efeitos difíceis de corrigir.
-        </p>
-      </section>
-
-      <section class="section-card">
-        <h2>Por que o PAD exige leitura contextual</h2>
-
-        <p>
-          Em estruturas complexas da administração pública, especialmente na saúde, uma ocorrência disciplinar raramente se resume ao fato descrito no relatório de chefia. Plantões sobrecarregados, equipes incompletas, escalas, protocolos assistenciais, registros funcionais, ordens de serviço, comunicação interna e decisões tomadas em ambiente de urgência podem alterar significativamente a compreensão da situação.
-        </p>
-
-        <p>
-          A organização técnica busca separar o que pode ser falha individual, falha estrutural, insuficiência de prova, divergência de versões, problema de fluxo operacional, falha de comunicação ou efetiva responsabilidade funcional.
-        </p>
-      </section>
-
-      <section class="section-card">
-        <h2>O que costuma estar em risco</h2>
-
-        <p>
-          Advertência. Suspensão. Demissão. Destituição de cargo em comissão. Destituição de função comissionada. Cassação de aposentadoria. Reflexos previdenciários. Repercussões éticas em conselho de classe. Desdobramentos administrativos ou judiciais correlatos.
-        </p>
-
-        <p>
-          Nem toda apuração resulta em penalidade. Mas praticamente toda penalidade relevante passou antes por manifestações, documentos, omissões, versões iniciais e decisões procedimentais que precisavam ter sido compreendidas desde o começo.
-        </p>
-      </section>
-
-      <section class="section-card">
-        <h2>Decisões frequentes que fragilizam o procedimento</h2>
-
-        <p>
-          Em procedimentos analisados retrospectivamente, alguns padrões aparecem com frequência: resposta a esclarecimentos antes da leitura integral dos autos, apresentação de documentos sem ordem cronológica, ausência de explicação sobre o contexto funcional, uso de modelos genéricos, confusão entre conversa informal e manifestação administrativa relevante, perda de prazos e adoção de versão sobre os fatos antes da compreensão integral da imputação.
-        </p>
-
-        <p>
-          Em matéria disciplinar, o problema raramente está apenas na peça final. Muitas vezes, está na forma como o caso foi inicialmente narrado, documentado e compreendido.
-        </p>
-      </section>
-
-      <section id="rito" class="section-card">
-        <h2>O rito em síntese</h2>
-
-        <div class="table-wrap">
-          <table>
-            <caption>Fases usuais do procedimento administrativo disciplinar conforme a Lei Complementar nº 840/2011</caption>
-            <thead>
-              <tr>
-                <th>Fase</th>
-                <th>O que ocorre</th>
-                <th>Ponto de atenção</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Apuração preliminar</td>
-                <td>Verificação inicial de fatos, documentos e versões</td>
-                <td>Compreender se há procedimento formal, registro administrativo ou apuração interna</td>
-              </tr>
-              <tr>
-                <td>Sindicância</td>
-                <td>Levantamento inicial ou apuração com possível repercussão funcional</td>
-                <td>Identificar se há caráter meramente investigativo ou acusatório</td>
-              </tr>
-              <tr>
-                <td>Instauração de PAD</td>
-                <td>Decisão formal de apuração disciplinar</td>
-                <td>Verificar portaria, comissão, objeto da apuração e delimitação dos fatos</td>
-              </tr>
-              <tr>
-                <td>Instrução</td>
-                <td>Produção de provas, documentos, oitivas e registros administrativos</td>
-                <td>Organizar cronologia, documentos e pontos de contexto funcional</td>
-              </tr>
-              <tr>
-                <td>Indiciação</td>
-                <td>Delimitação formal das imputações</td>
-                <td>Identificar exatamente quais condutas estão sendo atribuídas ao servidor</td>
-              </tr>
-              <tr>
-                <td>Apresentação de informações e documentos</td>
-                <td>Organização dos elementos relevantes à compreensão do caso</td>
-                <td>Observar prazo aplicável, especialmente quando houver defesa escrita</td>
-              </tr>
-              <tr>
-                <td>Relatório final</td>
-                <td>Conclusão da comissão processante</td>
-                <td>Verificar se houve análise adequada das provas e do contexto funcional</td>
-              </tr>
-              <tr>
-                <td>Julgamento</td>
-                <td>Aplicação de penalidade ou arquivamento</td>
-                <td>Identificar autoridade competente, fundamento e possibilidade de revisão ou recurso</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p class="muted" style="margin-top:18px;">
-          A defesa escrita no PAD, quando cabível, deve observar os prazos previstos na Lei Complementar nº 840/2011, inclusive o prazo de 10 dias úteis previsto no art. 232.
-        </p>
-      </section>
-
-      <section class="split">
-        <div class="box-dark">
-          <h2>O diagnóstico estratégico inicial</h2>
-
-          <p>
-            É uma etapa técnica de organização das informações relacionadas ao procedimento. Permite compreender com mais clareza a fase procedimental, o prazo em curso, o contexto funcional, os documentos relevantes, as urgências aparentes, os pontos críticos e as possibilidades de aprofundamento.
-          </p>
-
-          <p>
-            Conforme o caso, envolve videoconferência reservada, leitura inicial de documentos compartilhados em ambiente próprio, organização cronológica dos fatos, identificação de inconsistências e elaboração de sumário técnico preliminar.
-          </p>
-        </div>
-
-        <div class="box-light">
-          <h2>Limites da etapa inicial</h2>
-
-          <p>
-            O diagnóstico não constitui representação no procedimento, peticionamento, comparecimento a oitivas, defesa administrativa, recurso ou atuação judicial.
-          </p>
-
-          <p>
-            Serviços profissionais de representação, elaboração de peças, atuação administrativa ou judicial dependem de contratação específica posterior, mediante instrumento próprio.
-          </p>
-        </div>
-      </section>
-
-      <section class="section-card">
-        <h2>Como funciona</h2>
-
-        <p>
-          O interessado preenche formulário de triagem com a fase do procedimento, o prazo em curso, o contexto da imputação e a modalidade preferida de atendimento. As informações permitem organizar inicialmente a demanda e melhorar o aproveitamento técnico do atendimento.
-        </p>
-
-        <p>
-          Após validação operacional, confirmação de disponibilidade e aceite das condições aplicáveis, o atendimento é confirmado na modalidade escolhida. A partir disso, o caso é organizado com foco em cronologia, documentos, riscos aparentes e pontos que exigem atenção.
-        </p>
-
-        <p>
-          Documentos como portaria, citação, termo de indiciação, notificações, relatórios, escalas, registros funcionais, comunicações administrativas e ordens de serviço podem ser compartilhados apenas em ambiente reservado, mediante termo de tratamento de dados.
-        </p>
-
-        <p>
-          Prontuários, documentos com dados de pacientes, informações de terceiros ou dados sensíveis exigem cuidado adicional e orientação específica antes de qualquer compartilhamento.
-        </p>
-      </section>
-
-      <section class="cta-final">
-        <h2>Organizar o caso é o primeiro passo.</h2>
-
-        <p>
-          A triagem identifica urgência, fase procedimental, prazo em curso, contexto funcional e modalidade de atendimento preferida.
-        </p>
-
-        <div class="hero-actions no-print" style="justify-content:center;">
-          <a class="btn btn-primary" href="https://www.analiselegal.com.br/administrativo/pad-df/saude/analise/index.html">
-            Iniciar triagem
-          </a>
-        </div>
-      </section>
-
-      <div class="print-only print-footer">
-        A ANÁLISE LEGAL é uma plataforma digital destinada à coleta e à estruturação de informações fornecidas pelo usuário, com a finalidade de viabilizar posterior análise profissional.
-        <br /><br />
-        Os serviços profissionais de representação processual, peticionamento, elaboração de defesa, recurso ou atuação em procedimento administrativo dependem de contratação específica posterior, mediante instrumento próprio.
-        <br /><br />
-        Documentos com dados sensíveis, prontuários ou informações protegidas devem ser compartilhados apenas em ambiente reservado e mediante orientação específica.
-        <br /><br />
-        © ANÁLISE LEGAL — Todos os direitos reservados.
+      <div class="progress-text">
+        <span id="stepText">Etapa 1 de 17</span>
+        <span id="percentText">0%</span>
       </div>
 
-    </main>
-
-    <aside class="indexacao" aria-label="Indexação técnica do conteúdo">
-      <div class="indexacao-bloco">
-        <span class="indexacao-titulo">Indexação técnica</span>
-        <p class="indexacao-texto">
-          <strong>Direito administrativo disciplinar. Servidor público do Distrito Federal. Secretaria de Saúde do Distrito Federal. Lei Complementar nº 840/2011. Processo administrativo disciplinar. Sindicância. Apuração funcional. Diagnóstico estratégico inicial.</strong>
-        </p>
+      <div class="progress-track">
+        <div class="progress-bar" id="progressBar"></div>
       </div>
-    </aside>
 
-    <footer>
-      <div class="footer-inner">
-        <strong>ANÁLISE LEGAL<span class="trademark">™</span></strong>
+    </section>
 
-        <span>
-          Plataforma digital destinada à coleta e à estruturação de informações fornecidas pelo usuário, com finalidade de viabilizar posterior análise profissional.
-        </span>
+    <form id="triagemForm">
 
-        <span>
-          Os serviços profissionais de representação processual, peticionamento, elaboração de defesa, recurso ou atuação em procedimento administrativo dependem de contratação específica posterior, mediante instrumento próprio.
-        </span>
+      <!-- PASSOS DO FORMULÁRIO -->
 
-        <span>
-          O tratamento de dados pessoais pela ANÁLISE LEGAL<span class="trademark">™</span> observa a Lei nº 13.709/2018 (LGPD).
-          Saiba mais em nossa <a href="/privacidade.html">Política de Privacidade</a>.
-          Contato do Encarregado: <a href="mailto:privacidade@analiselegal.com.br">privacidade@analiselegal.com.br</a>.
-        </span>
+    </form>
 
-        <div class="footer-links">
-          <a href="/privacidade.html">Política de Privacidade</a>
-          <a href="/termos.html">Termos de Uso</a>
-          <a href="/contato.html">Contato</a>
-        </div>
+    <section class="final-screen" id="finalScreen">
 
-        <span>
-          © ANÁLISE LEGAL — Todos os direitos reservados.
-        </span>
-      </div>
-    </footer>
+      <h2>
+        Sua solicitação foi organizada.
+      </h2>
 
-  </div>
+      <p>
+        A ANÁLISE LEGAL<span class="trademark">™</span>
+        foi concebida para organizar informações relevantes da solicitação inicial,
+        permitindo compreensão preliminar mais clara, contextualizada e eficiente da demanda apresentada,
+        favorecendo maior assertividade desde os primeiros contatos relacionados ao caso.
+      </p>
 
-  <script>
-    const marcaPrincipal = document.getElementById("marcaPrincipal");
-    const marcaOriginal = marcaPrincipal ? marcaPrincipal.getAttribute("src") : null;
-    const marcaPrint = marcaPrincipal ? marcaPrincipal.getAttribute("data-print-src") : null;
+      <a
+        href="/administrativo/pad-df/saude/analise.html"
+        class="btn-final"
+      >
+        Prosseguir para análise inicial
+      </a>
 
-    window.addEventListener("beforeprint", function () {
-      if (marcaPrincipal && marcaPrint) {
-        marcaPrincipal.setAttribute("src", marcaPrint);
-      }
+    </section>
 
-      document.querySelectorAll("details").forEach(function (details) {
-        if (!details.hasAttribute("open")) {
-          details.setAttribute("data-was-closed", "true");
-          details.setAttribute("open", "open");
-        }
-      });
+  </main>
 
-      try {
-        window.dispatchEvent(new CustomEvent("analiselegal_print_intent", {
-          detail: {
-            page: "administrativo/pad-df/saude",
-            action: "beforeprint",
-            timestamp: new Date().toISOString()
-          }
-        }));
-      } catch (e) {}
-    });
+  <footer>
+    ANÁLISE LEGAL<span class="trademark">™</span> · Organização inicial de solicitações
+  </footer>
 
-    window.addEventListener("afterprint", function () {
-      if (marcaPrincipal && marcaOriginal) {
-        marcaPrincipal.setAttribute("src", marcaOriginal);
-      }
+</div>
 
-      document.querySelectorAll("details[data-was-closed='true']").forEach(function (details) {
-        details.removeAttribute("open");
-        details.removeAttribute("data-was-closed");
-      });
-    });
+<script>
 
-    document.querySelectorAll(
-      "a[href='https://www.analiselegal.com.br/administrativo/pad-df/saude/analise/index.html']"
-    ).forEach(function (link) {
-      link.addEventListener("click", function () {
-        try {
-          window.dispatchEvent(new CustomEvent("analiselegal_cta_click", {
-            detail: {
-              page: "administrativo/pad-df/saude",
-              destination: link.getAttribute("href"),
-              timestamp: new Date().toISOString()
-            }
-          }));
-        } catch (e) {}
-      });
-    });
+  const marcaPrincipal = document.getElementById("marcaPrincipal");
 
-    document.querySelectorAll(".footer-links a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        try {
-          window.dispatchEvent(new CustomEvent("analiselegal_footer_link_click", {
-            detail: {
-              page: "administrativo/pad-df/saude",
-              destination: link.getAttribute("href"),
-              text: link.textContent.trim(),
-              timestamp: new Date().toISOString()
-            }
-          }));
-        } catch (e) {}
-      });
-    });
-  </script>
+  const marcaOriginal = marcaPrincipal
+    ? marcaPrincipal.getAttribute("src")
+    : null;
+
+  const marcaPrint = marcaPrincipal
+    ? marcaPrincipal.getAttribute("data-print-src")
+    : null;
+
+  window.addEventListener("beforeprint", function(){
+
+    if(marcaPrincipal && marcaPrint){
+      marcaPrincipal.setAttribute("src", marcaPrint);
+    }
+
+  });
+
+  window.addEventListener("afterprint", function(){
+
+    if(marcaPrincipal && marcaOriginal){
+      marcaPrincipal.setAttribute("src", marcaOriginal);
+    }
+
+  });
+
+</script>
+
 </body>
 </html>
