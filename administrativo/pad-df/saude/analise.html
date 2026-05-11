@@ -1,1 +1,859 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Análise inicial | PAD e Sindicância na Saúde do DF</title>
+  <meta name="description" content="Formulário inicial para organização de solicitação relacionada a PAD, sindicância ou apuração funcional na saúde do DF." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --verde-profundo: rgb(13,22,34);
+      --grafite: rgb(30,35,41);
+      --ouro-fosco: rgb(176,141,87);
+      --fundo: rgb(247,246,242);
+      --papel: rgb(255,255,255);
+      --texto: rgb(31,31,31);
+      --suave: rgb(92,92,92);
+      --linha: rgba(13,22,34,0.16);
+      --erro: #8b1e1e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Crimson Text", Georgia, serif;
+      background: var(--fundo);
+      color: var(--texto);
+      line-height: 1.45;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--verde-profundo);
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    header img {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+
+    main {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 22px 16px 34px;
+      flex: 1;
+    }
+
+    .intro {
+      margin-bottom: 18px;
+    }
+
+    .intro .eyebrow {
+      color: var(--ouro-fosco);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .intro h1 {
+      font-size: 1.68rem;
+      line-height: 1.08;
+      margin: 0 0 10px;
+      color: var(--verde-profundo);
+      letter-spacing: -0.02em;
+    }
+
+    .intro p {
+      margin: 0;
+      font-size: 1.02rem;
+      color: var(--suave);
+    }
+
+    .progress-area {
+      margin: 22px 0 18px;
+    }
+
+    .progress-text {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: var(--suave);
+      margin-bottom: 8px;
+    }
+
+    .progress-track {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(13,22,34,0.12);
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--ouro-fosco);
+      transition: width 0.25s ease;
+    }
+
+    form {
+      background: var(--papel);
+      border: 1px solid var(--linha);
+      border-radius: 22px;
+      box-shadow: 0 18px 42px rgba(13,22,34,0.08);
+      overflow: hidden;
+    }
+
+    .step {
+      display: none;
+      padding: 24px 18px 20px;
+      min-height: 390px;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    .step-label {
+      color: var(--ouro-fosco);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+
+    .step h2 {
+      margin: 0 0 10px;
+      color: var(--verde-profundo);
+      font-size: 1.52rem;
+      line-height: 1.12;
+      letter-spacing: -0.015em;
+    }
+
+    .helper {
+      font-size: 0.98rem;
+      color: var(--suave);
+      margin: 0 0 18px;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .option {
+      position: relative;
+    }
+
+    .option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .option span {
+      display: block;
+      width: 100%;
+      border: 1px solid var(--linha);
+      border-radius: 16px;
+      padding: 13px 14px;
+      background: #fff;
+      font-size: 1.06rem;
+      cursor: pointer;
+      transition: 0.15s ease;
+    }
+
+    .option input:checked + span {
+      border-color: var(--ouro-fosco);
+      background: rgba(176,141,87,0.12);
+      color: var(--verde-profundo);
+      font-weight: 700;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid var(--linha);
+      border-radius: 14px;
+      padding: 13px 14px;
+      font-family: "Crimson Text", Georgia, serif;
+      font-size: 1.06rem;
+      color: var(--texto);
+      background: #fff;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--ouro-fosco);
+      box-shadow: 0 0 0 3px rgba(176,141,87,0.16);
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .field-group {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field label {
+      display: block;
+      font-weight: 700;
+      color: var(--verde-profundo);
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .field small {
+      display: block;
+      color: var(--suave);
+      font-size: 0.88rem;
+      margin-top: 6px;
+      line-height: 1.35;
+    }
+
+    .consent {
+      display: grid;
+      gap: 12px;
+    }
+
+    .check {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 12px;
+      border: 1px solid var(--linha);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .check input {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      accent-color: var(--ouro-fosco);
+    }
+
+    .check span {
+      font-size: 0.98rem;
+      color: var(--texto);
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      padding: 14px 18px 18px;
+      background: rgba(13,22,34,0.035);
+      border-top: 1px solid var(--linha);
+    }
+
+    button {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      font-family: "Crimson Text", Georgia, serif;
+      font-size: 1.05rem;
+      padding: 13px 18px;
+      cursor: pointer;
+      transition: 0.15s ease;
+    }
+
+    .btn-prev {
+      background: transparent;
+      color: var(--verde-profundo);
+      border: 1px solid var(--linha);
+      flex: 0 0 auto;
+    }
+
+    .btn-next,
+    .btn-submit {
+      background: var(--ouro-fosco);
+      color: var(--verde-profundo);
+      font-weight: 700;
+      flex: 1;
+    }
+
+    button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .error {
+      color: var(--erro);
+      font-size: 0.92rem;
+      margin-top: 12px;
+      display: none;
+    }
+
+    .final-screen {
+      display: none;
+      background: var(--papel);
+      border: 1px solid var(--linha);
+      border-radius: 22px;
+      box-shadow: 0 18px 42px rgba(13,22,34,0.08);
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .final-screen.active {
+      display: block;
+    }
+
+    .final-screen h2 {
+      color: var(--verde-profundo);
+      font-size: 1.7rem;
+      line-height: 1.1;
+      margin: 0 0 12px;
+    }
+
+    .final-screen p {
+      font-size: 1.02rem;
+      color: var(--suave);
+      margin: 0 0 18px;
+    }
+
+    .final-screen .btn-final {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      background: var(--ouro-fosco);
+      color: var(--verde-profundo);
+      border-radius: 999px;
+      padding: 14px 18px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.08rem;
+    }
+
+    .trademark {
+      font-size: 0.52em;
+      vertical-align: super;
+      line-height: 0;
+    }
+
+    footer {
+      padding: 22px 18px;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--suave);
+    }
+
+    @media (min-width: 720px) {
+      main {
+        padding-top: 42px;
+      }
+
+      .intro h1 {
+        font-size: 2.2rem;
+      }
+
+      .step {
+        padding: 34px 34px 28px;
+        min-height: 430px;
+      }
+
+      .nav {
+        padding: 18px 34px 26px;
+      }
+
+      .step h2 {
+        font-size: 1.92rem;
+      }
+
+      .options {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .options.single {
+        grid-template-columns: 1fr;
+      }
+
+      .two-cols {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .final-screen {
+        padding: 42px 38px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <header>
+      <a href="/" aria-label="Voltar para a página inicial">
+        <img src="/Marca.svg" alt="ANÁLISE LEGAL" />
+      </a>
+    </header>
+
+    <main>
+      <section class="intro" id="intro">
+        <span class="eyebrow">PAD · Sindicância · Saúde do DF</span>
+        <h1>Organize sua solicitação inicial.</h1>
+        <p>
+          Responda apenas o necessário para que seja possível avaliar o envio de proposta de análise inicial.
+        </p>
+      </section>
+
+      <section class="progress-area" aria-label="Progresso do formulário">
+        <div class="progress-text">
+          <span id="stepText">Etapa 1 de 17</span>
+          <span id="percentText">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+      </section>
+
+      <form id="triagemForm">
+        <!-- 1 -->
+        <section class="step active" data-required="radio" data-name="quem_precisa">
+          <div class="step-label">Contexto</div>
+          <h2>Quem precisa de ajuda neste momento?</h2>
+          <p class="helper">Informe apenas o necessário para organização inicial da solicitação.</p>
+
+          <div class="options">
+            <label class="option"><input type="radio" name="quem_precisa" value="Próprio servidor"><span>Sou o próprio servidor</span></label>
+            <label class="option"><input type="radio" name="quem_precisa" value="Familiar"><span>Sou familiar do servidor</span></label>
+            <label class="option"><input type="radio" name="quem_precisa" value="Colega"><span>Sou colega tentando ajudar</span></label>
+            <label class="option"><input type="radio" name="quem_precisa" value="Outro"><span>Outro</span></label>
+          </div>
+
+          <p class="error">Selecione uma opção para continuar.</p>
+        </section>
+
+        <!-- 2 -->
+        <section class="step" data-required="radio" data-name="funcao">
+          <div class="step-label">Perfil</div>
+          <h2>Qual é a função principal da pessoa envolvida?</h2>
+          <p class="helper">Essa informação ajuda a compreender o ambiente funcional.</p>
+
+          <div class="options">
+            <label class="option"><input type="radio" name="funcao" value="Médico"><span>Médico(a)</span></label>
+            <label class="option"><input type="radio" name="funcao" value="Enfermeiro"><span>Enfermeiro(a)</span></label>
+            <label class="option"><input type="radio" name="funcao" value="Técnico de enfermagem"><span>Técnico(a) de enfermagem</span></label>
+            <label class="option"><input type="radio" name="funcao" value="Administrativo"><span>Servidor(a) administrativo(a)</span></label>
+            <label class="option"><input type="radio" name="funcao" value="Gestão ou chefia"><span>Gestão ou chefia</span></label>
+            <label class="option"><input type="radio" name="funcao" value="Outro"><span>Outro</span></label>
+          </div>
+
+          <p class="error">Selecione uma opção para continuar.</p>
+        </section>
+
+        <!-- 3 -->
+        <section class="step" data-required="radio" data-name="fase">
+          <div class="step-label">Situação</div>
+          <h2>O que aconteceu até agora?</h2>
+          <p class="helper">Procedimentos administrativos podem possuir fases diferentes, como apuração, sindicância, instrução, indiciação e julgamento.</p>
+
+          <div class="options single">
+            <label class="option"><input type="radio" name="fase" value="Convocação para esclarecimentos"><span>Recebi convocação para esclarecimentos</span></label>
+            <label class="option"><input type="radio" name="fase" value="Notificação ou intimação"><span>Recebi notificação ou intimação</span></label>
+            <label class="option"><input type="radio" name="fase" value="Citado em PAD ou sindicância"><span>Fui citado(a) em PAD ou sindicância</span></label>
+            <label class="option"><input type="radio" name="fase" value="Oitiva"><span>Fui chamado(a) para oitiva</span></label>
+            <label class="option"><input type="radio" name="fase" value="Termo de indiciação"><span>Recebi termo de indiciação</span></label>
+            <label class="option"><input type="radio" name="fase" value="Decisão ou penalidade"><span>Já houve decisão ou penalidade</span></label>
+            <label class="option"><input type="radio" name="fase" value="Sem processo formal"><span>Ainda não existe processo formal</span></label>
+            <label class="option"><input type="radio" name="fase" value="Não sei"><span>Não sei identificar a fase</span></label>
+          </div>
+
+          <p class="error">Selecione uma opção para continuar.</p>
+        </section>
+
+        <!-- 4 -->
+        <section class="step" data-required="radio" data-name="prazo">
+          <div class="step-label">Urgência</div>
+          <h2>Existe prazo em andamento?</h2>
+          <p class="helper">A existência de prazo pode alterar a urgência da análise inicial.</p>
+
+          <div class="options">
+            <label class="option"><input type="radio" name="prazo" value="Hoje"><span>Hoje</span></label>
+            <label class="option"><input type="radio" name="prazo" value="Até 3 dias"><span>Até 3 dias</span></label>
+            <label class="option"><input type="radio" name="prazo" value="Até 10 dias"><span>Até 10 dias</span></label>
+            <label class="option"><input type="radio" name="prazo" value="Não sei calcular"><span>Existe prazo, mas não sei calcular</span></label>
+            <label class="option"><input type="radio" name="prazo" value="Não sei"><span>Não sei se há prazo</span></label>
+            <label class="option"><input type="radio" name="prazo" value="Sem prazo"><span>Ainda não recebi prazo</span></label>
+          </div>
+
+          <p class="error">Selecione uma opção para continuar.</p>
+        </section>
+
+        <!-- 5 -->
+        <section class="step" data-required="radio" data-name="tema">
+          <div class="step-label">Tema principal</div>
+          <h2>Qual parece ser o tema principal?</h2>
+          <p class="helper">Em muitos casos, o contexto funcional influencia diretamente a compreensão da situação apresentada.</p>
+
+          <div class="options single">
+            <label class="option"><input type="radio" name="tema" value="Plantão ou sobrecarga"><span>Plantão ou sobrecarga</span></label>
+            <label class="option"><input type="radio" name="tema" value="Atendimento a paciente"><span>Atendimento a paciente</span></label>
+            <label class="option"><input type="radio" name="tema" value="Escala, frequência ou ausência"><span>Escala, frequência ou ausência</span></label>
+            <label class="option"><input type="radio" name="tema" value="Prontuário ou documentação"><span>Prontuário ou documentação</span></label>
+            <label class="option"><input type="radio" name="tema" value="Conflito com chefia"><span>Conflito com chefia</span></label>
+            <label class="option"><input type="radio" name="tema" value="Falha estrutural"><span>Equipe incompleta ou falha estrutural</span></label>
+            <label class="option"><input type="radio" name="tema" value="Ordem superior"><span>Ordem superior</span></label>
+            <label class="option"><input type="radio" name="tema" value="Sistema, senha ou dados"><span>Sistema, senha ou dados</span></label>
+            <label class="option"><input type="radio" name="tema" value="Assédio ou conflito interpessoal"><span>Assédio ou conflito interpessoal</span></label>
+            <label class="option"><input type="radio" name="tema" value="Outro"><span>Outro</span></label>
+          </div>
+
+          <p class="error">Selecione uma opção para continuar.</p>
+        </section>
+
+        <!-- 6 -->
+        <section class="step" data-required="textarea" data-name="resumo">
+          <div class="step-label">Resumo</div>
+          <h2>Em poucas palavras, o que precisa ser compreendido sobre o caso?</h2>
+          <p class="helper">Não escreva uma defesa. Descreva apenas o suficiente para organização inicial da situação.</p>
+
+          <textarea
+            name="resumo"
+            maxlength="700"
+            placeholder="Exemplo: fui chamado para explicar atendimento realizado em plantão com equipe reduzida; ainda não tive acesso integral aos documentos."
+          ></textarea>
+
+          <p class="error">Escreva um breve resumo para continuar.</p>
+        </section>
+
+        <!-- 7 -->
+        <section class="step" data-required="radio" data-name="acesso_documentos">
+          <div class="step-label">Documentos</div>
+          <h2>Você já teve acesso aos documentos ou informações da apuração?</h2>
+          <p class="helper">Nesta etapa, não envie documentos. Apenas informe se eles existem ou se já houve acesso.</p>
+
+          <div class="options">
+            <label class="option"><input type="radio" name="acesso_documentos" value="Sim"><span>Sim</span></label>
+            <label class="option"><input type="radio" name="acesso_documentos" value="Parcialmente"><span>Parcialmente</span></label>
+            <label class="option"><input type="radio" name="acesso_documentos" value="Pedi acesso"><span>Pedi acesso</span></label>
+            <label class="option"><input type="radio" name="acesso_documentos" value="Ainda não"><span>Ainda não</span></label>
+            <label class="option"><input type="radio" name="acesso_documentos" value="Não sei"><span>Não sei</span></label>
+          </div>
+
+          <p class="error">Selecione uma opção para continuar.</p>
+        </section>
+
+        <!-- 8 -->
+        <section class="step" data-required="radio" data-name="modalidade">
+          <div class="step-label">Atendimento</div>
+          <h2>Como prefere o primeiro atendimento?</h2>
+
+          <div class="options">
+            <label class="option"><input type="radio" name="modalidade" value="Online"><span>Online por videoconferência</span></label>
+            <label class="option"><input type="radio" name="modalidade" value="Presencial"><span>Presencial em Brasília/DF</span></label>
+            <label class="option"><input type="radio" name="modalidade" value="Ainda não sei"><span>Ainda não sei</span></label>
+          </div>
+
+          <p class="error">Selecione uma opção para continuar.</p>
+        </section>
+
+        <!-- 9 -->
+        <section class="step" data-required="input" data-name="data_pretendida">
+          <div class="step-label">Agenda</div>
+          <h2>Escolha a data pretendida para atendimento</h2>
+          <p class="helper">Datas e horários serão posteriormente confirmados conforme disponibilidade operacional.</p>
+
+          <input type="date" name="data_pretendida" />
+
+          <p class="error">Informe uma data pretendida.</p>
+        </section>
+
+        <!-- 10 -->
+        <section class="step" data-required="input" data-name="horario_pretendido">
+          <div class="step-label">Agenda</div>
+          <h2>Informe o horário pretendido</h2>
+
+          <input
+            type="text"
+            name="horario_pretendido"
+            placeholder="Exemplo: 14h, após 18h, horário comercial, primeiro horário disponível"
+          />
+
+          <p class="error">Informe um horário ou período pretendido.</p>
+        </section>
+
+        <!-- 11 -->
+        <section class="step" data-required="input" data-name="nome">
+          <div class="step-label">Dados para proposta</div>
+          <h2>Nome completo</h2>
+
+          <input type="text" name="nome" autocomplete="name" placeholder="Digite o nome completo" />
+
+          <p class="error">Informe o nome completo.</p>
+        </section>
+
+        <!-- 12 -->
+        <section class="step" data-required="input" data-name="cpf">
+          <div class="step-label">Dados para proposta</div>
+          <h2>CPF</h2>
+          <p class="helper">Utilizado para identificação da solicitação, organização da proposta inicial e eventual emissão fiscal.</p>
+
+          <input type="text" name="cpf" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" />
+
+          <p class="error">Informe o CPF.</p>
+        </section>
+
+        <!-- 13 -->
+        <section class="step" data-required="input" data-name="cep">
+          <div class="step-label">Endereço</div>
+          <h2>CEP</h2>
+
+          <input type="text" name="cep" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" />
+
+          <p class="error">Informe o CEP.</p>
+        </section>
+
+        <!-- 14 -->
+        <section class="step" data-required="group">
+          <div class="step-label">Endereço</div>
+          <h2>Número e complemento</h2>
+
+          <div class="field-group two-cols">
+            <div class="field">
+              <label>Número</label>
+              <input type="text" name="numero" placeholder="Exemplo: 120" />
+            </div>
+
+            <div class="field">
+              <label>Complemento</label>
+              <input type="text" name="complemento" placeholder="Apto, bloco, casa..." />
+            </div>
+          </div>
+
+          <p class="error">Informe pelo menos o número.</p>
+        </section>
+
+        <!-- 15 -->
+        <section class="step" data-required="input" data-name="telefone">
+          <div class="step-label">Contato</div>
+          <h2>Telefone para contato</h2>
+
+          <input type="tel" name="telefone" inputmode="tel" autocomplete="tel" placeholder="(61) 99999-9999" />
+
+          <p class="error">Informe um telefone para contato.</p>
+        </section>
+
+        <!-- 16 -->
+        <section class="step" data-required="none">
+          <div class="step-label">Contato</div>
+          <h2>E-mail para contato</h2>
+          <p class="helper">Campo opcional. Pode ser utilizado para confirmação do atendimento e envio de informações relacionadas à solicitação inicial.</p>
+
+          <input type="email" name="email" autocomplete="email" placeholder="seuemail@exemplo.com" />
+        </section>
+
+        <!-- 17 -->
+        <section class="step" data-required="checks">
+          <div class="step-label">Consentimentos</div>
+          <h2>Confirmações finais</h2>
+
+          <div class="consent">
+            <label class="check">
+              <input type="checkbox" name="ciencia_formulario" required />
+              <span>Declaro estar ciente de que este formulário serve para organização inicial das informações relacionadas ao caso.</span>
+            </label>
+
+            <label class="check">
+              <input type="checkbox" name="autorizacao_contato" required />
+              <span>Autorizo contato para confirmação da análise inicial.</span>
+            </label>
+
+            <label class="check">
+              <input type="checkbox" name="compartilhamento_profissionais" required />
+              <span>Autorizo que as informações fornecidas sejam compartilhadas com profissionais independentes vinculados à plataforma ANÁLISE LEGAL<span class="trademark">™</span>, exclusivamente para análise inicial da solicitação, contato e eventual agendamento.</span>
+            </label>
+
+            <label class="check">
+              <input type="checkbox" name="lgpd" required />
+              <span>Autorizo o tratamento das informações fornecidas nos termos da Política de Privacidade.</span>
+            </label>
+          </div>
+
+          <p class="error">Confirme os consentimentos para finalizar.</p>
+        </section>
+
+        <div class="nav">
+          <button type="button" class="btn-prev" id="prevBtn">Voltar</button>
+          <button type="button" class="btn-next" id="nextBtn">Continuar</button>
+          <button type="submit" class="btn-submit" id="submitBtn" style="display:none;">Enviar solicitação</button>
+        </div>
+      </form>
+
+      <section class="final-screen" id="finalScreen">
+        <h2>Sua solicitação foi organizada.</h2>
+        <p>
+          A ANÁLISE LEGAL<span class="trademark">™</span> foi concebida para organizar informações relevantes da solicitação inicial, permitindo compreensão preliminar mais clara, contextualizada e eficiente da demanda apresentada, favorecendo maior assertividade desde os primeiros contatos relacionados ao caso.
+        </p>
+        <a href="#" class="btn-final">Prosseguir para análise inicial</a>
+      </section>
+    </main>
+
+    <footer>
+      ANÁLISE LEGAL<span class="trademark">™</span> · Organização inicial de solicitações
+    </footer>
+  </div>
+
+  <script>
+    const form = document.getElementById("triagemForm");
+    const steps = Array.from(document.querySelectorAll(".step"));
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const submitBtn = document.getElementById("submitBtn");
+    const progressBar = document.getElementById("progressBar");
+    const stepText = document.getElementById("stepText");
+    const percentText = document.getElementById("percentText");
+    const finalScreen = document.getElementById("finalScreen");
+    const intro = document.getElementById("intro");
+
+    let currentStep = 0;
+
+    function updateStep() {
+      steps.forEach((step, index) => {
+        step.classList.toggle("active", index === currentStep);
+        const error = step.querySelector(".error");
+        if (error) error.style.display = "none";
+      });
+
+      const total = steps.length;
+      const current = currentStep + 1;
+      const progress = Math.round((currentStep / (total - 1)) * 100);
+
+      stepText.textContent = `Etapa ${current} de ${total}`;
+      percentText.textContent = `${progress}%`;
+      progressBar.style.width = `${progress}%`;
+
+      prevBtn.disabled = currentStep === 0;
+      nextBtn.style.display = currentStep === total - 1 ? "none" : "block";
+      submitBtn.style.display = currentStep === total - 1 ? "block" : "none";
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showError(step) {
+      const error = step.querySelector(".error");
+      if (error) error.style.display = "block";
+    }
+
+    function validateCurrentStep() {
+      const step = steps[currentStep];
+      const type = step.dataset.required;
+      const name = step.dataset.name;
+
+      if (type === "none") return true;
+
+      if (type === "radio") {
+        const checked = step.querySelector(`input[name="${name}"]:checked`);
+        if (!checked) {
+          showError(step);
+          return false;
+        }
+      }
+
+      if (type === "input") {
+        const input = step.querySelector(`input[name="${name}"]`);
+        if (!input || !input.value.trim()) {
+          showError(step);
+          return false;
+        }
+      }
+
+      if (type === "textarea") {
+        const textarea = step.querySelector(`textarea[name="${name}"]`);
+        if (!textarea || textarea.value.trim().length < 10) {
+          showError(step);
+          return false;
+        }
+      }
+
+      if (type === "group") {
+        const numero = step.querySelector('input[name="numero"]');
+        if (!numero || !numero.value.trim()) {
+          showError(step);
+          return false;
+        }
+      }
+
+      if (type === "checks") {
+        const checks = Array.from(step.querySelectorAll('input[type="checkbox"]'));
+        const allChecked = checks.every(check => check.checked);
+        if (!allChecked) {
+          showError(step);
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    nextBtn.addEventListener("click", () => {
+      if (!validateCurrentStep()) return;
+
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        updateStep();
+      }
+    });
+
+    prevBtn.addEventListener("click", () => {
+      if (currentStep > 0) {
+        currentStep--;
+        updateStep();
+      }
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (!validateCurrentStep()) return;
+
+      const data = new FormData(form);
+      const payload = {};
+
+      for (const [key, value] of data.entries()) {
+        payload[key] = value;
+      }
+
+      console.log("Solicitação organizada:", payload);
+
+      form.style.display = "none";
+      intro.style.display = "none";
+      document.querySelector(".progress-area").style.display = "none";
+      finalScreen.classList.add("active");
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    updateStep();
+  </script>
+</body>
+</html>
