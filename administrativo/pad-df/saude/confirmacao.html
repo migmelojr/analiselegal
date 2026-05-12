@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solicitação registrada | Análise Legal</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#082c27" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--verde:#082c27;--verde2:#0d3b34;--dourado:#c8a44b;--dourado2:#d8b45f;--bege:#f4f0e8;--texto:#1f2933;--borda:#e3dac6}*{box-sizing:border-box}body{margin:0;font-family:'Crimson Text',Georgia,serif;background:var(--bege);color:var(--texto);font-size:18px;line-height:1.55}header{background:linear-gradient(135deg,var(--verde),var(--verde2));color:#fff;padding:26px 16px}.wrap{width:min(100%,900px);margin:0 auto}.brand{display:flex;align-items:center;gap:14px}.brand img{width:170px;max-width:70vw}main{width:min(100%,900px);margin:0 auto;padding:28px 16px 52px}.card{background:#fff;border:1px solid var(--borda);border-radius:22px;box-shadow:0 18px 48px rgba(8,44,39,.12);padding:clamp(18px,4vw,34px);margin:18px 0}h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.05;margin:18px 0 10px}h2{color:var(--verde);font-size:1.55rem;margin:22px 0 8px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.item{border-bottom:1px solid #eadfca;padding:8px 0}.item strong{display:block;color:#1a332f}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;border-radius:14px;padding:0 22px;text-decoration:none;border:0;font-family:inherit;font-weight:700;letter-spacing:.04em;cursor:pointer}.primary{background:linear-gradient(135deg,var(--dourado),var(--dourado2));color:#17231f}.secondary{background:#e7dfd0;color:#18352f}.notice{background:#fbf8ef;border:1px solid var(--borda);border-radius:16px;padding:14px}footer{background:linear-gradient(135deg,var(--verde),var(--verde2));color:#f8f2df;padding:22px 16px;text-align:center}@media(max-width:680px){.grid{grid-template-columns:1fr}.actions{display:block}.btn{width:100%;margin:6px 0}}
+    @media print{body{background:#fff;color:#000;font-size:12pt}header,footer,.actions,.no-print{display:none!important}main{width:100%;padding:0}.card{box-shadow:none;border:none;padding:0;margin:0}.notice{border:1px solid #bbb;background:#fff}h1{font-size:22pt}@page{size:A4;margin:18mm 16mm}}
+  </style>
+</head>
+<body>
+  <header class="no-print"><div class="wrap"><div class="brand"><img src="/assets/img/Marca.svg" alt="Análise Legal"><span>Precisão jurídica para decisões relevantes</span></div></div></header>
+  <main>
+    <section class="card">
+      <h1>Sua solicitação foi registrada.</h1>
+      <p class="notice">As informações foram organizadas para análise inicial. O envio do formulário não gera contratação automática, análise imediata ou garantia de resultado.</p>
+
+      <h2>1. Dados pessoais e de contato</h2>
+      <div class="grid" id="dadosPessoais"></div>
+
+      <h2>2. Resumo da solicitação</h2>
+      <div class="grid" id="resumoSolicitacao"></div>
+
+      <h2>3. Próximos passos</h2>
+      <p>Uma cópia das informações foi encaminhada para <strong>formulario@analiselegal.com.br</strong>.</p>
+      <p>Caso precise complementar alguma informação, mencione seu nome, o assunto informado e o protocolo abaixo.</p>
+      <p><strong>Protocolo:</strong> <span id="protocolo"></span></p>
+      <p><strong>Data e horário do envio:</strong> <span id="timestamp"></span></p>
+
+      <div class="actions no-print">
+        <a class="btn primary" id="mailBtn" href="mailto:formulario@analiselegal.com.br">ENVIAR COMPLEMENTO POR E-MAIL</a>
+        <button class="btn secondary" onclick="window.print()">IMPRIMIR RESUMO</button>
+      </div>
+    </section>
+  </main>
+  <footer class="no-print"><p>© 2026 Análise Legal. Todos os direitos reservados.</p></footer>
+  <script>
+    const data=JSON.parse(sessionStorage.getItem('analiseLegalResumo')||'{}');
+    const safe=v=>(v&&String(v).trim())?String(v).trim():'Não informado';
+    const row=(k,v)=>`<div class="item"><strong>${k}</strong>${safe(v)}</div>`;
+    document.getElementById('dadosPessoais').innerHTML=[row('Nome completo',data.nome),row('WhatsApp',data.whatsapp),row('E-mail',data.email),row('CPF',data.cpf),row('CEP',data.cep),row('Endereço',`${safe(data.endereco)}, ${safe(data.numero)}${data.complemento?' - '+data.complemento:''}`),row('Bairro',data.bairro),row('Cidade/UF',data.cidadeUf),row('Preferência de retorno',data.retorno),row('Melhor horário',data.horario)].join('');
+    document.getElementById('resumoSolicitacao').innerHTML=[row('Procedimento recebido',data.procedimento),row('Área de atuação',data.area),row('Função',data.funcao),row('Existe prazo?',data.existePrazo),row('Prazo termina',data.prazoTermina),row('Urgência estimada',data.urgencia),row('Resposta anterior',data.respostaAnterior),row('Situação aparente',data.situacao),row('Percepção do usuário',data.percepcao),row('Acesso aos documentos',data.acessoDocumentos),row('Preocupações',Array.isArray(data.preocupacoes)?data.preocupacoes.join(', '):''),row('Relato resumido',data.relato)].join('');
+    document.getElementById('protocolo').textContent=safe(data.protocolo);
+    document.getElementById('timestamp').textContent=safe(data.timestamp);
+    const subject=encodeURIComponent(`Complemento — Solicitação de análise — ${safe(data.procedimento)} — ${safe(data.nome)}`);
+    const body=encodeURIComponent(`Protocolo: ${safe(data.protocolo)}\nNome: ${safe(data.nome)}\nAssunto: ${safe(data.procedimento)}\n\nComplemento:`);
+    document.getElementById('mailBtn').href=`mailto:formulario@analiselegal.com.br?subject=${subject}&body=${body}`;
+    window.addEventListener('beforeprint',()=>{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'print_intent',page_path:location.pathname,page_title:document.title})});
+  </script>
+</body>
+</html>
