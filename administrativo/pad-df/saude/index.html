@@ -37,6 +37,7 @@
 
   <link rel="icon" type="image/svg+xml" href="/assets/img/Simbolo.svg" />
   <link rel="preload" as="image" href="/assets/img/Marca.svg" />
+  <link rel="preload" as="image" href="/assets/img/Marca-PB.svg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -45,7 +46,7 @@
     rel="stylesheet"
   />
 
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/analiselegal.css" />
 
   <script type="application/ld+json">
   {
@@ -118,7 +119,7 @@
       background:var(--bege);
       color:var(--texto);
       font-family:"Crimson Text", serif;
-      line-height:1.7;
+      line-height:1.75;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
     }
@@ -126,18 +127,29 @@
     .skip-link{
       position:absolute;
       left:-9999px;
+      top:auto;
+      width:1px;
+      height:1px;
+      overflow:hidden;
+    }
+
+    .skip-link:focus{
+      left:1rem;
+      top:1rem;
+      width:auto;
+      height:auto;
+      z-index:9999;
+      background:#fff;
+      color:#082c27;
+      padding:0.6rem 0.9rem;
+      border-radius:8px;
+      text-decoration:none;
     }
 
     .site-header{
       width:100%;
       max-width:100%;
-      background:
-        linear-gradient(
-          135deg,
-          #06211d 0%,
-          #0b342d 55%,
-          #082c27 100%
-        );
+      background:linear-gradient(135deg,#06211d 0%,#0b342d 55%,#082c27 100%);
       padding:1.4rem 1.5rem;
       border-bottom-left-radius:18px;
       border-bottom-right-radius:18px;
@@ -154,10 +166,14 @@
     }
 
     .marca{
-      width:190px;
-      max-width:70vw;
+      width:230px;
+      max-width:72vw;
       height:auto;
       display:block;
+    }
+
+    .print-logo{
+      display:none;
     }
 
     main{
@@ -168,7 +184,7 @@
 
     .hero{
       padding-top:0.5rem;
-      margin-bottom:3rem;
+      margin-bottom:3.6rem;
     }
 
     .eyebrow{
@@ -192,9 +208,18 @@
     .subhead{
       margin-top:1.5rem;
       max-width:780px;
-      font-size:1.18rem;
+      font-size:1.2rem;
+      line-height:1.75;
       color:#36454f;
       text-align:justify;
+    }
+
+    .hero-note{
+      margin-top:1rem;
+      max-width:780px;
+      color:#6a6f73;
+      font-size:1rem;
+      line-height:1.6;
     }
 
     .hero-cta,
@@ -203,7 +228,7 @@
       justify-content:center;
       align-items:center;
       width:100%;
-      margin-top:1.8rem;
+      margin-top:1.9rem;
     }
 
     .cta,
@@ -211,32 +236,21 @@
       display:inline-flex !important;
       align-items:center;
       justify-content:center;
-      min-width:240px;
-      height:54px;
-      padding:0 34px;
+      min-width:250px;
+      height:58px;
+      padding:0 38px;
       border-radius:14px;
-      background:
-        linear-gradient(
-          135deg,
-          var(--dourado-1) 0%,
-          var(--dourado-2) 45%,
-          var(--dourado-3) 100%
-        );
+      background:linear-gradient(135deg,var(--dourado-1) 0%,var(--dourado-2) 45%,var(--dourado-3) 100%);
       color:#102028 !important;
       font-family:"Crimson Text", serif;
       font-weight:700;
-      font-size:0.96rem;
+      font-size:1rem;
       letter-spacing:0.08em;
       text-transform:uppercase;
       text-decoration:none;
       border:1px solid rgba(255,255,255,0.12);
-      box-shadow:
-        0 10px 28px rgba(0,0,0,0.18),
-        inset 0 1px 0 rgba(255,255,255,0.18);
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        filter 0.25s ease;
+      box-shadow:0 10px 28px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.18);
+      transition:transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
       white-space:nowrap;
     }
 
@@ -244,9 +258,7 @@
     .cta-primary:hover{
       transform:translateY(-2px);
       filter:brightness(1.04);
-      box-shadow:
-        0 16px 34px rgba(0,0,0,0.22),
-        inset 0 1px 0 rgba(255,255,255,0.24);
+      box-shadow:0 16px 34px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.24);
     }
 
     .cta:active,
@@ -255,8 +267,8 @@
     }
 
     .secao{
-      margin:4rem 0;
-      padding-bottom:2.5rem;
+      margin:5.2rem 0;
+      padding-bottom:2.8rem;
       border-bottom:1px solid rgba(0,0,0,0.08);
     }
 
@@ -274,7 +286,8 @@
 
     p{
       margin:0 0 1.2rem 0;
-      font-size:1.08rem;
+      font-size:1.12rem;
+      line-height:1.85;
       text-align:justify;
     }
 
@@ -285,8 +298,13 @@
 
     li{
       margin-bottom:1rem;
-      font-size:1.05rem;
+      font-size:1.1rem;
+      line-height:1.8;
       text-align:justify;
+    }
+
+    li::marker{
+      color:var(--dourado-1);
     }
 
     strong{
@@ -301,7 +319,7 @@
     }
 
     .tesserato{
-      width:min(320px,42vw);
+      width:min(380px,48vw);
       aspect-ratio:1/1;
       margin:0 auto;
     }
@@ -329,7 +347,7 @@
 
     details{
       border-bottom:1px solid rgba(0,0,0,0.08);
-      padding:0.8rem 0;
+      padding:0.9rem 0;
     }
 
     summary{
@@ -356,13 +374,7 @@
     .site-footer{
       width:100%;
       max-width:100%;
-      background:
-        linear-gradient(
-          135deg,
-          #06211d 0%,
-          #0b342d 55%,
-          #082c27 100%
-        );
+      background:linear-gradient(135deg,#06211d 0%,#0b342d 55%,#082c27 100%);
       color:#f1eee7;
       padding:2.4rem 1.5rem;
       margin-top:5rem;
@@ -378,13 +390,15 @@
 
     .site-footer p{
       color:#f1eee7;
-      font-size:0.95rem;
+      font-size:0.98rem;
+      line-height:1.7;
       text-align:justify;
     }
 
     .site-footer a{
       color:#e2c574;
       text-decoration:none;
+      font-size:0.98rem;
     }
 
     .links{
@@ -402,17 +416,21 @@
         margin:0;
       }
 
+      .marca{
+        width:210px;
+      }
+
       .metodo-grid{
         grid-template-columns:1fr;
       }
 
       .tesserato{
-        width:min(220px,65vw);
+        width:min(240px,68vw);
         order:-1;
       }
 
       main{
-        padding-top:2.2rem;
+        padding:2.2rem 1.25rem 4.5rem;
       }
 
       h1{
@@ -425,7 +443,8 @@
 
       p,
       li{
-        font-size:1.02rem;
+        font-size:1.08rem;
+        line-height:1.82;
       }
 
       .cta,
@@ -446,14 +465,22 @@
         transition:none !important;
         box-shadow:none !important;
         text-shadow:none !important;
+        background-image:none !important;
+      }
+
+      html,
+      body{
+        overflow:visible !important;
+        background:#fff !important;
       }
 
       body{
-        background:#fff !important;
         color:#000 !important;
         font-size:11pt;
+        line-height:1.45;
       }
 
+      .skip-link,
       .hero-cta,
       .cta,
       .cta-primary,
@@ -466,32 +493,168 @@
         border-radius:0 !important;
         box-shadow:none !important;
         border-bottom:1px solid #999 !important;
+        padding:0 0 8mm 0 !important;
+        margin:0 0 8mm 0 !important;
       }
 
-      .marca{
-        filter:grayscale(100%);
+      .screen-logo{
+        display:none !important;
       }
 
-      h1,h2{
+      .print-logo{
+        display:block !important;
+        width:48mm !important;
+        max-width:48mm !important;
+        height:auto !important;
+      }
+
+      main{
+        width:100% !important;
+        max-width:none !important;
+        margin:0 !important;
+        padding:0 !important;
+      }
+
+      .hero{
+        margin:0 0 9mm 0 !important;
+        padding:0 0 6mm 0 !important;
+        border-bottom:1px solid #bbb !important;
+      }
+
+      .eyebrow{
         color:#000 !important;
+        font-size:8pt !important;
+        letter-spacing:0.08em !important;
+        margin-bottom:3mm !important;
+      }
+
+      h1{
+        color:#000 !important;
+        font-size:22pt !important;
+        line-height:1.1 !important;
+        letter-spacing:0 !important;
+        margin:0 0 5mm 0 !important;
+      }
+
+      h2{
+        color:#000 !important;
+        font-size:16pt !important;
+        line-height:1.15 !important;
+        margin:0 0 4mm 0 !important;
+        break-after:avoid;
+        page-break-after:avoid;
       }
 
       p,
       li,
       dd{
         color:#000 !important;
+        font-size:11pt !important;
+        line-height:1.45 !important;
         text-align:justify !important;
+      }
+
+      p{
+        margin:0 0 3.5mm 0 !important;
+      }
+
+      ul{
+        padding-left:5mm !important;
+        margin:0 0 2mm 0 !important;
+      }
+
+      li{
+        margin-bottom:2.8mm !important;
+      }
+
+      .subhead,
+      .hero-note{
+        max-width:none !important;
+        font-size:11pt !important;
+        color:#000 !important;
+        margin:0 0 3.5mm 0 !important;
+      }
+
+      .secao{
+        margin:0 0 9mm 0 !important;
+        padding:0 0 7mm 0 !important;
+        border-bottom:1px solid #ccc !important;
+        break-inside:avoid;
+        page-break-inside:avoid;
+      }
+
+      .metodo-grid{
+        display:block !important;
+      }
+
+      .indexacao dd{
+        font-size:9.5pt !important;
+        line-height:1.45 !important;
+        letter-spacing:0.02em !important;
+      }
+
+      details{
+        display:block !important;
+        border-bottom:1px solid #ccc !important;
+        padding:2.5mm 0 !important;
+      }
+
+      details > summary{
+        display:block !important;
+        list-style:none !important;
+        color:#000 !important;
+        font-size:11pt !important;
+      }
+
+      details > summary::-webkit-details-marker{
+        display:none !important;
+      }
+
+      details p{
+        display:block !important;
+        margin-top:2mm !important;
+      }
+
+      .cta-section{
+        display:block !important;
+        margin:0 0 8mm 0 !important;
+        text-align:left !important;
+      }
+
+      .cta-section p{
+        text-align:justify !important;
+        max-width:none !important;
       }
 
       .site-footer{
         background:#fff !important;
         color:#000 !important;
         border-top:1px solid #999 !important;
+        padding:7mm 0 0 0 !important;
+        margin:8mm 0 0 0 !important;
+      }
+
+      .site-footer .inner{
+        width:100% !important;
+        max-width:none !important;
+        margin:0 !important;
       }
 
       .site-footer p,
       .site-footer a{
         color:#000 !important;
+        font-size:9pt !important;
+        line-height:1.35 !important;
+      }
+
+      .links{
+        display:block !important;
+        margin-bottom:4mm !important;
+      }
+
+      .links a{
+        display:inline-block !important;
+        margin-right:5mm !important;
       }
     }
   </style>
@@ -508,7 +671,13 @@
       <img
         src="/assets/img/Marca.svg"
         alt="Análise Legal"
-        class="marca"
+        class="marca screen-logo"
+      />
+
+      <img
+        src="/assets/img/Marca-PB.svg"
+        alt="Análise Legal"
+        class="marca print-logo"
       />
     </a>
   </header>
@@ -528,6 +697,10 @@
       <p class="subhead">
         A maioria dos servidores nunca passou por um procedimento disciplinar antes.
         O primeiro passo é entender o que aconteceu, quais prazos existem e o que realmente precisa ser feito agora.
+      </p>
+
+      <p class="hero-note">
+        Procedimento estruturado para organização inicial de fatos, prazos e informações funcionais.
       </p>
 
       <div class="hero-cta">
@@ -809,7 +982,7 @@
 
       <p>
         O tratamento de dados pessoais pela ANÁLISE LEGAL observa a Lei nº 13.709/2018 (LGPD).
-        Saiba mais em nossa Política de Privacidade.
+        Saiba mais em nossa <a href="/privacidade.html">Política de Privacidade</a>.
       </p>
 
       <p>
@@ -967,6 +1140,34 @@
       }
 
       requestAnimationFrame(loop);
+    });
+
+    var detalhesAbertosAntesDaImpressao = [];
+
+    window.addEventListener('beforeprint', function () {
+      detalhesAbertosAntesDaImpressao = [];
+
+      document.querySelectorAll('details').forEach(function (el) {
+        if (el.open) {
+          detalhesAbertosAntesDaImpressao.push(el);
+        }
+
+        el.open = true;
+      });
+
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          event: 'print_intent',
+          page_path: window.location.pathname,
+          page_title: document.title
+        });
+      }
+    });
+
+    window.addEventListener('afterprint', function () {
+      document.querySelectorAll('details').forEach(function (el) {
+        el.open = detalhesAbertosAntesDaImpressao.indexOf(el) !== -1;
+      });
     });
   </script>
 
