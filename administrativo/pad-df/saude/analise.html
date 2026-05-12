@@ -3,857 +3,183 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Análise inicial | PAD e Sindicância na Saúde do DF</title>
-  <meta name="description" content="Formulário inicial para organização de solicitação relacionada a PAD, sindicância ou apuração funcional na saúde do DF." />
-
+  <title>Solicitar Análise | PAD e Sindicância na Saúde do DF | Análise Legal</title>
+  <meta name="description" content="Formulário estruturado para organização inicial de PAD, sindicância ou apuração funcional contra servidor da Saúde do Distrito Federal." />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#082c27" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/analiselegal.css" />
   <style>
-    :root {
-      --verde-profundo: rgb(13,22,34);
-      --grafite: rgb(30,35,41);
-      --ouro-fosco: rgb(176,141,87);
-      --fundo: rgb(247,246,242);
-      --papel: rgb(255,255,255);
-      --texto: rgb(31,31,31);
-      --suave: rgb(92,92,92);
-      --linha: rgba(13,22,34,0.16);
-      --erro: #8b1e1e;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: "Crimson Text", Georgia, serif;
-      background: var(--fundo);
-      color: var(--texto);
-      line-height: 1.45;
-    }
-
-    a { color: inherit; }
-
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      background: var(--verde-profundo);
-      padding: 16px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    header img {
-      height: 38px;
-      width: auto;
-      display: block;
-    }
-
-    main {
-      width: 100%;
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 22px 16px 34px;
-      flex: 1;
-    }
-
-    .intro {
-      margin-bottom: 18px;
-    }
-
-    .intro .eyebrow {
-      color: var(--ouro-fosco);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.78rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .intro h1 {
-      font-size: 1.68rem;
-      line-height: 1.08;
-      margin: 0 0 10px;
-      color: var(--verde-profundo);
-      letter-spacing: -0.02em;
-    }
-
-    .intro p {
-      margin: 0;
-      font-size: 1.02rem;
-      color: var(--suave);
-    }
-
-    .progress-area {
-      margin: 22px 0 18px;
-    }
-
-    .progress-text {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.9rem;
-      color: var(--suave);
-      margin-bottom: 8px;
-    }
-
-    .progress-track {
-      height: 8px;
-      border-radius: 999px;
-      background: rgba(13,22,34,0.12);
-      overflow: hidden;
-    }
-
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: var(--ouro-fosco);
-      transition: width 0.25s ease;
-    }
-
-    form {
-      background: var(--papel);
-      border: 1px solid var(--linha);
-      border-radius: 22px;
-      box-shadow: 0 18px 42px rgba(13,22,34,0.08);
-      overflow: hidden;
-    }
-
-    .step {
-      display: none;
-      padding: 24px 18px 20px;
-      min-height: 390px;
-    }
-
-    .step.active {
-      display: block;
-    }
-
-    .step-label {
-      color: var(--ouro-fosco);
-      font-weight: 700;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 10px;
-    }
-
-    .step h2 {
-      margin: 0 0 10px;
-      color: var(--verde-profundo);
-      font-size: 1.52rem;
-      line-height: 1.12;
-      letter-spacing: -0.015em;
-    }
-
-    .helper {
-      font-size: 0.98rem;
-      color: var(--suave);
-      margin: 0 0 18px;
-    }
-
-    .options {
-      display: grid;
-      gap: 10px;
-    }
-
-    .option {
-      position: relative;
-    }
-
-    .option input {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .option span {
-      display: block;
-      width: 100%;
-      border: 1px solid var(--linha);
-      border-radius: 16px;
-      padding: 13px 14px;
-      background: #fff;
-      font-size: 1.06rem;
-      cursor: pointer;
-      transition: 0.15s ease;
-    }
-
-    .option input:checked + span {
-      border-color: var(--ouro-fosco);
-      background: rgba(176,141,87,0.12);
-      color: var(--verde-profundo);
-      font-weight: 700;
-    }
-
-    input,
-    textarea,
-    select {
-      width: 100%;
-      border: 1px solid var(--linha);
-      border-radius: 14px;
-      padding: 13px 14px;
-      font-family: "Crimson Text", Georgia, serif;
-      font-size: 1.06rem;
-      color: var(--texto);
-      background: #fff;
-      outline: none;
-    }
-
-    input:focus,
-    textarea:focus {
-      border-color: var(--ouro-fosco);
-      box-shadow: 0 0 0 3px rgba(176,141,87,0.16);
-    }
-
-    textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
-
-    .field-group {
-      display: grid;
-      gap: 14px;
-    }
-
-    .field label {
-      display: block;
-      font-weight: 700;
-      color: var(--verde-profundo);
-      margin-bottom: 6px;
-      font-size: 1rem;
-    }
-
-    .field small {
-      display: block;
-      color: var(--suave);
-      font-size: 0.88rem;
-      margin-top: 6px;
-      line-height: 1.35;
-    }
-
-    .consent {
-      display: grid;
-      gap: 12px;
-    }
-
-    .check {
-      display: grid;
-      grid-template-columns: 24px 1fr;
-      gap: 10px;
-      align-items: start;
-      padding: 12px;
-      border: 1px solid var(--linha);
-      border-radius: 14px;
-      background: #fff;
-    }
-
-    .check input {
-      width: 20px;
-      height: 20px;
-      margin-top: 2px;
-      accent-color: var(--ouro-fosco);
-    }
-
-    .check span {
-      font-size: 0.98rem;
-      color: var(--texto);
-    }
-
-    .nav {
-      display: flex;
-      gap: 10px;
-      padding: 14px 18px 18px;
-      background: rgba(13,22,34,0.035);
-      border-top: 1px solid var(--linha);
-    }
-
-    button {
-      appearance: none;
-      border: 0;
-      border-radius: 999px;
-      font-family: "Crimson Text", Georgia, serif;
-      font-size: 1.05rem;
-      padding: 13px 18px;
-      cursor: pointer;
-      transition: 0.15s ease;
-    }
-
-    .btn-prev {
-      background: transparent;
-      color: var(--verde-profundo);
-      border: 1px solid var(--linha);
-      flex: 0 0 auto;
-    }
-
-    .btn-next,
-    .btn-submit {
-      background: var(--ouro-fosco);
-      color: var(--verde-profundo);
-      font-weight: 700;
-      flex: 1;
-    }
-
-    button:disabled {
-      opacity: 0.45;
-      cursor: not-allowed;
-    }
-
-    .error {
-      color: var(--erro);
-      font-size: 0.92rem;
-      margin-top: 12px;
-      display: none;
-    }
-
-    .final-screen {
-      display: none;
-      background: var(--papel);
-      border: 1px solid var(--linha);
-      border-radius: 22px;
-      box-shadow: 0 18px 42px rgba(13,22,34,0.08);
-      padding: 28px 20px;
-      text-align: center;
-    }
-
-    .final-screen.active {
-      display: block;
-    }
-
-    .final-screen h2 {
-      color: var(--verde-profundo);
-      font-size: 1.7rem;
-      line-height: 1.1;
-      margin: 0 0 12px;
-    }
-
-    .final-screen p {
-      font-size: 1.02rem;
-      color: var(--suave);
-      margin: 0 0 18px;
-    }
-
-    .final-screen .btn-final {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      background: var(--ouro-fosco);
-      color: var(--verde-profundo);
-      border-radius: 999px;
-      padding: 14px 18px;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 1.08rem;
-    }
-
-    .trademark {
-      font-size: 0.52em;
-      vertical-align: super;
-      line-height: 0;
-    }
-
-    footer {
-      padding: 22px 18px;
-      text-align: center;
-      font-size: 0.88rem;
-      color: var(--suave);
-    }
-
-    @media (min-width: 720px) {
-      main {
-        padding-top: 42px;
-      }
-
-      .intro h1 {
-        font-size: 2.2rem;
-      }
-
-      .step {
-        padding: 34px 34px 28px;
-        min-height: 430px;
-      }
-
-      .nav {
-        padding: 18px 34px 26px;
-      }
-
-      .step h2 {
-        font-size: 1.92rem;
-      }
-
-      .options {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .options.single {
-        grid-template-columns: 1fr;
-      }
-
-      .two-cols {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .final-screen {
-        padding: 42px 38px;
-      }
-    }
+    :root{--verde:#082c27;--verde2:#0d3b34;--dourado:#c8a44b;--dourado2:#d8b45f;--bege:#f4f0e8;--texto:#1f2933;--cinza:#5b6470;--borda:#e3dac6;--erro:#9f1239}
+    *{box-sizing:border-box}html,body{margin:0;padding:0;max-width:100%;overflow-x:hidden}body{font-family:'Crimson Text',Georgia,serif;background:var(--bege);color:var(--texto);font-size:18px;line-height:1.55}.skip-link{position:absolute;left:-999px;top:auto}.skip-link:focus{left:16px;top:12px;background:#fff;color:#000;padding:10px 14px;z-index:20;border-radius:10px}header{background:linear-gradient(135deg,var(--verde),var(--verde2));color:#fff;padding:28px 18px 34px;width:100%;isolation:isolate;transform:translateZ(0)}.header-inner{width:min(100%,1080px);margin:0 auto}.brand{display:flex;align-items:center;gap:14px;margin-bottom:24px}.brand img{width:176px;max-width:70vw;height:auto}.tag{font-size:.95rem;color:#eadfbf;letter-spacing:.02em}.hero{max-width:860px}.eyebrow{color:var(--dourado2);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.9rem}h1{font-size:clamp(2rem,6vw,4rem);line-height:1.05;margin:10px 0 16px}.lead{font-size:clamp(1.1rem,3.8vw,1.38rem);max-width:780px;color:#f7f1df}.note{margin-top:14px;color:#eadfbf}main{width:min(100%,980px);margin:0 auto;padding:28px 16px 52px}.card{background:#fff;border:1px solid var(--borda);border-radius:22px;box-shadow:0 18px 48px rgba(8,44,39,.12);padding:clamp(18px,4vw,34px);margin:18px 0}.intro{font-size:1.08rem}.progress{height:10px;background:#e8e0d1;border-radius:999px;overflow:hidden;margin:18px 0 6px}.bar{height:100%;width:10%;background:linear-gradient(90deg,var(--dourado),var(--dourado2));transition:.25s}.step-count{font-size:.95rem;color:var(--cinza);margin-bottom:16px}.step{display:none}.step.active{display:block}h2{font-size:clamp(1.55rem,4.5vw,2.1rem);line-height:1.12;margin:0 0 8px;color:var(--verde)}.hint{color:#475569;margin:0 0 18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:760px){.grid{grid-template-columns:1fr}body{font-size:17px}header{padding-left:16px;padding-right:16px}.card{border-radius:18px}}
+    label{display:block;font-weight:700;margin:14px 0 6px;color:#13221f}input,select,textarea{width:100%;min-height:52px;border:1px solid #cfc6b4;border-radius:14px;padding:13px 14px;font-family:inherit;font-size:1rem;background:#fff;color:var(--texto)}textarea{min-height:128px;resize:vertical}.options{display:grid;gap:10px;margin:10px 0 8px}.option{display:flex;gap:10px;align-items:flex-start;border:1px solid #ddd2bd;border-radius:14px;padding:12px 13px;background:#fffdf8;cursor:pointer}.option input{width:auto;min-height:auto;margin-top:5px}.field-help{font-size:.92rem;color:#667085;margin-top:5px}.error{display:none;color:var(--erro);font-weight:700;font-size:.92rem;margin-top:5px}.legal-box{background:#fbf8ef;border:1px solid var(--borda);border-radius:16px;padding:14px;margin-top:14px}.nav{display:flex;justify-content:space-between;gap:12px;margin-top:22px}.btn{border:0;border-radius:14px;min-height:56px;padding:0 24px;font-family:inherit;font-weight:700;font-size:.96rem;letter-spacing:.04em;cursor:pointer}.btn-secondary{background:#e7dfd0;color:#18352f}.btn-primary{background:linear-gradient(135deg,var(--dourado),var(--dourado2));color:#17231f;min-width:250px}.btn-primary:hover,.btn-secondary:hover{filter:brightness(.98)}.center{text-align:center}.print-only{display:none}.summary{background:#fbf8ef;border:1px solid var(--borda);border-radius:16px;padding:14px;margin-top:14px}.summary p{margin:5px 0}.required-note{font-size:.92rem;color:#667085}footer{background:linear-gradient(135deg,var(--verde),var(--verde2));color:#f8f2df;padding:24px 16px;text-align:center}footer a{color:#f3d98a}@media(max-width:560px){.nav{flex-direction:column-reverse}.btn,.btn-primary{width:100%;min-width:0}}
+    @media print{body{background:#fff;color:#000;font-size:12pt}header,footer,.nav,.progress,.step-count,.skip-link,.no-print{display:none!important}main{width:100%;padding:0}.card{box-shadow:none;border:none;padding:0;margin:0}.step{display:block!important;page-break-inside:avoid}.print-only{display:block}.options{display:block}.option{border:none;padding:2px 0}.legal-box{border:none;background:#fff;padding:4px 0}@page{size:A4;margin:18mm 16mm}}
   </style>
 </head>
-
 <body>
-  <div class="page">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <img src="/assets/img/Marca.svg" alt="Análise Legal" />
+        <div class="tag">Precisão jurídica para decisões relevantes</div>
+      </div>
+      <div class="hero">
+        <div class="eyebrow">Secretaria de Saúde do Distrito Federal</div>
+        <h1>Solicitação de análise inicial</h1>
+        <p class="lead">PAD, sindicância, notificação da corregedoria ou convocação para esclarecimentos.</p>
+        <p class="note">Formulário estruturado para organizar informações essenciais antes da próxima decisão.</p>
+      </div>
+    </div>
+  </header>
 
-    <header>
-      <a href="/" aria-label="Voltar para a página inicial">
-        <img src="/Marca.svg" alt="ANÁLISE LEGAL" />
-      </a>
-    </header>
+  <main id="conteudo">
+    <section class="card intro">
+      <p>As perguntas abaixo ajudam a organizar o cenário, identificar prazo aparente e compreender os pontos de atenção. Nesta etapa, não envie prontuários completos nem documentos sensíveis desnecessários.</p>
+      <p class="required-note">Os dados pessoais ficam ao final e serão solicitados apenas para contato, identificação da solicitação e eventual formalização de proposta relacionada ao atendimento solicitado.</p>
+    </section>
 
-    <main>
-      <section class="intro" id="intro">
-        <span class="eyebrow">PAD · Sindicância · Saúde do DF</span>
-        <h1>Organize sua solicitação inicial.</h1>
-        <p>
-          Responda apenas o necessário para que seja possível avaliar o envio de proposta de análise inicial.
-        </p>
-      </section>
+    <section class="card" aria-label="Formulário de solicitação de análise">
+      <form id="formAnalise" novalidate>
+        <div class="progress no-print"><div class="bar" id="bar"></div></div>
+        <div class="step-count no-print" id="stepCount">Etapa 1 de 10</div>
 
-      <section class="progress-area" aria-label="Progresso do formulário">
-        <div class="progress-text">
-          <span id="stepText">Etapa 1 de 17</span>
-          <span id="percentText">0%</span>
+        <div class="step active" data-step="1">
+          <h2>O que você recebeu?</h2>
+          <p class="hint">Comece pelo tipo de comunicação recebida. Não há problema se ainda não souber classificar.</p>
+          <div class="options">
+            <label class="option"><input type="radio" name="procedimento" value="PAD" required>PAD</label>
+            <label class="option"><input type="radio" name="procedimento" value="Sindicância">Sindicância</label>
+            <label class="option"><input type="radio" name="procedimento" value="Notificação da corregedoria">Notificação da corregedoria</label>
+            <label class="option"><input type="radio" name="procedimento" value="Convocação para esclarecimentos">Convocação para esclarecimentos</label>
+            <label class="option"><input type="radio" name="procedimento" value="Não tenho certeza">Não tenho certeza</label>
+          </div>
         </div>
-        <div class="progress-track">
-          <div class="progress-bar" id="progressBar"></div>
+
+        <div class="step" data-step="2">
+          <h2>Contexto funcional</h2>
+          <p class="hint">Essas informações ajudam a compreender o ambiente em que a situação ocorreu.</p>
+          <label>Em qual área da Saúde do Distrito Federal você atua?</label>
+          <div class="options"><label class="option"><input type="radio" name="area" value="Hospital" required>Hospital</label><label class="option"><input type="radio" name="area" value="UPA">UPA</label><label class="option"><input type="radio" name="area" value="UBS">UBS</label><label class="option"><input type="radio" name="area" value="SAMU">SAMU</label><label class="option"><input type="radio" name="area" value="Administração">Administração</label><label class="option"><input type="radio" name="area" value="Outro">Outro</label></div>
+          <label>Qual é sua função atualmente?</label>
+          <div class="options"><label class="option"><input type="radio" name="funcao" value="Médico(a)" required>Médico(a)</label><label class="option"><input type="radio" name="funcao" value="Enfermeiro(a)">Enfermeiro(a)</label><label class="option"><input type="radio" name="funcao" value="Técnico(a) de enfermagem">Técnico(a) de enfermagem</label><label class="option"><input type="radio" name="funcao" value="Administrativo">Administrativo</label><label class="option"><input type="radio" name="funcao" value="Gestão/Chefia">Gestão/Chefia</label><label class="option"><input type="radio" name="funcao" value="Outro">Outro</label></div>
         </div>
-      </section>
 
-      <form id="triagemForm">
-        <!-- 1 -->
-        <section class="step active" data-required="radio" data-name="quem_precisa">
-          <div class="step-label">Contexto</div>
-          <h2>Quem precisa de ajuda neste momento?</h2>
-          <p class="helper">Informe apenas o necessário para organização inicial da solicitação.</p>
+        <div class="step" data-step="3">
+          <h2>Prazo e urgência</h2>
+          <p class="hint">A existência de prazo altera a prioridade da análise.</p>
+          <label>Você conseguiu identificar se existe prazo no documento recebido?</label>
+          <div class="options"><label class="option"><input type="radio" name="existePrazo" value="Sim" required>Sim</label><label class="option"><input type="radio" name="existePrazo" value="Não">Não</label><label class="option"><input type="radio" name="existePrazo" value="Não consegui identificar">Não consegui identificar</label></div>
+          <label>Esse prazo termina:</label>
+          <div class="options"><label class="option"><input type="radio" name="prazoTermina" value="Hoje" required>Hoje</label><label class="option"><input type="radio" name="prazoTermina" value="Em até 3 dias">Em até 3 dias</label><label class="option"><input type="radio" name="prazoTermina" value="Nesta semana">Nesta semana</label><label class="option"><input type="radio" name="prazoTermina" value="Depois desta semana">Depois desta semana</label><label class="option"><input type="radio" name="prazoTermina" value="Não sei informar">Não sei informar</label></div>
+        </div>
 
-          <div class="options">
-            <label class="option"><input type="radio" name="quem_precisa" value="Próprio servidor"><span>Sou o próprio servidor</span></label>
-            <label class="option"><input type="radio" name="quem_precisa" value="Familiar"><span>Sou familiar do servidor</span></label>
-            <label class="option"><input type="radio" name="quem_precisa" value="Colega"><span>Sou colega tentando ajudar</span></label>
-            <label class="option"><input type="radio" name="quem_precisa" value="Outro"><span>Outro</span></label>
+        <div class="step" data-step="4">
+          <h2>Estágio da situação</h2>
+          <p class="hint">Informe se já houve alguma manifestação formal.</p>
+          <label>Você já apresentou alguma resposta oficial relacionada a este procedimento?</label>
+          <div class="options"><label class="option"><input type="radio" name="respostaAnterior" value="Não" required>Não</label><label class="option"><input type="radio" name="respostaAnterior" value="Sim, parcialmente">Sim, parcialmente</label><label class="option"><input type="radio" name="respostaAnterior" value="Sim, já apresentei manifestação formal">Sim, já apresentei manifestação formal</label></div>
+        </div>
+
+        <div class="step" data-step="5">
+          <h2>Cenário aparente</h2>
+          <p class="hint">Escolha a opção que mais se aproxima do fato em apuração.</p>
+          <label>O procedimento parece relacionado a qual situação?</label>
+          <div class="options"><label class="option"><input type="radio" name="situacao" value="Escala, ponto, atraso ou ausência" required>Escala, ponto, atraso ou ausência</label><label class="option"><input type="radio" name="situacao" value="Atendimento ao paciente">Atendimento ao paciente</label><label class="option"><input type="radio" name="situacao" value="Relação com equipe ou chefia">Relação com equipe ou chefia</label><label class="option"><input type="radio" name="situacao" value="Acumulação de cargos ou horários">Acumulação de cargos ou horários</label><label class="option"><input type="radio" name="situacao" value="Mensagens, redes sociais ou comunicação interna">Mensagens, redes sociais ou comunicação interna</label><label class="option"><input type="radio" name="situacao" value="Gestão, coordenação ou fiscalização">Gestão, coordenação ou fiscalização</label><label class="option"><input type="radio" name="situacao" value="Não consegui entender ainda">Não consegui entender ainda</label><label class="option"><input type="radio" name="situacao" value="Outro">Outro</label></div>
+        </div>
+
+        <div class="step" data-step="6">
+          <h2>Percepção e preocupação</h2>
+          <p class="hint">Essa resposta ajuda a organizar o ponto sensível da demanda.</p>
+          <label>Neste momento, qual situação mais se aproxima do que você está sentindo?</label>
+          <div class="options"><label class="option"><input type="radio" name="percepcao" value="Acho que houve um mal-entendido" required>Acho que houve um mal-entendido</label><label class="option"><input type="radio" name="percepcao" value="Existem informações incompletas">Existem informações incompletas</label><label class="option"><input type="radio" name="percepcao" value="A situação ficou maior do que deveria">A situação ficou maior do que deveria</label><label class="option"><input type="radio" name="percepcao" value="Existe conflito ou perseguição interna">Existe conflito ou perseguição interna</label><label class="option"><input type="radio" name="percepcao" value="Ainda não entendi exatamente o problema">Ainda não entendi exatamente o problema</label></div>
+        </div>
+
+        <div class="step" data-step="7">
+          <h2>Documentos e repercussões</h2>
+          <p class="hint">Indique se há documentos disponíveis e possíveis repercussões paralelas.</p>
+          <label>Você possui acesso aos documentos relacionados ao procedimento?</label>
+          <div class="options"><label class="option"><input type="radio" name="acessoDocumentos" value="Sim" required>Sim</label><label class="option"><input type="radio" name="acessoDocumentos" value="Parcialmente">Parcialmente</label><label class="option"><input type="radio" name="acessoDocumentos" value="Não">Não</label></div>
+          <label>Existe preocupação envolvendo:</label>
+          <div class="options"><label class="option"><input type="checkbox" name="preocupacoes" value="Conselho profissional">Conselho profissional</label><label class="option"><input type="checkbox" name="preocupacoes" value="Chefia imediata">Chefia imediata</label><label class="option"><input type="checkbox" name="preocupacoes" value="Escala ou plantões">Escala ou plantões</label><label class="option"><input type="checkbox" name="preocupacoes" value="Paciente ou prontuário">Paciente ou prontuário</label><label class="option"><input type="checkbox" name="preocupacoes" value="Exposição interna">Exposição interna</label><label class="option"><input type="checkbox" name="preocupacoes" value="Ainda não sei avaliar">Ainda não sei avaliar</label></div>
+        </div>
+
+        <div class="step" data-step="8">
+          <h2>Relato resumido</h2>
+          <p class="hint">Use poucas linhas. Não é necessário escrever defesa, tese jurídica ou histórico completo.</p>
+          <label for="relato">Se desejar, descreva brevemente o que mais preocupa você neste momento.</label>
+          <textarea id="relato" name="relato" maxlength="900" placeholder="Exemplo: recebi uma notificação, não entendi o prazo e estou preocupado com possível repercussão funcional."></textarea>
+          <div class="field-help"><span id="contador">0</span>/900 caracteres</div>
+          <label for="arquivo">Documento opcional</label>
+          <input id="arquivo" name="arquivo" type="file" accept=".pdf,.jpg,.jpeg,.png,.webp" />
+          <div class="field-help">Envie apenas documento simples, imagem ou print. Evite prontuários completos, dados sensíveis de pacientes ou documentos desnecessários nesta etapa.</div>
+        </div>
+
+        <div class="step" data-step="9">
+          <h2>Dados para contato e eventual formalização</h2>
+          <p class="hint">Os dados abaixo são utilizados apenas para identificação da solicitação, contato e eventual formalização de proposta relacionada ao atendimento solicitado.</p>
+          <label for="nome">Nome completo</label><input id="nome" name="nome" autocomplete="name" required>
+          <div class="grid">
+            <div><label for="whatsapp">WhatsApp para contato</label><input id="whatsapp" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="(61) 99999-9999" required><div class="error" id="err-whatsapp">Informe um telefone com DDD.</div></div>
+            <div><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" placeholder="nome@exemplo.com.br" required><div class="error" id="err-email">Este e-mail parece incompleto.</div></div>
           </div>
+          <label for="cpf">CPF</label><input id="cpf" name="cpf" inputmode="numeric" placeholder="000.000.000-00"><div class="field-help">Campo utilizado para eventual formalização de proposta, contrato ou faturamento. No MVP, pode ser tratado como dado complementar.</div><div class="error" id="err-cpf">Verifique o número do CPF.</div>
+          <div class="grid"><div><label for="cep">CEP</label><input id="cep" name="cep" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000"><div class="error" id="err-cep">Informe um CEP válido.</div></div><div><label for="numero">Número</label><input id="numero" name="numero" autocomplete="address-line2"></div></div>
+          <label for="endereco">Endereço</label><input id="endereco" name="endereco" autocomplete="street-address">
+          <div class="grid"><div><label for="bairro">Bairro</label><input id="bairro" name="bairro"></div><div><label for="cidadeUf">Cidade/UF</label><input id="cidadeUf" name="cidadeUf" placeholder="Brasília/DF"></div></div>
+          <label for="complemento">Complemento</label><input id="complemento" name="complemento" autocomplete="address-line3">
+          <label>Como prefere receber retorno inicialmente?</label>
+          <div class="options"><label class="option"><input type="radio" name="retorno" value="WhatsApp" required>WhatsApp</label><label class="option"><input type="radio" name="retorno" value="Ligação">Ligação</label><label class="option"><input type="radio" name="retorno" value="E-mail">E-mail</label><label class="option"><input type="radio" name="retorno" value="Tanto faz">Tanto faz</label></div>
+          <label>Qual o melhor horário para contato?</label>
+          <div class="options"><label class="option"><input type="radio" name="horario" value="Manhã" required>Manhã</label><label class="option"><input type="radio" name="horario" value="Tarde">Tarde</label><label class="option"><input type="radio" name="horario" value="Noite">Noite</label><label class="option"><input type="radio" name="horario" value="Plantão variável">Plantão variável</label></div>
+        </div>
 
-          <p class="error">Selecione uma opção para continuar.</p>
-        </section>
+        <div class="step" data-step="10">
+          <h2>Confirmação e consentimentos</h2>
+          <p class="hint">Confira o resumo antes de solicitar a análise.</p>
+          <div class="summary" id="resumoFinal"></div>
+          <div class="legal-box"><label class="option"><input type="checkbox" name="declaracao" required>Declaro que as informações prestadas são verdadeiras e compreendo que esta etapa possui caráter inicial, informativo e organizacional, sem substituição de análise técnica individualizada.</label></div>
+          <div class="legal-box"><label class="option"><input type="checkbox" name="lgpd" required>Autorizo o uso das informações fornecidas para contato, organização inicial da solicitação e eventual encaminhamento de proposta relacionada ao atendimento solicitado, nos termos da Lei nº 13.709/2018 (LGPD).</label></div>
+        </div>
 
-        <!-- 2 -->
-        <section class="step" data-required="radio" data-name="funcao">
-          <div class="step-label">Perfil</div>
-          <h2>Qual é a função principal da pessoa envolvida?</h2>
-          <p class="helper">Essa informação ajuda a compreender o ambiente funcional.</p>
-
-          <div class="options">
-            <label class="option"><input type="radio" name="funcao" value="Médico"><span>Médico(a)</span></label>
-            <label class="option"><input type="radio" name="funcao" value="Enfermeiro"><span>Enfermeiro(a)</span></label>
-            <label class="option"><input type="radio" name="funcao" value="Técnico de enfermagem"><span>Técnico(a) de enfermagem</span></label>
-            <label class="option"><input type="radio" name="funcao" value="Administrativo"><span>Servidor(a) administrativo(a)</span></label>
-            <label class="option"><input type="radio" name="funcao" value="Gestão ou chefia"><span>Gestão ou chefia</span></label>
-            <label class="option"><input type="radio" name="funcao" value="Outro"><span>Outro</span></label>
-          </div>
-
-          <p class="error">Selecione uma opção para continuar.</p>
-        </section>
-
-        <!-- 3 -->
-        <section class="step" data-required="radio" data-name="fase">
-          <div class="step-label">Situação</div>
-          <h2>O que aconteceu até agora?</h2>
-          <p class="helper">Procedimentos administrativos podem possuir fases diferentes, como apuração, sindicância, instrução, indiciação e julgamento.</p>
-
-          <div class="options single">
-            <label class="option"><input type="radio" name="fase" value="Convocação para esclarecimentos"><span>Recebi convocação para esclarecimentos</span></label>
-            <label class="option"><input type="radio" name="fase" value="Notificação ou intimação"><span>Recebi notificação ou intimação</span></label>
-            <label class="option"><input type="radio" name="fase" value="Citado em PAD ou sindicância"><span>Fui citado(a) em PAD ou sindicância</span></label>
-            <label class="option"><input type="radio" name="fase" value="Oitiva"><span>Fui chamado(a) para oitiva</span></label>
-            <label class="option"><input type="radio" name="fase" value="Termo de indiciação"><span>Recebi termo de indiciação</span></label>
-            <label class="option"><input type="radio" name="fase" value="Decisão ou penalidade"><span>Já houve decisão ou penalidade</span></label>
-            <label class="option"><input type="radio" name="fase" value="Sem processo formal"><span>Ainda não existe processo formal</span></label>
-            <label class="option"><input type="radio" name="fase" value="Não sei"><span>Não sei identificar a fase</span></label>
-          </div>
-
-          <p class="error">Selecione uma opção para continuar.</p>
-        </section>
-
-        <!-- 4 -->
-        <section class="step" data-required="radio" data-name="prazo">
-          <div class="step-label">Urgência</div>
-          <h2>Existe prazo em andamento?</h2>
-          <p class="helper">A existência de prazo pode alterar a urgência da análise inicial.</p>
-
-          <div class="options">
-            <label class="option"><input type="radio" name="prazo" value="Hoje"><span>Hoje</span></label>
-            <label class="option"><input type="radio" name="prazo" value="Até 3 dias"><span>Até 3 dias</span></label>
-            <label class="option"><input type="radio" name="prazo" value="Até 10 dias"><span>Até 10 dias</span></label>
-            <label class="option"><input type="radio" name="prazo" value="Não sei calcular"><span>Existe prazo, mas não sei calcular</span></label>
-            <label class="option"><input type="radio" name="prazo" value="Não sei"><span>Não sei se há prazo</span></label>
-            <label class="option"><input type="radio" name="prazo" value="Sem prazo"><span>Ainda não recebi prazo</span></label>
-          </div>
-
-          <p class="error">Selecione uma opção para continuar.</p>
-        </section>
-
-        <!-- 5 -->
-        <section class="step" data-required="radio" data-name="tema">
-          <div class="step-label">Tema principal</div>
-          <h2>Qual parece ser o tema principal?</h2>
-          <p class="helper">Em muitos casos, o contexto funcional influencia diretamente a compreensão da situação apresentada.</p>
-
-          <div class="options single">
-            <label class="option"><input type="radio" name="tema" value="Plantão ou sobrecarga"><span>Plantão ou sobrecarga</span></label>
-            <label class="option"><input type="radio" name="tema" value="Atendimento a paciente"><span>Atendimento a paciente</span></label>
-            <label class="option"><input type="radio" name="tema" value="Escala, frequência ou ausência"><span>Escala, frequência ou ausência</span></label>
-            <label class="option"><input type="radio" name="tema" value="Prontuário ou documentação"><span>Prontuário ou documentação</span></label>
-            <label class="option"><input type="radio" name="tema" value="Conflito com chefia"><span>Conflito com chefia</span></label>
-            <label class="option"><input type="radio" name="tema" value="Falha estrutural"><span>Equipe incompleta ou falha estrutural</span></label>
-            <label class="option"><input type="radio" name="tema" value="Ordem superior"><span>Ordem superior</span></label>
-            <label class="option"><input type="radio" name="tema" value="Sistema, senha ou dados"><span>Sistema, senha ou dados</span></label>
-            <label class="option"><input type="radio" name="tema" value="Assédio ou conflito interpessoal"><span>Assédio ou conflito interpessoal</span></label>
-            <label class="option"><input type="radio" name="tema" value="Outro"><span>Outro</span></label>
-          </div>
-
-          <p class="error">Selecione uma opção para continuar.</p>
-        </section>
-
-        <!-- 6 -->
-        <section class="step" data-required="textarea" data-name="resumo">
-          <div class="step-label">Resumo</div>
-          <h2>Em poucas palavras, o que precisa ser compreendido sobre o caso?</h2>
-          <p class="helper">Não escreva uma defesa. Descreva apenas o suficiente para organização inicial da situação.</p>
-
-          <textarea
-            name="resumo"
-            maxlength="700"
-            placeholder="Exemplo: fui chamado para explicar atendimento realizado em plantão com equipe reduzida; ainda não tive acesso integral aos documentos."
-          ></textarea>
-
-          <p class="error">Escreva um breve resumo para continuar.</p>
-        </section>
-
-        <!-- 7 -->
-        <section class="step" data-required="radio" data-name="acesso_documentos">
-          <div class="step-label">Documentos</div>
-          <h2>Você já teve acesso aos documentos ou informações da apuração?</h2>
-          <p class="helper">Nesta etapa, não envie documentos. Apenas informe se eles existem ou se já houve acesso.</p>
-
-          <div class="options">
-            <label class="option"><input type="radio" name="acesso_documentos" value="Sim"><span>Sim</span></label>
-            <label class="option"><input type="radio" name="acesso_documentos" value="Parcialmente"><span>Parcialmente</span></label>
-            <label class="option"><input type="radio" name="acesso_documentos" value="Pedi acesso"><span>Pedi acesso</span></label>
-            <label class="option"><input type="radio" name="acesso_documentos" value="Ainda não"><span>Ainda não</span></label>
-            <label class="option"><input type="radio" name="acesso_documentos" value="Não sei"><span>Não sei</span></label>
-          </div>
-
-          <p class="error">Selecione uma opção para continuar.</p>
-        </section>
-
-        <!-- 8 -->
-        <section class="step" data-required="radio" data-name="modalidade">
-          <div class="step-label">Atendimento</div>
-          <h2>Como prefere o primeiro atendimento?</h2>
-
-          <div class="options">
-            <label class="option"><input type="radio" name="modalidade" value="Online"><span>Online por videoconferência</span></label>
-            <label class="option"><input type="radio" name="modalidade" value="Presencial"><span>Presencial em Brasília/DF</span></label>
-            <label class="option"><input type="radio" name="modalidade" value="Ainda não sei"><span>Ainda não sei</span></label>
-          </div>
-
-          <p class="error">Selecione uma opção para continuar.</p>
-        </section>
-
-        <!-- 9 -->
-        <section class="step" data-required="input" data-name="data_pretendida">
-          <div class="step-label">Agenda</div>
-          <h2>Escolha a data pretendida para atendimento</h2>
-          <p class="helper">Datas e horários serão posteriormente confirmados conforme disponibilidade operacional.</p>
-
-          <input type="date" name="data_pretendida" />
-
-          <p class="error">Informe uma data pretendida.</p>
-        </section>
-
-        <!-- 10 -->
-        <section class="step" data-required="input" data-name="horario_pretendido">
-          <div class="step-label">Agenda</div>
-          <h2>Informe o horário pretendido</h2>
-
-          <input
-            type="text"
-            name="horario_pretendido"
-            placeholder="Exemplo: 14h, após 18h, horário comercial, primeiro horário disponível"
-          />
-
-          <p class="error">Informe um horário ou período pretendido.</p>
-        </section>
-
-        <!-- 11 -->
-        <section class="step" data-required="input" data-name="nome">
-          <div class="step-label">Dados para proposta</div>
-          <h2>Nome completo</h2>
-
-          <input type="text" name="nome" autocomplete="name" placeholder="Digite o nome completo" />
-
-          <p class="error">Informe o nome completo.</p>
-        </section>
-
-        <!-- 12 -->
-        <section class="step" data-required="input" data-name="cpf">
-          <div class="step-label">Dados para proposta</div>
-          <h2>CPF</h2>
-          <p class="helper">Utilizado para identificação da solicitação, organização da proposta inicial e eventual emissão fiscal.</p>
-
-          <input type="text" name="cpf" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" />
-
-          <p class="error">Informe o CPF.</p>
-        </section>
-
-        <!-- 13 -->
-        <section class="step" data-required="input" data-name="cep">
-          <div class="step-label">Endereço</div>
-          <h2>CEP</h2>
-
-          <input type="text" name="cep" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" />
-
-          <p class="error">Informe o CEP.</p>
-        </section>
-
-        <!-- 14 -->
-        <section class="step" data-required="group">
-          <div class="step-label">Endereço</div>
-          <h2>Número e complemento</h2>
-
-          <div class="field-group two-cols">
-            <div class="field">
-              <label>Número</label>
-              <input type="text" name="numero" placeholder="Exemplo: 120" />
-            </div>
-
-            <div class="field">
-              <label>Complemento</label>
-              <input type="text" name="complemento" placeholder="Apto, bloco, casa..." />
-            </div>
-          </div>
-
-          <p class="error">Informe pelo menos o número.</p>
-        </section>
-
-        <!-- 15 -->
-        <section class="step" data-required="input" data-name="telefone">
-          <div class="step-label">Contato</div>
-          <h2>Telefone para contato</h2>
-
-          <input type="tel" name="telefone" inputmode="tel" autocomplete="tel" placeholder="(61) 99999-9999" />
-
-          <p class="error">Informe um telefone para contato.</p>
-        </section>
-
-        <!-- 16 -->
-        <section class="step" data-required="none">
-          <div class="step-label">Contato</div>
-          <h2>E-mail para contato</h2>
-          <p class="helper">Campo opcional. Pode ser utilizado para confirmação do atendimento e envio de informações relacionadas à solicitação inicial.</p>
-
-          <input type="email" name="email" autocomplete="email" placeholder="seuemail@exemplo.com" />
-        </section>
-
-        <!-- 17 -->
-        <section class="step" data-required="checks">
-          <div class="step-label">Consentimentos</div>
-          <h2>Confirmações finais</h2>
-
-          <div class="consent">
-            <label class="check">
-              <input type="checkbox" name="ciencia_formulario" required />
-              <span>Declaro estar ciente de que este formulário serve para organização inicial das informações relacionadas ao caso.</span>
-            </label>
-
-            <label class="check">
-              <input type="checkbox" name="autorizacao_contato" required />
-              <span>Autorizo contato para confirmação da análise inicial.</span>
-            </label>
-
-            <label class="check">
-              <input type="checkbox" name="compartilhamento_profissionais" required />
-              <span>Autorizo que as informações fornecidas sejam compartilhadas com profissionais independentes vinculados à plataforma ANÁLISE LEGAL<span class="trademark">™</span>, exclusivamente para análise inicial da solicitação, contato e eventual agendamento.</span>
-            </label>
-
-            <label class="check">
-              <input type="checkbox" name="lgpd" required />
-              <span>Autorizo o tratamento das informações fornecidas nos termos da Política de Privacidade.</span>
-            </label>
-          </div>
-
-          <p class="error">Confirme os consentimentos para finalizar.</p>
-        </section>
-
-        <div class="nav">
-          <button type="button" class="btn-prev" id="prevBtn">Voltar</button>
-          <button type="button" class="btn-next" id="nextBtn">Continuar</button>
-          <button type="submit" class="btn-submit" id="submitBtn" style="display:none;">Enviar solicitação</button>
+        <div class="nav no-print">
+          <button type="button" class="btn btn-secondary" id="prevBtn">VOLTAR</button>
+          <button type="button" class="btn btn-primary" id="nextBtn">AVANÇAR</button>
+          <button type="submit" class="btn btn-primary" id="submitBtn" style="display:none">SOLICITAR ANÁLISE</button>
         </div>
       </form>
+    </section>
+  </main>
 
-      <section class="final-screen" id="finalScreen">
-        <h2>Sua solicitação foi organizada.</h2>
-        <p>
-          A ANÁLISE LEGAL<span class="trademark">™</span> foi concebida para organizar informações relevantes da solicitação inicial, permitindo compreensão preliminar mais clara, contextualizada e eficiente da demanda apresentada, favorecendo maior assertividade desde os primeiros contatos relacionados ao caso.
-        </p>
-        <a href="#" class="btn-final">Prosseguir para análise inicial</a>
-      </section>
-    </main>
-
-    <footer>
-      ANÁLISE LEGAL<span class="trademark">™</span> · Organização inicial de solicitações
-    </footer>
-  </div>
+  <footer>
+    <p><a href="/privacidade.html">Política de Privacidade</a> &nbsp; <a href="/termos.html">Termos de Uso</a> &nbsp; <a href="mailto:contato@analiselegal.com.br">Contato institucional</a></p>
+    <p>O tratamento de dados pessoais pela ANÁLISE LEGAL observa a Lei nº 13.709/2018 (LGPD).</p>
+    <p>© 2026 Análise Legal. Todos os direitos reservados.</p>
+  </footer>
 
   <script>
-    const form = document.getElementById("triagemForm");
-    const steps = Array.from(document.querySelectorAll(".step"));
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const submitBtn = document.getElementById("submitBtn");
-    const progressBar = document.getElementById("progressBar");
-    const stepText = document.getElementById("stepText");
-    const percentText = document.getElementById("percentText");
-    const finalScreen = document.getElementById("finalScreen");
-    const intro = document.getElementById("intro");
-
-    let currentStep = 0;
-
-    function updateStep() {
-      steps.forEach((step, index) => {
-        step.classList.toggle("active", index === currentStep);
-        const error = step.querySelector(".error");
-        if (error) error.style.display = "none";
-      });
-
-      const total = steps.length;
-      const current = currentStep + 1;
-      const progress = Math.round((currentStep / (total - 1)) * 100);
-
-      stepText.textContent = `Etapa ${current} de ${total}`;
-      percentText.textContent = `${progress}%`;
-      progressBar.style.width = `${progress}%`;
-
-      prevBtn.disabled = currentStep === 0;
-      nextBtn.style.display = currentStep === total - 1 ? "none" : "block";
-      submitBtn.style.display = currentStep === total - 1 ? "block" : "none";
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function showError(step) {
-      const error = step.querySelector(".error");
-      if (error) error.style.display = "block";
-    }
-
-    function validateCurrentStep() {
-      const step = steps[currentStep];
-      const type = step.dataset.required;
-      const name = step.dataset.name;
-
-      if (type === "none") return true;
-
-      if (type === "radio") {
-        const checked = step.querySelector(`input[name="${name}"]:checked`);
-        if (!checked) {
-          showError(step);
-          return false;
-        }
-      }
-
-      if (type === "input") {
-        const input = step.querySelector(`input[name="${name}"]`);
-        if (!input || !input.value.trim()) {
-          showError(step);
-          return false;
-        }
-      }
-
-      if (type === "textarea") {
-        const textarea = step.querySelector(`textarea[name="${name}"]`);
-        if (!textarea || textarea.value.trim().length < 10) {
-          showError(step);
-          return false;
-        }
-      }
-
-      if (type === "group") {
-        const numero = step.querySelector('input[name="numero"]');
-        if (!numero || !numero.value.trim()) {
-          showError(step);
-          return false;
-        }
-      }
-
-      if (type === "checks") {
-        const checks = Array.from(step.querySelectorAll('input[type="checkbox"]'));
-        const allChecked = checks.every(check => check.checked);
-        if (!allChecked) {
-          showError(step);
-          return false;
-        }
-      }
-
-      return true;
-    }
-
-    nextBtn.addEventListener("click", () => {
-      if (!validateCurrentStep()) return;
-
-      if (currentStep < steps.length - 1) {
-        currentStep++;
-        updateStep();
-      }
-    });
-
-    prevBtn.addEventListener("click", () => {
-      if (currentStep > 0) {
-        currentStep--;
-        updateStep();
-      }
-    });
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      if (!validateCurrentStep()) return;
-
-      const data = new FormData(form);
-      const payload = {};
-
-      for (const [key, value] of data.entries()) {
-        payload[key] = value;
-      }
-
-      console.log("Solicitação organizada:", payload);
-
-      form.style.display = "none";
-      intro.style.display = "none";
-      document.querySelector(".progress-area").style.display = "none";
-      finalScreen.classList.add("active");
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    updateStep();
+    const steps=[...document.querySelectorAll('.step')];let current=0;const bar=document.getElementById('bar'),stepCount=document.getElementById('stepCount'),prevBtn=document.getElementById('prevBtn'),nextBtn=document.getElementById('nextBtn'),submitBtn=document.getElementById('submitBtn');
+    const onlyDigits=s=>(s||'').replace(/\D/g,'');
+    const getRadio=n=>document.querySelector(`input[name="${n}"]:checked`)?.value||'';
+    const getChecks=n=>[...document.querySelectorAll(`input[name="${n}"]:checked`)].map(x=>x.value);
+    function maskCPF(v){return onlyDigits(v).slice(0,11).replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2')}
+    function validCPF(cpf){cpf=onlyDigits(cpf);if(!cpf)return true;if(cpf.length!==11||/^(\d)\1+$/.test(cpf))return false;let s=0,r;for(let i=1;i<=9;i++)s+=parseInt(cpf.substring(i-1,i))*(11-i);r=(s*10)%11;if(r===10||r===11)r=0;if(r!==parseInt(cpf.substring(9,10)))return false;s=0;for(let i=1;i<=10;i++)s+=parseInt(cpf.substring(i-1,i))*(12-i);r=(s*10)%11;if(r===10||r===11)r=0;return r===parseInt(cpf.substring(10,11))}
+    function maskPhone(v){let d=onlyDigits(v).slice(0,11);return d.length<=10?d.replace(/(\d{2})(\d)/,'($1) $2').replace(/(\d{4})(\d)/,'$1-$2'):d.replace(/(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d)/,'$1-$2')}
+    function validPhone(v){const d=onlyDigits(v);return d.length===10||d.length===11}
+    function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((v||'').trim())}
+    function maskCEP(v){return onlyDigits(v).slice(0,8).replace(/(\d{5})(\d)/,'$1-$2')}
+    document.getElementById('cpf').addEventListener('input',e=>e.target.value=maskCPF(e.target.value));document.getElementById('whatsapp').addEventListener('input',e=>e.target.value=maskPhone(e.target.value));document.getElementById('cep').addEventListener('input',e=>e.target.value=maskCEP(e.target.value));document.getElementById('relato').addEventListener('input',e=>document.getElementById('contador').textContent=e.target.value.length);
+    document.getElementById('cep').addEventListener('blur',async e=>{const cep=onlyDigits(e.target.value);if(cep.length!==8)return;try{const r=await fetch(`https://viacep.com.br/ws/${cep}/json/`);const j=await r.json();if(!j.erro){document.getElementById('endereco').value=j.logradouro||'';document.getElementById('bairro').value=j.bairro||'';document.getElementById('cidadeUf').value=((j.localidade||'')+(j.uf?'/'+j.uf:''));}}catch(err){}});
+    function showStep(){steps.forEach((s,i)=>s.classList.toggle('active',i===current));bar.style.width=((current+1)/steps.length*100)+'%';stepCount.textContent=`Etapa ${current+1} de ${steps.length}`;prevBtn.style.visibility=current===0?'hidden':'visible';nextBtn.style.display=current===steps.length-1?'none':'inline-block';submitBtn.style.display=current===steps.length-1?'inline-block':'none';if(current===steps.length-1)buildResumo();window.scrollTo({top:0,behavior:'smooth'})}
+    function validateCurrent(){let ok=true;const required=[...steps[current].querySelectorAll('[required]')];for(const el of required){if(el.type==='radio'){const group=[...document.querySelectorAll(`[name="${el.name}"]`)];if(!group.some(x=>x.checked))ok=false}else if(el.type==='checkbox'){if(!el.checked)ok=false}else if(!el.value.trim())ok=false}const cpf=document.getElementById('cpf'),phone=document.getElementById('whatsapp'),email=document.getElementById('email'),cep=document.getElementById('cep');document.getElementById('err-cpf').style.display=(cpf.value&&!validCPF(cpf.value))?'block':'none';document.getElementById('err-whatsapp').style.display=(phone.value&&!validPhone(phone.value))?'block':'none';document.getElementById('err-email').style.display=(email.value&&!validEmail(email.value))?'block':'none';document.getElementById('err-cep').style.display=(cep.value&&onlyDigits(cep.value).length!==8)?'block':'none';if(current===8){if(!validPhone(phone.value)||!validEmail(email.value)||!validCPF(cpf.value)||(cep.value&&onlyDigits(cep.value).length!==8))ok=false}if(!ok)alert('Verifique os campos obrigatórios desta etapa.');return ok}
+    function urgencia(){const p=getRadio('prazoTermina');if(p==='Hoje'||p==='Em até 3 dias')return 'Alta';if(p==='Nesta semana')return 'Média/alta';if(p==='Depois desta semana')return 'Média';return 'A avaliar'}
+    function collect(){const now=new Date();return{protocolo:'AL-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+Math.random().toString(36).slice(2,8).toUpperCase(),timestamp:now.toLocaleString('pt-BR'),nome:document.getElementById('nome').value.trim(),whatsapp:document.getElementById('whatsapp').value.trim(),whatsappLimpo:onlyDigits(document.getElementById('whatsapp').value),email:document.getElementById('email').value.trim(),cpf:document.getElementById('cpf').value.trim(),cpfLimpo:onlyDigits(document.getElementById('cpf').value),cep:document.getElementById('cep').value.trim(),cepLimpo:onlyDigits(document.getElementById('cep').value),endereco:document.getElementById('endereco').value.trim(),numero:document.getElementById('numero').value.trim(),bairro:document.getElementById('bairro').value.trim(),cidadeUf:document.getElementById('cidadeUf').value.trim(),complemento:document.getElementById('complemento').value.trim(),retorno:getRadio('retorno'),horario:getRadio('horario'),procedimento:getRadio('procedimento'),area:getRadio('area'),funcao:getRadio('funcao'),existePrazo:getRadio('existePrazo'),prazoTermina:getRadio('prazoTermina'),respostaAnterior:getRadio('respostaAnterior'),situacao:getRadio('situacao'),percepcao:getRadio('percepcao'),acessoDocumentos:getRadio('acessoDocumentos'),preocupacoes:getChecks('preocupacoes'),relato:document.getElementById('relato').value.trim(),urgencia:urgencia(),origem:new URLSearchParams(location.search).get('origem')||'pad-saude-df',utm_source:new URLSearchParams(location.search).get('utm_source')||'',utm_medium:new URLSearchParams(location.search).get('utm_medium')||'',utm_campaign:new URLSearchParams(location.search).get('utm_campaign')||'',dispositivo:innerWidth<768?'mobile':'desktop',navegador:navigator.userAgent,larguraTela:innerWidth}}
+    function buildResumo(){const d=collect();document.getElementById('resumoFinal').innerHTML=`<p><strong>Nome:</strong> ${d.nome||'Não informado'}</p><p><strong>Contato:</strong> ${d.whatsapp||'Não informado'} | ${d.email||'Não informado'}</p><p><strong>Procedimento:</strong> ${d.procedimento||'Não informado'}</p><p><strong>Urgência estimada:</strong> ${d.urgencia}</p><p><strong>Situação:</strong> ${d.situacao||'Não informado'}</p><p><strong>Preocupação principal:</strong> ${d.percepcao||'Não informado'}</p>`}
+    prevBtn.onclick=()=>{if(current>0){current--;showStep()}};nextBtn.onclick=()=>{if(validateCurrent()&&current<steps.length-1){current++;showStep()}};showStep();
+    document.getElementById('formAnalise').addEventListener('submit',e=>{e.preventDefault();if(!validateCurrent())return;const data=collect();sessionStorage.setItem('analiseLegalResumo',JSON.stringify(data));window.location.href='confirmacao.html'});
+    window.addEventListener('beforeprint',()=>{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'print_intent',page_path:location.pathname,page_title:document.title})});
   </script>
 </body>
 </html>
