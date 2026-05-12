@@ -92,6 +92,17 @@
   </script>
 
   <style>
+    body,
+    p,
+    li,
+    dd,
+    .subhead,
+    .metodo-texto,
+    .disclaimer,
+    .site-footer {
+      text-align: justify;
+    }
+
     .site-header {
       display: flex;
       align-items: center;
@@ -108,76 +119,33 @@
     }
 
     .hero-cta {
-      display: none !important;
+      display: flex !important;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: 1.4rem;
+    }
+
+    .hero-cta .cta {
+      position: static !important;
+      display: inline-flex !important;
+      width: auto !important;
+      white-space: nowrap;
+      text-align: center;
     }
 
     .tesserato {
-      width: min(300px, 42vw);
+      width: min(320px, 44vw);
       aspect-ratio: 1 / 1;
       display: block;
       margin: 0 auto;
       background: transparent;
-      perspective: 1100px;
     }
 
     .tesserato svg {
       width: 100%;
       height: 100%;
       overflow: visible;
-      animation: tesserato-rotate 24s linear infinite;
-      transform-origin: 50% 50%;
-      transform-style: preserve-3d;
-    }
-
-    .tesserato .edge-outer {
-      stroke: #b8960c;
-      stroke-opacity: 0.95;
-      stroke-width: 1.15;
-      fill: none;
-    }
-
-    .tesserato .edge-middle {
-      stroke: #b8960c;
-      stroke-opacity: 0.58;
-      stroke-width: 0.95;
-      fill: none;
-    }
-
-    .tesserato .edge-inner {
-      stroke: #b8960c;
-      stroke-opacity: 0.40;
-      stroke-width: 0.75;
-      fill: none;
-    }
-
-    .tesserato .edge-link {
-      stroke: #b8960c;
-      stroke-opacity: 0.32;
-      stroke-width: 0.7;
-      fill: none;
-    }
-
-    .tesserato .pulse {
-      animation: tesserato-pulse 6s ease-in-out infinite;
-      transform-origin: 50% 50%;
-    }
-
-    @keyframes tesserato-rotate {
-      0% {
-        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-      }
-      100% {
-        transform: rotateX(360deg) rotateY(360deg) rotateZ(180deg);
-      }
-    }
-
-    @keyframes tesserato-pulse {
-      0%, 100% {
-        opacity: 0.82;
-      }
-      50% {
-        opacity: 1;
-      }
+      display: block;
     }
 
     .metodo-grid {
@@ -187,12 +155,31 @@
       align-items: center;
     }
 
+    .indexacao-texto {
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.55;
+      text-align: justify;
+    }
+
+    .cta-section {
+      text-align: center;
+    }
+
+    .cta-section p {
+      text-align: center;
+    }
+
     .cta-section .cta {
       position: static !important;
       display: inline-flex !important;
       width: auto !important;
-      margin-top: 1rem !important;
+      margin: 1.2rem auto 0 auto !important;
       white-space: nowrap;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
     }
 
     @media (max-width: 768px) {
@@ -202,7 +189,11 @@
 
       .metodo-grid .tesserato {
         order: -1;
-        width: min(220px, 60vw);
+        width: min(240px, 62vw);
+      }
+
+      .hero-cta {
+        justify-content: flex-start;
       }
     }
   </style>
@@ -233,6 +224,7 @@
         color: #000 !important;
         font-family: "Crimson Text", Georgia, "Times New Roman", serif !important;
         line-height: 1.35 !important;
+        text-align: justify !important;
       }
 
       .skip-link,
@@ -264,584 +256,4 @@
       }
 
       .marca-color {
-        display: none !important;
-      }
-
-      .marca-pb {
-        display: block !important;
-        width: 42mm !important;
-        height: auto !important;
-        max-height: 18mm !important;
-      }
-
-      main {
-        display: block !important;
-        width: 100% !important;
-        max-width: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-
-      section,
-      .secao,
-      .hero,
-      .secao-metodo,
-      .faq,
-      .cta-section {
-        display: block !important;
-        margin: 0 0 8mm 0 !important;
-        padding: 0 !important;
-        background: #fff !important;
-        border: 0 !important;
-        break-inside: auto !important;
-        page-break-inside: auto !important;
-      }
-
-      .hero {
-        border-bottom: 1px solid #ccc !important;
-        padding-bottom: 7mm !important;
-        margin-bottom: 8mm !important;
-      }
-
-      .eyebrow {
-        margin: 0 0 3mm 0 !important;
-        font-size: 10pt !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.04em !important;
-        color: #333 !important;
-      }
-
-      h1 {
-        margin: 0 0 5mm 0 !important;
-        padding: 0 !important;
-        font-size: 22pt !important;
-        line-height: 1.1 !important;
-        color: #000 !important;
-        break-after: avoid !important;
-        page-break-after: avoid !important;
-      }
-
-      h2 {
-        margin: 8mm 0 3mm 0 !important;
-        padding: 0 0 2mm 0 !important;
-        font-size: 15pt !important;
-        line-height: 1.2 !important;
-        color: #000 !important;
-        border-bottom: 1px solid #bbb !important;
-        break-after: avoid !important;
-        page-break-after: avoid !important;
-      }
-
-      p {
-        margin: 0 0 3.2mm 0 !important;
-        font-size: 11pt !important;
-        color: #000 !important;
-        orphans: 3;
-        widows: 3;
-      }
-
-      .subhead {
-        font-size: 12pt !important;
-        line-height: 1.35 !important;
-        margin-bottom: 0 !important;
-        color: #111 !important;
-      }
-
-      ul,
-      ol {
-        margin: 2mm 0 4mm 6mm !important;
-        padding: 0 !important;
-      }
-
-      li {
-        margin: 0 0 2.4mm 0 !important;
-        padding: 0 !important;
-        font-size: 11pt !important;
-        color: #000 !important;
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-      }
-
-      strong {
-        color: #000 !important;
-        font-weight: 700 !important;
-      }
-
-      .metodo-grid {
-        display: block !important;
-      }
-
-      .metodo-texto {
-        display: block !important;
-        width: 100% !important;
-      }
-
-      details {
-        display: block !important;
-        margin: 0 0 4mm 0 !important;
-        padding: 0 !important;
-        border: 0 !important;
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-      }
-
-      details > summary {
-        display: block !important;
-        margin: 0 0 1.5mm 0 !important;
-        font-size: 11.5pt !important;
-        font-weight: 700 !important;
-        color: #000 !important;
-        list-style: none !important;
-        cursor: default !important;
-      }
-
-      details > summary::-webkit-details-marker {
-        display: none !important;
-      }
-
-      details[open] summary ~ * {
-        display: block !important;
-      }
-
-      dl.indexacao {
-        display: block !important;
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-
-      .indexacao dt {
-        margin: 4mm 0 1mm 0 !important;
-        font-weight: 700 !important;
-        color: #000 !important;
-        break-after: avoid !important;
-        page-break-after: avoid !important;
-      }
-
-      .indexacao dd {
-        margin: 0 0 2.5mm 0 !important;
-        color: #000 !important;
-      }
-
-      a {
-        color: #000 !important;
-        text-decoration: none !important;
-      }
-
-      a[href]::after {
-        content: none !important;
-      }
-
-      .site-footer {
-        margin-top: 10mm !important;
-        padding-top: 5mm !important;
-        border-top: 1px solid #999 !important;
-        background: #fff !important;
-        color: #000 !important;
-        font-size: 9.5pt !important;
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-      }
-
-      .site-footer p {
-        font-size: 9.5pt !important;
-        line-height: 1.3 !important;
-        color: #000 !important;
-        margin-bottom: 3mm !important;
-      }
-
-      .disclaimer {
-        font-size: 9pt !important;
-        color: #111 !important;
-      }
-
-      .copyright {
-        font-size: 9pt !important;
-        color: #111 !important;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
-
-  <header class="site-header">
-    <a href="/" class="logo" aria-label="Análise Legal — página inicial">
-      <img src="/assets/img/Marca.svg" alt="Análise Legal" class="marca marca-color" />
-      <img src="/assets/img/Marca-PB.svg" alt="Análise Legal" class="marca marca-pb" />
-    </a>
-  </header>
-
-  <main id="conteudo">
-    <section class="hero" aria-labelledby="titulo-principal">
-      <div class="hero-conteudo">
-        <p class="eyebrow">Secretaria de Saúde do Distrito Federal</p>
-
-        <h1 id="titulo-principal">
-          PAD ou sindicância contra servidor da Saúde do DF
-        </h1>
-
-        <p class="subhead">
-          A maioria dos servidores nunca passou por um procedimento disciplinar antes.
-          O primeiro passo é entender o que aconteceu, quais prazos existem e o que realmente precisa ser feito agora.
-        </p>
-      </div>
-    </section>
-
-    <section id="cenario" class="secao" aria-labelledby="h2-cenario">
-      <h2 id="h2-cenario">O cenário enfrentado pelo servidor da Saúde</h2>
-
-      <p>
-        Receber uma notificação de PAD, sindicância ou apuração funcional costuma gerar preocupação imediata.
-        Isso é natural. Além da rotina de trabalho, o servidor passa a lidar com documentos, prazos,
-        relatos, registros internos e possíveis consequências funcionais.
-      </p>
-
-      <p>
-        Em muitos casos, a primeira reação é tentar responder rapidamente, sem conseguir compreender toda a estrutura do procedimento.
-        A organização prévia costuma fazer diferença para entender o cenário com mais clareza e segurança.
-      </p>
-
-      <p>
-        A Análise Legal foi estruturada para esse primeiro momento:
-        reunir as informações essenciais, identificar o tipo de procedimento, organizar a cronologia
-        e ajudar o usuário a compreender quais pontos merecem atenção antes da próxima decisão.
-      </p>
-    </section>
-
-    <section id="situacoes" class="secao" aria-labelledby="h2-situacoes">
-      <h2 id="h2-situacoes">Situações comuns em PAD e sindicância na Saúde do DF</h2>
-
-      <ul class="lista-destaque">
-        <li>
-          <strong>Faltas, atrasos ou abandono de cargo:</strong>
-          divergência entre escala, ponto, atestados, plantões e registros administrativos.
-        </li>
-
-        <li>
-          <strong>Atendimento ao paciente:</strong>
-          reclamações de usuários, incidentes assistenciais, prontuários, eventos adversos ou divergência entre relatos.
-        </li>
-
-        <li>
-          <strong>Acumulação de cargos ou jornada:</strong>
-          questionamento sobre compatibilidade de horários, vínculos públicos ou atividade privada paralela.
-        </li>
-
-        <li>
-          <strong>Chefias, coordenações e gestão:</strong>
-          apurações envolvendo escala, afastamentos, decisões administrativas, fiscalização e responsabilidades de direção.
-        </li>
-
-        <li>
-          <strong>Conflitos internos:</strong>
-          denúncias por ouvidoria, conflitos entre equipes, assédio funcional, mensagens, redes sociais ou condutas no ambiente de trabalho.
-        </li>
-      </ul>
-    </section>
-
-    <section id="riscos" class="secao" aria-labelledby="h2-riscos">
-      <h2 id="h2-riscos">Pontos de atenção antes de responder</h2>
-
-      <p>
-        Nem todo procedimento termina em penalidade. Ainda assim, algumas providências tomadas no início
-        podem influenciar a forma como os fatos serão compreendidos depois.
-      </p>
-
-      <ul class="lista-destaque">
-        <li>
-          <strong>Prazos:</strong>
-          alguns atos precisam ser praticados dentro do prazo indicado na notificação ou pela comissão.
-        </li>
-
-        <li>
-          <strong>Relato dos fatos:</strong>
-          manifestações feitas sob pressão podem gerar interpretações imprecisas ou dificultar ajustes posteriores.
-        </li>
-
-        <li>
-          <strong>Documentos:</strong>
-          escalas, e-mails, prontuários, atestados e registros funcionais precisam ser organizados com critério.
-        </li>
-
-        <li>
-          <strong>Dados sensíveis:</strong>
-          informações de pacientes, colegas ou terceiros exigem cuidado, especialmente diante da LGPD e do sigilo profissional.
-        </li>
-
-        <li>
-          <strong>Repercussões paralelas:</strong>
-          alguns casos podem se comunicar com conselho profissional, setor de pessoal, corregedoria, chefia ou controle judicial.
-        </li>
-      </ul>
-    </section>
-
-    <section id="metodo" class="secao secao-metodo" aria-labelledby="h2-metodo">
-      <h2 id="h2-metodo">Método de análise</h2>
-
-      <div class="metodo-grid">
-        <div class="metodo-texto">
-          <p>
-            A etapa inicial busca organizar cronologia, documentos, comunicações e prazos aparentes,
-            permitindo melhor compreensão do cenário antes da definição dos próximos passos.
-          </p>
-
-          <p>
-            O método começa pela identificação do tipo de procedimento: PAD, sindicância investigativa,
-            sindicância acusatória, apuração preliminar, processo sumário ou outra forma de apuração funcional.
-          </p>
-
-          <p>
-            Em seguida, são levantados os pontos essenciais: data da ciência, autoridade responsável,
-            comissão ou setor envolvido, fatos narrados, documentos já existentes, pessoas mencionadas,
-            prazos em curso e eventuais riscos de exposição de dados sensíveis.
-          </p>
-
-          <p>
-            Quando necessário, a análise poderá considerar normas aplicáveis, entendimentos administrativos
-            e precedentes relacionados ao tema. O objetivo, nesta fase, não é substituir uma defesa formal,
-            mas organizar a situação para que a próxima decisão seja tomada com mais clareza.
-          </p>
-        </div>
-
-        <div class="tesserato" aria-hidden="true">
-          <svg viewBox="-110 -110 220 220" xmlns="http://www.w3.org/2000/svg" role="presentation">
-            <g class="pulse">
-              <g class="edge-outer">
-                <polyline points="-70,-70 70,-70 70,70 -70,70 -70,-70"/>
-                <polyline points="-42,-42 98,-42 98,98 -42,98 -42,-42"/>
-              </g>
-
-              <g class="edge-middle">
-                <polyline points="-45,-45 45,-45 45,45 -45,45 -45,-45"/>
-                <polyline points="-18,-18 72,-18 72,72 -18,72 -18,-18"/>
-              </g>
-
-              <g class="edge-link">
-                <line x1="-70" y1="-70" x2="-42" y2="-42"/>
-                <line x1="70" y1="-70" x2="98" y2="-42"/>
-                <line x1="70" y1="70" x2="98" y2="98"/>
-                <line x1="-70" y1="70" x2="-42" y2="98"/>
-
-                <line x1="-45" y1="-45" x2="-18" y2="-18"/>
-                <line x1="45" y1="-45" x2="72" y2="-18"/>
-                <line x1="45" y1="45" x2="72" y2="72"/>
-                <line x1="-45" y1="45" x2="-18" y2="72"/>
-              </g>
-
-              <g class="edge-inner">
-                <line x1="-70" y1="-70" x2="-18" y2="-18"/>
-                <line x1="70" y1="-70" x2="72" y2="-18"/>
-                <line x1="70" y1="70" x2="72" y2="72"/>
-                <line x1="-70" y1="70" x2="-18" y2="72"/>
-
-                <line x1="-42" y1="-42" x2="-45" y2="-45"/>
-                <line x1="98" y1="-42" x2="45" y2="-45"/>
-                <line x1="98" y1="98" x2="45" y2="45"/>
-                <line x1="-42" y1="98" x2="-45" y2="45"/>
-              </g>
-            </g>
-          </svg>
-        </div>
-      </div>
-    </section>
-
-    <section id="diferenciais" class="secao" aria-labelledby="h2-diferenciais">
-      <h2 id="h2-diferenciais">O que diferencia esta análise</h2>
-
-      <p>
-        A Análise Legal não funciona como marketplace de profissionais e não promete resultado.
-        A proposta é anterior: organizar informações relevantes para que o usuário compreenda melhor o próprio caso
-        e possa decidir, com mais segurança, qual caminho seguir.
-      </p>
-
-      <p>
-        A triagem inicial não exige envio de prontuários, documentos sigilosos ou anexos sensíveis.
-        A coleta é limitada ao necessário para compreensão preliminar da situação, respeitando os princípios
-        da finalidade, necessidade e adequação previstos na Lei nº 13.709/2018.
-      </p>
-
-      <p>
-        Quando a situação exigir providência técnica individualizada, a etapa inicial poderá servir como base
-        organizada para encaminhamento posterior a profissional habilitado, mediante contratação própria e autônoma.
-      </p>
-    </section>
-
-    <section id="indexacao" class="secao" aria-labelledby="h2-indexacao">
-      <h2 id="h2-indexacao">Indexação técnica</h2>
-
-      <dl class="indexacao">
-        <dt>Ramo do Direito</dt>
-        <dd>Direito Administrativo. Direito Administrativo Sancionador.</dd>
-
-        <dt>Tema</dt>
-        <dd>Regime jurídico dos servidores públicos do Distrito Federal. Responsabilidade funcional.</dd>
-
-        <dt>Subtema</dt>
-        <dd>PAD, sindicância e apuração funcional no âmbito da Secretaria de Estado da Saúde do Distrito Federal.</dd>
-      </dl>
-    </section>
-
-    <section id="faq" class="secao faq" aria-labelledby="h2-faq">
-      <h2 id="h2-faq">Perguntas frequentes</h2>
-
-      <details>
-        <summary>Recebi uma notificação. O que devo observar primeiro?</summary>
-        <p>
-          O primeiro ponto é identificar a data da ciência, o tipo de procedimento, o prazo indicado,
-          a autoridade responsável e os fatos que estão sendo apurados. Sem isso, qualquer resposta tende
-          a ser menos precisa.
-        </p>
-      </details>
-
-      <details>
-        <summary>PAD e sindicância são a mesma coisa?</summary>
-        <p>
-          Não exatamente. A sindicância pode ter caráter investigativo ou acusatório, conforme o caso.
-          O PAD costuma ser o procedimento disciplinar mais estruturado, especialmente quando há possibilidade
-          de penalidades mais graves.
-        </p>
-      </details>
-
-      <details>
-        <summary>Sou servidor da Saúde. Posso responder sozinho?</summary>
-        <p>
-          Em muitos procedimentos, o servidor pode apresentar manifestação própria. Ainda assim, é recomendável
-          compreender o procedimento antes de responder, principalmente quando há prazo, documento técnico,
-          prontuário, chefia envolvida ou risco funcional relevante.
-        </p>
-      </details>
-
-      <details>
-        <summary>Devo anexar prontuário ou documentos de pacientes?</summary>
-        <p>
-          Apenas com muito critério. Dados de pacientes são sensíveis e podem envolver sigilo profissional.
-          Na triagem inicial da Análise Legal, esses documentos não são solicitados.
-        </p>
-      </details>
-
-      <details>
-        <summary>O PAD pode repercutir no conselho profissional?</summary>
-        <p>
-          Pode, a depender do fato apurado. Situações envolvendo conduta profissional, atendimento,
-          prontuário, prescrição, escala assistencial ou relação com paciente podem gerar reflexos em conselho
-          profissional.
-        </p>
-      </details>
-
-      <details>
-        <summary>Estou afastado por licença médica. O procedimento pode continuar?</summary>
-        <p>
-          Em regra, o afastamento médico não impede automaticamente o andamento do procedimento.
-          No entanto, situações específicas podem exigir avaliação sobre capacidade de participação,
-          comunicação com a comissão e preservação do direito de defesa.
-        </p>
-      </details>
-
-      <details>
-        <summary>O que recebo ao final da análise prévia?</summary>
-        <p>
-          A finalidade da etapa inicial é organizar a situação: tipo de procedimento, fase atual,
-          prazos aparentes, fatos narrados, documentos mencionados e pontos de atenção. Não há, nesta etapa,
-          peticionamento, representação ou elaboração automática de defesa.
-        </p>
-      </details>
-    </section>
-
-    <section id="cta-final" class="secao cta-section" aria-labelledby="h2-cta-final">
-      <h2 id="h2-cta-final">Organize sua situação antes da próxima decisão</h2>
-
-      <p>
-        A triagem é objetiva, estruturada por perguntas curtas e pensada para uso em celular.
-        Não há solicitação de documentos sensíveis nesta etapa.
-      </p>
-
-      <a
-        class="cta cta-primary"
-        href="./analise.html?origem=pad-saude-df&tema=PAD%20e%20Sindicancia%20na%20Saude%20do%20DF"
-      >
-        Inicie a análise
-      </a>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="links">
-      <a href="/privacidade.html">Política de Privacidade</a>
-      <a href="/termos.html">Termos de Uso</a>
-      <a href="/contato.html">Contato institucional</a>
-    </div>
-
-    <p>
-      O tratamento de dados pessoais pela ANÁLISE LEGAL observa a Lei nº 13.709/2018 (LGPD).
-      Saiba mais em nossa <a href="/privacidade.html">Política de Privacidade</a>.
-      Contato do Encarregado:
-      <a href="mailto:privacidade@analiselegal.com.br">privacidade@analiselegal.com.br</a>.
-    </p>
-
-    <p class="disclaimer">
-      ANÁLISE LEGAL é uma plataforma digital destinada à coleta, organização e estruturação inicial de informações fornecidas pelo usuário,
-      com finalidade informativa e preparatória. A plataforma não promete resultado, não substitui análise profissional individualizada
-      e não constitui, por si só, representação em processo administrativo ou judicial. Quando houver necessidade de ato técnico privativo,
-      a contratação deverá ocorrer de forma própria e autônoma com profissional habilitado.
-    </p>
-
-    <p class="copyright">
-      © 2026 Análise Legal. Todos os direitos reservados.
-    </p>
-  </footer>
-
-  <script>
-    window.addEventListener("beforeprint", function () {
-      document.querySelectorAll("details").forEach(function (detail) {
-        detail.dataset.wasOpen = detail.open ? "true" : "false";
-        detail.open = true;
-      });
-
-      if (typeof gtag !== "undefined") {
-        gtag("event", "print_intent", {
-          event_category: "engajamento",
-          event_label: "pad_saude_df"
-        });
-      }
-    });
-
-    window.addEventListener("afterprint", function () {
-      document.querySelectorAll("details").forEach(function (detail) {
-        detail.open = detail.dataset.wasOpen === "true";
-        delete detail.dataset.wasOpen;
-      });
-    });
-
-    document.querySelectorAll('a[href*="analise.html"]').forEach(function (link) {
-      link.addEventListener("click", function () {
-        if (typeof gtag !== "undefined") {
-          gtag("event", "cta_click", {
-            event_category: "conversao",
-            event_label: link.href
-          });
-        }
-      });
-    });
-
-    const params = new URLSearchParams(window.location.search);
-
-    if (
-      params.get("utm_source") ||
-      params.get("utm_medium") ||
-      params.get("utm_campaign") ||
-      params.get("ref")
-    ) {
-      document.querySelectorAll('a[href*="analise.html"]').forEach(function (link) {
-        const url = new URL(link.href, window.location.origin);
-
-        params.forEach(function (value, key) {
-          url.searchParams.set(key, value);
-        });
-
-        link.href = url.toString();
-      });
-    }
-  </script>
-</body>
-</html>
+        display: none !
