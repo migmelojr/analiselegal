@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Solicitar Análise | PAD e Sindicância na Saúde do DF | Análise Legal</title>
   <meta name="description" content="Formulário estruturado para organização inicial de PAD, sindicância ou apuração funcional contra servidor da Saúde do Distrito Federal." />
   <meta name="robots" content="noindex, follow" />
@@ -24,13 +25,9 @@
       --cinza: #5b6470;
       --borda: #e3dac6;
       --erro: #9f1239;
-      --ok: #166534;
-      --branco: #ffffff;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html,
     body {
@@ -97,9 +94,7 @@
       letter-spacing: 0.02em;
     }
 
-    .hero {
-      max-width: 860px;
-    }
+    .hero { max-width: 860px; }
 
     .eyebrow {
       color: var(--dourado2);
@@ -141,9 +136,7 @@
       margin: 18px 0;
     }
 
-    .intro {
-      font-size: 1.08rem;
-    }
+    .intro { font-size: 1.08rem; }
 
     .progress {
       height: 10px;
@@ -166,24 +159,13 @@
       margin-bottom: 16px;
     }
 
-    .step {
-      display: none;
-    }
-
-    .step.active {
-      display: block;
-    }
+    .step { display: none; }
+    .step.active { display: block; }
 
     h2 {
       font-size: clamp(1.55rem, 4.5vw, 2.1rem);
       line-height: 1.12;
       margin: 0 0 8px;
-      color: var(--verde);
-    }
-
-    h3 {
-      font-size: 1.22rem;
-      margin: 22px 0 8px;
       color: var(--verde);
     }
 
@@ -200,10 +182,6 @@
       margin: 20px 0 10px;
     }
 
-    .question-title:first-of-type {
-      margin-top: 8px;
-    }
-
     .options-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -218,7 +196,7 @@
       align-items: flex-start;
       border: 1px solid #ddd2bd;
       border-radius: 16px;
-      padding: 14px 14px;
+      padding: 14px;
       background: #fffdf8;
       cursor: pointer;
       min-height: 92px;
@@ -260,7 +238,6 @@
     }
 
     input,
-    select,
     textarea {
       width: 100%;
       min-height: 52px;
@@ -279,10 +256,15 @@
     }
 
     input.invalid,
-    textarea.invalid,
-    select.invalid {
+    textarea.invalid {
       border-color: var(--erro) !important;
       background: #fff7f7;
+    }
+
+    .invalid-group {
+      border-radius: 16px;
+      outline: 2px solid rgba(159, 18, 57, 0.18);
+      outline-offset: 4px;
     }
 
     .error {
@@ -345,16 +327,6 @@
       min-width: 250px;
     }
 
-    .btn-primary:hover,
-    .btn-secondary:hover {
-      filter: brightness(0.98);
-    }
-
-    .btn:disabled {
-      opacity: 0.55;
-      cursor: not-allowed;
-    }
-
     .summary {
       background: #fbf8ef;
       border: 1px solid var(--borda);
@@ -363,17 +335,11 @@
       margin-top: 14px;
     }
 
-    .summary p {
-      margin: 5px 0;
-    }
+    .summary p { margin: 5px 0; }
 
     .required-note {
       font-size: 0.92rem;
       color: #667085;
-    }
-
-    .print-only {
-      display: none;
     }
 
     footer {
@@ -383,107 +349,33 @@
       text-align: center;
     }
 
-    footer a {
-      color: #f3d98a;
-    }
+    footer a { color: #f3d98a; }
 
     @media (max-width: 760px) {
-      body {
-        font-size: 17px;
-      }
+      body { font-size: 17px; }
 
       header {
         padding-left: 16px;
         padding-right: 16px;
       }
 
-      .card {
-        border-radius: 18px;
-      }
+      .card { border-radius: 18px; }
 
       .grid,
       .options-grid {
         grid-template-columns: 1fr;
       }
 
-      .option {
-        min-height: auto;
-      }
+      .option { min-height: auto; }
     }
 
     @media (max-width: 560px) {
-      .nav {
-        flex-direction: column-reverse;
-      }
+      .nav { flex-direction: column-reverse; }
 
       .btn,
       .btn-primary {
         width: 100%;
         min-width: 0;
-      }
-    }
-
-    @media print {
-      body {
-        background: #fff;
-        color: #000;
-        font-size: 11pt;
-        line-height: 1.32;
-      }
-
-      header,
-      footer,
-      .nav,
-      .progress,
-      .step-count,
-      .skip-link,
-      .no-print {
-        display: none !important;
-      }
-
-      main {
-        width: 100%;
-        padding: 0;
-      }
-
-      .card {
-        box-shadow: none;
-        border: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .step {
-        display: block !important;
-        page-break-inside: avoid;
-      }
-
-      .print-only {
-        display: block;
-      }
-
-      .options-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2mm 4mm;
-      }
-
-      .option {
-        border: none;
-        padding: 1mm 0;
-        min-height: auto;
-        background: #fff;
-      }
-
-      .legal-box {
-        border: none;
-        background: #fff;
-        padding: 4px 0;
-      }
-
-      @page {
-        size: A4;
-        margin: 18mm 16mm;
       }
     }
   </style>
@@ -522,11 +414,11 @@
 
     <section class="card" aria-label="Formulário de solicitação de análise">
       <form id="formAnalise" novalidate>
-        <div class="progress no-print">
+        <div class="progress">
           <div class="bar" id="bar"></div>
         </div>
 
-        <div class="step-count no-print" id="stepCount">Etapa 1 de 7</div>
+        <div class="step-count" id="stepCount">Etapa 1 de 7</div>
 
         <div class="step active" data-step="1">
           <h2>Identificação inicial do procedimento</h2>
@@ -771,7 +663,7 @@
           </div>
         </div>
 
-        <div class="nav no-print">
+        <div class="nav">
           <button type="button" class="btn btn-secondary" id="prevBtn">VOLTAR</button>
           <button type="button" class="btn btn-primary" id="nextBtn">AVANÇAR</button>
           <button type="submit" class="btn btn-primary" id="submitBtn" style="display:none">SOLICITAR ANÁLISE</button>
@@ -802,7 +694,7 @@
     const nextBtn = document.getElementById("nextBtn");
     const submitBtn = document.getElementById("submitBtn");
 
-    const onlyDigits = value => (value || "").replace(/\\D/g, "");
+    const onlyDigits = value => (value || "").replace(/\D/g, "");
     const getRadio = name => document.querySelector(`input[name="${name}"]:checked`)?.value || "";
     const getChecks = name => [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(item => item.value);
 
@@ -857,16 +749,16 @@
     function maskCPF(value) {
       return onlyDigits(value)
         .slice(0, 11)
-        .replace(/(\\d{3})(\\d)/, "$1.$2")
-        .replace(/(\\d{3})(\\d)/, "$1.$2")
-        .replace(/(\\d{3})(\\d{1,2})$/, "$1-$2");
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
     }
 
     function validCPF(cpf) {
       cpf = onlyDigits(cpf);
 
       if (!cpf) return true;
-      if (cpf.length !== 11 || /^(\\d)\\1+$/.test(cpf)) return false;
+      if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
 
       let soma = 0;
       let resto;
@@ -896,13 +788,13 @@
 
       if (digits.length <= 10) {
         return digits
-          .replace(/(\\d{2})(\\d)/, "($1) $2")
-          .replace(/(\\d{4})(\\d)/, "$1-$2");
+          .replace(/(\d{2})(\d)/, "($1) $2")
+          .replace(/(\d{4})(\d)/, "$1-$2");
       }
 
       return digits
-        .replace(/(\\d{2})(\\d)/, "($1) $2")
-        .replace(/(\\d{5})(\\d)/, "$1-$2");
+        .replace(/(\d{2})(\d)/, "($1) $2")
+        .replace(/(\d{5})(\d)/, "$1-$2");
     }
 
     function validPhone(value) {
@@ -911,11 +803,11 @@
     }
 
     function validEmail(value) {
-      return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/.test((value || "").trim());
+      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((value || "").trim());
     }
 
     function maskCEP(value) {
-      return onlyDigits(value).slice(0, 8).replace(/(\\d{5})(\\d)/, "$1-$2");
+      return onlyDigits(value).slice(0, 8).replace(/(\d{5})(\d)/, "$1-$2");
     }
 
     function gerarProtocolo(nome) {
@@ -933,7 +825,7 @@
         .trim()
         .split(" ")[0]
         .normalize("NFD")
-        .replace(/[\\u0300-\\u036f]/g, "")
+        .replace(/[\u0300-\u036f]/g, "")
         .replace(/[^a-zA-Z0-9]/g, "")
         .toUpperCase();
 
@@ -1012,7 +904,6 @@
 
     function validateCurrent() {
       let ok = true;
-
       const etapa = steps[current];
 
       etapa.querySelectorAll("[required]").forEach(element => {
@@ -1228,15 +1119,6 @@
 
       sessionStorage.setItem("analiseLegalResumo", JSON.stringify(data));
       window.location.href = "confirmacao.html";
-    });
-
-    window.addEventListener("beforeprint", () => {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "print_intent",
-        page_path: location.pathname,
-        page_title: document.title
-      });
     });
 
     showStep();
