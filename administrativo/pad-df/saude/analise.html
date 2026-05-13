@@ -7,88 +7,1239 @@
   <meta name="description" content="Formulário estruturado para organização inicial de PAD, sindicância ou apuração funcional contra servidor da Saúde do Distrito Federal." />
   <meta name="robots" content="noindex, follow" />
   <meta name="theme-color" content="#082c27" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/analiselegal.css" />
+
   <style>
-    :root{--verde:#082c27;--verde2:#0d3b34;--dourado:#c8a44b;--dourado2:#d8b45f;--bege:#f4f0e8;--texto:#1f2933;--cinza:#5b6470;--borda:#e3dac6;--erro:#9f1239;--ok:#166534;--branco:#fffdf8}
-    *{box-sizing:border-box}html,body{margin:0;padding:0;max-width:100%;overflow-x:hidden}body{font-family:'Crimson Text',Georgia,serif;background:var(--bege);color:var(--texto);font-size:18px;line-height:1.55}.skip-link{position:absolute;left:-999px;top:auto}.skip-link:focus{left:16px;top:12px;background:#fff;color:#000;padding:10px 14px;z-index:20;border-radius:10px}header{background:linear-gradient(135deg,var(--verde),var(--verde2));color:#fff;padding:28px 18px 34px;width:100%;isolation:isolate;transform:translateZ(0)}.header-inner{width:min(100%,1080px);margin:0 auto}.brand{display:flex;align-items:center;gap:14px;margin-bottom:24px}.brand img{width:176px;max-width:70vw;height:auto}.tag{font-size:.95rem;color:#eadfbf;letter-spacing:.02em}.hero{max-width:860px}.eyebrow{color:var(--dourado2);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.9rem}h1{font-size:clamp(2rem,6vw,4rem);line-height:1.05;margin:10px 0 16px}.lead{font-size:clamp(1.1rem,3.8vw,1.38rem);max-width:780px;color:#f7f1df}.note{margin-top:14px;color:#eadfbf}main{width:min(100%,980px);margin:0 auto;padding:28px 16px 52px}.card{background:#fff;border:1px solid var(--borda);border-radius:22px;box-shadow:0 18px 48px rgba(8,44,39,.12);padding:clamp(18px,4vw,34px);margin:18px 0}.intro{font-size:1.08rem}.progress{height:10px;background:#e8e0d1;border-radius:999px;overflow:hidden;margin:18px 0 6px}.bar{height:100%;width:10%;background:linear-gradient(90deg,var(--dourado),var(--dourado2));transition:.25s}.step-count{font-size:.95rem;color:var(--cinza);margin-bottom:16px}.step{display:none}.step.active{display:block}h2{font-size:clamp(1.55rem,4.5vw,2.1rem);line-height:1.12;margin:0 0 8px;color:var(--verde)}.hint{color:#475569;margin:0 0 18px}.two-blocks{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}.question-block{border:1px solid #e0d5bf;background:#fffaf1;border-radius:18px;padding:16px}.question{display:block;font-weight:700;font-size:1.16rem;line-height:1.25;margin:0 0 12px;color:#082c27}.options{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:10px;margin:10px 0 8px}.option{display:flex;gap:9px;align-items:flex-start;justify-content:flex-start;border:1px solid #ddd2bd;border-radius:14px;padding:11px 12px;background:#fff;cursor:pointer;font-weight:400;font-size:.98rem;line-height:1.25;min-height:56px}.option:hover{border-color:#c8a44b;background:#fffdf6}.option input{width:auto;min-height:auto;margin:3px 0 0}.option span{display:block}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}label.field-label{display:block;font-weight:700;margin:14px 0 6px;color:#13221f;font-size:1.04rem}input,select,textarea{width:100%;min-height:52px;border:1px solid #cfc6b4;border-radius:14px;padding:13px 14px;font-family:inherit;font-size:1rem;background:#fff;color:var(--texto)}textarea{min-height:128px;resize:vertical}.field-help{font-size:.92rem;color:#667085;margin-top:5px}.error{display:none;color:var(--erro);font-weight:700;font-size:.92rem;margin-top:5px}.invalid{border-color:var(--erro)!important;background:#fff7f7!important;outline:2px solid rgba(159,18,57,.08)}.step-alert{display:none;border:1px solid #fecdd3;background:#fff1f2;color:#9f1239;border-radius:14px;padding:10px 12px;margin:12px 0 16px;font-weight:700}.legal-box{background:#fbf8ef;border:1px solid var(--borda);border-radius:16px;padding:14px;margin-top:14px}.nav{display:flex;justify-content:space-between;gap:12px;margin-top:22px}.btn{border:0;border-radius:14px;min-height:56px;padding:0 24px;font-family:inherit;font-weight:700;font-size:.96rem;letter-spacing:.04em;cursor:pointer}.btn-secondary{background:#e7dfd0;color:#18352f}.btn-primary{background:linear-gradient(135deg,var(--dourado),var(--dourado2));color:#17231f;min-width:250px}.btn-primary:hover,.btn-secondary:hover{filter:brightness(.98)}.summary{background:#fbf8ef;border:1px solid var(--borda);border-radius:16px;padding:14px;margin-top:14px}.summary p{margin:5px 0}.required-note{font-size:.92rem;color:#667085}.print-only{display:none}footer{background:linear-gradient(135deg,var(--verde),var(--verde2));color:#f8f2df;padding:24px 16px;text-align:center}footer a{color:#f3d98a}@media(max-width:760px){.two-blocks,.grid{grid-template-columns:1fr}body{font-size:17px}header{padding-left:16px;padding-right:16px}.card{border-radius:18px}.options{grid-template-columns:1fr 1fr}.question-block{padding:14px}}@media(max-width:560px){.options{grid-template-columns:1fr}.nav{flex-direction:column-reverse}.btn,.btn-primary{width:100%;min-width:0}}
-    @media print{body{background:#fff;color:#000;font-size:11pt;line-height:1.32}header,footer,.nav,.progress,.step-count,.skip-link,.no-print{display:none!important}main{width:100%;padding:0}.card{box-shadow:none;border:none;padding:0;margin:0}.step{display:block!important;page-break-inside:avoid}.print-only{display:block}.two-blocks,.grid{grid-template-columns:1fr 1fr;gap:5mm}.question-block{border:1px solid #ccc;background:#fff;padding:4mm}.option{border:none;padding:1mm 0;min-height:0}.legal-box{border:none;background:#fff;padding:2mm 0}@page{size:A4;margin:18mm 16mm}}
+    :root {
+      --verde: #082c27;
+      --verde2: #0d3b34;
+      --dourado: #c8a44b;
+      --dourado2: #d8b45f;
+      --bege: #f4f0e8;
+      --texto: #1f2933;
+      --cinza: #5b6470;
+      --borda: #e3dac6;
+      --erro: #9f1239;
+      --ok: #166534;
+      --branco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: "Crimson Text", Georgia, serif;
+      background: var(--bege);
+      color: var(--texto);
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+    }
+
+    .skip-link:focus {
+      left: 16px;
+      top: 12px;
+      background: #fff;
+      color: #000;
+      padding: 10px 14px;
+      z-index: 20;
+      border-radius: 10px;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--verde), var(--verde2));
+      color: #fff;
+      padding: 28px 18px 34px;
+      width: 100%;
+      isolation: isolate;
+      transform: translateZ(0);
+    }
+
+    .header-inner {
+      width: min(100%, 1080px);
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .brand img {
+      width: 176px;
+      max-width: 70vw;
+      height: auto;
+    }
+
+    .tag {
+      font-size: 0.95rem;
+      color: #eadfbf;
+      letter-spacing: 0.02em;
+    }
+
+    .hero {
+      max-width: 860px;
+    }
+
+    .eyebrow {
+      color: var(--dourado2);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 4rem);
+      line-height: 1.05;
+      margin: 10px 0 16px;
+    }
+
+    .lead {
+      font-size: clamp(1.1rem, 3.8vw, 1.38rem);
+      max-width: 780px;
+      color: #f7f1df;
+    }
+
+    .note {
+      margin-top: 14px;
+      color: #eadfbf;
+    }
+
+    main {
+      width: min(100%, 980px);
+      margin: 0 auto;
+      padding: 28px 16px 52px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--borda);
+      border-radius: 22px;
+      box-shadow: 0 18px 48px rgba(8, 44, 39, 0.12);
+      padding: clamp(18px, 4vw, 34px);
+      margin: 18px 0;
+    }
+
+    .intro {
+      font-size: 1.08rem;
+    }
+
+    .progress {
+      height: 10px;
+      background: #e8e0d1;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 18px 0 6px;
+    }
+
+    .bar {
+      height: 100%;
+      width: 10%;
+      background: linear-gradient(90deg, var(--dourado), var(--dourado2));
+      transition: 0.25s;
+    }
+
+    .step-count {
+      font-size: 0.95rem;
+      color: var(--cinza);
+      margin-bottom: 16px;
+    }
+
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    h2 {
+      font-size: clamp(1.55rem, 4.5vw, 2.1rem);
+      line-height: 1.12;
+      margin: 0 0 8px;
+      color: var(--verde);
+    }
+
+    h3 {
+      font-size: 1.22rem;
+      margin: 22px 0 8px;
+      color: var(--verde);
+    }
+
+    .hint {
+      color: #475569;
+      margin: 0 0 18px;
+    }
+
+    .question-title {
+      display: block;
+      font-weight: 700;
+      color: var(--verde);
+      font-size: 1.12rem;
+      margin: 20px 0 10px;
+    }
+
+    .question-title:first-of-type {
+      margin-top: 8px;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 10px 0 8px;
+      align-items: stretch;
+    }
+
+    .option {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      border: 1px solid #ddd2bd;
+      border-radius: 16px;
+      padding: 14px 14px;
+      background: #fffdf8;
+      cursor: pointer;
+      min-height: 92px;
+      height: 100%;
+      font-weight: 400;
+      color: #1f2933;
+    }
+
+    .option:hover {
+      border-color: var(--dourado);
+      background: #fffaf0;
+    }
+
+    .option input {
+      width: auto;
+      min-height: auto;
+      margin-top: 5px;
+      flex: 0 0 auto;
+    }
+
+    .option span {
+      display: block;
+      font-weight: 400;
+      line-height: 1.35;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin: 14px 0 6px;
+      color: #13221f;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 52px;
+      border: 1px solid #cfc6b4;
+      border-radius: 14px;
+      padding: 13px 14px;
+      font-family: inherit;
+      font-size: 1rem;
+      background: #fff;
+      color: var(--texto);
+    }
+
+    textarea {
+      min-height: 128px;
+      resize: vertical;
+    }
+
+    input.invalid,
+    textarea.invalid,
+    select.invalid {
+      border-color: var(--erro) !important;
+      background: #fff7f7;
+    }
+
+    .error {
+      display: block;
+      color: var(--erro);
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-top: 5px;
+      min-height: 1.2em;
+    }
+
+    .field-help {
+      font-size: 0.92rem;
+      color: #667085;
+      margin-top: 5px;
+    }
+
+    .legal-box {
+      background: #fbf8ef;
+      border: 1px solid var(--borda);
+      border-radius: 16px;
+      padding: 14px;
+      margin-top: 14px;
+    }
+
+    .legal-box .option {
+      border: none;
+      padding: 0;
+      min-height: auto;
+      background: transparent;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 14px;
+      min-height: 56px;
+      padding: 0 24px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.96rem;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+    }
+
+    .btn-secondary {
+      background: #e7dfd0;
+      color: #18352f;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--dourado), var(--dourado2));
+      color: #17231f;
+      min-width: 250px;
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover {
+      filter: brightness(0.98);
+    }
+
+    .btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .summary {
+      background: #fbf8ef;
+      border: 1px solid var(--borda);
+      border-radius: 16px;
+      padding: 14px;
+      margin-top: 14px;
+    }
+
+    .summary p {
+      margin: 5px 0;
+    }
+
+    .required-note {
+      font-size: 0.92rem;
+      color: #667085;
+    }
+
+    .print-only {
+      display: none;
+    }
+
+    footer {
+      background: linear-gradient(135deg, var(--verde), var(--verde2));
+      color: #f8f2df;
+      padding: 24px 16px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #f3d98a;
+    }
+
+    @media (max-width: 760px) {
+      body {
+        font-size: 17px;
+      }
+
+      header {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .card {
+        border-radius: 18px;
+      }
+
+      .grid,
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .option {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav {
+        flex-direction: column-reverse;
+      }
+
+      .btn,
+      .btn-primary {
+        width: 100%;
+        min-width: 0;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        color: #000;
+        font-size: 11pt;
+        line-height: 1.32;
+      }
+
+      header,
+      footer,
+      .nav,
+      .progress,
+      .step-count,
+      .skip-link,
+      .no-print {
+        display: none !important;
+      }
+
+      main {
+        width: 100%;
+        padding: 0;
+      }
+
+      .card {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .step {
+        display: block !important;
+        page-break-inside: avoid;
+      }
+
+      .print-only {
+        display: block;
+      }
+
+      .options-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2mm 4mm;
+      }
+
+      .option {
+        border: none;
+        padding: 1mm 0;
+        min-height: auto;
+        background: #fff;
+      }
+
+      .legal-box {
+        border: none;
+        background: #fff;
+        padding: 4px 0;
+      }
+
+      @page {
+        size: A4;
+        margin: 18mm 16mm;
+      }
+    }
   </style>
 </head>
+
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
   <header>
     <div class="header-inner">
-      <div class="brand"><img src="/assets/img/Marca.svg" alt="Análise Legal"><div class="tag">Precisão jurídica para decisões relevantes</div></div>
-      <div class="hero"><div class="eyebrow">Secretaria de Saúde do Distrito Federal</div><h1>Solicitação de análise inicial</h1><p class="lead">PAD, sindicância, notificação da corregedoria ou convocação para esclarecimentos.</p><p class="note">Formulário estruturado para organizar informações essenciais antes da próxima decisão.</p></div>
+      <div class="brand">
+        <img src="../../../assets/img/Marca.svg" alt="Análise Legal" />
+        <div class="tag">Precisão jurídica para decisões relevantes</div>
+      </div>
+
+      <div class="hero">
+        <div class="eyebrow">Secretaria de Saúde do Distrito Federal</div>
+        <h1>Solicitação de análise inicial</h1>
+        <p class="lead">PAD, sindicância, notificação da corregedoria ou convocação para esclarecimentos.</p>
+        <p class="note">Formulário estruturado para organizar informações essenciais antes da próxima decisão.</p>
+      </div>
     </div>
   </header>
+
   <main id="conteudo">
-    <section class="card intro"><p>As perguntas abaixo ajudam a organizar o cenário, identificar prazo aparente e compreender os pontos de atenção. Nesta etapa, não envie prontuários completos nem documentos sensíveis desnecessários.</p><p class="required-note">Os dados pessoais ficam ao final e serão solicitados apenas para contato, identificação da solicitação e eventual formalização de proposta relacionada ao atendimento solicitado.</p></section>
+    <section class="card intro">
+      <p>
+        As perguntas abaixo ajudam a organizar o cenário, identificar prazo aparente e compreender os pontos de atenção.
+        Nesta etapa, não envie prontuários completos nem documentos sensíveis desnecessários.
+      </p>
+
+      <p class="required-note">
+        Os dados pessoais ficam ao final e serão solicitados apenas para contato, identificação da solicitação e eventual formalização de proposta relacionada ao atendimento solicitado.
+      </p>
+    </section>
+
     <section class="card" aria-label="Formulário de solicitação de análise">
       <form id="formAnalise" novalidate>
-        <div class="progress no-print"><div class="bar" id="bar"></div></div><div class="step-count no-print" id="stepCount">Etapa 1 de 7</div><div class="step-alert" id="stepAlert">Revise os campos destacados antes de avançar.</div>
+        <div class="progress no-print">
+          <div class="bar" id="bar"></div>
+        </div>
+
+        <div class="step-count no-print" id="stepCount">Etapa 1 de 7</div>
 
         <div class="step active" data-step="1">
-          <h2>Identificação inicial</h2><p class="hint">Comece pelo tipo de comunicação e pelo contexto funcional.</p>
-          <div class="two-blocks">
-            <div class="question-block"><span class="question">O que você recebeu?</span><div class="options"><label class="option"><input type="radio" name="procedimento" value="PAD" required><span>PAD</span></label><label class="option"><input type="radio" name="procedimento" value="Sindicância"><span>Sindicância</span></label><label class="option"><input type="radio" name="procedimento" value="Notificação da corregedoria"><span>Notificação da corregedoria</span></label><label class="option"><input type="radio" name="procedimento" value="Convocação para esclarecimentos"><span>Convocação para esclarecimentos</span></label><label class="option"><input type="radio" name="procedimento" value="Não tenho certeza"><span>Não tenho certeza</span></label></div></div>
-            <div class="question-block"><span class="question">Em qual área da Saúde do Distrito Federal você atua?</span><div class="options"><label class="option"><input type="radio" name="area" value="Hospital" required><span>Hospital</span></label><label class="option"><input type="radio" name="area" value="UPA"><span>UPA</span></label><label class="option"><input type="radio" name="area" value="UBS"><span>UBS</span></label><label class="option"><input type="radio" name="area" value="SAMU"><span>SAMU</span></label><label class="option"><input type="radio" name="area" value="Administração"><span>Administração</span></label><label class="option"><input type="radio" name="area" value="Outro"><span>Outro</span></label></div></div>
+          <h2>Identificação inicial do procedimento</h2>
+          <p class="hint">Comece pelo tipo de comunicação recebida e pelo contexto funcional. Não há problema se ainda não souber classificar.</p>
+
+          <span class="question-title">O que você recebeu?</span>
+          <div class="options-grid">
+            <label class="option"><input type="radio" name="procedimento" value="PAD" required><span>PAD</span></label>
+            <label class="option"><input type="radio" name="procedimento" value="Sindicância"><span>Sindicância</span></label>
+            <label class="option"><input type="radio" name="procedimento" value="Notificação da corregedoria"><span>Notificação da corregedoria</span></label>
+            <label class="option"><input type="radio" name="procedimento" value="Convocação para esclarecimentos"><span>Convocação para esclarecimentos</span></label>
+            <label class="option"><input type="radio" name="procedimento" value="Não tenho certeza"><span>Não tenho certeza</span></label>
           </div>
-          <div class="question-block" style="margin-top:20px"><span class="question">Qual é sua função atualmente?</span><div class="options"><label class="option"><input type="radio" name="funcao" value="Médico(a)" required><span>Médico(a)</span></label><label class="option"><input type="radio" name="funcao" value="Enfermeiro(a)"><span>Enfermeiro(a)</span></label><label class="option"><input type="radio" name="funcao" value="Técnico(a) de enfermagem"><span>Técnico(a) de enfermagem</span></label><label class="option"><input type="radio" name="funcao" value="Administrativo"><span>Administrativo</span></label><label class="option"><input type="radio" name="funcao" value="Gestão/Chefia"><span>Gestão/Chefia</span></label><label class="option"><input type="radio" name="funcao" value="Outro"><span>Outro</span></label></div></div>
+          <div class="error" id="err-procedimento"></div>
+
+          <span class="question-title">Em qual área da Saúde do Distrito Federal você atua?</span>
+          <div class="options-grid">
+            <label class="option"><input type="radio" name="area" value="Hospital" required><span>Hospital</span></label>
+            <label class="option"><input type="radio" name="area" value="UPA"><span>UPA</span></label>
+            <label class="option"><input type="radio" name="area" value="UBS"><span>UBS</span></label>
+            <label class="option"><input type="radio" name="area" value="SAMU"><span>SAMU</span></label>
+            <label class="option"><input type="radio" name="area" value="Administração"><span>Administração</span></label>
+            <label class="option"><input type="radio" name="area" value="Outro"><span>Outro</span></label>
+          </div>
+          <div class="error" id="err-area"></div>
+
+          <span class="question-title">Qual é sua função atualmente?</span>
+          <div class="options-grid">
+            <label class="option"><input type="radio" name="funcao" value="Médico(a)" required><span>Médico(a)</span></label>
+            <label class="option"><input type="radio" name="funcao" value="Enfermeiro(a)"><span>Enfermeiro(a)</span></label>
+            <label class="option"><input type="radio" name="funcao" value="Técnico(a) de enfermagem"><span>Técnico(a) de enfermagem</span></label>
+            <label class="option"><input type="radio" name="funcao" value="Administrativo"><span>Administrativo</span></label>
+            <label class="option"><input type="radio" name="funcao" value="Gestão/Chefia"><span>Gestão/Chefia</span></label>
+            <label class="option"><input type="radio" name="funcao" value="Outro"><span>Outro</span></label>
+          </div>
+          <div class="error" id="err-funcao"></div>
         </div>
 
         <div class="step" data-step="2">
-          <h2>Prazo e urgência</h2><p class="hint">A existência de prazo altera a prioridade da análise.</p>
-          <div class="two-blocks">
-            <div class="question-block"><span class="question">Você conseguiu identificar se existe prazo no documento recebido?</span><div class="options"><label class="option"><input type="radio" name="existePrazo" value="Sim" required><span>Sim</span></label><label class="option"><input type="radio" name="existePrazo" value="Não"><span>Não</span></label><label class="option"><input type="radio" name="existePrazo" value="Não consegui identificar"><span>Não consegui identificar</span></label></div></div>
-            <div class="question-block"><span class="question">Esse prazo termina:</span><div class="options"><label class="option"><input type="radio" name="prazoTermina" value="Hoje" required><span>Hoje</span></label><label class="option"><input type="radio" name="prazoTermina" value="Em até 3 dias"><span>Em até 3 dias</span></label><label class="option"><input type="radio" name="prazoTermina" value="Nesta semana"><span>Nesta semana</span></label><label class="option"><input type="radio" name="prazoTermina" value="Depois desta semana"><span>Depois desta semana</span></label><label class="option"><input type="radio" name="prazoTermina" value="Não sei informar"><span>Não sei informar</span></label></div></div>
+          <h2>Prazo e urgência</h2>
+          <p class="hint">A existência de prazo altera a prioridade da análise.</p>
+
+          <span class="question-title">Você conseguiu identificar se existe prazo no documento recebido?</span>
+          <div class="options-grid">
+            <label class="option"><input type="radio" name="existePrazo" value="Sim" required><span>Sim</span></label>
+            <label class="option"><input type="radio" name="existePrazo" value="Não"><span>Não</span></label>
+            <label class="option"><input type="radio" name="existePrazo" value="Não consegui identificar"><span>Não consegui identificar</span></label>
           </div>
+          <div class="error" id="err-existePrazo"></div>
+
+          <span class="question-title">Esse prazo termina:</span>
+          <div class="options-grid">
+            <label class="option"><input type="radio" name="prazoTermina" value="Hoje" required><span>Hoje</span></label>
+            <label class="option"><input type="radio" name="prazoTermina" value="Em até 3 dias"><span>Em até 3 dias</span></label>
+            <label class="option"><input type="radio" name="prazoTermina" value="Nesta semana"><span>Nesta semana</span></label>
+            <label class="option"><input type="radio" name="prazoTermina" value="Depois desta semana"><span>Depois desta semana</span></label>
+            <label class="option"><input type="radio" name="prazoTermina" value="Não sei informar"><span>Não sei informar</span></label>
+          </div>
+          <div class="error" id="err-prazoTermina"></div>
         </div>
 
         <div class="step" data-step="3">
-          <h2>Estágio e cenário aparente</h2><p class="hint">Indique se já houve resposta e qual fato parece estar em apuração.</p>
-          <div class="two-blocks">
-            <div class="question-block"><span class="question">Você já apresentou alguma resposta oficial relacionada a este procedimento?</span><div class="options"><label class="option"><input type="radio" name="respostaAnterior" value="Não" required><span>Não</span></label><label class="option"><input type="radio" name="respostaAnterior" value="Sim, parcialmente"><span>Sim, parcialmente</span></label><label class="option"><input type="radio" name="respostaAnterior" value="Sim, já apresentei manifestação formal"><span>Sim, já apresentei manifestação formal</span></label></div></div>
-            <div class="question-block"><span class="question">O procedimento parece relacionado a qual situação?</span><div class="options"><label class="option"><input type="radio" name="situacao" value="Escala, ponto, atraso ou ausência" required><span>Escala, ponto, atraso ou ausência</span></label><label class="option"><input type="radio" name="situacao" value="Atendimento ao paciente"><span>Atendimento ao paciente</span></label><label class="option"><input type="radio" name="situacao" value="Relação com equipe ou chefia"><span>Relação com equipe ou chefia</span></label><label class="option"><input type="radio" name="situacao" value="Acumulação de cargos ou horários"><span>Acumulação de cargos ou horários</span></label><label class="option"><input type="radio" name="situacao" value="Mensagens, redes sociais ou comunicação interna"><span>Mensagens, redes sociais ou comunicação interna</span></label><label class="option"><input type="radio" name="situacao" value="Gestão, coordenação ou fiscalização"><span>Gestão, coordenação ou fiscalização</span></label><label class="option"><input type="radio" name="situacao" value="Não consegui entender ainda"><span>Não consegui entender ainda</span></label><label class="option"><input type="radio" name="situacao" value="Outro"><span>Outro</span></label></div></div>
+          <h2>Estágio e cenário aparente</h2>
+          <p class="hint">Informe se já houve resposta formal e qual situação mais se aproxima do fato em apuração.</p>
+
+          <span class="question-title">Você já apresentou alguma resposta oficial relacionada a este procedimento?</span>
+          <div class="options-grid">
+            <label class="option"><input type="radio" name="respostaAnterior" value="Não" required><span>Não</span></label>
+            <label class="option"><input type="radio" name="respostaAnterior" value="Sim, parcialmente"><span>Sim, parcialmente</span></label>
+            <label class="option"><input type="radio" name="respostaAnterior" value="Sim, já apresentei manifestação formal"><span>Sim, já apresentei manifestação formal</span></label>
           </div>
+          <div class="error" id="err-respostaAnterior"></div>
+
+          <span class="question-title">O procedimento parece relacionado a qual situação?</span>
+          <div class="options-grid">
+            <label class="option"><input type="radio" name="situacao" value="Escala, ponto, atraso ou ausência" required><span>Escala, ponto, atraso ou ausência</span></label>
+            <label class="option"><input type="radio" name="situacao" value="Atendimento ao paciente"><span>Atendimento ao paciente</span></label>
+            <label class="option"><input type="radio" name="situacao" value="Relação com equipe ou chefia"><span>Relação com equipe ou chefia</span></label>
+            <label class="option"><input type="radio" name="situacao" value="Acumulação de cargos ou horários"><span>Acumulação de cargos ou horários</span></label>
+            <label class="option"><input type="radio" name="situacao" value="Mensagens, redes sociais ou comunicação interna"><span>Mensagens, redes sociais ou comunicação interna</span></label>
+            <label class="option"><input type="radio" name="situacao" value="Gestão, coordenação ou fiscalização"><span>Gestão, coordenação ou fiscalização</span></label>
+            <label class="option"><input type="radio" name="situacao" value="Não consegui entender ainda"><span>Não consegui entender ainda</span></label>
+            <label class="option"><input type="radio" name="situacao" value="Outro"><span>Outro</span></label>
+          </div>
+          <div class="error" id="err-situacao"></div>
         </div>
 
         <div class="step" data-step="4">
-          <h2>Percepção e riscos</h2><p class="hint">Essa etapa ajuda a localizar o ponto sensível da demanda.</p>
-          <div class="two-blocks">
-            <div class="question-block"><span class="question">Neste momento, qual situação mais se aproxima do que você está sentindo?</span><div class="options"><label class="option"><input type="radio" name="percepcao" value="Acho que houve um mal-entendido" required><span>Acho que houve um mal-entendido</span></label><label class="option"><input type="radio" name="percepcao" value="Existem informações incompletas"><span>Existem informações incompletas</span></label><label class="option"><input type="radio" name="percepcao" value="A situação ficou maior do que deveria"><span>A situação ficou maior do que deveria</span></label><label class="option"><input type="radio" name="percepcao" value="Existe conflito ou perseguição interna"><span>Existe conflito ou perseguição interna</span></label><label class="option"><input type="radio" name="percepcao" value="Ainda não entendi exatamente o problema"><span>Ainda não entendi exatamente o problema</span></label></div></div>
-            <div class="question-block"><span class="question">Existe preocupação envolvendo:</span><div class="options"><label class="option"><input type="checkbox" name="preocupacoes" value="Conselho profissional"><span>Conselho profissional</span></label><label class="option"><input type="checkbox" name="preocupacoes" value="Chefia imediata"><span>Chefia imediata</span></label><label class="option"><input type="checkbox" name="preocupacoes" value="Escala ou plantões"><span>Escala ou plantões</span></label><label class="option"><input type="checkbox" name="preocupacoes" value="Paciente ou prontuário"><span>Paciente ou prontuário</span></label><label class="option"><input type="checkbox" name="preocupacoes" value="Exposição interna"><span>Exposição interna</span></label><label class="option"><input type="checkbox" name="preocupacoes" value="Ainda não sei avaliar"><span>Ainda não sei avaliar</span></label></div></div>
+          <h2>Percepção e repercussões</h2>
+          <p class="hint">Essas respostas ajudam a organizar o ponto sensível da demanda.</p>
+
+          <span class="question-title">Neste momento, qual situação mais se aproxima do que você está sentindo?</span>
+          <div class="options-grid">
+            <label class="option"><input type="radio" name="percepcao" value="Acho que houve um mal-entendido" required><span>Acho que houve um mal-entendido</span></label>
+            <label class="option"><input type="radio" name="percepcao" value="Existem informações incompletas"><span>Existem informações incompletas</span></label>
+            <label class="option"><input type="radio" name="percepcao" value="A situação ficou maior do que deveria"><span>A situação ficou maior do que deveria</span></label>
+            <label class="option"><input type="radio" name="percepcao" value="Existe conflito ou perseguição interna"><span>Existe conflito ou perseguição interna</span></label>
+            <label class="option"><input type="radio" name="percepcao" value="Ainda não entendi exatamente o problema"><span>Ainda não entendi exatamente o problema</span></label>
           </div>
-          <div class="question-block" style="margin-top:20px"><span class="question">Você possui acesso aos documentos relacionados ao procedimento?</span><div class="options"><label class="option"><input type="radio" name="acessoDocumentos" value="Sim" required><span>Sim</span></label><label class="option"><input type="radio" name="acessoDocumentos" value="Parcialmente"><span>Parcialmente</span></label><label class="option"><input type="radio" name="acessoDocumentos" value="Não"><span>Não</span></label></div></div>
+          <div class="error" id="err-percepcao"></div>
+
+          <span class="question-title">Você possui acesso aos documentos relacionados ao procedimento?</span>
+          <div class="options-grid">
+            <label class="option"><input type="radio" name="acessoDocumentos" value="Sim" required><span>Sim</span></label>
+            <label class="option"><input type="radio" name="acessoDocumentos" value="Parcialmente"><span>Parcialmente</span></label>
+            <label class="option"><input type="radio" name="acessoDocumentos" value="Não"><span>Não</span></label>
+          </div>
+          <div class="error" id="err-acessoDocumentos"></div>
+
+          <span class="question-title">Existe preocupação envolvendo:</span>
+          <div class="options-grid">
+            <label class="option"><input type="checkbox" name="preocupacoes" value="Conselho profissional"><span>Conselho profissional</span></label>
+            <label class="option"><input type="checkbox" name="preocupacoes" value="Chefia imediata"><span>Chefia imediata</span></label>
+            <label class="option"><input type="checkbox" name="preocupacoes" value="Escala ou plantões"><span>Escala ou plantões</span></label>
+            <label class="option"><input type="checkbox" name="preocupacoes" value="Paciente ou prontuário"><span>Paciente ou prontuário</span></label>
+            <label class="option"><input type="checkbox" name="preocupacoes" value="Exposição interna"><span>Exposição interna</span></label>
+            <label class="option"><input type="checkbox" name="preocupacoes" value="Ainda não sei avaliar"><span>Ainda não sei avaliar</span></label>
+          </div>
         </div>
 
-        <div class="step" data-step="5"><h2>Relato resumido</h2><p class="hint">Use poucas linhas. Não é necessário escrever defesa, tese jurídica ou histórico completo.</p><label class="field-label" for="relato">Se desejar, descreva brevemente o que mais preocupa você neste momento.</label><textarea id="relato" name="relato" maxlength="900" placeholder="Exemplo: recebi uma notificação, não entendi o prazo e estou preocupado com possível repercussão funcional."></textarea><div class="field-help"><span id="contador">0</span>/900 caracteres</div><label class="field-label" for="arquivo">Documento opcional</label><input id="arquivo" name="arquivo" type="file" accept=".pdf,.jpg,.jpeg,.png,.webp"><div class="field-help">Envie apenas documento simples, imagem ou print. Evite prontuários completos, dados sensíveis de pacientes ou documentos desnecessários nesta etapa.</div></div>
+        <div class="step" data-step="5">
+          <h2>Relato resumido</h2>
+          <p class="hint">Use poucas linhas. Não é necessário escrever defesa, tese jurídica ou histórico completo.</p>
 
-        <div class="step" data-step="6"><h2>Dados para contato e eventual formalização</h2><p class="hint">Os dados abaixo são utilizados apenas para identificação da solicitação, contato e eventual formalização de proposta relacionada ao atendimento solicitado.</p><label class="field-label" for="nome">Nome completo</label><input id="nome" name="nome" autocomplete="name" required><div class="error" id="err-nome">Informe o nome completo.</div><div class="grid"><div><label class="field-label" for="telefone">Telefone para contato</label><input id="telefone" name="telefone" inputmode="tel" autocomplete="tel" placeholder="(61) 99999-9999" required><div class="error" id="err-telefone">Informe um telefone válido com DDD.</div></div><div><label class="field-label" for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" placeholder="nome@exemplo.com.br" required><div class="field-help">Cópia deste preenchimento será encaminhada para o e-mail informado.</div><div class="error" id="err-email">Este e-mail parece incompleto.</div></div></div><label class="field-label" for="emailConfirmacao">Confirmar e-mail</label><input id="emailConfirmacao" name="emailConfirmacao" type="email" autocomplete="email" placeholder="repita o e-mail informado" required><div class="error" id="err-emailConfirmacao">A confirmação deve coincidir com o e-mail informado.</div><label class="field-label" for="cpf">CPF</label><input id="cpf" name="cpf" inputmode="numeric" placeholder="000.000.000-00"><div class="field-help">Utilizado para eventual formalização de proposta pelo profissional.</div><div class="error" id="err-cpf">Verifique o número do CPF.</div><div class="grid"><div><label class="field-label" for="cep">CEP</label><input id="cep" name="cep" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000"><div class="error" id="err-cep">Informe um CEP válido.</div></div><div><label class="field-label" for="numero">Número</label><input id="numero" name="numero" autocomplete="address-line2"></div></div><label class="field-label" for="endereco">Endereço</label><input id="endereco" name="endereco" autocomplete="street-address"><div class="grid"><div><label class="field-label" for="bairro">Bairro</label><input id="bairro" name="bairro"></div><div><label class="field-label" for="cidadeUf">Cidade/UF</label><input id="cidadeUf" name="cidadeUf" placeholder="Brasília/DF"></div></div><label class="field-label" for="complemento">Complemento</label><input id="complemento" name="complemento" autocomplete="address-line3"><div class="two-blocks" style="margin-top:20px"><div class="question-block"><span class="question">Como prefere receber retorno inicialmente?</span><div class="options"><label class="option"><input type="radio" name="retorno" value="Mensagem" required><span>Mensagem</span></label><label class="option"><input type="radio" name="retorno" value="Ligação"><span>Ligação</span></label><label class="option"><input type="radio" name="retorno" value="E-mail"><span>E-mail</span></label><label class="option"><input type="radio" name="retorno" value="Tanto faz"><span>Tanto faz</span></label></div></div><div class="question-block"><span class="question">Qual o melhor horário para contato?</span><div class="options"><label class="option"><input type="radio" name="horario" value="Manhã" required><span>Manhã</span></label><label class="option"><input type="radio" name="horario" value="Tarde"><span>Tarde</span></label><label class="option"><input type="radio" name="horario" value="Noite"><span>Noite</span></label><label class="option"><input type="radio" name="horario" value="Plantão variável"><span>Plantão variável</span></label></div></div></div></div>
+          <label for="relato">Se desejar, descreva brevemente o que mais preocupa você neste momento.</label>
+          <textarea id="relato" name="relato" maxlength="900" placeholder="Exemplo: recebi uma notificação, não entendi o prazo e estou preocupado com possível repercussão funcional."></textarea>
+          <div class="field-help"><span id="contador">0</span>/900 caracteres</div>
 
-        <div class="step" data-step="7"><h2>Confirmação e consentimentos</h2><p class="hint">Confira o resumo antes de solicitar a análise.</p><div class="summary" id="resumoFinal"></div><div class="legal-box"><label class="option"><input type="checkbox" name="declaracao" required><span>Declaro que as informações prestadas são verdadeiras e compreendo que esta etapa possui caráter inicial, informativo e organizacional, sem substituição de análise técnica individualizada.</span></label></div><div class="legal-box"><label class="option"><input type="checkbox" name="lgpd" required><span>Autorizo o uso das informações fornecidas para contato, organização inicial da solicitação e eventual encaminhamento de proposta relacionada ao atendimento solicitado, nos termos da Lei nº 13.709/2018 (LGPD).</span></label></div></div>
+          <label for="arquivo">Documento opcional</label>
+          <input id="arquivo" name="arquivo" type="file" accept=".pdf,.jpg,.jpeg,.png,.webp" />
+          <div class="field-help">Envie apenas documento simples, imagem ou print. Evite prontuários completos, dados sensíveis de pacientes ou documentos desnecessários nesta etapa.</div>
+        </div>
 
-        <div class="nav no-print"><button type="button" class="btn btn-secondary" id="prevBtn">VOLTAR</button><button type="button" class="btn btn-primary" id="nextBtn">AVANÇAR</button><button type="submit" class="btn btn-primary" id="submitBtn" style="display:none">SOLICITAR ANÁLISE</button></div>
+        <div class="step" data-step="6">
+          <h2>Dados para contato e eventual formalização</h2>
+          <p class="hint">Os dados abaixo são utilizados apenas para identificação da solicitação, contato e eventual formalização de proposta relacionada ao atendimento solicitado.</p>
+
+          <label for="nome">Nome completo</label>
+          <input id="nome" name="nome" autocomplete="name" required>
+          <div class="error" id="err-nome"></div>
+
+          <div class="grid">
+            <div>
+              <label for="telefone">Telefone para contato</label>
+              <input id="telefone" name="telefone" inputmode="tel" autocomplete="tel" placeholder="(61) 99999-9999" required>
+              <div class="error" id="err-telefone"></div>
+            </div>
+
+            <div>
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="nome@exemplo.com.br" required>
+              <div class="field-help">Cópia deste preenchimento será encaminhada para o e-mail informado.</div>
+              <div class="error" id="err-email"></div>
+            </div>
+          </div>
+
+          <div class="grid">
+            <div>
+              <label for="emailConfirmacao">Confirmar e-mail</label>
+              <input id="emailConfirmacao" name="emailConfirmacao" type="email" autocomplete="email" placeholder="repita o e-mail informado" required>
+              <div class="error" id="err-emailConfirmacao"></div>
+            </div>
+
+            <div>
+              <label for="cpf">CPF</label>
+              <input id="cpf" name="cpf" inputmode="numeric" placeholder="000.000.000-00">
+              <div class="field-help">Utilizado para eventual formalização de proposta pelo profissional.</div>
+              <div class="error" id="err-cpf"></div>
+            </div>
+          </div>
+
+          <div class="grid">
+            <div>
+              <label for="cep">CEP</label>
+              <input id="cep" name="cep" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000">
+              <div class="error" id="err-cep"></div>
+            </div>
+
+            <div>
+              <label for="numero">Número</label>
+              <input id="numero" name="numero" autocomplete="address-line2">
+            </div>
+          </div>
+
+          <label for="endereco">Endereço</label>
+          <input id="endereco" name="endereco" autocomplete="street-address">
+
+          <div class="grid">
+            <div>
+              <label for="bairro">Bairro</label>
+              <input id="bairro" name="bairro">
+            </div>
+
+            <div>
+              <label for="cidadeUf">Cidade/UF</label>
+              <input id="cidadeUf" name="cidadeUf" placeholder="Brasília/DF">
+            </div>
+          </div>
+
+          <label for="complemento">Complemento</label>
+          <input id="complemento" name="complemento" autocomplete="address-line3">
+
+          <span class="question-title">Como prefere receber retorno inicialmente?</span>
+          <div class="options-grid">
+            <label class="option"><input type="radio" name="retorno" value="Mensagem" required><span>Mensagem</span></label>
+            <label class="option"><input type="radio" name="retorno" value="Ligação"><span>Ligação</span></label>
+            <label class="option"><input type="radio" name="retorno" value="E-mail"><span>E-mail</span></label>
+            <label class="option"><input type="radio" name="retorno" value="Tanto faz"><span>Tanto faz</span></label>
+          </div>
+          <div class="error" id="err-retorno"></div>
+
+          <span class="question-title">Qual o melhor horário para contato?</span>
+          <div class="options-grid">
+            <label class="option"><input type="radio" name="horario" value="Manhã" required><span>Manhã</span></label>
+            <label class="option"><input type="radio" name="horario" value="Tarde"><span>Tarde</span></label>
+            <label class="option"><input type="radio" name="horario" value="Noite"><span>Noite</span></label>
+            <label class="option"><input type="radio" name="horario" value="Plantão variável"><span>Plantão variável</span></label>
+          </div>
+          <div class="error" id="err-horario"></div>
+        </div>
+
+        <div class="step" data-step="7">
+          <h2>Confirmação e consentimentos</h2>
+          <p class="hint">Confira o resumo antes de solicitar a análise.</p>
+
+          <div class="summary" id="resumoFinal"></div>
+
+          <div class="legal-box">
+            <label class="option">
+              <input type="checkbox" name="declaracao" required>
+              <span>Declaro que as informações prestadas são verdadeiras e compreendo que esta etapa possui caráter inicial, informativo e organizacional, sem substituição de análise técnica individualizada.</span>
+            </label>
+            <div class="error" id="err-declaracao"></div>
+          </div>
+
+          <div class="legal-box">
+            <label class="option">
+              <input type="checkbox" name="lgpd" required>
+              <span>Autorizo o uso das informações fornecidas para contato, organização inicial da solicitação e eventual encaminhamento de proposta relacionada ao atendimento solicitado, nos termos da Lei nº 13.709/2018 (LGPD).</span>
+            </label>
+            <div class="error" id="err-lgpd"></div>
+          </div>
+        </div>
+
+        <div class="nav no-print">
+          <button type="button" class="btn btn-secondary" id="prevBtn">VOLTAR</button>
+          <button type="button" class="btn btn-primary" id="nextBtn">AVANÇAR</button>
+          <button type="submit" class="btn btn-primary" id="submitBtn" style="display:none">SOLICITAR ANÁLISE</button>
+        </div>
       </form>
     </section>
   </main>
-  <footer><p><a href="/privacidade.html">Política de Privacidade</a> &nbsp; <a href="/termos.html">Termos de Uso</a> &nbsp; <a href="mailto:contato@analiselegal.com.br">Contato institucional</a></p><p>O tratamento de dados pessoais pela ANÁLISE LEGAL observa a Lei nº 13.709/2018 (LGPD).</p><p>© 2026 Análise Legal. Todos os direitos reservados.</p></footer>
+
+  <footer>
+    <p>
+      <a href="/privacidade.html">Política de Privacidade</a>
+      &nbsp;
+      <a href="/termos.html">Termos de Uso</a>
+      &nbsp;
+      <a href="mailto:contato@analiselegal.com.br">Contato institucional</a>
+    </p>
+    <p>O tratamento de dados pessoais pela ANÁLISE LEGAL observa a Lei nº 13.709/2018 (LGPD).</p>
+    <p>© 2026 Análise Legal. Todos os direitos reservados.</p>
+  </footer>
+
   <script>
-    const steps=[...document.querySelectorAll('.step')];let current=0;const bar=document.getElementById('bar'),stepCount=document.getElementById('stepCount'),prevBtn=document.getElementById('prevBtn'),nextBtn=document.getElementById('nextBtn'),submitBtn=document.getElementById('submitBtn'),stepAlert=document.getElementById('stepAlert');const onlyDigits=s=>(s||'').replace(/\D/g,'');const getRadio=n=>document.querySelector(`input[name="${n}"]:checked`)?.value||'';const getChecks=n=>[...document.querySelectorAll(`input[name="${n}"]:checked`)].map(x=>x.value);
-    function maskCPF(v){return onlyDigits(v).slice(0,11).replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2')}function validCPF(cpf){cpf=onlyDigits(cpf);if(!cpf)return true;if(cpf.length!==11||/^(\d)\1+$/.test(cpf))return false;let s=0,r;for(let i=1;i<=9;i++)s+=parseInt(cpf.substring(i-1,i))*(11-i);r=(s*10)%11;if(r===10||r===11)r=0;if(r!==parseInt(cpf.substring(9,10)))return false;s=0;for(let i=1;i<=10;i++)s+=parseInt(cpf.substring(i-1,i))*(12-i);r=(s*10)%11;if(r===10||r===11)r=0;return r===parseInt(cpf.substring(10,11))}function maskPhone(v){let d=onlyDigits(v).slice(0,11);return d.length<=10?d.replace(/(\d{2})(\d)/,'($1) $2').replace(/(\d{4})(\d)/,'$1-$2'):d.replace(/(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d)/,'$1-$2')}function validPhone(v){const d=onlyDigits(v);return d.length===10||d.length===11}function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((v||'').trim())}function maskCEP(v){return onlyDigits(v).slice(0,8).replace(/(\d{5})(\d)/,'$1-$2')}
-    const telefone=document.getElementById('telefone'),cpf=document.getElementById('cpf'),cep=document.getElementById('cep'),email=document.getElementById('email'),emailConfirmacao=document.getElementById('emailConfirmacao'),nome=document.getElementById('nome');cpf.addEventListener('input',e=>{e.target.value=maskCPF(e.target.value);validateSoft('cpf')});telefone.addEventListener('input',e=>{e.target.value=maskPhone(e.target.value);validateSoft('telefone')});cep.addEventListener('input',e=>{e.target.value=maskCEP(e.target.value);validateSoft('cep')});email.addEventListener('input',()=>{validateSoft('email');validateSoft('emailConfirmacao')});emailConfirmacao.addEventListener('input',()=>validateSoft('emailConfirmacao'));nome.addEventListener('input',()=>validateSoft('nome'));document.getElementById('relato').addEventListener('input',e=>document.getElementById('contador').textContent=e.target.value.length);
-    function setErro(id,msg){const field=document.getElementById(id),err=document.getElementById('err-'+id);if(field){field.classList.add('invalid');field.setAttribute('aria-invalid','true')}if(err){err.textContent=msg;err.style.display='block'}}function limparErro(id){const field=document.getElementById(id),err=document.getElementById('err-'+id);if(field){field.classList.remove('invalid');field.removeAttribute('aria-invalid')}if(err)err.style.display='none'}function firstInvalid(){const el=document.querySelector('.step.active .invalid, .step.active input:invalid');if(el){el.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>el.focus?.(),250)}}
-    function validateSoft(id){if(id==='nome'){nome.value.trim().length<3?setErro('nome','Informe o nome completo.'):limparErro('nome')}if(id==='telefone'){telefone.value&&!validPhone(telefone.value)?setErro('telefone','Informe um telefone válido com DDD.'):limparErro('telefone')}if(id==='email'){email.value&&!validEmail(email.value)?setErro('email','Este e-mail parece incompleto.'):limparErro('email')}if(id==='emailConfirmacao'){emailConfirmacao.value&&emailConfirmacao.value.trim()!==email.value.trim()?setErro('emailConfirmacao','A confirmação deve coincidir com o e-mail informado.'):limparErro('emailConfirmacao')}if(id==='cpf'){cpf.value&&!validCPF(cpf.value)?setErro('cpf','Verifique o número do CPF.'):limparErro('cpf')}if(id==='cep'){cep.value&&onlyDigits(cep.value).length!==8?setErro('cep','Informe um CEP com 8 dígitos.'):limparErro('cep')}}
-    cep.addEventListener('blur',async e=>{const cepLimpo=onlyDigits(e.target.value);if(!cepLimpo)return;if(cepLimpo.length!==8){setErro('cep','Informe um CEP com 8 dígitos.');return}try{const r=await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);const j=await r.json();if(j.erro){setErro('cep','CEP não localizado.');return}limparErro('cep');document.getElementById('endereco').value=j.logradouro||'';document.getElementById('bairro').value=j.bairro||'';document.getElementById('cidadeUf').value=((j.localidade||'')+(j.uf?'/'+j.uf:''));}catch(err){setErro('cep','Não foi possível consultar o CEP agora.')}});
-    function showStep(){steps.forEach((s,i)=>s.classList.toggle('active',i===current));bar.style.width=((current+1)/steps.length*100)+'%';stepCount.textContent=`Etapa ${current+1} de ${steps.length}`;prevBtn.style.visibility=current===0?'hidden':'visible';nextBtn.style.display=current===steps.length-1?'none':'inline-block';submitBtn.style.display=current===steps.length-1?'inline-block':'none';stepAlert.style.display='none';if(current===steps.length-1)buildResumo();window.scrollTo({top:0,behavior:'smooth'})}
-    function validateCurrent(){let ok=true;stepAlert.style.display='none';[...steps[current].querySelectorAll('.invalid')].forEach(x=>x.classList.remove('invalid'));const required=[...steps[current].querySelectorAll('[required]')];for(const el of required){if(el.type==='radio'){const group=[...document.querySelectorAll(`[name="${el.name}"]`)];if(!group.some(x=>x.checked)){ok=false;group[0].closest('.question-block')?.classList.add('invalid')}}else if(el.type==='checkbox'){if(!el.checked){ok=false;el.closest('.legal-box')?.classList.add('invalid')}}else if(!el.value.trim()){ok=false;setErro(el.id,'Preencha este campo.')}}if(current===5){if(nome.value.trim().length<3){setErro('nome','Informe o nome completo.');ok=false}if(!validPhone(telefone.value)){setErro('telefone','Informe um telefone válido com DDD.');ok=false}else limparErro('telefone');if(!validEmail(email.value)){setErro('email','Este e-mail parece incompleto.');ok=false}else limparErro('email');if(emailConfirmacao.value.trim()!==email.value.trim()){setErro('emailConfirmacao','A confirmação deve coincidir com o e-mail informado.');ok=false}else limparErro('emailConfirmacao');if(!validCPF(cpf.value)){setErro('cpf','Verifique o número do CPF.');ok=false}else limparErro('cpf');if(cep.value&&onlyDigits(cep.value).length!==8){setErro('cep','Informe um CEP com 8 dígitos.');ok=false}else if(!cep.value)limparErro('cep')}if(!ok){stepAlert.style.display='block';firstInvalid()}return ok}
-    function urgencia(){const p=getRadio('prazoTermina');if(p==='Hoje'||p==='Em até 3 dias')return 'Alta';if(p==='Nesta semana')return 'Média/alta';if(p==='Depois desta semana')return 'Média';return 'A avaliar'}
-    function collect(){const now=new Date();return{protocolo:'AL-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+Math.random().toString(36).slice(2,8).toUpperCase(),timestamp:now.toLocaleString('pt-BR'),nome:nome.value.trim(),telefone:telefone.value.trim(),telefoneLimpo:onlyDigits(telefone.value),whatsapp:telefone.value.trim(),whatsappLimpo:onlyDigits(telefone.value),email:email.value.trim(),cpf:cpf.value.trim(),cpfLimpo:onlyDigits(cpf.value),cep:cep.value.trim(),cepLimpo:onlyDigits(cep.value),endereco:document.getElementById('endereco').value.trim(),numero:document.getElementById('numero').value.trim(),bairro:document.getElementById('bairro').value.trim(),cidadeUf:document.getElementById('cidadeUf').value.trim(),complemento:document.getElementById('complemento').value.trim(),retorno:getRadio('retorno'),horario:getRadio('horario'),procedimento:getRadio('procedimento'),area:getRadio('area'),funcao:getRadio('funcao'),existePrazo:getRadio('existePrazo'),prazoTermina:getRadio('prazoTermina'),respostaAnterior:getRadio('respostaAnterior'),situacao:getRadio('situacao'),percepcao:getRadio('percepcao'),acessoDocumentos:getRadio('acessoDocumentos'),preocupacoes:getChecks('preocupacoes'),relato:document.getElementById('relato').value.trim(),urgencia:urgencia(),origem:new URLSearchParams(location.search).get('origem')||'pad-saude-df',utm_source:new URLSearchParams(location.search).get('utm_source')||'',utm_medium:new URLSearchParams(location.search).get('utm_medium')||'',utm_campaign:new URLSearchParams(location.search).get('utm_campaign')||'',dispositivo:innerWidth<768?'mobile':'desktop',navegador:navigator.userAgent,larguraTela:innerWidth}}
-    function buildResumo(){const d=collect();document.getElementById('resumoFinal').innerHTML=`<p><strong>Nome:</strong> ${d.nome||'Não informado'}</p><p><strong>Contato:</strong> ${d.telefone||'Não informado'} | ${d.email||'Não informado'}</p><p><strong>Procedimento:</strong> ${d.procedimento||'Não informado'}</p><p><strong>Urgência estimada:</strong> ${d.urgencia}</p><p><strong>Situação:</strong> ${d.situacao||'Não informado'}</p><p><strong>Preocupação principal:</strong> ${d.percepcao||'Não informado'}</p>`}
-    prevBtn.onclick=()=>{if(current>0){current--;showStep()}};nextBtn.onclick=()=>{if(validateCurrent()&&current<steps.length-1){current++;showStep()}};showStep();document.getElementById('formAnalise').addEventListener('submit',e=>{e.preventDefault();if(!validateCurrent())return;const data=collect();sessionStorage.setItem('analiseLegalResumo',JSON.stringify(data));window.location.href='confirmacao.html'});window.addEventListener('beforeprint',()=>{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'print_intent',page_path:location.pathname,page_title:document.title})});
+    const steps = [...document.querySelectorAll(".step")];
+    let current = 0;
+
+    const bar = document.getElementById("bar");
+    const stepCount = document.getElementById("stepCount");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const submitBtn = document.getElementById("submitBtn");
+
+    const onlyDigits = value => (value || "").replace(/\\D/g, "");
+    const getRadio = name => document.querySelector(`input[name="${name}"]:checked`)?.value || "";
+    const getChecks = name => [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(item => item.value);
+
+    function setErro(id, mensagem) {
+      const erro = document.getElementById(`err-${id}`);
+      const campo = document.getElementById(id);
+
+      if (erro) erro.textContent = mensagem;
+
+      if (campo) {
+        campo.classList.add("invalid");
+        campo.setAttribute("aria-invalid", "true");
+      }
+    }
+
+    function limparErro(id) {
+      const erro = document.getElementById(`err-${id}`);
+      const campo = document.getElementById(id);
+
+      if (erro) erro.textContent = "";
+
+      if (campo) {
+        campo.classList.remove("invalid");
+        campo.removeAttribute("aria-invalid");
+      }
+    }
+
+    function setErroGrupo(name, mensagem) {
+      const erro = document.getElementById(`err-${name}`);
+      if (erro) erro.textContent = mensagem;
+
+      const primeiro = document.querySelector(`input[name="${name}"]`);
+      if (primeiro) primeiro.closest(".options-grid")?.classList.add("invalid-group");
+    }
+
+    function limparErroGrupo(name) {
+      const erro = document.getElementById(`err-${name}`);
+      if (erro) erro.textContent = "";
+
+      const primeiro = document.querySelector(`input[name="${name}"]`);
+      if (primeiro) primeiro.closest(".options-grid")?.classList.remove("invalid-group");
+    }
+
+    function focarPrimeiroErro() {
+      const campo = document.querySelector(".invalid, .invalid-group input");
+      if (campo) {
+        campo.scrollIntoView({ behavior: "smooth", block: "center" });
+        campo.focus({ preventScroll: true });
+      }
+    }
+
+    function maskCPF(value) {
+      return onlyDigits(value)
+        .slice(0, 11)
+        .replace(/(\\d{3})(\\d)/, "$1.$2")
+        .replace(/(\\d{3})(\\d)/, "$1.$2")
+        .replace(/(\\d{3})(\\d{1,2})$/, "$1-$2");
+    }
+
+    function validCPF(cpf) {
+      cpf = onlyDigits(cpf);
+
+      if (!cpf) return true;
+      if (cpf.length !== 11 || /^(\\d)\\1+$/.test(cpf)) return false;
+
+      let soma = 0;
+      let resto;
+
+      for (let i = 1; i <= 9; i++) {
+        soma += parseInt(cpf.substring(i - 1, i), 10) * (11 - i);
+      }
+
+      resto = (soma * 10) % 11;
+      if (resto === 10 || resto === 11) resto = 0;
+      if (resto !== parseInt(cpf.substring(9, 10), 10)) return false;
+
+      soma = 0;
+
+      for (let i = 1; i <= 10; i++) {
+        soma += parseInt(cpf.substring(i - 1, i), 10) * (12 - i);
+      }
+
+      resto = (soma * 10) % 11;
+      if (resto === 10 || resto === 11) resto = 0;
+
+      return resto === parseInt(cpf.substring(10, 11), 10);
+    }
+
+    function maskPhone(value) {
+      const digits = onlyDigits(value).slice(0, 11);
+
+      if (digits.length <= 10) {
+        return digits
+          .replace(/(\\d{2})(\\d)/, "($1) $2")
+          .replace(/(\\d{4})(\\d)/, "$1-$2");
+      }
+
+      return digits
+        .replace(/(\\d{2})(\\d)/, "($1) $2")
+        .replace(/(\\d{5})(\\d)/, "$1-$2");
+    }
+
+    function validPhone(value) {
+      const digits = onlyDigits(value);
+      return digits.length === 10 || digits.length === 11;
+    }
+
+    function validEmail(value) {
+      return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/.test((value || "").trim());
+    }
+
+    function maskCEP(value) {
+      return onlyDigits(value).slice(0, 8).replace(/(\\d{5})(\\d)/, "$1-$2");
+    }
+
+    function gerarProtocolo(nome) {
+      const agora = new Date();
+
+      const dia = String(agora.getDate()).padStart(2, "0");
+      const mes = String(agora.getMonth() + 1).padStart(2, "0");
+      const ano = agora.getFullYear();
+
+      const hora = String(agora.getHours()).padStart(2, "0");
+      const minuto = String(agora.getMinutes()).padStart(2, "0");
+      const segundo = String(agora.getSeconds()).padStart(2, "0");
+
+      const primeiroNome = (nome || "SOLICITANTE")
+        .trim()
+        .split(" ")[0]
+        .normalize("NFD")
+        .replace(/[\\u0300-\\u036f]/g, "")
+        .replace(/[^a-zA-Z0-9]/g, "")
+        .toUpperCase();
+
+      return `AL-${dia}${mes}${ano}-${primeiroNome}-${hora}${minuto}${segundo}`;
+    }
+
+    document.getElementById("cpf").addEventListener("input", event => {
+      event.target.value = maskCPF(event.target.value);
+      if (validCPF(event.target.value)) limparErro("cpf");
+    });
+
+    document.getElementById("telefone").addEventListener("input", event => {
+      event.target.value = maskPhone(event.target.value);
+      if (validPhone(event.target.value)) limparErro("telefone");
+    });
+
+    document.getElementById("email").addEventListener("input", event => {
+      if (validEmail(event.target.value)) limparErro("email");
+    });
+
+    document.getElementById("emailConfirmacao").addEventListener("input", event => {
+      const email = document.getElementById("email").value.trim();
+      if (event.target.value.trim() === email && validEmail(email)) limparErro("emailConfirmacao");
+    });
+
+    document.getElementById("cep").addEventListener("input", event => {
+      event.target.value = maskCEP(event.target.value);
+      if (!event.target.value || onlyDigits(event.target.value).length === 8) limparErro("cep");
+    });
+
+    document.getElementById("relato").addEventListener("input", event => {
+      document.getElementById("contador").textContent = event.target.value.length;
+    });
+
+    document.getElementById("cep").addEventListener("blur", async event => {
+      const cep = onlyDigits(event.target.value);
+
+      if (!cep) {
+        limparErro("cep");
+        return;
+      }
+
+      if (cep.length !== 8) {
+        setErro("cep", "Informe um CEP com 8 dígitos.");
+        return;
+      }
+
+      try {
+        const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const json = await response.json();
+
+        if (json.erro) {
+          setErro("cep", "CEP não localizado.");
+          return;
+        }
+
+        limparErro("cep");
+
+        document.getElementById("endereco").value = json.logradouro || "";
+        document.getElementById("bairro").value = json.bairro || "";
+        document.getElementById("cidadeUf").value = `${json.localidade || ""}${json.uf ? "/" + json.uf : ""}`;
+      } catch (error) {
+        setErro("cep", "Não foi possível consultar o CEP neste momento.");
+      }
+    });
+
+    function validarRadio(name, mensagem) {
+      if (!getRadio(name)) {
+        setErroGrupo(name, mensagem);
+        return false;
+      }
+
+      limparErroGrupo(name);
+      return true;
+    }
+
+    function validateCurrent() {
+      let ok = true;
+
+      const etapa = steps[current];
+
+      etapa.querySelectorAll("[required]").forEach(element => {
+        if (element.type === "radio") return;
+        if (element.type === "checkbox") return;
+
+        if (!element.value.trim()) {
+          setErro(element.id, "Preencha este campo.");
+          ok = false;
+        } else {
+          limparErro(element.id);
+        }
+      });
+
+      if (current === 0) {
+        ok = validarRadio("procedimento", "Selecione o que você recebeu.") && ok;
+        ok = validarRadio("area", "Selecione sua área de atuação.") && ok;
+        ok = validarRadio("funcao", "Selecione sua função atual.") && ok;
+      }
+
+      if (current === 1) {
+        ok = validarRadio("existePrazo", "Informe se conseguiu identificar prazo.") && ok;
+        ok = validarRadio("prazoTermina", "Informe quando o prazo termina, ainda que não saiba precisar.") && ok;
+      }
+
+      if (current === 2) {
+        ok = validarRadio("respostaAnterior", "Informe se já apresentou resposta oficial.") && ok;
+        ok = validarRadio("situacao", "Selecione a situação que mais se aproxima do procedimento.") && ok;
+      }
+
+      if (current === 3) {
+        ok = validarRadio("percepcao", "Selecione a opção que melhor representa sua percepção atual.") && ok;
+        ok = validarRadio("acessoDocumentos", "Informe se possui acesso aos documentos.") && ok;
+      }
+
+      if (current === 5) {
+        const telefone = document.getElementById("telefone").value;
+        const email = document.getElementById("email").value.trim();
+        const emailConfirmacao = document.getElementById("emailConfirmacao").value.trim();
+        const cpf = document.getElementById("cpf").value;
+        const cep = document.getElementById("cep").value;
+
+        if (!validPhone(telefone)) {
+          setErro("telefone", "Informe um telefone válido com DDD.");
+          ok = false;
+        } else {
+          limparErro("telefone");
+        }
+
+        if (!validEmail(email)) {
+          setErro("email", "Informe um e-mail válido.");
+          ok = false;
+        } else {
+          limparErro("email");
+        }
+
+        if (!validEmail(emailConfirmacao)) {
+          setErro("emailConfirmacao", "Confirme o e-mail informado.");
+          ok = false;
+        } else if (emailConfirmacao !== email) {
+          setErro("emailConfirmacao", "Os e-mails informados não conferem.");
+          ok = false;
+        } else {
+          limparErro("emailConfirmacao");
+        }
+
+        if (!validCPF(cpf)) {
+          setErro("cpf", "Verifique o CPF informado.");
+          ok = false;
+        } else {
+          limparErro("cpf");
+        }
+
+        if (cep && onlyDigits(cep).length !== 8) {
+          setErro("cep", "Informe um CEP com 8 dígitos.");
+          ok = false;
+        } else if (!document.getElementById("err-cep").textContent) {
+          limparErro("cep");
+        }
+
+        ok = validarRadio("retorno", "Selecione como prefere receber o retorno.") && ok;
+        ok = validarRadio("horario", "Selecione o melhor horário para contato.") && ok;
+      }
+
+      if (current === 6) {
+        const declaracao = document.querySelector('input[name="declaracao"]');
+        const lgpd = document.querySelector('input[name="lgpd"]');
+
+        if (!declaracao.checked) {
+          setErroGrupo("declaracao", "Confirme a declaração para prosseguir.");
+          ok = false;
+        } else {
+          limparErroGrupo("declaracao");
+        }
+
+        if (!lgpd.checked) {
+          setErroGrupo("lgpd", "Confirme a autorização de tratamento dos dados para prosseguir.");
+          ok = false;
+        } else {
+          limparErroGrupo("lgpd");
+        }
+      }
+
+      if (!ok) focarPrimeiroErro();
+
+      return ok;
+    }
+
+    function urgencia() {
+      const prazo = getRadio("prazoTermina");
+
+      if (prazo === "Hoje" || prazo === "Em até 3 dias") return "Alta";
+      if (prazo === "Nesta semana") return "Média/alta";
+      if (prazo === "Depois desta semana") return "Média";
+
+      return "A avaliar";
+    }
+
+    function collect() {
+      const now = new Date();
+      const nome = document.getElementById("nome").value.trim();
+
+      return {
+        protocolo: gerarProtocolo(nome),
+        timestamp: now.toLocaleString("pt-BR"),
+        nome,
+        telefone: document.getElementById("telefone").value.trim(),
+        telefoneLimpo: onlyDigits(document.getElementById("telefone").value),
+        email: document.getElementById("email").value.trim(),
+        cpf: document.getElementById("cpf").value.trim(),
+        cpfLimpo: onlyDigits(document.getElementById("cpf").value),
+        cep: document.getElementById("cep").value.trim(),
+        cepLimpo: onlyDigits(document.getElementById("cep").value),
+        endereco: document.getElementById("endereco").value.trim(),
+        numero: document.getElementById("numero").value.trim(),
+        bairro: document.getElementById("bairro").value.trim(),
+        cidadeUf: document.getElementById("cidadeUf").value.trim(),
+        complemento: document.getElementById("complemento").value.trim(),
+        retorno: getRadio("retorno"),
+        horario: getRadio("horario"),
+        procedimento: getRadio("procedimento"),
+        area: getRadio("area"),
+        funcao: getRadio("funcao"),
+        existePrazo: getRadio("existePrazo"),
+        prazoTermina: getRadio("prazoTermina"),
+        respostaAnterior: getRadio("respostaAnterior"),
+        situacao: getRadio("situacao"),
+        percepcao: getRadio("percepcao"),
+        acessoDocumentos: getRadio("acessoDocumentos"),
+        preocupacoes: getChecks("preocupacoes"),
+        relato: document.getElementById("relato").value.trim(),
+        urgencia: urgencia(),
+        origem: new URLSearchParams(location.search).get("origem") || "pad-saude-df",
+        utm_source: new URLSearchParams(location.search).get("utm_source") || "",
+        utm_medium: new URLSearchParams(location.search).get("utm_medium") || "",
+        utm_campaign: new URLSearchParams(location.search).get("utm_campaign") || "",
+        dispositivo: innerWidth < 768 ? "mobile" : "desktop",
+        navegador: navigator.userAgent,
+        larguraTela: innerWidth
+      };
+    }
+
+    function buildResumo() {
+      const data = collect();
+
+      document.getElementById("resumoFinal").innerHTML = `
+        <p><strong>Nome:</strong> ${data.nome || "Não informado"}</p>
+        <p><strong>Contato:</strong> ${data.telefone || "Não informado"} | ${data.email || "Não informado"}</p>
+        <p><strong>Procedimento:</strong> ${data.procedimento || "Não informado"}</p>
+        <p><strong>Urgência estimada:</strong> ${data.urgencia}</p>
+        <p><strong>Situação:</strong> ${data.situacao || "Não informado"}</p>
+        <p><strong>Preocupação principal:</strong> ${data.percepcao || "Não informado"}</p>
+      `;
+    }
+
+    function showStep() {
+      steps.forEach((step, index) => {
+        step.classList.toggle("active", index === current);
+      });
+
+      bar.style.width = `${((current + 1) / steps.length) * 100}%`;
+      stepCount.textContent = `Etapa ${current + 1} de ${steps.length}`;
+
+      prevBtn.style.visibility = current === 0 ? "hidden" : "visible";
+      nextBtn.style.display = current === steps.length - 1 ? "none" : "inline-block";
+      submitBtn.style.display = current === steps.length - 1 ? "inline-block" : "none";
+
+      if (current === steps.length - 1) buildResumo();
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    prevBtn.addEventListener("click", () => {
+      if (current > 0) {
+        current--;
+        showStep();
+      }
+    });
+
+    nextBtn.addEventListener("click", () => {
+      if (validateCurrent() && current < steps.length - 1) {
+        current++;
+        showStep();
+      }
+    });
+
+    document.getElementById("formAnalise").addEventListener("submit", event => {
+      event.preventDefault();
+
+      if (!validateCurrent()) return;
+
+      const data = collect();
+
+      sessionStorage.setItem("analiseLegalResumo", JSON.stringify(data));
+      window.location.href = "confirmacao.html";
+    });
+
+    window.addEventListener("beforeprint", () => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "print_intent",
+        page_path: location.pathname,
+        page_title: document.title
+      });
+    });
+
+    showStep();
   </script>
 </body>
 </html>
