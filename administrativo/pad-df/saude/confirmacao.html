@@ -3,55 +3,577 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Solicitação registrada | Análise Legal</title>
   <meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" content="#082c27" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root{--verde:#082c27;--verde2:#0d3b34;--dourado:#c8a44b;--dourado2:#d8b45f;--bege:#f4f0e8;--texto:#1f2933;--borda:#e3dac6}*{box-sizing:border-box}body{margin:0;font-family:'Crimson Text',Georgia,serif;background:var(--bege);color:var(--texto);font-size:18px;line-height:1.55}header{background:linear-gradient(135deg,var(--verde),var(--verde2));color:#fff;padding:26px 16px}.wrap{width:min(100%,900px);margin:0 auto}.brand{display:flex;align-items:center;gap:14px}.brand img{width:170px;max-width:70vw}main{width:min(100%,900px);margin:0 auto;padding:28px 16px 52px}.card{background:#fff;border:1px solid var(--borda);border-radius:22px;box-shadow:0 18px 48px rgba(8,44,39,.12);padding:clamp(18px,4vw,34px);margin:18px 0}h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.05;margin:18px 0 10px}h2{color:var(--verde);font-size:1.55rem;margin:22px 0 8px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.item{border-bottom:1px solid #eadfca;padding:8px 0}.item strong{display:block;color:#1a332f}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;border-radius:14px;padding:0 22px;text-decoration:none;border:0;font-family:inherit;font-weight:700;letter-spacing:.04em;cursor:pointer}.primary{background:linear-gradient(135deg,var(--dourado),var(--dourado2));color:#17231f}.secondary{background:#e7dfd0;color:#18352f}.notice{background:#fbf8ef;border:1px solid var(--borda);border-radius:16px;padding:14px}footer{background:linear-gradient(135deg,var(--verde),var(--verde2));color:#f8f2df;padding:22px 16px;text-align:center}@media(max-width:680px){.grid{grid-template-columns:1fr}.actions{display:block}.btn{width:100%;margin:6px 0}}
-    @media print{body{background:#fff;color:#000;font-size:12pt}header,footer,.actions,.no-print{display:none!important}main{width:100%;padding:0}.card{box-shadow:none;border:none;padding:0;margin:0}.notice{border:1px solid #bbb;background:#fff}h1{font-size:22pt}@page{size:A4;margin:18mm 16mm}}
+    :root {
+      --verde: #082c27;
+      --verde2: #0d3b34;
+      --dourado: #c8a44b;
+      --bege: #f4f0e8;
+      --texto: #1f2933;
+      --cinza: #5b6470;
+      --borda: #e3dac6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: "Crimson Text", Georgia, serif;
+      background: var(--bege);
+      color: var(--texto);
+      font-size: 17px;
+      line-height: 1.45;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--verde), var(--verde2));
+      color: #fff;
+      padding: 24px 18px;
+    }
+
+    .header-inner {
+      width: min(100%, 980px);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand-web {
+      width: 170px;
+      max-width: 62vw;
+      height: auto;
+    }
+
+    .tag {
+      color: #eadfbf;
+      font-size: 0.95rem;
+      text-align: right;
+    }
+
+    main {
+      width: min(100%, 980px);
+      margin: 0 auto;
+      padding: 24px 16px 42px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--borda);
+      border-radius: 20px;
+      box-shadow: 0 16px 42px rgba(8, 44, 39, 0.11);
+      padding: 26px;
+      margin: 18px 0;
+    }
+
+    h1 {
+      color: var(--verde);
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      line-height: 1.05;
+      margin: 0 0 8px;
+    }
+
+    h2 {
+      color: var(--verde);
+      font-size: 1.35rem;
+      margin: 20px 0 10px;
+      line-height: 1.15;
+    }
+
+    p {
+      margin: 7px 0;
+    }
+
+    .intro {
+      color: #475569;
+      margin-bottom: 16px;
+    }
+
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 18px;
+      margin: 8px 0 14px;
+    }
+
+    .item {
+      border-bottom: 1px solid #efe7d7;
+      padding: 4px 0 6px;
+      min-height: 42px;
+    }
+
+    .label {
+      display: block;
+      font-size: 0.86rem;
+      color: var(--cinza);
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .value {
+      display: block;
+      font-size: 1.02rem;
+      color: var(--texto);
+      line-height: 1.22;
+      word-break: break-word;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .protocol-box {
+      background: #fbf8ef;
+      border: 1px solid var(--borda);
+      border-radius: 16px;
+      padding: 14px;
+      margin: 12px 0;
+    }
+
+    .office-box {
+      background: #fbf8ef;
+      border: 1px solid var(--borda);
+      border-radius: 16px;
+      padding: 16px;
+      margin-top: 16px;
+    }
+
+    .office-box ul {
+      margin: 10px 0 8px;
+      padding-left: 20px;
+    }
+
+    .office-box a {
+      color: var(--verde);
+      font-weight: 700;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 14px;
+      border: 0;
+      font-family: inherit;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #c8a44b, #d8b45f);
+      color: #17231f;
+    }
+
+    .btn-secondary {
+      background: #e7dfd0;
+      color: #18352f;
+    }
+
+    footer {
+      background: linear-gradient(135deg, var(--verde), var(--verde2));
+      color: #f8f2df;
+      padding: 22px 16px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: #f3d98a;
+    }
+
+    .print-brand {
+      display: none;
+    }
+
+    .print-only {
+      display: none;
+    }
+
+    @media (max-width: 720px) {
+      .header-inner {
+        display: block;
+      }
+
+      .tag {
+        text-align: left;
+        margin-top: 10px;
+      }
+
+      .data-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 10mm 10mm;
+      }
+
+      html,
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        font-size: 8.9pt;
+        line-height: 1.16;
+      }
+
+      header,
+      footer,
+      .actions,
+      .no-print {
+        display: none !important;
+      }
+
+      .print-brand {
+        display: block !important;
+        margin: 0 0 4mm 0;
+        padding-bottom: 2.5mm;
+        border-bottom: 1px solid #d7d0c2;
+      }
+
+      .print-brand img {
+        display: block !important;
+        width: 128px;
+        height: auto;
+      }
+
+      main {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .card {
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 15pt;
+        margin: 0 0 2mm;
+        line-height: 1.05;
+      }
+
+      h2 {
+        font-size: 10.5pt;
+        margin: 3.2mm 0 1.5mm;
+        line-height: 1.1;
+      }
+
+      p {
+        margin: 1.2mm 0;
+      }
+
+      .intro {
+        font-size: 8.7pt;
+        margin-bottom: 2mm;
+      }
+
+      .data-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.3mm 5mm;
+        margin: 1.5mm 0 2mm;
+      }
+
+      .item {
+        border-bottom: 1px solid #ddd;
+        padding: 0.7mm 0;
+        min-height: auto;
+      }
+
+      .label {
+        font-size: 7.6pt;
+        line-height: 1.05;
+      }
+
+      .value {
+        font-size: 8.6pt;
+        line-height: 1.08;
+      }
+
+      .protocol-box,
+      .office-box {
+        border: 1px solid #d8d2c3;
+        background: #fff !important;
+        border-radius: 0;
+        padding: 2.2mm;
+        margin: 2.5mm 0 0;
+      }
+
+      .office-box ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8mm 4mm;
+        margin: 1.2mm 0;
+        padding-left: 4mm;
+      }
+
+      .office-box li {
+        margin: 0;
+      }
+
+      .print-only {
+        display: block !important;
+      }
+
+      .web-only {
+        display: none !important;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header class="no-print"><div class="wrap"><div class="brand"><img src="/assets/img/Marca.svg" alt="Análise Legal"><span>Precisão jurídica para decisões relevantes</span></div></div></header>
+  <header>
+    <div class="header-inner">
+      <img src="../../../assets/img/Marca.svg" alt="Análise Legal" class="brand-web">
+      <div class="tag">Precisão jurídica para decisões relevantes</div>
+    </div>
+  </header>
+
+  <div class="print-brand">
+    <img src="../../../assets/img/Marca-PB.svg" alt="Análise Legal">
+  </div>
+
   <main>
     <section class="card">
       <h1>Sua solicitação foi registrada.</h1>
-      <p class="notice">As informações foram organizadas para análise inicial. O envio do formulário não gera contratação automática, análise imediata ou garantia de resultado.</p>
+
+      <p class="intro">
+        As informações foram organizadas para análise inicial. O envio do formulário não gera contratação automática,
+        análise imediata ou garantia de resultado.
+      </p>
+
+      <div class="protocol-box">
+        <strong>Protocolo:</strong> <span id="protocoloTopo"></span><br>
+        <strong>Data e horário do envio:</strong> <span id="timestampTopo"></span>
+      </div>
 
       <h2>1. Dados pessoais e de contato</h2>
-      <div class="grid" id="dadosPessoais"></div>
+      <div class="data-grid" id="dadosPessoais"></div>
 
       <h2>2. Resumo da solicitação</h2>
-      <div class="grid" id="resumoSolicitacao"></div>
+      <div class="data-grid" id="resumoSolicitacao"></div>
 
-      <h2>3. Próximos passos</h2>
-      <p>Uma cópia das informações foi encaminhada para <strong>formulario@analiselegal.com.br</strong>.</p>
-      <p>Caso precise complementar alguma informação, mencione seu nome, o assunto informado e o protocolo abaixo.</p>
-      <p><strong>Protocolo:</strong> <span id="protocolo"></span></p>
-      <p><strong>Data e horário do envio:</strong> <span id="timestamp"></span></p>
+      <h2>3. Contato institucional</h2>
+      <section class="office-box">
+        <p>
+          As informações encaminhadas nesta solicitação serão organizadas para análise inicial pelo escritório
+          <strong>AQUINO ADVOGADOS</strong>, que possui experiência em demandas dessa natureza.
+        </p>
+
+        <p>
+          Caso seja necessário contato complementar, utilize preferencialmente os canais abaixo, informando o protocolo
+          <strong id="protocoloContato"></strong>:
+        </p>
+
+        <ul>
+          <li>Site: <a href="https://www.aquinojuridico.com.br" target="_blank" rel="noopener">www.aquinojuridico.com.br</a></li>
+          <li>E-mail: <a href="mailto:contato@aquinojuridico.com.br">contato@aquinojuridico.com.br</a></li>
+          <li>Telefone: +55 (61) 3321-6757</li>
+          <li>WhatsApp: +55 (61) 99961-6757</li>
+        </ul>
+
+        <p>
+          Esteja atento aos canais informados no formulário, pois eventual retorno poderá ocorrer por telefone,
+          WhatsApp ou e-mail.
+        </p>
+      </section>
 
       <div class="actions no-print">
-        <a class="btn primary" id="mailBtn" href="mailto:formulario@analiselegal.com.br">ENVIAR COMPLEMENTO POR E-MAIL</a>
-        <button class="btn secondary" onclick="window.print()">IMPRIMIR RESUMO</button>
+        <button class="btn btn-primary" type="button" onclick="window.print()">IMPRIMIR RESUMO</button>
+        <a class="btn btn-secondary" id="emailComplemento" href="#">ENVIAR COMPLEMENTO POR E-MAIL</a>
       </div>
     </section>
   </main>
-  <footer class="no-print"><p>© 2026 Análise Legal. Todos os direitos reservados.</p></footer>
+
+  <footer>
+    <p>
+      <a href="/privacidade.html">Política de Privacidade</a>
+      &nbsp;
+      <a href="/termos.html">Termos de Uso</a>
+      &nbsp;
+      <a href="mailto:contato@aquinojuridico.com.br">Contato institucional</a>
+    </p>
+    <p>© 2026 Análise Legal. Todos os direitos reservados.</p>
+  </footer>
+
   <script>
-    const data=JSON.parse(sessionStorage.getItem('analiseLegalResumo')||'{}');
-    const safe=v=>(v&&String(v).trim())?String(v).trim():'Não informado';
-    const row=(k,v)=>`<div class="item"><strong>${k}</strong>${safe(v)}</div>`;
-    document.getElementById('dadosPessoais').innerHTML=[row('Nome completo',data.nome),row('WhatsApp',data.whatsapp),row('E-mail',data.email),row('CPF',data.cpf),row('CEP',data.cep),row('Endereço',`${safe(data.endereco)}, ${safe(data.numero)}${data.complemento?' - '+data.complemento:''}`),row('Bairro',data.bairro),row('Cidade/UF',data.cidadeUf),row('Preferência de retorno',data.retorno),row('Melhor horário',data.horario)].join('');
-    document.getElementById('resumoSolicitacao').innerHTML=[row('Procedimento recebido',data.procedimento),row('Área de atuação',data.area),row('Função',data.funcao),row('Existe prazo?',data.existePrazo),row('Prazo termina',data.prazoTermina),row('Urgência estimada',data.urgencia),row('Resposta anterior',data.respostaAnterior),row('Situação aparente',data.situacao),row('Percepção do usuário',data.percepcao),row('Acesso aos documentos',data.acessoDocumentos),row('Preocupações',Array.isArray(data.preocupacoes)?data.preocupacoes.join(', '):''),row('Relato resumido',data.relato)].join('');
-    document.getElementById('protocolo').textContent=safe(data.protocolo);
-    document.getElementById('timestamp').textContent=safe(data.timestamp);
-    const subject=encodeURIComponent(`Complemento — Solicitação de análise — ${safe(data.procedimento)} — ${safe(data.nome)}`);
-    const body=encodeURIComponent(`Protocolo: ${safe(data.protocolo)}\nNome: ${safe(data.nome)}\nAssunto: ${safe(data.procedimento)}\n\nComplemento:`);
-    document.getElementById('mailBtn').href=`mailto:formulario@analiselegal.com.br?subject=${subject}&body=${body}`;
-    window.addEventListener('beforeprint',()=>{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'print_intent',page_path:location.pathname,page_title:document.title})});
+    const dados = JSON.parse(sessionStorage.getItem("analiseLegalResumo") || "{}");
+
+    const fallback = "Não informado";
+
+    function valor(campo) {
+      if (Array.isArray(campo)) {
+        return campo.length ? campo.join(", ") : fallback;
+      }
+
+      return campo && String(campo).trim() ? campo : fallback;
+    }
+
+    function item(label, value, full = false) {
+      return `
+        <div class="item ${full ? "full" : ""}">
+          <span class="label">${label}</span>
+          <span class="value">${valor(value)}</span>
+        </div>
+      `;
+    }
+
+    function primeiroNome(nome) {
+      return (nome || "solicitante")
+        .trim()
+        .split(" ")[0]
+        .normalize("NFD")
+        .replace(/[\\u0300-\\u036f]/g, "")
+        .replace(/[^a-zA-Z0-9]/g, "")
+        .toLowerCase();
+    }
+
+    function slugNome(nome) {
+      return (nome || "solicitante")
+        .normalize("NFD")
+        .replace(/[\\u0300-\\u036f]/g, "")
+        .replace(/[^a-zA-Z0-9]+/g, "-")
+        .replace(/^-|-$/g, "")
+        .toLowerCase();
+    }
+
+    const protocolo = dados.protocolo || "AL-SEM-PROTOCOLO";
+    const timestamp = dados.timestamp || new Date().toLocaleString("pt-BR");
+
+    document.getElementById("protocoloTopo").textContent = protocolo;
+    document.getElementById("timestampTopo").textContent = timestamp;
+    document.getElementById("protocoloContato").textContent = protocolo;
+
+    document.getElementById("dadosPessoais").innerHTML = `
+      ${item("Nome completo", dados.nome)}
+      ${item("Telefone", dados.telefone)}
+      ${item("E-mail", dados.email)}
+      ${item("CPF", dados.cpf)}
+      ${item("CEP", dados.cep)}
+      ${item("Endereço", `${valor(dados.endereco)}, ${valor(dados.numero)}`)}
+      ${item("Bairro", dados.bairro)}
+      ${item("Cidade/UF", dados.cidadeUf)}
+      ${item("Preferência de retorno", dados.retorno)}
+      ${item("Melhor horário", dados.horario)}
+    `;
+
+    document.getElementById("resumoSolicitacao").innerHTML = `
+      ${item("Procedimento recebido", dados.procedimento)}
+      ${item("Área de atuação", dados.area)}
+      ${item("Função", dados.funcao)}
+      ${item("Existe prazo?", dados.existePrazo)}
+      ${item("Prazo termina", dados.prazoTermina)}
+      ${item("Urgência estimada", dados.urgencia)}
+      ${item("Resposta anterior", dados.respostaAnterior)}
+      ${item("Situação aparente", dados.situacao)}
+      ${item("Percepção do usuário", dados.percepcao)}
+      ${item("Acesso aos documentos", dados.acessoDocumentos)}
+      ${item("Preocupações", dados.preocupacoes)}
+      ${item("Relato resumido", dados.relato, true)}
+    `;
+
+    const nomeArquivo = `${protocolo}-${slugNome(dados.nome || primeiroNome(dados.nome))}`;
+    document.title = `Solicitacao-${nomeArquivo}-Analise-Legal`;
+
+    const assunto = encodeURIComponent(`Complemento — Solicitação de análise — ${protocolo}`);
+    const corpo = encodeURIComponent(
+`Olá.
+
+Gostaria de complementar informações relacionadas à solicitação registrada.
+
+Protocolo: ${protocolo}
+Nome: ${dados.nome || ""}
+E-mail informado: ${dados.email || ""}
+
+Complemento:
+`
+    );
+
+    document.getElementById("emailComplemento").href =
+      `mailto:contato@aquinojuridico.com.br?subject=${assunto}&body=${corpo}`;
+
+    /*
+      Integração futura com Google Apps Script.
+
+      Quando houver endpoint publicado, preencher a constante abaixo.
+      O envio automático deve ocorrer apenas uma vez por protocolo.
+
+      const APPS_SCRIPT_ENDPOINT = "";
+
+      async function enviarDadosConfirmados() {
+        if (!APPS_SCRIPT_ENDPOINT) return;
+        if (sessionStorage.getItem("envioConfirmado") === protocolo) return;
+
+        try {
+          await fetch(APPS_SCRIPT_ENDPOINT, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(dados)
+          });
+
+          sessionStorage.setItem("envioConfirmado", protocolo);
+        } catch (erro) {
+          console.error("Falha no envio automático:", erro);
+        }
+      }
+
+      enviarDadosConfirmados();
+    */
+
+    window.addEventListener("beforeprint", () => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "print_intent",
+        page_path: location.pathname,
+        page_title: document.title,
+        protocolo
+      });
+    });
   </script>
 </body>
 </html>
