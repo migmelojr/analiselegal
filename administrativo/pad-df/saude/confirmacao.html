@@ -168,6 +168,36 @@
       font-weight: 700;
     }
 
+    .envio-status {
+      margin: 14px 0;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      display: none;
+    }
+
+    .envio-status.visible {
+      display: block;
+    }
+
+    .envio-status.sucesso {
+      background: #e8f5ee;
+      border: 1px solid #b6d8c2;
+      color: #1b5e3a;
+    }
+
+    .envio-status.erro {
+      background: #fdecea;
+      border: 1px solid #f5b8b0;
+      color: #8b1f15;
+    }
+
+    .envio-status.enviando {
+      background: #fff7e0;
+      border: 1px solid #e9d68b;
+      color: #6b4f00;
+    }
+
     .actions {
       display: flex;
       flex-wrap: wrap;
@@ -256,6 +286,7 @@
       header,
       footer,
       .actions,
+      .envio-status,
       .no-print {
         display: none !important;
       }
@@ -386,6 +417,8 @@
         <strong>Protocolo:</strong> <span id="protocoloTopo"></span><br>
         <strong>Data e horário do envio:</strong> <span id="timestampTopo"></span>
       </div>
+
+      <div id="envioStatus" class="envio-status"></div>
 
       <h2>1. Dados pessoais e de contato</h2>
       <div class="data-grid" id="dadosPessoais"></div>
@@ -522,31 +555,49 @@ Complemento:
     document.getElementById("emailComplemento").href =
       `mailto:contato@aquinojuridico.com.br?subject=${assunto}&body=${corpo}`;
 
-    /*
-      Integração futura com Google Apps Script.
+    // ============================================================
+    // Envio dos dados ao Cloudflare Worker (que dispara os e-mails)
+    // ============================================================
 
-      const APPS_SCRIPT_ENDPOINT = "";
+    const WORKER_ENDPOINT = "https://analiselegal-formulario.miguel-compras.workers.dev/";
+    const statusEl = document.getElementById("envioStatus");
 
-      async function enviarDadosConfirmados() {
-        if (!APPS_SCRIPT_ENDPOINT) return;
-        if (sessionStorage.getItem("envioConfirmado") === protocolo) return;
+    function mostrarStatus(classe, texto) {
+      statusEl.className = `envio-status visible ${classe}`;
+      statusEl.textContent = texto;
+    }
 
-        try {
-          await fetch(APPS_SCRIPT_ENDPOINT, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(dados)
-          });
-
-          sessionStorage.setItem("envioConfirmado", protocolo);
-        } catch (erro) {
-          console.error("Falha no envio automático:", erro);
-        }
+    async function enviarDadosConfirmados() {
+      if (sessionStorage.getItem("envioConfirmado") === protocolo) {
+        mostrarStatus("sucesso", "Solicitação já registrada. E-mails enviados anteriormente.");
+        return;
       }
 
-      enviarDadosConfirmados();
-    */
+      mostrarStatus("enviando", "Enviando confirmação por e-mail...");
+
+      try {
+        const resposta = await fetch(WORKER_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(dados)
+        });
+
+        const resultado = await resposta.json();
+
+        if (resultado.sucesso) {
+          sessionStorage.setItem("envioConfirmado", protocolo);
+          mostrarStatus("sucesso", "Confirmação enviada por e-mail com sucesso.");
+        } else {
+          mostrarStatus("erro", "Não foi possível enviar a confirmação por e-mail. Os dados desta tela permanecem disponíveis.");
+          console.error("Falha no envio:", resultado);
+        }
+      } catch (erro) {
+        mostrarStatus("erro", "Não foi possível enviar a confirmação por e-mail. Os dados desta tela permanecem disponíveis.");
+        console.error("Erro de rede:", erro);
+      }
+    }
+
+    enviarDadosConfirmados();
 
     window.addEventListener("beforeprint", () => {
       window.dataLayer = window.dataLayer || [];
