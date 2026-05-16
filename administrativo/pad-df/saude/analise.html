@@ -1057,6 +1057,7 @@
         relato: document.getElementById("relato").value.trim(),
         urgencia: urgencia(),
         origem: new URLSearchParams(location.search).get("origem") || "pad-saude-df",
+        assuntoBase: new URLSearchParams(location.search).get("assuntoBase") || "",
         utm_source: new URLSearchParams(location.search).get("utm_source") || "",
         utm_medium: new URLSearchParams(location.search).get("utm_medium") || "",
         utm_campaign: new URLSearchParams(location.search).get("utm_campaign") || "",
