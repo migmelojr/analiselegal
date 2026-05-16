@@ -22,11 +22,10 @@
       --texto: #1f2933;
       --cinza: #5b6470;
       --borda: #e3dac6;
+      --cinza-contato: #C0C0C0;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html,
     body {
@@ -40,8 +39,8 @@
       font-family: "Crimson Text", Georgia, serif;
       background: var(--bege);
       color: var(--texto);
-      font-size: 17px;
-      line-height: 1.45;
+      font-size: 19px;
+      line-height: 1.38;
     }
 
     header {
@@ -88,84 +87,81 @@
 
     h1 {
       color: var(--verde);
-      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-size: clamp(2rem, 5vw, 2.85rem);
       line-height: 1.05;
       margin: 0 0 8px;
     }
 
     h2 {
       color: var(--verde);
-      font-size: 1.35rem;
-      margin: 20px 0 10px;
-      line-height: 1.15;
+      font-size: 1.55rem;
+      margin: 18px 0 8px;
+      line-height: 1.12;
     }
 
-    p {
-      margin: 7px 0;
-    }
+    p { margin: 6px 0; }
 
     .intro {
       color: #475569;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .data-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px 18px;
-      margin: 8px 0 14px;
+      gap: 7px 16px;
+      margin: 7px 0 12px;
     }
 
     .item {
       border-bottom: 1px solid #efe7d7;
-      padding: 4px 0 6px;
-      min-height: 42px;
+      padding: 3px 0 5px;
+      min-height: 38px;
     }
 
     .label {
       display: block;
-      font-size: 0.86rem;
+      font-size: 1rem;
       color: var(--cinza);
       font-weight: 700;
-      line-height: 1.15;
+      line-height: 1.08;
     }
 
     .value {
       display: block;
-      font-size: 1.02rem;
+      font-size: 1.14rem;
       color: var(--texto);
-      line-height: 1.22;
+      line-height: 1.15;
       word-break: break-word;
     }
 
-    .full {
-      grid-column: 1 / -1;
-    }
+    .full { grid-column: 1 / -1; }
 
     .protocol-box {
       background: #fbf8ef;
       border: 1px solid var(--borda);
       border-radius: 16px;
-      padding: 14px;
-      margin: 12px 0;
+      padding: 12px 14px;
+      margin: 10px 0;
     }
 
     .office-box {
-      background: #fbf8ef;
-      border: 1px solid var(--borda);
-      border-radius: 16px;
-      padding: 16px;
-      margin-top: 16px;
-    }
-
-    .office-box ul {
-      margin: 10px 0 8px;
-      padding-left: 20px;
+      background: var(--cinza-contato);
+      border: 1px solid #999;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      color: #1f2933;
+      line-height: 1.28;
     }
 
     .office-box a {
       color: var(--verde);
       font-weight: 700;
+    }
+
+    .office-line {
+      margin: 7px 0;
     }
 
     .envio-status {
@@ -176,9 +172,7 @@
       display: none;
     }
 
-    .envio-status.visible {
-      display: block;
-    }
+    .envio-status.visible { display: block; }
 
     .envio-status.sucesso {
       background: #e8f5ee;
@@ -238,49 +232,37 @@
       font-size: 0.95rem;
     }
 
-    footer a {
-      color: #f3d98a;
-    }
+    footer a { color: #f3d98a; }
 
-    .print-brand {
-      display: none;
-    }
+    .print-brand { display: none; }
 
     @media (max-width: 720px) {
-      .header-inner {
-        display: block;
-      }
+      .header-inner { display: block; }
 
       .tag {
         text-align: left;
         margin-top: 10px;
       }
 
-      .data-grid {
-        grid-template-columns: 1fr;
-      }
+      .data-grid { grid-template-columns: 1fr; }
 
-      .actions {
-        flex-direction: column;
-      }
+      .actions { flex-direction: column; }
 
-      .btn {
-        width: 100%;
-      }
+      .btn { width: 100%; }
     }
 
     @media print {
       @page {
         size: A4;
-        margin: 9mm 9mm;
+        margin: 8mm 8mm;
       }
 
       html,
       body {
         background: #fff !important;
         color: #000 !important;
-        font-size: 8.6pt;
-        line-height: 1.13;
+        font-size: 10.6pt !important;
+        line-height: 1.06 !important;
       }
 
       header,
@@ -293,14 +275,14 @@
 
       .print-brand {
         display: block !important;
-        margin: 0 0 3mm 0;
-        padding-bottom: 2mm;
+        margin: 0 0 2mm 0;
+        padding-bottom: 1.6mm;
         border-bottom: 1px solid #d7d0c2;
       }
 
       .print-brand img {
         display: block !important;
-        width: 122px;
+        width: 118px;
         height: auto;
       }
 
@@ -319,74 +301,82 @@
       }
 
       h1 {
-        font-size: 14pt;
-        margin: 0 0 1.5mm;
-        line-height: 1.03;
+        font-size: 16pt !important;
+        margin: 0 0 1.2mm;
+        line-height: 1;
       }
 
       h2 {
-        font-size: 10pt;
-        margin: 2.6mm 0 1mm;
-        line-height: 1.05;
+        font-size: 12pt !important;
+        margin: 2.1mm 0 0.7mm;
+        line-height: 1.02;
       }
 
-      p {
-        margin: 0.9mm 0;
-      }
+      p { margin: 0.6mm 0; }
 
       .intro {
-        font-size: 8.3pt;
-        margin-bottom: 1.8mm;
+        font-size: 10.3pt !important;
+        line-height: 1.05 !important;
+        margin-bottom: 1.4mm;
       }
 
       .protocol-box {
         border: 1px solid #d8d2c3;
         background: #fff !important;
         border-radius: 0;
-        padding: 1.6mm;
-        margin: 1.8mm 0 1.8mm;
+        padding: 1.3mm;
+        margin: 1.3mm 0;
+        font-size: 10.5pt !important;
+        line-height: 1.05 !important;
       }
 
       .data-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.9mm 4.5mm;
-        margin: 1mm 0 1.5mm;
+        gap: 0.6mm 4mm;
+        margin: 0.8mm 0 1.2mm;
       }
 
       .item {
         border-bottom: 1px solid #ddd;
-        padding: 0.45mm 0;
+        padding: 0.28mm 0;
         min-height: auto;
       }
 
       .label {
-        font-size: 7.2pt;
-        line-height: 1.02;
+        font-size: 9.2pt !important;
+        line-height: 1 !important;
       }
 
       .value {
-        font-size: 8.1pt;
-        line-height: 1.05;
+        font-size: 10.1pt !important;
+        line-height: 1.02 !important;
+      }
+
+      .full .value {
+        font-size: 9.7pt !important;
+        line-height: 1.02 !important;
       }
 
       .office-box {
-        border: 1px solid #d8d2c3;
-        background: #fff !important;
+        border: 1px solid #999 !important;
+        background: #C0C0C0 !important;
         border-radius: 0;
-        padding: 1.7mm;
-        margin: 2mm 0 0;
+        padding: 1.5mm;
+        margin: 1.5mm 0 0;
+        font-size: 10.1pt !important;
+        line-height: 1.06 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
 
-      .office-box ul {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.6mm 4mm;
-        margin: 1mm 0;
-        padding-left: 4mm;
+      .office-line {
+        margin: 0.7mm 0 !important;
       }
 
-      .office-box li {
-        margin: 0;
+      .office-box a {
+        color: #000 !important;
+        text-decoration: none !important;
+        font-weight: 700;
       }
     }
   </style>
@@ -409,8 +399,8 @@
       <h1>Sua solicitação foi registrada.</h1>
 
       <p class="intro">
-        As informações foram organizadas para análise inicial. O envio do formulário não gera contratação automática,
-        análise imediata ou garantia de resultado.
+        As informações foram recebidas e estruturadas automaticamente para registro da solicitação.
+        O envio do formulário não gera contratação automática, análise jurídica imediata, compromisso de retorno ou garantia de resultado.
       </p>
 
       <div class="protocol-box">
@@ -429,26 +419,30 @@
       <h2>3. Contato institucional</h2>
 
       <section class="office-box">
-        <p>
+        <p class="office-line">
           As informações encaminhadas nesta solicitação serão organizadas para análise inicial pelo escritório
           <strong>AQUINO ADVOGADOS</strong>, que possui experiência em demandas dessa natureza.
-        </p>
-
-        <p>
           Caso seja necessário contato complementar, utilize preferencialmente os canais abaixo, informando o protocolo
-          <strong id="protocoloContato"></strong>:
+          <strong id="protocoloContato"></strong>.
         </p>
 
-        <ul>
-          <li>Site: <a href="https://www.aquinojuridico.com.br" target="_blank" rel="noopener">www.aquinojuridico.com.br</a></li>
-          <li>E-mail: <a href="mailto:contato@aquinojuridico.com.br">contato@aquinojuridico.com.br</a></li>
-          <li>Telefone: +55 (61) 3321-6757</li>
-          <li>WhatsApp: +55 (61) 99961-6757</li>
-        </ul>
+        <p class="office-line">
+          Site:
+          <a href="https://www.aquinojuridico.com.br" target="_blank" rel="noopener">www.aquinojuridico.com.br</a>
+          &nbsp;&nbsp;
+          E-mail:
+          <a href="mailto:contato@aquinojuridico.com.br">contato@aquinojuridico.com.br</a>
+        </p>
 
-        <p>
-          Esteja atento aos canais informados no formulário, pois eventual retorno poderá ocorrer por telefone,
-          WhatsApp ou e-mail.
+        <p class="office-line">
+          Telefone: +55 (61) 3201-6757
+          &nbsp;&nbsp;
+          WhatsApp: +55 (61) 9.9961-6757
+        </p>
+
+        <p class="office-line">
+          Esteja atento aos seus canais de contato informados no formulário, pois eventual retorno poderá ocorrer por telefone,
+          aplicativo de mensagem (whatsapp) ou e-mail.
         </p>
       </section>
 
@@ -474,19 +468,28 @@
     const dados = JSON.parse(sessionStorage.getItem("analiseLegalResumo") || "{}");
     const fallback = "Não informado";
 
+    function escapeHTML(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
     function valor(campo) {
       if (Array.isArray(campo)) {
         return campo.length ? campo.join(", ") : fallback;
       }
 
-      return campo && String(campo).trim() ? campo : fallback;
+      return campo && String(campo).trim() ? String(campo) : fallback;
     }
 
     function item(label, value, full = false) {
       return `
         <div class="item ${full ? "full" : ""}">
-          <span class="label">${label}</span>
-          <span class="value">${valor(value)}</span>
+          <span class="label">${escapeHTML(label)}</span>
+          <span class="value">${escapeHTML(valor(value))}</span>
         </div>
       `;
     }
@@ -554,10 +557,6 @@ Complemento:
 
     document.getElementById("emailComplemento").href =
       `mailto:contato@aquinojuridico.com.br?subject=${assunto}&body=${corpo}`;
-
-    // ============================================================
-    // Envio dos dados ao Cloudflare Worker (que dispara os e-mails)
-    // ============================================================
 
     const WORKER_ENDPOINT = "https://analiselegal-formulario.miguel-compras.workers.dev/";
     const statusEl = document.getElementById("envioStatus");
