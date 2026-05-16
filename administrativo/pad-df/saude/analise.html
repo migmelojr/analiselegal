@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -351,6 +353,25 @@
 
     footer a { color: #f3d98a; }
 
+
+    .anti-spam-field {
+      position: absolute !important;
+      left: -10000px !important;
+      top: auto !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      tabindex: -1;
+    }
+
+    .security-note {
+      font-size: 0.92rem;
+      color: #667085;
+      margin-top: 12px;
+    }
+
     @media (max-width: 760px) {
       body { font-size: 17px; }
 
@@ -410,10 +431,25 @@
       <p class="required-note">
         Os dados pessoais ficam ao final e serão solicitados apenas para contato, identificação da solicitação e eventual formalização de proposta relacionada ao atendimento solicitado.
       </p>
+
+      <p class="security-note">
+        Solicitações com dados inconsistentes, incompletos ou artificialmente preenchidos poderão ser desconsideradas ou submetidas a validação preliminar antes de qualquer retorno.
+      </p>
     </section>
 
     <section class="card" aria-label="Formulário de solicitação de análise">
       <form id="formAnalise" novalidate>
+        <input type="hidden" id="formStartedAt" name="formStartedAt" value="">
+        <input type="hidden" id="formSubmittedAt" name="formSubmittedAt" value="">
+        <input type="hidden" id="fillDurationSeconds" name="fillDurationSeconds" value="">
+        <input type="hidden" id="clientPlausibilityScore" name="clientPlausibilityScore" value="">
+        <input type="hidden" id="clientPlausibilityFlags" name="clientPlausibilityFlags" value="">
+
+        <div class="anti-spam-field" aria-hidden="true">
+          <label for="empresaContato">Empresa</label>
+          <input id="empresaContato" name="empresaContato" type="text" autocomplete="off" tabindex="-1">
+        </div>
+
         <div class="progress">
           <div class="bar" id="bar"></div>
         </div>
@@ -546,6 +582,7 @@
           <label for="relato">Se desejar, descreva brevemente o que mais preocupa você neste momento.</label>
           <textarea id="relato" name="relato" maxlength="900" placeholder="Exemplo: recebi uma notificação, não entendi o prazo e estou preocupado com possível repercussão funcional."></textarea>
           <div class="field-help"><span id="contador">0</span>/900 caracteres</div>
+          <div class="error" id="err-relato"></div>
 
           <label for="arquivo">Documento opcional</label>
           <input id="arquivo" name="arquivo" type="file" accept=".pdf,.jpg,.jpeg,.png,.webp" />
@@ -688,6 +725,13 @@
     const steps = [...document.querySelectorAll(".step")];
     let current = 0;
 
+    // Configure aqui, quando o Cloudflare Worker estiver publicado.
+    // Exemplo: const WORKER_ENDPOINT = "https://forms.analiselegal.workers.dev/pad-saude";
+    const WORKER_ENDPOINT = "";
+
+    const formStartedAt = new Date();
+    document.getElementById("formStartedAt").value = formStartedAt.toISOString();
+
     const bar = document.getElementById("bar");
     const stepCount = document.getElementById("stepCount");
     const prevBtn = document.getElementById("prevBtn");
@@ -806,6 +850,90 @@
       return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((value || "").trim());
     }
 
+    function escapeHTML(value) {
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function nomePlausivel(value) {
+      const nome = (value || "").trim();
+      if (nome.length < 7) return false;
+      if (!/^[A-Za-zÀ-ÿ' -]+$/.test(nome)) return false;
+      const partes = nome.split(/\s+/).filter(Boolean);
+      if (partes.length < 2) return false;
+      if (/(.)\1{3,}/.test(nome.toLowerCase())) return false;
+      return true;
+    }
+
+    function textoAleatorio(value) {
+      const texto = (value || "").trim().toLowerCase();
+      if (!texto) return false;
+
+      const letras = (texto.match(/[a-záàâãéèêíïóôõöúçñ]/gi) || []).length;
+      const numeros = (texto.match(/\d/g) || []).length;
+      const palavras = texto.split(/\s+/).filter(Boolean);
+      const palavrasComVogais = palavras.filter(p => /[aeiouáàâãéèêíóôõú]/i.test(p)).length;
+      const verbosOuTermosMinimos = /(recebi|fui|estou|tenho|houve|prazo|notifica|processo|pad|sindic|chefia|paciente|escala|plantão|plantao|corregedoria|documento|defesa|responder|apuração|apuracao)/i.test(texto);
+
+      if (/(.)\1{4,}/.test(texto)) return true;
+      if (/[a-z]{0,3}\d[a-z0-9-]{5,}/i.test(texto)) return true;
+      if (palavras.length >= 3 && palavrasComVogais / palavras.length < 0.55) return true;
+      if (numeros > letras * 0.25) return true;
+      if (texto.length >= 40 && palavras.length < 5) return true;
+      if (texto.length >= 60 && !verbosOuTermosMinimos) return true;
+
+      return false;
+    }
+
+    function emailDescartavelOuSuspeito(value) {
+      const email = (value || "").trim().toLowerCase();
+      const dominio = email.split("@")[1] || "";
+      if (!dominio) return true;
+      if (/(.)\1{3,}/.test(email)) return true;
+      if (/^(test|teste|asdf|qwer|abc|aaa|xxx|email|mail)@/i.test(email)) return true;
+      if (/^(example\.|exemplo\.|teste\.|test\.)/i.test(dominio)) return true;
+      return false;
+    }
+
+    function calcularPlausibilidade(data) {
+      let score = 0;
+      const flags = [];
+
+      const duracao = Number(data.fillDurationSeconds || 0);
+
+      if (nomePlausivel(data.nome)) score += 15; else flags.push("nome_inverossimil");
+      if (validEmail(data.email) && !emailDescartavelOuSuspeito(data.email)) score += 15; else flags.push("email_suspeito");
+      if (validPhone(data.telefone)) score += 10; else flags.push("telefone_invalido");
+      if (data.cpf && validCPF(data.cpf)) score += 10; else if (data.cpf) flags.push("cpf_invalido");
+      if (data.cep && onlyDigits(data.cep).length === 8) score += 5;
+
+      if (data.relato && data.relato.length >= 80 && !textoAleatorio(data.relato)) score += 20;
+      else if (data.relato && textoAleatorio(data.relato)) flags.push("relato_aleatorio");
+      else if (!data.relato || data.relato.length < 40) flags.push("relato_insuficiente");
+
+      if (duracao >= 120) score += 10; else flags.push("preenchimento_muito_rapido");
+      if (data.honeypot) flags.push("honeypot_preenchido");
+
+      if (data.procedimento && data.area && data.funcao && data.situacao && data.percepcao) score += 15;
+      else flags.push("campos_essenciais_incompletos");
+
+      if (data.existePrazo === "Não consegui identificar" && data.prazoTermina === "Hoje") flags.push("prazo_contraditorio");
+
+      if (flags.includes("honeypot_preenchido")) score = Math.min(score, 10);
+      if (flags.includes("relato_aleatorio")) score = Math.min(score, 35);
+      if (flags.includes("nome_inverossimil") && flags.includes("email_suspeito")) score = Math.min(score, 35);
+
+      let classificacao = "revisao";
+      if (score >= 75 && !flags.includes("relato_aleatorio") && !flags.includes("honeypot_preenchido")) classificacao = "plausivel";
+      if (score < 45 || flags.includes("honeypot_preenchido") || flags.includes("relato_aleatorio")) classificacao = "suspeito";
+
+      return { score, flags, classificacao };
+    }
+
     function maskCEP(value) {
       return onlyDigits(value).slice(0, 8).replace(/(\d{5})(\d)/, "$1-$2");
     }
@@ -858,6 +986,7 @@
 
     document.getElementById("relato").addEventListener("input", event => {
       document.getElementById("contador").textContent = event.target.value.length;
+      if (!textoAleatorio(event.target.value)) limparErro("relato");
     });
 
     document.getElementById("cep").addEventListener("blur", async event => {
@@ -937,6 +1066,17 @@
       if (current === 3) {
         ok = validarRadio("percepcao", "Selecione a opção que melhor representa sua percepção atual.") && ok;
         ok = validarRadio("acessoDocumentos", "Informe se possui acesso aos documentos.") && ok;
+      }
+
+      if (current === 4) {
+        const relato = document.getElementById("relato").value.trim();
+
+        if (relato && textoAleatorio(relato)) {
+          setErro("relato", "O relato parece conter caracteres aleatórios. Descreva brevemente a situação com palavras compreensíveis.");
+          ok = false;
+        } else {
+          limparErro("relato");
+        }
       }
 
       if (current === 5) {
@@ -1063,7 +1203,14 @@
         utm_campaign: new URLSearchParams(location.search).get("utm_campaign") || "",
         dispositivo: innerWidth < 768 ? "mobile" : "desktop",
         navegador: navigator.userAgent,
-        larguraTela: innerWidth
+        larguraTela: innerWidth,
+        formStartedAt: document.getElementById("formStartedAt").value,
+        formSubmittedAt: document.getElementById("formSubmittedAt").value,
+        fillDurationSeconds: document.getElementById("fillDurationSeconds").value,
+        honeypot: document.getElementById("empresaContato").value.trim(),
+        arquivoNome: document.getElementById("arquivo").files[0]?.name || "",
+        arquivoTipo: document.getElementById("arquivo").files[0]?.type || "",
+        arquivoTamanho: document.getElementById("arquivo").files[0]?.size || 0
       };
     }
 
@@ -1071,12 +1218,12 @@
       const data = collect();
 
       document.getElementById("resumoFinal").innerHTML = `
-        <p><strong>Nome:</strong> ${data.nome || "Não informado"}</p>
-        <p><strong>Contato:</strong> ${data.telefone || "Não informado"} | ${data.email || "Não informado"}</p>
-        <p><strong>Procedimento:</strong> ${data.procedimento || "Não informado"}</p>
-        <p><strong>Urgência estimada:</strong> ${data.urgencia}</p>
-        <p><strong>Situação:</strong> ${data.situacao || "Não informado"}</p>
-        <p><strong>Preocupação principal:</strong> ${data.percepcao || "Não informado"}</p>
+        <p><strong>Nome:</strong> ${escapeHTML(data.nome || "Não informado")}</p>
+        <p><strong>Contato:</strong> ${escapeHTML(data.telefone || "Não informado")} | ${escapeHTML(data.email || "Não informado")}</p>
+        <p><strong>Procedimento:</strong> ${escapeHTML(data.procedimento || "Não informado")}</p>
+        <p><strong>Urgência estimada:</strong> ${escapeHTML(data.urgencia)}</p>
+        <p><strong>Situação:</strong> ${escapeHTML(data.situacao || "Não informado")}</p>
+        <p><strong>Preocupação principal:</strong> ${escapeHTML(data.percepcao || "Não informado")}</p>
       `;
     }
 
@@ -1111,15 +1258,47 @@
       }
     });
 
-    document.getElementById("formAnalise").addEventListener("submit", event => {
+    document.getElementById("formAnalise").addEventListener("submit", async event => {
       event.preventDefault();
 
       if (!validateCurrent()) return;
 
+      const submittedAt = new Date();
+      const durationSeconds = Math.max(0, Math.round((submittedAt.getTime() - formStartedAt.getTime()) / 1000));
+
+      document.getElementById("formSubmittedAt").value = submittedAt.toISOString();
+      document.getElementById("fillDurationSeconds").value = String(durationSeconds);
+
       const data = collect();
+      const plausibilidade = calcularPlausibilidade(data);
+
+      data.plausibilidade = plausibilidade;
+      data.clientPlausibilityScore = plausibilidade.score;
+      data.clientPlausibilityFlags = plausibilidade.flags;
+      data.clientPlausibilityClassificacao = plausibilidade.classificacao;
+
+      document.getElementById("clientPlausibilityScore").value = String(plausibilidade.score);
+      document.getElementById("clientPlausibilityFlags").value = plausibilidade.flags.join(",");
 
       sessionStorage.setItem("analiseLegalResumo", JSON.stringify(data));
-      window.location.href = "confirmacao.html";
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "REGISTRANDO...";
+
+      try {
+        if (WORKER_ENDPOINT) {
+          await fetch(WORKER_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+            keepalive: true
+          });
+        }
+      } catch (error) {
+        console.warn("Falha no envio ao Worker. Mantendo confirmação local.", error);
+      } finally {
+        window.location.href = "confirmacao.html";
+      }
     });
 
     showStep();
