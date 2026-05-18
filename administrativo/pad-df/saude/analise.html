@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -678,6 +676,24 @@
         </div>
 
         <div class="step" data-step="7">
+  <h2>Pré-reserva de horário</h2>
+  <p class="hint">
+    Escolha uma data para verificar horários disponíveis. A pré-reserva somente será criada ao final do formulário.
+  </p>
+
+  <label for="agendaData">Data pretendida</label>
+  <input id="agendaData" name="agendaData" type="date" required>
+  <div class="error" id="err-agendaData"></div>
+
+  <div id="agendaStatus" class="field-help">
+    Selecione uma data para carregar os horários disponíveis.
+  </div>
+
+  <div class="options-grid" id="agendaHorarios" style="margin-top:14px;"></div>
+  <input type="hidden" id="agendaHora" name="agendaHora" value="">
+  <div class="error" id="err-agendaHora"></div>
+</div>
+        <div class="step" data-step="8">
           <h2>Confirmação e consentimentos</h2>
           <p class="hint">Confira o resumo antes de solicitar a análise.</p>
 
@@ -1031,6 +1047,106 @@
       return true;
     }
 
+    // =====================================================
+// AGENDA
+// =====================================================
+
+const agendaDataInput = document.getElementById("agendaData");
+const agendaHorarios = document.getElementById("agendaHorarios");
+const agendaStatus = document.getElementById("agendaStatus");
+const agendaHoraInput = document.getElementById("agendaHora");
+
+async function carregarHorarios() {
+
+  const data = agendaDataInput.value;
+
+  agendaHoraInput.value = "";
+  agendaHorarios.innerHTML = "";
+
+  if (!data) {
+    agendaStatus.textContent =
+      "Selecione uma data para carregar os horários disponíveis.";
+    return;
+  }
+
+  agendaStatus.textContent =
+    "Carregando horários disponíveis...";
+
+  try {
+
+    const response = await fetch(
+      "https://analiselegal-formulario.miguel-compras.workers.dev/agenda/disponibilidade",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ data })
+      }
+    );
+
+    const resultado = await response.json();
+
+    if (!resultado.sucesso) {
+      agendaStatus.textContent =
+        "Não foi possível carregar os horários.";
+      return;
+    }
+
+    const horarios =
+      resultado.horarios_disponiveis || [];
+
+    if (!horarios.length) {
+
+      agendaStatus.textContent =
+        "Não há horários disponíveis nesta data.";
+
+      return;
+    }
+
+    agendaStatus.textContent =
+      "Selecione um horário disponível.";
+
+    horarios.forEach((hora) => {
+
+      const label =
+        document.createElement("label");
+
+      label.className = "option";
+
+      label.innerHTML = `
+        <input type="radio"
+               name="agendaHorarioVisual"
+               value="${hora}">
+        <span>${hora}</span>
+      `;
+
+      const input =
+        label.querySelector("input");
+
+      input.addEventListener("change", () => {
+        agendaHoraInput.value = hora;
+        limparErro("agendaHora");
+      });
+
+      agendaHorarios.appendChild(label);
+
+    });
+
+  } catch (e) {
+
+    agendaStatus.textContent =
+      "Erro ao consultar disponibilidade.";
+
+  }
+
+}
+
+agendaDataInput?.addEventListener(
+  "change",
+  carregarHorarios
+);
+    
     function validateCurrent() {
       let ok = true;
       const etapa = steps[current];
@@ -1129,29 +1245,47 @@
       }
 
       if (current === 6) {
-        const declaracao = document.querySelector('input[name="declaracao"]');
-        const lgpd = document.querySelector('input[name="lgpd"]');
+  const agendaData = document.getElementById("agendaData").value;
+  const agendaHora = document.getElementById("agendaHora").value;
 
-        if (!declaracao.checked) {
-          setErroGrupo("declaracao", "Confirme a declaração para prosseguir.");
-          ok = false;
-        } else {
-          limparErroGrupo("declaracao");
-        }
+  if (!agendaData) {
+    setErro("agendaData", "Selecione a data pretendida.");
+    ok = false;
+  } else {
+    limparErro("agendaData");
+  }
 
-        if (!lgpd.checked) {
-          setErroGrupo("lgpd", "Confirme a autorização de tratamento dos dados para prosseguir.");
-          ok = false;
-        } else {
-          limparErroGrupo("lgpd");
-        }
-      }
+  if (!agendaHora) {
+    setErro("agendaHora", "Selecione um horário disponível.");
+    ok = false;
+  } else {
+    limparErro("agendaHora");
+  }
+}
 
-      if (!ok) focarPrimeiroErro();
+if (current === 7) {
+  const declaracao = document.querySelector('input[name="declaracao"]');
+  const lgpd = document.querySelector('input[name="lgpd"]');
 
-      return ok;
-    }
+  if (!declaracao.checked) {
+    setErroGrupo("declaracao", "Confirme a declaração para prosseguir.");
+    ok = false;
+  } else {
+    limparErroGrupo("declaracao");
+  }
 
+  if (!lgpd.checked) {
+    setErroGrupo("lgpd", "Confirme a autorização de tratamento dos dados para prosseguir.");
+    ok = false;
+  } else {
+    limparErroGrupo("lgpd");
+  }
+}
+if (!ok) focarPrimeiroErro();
+
+return ok;
+}
+      
     function urgencia() {
       const prazo = getRadio("prazoTermina");
 
@@ -1184,6 +1318,8 @@
         complemento: document.getElementById("complemento").value.trim(),
         retorno: getRadio("retorno"),
         horario: getRadio("horario"),
+        agendaData: document.getElementById("agendaData").value,
+        agendaHora: document.getElementById("agendaHora").value,
         procedimento: getRadio("procedimento"),
         area: getRadio("area"),
         funcao: getRadio("funcao"),
@@ -1270,7 +1406,37 @@
       document.getElementById("fillDurationSeconds").value = String(durationSeconds);
 
       const data = collect();
-      const plausibilidade = calcularPlausibilidade(data);
+      const agendaResp = await fetch(
+  "https://analiselegal-formulario.miguel-compras.workers.dev/agenda/pre-reservar",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      nome: data.nome,
+      email: data.email,
+      telefone: data.telefone,
+      data: data.agendaData,
+      hora: data.agendaHora
+    })
+  }
+);
+
+const agendaJson = await agendaResp.json();
+
+if (!agendaJson.sucesso) {
+  alert(
+    agendaJson.erro ||
+    "Não foi possível realizar a pré-reserva do horário."
+  );
+  return;
+}
+
+data.protocoloAgenda = agendaJson.protocolo;
+data.preReservaExpiraEm = agendaJson.expira_em_br;
+
+const plausibilidade = calcularPlausibilidade(data);
 
       data.plausibilidade = plausibilidade;
       data.clientPlausibilityScore = plausibilidade.score;
