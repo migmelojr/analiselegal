@@ -511,25 +511,23 @@
     document.getElementById("protocoloContato").textContent = protocolo;
 
    function enderecoCompleto() {
-  const partes = [
-    dados.endereco,
-    dados.numero,
-    dados.complemento,
-    dados.bairro,
-    dados.cidadeUf,
-    dados.cep
-  ].filter(v => v && String(v).trim());
+  const partes = [];
 
-  return partes.length ? partes.join(" — ") : fallback;
+  if (dados.endereco) partes.push(dados.endereco);
+  if (dados.numero) partes.push(`Nº ${dados.numero}`);
+  if (dados.complemento) partes.push(dados.complemento);
+  if (dados.bairro) partes.push(dados.bairro);
+  if (dados.cidadeUf) partes.push(dados.cidadeUf);
+  if (dados.cep) partes.push(`CEP ${dados.cep}`);
+
+  return partes.length ? partes.join("\n") : fallback;
 }
 
 document.getElementById("dadosPessoais").innerHTML = `
   ${item("Nome completo", dados.nome)}
   ${item("Telefone", dados.telefone)}
-  ${item("Telefone (somente números)", dados.telefoneLimpo)}
   ${item("E-mail", dados.email)}
   ${item("CPF", dados.cpf)}
-  ${item("CPF (somente números)", dados.cpfLimpo)}
   ${item("Endereço completo", enderecoCompleto(), true)}
   ${item("Preferência de retorno", dados.retorno)}
   ${item("Melhor horário", dados.horario)}
