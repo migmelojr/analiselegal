@@ -486,13 +486,15 @@
     }
 
     function item(label, value, full = false) {
-      return `
-        <div class="item ${full ? "full" : ""}">
-          <span class="label">${escapeHTML(label)}</span>
-          <span class="value">${escapeHTML(valor(value))}</span>
-        </div>
-      `;
-    }
+  const texto = escapeHTML(valor(value)).replace(/\n/g, "<br>");
+
+  return `
+    <div class="item ${full ? "full" : ""}">
+      <span class="label">${escapeHTML(label)}</span>
+      <span class="value">${texto}</span>
+    </div>
+  `;
+}
 
     function slugNome(nome) {
       return (nome || "solicitante")
