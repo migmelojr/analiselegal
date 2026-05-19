@@ -510,33 +510,52 @@
     document.getElementById("timestampTopo").textContent = timestamp;
     document.getElementById("protocoloContato").textContent = protocolo;
 
-    document.getElementById("dadosPessoais").innerHTML = `
-      ${item("Nome completo", dados.nome)}
-      ${item("Telefone", dados.telefone)}
-      ${item("E-mail", dados.email)}
-      ${item("CPF", dados.cpf)}
-      ${item("CEP", dados.cep)}
-      ${item("Endereço", `${valor(dados.endereco)}, ${valor(dados.numero)}`)}
-      ${item("Bairro", dados.bairro)}
-      ${item("Cidade/UF", dados.cidadeUf)}
-      ${item("Preferência de retorno", dados.retorno)}
-      ${item("Melhor horário", dados.horario)}
-    `;
+   function enderecoCompleto() {
+  const partes = [
+    dados.endereco,
+    dados.numero,
+    dados.complemento,
+    dados.bairro,
+    dados.cidadeUf,
+    dados.cep
+  ].filter(v => v && String(v).trim());
+
+  return partes.length ? partes.join(" — ") : fallback;
+}
+
+document.getElementById("dadosPessoais").innerHTML = `
+  ${item("Nome completo", dados.nome)}
+  ${item("Telefone", dados.telefone)}
+  ${item("Telefone (somente números)", dados.telefoneLimpo)}
+  ${item("E-mail", dados.email)}
+  ${item("CPF", dados.cpf)}
+  ${item("CPF (somente números)", dados.cpfLimpo)}
+  ${item("Endereço completo", enderecoCompleto(), true)}
+  ${item("Preferência de retorno", dados.retorno)}
+  ${item("Melhor horário", dados.horario)}
+`;
 
     document.getElementById("resumoSolicitacao").innerHTML = `
-      ${item("Procedimento recebido", dados.procedimento)}
-      ${item("Área de atuação", dados.area)}
-      ${item("Função", dados.funcao)}
-      ${item("Existe prazo?", dados.existePrazo)}
-      ${item("Prazo termina", dados.prazoTermina)}
-      ${item("Urgência estimada", dados.urgencia)}
-      ${item("Resposta anterior", dados.respostaAnterior)}
-      ${item("Situação aparente", dados.situacao)}
-      ${item("Percepção do usuário", dados.percepcao)}
-      ${item("Acesso aos documentos", dados.acessoDocumentos)}
-      ${item("Preocupações", dados.preocupacoes)}
-      ${item("Relato resumido", dados.relato, true)}
-    `;
+  ${item("Forma escolhida para prosseguir", dados.fluxoEscolhidoLabel || dados.fluxoEscolhido)}
+  ${item("Procedimento recebido", dados.procedimento)}
+  ${item("Área de atuação", dados.area)}
+  ${item("Função", dados.funcao)}
+  ${item("Existe prazo?", dados.existePrazo)}
+  ${item("Prazo termina", dados.prazoTermina)}
+  ${item("Urgência estimada", dados.urgencia)}
+  ${item("Resposta anterior", dados.respostaAnterior)}
+  ${item("Situação aparente", dados.situacao)}
+  ${item("Percepção do usuário", dados.percepcao)}
+  ${item("Acesso aos documentos", dados.acessoDocumentos)}
+  ${item("Preocupações", dados.preocupacoes)}
+  ${item("Relato resumido", dados.relato, true)}
+  ${item("Origem", dados.origem)}
+  ${item("UTM Source", dados.utm_source)}
+  ${item("UTM Medium", dados.utm_medium)}
+  ${item("UTM Campaign", dados.utm_campaign)}
+  ${item("Dispositivo", dados.dispositivo)}
+  ${item("Tempo de preenchimento (segundos)", dados.fillDurationSeconds)}
+`;
 
     const nomeArquivo = `${protocolo}-${slugNome(dados.nome)}`;
     document.title = `Solicitacao-${nomeArquivo}-Analise-Legal`;
