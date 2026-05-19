@@ -596,13 +596,20 @@ Complemento:
 
         const resultado = await resposta.json();
 
-        if (resultado.sucesso) {
-          sessionStorage.setItem("envioConfirmado", protocolo);
-          mostrarStatus("sucesso", "Confirmação enviada por e-mail com sucesso.");
-        } else {
-          mostrarStatus("erro", "Não foi possível enviar a confirmação por e-mail. Os dados desta tela permanecem disponíveis.");
-          console.error("Falha no envio:", resultado);
-        }
+        if (resultado.sucesso || resultado.escritorio || resultado.cliente) {
+  sessionStorage.setItem("envioConfirmado", protocolo);
+
+  if (resultado.escritorio && resultado.cliente) {
+    mostrarStatus("sucesso", "Solicitação registrada. A confirmação foi enviada por e-mail.");
+  } else if (resultado.escritorio && !resultado.cliente) {
+    mostrarStatus("sucesso", "Solicitação registrada. O escritório recebeu os dados, mas a confirmação ao cliente poderá ser reenviada posteriormente.");
+  } else if (!resultado.escritorio && resultado.cliente) {
+    mostrarStatus("sucesso", "Solicitação registrada. A confirmação ao cliente foi enviada, mas o aviso interno poderá ser verificado pelo escritório.");
+  }
+} else {
+  mostrarStatus("erro", "Não foi possível confirmar o envio automático por e-mail. Os dados desta tela permanecem disponíveis.");
+  console.error("Falha no envio:", resultado);
+}
       } catch (erro) {
         mostrarStatus("erro", "Não foi possível enviar a confirmação por e-mail. Os dados desta tela permanecem disponíveis.");
         console.error("Erro de rede:", erro);
