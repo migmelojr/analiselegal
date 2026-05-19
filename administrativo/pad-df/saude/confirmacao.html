@@ -549,13 +549,7 @@ document.getElementById("dadosPessoais").innerHTML = `
   ${item("Acesso aos documentos", dados.acessoDocumentos)}
   ${item("Preocupações", dados.preocupacoes)}
   ${item("Relato resumido", dados.relato, true)}
-  ${item("Origem", dados.origem)}
-  ${item("UTM Source", dados.utm_source)}
-  ${item("UTM Medium", dados.utm_medium)}
-  ${item("UTM Campaign", dados.utm_campaign)}
-  ${item("Dispositivo", dados.dispositivo)}
-  ${item("Tempo de preenchimento (segundos)", dados.fillDurationSeconds)}
-`;
+ `;
 
     const nomeArquivo = `${protocolo}-${slugNome(dados.nome)}`;
     document.title = `Solicitacao-${nomeArquivo}-Analise-Legal`;
