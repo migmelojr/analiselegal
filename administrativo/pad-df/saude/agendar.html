@@ -1,0 +1,1985 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Agendar atendimento | Análise Legal</title>
+  <meta name="description" content="Agendamento de atendimento da Análise Legal após proposta aceita, com escolha de modalidade, consulta de disponibilidade, pré-reserva e encaminhamento para pagamento." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#082c27" />
+
+  <link rel="canonical" href="https://www.analiselegal.com.br/agendar.html" />
+
+  <meta property="og:title" content="Agendar atendimento | Análise Legal" />
+  <meta property="og:description" content="Escolha a modalidade, consulte horários disponíveis e conclua a pré-reserva para prosseguir ao pagamento." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.analiselegal.com.br/agendar.html" />
+  <meta property="og:image" content="https://www.analiselegal.com.br/assets/img/Marca.svg" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Análise Legal" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Agendar atendimento | Análise Legal" />
+  <meta name="twitter:description" content="Escolha a modalidade, consulte horários disponíveis e conclua a pré-reserva." />
+  <meta name="twitter:image" content="https://www.analiselegal.com.br/assets/img/Marca.svg" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/img/Simbolo.svg" />
+  <link rel="preload" as="image" href="/assets/img/Marca.svg" />
+  <link rel="preload" as="image" href="/assets/img/Marca-PB.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --verde-profundo:#082c27;
+      --verde-sec:#0d3b34;
+      --verde-escuro:#06211d;
+      --dourado-1:#c8a44b;
+      --dourado-2:#d8b45f;
+      --dourado-3:#b78d2f;
+      --bege:#f4f0e8;
+      --bege-card:#fffdf8;
+      --texto:#1f2933;
+      --cinza:#5b6470;
+      --borda:#e3dac6;
+      --erro:#9f1239;
+      --sucesso:#166534;
+      --alerta:#92400e;
+      --sombra:0 18px 48px rgba(8,44,39,0.12);
+      --raio:22px;
+    }
+
+    *{ box-sizing:border-box; }
+
+    html{
+      scroll-behavior:smooth;
+      overflow-x:hidden;
+    }
+
+    body{
+      margin:0;
+      width:100%;
+      max-width:100%;
+      overflow-x:hidden;
+      background:var(--bege);
+      color:var(--texto);
+      font-family:"Crimson Text", Georgia, serif;
+      font-size:18px;
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    .skip-link{
+      position:absolute;
+      left:-9999px;
+      top:auto;
+      width:1px;
+      height:1px;
+      overflow:hidden;
+    }
+
+    .skip-link:focus{
+      left:16px;
+      top:12px;
+      width:auto;
+      height:auto;
+      z-index:9999;
+      background:#fff;
+      color:#082c27;
+      padding:10px 14px;
+      border-radius:10px;
+      text-decoration:none;
+      border:1px solid var(--borda);
+    }
+
+    .site-header{
+      width:100%;
+      max-width:100%;
+      background:linear-gradient(135deg,var(--verde-escuro) 0%,var(--verde-sec) 55%,var(--verde-profundo) 100%);
+      color:#fff;
+      padding:28px 18px 38px;
+      border-bottom-left-radius:18px;
+      border-bottom-right-radius:18px;
+      box-shadow:0 14px 34px rgba(0,0,0,0.18);
+      overflow:hidden;
+      isolation:isolate;
+      transform:translateZ(0);
+    }
+
+    .header-inner{
+      width:min(100%,1080px);
+      margin:0 auto;
+    }
+
+    .brand-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:28px;
+    }
+
+    .logo{
+      display:inline-flex;
+      align-items:center;
+      text-decoration:none;
+    }
+
+    .marca{
+      width:210px;
+      max-width:72vw;
+      height:auto;
+      display:block;
+    }
+
+    .print-logo{ display:none; }
+
+    .header-tag{
+      color:#eadfbf;
+      font-size:0.98rem;
+      text-align:right;
+      line-height:1.35;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.35fr) minmax(240px,0.65fr);
+      gap:34px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      margin:0 0 10px;
+      color:var(--dourado-2);
+      text-transform:uppercase;
+      letter-spacing:0.10em;
+      font-size:0.82rem;
+      font-weight:700;
+    }
+
+    h1{
+      margin:0;
+      color:#fff;
+      font-size:clamp(2.2rem,5.6vw,4rem);
+      line-height:1.05;
+      font-weight:700;
+      letter-spacing:-0.03em;
+    }
+
+    .lead{
+      margin:18px 0 0;
+      max-width:760px;
+      font-size:clamp(1.12rem,3vw,1.32rem);
+      line-height:1.75;
+      color:#f7f1df;
+      text-align:justify;
+    }
+
+    .hero-note{
+      margin:12px 0 0;
+      color:#eadfbf;
+      font-size:1.03rem;
+      line-height:1.55;
+    }
+
+    .tesserato{
+      width:min(320px,42vw);
+      aspect-ratio:1/1;
+      margin:0 auto;
+      opacity:0.96;
+    }
+
+    .tesserato svg{
+      width:100%;
+      height:100%;
+      overflow:visible;
+      display:block;
+    }
+
+    main{
+      width:min(100%,980px);
+      margin:0 auto;
+      padding:30px 16px 58px;
+    }
+
+    .card{
+      background:#fff;
+      border:1px solid var(--borda);
+      border-radius:var(--raio);
+      box-shadow:var(--sombra);
+      padding:clamp(18px,4vw,34px);
+      margin:18px 0;
+    }
+
+    .card-muted{
+      background:#fbf8ef;
+    }
+
+    h2{
+      margin:0 0 10px;
+      color:var(--verde-profundo);
+      font-size:clamp(1.55rem,4.5vw,2.2rem);
+      line-height:1.12;
+      letter-spacing:-0.02em;
+    }
+
+    h3{
+      margin:0 0 8px;
+      color:#1d312e;
+      font-size:1.32rem;
+      line-height:1.2;
+    }
+
+    p{
+      margin:0 0 15px;
+      text-align:justify;
+    }
+
+    .hint{
+      color:#475569;
+      margin:0 0 18px;
+    }
+
+    .meta-box{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .meta-item{
+      background:#fffdf8;
+      border:1px solid #ddd2bd;
+      border-radius:16px;
+      padding:14px;
+      min-height:78px;
+    }
+
+    .meta-label{
+      display:block;
+      color:#667085;
+      font-size:0.9rem;
+      line-height:1.2;
+      margin-bottom:4px;
+    }
+
+    .meta-value{
+      display:block;
+      color:#13221f;
+      font-weight:700;
+      overflow-wrap:anywhere;
+    }
+
+    .stepper{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:10px;
+      margin:0 0 18px;
+    }
+
+    .step-pill{
+      border:1px solid #ddd2bd;
+      background:#fffdf8;
+      color:#41534d;
+      border-radius:999px;
+      padding:8px 10px;
+      text-align:center;
+      font-size:0.92rem;
+      line-height:1.2;
+      font-weight:700;
+    }
+
+    .step-pill.active{
+      background:linear-gradient(135deg,var(--dourado-1),var(--dourado-2));
+      color:#102028;
+      border-color:transparent;
+    }
+
+    .choice-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+      margin-top:14px;
+    }
+
+    .choice{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      min-height:152px;
+      cursor:pointer;
+      border:1px solid #ddd2bd;
+      border-radius:18px;
+      padding:18px;
+      background:#fffdf8;
+      transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease, background .2s ease;
+    }
+
+    .choice:hover{
+      border-color:var(--dourado-1);
+      background:#fffaf0;
+      transform:translateY(-1px);
+      box-shadow:0 10px 24px rgba(8,44,39,.08);
+    }
+
+    .choice input{
+      margin-top:6px;
+      flex:0 0 auto;
+      width:18px;
+      height:18px;
+      accent-color:var(--dourado-1);
+    }
+
+    .choice-title{
+      display:block;
+      font-weight:700;
+      color:var(--verde-profundo);
+      font-size:1.14rem;
+      line-height:1.25;
+      margin-bottom:6px;
+    }
+
+    .choice-desc{
+      display:block;
+      color:#475569;
+      font-size:1rem;
+      line-height:1.45;
+    }
+
+    .calendar-toolbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin:20px 0 14px;
+    }
+
+    .month-title{
+      color:var(--verde-profundo);
+      font-size:1.28rem;
+      font-weight:700;
+      line-height:1.2;
+    }
+
+    .toolbar-actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    .icon-btn{
+      border:1px solid #cfc6b4;
+      background:#fffdf8;
+      color:var(--verde-profundo);
+      border-radius:12px;
+      min-width:44px;
+      min-height:42px;
+      font-family:inherit;
+      font-size:1.25rem;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .icon-btn:hover:not(:disabled){
+      border-color:var(--dourado-1);
+      background:#fffaf0;
+    }
+
+    .icon-btn:disabled{
+      opacity:.45;
+      cursor:not-allowed;
+    }
+
+    .calendar-grid{
+      display:grid;
+      grid-template-columns:repeat(7,1fr);
+      gap:8px;
+      margin-top:12px;
+    }
+
+    .weekday{
+      color:#667085;
+      font-size:.88rem;
+      font-weight:700;
+      text-align:center;
+      padding:5px 0;
+    }
+
+    .day-btn{
+      min-height:54px;
+      border:1px solid #ddd2bd;
+      border-radius:14px;
+      background:#fffdf8;
+      color:#1f2933;
+      font-family:inherit;
+      font-size:1.03rem;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+
+    .day-btn:hover:not(:disabled){
+      border-color:var(--dourado-1);
+      background:#fffaf0;
+    }
+
+    .day-btn.selected{
+      background:linear-gradient(135deg,var(--dourado-1),var(--dourado-2));
+      border-color:transparent;
+      color:#102028;
+      font-weight:700;
+    }
+
+    .day-btn.today::after{
+      content:"";
+      position:absolute;
+      bottom:8px;
+      width:5px;
+      height:5px;
+      border-radius:50%;
+      background:var(--dourado-3);
+    }
+
+    .day-btn:disabled{
+      opacity:.35;
+      background:#f2eee5;
+      cursor:not-allowed;
+    }
+
+    .day-empty{
+      min-height:54px;
+    }
+
+    .slots-section{
+      margin-top:24px;
+    }
+
+    .slot-group{
+      margin-top:16px;
+    }
+
+    .slot-title{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:10px;
+      color:var(--verde-profundo);
+      font-weight:700;
+      font-size:1.08rem;
+    }
+
+    .slots-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:10px;
+    }
+
+    .slot-btn{
+      min-height:54px;
+      border:1px solid #ddd2bd;
+      border-radius:14px;
+      background:#fffdf8;
+      color:#1f2933;
+      font-family:inherit;
+      font-size:1.08rem;
+      font-weight:700;
+      cursor:pointer;
+      transition:background .2s ease, border-color .2s ease, transform .2s ease;
+    }
+
+    .slot-btn:hover:not(:disabled){
+      border-color:var(--dourado-1);
+      background:#fffaf0;
+      transform:translateY(-1px);
+    }
+
+    .slot-btn.selected{
+      background:linear-gradient(135deg,var(--dourado-1),var(--dourado-2));
+      border-color:transparent;
+      color:#102028;
+    }
+
+    .slot-btn:disabled{
+      opacity:.38;
+      cursor:not-allowed;
+      background:#f2eee5;
+      text-decoration:line-through;
+    }
+
+    .notice{
+      border-left:4px solid var(--dourado-1);
+      background:#fbf8ef;
+      border-radius:14px;
+      padding:14px 16px;
+      color:#3b4a45;
+      margin:18px 0 0;
+    }
+
+    .notice.error{
+      border-left-color:var(--erro);
+      background:#fff7f7;
+      color:#7f1d1d;
+    }
+
+    .notice.success{
+      border-left-color:var(--sucesso);
+      background:#f0fdf4;
+      color:#14532d;
+    }
+
+    .notice.warning{
+      border-left-color:var(--alerta);
+      background:#fffbeb;
+      color:#78350f;
+    }
+
+    .reservation-panel{
+      display:none;
+      margin-top:22px;
+      border:1px solid #ddd2bd;
+      border-radius:20px;
+      background:#fffdf8;
+      padding:18px;
+    }
+
+    .reservation-panel.active{
+      display:block;
+    }
+
+    .reservation-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin:14px 0 18px;
+    }
+
+    .timer{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      background:linear-gradient(135deg,#102924,#0d3b34);
+      color:#fff;
+      border-radius:18px;
+      padding:16px 18px;
+      margin:14px 0 18px;
+    }
+
+    .timer-label{
+      color:#eadfbf;
+      font-size:1rem;
+    }
+
+    .timer-value{
+      font-size:2rem;
+      line-height:1;
+      font-weight:700;
+      letter-spacing:.04em;
+      font-variant-numeric:tabular-nums;
+    }
+
+    .cta-row{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:12px;
+      margin-top:18px;
+      flex-wrap:wrap;
+    }
+
+    .btn,
+    .cta-primary{
+      border:0;
+      border-radius:14px;
+      min-height:56px;
+      padding:0 26px;
+      font-family:inherit;
+      font-weight:700;
+      font-size:.98rem;
+      letter-spacing:.06em;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-transform:uppercase;
+    }
+
+    .btn-secondary{
+      background:#e7dfd0;
+      color:#18352f;
+    }
+
+    .btn-secondary:hover{
+      background:#ded3c0;
+    }
+
+    .cta-primary{
+      min-width:250px;
+      background:linear-gradient(135deg,var(--dourado-1) 0%,var(--dourado-2) 45%,var(--dourado-3) 100%);
+      color:#102028 !important;
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow:0 10px 28px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.18);
+      transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;
+    }
+
+    .cta-primary:hover:not(:disabled){
+      transform:translateY(-2px);
+      filter:brightness(1.04);
+      box-shadow:0 16px 34px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.24);
+    }
+
+    .cta-primary:disabled,
+    .btn:disabled{
+      opacity:.55;
+      cursor:not-allowed;
+      transform:none;
+      filter:none;
+    }
+
+    .loading{
+      display:none;
+      align-items:center;
+      gap:8px;
+      color:#475569;
+      font-weight:700;
+      margin-top:12px;
+    }
+
+    .loading.active{
+      display:flex;
+    }
+
+    .spinner{
+      width:18px;
+      height:18px;
+      border:3px solid #e7dfd0;
+      border-top-color:var(--dourado-1);
+      border-radius:50%;
+      animation:spin .9s linear infinite;
+    }
+
+    @keyframes spin{ to{ transform:rotate(360deg); } }
+
+    .sr-only{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
+    }
+
+    .site-footer{
+      width:100%;
+      max-width:100%;
+      background:linear-gradient(135deg,var(--verde-escuro) 0%,var(--verde-sec) 55%,var(--verde-profundo) 100%);
+      color:#f1eee7;
+      padding:28px 16px;
+      margin-top:52px;
+      overflow:hidden;
+      isolation:isolate;
+      transform:translateZ(0);
+    }
+
+    .site-footer .inner{
+      width:min(100%,1080px);
+      margin:0 auto;
+    }
+
+    .site-footer p{
+      color:#f1eee7;
+      font-size:1rem;
+      line-height:1.7;
+      text-align:justify;
+    }
+
+    .site-footer a{
+      color:#e2c574;
+      text-decoration:none;
+    }
+
+    .links{
+      display:flex;
+      gap:1.3rem;
+      flex-wrap:wrap;
+      margin-bottom:1.2rem;
+    }
+
+    @media (max-width:860px){
+      body{ font-size:17px; }
+
+      .site-header{
+        border-bottom-left-radius:16px;
+        border-bottom-right-radius:16px;
+        padding:24px 16px 32px;
+      }
+
+      .brand-row{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:10px;
+      }
+
+      .header-tag{
+        text-align:left;
+      }
+
+      .marca{ width:205px; }
+
+      .hero-grid{
+        grid-template-columns:1fr;
+      }
+
+      .tesserato{
+        width:min(230px,62vw);
+        order:-1;
+      }
+
+      .meta-box,
+      .reservation-grid{
+        grid-template-columns:1fr;
+      }
+
+      .stepper{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .choice-grid{
+        grid-template-columns:1fr;
+      }
+
+      .choice{
+        min-height:auto;
+      }
+
+      .slots-grid{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+      }
+    }
+
+    @media (max-width:560px){
+      main{ padding:22px 14px 46px; }
+
+      .card{ border-radius:18px; }
+
+      .calendar-grid{
+        gap:6px;
+      }
+
+      .day-btn{
+        min-height:46px;
+        border-radius:12px;
+        font-size:.98rem;
+      }
+
+      .weekday{
+        font-size:.78rem;
+      }
+
+      .slots-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .calendar-toolbar{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .toolbar-actions{
+        width:100%;
+        justify-content:space-between;
+      }
+
+      .timer{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .timer-value{
+        font-size:1.8rem;
+      }
+
+      .cta-primary,
+      .btn{
+        width:100%;
+        min-width:0;
+      }
+
+      .stepper{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media print{
+      @page{
+        size:A4;
+        margin:18mm 16mm;
+      }
+
+      *{
+        animation:none !important;
+        transition:none !important;
+        box-shadow:none !important;
+        text-shadow:none !important;
+        background-image:none !important;
+      }
+
+      html,
+      body{
+        overflow:visible !important;
+        background:#fff !important;
+      }
+
+      body{
+        color:#000 !important;
+        font-size:11pt !important;
+        line-height:1.45 !important;
+      }
+
+      .skip-link,
+      .tesserato,
+      .stepper,
+      .calendar-toolbar,
+      .calendar-grid,
+      .slots-section,
+      .loading,
+      .cta-row,
+      .btn,
+      .cta-primary{
+        display:none !important;
+      }
+
+      .site-header{
+        background:#fff !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        border-bottom:1px solid #999 !important;
+        padding:0 0 8mm 0 !important;
+        margin:0 0 8mm 0 !important;
+        color:#000 !important;
+      }
+
+      .brand-row{
+        display:block !important;
+        margin:0 !important;
+      }
+
+      .screen-logo{
+        display:none !important;
+      }
+
+      .print-logo{
+        display:block !important;
+        width:48mm !important;
+        max-width:48mm !important;
+        height:auto !important;
+      }
+
+      .header-tag{
+        display:none !important;
+      }
+
+      .hero-grid{
+        display:block !important;
+      }
+
+      h1{
+        color:#000 !important;
+        font-size:22pt !important;
+        line-height:1.1 !important;
+        letter-spacing:0 !important;
+        margin:6mm 0 4mm 0 !important;
+      }
+
+      h2{
+        color:#000 !important;
+        font-size:16pt !important;
+        line-height:1.15 !important;
+        margin:0 0 4mm 0 !important;
+        break-after:avoid;
+        page-break-after:avoid;
+      }
+
+      h3{
+        color:#000 !important;
+        font-size:13pt !important;
+      }
+
+      .eyebrow{
+        color:#000 !important;
+        font-size:8pt !important;
+        letter-spacing:.08em !important;
+      }
+
+      .lead,
+      .hero-note,
+      p,
+      .hint,
+      .choice-desc,
+      .meta-label,
+      .meta-value{
+        color:#000 !important;
+        font-size:11pt !important;
+        line-height:1.45 !important;
+        text-align:justify !important;
+      }
+
+      main{
+        width:100% !important;
+        max-width:none !important;
+        margin:0 !important;
+        padding:0 !important;
+      }
+
+      .card{
+        background:#fff !important;
+        border:1px solid #999 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        padding:6mm !important;
+        margin:0 0 7mm 0 !important;
+        break-inside:avoid;
+        page-break-inside:avoid;
+      }
+
+      .choice-grid,
+      .meta-box,
+      .reservation-grid{
+        display:block !important;
+      }
+
+      .choice,
+      .meta-item,
+      .reservation-panel,
+      .notice,
+      .timer{
+        display:block !important;
+        background:#fff !important;
+        border:1px solid #999 !important;
+        color:#000 !important;
+        border-radius:0 !important;
+        padding:3mm !important;
+        margin:0 0 3mm 0 !important;
+      }
+
+      .timer-label,
+      .timer-value{
+        color:#000 !important;
+        font-size:11pt !important;
+      }
+
+      .site-footer{
+        background:#fff !important;
+        color:#000 !important;
+        border-top:1px solid #999 !important;
+        padding:7mm 0 0 0 !important;
+        margin:8mm 0 0 0 !important;
+      }
+
+      .site-footer .inner{
+        width:100% !important;
+        max-width:none !important;
+      }
+
+      .site-footer p,
+      .site-footer a{
+        color:#000 !important;
+        font-size:9pt !important;
+        line-height:1.35 !important;
+      }
+
+      .links{
+        display:block !important;
+        margin-bottom:4mm !important;
+      }
+
+      .links a{
+        display:inline-block !important;
+        margin-right:5mm !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-row">
+        <a href="/" class="logo" aria-label="Página inicial da Análise Legal">
+          <img src="/assets/img/Marca.svg" alt="Análise Legal" class="marca screen-logo" />
+          <img src="/assets/img/Marca-PB.svg" alt="Análise Legal" class="marca print-logo" />
+        </a>
+        <div class="header-tag">Precisão jurídica para decisões relevantes</div>
+      </div>
+
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Agendamento de atendimento</p>
+          <h1>Escolha o horário para concluir a etapa de contratação.</h1>
+          <p class="lead">
+            Esta página transforma a proposta aceita em uma pré-reserva objetiva. O horário somente será confirmado após a conclusão do pagamento dentro do prazo indicado.
+          </p>
+          <p class="hero-note">
+            Horários disponíveis apenas em hora cheia: 09h00, 10h00, 11h00, 14h00, 15h00, 16h00 e 17h00.
+          </p>
+        </div>
+
+        <div class="tesserato" aria-hidden="true">
+          <svg viewBox="-1.6 -1.6 3.2 3.2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <g id="tesseract-group"></g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo" role="main">
+    <section class="card card-muted" aria-labelledby="dados-proposta">
+      <h2 id="dados-proposta">Dados da proposta</h2>
+      <p class="hint">
+        A página depende do protocolo recebido na proposta. Caso o protocolo não esteja presente na URL, o agendamento não deve prosseguir.
+      </p>
+
+      <div class="meta-box" aria-live="polite">
+        <div class="meta-item">
+          <span class="meta-label">Protocolo</span>
+          <span class="meta-value" id="protocoloView">Não identificado</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Modalidade</span>
+          <span class="meta-value" id="modalidadeView">Aguardando escolha</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Regra mínima</span>
+          <span class="meta-value" id="regraView">Escolha a modalidade</span>
+        </div>
+      </div>
+
+      <div id="protocoloAviso" class="notice warning" style="display:none;">
+        Não foi possível identificar o protocolo na URL. Retorne ao link recebido na proposta ou verifique se o endereço contém o parâmetro <strong>?protocolo=</strong>.
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="fluxo-agendamento">
+      <div class="stepper" aria-label="Etapas do agendamento">
+        <div class="step-pill active" id="pill-modalidade">1. Modalidade</div>
+        <div class="step-pill" id="pill-data">2. Data</div>
+        <div class="step-pill" id="pill-horario">3. Horário</div>
+        <div class="step-pill" id="pill-pagamento">4. Pagamento</div>
+      </div>
+
+      <h2 id="fluxo-agendamento">Agendar atendimento</h2>
+      <p class="hint">
+        Primeiro escolha a modalidade. Em seguida serão exibidos apenas dias úteis dentro da regra aplicável. Sábados e domingos não aparecem como opções.
+      </p>
+
+      <fieldset style="border:0; padding:0; margin:0;">
+        <legend class="sr-only">Escolha a modalidade do atendimento</legend>
+
+        <div class="choice-grid" id="modalidadeGrid">
+          <label class="choice">
+            <input type="radio" name="modalidade" value="online" aria-describedby="desc-online" />
+            <span>
+              <span class="choice-title">Atendimento on-line</span>
+              <span class="choice-desc" id="desc-online">
+                Exibe apenas dias úteis a partir de D+2. A reunião poderá ocorrer por link eletrônico informado após a confirmação.
+              </span>
+            </span>
+          </label>
+
+          <label class="choice">
+            <input type="radio" name="modalidade" value="presencial" aria-describedby="desc-presencial" />
+            <span>
+              <span class="choice-title">Atendimento presencial</span>
+              <span class="choice-desc" id="desc-presencial">
+                Exibe apenas dias úteis a partir de D+3. A confirmação do local e orientações de comparecimento serão encaminhadas após o pagamento.
+              </span>
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div id="statusModalidade" class="notice" aria-live="polite">
+        Selecione uma modalidade para consultar as datas disponíveis.
+      </div>
+
+      <div class="calendar-toolbar" id="calendarToolbar" style="display:none;">
+        <div class="month-title" id="monthTitle">Calendário</div>
+        <div class="toolbar-actions">
+          <button type="button" class="icon-btn" id="prevMonth" aria-label="Mês anterior">‹</button>
+          <button type="button" class="icon-btn" id="nextMonth" aria-label="Próximo mês">›</button>
+        </div>
+      </div>
+
+      <div class="calendar-grid" id="calendarGrid" aria-label="Calendário de dias úteis disponíveis"></div>
+
+      <div class="loading" id="loadingDisponibilidade">
+        <span class="spinner" aria-hidden="true"></span>
+        <span>Consultando disponibilidade...</span>
+      </div>
+
+      <div class="slots-section" id="slotsSection" style="display:none;">
+        <h3 id="slotsTitle">Horários disponíveis</h3>
+        <p class="hint" id="slotsHint">Selecione um horário em hora cheia para criar a pré-reserva.</p>
+
+        <div class="slot-group">
+          <div class="slot-title">Manhã</div>
+          <div class="slots-grid" id="slotsManha"></div>
+        </div>
+
+        <div class="slot-group">
+          <div class="slot-title">Tarde</div>
+          <div class="slots-grid" id="slotsTarde"></div>
+        </div>
+      </div>
+
+      <div class="loading" id="loadingReserva">
+        <span class="spinner" aria-hidden="true"></span>
+        <span>Criando pré-reserva...</span>
+      </div>
+
+      <div id="statusAgenda" class="notice" aria-live="polite" style="display:none;"></div>
+
+      <div class="reservation-panel" id="reservationPanel" aria-live="polite">
+        <h3>Pré-reserva criada</h3>
+        <p>
+          O horário foi reservado temporariamente. Para confirmar o agendamento, prossiga ao pagamento antes do fim do contador.
+        </p>
+
+        <div class="reservation-grid">
+          <div class="meta-item">
+            <span class="meta-label">Reserva</span>
+            <span class="meta-value" id="reservaIdView">—</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Expiração</span>
+            <span class="meta-value" id="expiracaoView">—</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Data</span>
+            <span class="meta-value" id="dataReservaView">—</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Horário</span>
+            <span class="meta-value" id="horaReservaView">—</span>
+          </div>
+        </div>
+
+        <div class="timer" role="timer" aria-live="polite">
+          <span class="timer-label">Tempo restante da pré-reserva</span>
+          <span class="timer-value" id="timerValue">15:00</span>
+        </div>
+
+        <div class="cta-row">
+          <a class="cta-primary" id="paymentButton" href="#" rel="noopener">Prosseguir para pagamento</a>
+          <button type="button" class="btn btn-secondary" id="novaReservaBtn">Escolher outro horário</button>
+        </div>
+
+        <div class="notice warning" id="reservaAviso">
+          A pré-reserva não confirma o atendimento. A confirmação depende da validação do pagamento e da sincronização definitiva pelo Worker.
+        </div>
+      </div>
+    </section>
+
+    <section class="card card-muted" aria-labelledby="observacoes">
+      <h2 id="observacoes">Observações importantes</h2>
+      <p>
+        O atendimento on-line somente poderá ser escolhido a partir de D+2. O atendimento presencial somente poderá ser escolhido a partir de D+3. A página não exibe sábados nem domingos e trabalha apenas com horários em hora cheia.
+      </p>
+      <p>
+        A disponibilidade é consultada no Worker antes da exibição dos horários. Ao selecionar um horário, a página solicita a criação de pré-reserva e usa os campos preparados: <strong>protocolo</strong>, <strong>reservaId</strong>, <strong>expiracaoReserva</strong> e <strong>checkoutUrl/payment_url</strong>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="links">
+        <a href="/privacidade.html">Política de Privacidade</a>
+        <a href="/termos.html">Termos de Uso</a>
+        <a href="/contato.html">Contato institucional</a>
+      </div>
+
+      <p>
+        O tratamento de dados pessoais pela ANÁLISE LEGAL observa a Lei nº 13.709/2018 (LGPD).
+        Saiba mais em nossa <a href="/privacidade.html">Política de Privacidade</a>.
+      </p>
+
+      <p>
+        ANÁLISE LEGAL é uma plataforma digital destinada à coleta, organização e estruturação inicial de informações fornecidas pelo usuário, com finalidade informativa e preparatória. A contratação de serviço especializado ocorre diretamente com o profissional responsável.
+      </p>
+
+      <p>© 2026 Análise Legal. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      "use strict";
+
+      /*
+        CONFIGURAÇÃO DE PRODUÇÃO
+
+        Em GitHub Pages, se o Worker estiver no mesmo domínio por rota/proxy, mantenha vazio.
+        Se o Worker estiver em subdomínio próprio, informe a origem completa, sem barra final.
+        Exemplo:
+        const WORKER_BASE_URL = "https://api.analiselegal.com.br";
+      */
+      const WORKER_BASE_URL = "";
+
+      const ROTAS = {
+        disponibilidade: "/agenda/disponibilidade",
+        preReservar: "/agenda/pre-reservar"
+      };
+
+      const HORARIOS = {
+        manha: ["09:00", "10:00", "11:00"],
+        tarde: ["14:00", "15:00", "16:00", "17:00"]
+      };
+
+      const ESTADO = {
+        protocolo: "",
+        modalidade: "",
+        minDate: null,
+        currentMonth: null,
+        selectedDate: "",
+        selectedTime: "",
+        disponibilidade: null,
+        reservaId: "",
+        expiracaoReserva: "",
+        checkoutUrl: "",
+        timerInterval: null
+      };
+
+      const qs = new URLSearchParams(window.location.search);
+
+      const el = {
+        protocoloView: document.getElementById("protocoloView"),
+        modalidadeView: document.getElementById("modalidadeView"),
+        regraView: document.getElementById("regraView"),
+        protocoloAviso: document.getElementById("protocoloAviso"),
+        modalidadeRadios: document.querySelectorAll('input[name="modalidade"]'),
+        statusModalidade: document.getElementById("statusModalidade"),
+        calendarToolbar: document.getElementById("calendarToolbar"),
+        monthTitle: document.getElementById("monthTitle"),
+        prevMonth: document.getElementById("prevMonth"),
+        nextMonth: document.getElementById("nextMonth"),
+        calendarGrid: document.getElementById("calendarGrid"),
+        loadingDisponibilidade: document.getElementById("loadingDisponibilidade"),
+        loadingReserva: document.getElementById("loadingReserva"),
+        slotsSection: document.getElementById("slotsSection"),
+        slotsTitle: document.getElementById("slotsTitle"),
+        slotsHint: document.getElementById("slotsHint"),
+        slotsManha: document.getElementById("slotsManha"),
+        slotsTarde: document.getElementById("slotsTarde"),
+        statusAgenda: document.getElementById("statusAgenda"),
+        reservationPanel: document.getElementById("reservationPanel"),
+        reservaIdView: document.getElementById("reservaIdView"),
+        expiracaoView: document.getElementById("expiracaoView"),
+        dataReservaView: document.getElementById("dataReservaView"),
+        horaReservaView: document.getElementById("horaReservaView"),
+        timerValue: document.getElementById("timerValue"),
+        paymentButton: document.getElementById("paymentButton"),
+        novaReservaBtn: document.getElementById("novaReservaBtn"),
+        pillModalidade: document.getElementById("pill-modalidade"),
+        pillData: document.getElementById("pill-data"),
+        pillHorario: document.getElementById("pill-horario"),
+        pillPagamento: document.getElementById("pill-pagamento")
+      };
+
+      function workerUrl(path){
+        return `${WORKER_BASE_URL}${path}`;
+      }
+
+      function onlyDate(date){
+        return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+      }
+
+      function addDays(date, days){
+        const d = new Date(date);
+        d.setDate(d.getDate() + days);
+        return onlyDate(d);
+      }
+
+      function isWeekend(date){
+        const day = date.getDay();
+        return day === 0 || day === 6;
+      }
+
+      function formatDateISO(date){
+        const y = date.getFullYear();
+        const m = String(date.getMonth() + 1).padStart(2, "0");
+        const d = String(date.getDate()).padStart(2, "0");
+        return `${y}-${m}-${d}`;
+      }
+
+      function parseISODate(iso){
+        const parts = String(iso || "").split("-").map(Number);
+        return new Date(parts[0], parts[1] - 1, parts[2]);
+      }
+
+      function formatDateBR(iso){
+        if (!iso) return "—";
+        const d = parseISODate(iso);
+        return d.toLocaleDateString("pt-BR", { weekday:"long", day:"2-digit", month:"2-digit", year:"numeric" });
+      }
+
+      function formatDateTimeBR(value){
+        if (!value) return "—";
+        const d = new Date(value);
+        if (Number.isNaN(d.getTime())) return value;
+        return d.toLocaleString("pt-BR", { dateStyle:"short", timeStyle:"short" });
+      }
+
+      function monthKey(date){
+        return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
+      }
+
+      function escapeHTML(value){
+        return String(value || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function showNotice(target, message, type){
+        target.textContent = "";
+        target.className = "notice";
+        if (type) target.classList.add(type);
+        target.innerHTML = message;
+        target.style.display = "block";
+      }
+
+      function hideNotice(target){
+        target.style.display = "none";
+        target.textContent = "";
+      }
+
+      function setLoading(target, active){
+        target.classList.toggle("active", Boolean(active));
+      }
+
+      function setStep(active){
+        el.pillModalidade.classList.toggle("active", active === "modalidade");
+        el.pillData.classList.toggle("active", active === "data");
+        el.pillHorario.classList.toggle("active", active === "horario");
+        el.pillPagamento.classList.toggle("active", active === "pagamento");
+      }
+
+      function extractProtocolo(){
+        const direct = qs.get("protocolo") || qs.get("protocol") || qs.get("p") || "";
+        if (direct.trim()) return direct.trim();
+
+        try{
+          const stored = sessionStorage.getItem("analiseLegalProposta") || sessionStorage.getItem("analiseLegalResumo") || "";
+          if (stored){
+            const parsed = JSON.parse(stored);
+            return parsed.protocolo || parsed.protocol || "";
+          }
+        }catch(error){
+          console.warn("Não foi possível ler protocolo do sessionStorage.", error);
+        }
+
+        return "";
+      }
+
+      function modalidadeLabel(value){
+        if (value === "online") return "Atendimento on-line";
+        if (value === "presencial") return "Atendimento presencial";
+        return "Aguardando escolha";
+      }
+
+      function regraLabel(value){
+        if (value === "online") return "Dias úteis a partir de D+2";
+        if (value === "presencial") return "Dias úteis a partir de D+3";
+        return "Escolha a modalidade";
+      }
+
+      function calculateMinDate(modalidade){
+        const offset = modalidade === "presencial" ? 3 : 2;
+        const d = new Date();
+        d.setHours(0, 0, 0, 0);
+        let added = 0;
+        while (added < offset){
+          d.setDate(d.getDate() + 1);
+          const dow = d.getDay();
+          if (dow !== 0 && dow !== 6) added++;
+        }
+        return d;
+      }
+
+      function resetAfterModalidade(){
+        ESTADO.selectedDate = "";
+        ESTADO.selectedTime = "";
+        ESTADO.disponibilidade = null;
+        ESTADO.reservaId = "";
+        ESTADO.expiracaoReserva = "";
+        ESTADO.checkoutUrl = "";
+        stopTimer();
+
+        el.slotsSection.style.display = "none";
+        el.slotsManha.innerHTML = "";
+        el.slotsTarde.innerHTML = "";
+        el.reservationPanel.classList.remove("active");
+        hideNotice(el.statusAgenda);
+      }
+
+      async function postJSON(path, payload){
+        const response = await fetch(workerUrl(path), {
+          method:"POST",
+          headers:{ "Content-Type":"application/json" },
+          body:JSON.stringify(payload),
+          credentials:"omit",
+          cache:"no-store"
+        });
+
+        let json = {};
+        const text = await response.text();
+
+        if (text){
+          try{
+            json = JSON.parse(text);
+          }catch(error){
+            throw new Error("Resposta do servidor não está em JSON válido.");
+          }
+        }
+
+        if (!response.ok){
+          const message = json.erro || json.error || json.message || `Falha HTTP ${response.status}.`;
+          throw new Error(message);
+        }
+
+        return json;
+      }
+
+      async function consultarDisponibilidade(){
+        if (!ESTADO.modalidade || !ESTADO.protocolo) return;
+
+        setLoading(el.loadingDisponibilidade, true);
+        hideNotice(el.statusAgenda);
+
+        const inicio = formatDateISO(ESTADO.minDate);
+        const fimDate = new Date(ESTADO.currentMonth.getFullYear(), ESTADO.currentMonth.getMonth() + 2, 0);
+        const fim = formatDateISO(fimDate);
+
+        const payload = {
+          protocolo: ESTADO.protocolo,
+          modalidade: ESTADO.modalidade,
+          dataInicio: inicio,
+          dataFim: fim,
+          horariosPermitidos: HORARIOS,
+          apenasDiasUteis: true,
+          excluirFinaisDeSemana: true
+        };
+
+        try{
+          const json = await postJSON(ROTAS.disponibilidade, payload);
+          ESTADO.disponibilidade = normalizarDisponibilidade(json);
+          renderCalendar();
+          showNotice(el.statusModalidade, "Disponibilidade consultada. Escolha um dia útil no calendário.", "success");
+        }catch(error){
+          ESTADO.disponibilidade = null;
+          renderCalendar();
+          showNotice(el.statusAgenda, `Não foi possível consultar a disponibilidade: ${escapeHTML(error.message)}.`, "error");
+        }finally{
+          setLoading(el.loadingDisponibilidade, false);
+        }
+      }
+
+      function normalizarDisponibilidade(json){
+        /*
+          Aceita formatos prováveis do Worker:
+          1) { dias: [{ data:"2026-05-25", horarios:["09:00"] }] }
+          2) { disponibilidade: { "2026-05-25": ["09:00","10:00"] } }
+          3) { datas: { "2026-05-25": { horarios:["09:00"] } } }
+          4) { disponiveis: [...] }
+        */
+        const mapa = {};
+
+        function add(data, horarios){
+          if (!data) return;
+          const validos = (horarios || [])
+            .map(h => String(h).slice(0,5))
+            .filter(h => HORARIOS.manha.concat(HORARIOS.tarde).includes(h));
+          mapa[data] = Array.from(new Set(validos));
+        }
+
+        if (json && Array.isArray(json.dias)){
+          json.dias.forEach(item => add(item.data || item.date, item.horarios || item.slots || item.disponiveis));
+        }
+
+        if (json && Array.isArray(json.disponiveis)){
+          json.disponiveis.forEach(item => {
+            if (typeof item === "string" && item.includes("T")){
+              const data = item.slice(0,10);
+              const hora = item.slice(11,16);
+              add(data, (mapa[data] || []).concat(hora));
+            }else if (item && typeof item === "object"){
+              add(item.data || item.date, item.horarios || item.slots || item.disponiveis);
+            }
+          });
+        }
+
+        const objetos = [json && json.disponibilidade, json && json.datas, json && json.agenda];
+        objetos.forEach(obj => {
+          if (!obj || typeof obj !== "object" || Array.isArray(obj)) return;
+
+          Object.keys(obj).forEach(data => {
+            const value = obj[data];
+            if (Array.isArray(value)) add(data, value);
+            else if (value && typeof value === "object") add(data, value.horarios || value.slots || value.disponiveis);
+          });
+        });
+
+        return mapa;
+      }
+
+      function dateHasSlots(iso){
+        if (!ESTADO.disponibilidade) return true;
+        return Array.isArray(ESTADO.disponibilidade[iso]) && ESTADO.disponibilidade[iso].length > 0;
+      }
+
+      function availableSlotsForDate(iso){
+        if (!ESTADO.disponibilidade) return HORARIOS.manha.concat(HORARIOS.tarde);
+        return ESTADO.disponibilidade[iso] || [];
+      }
+
+      function renderCalendar(){
+        if (!ESTADO.modalidade || !ESTADO.currentMonth){
+          el.calendarGrid.innerHTML = "";
+          el.calendarToolbar.style.display = "none";
+          return;
+        }
+
+        el.calendarToolbar.style.display = "flex";
+
+        const month = ESTADO.currentMonth.getMonth();
+        const year = ESTADO.currentMonth.getFullYear();
+
+        el.monthTitle.textContent = ESTADO.currentMonth.toLocaleDateString("pt-BR", {
+          month:"long",
+          year:"numeric"
+        });
+
+        const minMonth = new Date(ESTADO.minDate.getFullYear(), ESTADO.minDate.getMonth(), 1);
+        const currentMonthStart = new Date(year, month, 1);
+        el.prevMonth.disabled = currentMonthStart <= minMonth;
+
+        const weekdayLabels = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+        el.calendarGrid.innerHTML = "";
+
+        weekdayLabels.forEach(label => {
+          const div = document.createElement("div");
+          div.className = "weekday";
+          div.textContent = label;
+          el.calendarGrid.appendChild(div);
+        });
+
+        const first = new Date(year, month, 1);
+        const last = new Date(year, month + 1, 0);
+        const blanks = first.getDay();
+
+        for (let i = 0; i < blanks; i++){
+          const empty = document.createElement("div");
+          empty.className = "day-empty";
+          el.calendarGrid.appendChild(empty);
+        }
+
+        const todayISO = formatDateISO(new Date());
+
+        for (let day = 1; day <= last.getDate(); day++){
+          const d = new Date(year, month, day);
+          const iso = formatDateISO(d);
+          const btn = document.createElement("button");
+
+          btn.type = "button";
+          btn.className = "day-btn";
+          btn.textContent = String(day);
+          btn.setAttribute("aria-label", d.toLocaleDateString("pt-BR", { weekday:"long", day:"2-digit", month:"long", year:"numeric" }));
+
+          const disabled = d < ESTADO.minDate || isWeekend(d) || !dateHasSlots(iso);
+          btn.disabled = disabled;
+
+          if (iso === todayISO) btn.classList.add("today");
+          if (ESTADO.selectedDate === iso) btn.classList.add("selected");
+
+          btn.addEventListener("click", function(){
+            if (btn.disabled) return;
+            ESTADO.selectedDate = iso;
+            ESTADO.selectedTime = "";
+            renderCalendar();
+            renderSlots();
+            setStep("horario");
+          });
+
+          el.calendarGrid.appendChild(btn);
+        }
+      }
+
+      function renderSlots(){
+        if (!ESTADO.selectedDate){
+          el.slotsSection.style.display = "none";
+          return;
+        }
+
+        const disponiveis = availableSlotsForDate(ESTADO.selectedDate);
+        const set = new Set(disponiveis);
+
+        el.slotsSection.style.display = "block";
+        el.slotsTitle.textContent = `Horários disponíveis em ${formatDateBR(ESTADO.selectedDate)}`;
+        el.slotsHint.textContent = "Somente horários em hora cheia podem ser selecionados.";
+
+        el.slotsManha.innerHTML = "";
+        el.slotsTarde.innerHTML = "";
+
+        renderSlotGroup(el.slotsManha, HORARIOS.manha, set);
+        renderSlotGroup(el.slotsTarde, HORARIOS.tarde, set);
+
+        if (!disponiveis.length){
+          showNotice(el.statusAgenda, "Não há horários disponíveis para esta data. Escolha outro dia útil.", "warning");
+        }else{
+          hideNotice(el.statusAgenda);
+        }
+      }
+
+      function renderSlotGroup(container, horarios, disponiveisSet){
+        horarios.forEach(hora => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "slot-btn";
+          btn.textContent = hora;
+          btn.disabled = !disponiveisSet.has(hora);
+
+          if (ESTADO.selectedTime === hora) btn.classList.add("selected");
+
+          btn.addEventListener("click", function(){
+            if (btn.disabled) return;
+            ESTADO.selectedTime = hora;
+            document.querySelectorAll(".slot-btn").forEach(b => b.classList.remove("selected"));
+            btn.classList.add("selected");
+            criarPreReserva();
+          });
+
+          container.appendChild(btn);
+        });
+      }
+
+      async function criarPreReserva(){
+        if (!ESTADO.protocolo || !ESTADO.modalidade || !ESTADO.selectedDate || !ESTADO.selectedTime) return;
+
+        setLoading(el.loadingReserva, true);
+        hideNotice(el.statusAgenda);
+        el.reservationPanel.classList.remove("active");
+        setStep("pagamento");
+
+        const payload = {
+          protocolo: ESTADO.protocolo,
+          modalidade: ESTADO.modalidade,
+          data: ESTADO.selectedDate,
+          horario: ESTADO.selectedTime,
+          hora: ESTADO.selectedTime,
+          timezone: "America/Sao_Paulo",
+          duracaoMinutos: 60,
+          expiracaoMinutos: 15
+        };
+
+        try{
+          const json = await postJSON(ROTAS.preReservar, payload);
+
+          ESTADO.reservaId = json.reservaId || json.reserva_id || json.id || "";
+          ESTADO.expiracaoReserva = json.expiracaoReserva || json.expiracao_reserva || json.expiresAt || json.expiraEm || "";
+          ESTADO.checkoutUrl = json.checkoutUrl || json.checkout_url || json.payment_url || json.paymentUrl || "";
+
+          if (!ESTADO.reservaId) throw new Error("O Worker não retornou reservaId.");
+          if (!ESTADO.expiracaoReserva) throw new Error("O Worker não retornou expiracaoReserva.");
+          if (!ESTADO.checkoutUrl) throw new Error("O Worker não retornou checkoutUrl/payment_url.");
+
+          renderReserva();
+          persistReserva();
+          startTimer();
+        }catch(error){
+          showNotice(el.statusAgenda, `Não foi possível criar a pré-reserva: ${escapeHTML(error.message)}.`, "error");
+          setStep("horario");
+        }finally{
+          setLoading(el.loadingReserva, false);
+        }
+      }
+
+      function renderReserva(){
+        el.reservaIdView.textContent = ESTADO.reservaId;
+        el.expiracaoView.textContent = formatDateTimeBR(ESTADO.expiracaoReserva);
+        el.dataReservaView.textContent = formatDateBR(ESTADO.selectedDate);
+        el.horaReservaView.textContent = ESTADO.selectedTime;
+        el.paymentButton.href = ESTADO.checkoutUrl;
+        el.paymentButton.setAttribute("aria-label", "Prosseguir para pagamento da reserva " + ESTADO.reservaId);
+        el.reservationPanel.classList.add("active");
+        el.reservationPanel.scrollIntoView({ behavior:"smooth", block:"start" });
+      }
+
+      function persistReserva(){
+        const payload = {
+          protocolo: ESTADO.protocolo,
+          modalidade: ESTADO.modalidade,
+          data: ESTADO.selectedDate,
+          horario: ESTADO.selectedTime,
+          reservaId: ESTADO.reservaId,
+          expiracaoReserva: ESTADO.expiracaoReserva,
+          checkoutUrl: ESTADO.checkoutUrl,
+          payment_url: ESTADO.checkoutUrl
+        };
+
+        sessionStorage.setItem("analiseLegalReserva", JSON.stringify(payload));
+
+        const url = new URL(window.location.href);
+        url.searchParams.set("protocolo", ESTADO.protocolo);
+        url.searchParams.set("reservaId", ESTADO.reservaId);
+        url.searchParams.set("expiracaoReserva", ESTADO.expiracaoReserva);
+        window.history.replaceState({}, "", url.toString());
+      }
+
+      function stopTimer(){
+        if (ESTADO.timerInterval){
+          clearInterval(ESTADO.timerInterval);
+          ESTADO.timerInterval = null;
+        }
+      }
+
+      function startTimer(){
+        stopTimer();
+
+        function tick(){
+          const exp = new Date(ESTADO.expiracaoReserva).getTime();
+          const now = Date.now();
+          const diff = Math.max(0, Math.floor((exp - now) / 1000));
+
+          const min = String(Math.floor(diff / 60)).padStart(2, "0");
+          const sec = String(diff % 60).padStart(2, "0");
+          el.timerValue.textContent = `${min}:${sec}`;
+
+          if (diff <= 0){
+            stopTimer();
+            el.paymentButton.setAttribute("aria-disabled", "true");
+            el.paymentButton.removeAttribute("href");
+            showNotice(el.statusAgenda, "A pré-reserva expirou. Escolha novamente data e horário para gerar uma nova reserva.", "warning");
+            setStep("horario");
+          }
+        }
+
+        tick();
+        ESTADO.timerInterval = setInterval(tick, 1000);
+      }
+
+      function selecionarModalidade(value){
+        ESTADO.modalidade = value;
+        ESTADO.minDate = calculateMinDate(value);
+        ESTADO.currentMonth = new Date(ESTADO.minDate.getFullYear(), ESTADO.minDate.getMonth(), 1);
+
+        resetAfterModalidade();
+
+        el.modalidadeView.textContent = modalidadeLabel(value);
+        el.regraView.textContent = regraLabel(value);
+        showNotice(el.statusModalidade, `${regraLabel(value)}. Consultando disponibilidade no servidor.`, "");
+        setStep("data");
+
+        renderCalendar();
+        consultarDisponibilidade();
+      }
+
+      function novaReserva(){
+        ESTADO.reservaId = "";
+        ESTADO.expiracaoReserva = "";
+        ESTADO.checkoutUrl = "";
+        ESTADO.selectedTime = "";
+        stopTimer();
+        el.reservationPanel.classList.remove("active");
+        el.paymentButton.href = "#";
+        renderSlots();
+        setStep("horario");
+      }
+
+      function initTesseract(){
+        const group = document.getElementById("tesseract-group");
+        if (!group) return;
+
+        const svgNS = "http://www.w3.org/2000/svg";
+        const vertices4D = [];
+
+        for (let i = 0; i < 16; i++){
+          vertices4D.push([
+            (i & 1) ? 1 : -1,
+            (i & 2) ? 1 : -1,
+            (i & 4) ? 1 : -1,
+            (i & 8) ? 1 : -1
+          ]);
+        }
+
+        const edges = [];
+
+        for (let a = 0; a < 16; a++){
+          for (let b = a + 1; b < 16; b++){
+            let diff = 0;
+
+            for (let k = 0; k < 4; k++){
+              if (vertices4D[a][k] !== vertices4D[b][k]) diff++;
+            }
+
+            if (diff === 1) edges.push([a, b]);
+          }
+        }
+
+        const lines = [];
+
+        for (let e = 0; e < edges.length; e++){
+          const line = document.createElementNS(svgNS, "line");
+          line.setAttribute("fill", "none");
+          line.setAttribute("stroke", "#c8ad72");
+          line.setAttribute("stroke-width", "0.025");
+          line.setAttribute("stroke-linecap", "round");
+          line.setAttribute("stroke-linejoin", "round");
+          line.setAttribute("opacity", "0.92");
+          group.appendChild(line);
+          lines.push(line);
+        }
+
+        function rotate4D(v, axw, ayw, azw, axy){
+          let x = v[0], y = v[1], z = v[2], w = v[3];
+          let c, s, nx, ny, nz, nw;
+
+          c = Math.cos(axw); s = Math.sin(axw);
+          nx = x * c - w * s; nw = x * s + w * c;
+          x = nx; w = nw;
+
+          c = Math.cos(ayw); s = Math.sin(ayw);
+          ny = y * c - w * s; nw = y * s + w * c;
+          y = ny; w = nw;
+
+          c = Math.cos(azw); s = Math.sin(azw);
+          nz = z * c - w * s; nw = z * s + w * c;
+          z = nz; w = nw;
+
+          c = Math.cos(axy); s = Math.sin(axy);
+          nx = x * c - y * s; ny = x * s + y * c;
+          x = nx; y = ny;
+
+          return [x, y, z, w];
+        }
+
+        function project(v){
+          const wf = 1 / (3 - v[3]);
+          const x3 = v[0] * wf;
+          const y3 = v[1] * wf;
+          const z3 = v[2] * wf;
+          const zf = 1 / (4 - z3);
+
+          return [x3 * zf * 2.2, y3 * zf * 2.2];
+        }
+
+        function render(t){
+          const projected = vertices4D.map(v => project(rotate4D(v, t * 0.35, t * 0.25, t * 0.45, t * 0.15)));
+
+          for (let j = 0; j < edges.length; j++){
+            const p1 = projected[edges[j][0]];
+            const p2 = projected[edges[j][1]];
+            lines[j].setAttribute("x1", p1[0]);
+            lines[j].setAttribute("y1", p1[1]);
+            lines[j].setAttribute("x2", p2[0]);
+            lines[j].setAttribute("y2", p2[1]);
+          }
+        }
+
+        const start = performance.now();
+
+        function loop(now){
+          render((now - start) / 1000);
+          requestAnimationFrame(loop);
+        }
+
+        requestAnimationFrame(loop);
+      }
+
+      function initPrintTracking(){
+        window.addEventListener("beforeprint", function(){
+          if (window.dataLayer){
+            window.dataLayer.push({
+              event:"print_intent",
+              page_path:window.location.pathname,
+              page_title:document.title,
+              protocolo:ESTADO.protocolo || "",
+              reservaId:ESTADO.reservaId || ""
+            });
+          }
+        });
+      }
+
+      function init(){
+        ESTADO.protocolo = extractProtocolo();
+
+        if (ESTADO.protocolo){
+          el.protocoloView.textContent = ESTADO.protocolo;
+          el.protocoloAviso.style.display = "none";
+        }else{
+          el.protocoloView.textContent = "Não identificado";
+          el.protocoloAviso.style.display = "block";
+          showNotice(el.statusModalidade, "Sem protocolo, a página não deve consultar disponibilidade nem criar pré-reserva.", "error");
+          el.modalidadeRadios.forEach(r => r.disabled = true);
+        }
+
+        el.modalidadeRadios.forEach(radio => {
+          radio.addEventListener("change", function(){
+            if (!ESTADO.protocolo) return;
+            selecionarModalidade(radio.value);
+          });
+        });
+
+        el.prevMonth.addEventListener("click", function(){
+          if (!ESTADO.currentMonth) return;
+          ESTADO.currentMonth = new Date(ESTADO.currentMonth.getFullYear(), ESTADO.currentMonth.getMonth() - 1, 1);
+          ESTADO.selectedDate = "";
+          ESTADO.selectedTime = "";
+          el.slotsSection.style.display = "none";
+          renderCalendar();
+          consultarDisponibilidade();
+        });
+
+        el.nextMonth.addEventListener("click", function(){
+          if (!ESTADO.currentMonth) return;
+          ESTADO.currentMonth = new Date(ESTADO.currentMonth.getFullYear(), ESTADO.currentMonth.getMonth() + 1, 1);
+          ESTADO.selectedDate = "";
+          ESTADO.selectedTime = "";
+          el.slotsSection.style.display = "none";
+          renderCalendar();
+          consultarDisponibilidade();
+        });
+
+        el.novaReservaBtn.addEventListener("click", novaReserva);
+
+        el.paymentButton.addEventListener("click", function(event){
+          if (!ESTADO.checkoutUrl){
+            event.preventDefault();
+            showNotice(el.statusAgenda, "O Worker ainda não retornou checkoutUrl/payment_url para pagamento.", "error");
+          }
+        });
+
+        initTesseract();
+        initPrintTracking();
+      }
+
+      document.addEventListener("DOMContentLoaded", init);
+    })();
+  </script>
+</body>
+</html>
