@@ -1061,9 +1061,6 @@
           <p class="lead">
             Esta página transforma a proposta aceita em uma pré-reserva objetiva. O horário somente será confirmado após a conclusão do pagamento dentro do prazo indicado.
           </p>
-          <p class="hero-note">
-            Horários disponíveis apenas em hora cheia: 09h00, 10h00, 11h00, 14h00, 15h00, 16h00 e 17h00.
-          </p>
         </div>
 
         <div class="tesserato" aria-hidden="true">
@@ -1108,7 +1105,7 @@
 
       <h2 id="fluxo-agendamento">Agendar atendimento</h2>
       <p class="hint">
-        Primeiro escolha a modalidade. Em seguida serão exibidos apenas dias úteis dentro da regra aplicável. Sábados e domingos não aparecem como opções.
+        Escolha a modalidade do atendimento.
       </p>
 
       <fieldset style="border:0; padding:0; margin:0;">
@@ -1116,22 +1113,16 @@
 
         <div class="choice-grid" id="modalidadeGrid">
           <label class="choice">
-            <input type="radio" name="modalidade" value="online" aria-describedby="desc-online" />
+            <input type="radio" name="modalidade" value="online" />
             <span>
               <span class="choice-title">Atendimento on-line</span>
-              <span class="choice-desc" id="desc-online">
-                Exibe apenas dias úteis a partir de D+2. A reunião poderá ocorrer por link eletrônico informado após a confirmação.
-              </span>
             </span>
           </label>
 
           <label class="choice">
-            <input type="radio" name="modalidade" value="presencial" aria-describedby="desc-presencial" />
+            <input type="radio" name="modalidade" value="presencial" />
             <span>
               <span class="choice-title">Atendimento presencial</span>
-              <span class="choice-desc" id="desc-presencial">
-                Exibe apenas dias úteis a partir de D+3. A confirmação do local e orientações de comparecimento serão encaminhadas após o pagamento.
-              </span>
             </span>
           </label>
         </div>
@@ -1169,7 +1160,7 @@
 
       <div class="slots-section" id="slotsSection" style="display:none;">
         <h3 id="slotsTitle">Horários disponíveis</h3>
-        <p class="hint" id="slotsHint">Selecione um horário em hora cheia para criar a pré-reserva.</p>
+        <p class="hint" id="slotsHint">Selecione um horário para criar a pré-reserva.</p>
 
         <div class="slot-group">
           <div class="slot-title">Manhã</div>
@@ -1649,7 +1640,7 @@
 
         el.slotsSection.style.display = "block";
         el.slotsTitle.textContent = `Horários disponíveis em ${formatDateBR(ESTADO.selectedDate)}`;
-        el.slotsHint.textContent = "Somente horários em hora cheia podem ser selecionados.";
+        el.slotsHint.textContent = "Selecione um horário para criar a pré-reserva.";
 
         el.slotsManha.innerHTML = "";
         el.slotsTarde.innerHTML = "";
