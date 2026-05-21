@@ -246,7 +246,7 @@
 
     .meta-box{
       display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
+      grid-template-columns:repeat(2,minmax(0,1fr));
       gap:12px;
       margin-top:18px;
     }
@@ -399,6 +399,36 @@
       grid-template-columns:repeat(7,1fr);
       gap:8px;
       margin-top:12px;
+    }
+
+    .calendar-dual{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:26px;
+      margin-top:12px;
+    }
+
+    .calendar-month{
+      min-width:0;
+    }
+
+    .month-label{
+      color:var(--verde-profundo);
+      font-size:1.05rem;
+      font-weight:700;
+      text-align:center;
+      text-transform:capitalize;
+      letter-spacing:.02em;
+      margin-bottom:10px;
+      padding-bottom:8px;
+      border-bottom:1px solid var(--borda);
+    }
+
+    @media (max-width: 720px){
+      .calendar-dual{
+        grid-template-columns:1fr;
+        gap:18px;
+      }
     }
 
     .weekday{
@@ -1061,10 +1091,6 @@
           <span class="meta-label">Modalidade</span>
           <span class="meta-value" id="modalidadeView">Aguardando escolha</span>
         </div>
-        <div class="meta-item">
-          <span class="meta-label">Regra mínima</span>
-          <span class="meta-value" id="regraView">Escolha a modalidade</span>
-        </div>
       </div>
 
       <div id="protocoloAviso" class="notice warning" style="display:none;">
@@ -1116,14 +1142,25 @@
       </div>
 
       <div class="calendar-toolbar" id="calendarToolbar" style="display:none;">
-        <div class="month-title" id="monthTitle">Calendário</div>
         <div class="toolbar-actions">
           <button type="button" class="icon-btn" id="prevMonth" aria-label="Mês anterior">‹</button>
+        </div>
+        <div class="month-title" id="monthTitle">Calendário</div>
+        <div class="toolbar-actions">
           <button type="button" class="icon-btn" id="nextMonth" aria-label="Próximo mês">›</button>
         </div>
       </div>
 
-      <div class="calendar-grid" id="calendarGrid" aria-label="Calendário de dias úteis disponíveis"></div>
+      <div class="calendar-dual" id="calendarDual" style="display:none;">
+        <div class="calendar-month">
+          <div class="month-label" id="monthLabelA"></div>
+          <div class="calendar-grid" id="calendarGridA" aria-label="Calendário do primeiro mês"></div>
+        </div>
+        <div class="calendar-month">
+          <div class="month-label" id="monthLabelB"></div>
+          <div class="calendar-grid" id="calendarGridB" aria-label="Calendário do segundo mês"></div>
+        </div>
+      </div>
 
       <div class="loading" id="loadingDisponibilidade">
         <span class="spinner" aria-hidden="true"></span>
@@ -1193,15 +1230,6 @@
       </div>
     </section>
 
-    <section class="card card-muted" aria-labelledby="observacoes">
-      <h2 id="observacoes">Observações importantes</h2>
-      <p>
-        O atendimento on-line somente poderá ser escolhido a partir de D+2. O atendimento presencial somente poderá ser escolhido a partir de D+3. A página não exibe sábados nem domingos e trabalha apenas com horários em hora cheia.
-      </p>
-      <p>
-        A disponibilidade é consultada no Worker antes da exibição dos horários. Ao selecionar um horário, a página solicita a criação de pré-reserva e usa os campos preparados: <strong>protocolo</strong>, <strong>reservaId</strong>, <strong>expiracaoReserva</strong> e <strong>checkoutUrl/payment_url</strong>.
-      </p>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -1237,7 +1265,7 @@
         Exemplo:
         const WORKER_BASE_URL = "https://api.analiselegal.com.br";
       */
-      const WORKER_BASE_URL = "";
+      const WORKER_BASE_URL = "https://analiselegal-formulario.miguel-compras.workers.dev";
 
       const ROTAS = {
         disponibilidade: "/agenda/disponibilidade",
@@ -1268,7 +1296,6 @@
       const el = {
         protocoloView: document.getElementById("protocoloView"),
         modalidadeView: document.getElementById("modalidadeView"),
-        regraView: document.getElementById("regraView"),
         protocoloAviso: document.getElementById("protocoloAviso"),
         modalidadeRadios: document.querySelectorAll('input[name="modalidade"]'),
         statusModalidade: document.getElementById("statusModalidade"),
@@ -1276,7 +1303,11 @@
         monthTitle: document.getElementById("monthTitle"),
         prevMonth: document.getElementById("prevMonth"),
         nextMonth: document.getElementById("nextMonth"),
-        calendarGrid: document.getElementById("calendarGrid"),
+        calendarDual: document.getElementById("calendarDual"),
+        calendarGridA: document.getElementById("calendarGridA"),
+        calendarGridB: document.getElementById("calendarGridB"),
+        monthLabelA: document.getElementById("monthLabelA"),
+        monthLabelB: document.getElementById("monthLabelB"),
         loadingDisponibilidade: document.getElementById("loadingDisponibilidade"),
         loadingReserva: document.getElementById("loadingReserva"),
         slotsSection: document.getElementById("slotsSection"),
@@ -1403,12 +1434,6 @@
         return "Aguardando escolha";
       }
 
-      function regraLabel(value){
-        if (value === "online") return "Dias úteis a partir de D+2";
-        if (value === "presencial") return "Dias úteis a partir de D+3";
-        return "Escolha a modalidade";
-      }
-
       function calculateMinDate(modalidade){
         const offset = modalidade === "presencial" ? 3 : 2;
         const d = new Date();
@@ -1472,25 +1497,44 @@
         setLoading(el.loadingDisponibilidade, true);
         hideNotice(el.statusAgenda);
 
-        const inicio = formatDateISO(ESTADO.minDate);
+        // Monta a lista de datas úteis dos 2 meses visíveis a partir de minDate
+        const datas = [];
+        const inicio = new Date(ESTADO.minDate);
         const fimDate = new Date(ESTADO.currentMonth.getFullYear(), ESTADO.currentMonth.getMonth() + 2, 0);
-        const fim = formatDateISO(fimDate);
+        const cursor = new Date(inicio.getFullYear(), inicio.getMonth(), inicio.getDate());
+        while (cursor <= fimDate){
+          const dow = cursor.getDay();
+          if (dow !== 0 && dow !== 6){
+            datas.push(formatDateISO(cursor));
+          }
+          cursor.setDate(cursor.getDate() + 1);
+        }
 
-        const payload = {
-          protocolo: ESTADO.protocolo,
-          modalidade: ESTADO.modalidade,
-          dataInicio: inicio,
-          dataFim: fim,
-          horariosPermitidos: HORARIOS,
-          apenasDiasUteis: true,
-          excluirFinaisDeSemana: true
-        };
-
+        // Worker: POST /agenda/disponibilidade { data } → { horarios_disponiveis: [...] }
         try{
-          const json = await postJSON(ROTAS.disponibilidade, payload);
-          ESTADO.disponibilidade = normalizarDisponibilidade(json);
+          const resultados = await Promise.all(
+            datas.map(d =>
+              postJSON(ROTAS.disponibilidade, { data: d })
+                .then(json => ({ data: d, horarios: json && Array.isArray(json.horarios_disponiveis) ? json.horarios_disponiveis : [] }))
+                .catch(() => ({ data: d, horarios: [] }))
+            )
+          );
+
+          const mapa = {};
+          resultados.forEach(r => {
+            // Aplica regra "1 horário de manhã + 1 horário de tarde"
+            const validos = r.horarios.map(h => String(h).slice(0,5));
+            const manha = validos.find(h => HORARIOS.manha.includes(h));
+            const tarde = validos.find(h => HORARIOS.tarde.includes(h));
+            const final = [];
+            if (manha) final.push(manha);
+            if (tarde) final.push(tarde);
+            mapa[r.data] = final;
+          });
+
+          ESTADO.disponibilidade = mapa;
           renderCalendar();
-          showNotice(el.statusModalidade, "Disponibilidade consultada. Escolha um dia útil no calendário.", "success");
+          hideNotice(el.statusModalidade);
         }catch(error){
           ESTADO.disponibilidade = null;
           renderCalendar();
@@ -1500,93 +1544,57 @@
         }
       }
 
-      function normalizarDisponibilidade(json){
-        /*
-          Aceita formatos prováveis do Worker:
-          1) { dias: [{ data:"2026-05-25", horarios:["09:00"] }] }
-          2) { disponibilidade: { "2026-05-25": ["09:00","10:00"] } }
-          3) { datas: { "2026-05-25": { horarios:["09:00"] } } }
-          4) { disponiveis: [...] }
-        */
-        const mapa = {};
-
-        function add(data, horarios){
-          if (!data) return;
-          const validos = (horarios || [])
-            .map(h => String(h).slice(0,5))
-            .filter(h => HORARIOS.manha.concat(HORARIOS.tarde).includes(h));
-          mapa[data] = Array.from(new Set(validos));
-        }
-
-        if (json && Array.isArray(json.dias)){
-          json.dias.forEach(item => add(item.data || item.date, item.horarios || item.slots || item.disponiveis));
-        }
-
-        if (json && Array.isArray(json.disponiveis)){
-          json.disponiveis.forEach(item => {
-            if (typeof item === "string" && item.includes("T")){
-              const data = item.slice(0,10);
-              const hora = item.slice(11,16);
-              add(data, (mapa[data] || []).concat(hora));
-            }else if (item && typeof item === "object"){
-              add(item.data || item.date, item.horarios || item.slots || item.disponiveis);
-            }
-          });
-        }
-
-        const objetos = [json && json.disponibilidade, json && json.datas, json && json.agenda];
-        objetos.forEach(obj => {
-          if (!obj || typeof obj !== "object" || Array.isArray(obj)) return;
-
-          Object.keys(obj).forEach(data => {
-            const value = obj[data];
-            if (Array.isArray(value)) add(data, value);
-            else if (value && typeof value === "object") add(data, value.horarios || value.slots || value.disponiveis);
-          });
-        });
-
-        return mapa;
-      }
-
       function dateHasSlots(iso){
-        if (!ESTADO.disponibilidade) return true;
+        if (!ESTADO.disponibilidade) return false;
         return Array.isArray(ESTADO.disponibilidade[iso]) && ESTADO.disponibilidade[iso].length > 0;
       }
 
       function availableSlotsForDate(iso){
-        if (!ESTADO.disponibilidade) return HORARIOS.manha.concat(HORARIOS.tarde);
+        if (!ESTADO.disponibilidade) return [];
         return ESTADO.disponibilidade[iso] || [];
       }
 
       function renderCalendar(){
         if (!ESTADO.modalidade || !ESTADO.currentMonth){
-          el.calendarGrid.innerHTML = "";
+          el.calendarGridA.innerHTML = "";
+          el.calendarGridB.innerHTML = "";
           el.calendarToolbar.style.display = "none";
+          el.calendarDual.style.display = "none";
           return;
         }
 
         el.calendarToolbar.style.display = "flex";
+        el.calendarDual.style.display = "grid";
 
-        const month = ESTADO.currentMonth.getMonth();
-        const year = ESTADO.currentMonth.getFullYear();
+        const monthA = new Date(ESTADO.currentMonth.getFullYear(), ESTADO.currentMonth.getMonth(), 1);
+        const monthB = new Date(ESTADO.currentMonth.getFullYear(), ESTADO.currentMonth.getMonth() + 1, 1);
 
-        el.monthTitle.textContent = ESTADO.currentMonth.toLocaleDateString("pt-BR", {
-          month:"long",
-          year:"numeric"
-        });
+        const titleA = monthA.toLocaleDateString("pt-BR", { month:"long", year:"numeric" });
+        const titleB = monthB.toLocaleDateString("pt-BR", { month:"long", year:"numeric" });
+
+        el.monthTitle.textContent = `${titleA} — ${titleB}`;
+        el.monthLabelA.textContent = titleA;
+        el.monthLabelB.textContent = titleB;
 
         const minMonth = new Date(ESTADO.minDate.getFullYear(), ESTADO.minDate.getMonth(), 1);
-        const currentMonthStart = new Date(year, month, 1);
-        el.prevMonth.disabled = currentMonthStart <= minMonth;
+        el.prevMonth.disabled = monthA <= minMonth;
 
+        renderMonthGrid(el.calendarGridA, monthA);
+        renderMonthGrid(el.calendarGridB, monthB);
+      }
+
+      function renderMonthGrid(grid, monthRef){
+        const year = monthRef.getFullYear();
+        const month = monthRef.getMonth();
         const weekdayLabels = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
-        el.calendarGrid.innerHTML = "";
+
+        grid.innerHTML = "";
 
         weekdayLabels.forEach(label => {
           const div = document.createElement("div");
           div.className = "weekday";
           div.textContent = label;
-          el.calendarGrid.appendChild(div);
+          grid.appendChild(div);
         });
 
         const first = new Date(year, month, 1);
@@ -1596,7 +1604,7 @@
         for (let i = 0; i < blanks; i++){
           const empty = document.createElement("div");
           empty.className = "day-empty";
-          el.calendarGrid.appendChild(empty);
+          grid.appendChild(empty);
         }
 
         const todayISO = formatDateISO(new Date());
@@ -1626,7 +1634,7 @@
             setStep("horario");
           });
 
-          el.calendarGrid.appendChild(btn);
+          grid.appendChild(btn);
         }
       }
 
@@ -1686,27 +1694,27 @@
         el.reservationPanel.classList.remove("active");
         setStep("pagamento");
 
+        // Contrato Worker: POST /agenda/pre-reservar { protocolo, data, hora, modalidade }
         const payload = {
           protocolo: ESTADO.protocolo,
           modalidade: ESTADO.modalidade,
           data: ESTADO.selectedDate,
-          horario: ESTADO.selectedTime,
-          hora: ESTADO.selectedTime,
-          timezone: "America/Sao_Paulo",
-          duracaoMinutos: 60,
-          expiracaoMinutos: 15
+          hora: ESTADO.selectedTime
         };
 
         try{
           const json = await postJSON(ROTAS.preReservar, payload);
 
-          ESTADO.reservaId = json.reservaId || json.reserva_id || json.id || "";
-          ESTADO.expiracaoReserva = json.expiracaoReserva || json.expiracao_reserva || json.expiresAt || json.expiraEm || "";
-          ESTADO.checkoutUrl = json.checkoutUrl || json.checkout_url || json.payment_url || json.paymentUrl || "";
+          // Resposta Worker:
+          //   { sucesso, status, protocolo, modalidade, inicio, expira_em, expira_em_br,
+          //     payment_url, payment: { id, invoice_url, status } }
+          ESTADO.reservaId = (json.payment && json.payment.id) || "";
+          ESTADO.expiracaoReserva = json.expira_em || "";
+          ESTADO.checkoutUrl = json.payment_url || (json.payment && json.payment.invoice_url) || "";
 
-          if (!ESTADO.reservaId) throw new Error("O Worker não retornou reservaId.");
-          if (!ESTADO.expiracaoReserva) throw new Error("O Worker não retornou expiracaoReserva.");
-          if (!ESTADO.checkoutUrl) throw new Error("O Worker não retornou checkoutUrl/payment_url.");
+          if (!ESTADO.reservaId) throw new Error("O Worker não retornou o identificador de pagamento.");
+          if (!ESTADO.expiracaoReserva) throw new Error("O Worker não retornou a expiração da reserva.");
+          if (!ESTADO.checkoutUrl) throw new Error("O Worker não retornou o link de pagamento.");
 
           renderReserva();
           persistReserva();
@@ -1791,8 +1799,7 @@
         resetAfterModalidade();
 
         el.modalidadeView.textContent = modalidadeLabel(value);
-        el.regraView.textContent = regraLabel(value);
-        showNotice(el.statusModalidade, `${regraLabel(value)}. Consultando disponibilidade no servidor.`, "");
+        hideNotice(el.statusModalidade);
         setStep("data");
 
         renderCalendar();
