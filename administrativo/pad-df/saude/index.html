@@ -12,7 +12,7 @@
   />
 
   <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#0f1720" />
+  <meta name="theme-color" content="#082c27" />
 
   <link rel="canonical" href="https://www.analiselegal.com.br/administrativo/pad-df/saude/" />
 
@@ -101,6 +101,7 @@
       --dourado-3:#b78d2f;
       --bege:#f4f0e8;
       --texto:#1f2933;
+      --cta-borda:#7a5e1f;
     }
 
     *{
@@ -223,8 +224,9 @@
     }
 
     .hero-cta,
-    .cta-section{
+    .cta-wrap{
       display:flex;
+      flex-direction:column;
       justify-content:center;
       align-items:center;
       width:100%;
@@ -248,8 +250,8 @@
       letter-spacing:0.08em;
       text-transform:uppercase;
       text-decoration:none;
-      border:1px solid rgba(255,255,255,0.12);
-      box-shadow:0 10px 28px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.18);
+      border:2px solid var(--cta-borda);
+      box-shadow:0 10px 28px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.28);
       transition:transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
       white-space:nowrap;
     }
@@ -258,12 +260,27 @@
     .cta-primary:hover{
       transform:translateY(-2px);
       filter:brightness(1.04);
-      box-shadow:0 16px 34px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.24);
+      box-shadow:0 16px 34px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.32);
     }
 
     .cta:active,
     .cta-primary:active{
       transform:translateY(0);
+    }
+
+    .cta:focus-visible,
+    .cta-primary:focus-visible{
+      outline:3px solid #1c302d;
+      outline-offset:3px;
+    }
+
+    .cta-transparencia{
+      margin:0.95rem auto 0;
+      max-width:560px;
+      font-size:0.98rem;
+      line-height:1.6;
+      color:#6a6f73;
+      text-align:center;
     }
 
     .secao{
@@ -362,12 +379,14 @@
     }
 
     .cta-section{
+      display:flex;
       flex-direction:column;
+      align-items:center;
     }
 
-    .cta-section p{
+    .cta-section > p{
       max-width:760px;
-      margin:0 auto;
+      margin:0 auto 1.45rem;
       text-align:center;
     }
 
@@ -424,8 +443,9 @@
         grid-template-columns:1fr;
       }
 
+      /* Tesserato dobrado no mobile, mantendo o mesmo campo (viewBox/área do SVG) */
       .tesserato{
-        width:min(240px,68vw);
+        width:min(480px,92vw);
         order:-1;
       }
 
@@ -469,6 +489,16 @@
         width:100%;
         max-width:320px;
       }
+
+      /* No celular, texto alinhado à esquerda evita o espaçamento exagerado do justificado */
+      .subhead,
+      .hero-note,
+      p,
+      li,
+      .indexacao dd,
+      .site-footer p{
+        text-align:left;
+      }
     }
 
     @media print{
@@ -499,8 +529,10 @@
 
       .skip-link,
       .hero-cta,
+      .cta-wrap,
       .cta,
       .cta-primary,
+      .cta-transparencia,
       .tesserato{
         display:none !important;
       }
@@ -638,7 +670,7 @@
         text-align:left !important;
       }
 
-      .cta-section p{
+      .cta-section > p{
         text-align:justify !important;
         max-width:none !important;
       }
@@ -727,6 +759,9 @@
         >
           INICIE A ANÁLISE
         </a>
+        <p class="cta-transparencia">
+          Comece sem custo. Você só decide pela contratação do atendimento profissional depois, se fizer sentido para você.
+        </p>
       </div>
 
     </section>
@@ -974,13 +1009,16 @@
         Não há solicitação de documentos sensíveis nesta etapa.
       </p>
 
-      <div class="cta-section">
+      <div class="cta-wrap">
         <a
           class="cta cta-primary"
           href="./analise.html?origem=pad-saude-df&tema=PAD%20e%20Sindicancia%20na%20Saude%20do%20DF&assuntoBase=ANALISE%20LEGAL%20%7C%20ADMINISTRATIVO%20%7C%20PAD-DF%20%7C%20SAUDE"
         >
           INICIE A ANÁLISE
         </a>
+        <p class="cta-transparencia">
+          Comece sem custo. Você só decide pela contratação do atendimento profissional depois, se fizer sentido para você.
+        </p>
       </div>
 
     </section>
