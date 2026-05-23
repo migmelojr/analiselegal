@@ -20,17 +20,18 @@
       --verde2: #0d3b34;
       --dourado: #c8a44b;
       --dourado2: #d8b45f;
+      --dourado3: #b78d2f;
       --bege: #f4f0e8;
       --texto: #1f2933;
       --cinza: #5b6470;
       --borda: #e3dac6;
       --erro: #9f1239;
+      --cta-borda: #7a5e1f;
     }
 
     * { box-sizing: border-box; }
 
-    html,
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       max-width: 100%;
@@ -70,10 +71,7 @@
       transform: translateZ(0);
     }
 
-    .header-inner {
-      width: min(100%, 1080px);
-      margin: 0 auto;
-    }
+    .header-inner { width: min(100%, 1080px); margin: 0 auto; }
 
     .brand {
       display: flex;
@@ -82,17 +80,9 @@
       margin-bottom: 24px;
     }
 
-    .brand img {
-      width: 176px;
-      max-width: 70vw;
-      height: auto;
-    }
+    .brand img { width: 176px; max-width: 70vw; height: auto; }
 
-    .tag {
-      font-size: 0.95rem;
-      color: #eadfbf;
-      letter-spacing: 0.02em;
-    }
+    .tag { font-size: 0.95rem; color: #eadfbf; letter-spacing: 0.02em; }
 
     .hero { max-width: 860px; }
 
@@ -104,28 +94,13 @@
       font-size: 0.9rem;
     }
 
-    h1 {
-      font-size: clamp(2rem, 6vw, 4rem);
-      line-height: 1.05;
-      margin: 10px 0 16px;
-    }
+    h1 { font-size: clamp(2rem, 6vw, 4rem); line-height: 1.05; margin: 10px 0 16px; }
 
-    .lead {
-      font-size: clamp(1.1rem, 3.8vw, 1.38rem);
-      max-width: 780px;
-      color: #f7f1df;
-    }
+    .lead { font-size: clamp(1.1rem, 3.8vw, 1.38rem); max-width: 780px; color: #f7f1df; }
 
-    .note {
-      margin-top: 14px;
-      color: #eadfbf;
-    }
+    .note { margin-top: 14px; color: #eadfbf; }
 
-    main {
-      width: min(100%, 980px);
-      margin: 0 auto;
-      padding: 28px 16px 52px;
-    }
+    main { width: min(100%, 980px); margin: 0 auto; padding: 28px 16px 52px; }
 
     .card {
       background: #fff;
@@ -148,16 +123,12 @@
 
     .bar {
       height: 100%;
-      width: 10%;
+      width: 20%;
       background: linear-gradient(90deg, var(--dourado), var(--dourado2));
       transition: 0.25s;
     }
 
-    .step-count {
-      font-size: 0.95rem;
-      color: var(--cinza);
-      margin-bottom: 16px;
-    }
+    .step-count { font-size: 0.95rem; color: var(--cinza); margin-bottom: 16px; }
 
     .step { display: none; }
     .step.active { display: block; }
@@ -169,123 +140,83 @@
       color: var(--verde);
     }
 
-    .hint {
-      color: #475569;
-      margin: 0 0 18px;
-    }
+    .hint { color: #475569; margin: 0 0 18px; }
 
     .question-title {
       display: block;
       font-weight: 700;
       color: var(--verde);
       font-size: 1.12rem;
-      margin: 20px 0 10px;
+      margin: 22px 0 10px;
     }
 
-    .options-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin: 10px 0 8px;
-      align-items: stretch;
-    }
-
-    .option {
+    /* ===== NOVO: lista vertical compacta ===== */
+    .options-list {
       display: flex;
-      gap: 10px;
-      align-items: flex-start;
+      flex-direction: column;
+      gap: 8px;
+      margin: 10px 0 4px;
+    }
+
+    .opt {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       border: 1px solid #ddd2bd;
-      border-radius: 16px;
-      padding: 14px;
+      border-radius: 12px;
+      padding: 12px 14px;
       background: #fffdf8;
       cursor: pointer;
-      min-height: 92px;
-      height: 100%;
+      min-height: 50px;
       font-weight: 400;
       color: #1f2933;
-    }
-
-    .option:hover {
-      border-color: var(--dourado);
-      background: #fffaf0;
-    }
-
-    .option input {
-      width: auto;
-      min-height: auto;
-      margin-top: 5px;
-      flex: 0 0 auto;
-    }
-
-    .option span {
-      display: block;
-      font-weight: 400;
       line-height: 1.35;
+      transition: border-color 0.15s, background 0.15s;
     }
 
-    .fluxo-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin: 10px 0 8px;
+    .opt:hover { border-color: var(--dourado); background: #fffaf0; }
+
+    .opt:focus-within {
+      border-color: var(--dourado3);
+      outline: 2px solid rgba(183, 141, 47, 0.25);
+      outline-offset: 1px;
     }
 
-    .fluxo-option {
+    .opt input {
+      width: 20px;
+      height: 20px;
+      min-height: auto;
+      margin: 0;
+      flex: 0 0 auto;
+      accent-color: var(--verde);
+    }
+
+    .opt span { display: block; }
+
+    /* Encaminhamento (única opção, mais destacada) */
+    .fluxo-list { display: flex; flex-direction: column; gap: 12px; margin: 10px 0 4px; }
+
+    .fluxo-opt {
       display: flex;
       gap: 12px;
       align-items: flex-start;
       border: 1px solid #ddd2bd;
-      border-radius: 16px;
+      border-radius: 14px;
       padding: 16px;
       background: #fffdf8;
       cursor: pointer;
     }
 
-    .fluxo-option:hover {
-      border-color: var(--dourado);
-      background: #fffaf0;
-    }
+    .fluxo-opt:hover { border-color: var(--dourado); background: #fffaf0; }
+    .fluxo-opt input { width: 20px; height: 20px; margin-top: 3px; flex: 0 0 auto; accent-color: var(--verde); }
+    .fluxo-opt .fluxo-titulo { display: block; font-weight: 700; color: var(--verde); font-size: 1.05rem; line-height: 1.3; margin-bottom: 6px; }
+    .fluxo-opt .fluxo-desc { display: block; font-weight: 400; color: #475569; font-size: 0.98rem; line-height: 1.4; }
 
-    .fluxo-option input {
-      width: auto;
-      min-height: auto;
-      margin-top: 6px;
-      flex: 0 0 auto;
-    }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
 
-    .fluxo-option .fluxo-titulo {
-      display: block;
-      font-weight: 700;
-      color: var(--verde);
-      font-size: 1.05rem;
-      line-height: 1.3;
-      margin-bottom: 6px;
-    }
+    label.field-label { display: block; font-weight: 700; margin: 14px 0 6px; color: #13221f; }
 
-    .fluxo-option .fluxo-desc {
-      display: block;
-      font-weight: 400;
-      color: #475569;
-      font-size: 0.98rem;
-      line-height: 1.4;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      align-items: start;
-    }
-
-    label {
-      display: block;
-      font-weight: 700;
-      margin: 14px 0 6px;
-      color: #13221f;
-    }
-
-    input,
-    textarea {
+    input, textarea {
       width: 100%;
       min-height: 52px;
       border: 1px solid #cfc6b4;
@@ -297,22 +228,11 @@
       color: var(--texto);
     }
 
-    textarea {
-      min-height: 128px;
-      resize: vertical;
-    }
+    textarea { min-height: 128px; resize: vertical; }
 
-    input.invalid,
-    textarea.invalid {
-      border-color: var(--erro) !important;
-      background: #fff7f7;
-    }
+    input.invalid, textarea.invalid { border-color: var(--erro) !important; background: #fff7f7; }
 
-    .invalid-group {
-      border-radius: 16px;
-      outline: 2px solid rgba(159, 18, 57, 0.18);
-      outline-offset: 4px;
-    }
+    .invalid-group { border-radius: 12px; outline: 2px solid rgba(159, 18, 57, 0.18); outline-offset: 4px; }
 
     .error {
       display: block;
@@ -323,26 +243,18 @@
       min-height: 1.2em;
     }
 
-    .field-help {
-      font-size: 0.92rem;
-      color: #667085;
-      margin-top: 5px;
-    }
+    .field-help { font-size: 0.92rem; color: #667085; margin-top: 5px; }
 
     .legal-box {
       background: #fbf8ef;
       border: 1px solid var(--borda);
-      border-radius: 16px;
+      border-radius: 14px;
       padding: 14px;
       margin-top: 14px;
     }
 
-    .legal-box .option {
-      border: none;
-      padding: 0;
-      min-height: auto;
-      background: transparent;
-    }
+    .legal-box .opt { border: none; padding: 0; min-height: auto; background: transparent; align-items: flex-start; }
+    .legal-box .opt input { margin-top: 3px; }
 
     .aviso-final {
       background: #fbf8ef;
@@ -355,12 +267,7 @@
       line-height: 1.45;
     }
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 22px;
-    }
+    .nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 24px; }
 
     .btn {
       border: 0;
@@ -374,30 +281,32 @@
       cursor: pointer;
     }
 
-    .btn-secondary {
-      background: #e7dfd0;
-      color: #18352f;
-    }
+    .btn-secondary { background: #e7dfd0; color: #18352f; }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--dourado), var(--dourado2));
+      background: linear-gradient(135deg, var(--dourado), var(--dourado2) 45%, var(--dourado3));
       color: #17231f;
       min-width: 250px;
+      border: 2px solid var(--cta-borda);
     }
 
-    .summary {
-      background: #fbf8ef;
-      border: 1px solid var(--borda);
-      border-radius: 16px;
-      padding: 14px;
-      margin-top: 14px;
-    }
+    .btn-primary:disabled { opacity: 0.6; cursor: default; }
 
+    .summary { background: #fbf8ef; border: 1px solid var(--borda); border-radius: 14px; padding: 14px; margin-top: 14px; }
     .summary p { margin: 5px 0; }
 
-    .required-note {
-      font-size: 0.92rem;
-      color: #667085;
+    .required-note { font-size: 0.92rem; color: #667085; }
+
+    .form-erro-geral {
+      display: none;
+      background: #fff7f7;
+      border: 1px solid var(--erro);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-top: 14px;
+      color: var(--erro);
+      font-weight: 700;
+      font-size: 0.95rem;
     }
 
     footer {
@@ -418,95 +327,30 @@
       overflow: hidden !important;
       opacity: 0 !important;
       pointer-events: none !important;
-      tabindex: -1;
     }
 
-    .security-note {
-      font-size: 0.92rem;
-      color: #667085;
-      margin-top: 12px;
-    }
+    .security-note { font-size: 0.92rem; color: #667085; margin-top: 12px; }
 
     @media (max-width: 760px) {
       body { font-size: 17px; }
-
-      header {
-        padding-left: 16px;
-        padding-right: 16px;
-      }
-
+      header { padding-left: 16px; padding-right: 16px; }
       .card { border-radius: 18px; }
-
-      .grid,
-      .options-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .option { min-height: auto; }
+      .grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 560px) {
       .nav { flex-direction: column-reverse; }
-
-      .btn,
-      .btn-primary {
-        width: 100%;
-        min-width: 0;
-      }
+      .btn, .btn-primary { width: 100%; min-width: 0; }
     }
 
     @media print {
-      header,
-      footer,
-      .nav,
-      .progress,
-      .step-count,
-      .skip-link,
-      .anti-spam-field {
-        display: none !important;
-      }
-
-      body {
-        background: #fff;
-        color: #000;
-        font-size: 12pt;
-      }
-
-      main {
-        padding: 0;
-        width: 100%;
-        max-width: 100%;
-      }
-
-      .card {
-        box-shadow: none;
-        border: 1px solid #999;
-        border-radius: 0;
-        page-break-inside: avoid;
-        margin: 8px 0;
-      }
-
-      .step {
-        display: block !important;
-        page-break-inside: avoid;
-        margin-bottom: 16px;
-      }
-
-      .option,
-      .fluxo-option {
-        background: #fff;
-        border: 1px solid #999;
-      }
-
-      .summary,
-      .legal-box,
-      .aviso-final {
-        background: #fff;
-        border: 1px solid #999;
-      }
-
+      header, footer, .nav, .progress, .step-count, .skip-link, .anti-spam-field { display: none !important; }
+      body { background: #fff; color: #000; font-size: 12pt; }
+      main { padding: 0; width: 100%; max-width: 100%; }
+      .card { box-shadow: none; border: 1px solid #999; border-radius: 0; page-break-inside: avoid; margin: 8px 0; }
+      .step { display: block !important; page-break-inside: avoid; margin-bottom: 16px; }
+      .opt, .fluxo-opt, .summary, .legal-box, .aviso-final { background: #fff; border: 1px solid #999; }
       h1, h2 { color: #000; }
-
       a { color: #000; text-decoration: none; }
     }
   </style>
@@ -518,7 +362,7 @@
   <header>
     <div class="header-inner">
       <div class="brand">
-        <img src="../../../assets/img/Marca.svg" alt="Análise Legal" />
+        <img src="/assets/img/Marca.svg" alt="Análise Legal" />
         <div class="tag">Precisão jurídica para decisões relevantes</div>
       </div>
 
@@ -560,284 +404,254 @@
           <input id="empresaContato" name="empresaContato" type="text" autocomplete="off" tabindex="-1">
         </div>
 
-        <div class="progress">
-          <div class="bar" id="bar"></div>
-        </div>
+        <div class="progress"><div class="bar" id="bar"></div></div>
+        <div class="step-count" id="stepCount">Etapa 1 de 5</div>
 
-        <div class="step-count" id="stepCount">Etapa 1 de 7</div>
-
+        <!-- ETAPA 1: Identificação + Prazo (agrupadas) -->
         <div class="step active" data-step="1">
-          <h2>Identificação inicial do procedimento</h2>
+          <h2>Identificação do procedimento</h2>
           <p class="hint">Comece pelo tipo de comunicação recebida e pelo contexto funcional. Não há problema se ainda não souber classificar.</p>
 
           <span class="question-title">O que você recebeu?</span>
-          <div class="options-grid">
-            <label class="option"><input type="radio" name="procedimento" value="PAD" required><span>PAD</span></label>
-            <label class="option"><input type="radio" name="procedimento" value="Sindicância"><span>Sindicância</span></label>
-            <label class="option"><input type="radio" name="procedimento" value="Notificação da corregedoria"><span>Notificação da corregedoria</span></label>
-            <label class="option"><input type="radio" name="procedimento" value="Convocação para esclarecimentos"><span>Convocação para esclarecimentos</span></label>
-            <label class="option"><input type="radio" name="procedimento" value="Não tenho certeza"><span>Não tenho certeza</span></label>
+          <div class="options-list">
+            <label class="opt"><input type="radio" name="procedimento" value="PAD"><span>PAD</span></label>
+            <label class="opt"><input type="radio" name="procedimento" value="Sindicância"><span>Sindicância</span></label>
+            <label class="opt"><input type="radio" name="procedimento" value="Notificação da corregedoria"><span>Notificação da corregedoria</span></label>
+            <label class="opt"><input type="radio" name="procedimento" value="Convocação para esclarecimentos"><span>Convocação para esclarecimentos</span></label>
+            <label class="opt"><input type="radio" name="procedimento" value="Não tenho certeza"><span>Não tenho certeza</span></label>
           </div>
           <div class="error" id="err-procedimento"></div>
 
-          <span class="question-title">Em qual área da Saúde do Distrito Federal você atua?</span>
-          <div class="options-grid">
-            <label class="option"><input type="radio" name="area" value="Hospital" required><span>Hospital</span></label>
-            <label class="option"><input type="radio" name="area" value="UPA"><span>UPA</span></label>
-            <label class="option"><input type="radio" name="area" value="UBS"><span>UBS</span></label>
-            <label class="option"><input type="radio" name="area" value="SAMU"><span>SAMU</span></label>
-            <label class="option"><input type="radio" name="area" value="Administração"><span>Administração</span></label>
-            <label class="option"><input type="radio" name="area" value="Outro"><span>Outro</span></label>
+          <span class="question-title">Em qual área da Saúde do DF você atua?</span>
+          <div class="options-list">
+            <label class="opt"><input type="radio" name="area" value="Hospital"><span>Hospital</span></label>
+            <label class="opt"><input type="radio" name="area" value="UPA"><span>UPA</span></label>
+            <label class="opt"><input type="radio" name="area" value="UBS"><span>UBS</span></label>
+            <label class="opt"><input type="radio" name="area" value="SAMU"><span>SAMU</span></label>
+            <label class="opt"><input type="radio" name="area" value="Administração"><span>Administração</span></label>
+            <label class="opt"><input type="radio" name="area" value="Outro"><span>Outro</span></label>
           </div>
           <div class="error" id="err-area"></div>
 
           <span class="question-title">Qual é sua função atualmente?</span>
-          <div class="options-grid">
-            <label class="option"><input type="radio" name="funcao" value="Médico(a)" required><span>Médico(a)</span></label>
-            <label class="option"><input type="radio" name="funcao" value="Enfermeiro(a)"><span>Enfermeiro(a)</span></label>
-            <label class="option"><input type="radio" name="funcao" value="Técnico(a) de enfermagem"><span>Técnico(a) de enfermagem</span></label>
-            <label class="option"><input type="radio" name="funcao" value="Administrativo"><span>Administrativo</span></label>
-            <label class="option"><input type="radio" name="funcao" value="Gestão/Chefia"><span>Gestão/Chefia</span></label>
-            <label class="option"><input type="radio" name="funcao" value="Outro"><span>Outro</span></label>
+          <div class="options-list">
+            <label class="opt"><input type="radio" name="funcao" value="Médico(a)"><span>Médico(a)</span></label>
+            <label class="opt"><input type="radio" name="funcao" value="Enfermeiro(a)"><span>Enfermeiro(a)</span></label>
+            <label class="opt"><input type="radio" name="funcao" value="Técnico(a) de enfermagem"><span>Técnico(a) de enfermagem</span></label>
+            <label class="opt"><input type="radio" name="funcao" value="Administrativo"><span>Administrativo</span></label>
+            <label class="opt"><input type="radio" name="funcao" value="Gestão/Chefia"><span>Gestão/Chefia</span></label>
+            <label class="opt"><input type="radio" name="funcao" value="Outro"><span>Outro</span></label>
           </div>
           <div class="error" id="err-funcao"></div>
-        </div>
 
-        <div class="step" data-step="2">
-          <h2>Prazo e urgência</h2>
-          <p class="hint">A existência de prazo altera a prioridade da análise.</p>
-
-          <span class="question-title">Você conseguiu identificar se existe prazo no documento recebido?</span>
-          <div class="options-grid">
-            <label class="option"><input type="radio" name="existePrazo" value="Sim" required><span>Sim</span></label>
-            <label class="option"><input type="radio" name="existePrazo" value="Não"><span>Não</span></label>
-            <label class="option"><input type="radio" name="existePrazo" value="Não consegui identificar"><span>Não consegui identificar</span></label>
+          <span class="question-title">Existe prazo no documento recebido?</span>
+          <div class="options-list">
+            <label class="opt"><input type="radio" name="existePrazo" value="Sim"><span>Sim</span></label>
+            <label class="opt"><input type="radio" name="existePrazo" value="Não"><span>Não</span></label>
+            <label class="opt"><input type="radio" name="existePrazo" value="Não consegui identificar"><span>Não consegui identificar</span></label>
           </div>
           <div class="error" id="err-existePrazo"></div>
 
-          <span class="question-title">Esse prazo termina:</span>
-          <div class="options-grid">
-            <label class="option"><input type="radio" name="prazoTermina" value="Hoje" required><span>Hoje</span></label>
-            <label class="option"><input type="radio" name="prazoTermina" value="Em até 3 dias"><span>Em até 3 dias</span></label>
-            <label class="option"><input type="radio" name="prazoTermina" value="Nesta semana"><span>Nesta semana</span></label>
-            <label class="option"><input type="radio" name="prazoTermina" value="Depois desta semana"><span>Depois desta semana</span></label>
-            <label class="option"><input type="radio" name="prazoTermina" value="Não sei informar"><span>Não sei informar</span></label>
+          <span class="question-title">Se houver, esse prazo termina:</span>
+          <div class="options-list">
+            <label class="opt"><input type="radio" name="prazoTermina" value="Hoje"><span>Hoje</span></label>
+            <label class="opt"><input type="radio" name="prazoTermina" value="Em até 3 dias"><span>Em até 3 dias</span></label>
+            <label class="opt"><input type="radio" name="prazoTermina" value="Nesta semana"><span>Nesta semana</span></label>
+            <label class="opt"><input type="radio" name="prazoTermina" value="Depois desta semana"><span>Depois desta semana</span></label>
+            <label class="opt"><input type="radio" name="prazoTermina" value="Não sei informar"><span>Não sei informar</span></label>
           </div>
           <div class="error" id="err-prazoTermina"></div>
         </div>
 
-        <div class="step" data-step="3">
-          <h2>Estágio e cenário aparente</h2>
-          <p class="hint">Informe se já houve resposta formal e qual situação mais se aproxima do fato em apuração.</p>
+        <!-- ETAPA 2: Estágio + Percepção + Documentos (agrupadas) -->
+        <div class="step" data-step="2">
+          <h2>Situação e cenário</h2>
+          <p class="hint">Informe se já houve resposta formal, a situação aparente e como você percebe o caso.</p>
 
-          <span class="question-title">Você já apresentou alguma resposta oficial relacionada a este procedimento?</span>
-          <div class="options-grid">
-            <label class="option"><input type="radio" name="respostaAnterior" value="Não" required><span>Não</span></label>
-            <label class="option"><input type="radio" name="respostaAnterior" value="Sim, parcialmente"><span>Sim, parcialmente</span></label>
-            <label class="option"><input type="radio" name="respostaAnterior" value="Sim, já apresentei manifestação formal"><span>Sim, já apresentei manifestação formal</span></label>
+          <span class="question-title">Já apresentou alguma resposta oficial neste procedimento?</span>
+          <div class="options-list">
+            <label class="opt"><input type="radio" name="respostaAnterior" value="Não"><span>Não</span></label>
+            <label class="opt"><input type="radio" name="respostaAnterior" value="Sim, parcialmente"><span>Sim, parcialmente</span></label>
+            <label class="opt"><input type="radio" name="respostaAnterior" value="Sim, já apresentei manifestação formal"><span>Sim, já apresentei manifestação formal</span></label>
           </div>
           <div class="error" id="err-respostaAnterior"></div>
 
           <span class="question-title">O procedimento parece relacionado a qual situação?</span>
-          <div class="options-grid">
-            <label class="option"><input type="radio" name="situacao" value="Escala, ponto, atraso ou ausência" required><span>Escala, ponto, atraso ou ausência</span></label>
-            <label class="option"><input type="radio" name="situacao" value="Atendimento ao paciente"><span>Atendimento ao paciente</span></label>
-            <label class="option"><input type="radio" name="situacao" value="Relação com equipe ou chefia"><span>Relação com equipe ou chefia</span></label>
-            <label class="option"><input type="radio" name="situacao" value="Acumulação de cargos ou horários"><span>Acumulação de cargos ou horários</span></label>
-            <label class="option"><input type="radio" name="situacao" value="Mensagens, redes sociais ou comunicação interna"><span>Mensagens, redes sociais ou comunicação interna</span></label>
-            <label class="option"><input type="radio" name="situacao" value="Gestão, coordenação ou fiscalização"><span>Gestão, coordenação ou fiscalização</span></label>
-            <label class="option"><input type="radio" name="situacao" value="Não consegui entender ainda"><span>Não consegui entender ainda</span></label>
-            <label class="option"><input type="radio" name="situacao" value="Outro"><span>Outro</span></label>
+          <div class="options-list">
+            <label class="opt"><input type="radio" name="situacao" value="Escala, ponto, atraso ou ausência"><span>Escala, ponto, atraso ou ausência</span></label>
+            <label class="opt"><input type="radio" name="situacao" value="Atendimento ao paciente"><span>Atendimento ao paciente</span></label>
+            <label class="opt"><input type="radio" name="situacao" value="Relação com equipe ou chefia"><span>Relação com equipe ou chefia</span></label>
+            <label class="opt"><input type="radio" name="situacao" value="Acumulação de cargos ou horários"><span>Acumulação de cargos ou horários</span></label>
+            <label class="opt"><input type="radio" name="situacao" value="Mensagens, redes sociais ou comunicação interna"><span>Mensagens, redes sociais ou comunicação interna</span></label>
+            <label class="opt"><input type="radio" name="situacao" value="Gestão, coordenação ou fiscalização"><span>Gestão, coordenação ou fiscalização</span></label>
+            <label class="opt"><input type="radio" name="situacao" value="Não consegui entender ainda"><span>Não consegui entender ainda</span></label>
+            <label class="opt"><input type="radio" name="situacao" value="Outro"><span>Outro</span></label>
           </div>
           <div class="error" id="err-situacao"></div>
-        </div>
 
-        <div class="step" data-step="4">
-          <h2>Percepção e repercussões</h2>
-          <p class="hint">Essas respostas ajudam a organizar o ponto sensível da demanda.</p>
-
-          <span class="question-title">Neste momento, qual situação mais se aproxima do que você está sentindo?</span>
-          <div class="options-grid">
-            <label class="option"><input type="radio" name="percepcao" value="Acho que houve um mal-entendido" required><span>Acho que houve um mal-entendido</span></label>
-            <label class="option"><input type="radio" name="percepcao" value="Existem informações incompletas"><span>Existem informações incompletas</span></label>
-            <label class="option"><input type="radio" name="percepcao" value="A situação ficou maior do que deveria"><span>A situação ficou maior do que deveria</span></label>
-            <label class="option"><input type="radio" name="percepcao" value="Existe conflito ou perseguição interna"><span>Existe conflito ou perseguição interna</span></label>
-            <label class="option"><input type="radio" name="percepcao" value="Ainda não entendi exatamente o problema"><span>Ainda não entendi exatamente o problema</span></label>
+          <span class="question-title">O que mais se aproxima do que você sente agora?</span>
+          <div class="options-list">
+            <label class="opt"><input type="radio" name="percepcao" value="Acho que houve um mal-entendido"><span>Acho que houve um mal-entendido</span></label>
+            <label class="opt"><input type="radio" name="percepcao" value="Existem informações incompletas"><span>Existem informações incompletas</span></label>
+            <label class="opt"><input type="radio" name="percepcao" value="A situação ficou maior do que deveria"><span>A situação ficou maior do que deveria</span></label>
+            <label class="opt"><input type="radio" name="percepcao" value="Existe conflito ou perseguição interna"><span>Existe conflito ou perseguição interna</span></label>
+            <label class="opt"><input type="radio" name="percepcao" value="Ainda não entendi exatamente o problema"><span>Ainda não entendi exatamente o problema</span></label>
           </div>
           <div class="error" id="err-percepcao"></div>
 
-          <span class="question-title">Você possui acesso aos documentos relacionados ao procedimento?</span>
-          <div class="options-grid">
-            <label class="option"><input type="radio" name="acessoDocumentos" value="Sim" required><span>Sim</span></label>
-            <label class="option"><input type="radio" name="acessoDocumentos" value="Parcialmente"><span>Parcialmente</span></label>
-            <label class="option"><input type="radio" name="acessoDocumentos" value="Não"><span>Não</span></label>
+          <span class="question-title">Você tem acesso aos documentos do procedimento?</span>
+          <div class="options-list">
+            <label class="opt"><input type="radio" name="acessoDocumentos" value="Sim"><span>Sim</span></label>
+            <label class="opt"><input type="radio" name="acessoDocumentos" value="Parcialmente"><span>Parcialmente</span></label>
+            <label class="opt"><input type="radio" name="acessoDocumentos" value="Não"><span>Não</span></label>
           </div>
           <div class="error" id="err-acessoDocumentos"></div>
 
-          <span class="question-title">Existe preocupação envolvendo:</span>
-          <div class="options-grid">
-            <label class="option"><input type="checkbox" name="preocupacoes" value="Conselho profissional"><span>Conselho profissional</span></label>
-            <label class="option"><input type="checkbox" name="preocupacoes" value="Chefia imediata"><span>Chefia imediata</span></label>
-            <label class="option"><input type="checkbox" name="preocupacoes" value="Escala ou plantões"><span>Escala ou plantões</span></label>
-            <label class="option"><input type="checkbox" name="preocupacoes" value="Paciente ou prontuário"><span>Paciente ou prontuário</span></label>
-            <label class="option"><input type="checkbox" name="preocupacoes" value="Exposição interna"><span>Exposição interna</span></label>
-            <label class="option"><input type="checkbox" name="preocupacoes" value="Ainda não sei avaliar"><span>Ainda não sei avaliar</span></label>
+          <span class="question-title">Existe preocupação envolvendo: <span style="font-weight:400;color:#667085;">(opcional, pode marcar mais de uma)</span></span>
+          <div class="options-list">
+            <label class="opt"><input type="checkbox" name="preocupacoes" value="Conselho profissional"><span>Conselho profissional</span></label>
+            <label class="opt"><input type="checkbox" name="preocupacoes" value="Chefia imediata"><span>Chefia imediata</span></label>
+            <label class="opt"><input type="checkbox" name="preocupacoes" value="Escala ou plantões"><span>Escala ou plantões</span></label>
+            <label class="opt"><input type="checkbox" name="preocupacoes" value="Paciente ou prontuário"><span>Paciente ou prontuário</span></label>
+            <label class="opt"><input type="checkbox" name="preocupacoes" value="Exposição interna"><span>Exposição interna</span></label>
+            <label class="opt"><input type="checkbox" name="preocupacoes" value="Ainda não sei avaliar"><span>Ainda não sei avaliar</span></label>
           </div>
         </div>
 
-        <div class="step" data-step="5">
+        <!-- ETAPA 3: Relato -->
+        <div class="step" data-step="3">
           <h2>Relato resumido</h2>
           <p class="hint">Use poucas linhas. Não é necessário escrever defesa, tese jurídica ou histórico completo.</p>
 
-          <label for="relato">Se desejar, descreva brevemente o que mais preocupa você neste momento.</label>
+          <label class="field-label" for="relato">Se desejar, descreva brevemente o que mais preocupa você neste momento.</label>
           <textarea id="relato" name="relato" maxlength="900" placeholder="Exemplo: recebi uma notificação, não entendi o prazo e estou preocupado com possível repercussão funcional."></textarea>
           <div class="field-help"><span id="contador">0</span>/900 caracteres</div>
           <div class="error" id="err-relato"></div>
         </div>
 
-        <div class="step" data-step="6">
-          <h2>Dados para contato e eventual formalização</h2>
-          <p class="hint">Os dados abaixo são utilizados apenas para identificação da solicitação, contato e eventual formalização de proposta relacionada ao atendimento solicitado.</p>
+        <!-- ETAPA 4: Dados de contato e formalização -->
+        <div class="step" data-step="4">
+          <h2>Dados para contato e formalização</h2>
+          <p class="hint">Utilizados para identificação da solicitação, contato e formalização da proposta de atendimento.</p>
 
-          <label for="nome">Nome completo</label>
-          <input id="nome" name="nome" autocomplete="name" required>
+          <label class="field-label" for="nome">Nome completo</label>
+          <input id="nome" name="nome" autocomplete="name">
           <div class="error" id="err-nome"></div>
 
           <div class="grid">
             <div>
-              <label for="telefone">Telefone para contato</label>
-              <input id="telefone" name="telefone" inputmode="tel" autocomplete="tel" placeholder="(61) 99999-9999" required>
+              <label class="field-label" for="telefone">Telefone para contato</label>
+              <input id="telefone" name="telefone" inputmode="tel" autocomplete="tel" placeholder="(61) 99999-9999">
               <div class="error" id="err-telefone"></div>
             </div>
 
             <div>
-              <label for="email">E-mail</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="nome@exemplo.com.br" required>
-              <div class="field-help">Cópia deste preenchimento será encaminhada para o e-mail informado.</div>
+              <label class="field-label" for="email">E-mail</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="nome@exemplo.com.br">
+              <div class="field-help">Este e-mail será usado para identificação da solicitação, agendamento e comunicações posteriores.</div>
               <div class="error" id="err-email"></div>
             </div>
           </div>
 
           <div class="grid">
             <div>
-              <label for="emailConfirmacao">Confirmar e-mail</label>
-              <input id="emailConfirmacao" name="emailConfirmacao" type="email" autocomplete="email" placeholder="repita o e-mail informado" required>
+              <label class="field-label" for="emailConfirmacao">Confirmar e-mail</label>
+              <input id="emailConfirmacao" name="emailConfirmacao" type="email" autocomplete="email" placeholder="repita o e-mail informado">
               <div class="error" id="err-emailConfirmacao"></div>
             </div>
 
             <div>
-              <label for="cpf">CPF</label>
+              <label class="field-label" for="cpf">CPF</label>
               <input id="cpf" name="cpf" inputmode="numeric" placeholder="000.000.000-00">
-              <div class="field-help">Utilizado para eventual formalização de proposta pelo profissional.</div>
+              <div class="field-help">Pedimos o CPF apenas para emitir a cobrança e nota fiscal, caso você opte por contratar o atendimento do profissional.</div>
               <div class="error" id="err-cpf"></div>
             </div>
           </div>
 
           <div class="grid">
             <div>
-              <label for="cep">CEP</label>
+              <label class="field-label" for="cep">CEP</label>
               <input id="cep" name="cep" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000">
               <div class="error" id="err-cep"></div>
             </div>
 
             <div>
-              <label for="numero">Número</label>
+              <label class="field-label" for="numero">Número</label>
               <input id="numero" name="numero" autocomplete="address-line2">
             </div>
           </div>
 
-          <label for="endereco">Endereço</label>
+          <label class="field-label" for="endereco">Endereço</label>
           <input id="endereco" name="endereco" autocomplete="street-address">
 
           <div class="grid">
             <div>
-              <label for="bairro">Bairro</label>
+              <label class="field-label" for="bairro">Bairro</label>
               <input id="bairro" name="bairro">
             </div>
 
             <div>
-              <label for="cidadeUf">Cidade/UF</label>
+              <label class="field-label" for="cidadeUf">Cidade/UF</label>
               <input id="cidadeUf" name="cidadeUf" placeholder="Brasília/DF">
             </div>
           </div>
 
-          <label for="complemento">Complemento</label>
+          <label class="field-label" for="complemento">Complemento</label>
           <input id="complemento" name="complemento" autocomplete="address-line3">
 
           <span class="question-title">Como prefere receber retorno inicialmente?</span>
-          <div class="options-grid">
-            <label class="option"><input type="radio" name="retorno" value="Mensagem" required><span>Mensagem</span></label>
-            <label class="option"><input type="radio" name="retorno" value="Ligação"><span>Ligação</span></label>
-            <label class="option"><input type="radio" name="retorno" value="E-mail"><span>E-mail</span></label>
-            <label class="option"><input type="radio" name="retorno" value="Tanto faz"><span>Tanto faz</span></label>
+          <div class="options-list">
+            <label class="opt"><input type="radio" name="retorno" value="Mensagem"><span>Mensagem</span></label>
+            <label class="opt"><input type="radio" name="retorno" value="Ligação"><span>Ligação</span></label>
+            <label class="opt"><input type="radio" name="retorno" value="E-mail"><span>E-mail</span></label>
+            <label class="opt"><input type="radio" name="retorno" value="Tanto faz"><span>Tanto faz</span></label>
           </div>
           <div class="error" id="err-retorno"></div>
 
-          <span class="question-title">Preferência geral para retorno</span>
-          <div class="options-grid">
-            <label class="option"><input type="radio" name="horario" value="Período da manhã" required><span>Período da manhã</span></label>
-            <label class="option"><input type="radio" name="horario" value="Período da tarde"><span>Período da tarde</span></label>
-            <label class="option"><input type="radio" name="horario" value="Período da noite"><span>Período da noite</span></label>
-            <label class="option"><input type="radio" name="horario" value="Plantão variável"><span>Plantão variável</span></label>
+          <span class="question-title">Preferência geral de horário para retorno</span>
+          <div class="options-list">
+            <label class="opt"><input type="radio" name="horario" value="Período da manhã"><span>Período da manhã</span></label>
+            <label class="opt"><input type="radio" name="horario" value="Período da tarde"><span>Período da tarde</span></label>
+            <label class="opt"><input type="radio" name="horario" value="Período da noite"><span>Período da noite</span></label>
+            <label class="opt"><input type="radio" name="horario" value="Plantão variável"><span>Plantão variável</span></label>
           </div>
           <div class="error" id="err-horario"></div>
         </div>
 
-        <div class="step" data-step="7">
-          <h2>Como deseja prosseguir?</h2>
-          <p class="hint">Escolha uma das opções abaixo para definir o encaminhamento da sua solicitação.</p>
+        <!-- ETAPA 5: Encaminhamento + termos -->
+        <div class="step" data-step="5">
+          <h2>Confirmação e encaminhamento</h2>
+          <p class="hint">Revise o resumo e confirme as autorizações para prosseguir ao agendamento.</p>
 
-          <fieldset style="border:0; padding:0; margin:0;">
-            <legend id="legend-fluxo" class="question-title" style="margin-top:0;">Selecione uma opção</legend>
+          <div class="summary" id="resumoFinal"></div>
 
-            <div class="fluxo-grid" role="radiogroup" aria-labelledby="legend-fluxo">
-              <label class="fluxo-option">
-                <input type="radio" name="fluxoEscolhido" value="solicitar_atendimento" required aria-describedby="desc-solicitar">
-                <span>
-                  <span class="fluxo-titulo">Desejo solicitar atendimento com profissional para análise da situação apresentada.</span>
-                  <span class="fluxo-desc" id="desc-solicitar">Ao escolher esta opção, suas informações serão encaminhadas para a etapa de confirmação e, posteriormente, você receberá por e-mail as próximas orientações para eventual atendimento.</span>
-                </span>
-              </label>
-
-              <label class="fluxo-option">
-                <input type="radio" name="fluxoEscolhido" value="aguardar_triagem" aria-describedby="desc-triagem">
-                <span>
-                  <span class="fluxo-titulo">Prefiro aguardar a triagem inicial.</span>
-                  <span class="fluxo-desc" id="desc-triagem">Ao escolher esta opção, suas informações serão encaminhadas para triagem preliminar. Se necessário, poderão ser solicitados esclarecimentos ou documentos complementares antes da definição dos próximos passos.</span>
-                </span>
-              </label>
-            </div>
-
-            <div class="error" id="err-fluxoEscolhido"></div>
-          </fieldset>
-
-          <div class="summary" id="resumoFinal" style="margin-top:22px;"></div>
+          <div class="aviso-final" role="note" style="margin-top:18px;">
+            Ao confirmar, sua solicitação será registrada e você seguirá para a etapa de agendamento, onde poderá escolher data e horário. O diagnóstico estratégico é um serviço profissional; o valor é apresentado na tela de agendamento, antes de qualquer pagamento.
+          </div>
 
           <div class="legal-box">
-            <label class="option">
-              <input type="checkbox" name="declaracao" required>
+            <label class="opt">
+              <input type="checkbox" name="declaracao">
               <span>Declaro que as informações prestadas são verdadeiras e compreendo que esta etapa possui caráter inicial, informativo e organizacional, sem substituição de análise técnica individualizada.</span>
             </label>
             <div class="error" id="err-declaracao"></div>
           </div>
 
           <div class="legal-box">
-            <label class="option">
-              <input type="checkbox" name="lgpd" required>
-              <span>Autorizo o uso das informações fornecidas para contato, organização inicial da solicitação e eventual encaminhamento de proposta relacionada ao atendimento solicitado, nos termos da Lei nº 13.709/2018 (LGPD).</span>
+            <label class="opt">
+              <input type="checkbox" name="lgpd">
+              <span>Autorizo o uso das informações fornecidas para contato, organização inicial da solicitação e formalização de proposta relacionada ao atendimento solicitado, nos termos da Lei nº 13.709/2018 (LGPD).</span>
             </label>
             <div class="error" id="err-lgpd"></div>
           </div>
 
-          <div class="aviso-final" role="note">
-            O envio do formulário não representa contratação, agendamento confirmado ou garantia de atendimento. As informações serão organizadas e encaminhadas para confirmação dos próximos passos conforme a opção escolhida.
-          </div>
+          <div class="form-erro-geral" id="formErroGeral"></div>
         </div>
 
         <div class="nav">
           <button type="button" class="btn btn-secondary" id="prevBtn">VOLTAR</button>
           <button type="button" class="btn btn-primary" id="nextBtn">AVANÇAR</button>
-          <button type="submit" class="btn btn-primary" id="submitBtn" style="display:none">SOLICITAR ANÁLISE</button>
+          <button type="submit" class="btn btn-primary" id="submitBtn" style="display:none">IR PARA O AGENDAMENTO</button>
         </div>
       </form>
     </section>
@@ -856,12 +670,33 @@
   </footer>
 
   <script>
+    "use strict";
+
+    /* =========================================================
+       CONFIGURAÇÃO
+       ========================================================= */
+    // URL do Worker. Rota de recebimento do formulário.
+    const WORKER_ENDPOINT = "https://analiselegal-formulario.miguel-compras.workers.dev/formulario";
+    // Para onde seguir após gravar o lead (agendamento).
+    const AGENDAR_URL = "agendar.html";
+
+    /* =========================================================
+       MEDIÇÃO (GA4 via dataLayer / gtag, se existirem)
+       Eventos de topo de funil são enviados ao GA4, NÃO ao Worker.
+       ========================================================= */
+    function track(evento, params) {
+      try {
+        if (typeof window.gtag === "function") {
+          window.gtag("event", evento, params || {});
+        } else if (Array.isArray(window.dataLayer)) {
+          window.dataLayer.push(Object.assign({ event: evento }, params || {}));
+        }
+      } catch (e) { /* medição nunca pode quebrar o formulário */ }
+    }
+
     const steps = [...document.querySelectorAll(".step")];
     let current = 0;
-
-    // Configure aqui, quando o Cloudflare Worker estiver publicado.
-    // Exemplo: const WORKER_ENDPOINT = "https://forms.analiselegal.workers.dev/pad-saude";
-    const WORKER_ENDPOINT = "";
+    const etapasJaVistas = new Set();
 
     const formStartedAt = new Date();
     document.getElementById("formStartedAt").value = formStartedAt.toISOString();
@@ -871,166 +706,104 @@
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
     const submitBtn = document.getElementById("submitBtn");
+    const formErroGeral = document.getElementById("formErroGeral");
 
-    const onlyDigits = value => (value || "").replace(/\D/g, "");
+    const onlyDigits = v => (v || "").replace(/\D/g, "");
     const getRadio = name => document.querySelector(`input[name="${name}"]:checked`)?.value || "";
-    const getChecks = name => [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(item => item.value);
+    const getChecks = name => [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(i => i.value);
 
-    function setErro(id, mensagem) {
+    function setErro(id, msg) {
       const erro = document.getElementById(`err-${id}`);
       const campo = document.getElementById(id);
-
-      if (erro) erro.textContent = mensagem;
-
-      if (campo) {
-        campo.classList.add("invalid");
-        campo.setAttribute("aria-invalid", "true");
-      }
+      if (erro) erro.textContent = msg;
+      if (campo) { campo.classList.add("invalid"); campo.setAttribute("aria-invalid", "true"); }
     }
-
     function limparErro(id) {
       const erro = document.getElementById(`err-${id}`);
       const campo = document.getElementById(id);
-
       if (erro) erro.textContent = "";
-
-      if (campo) {
-        campo.classList.remove("invalid");
-        campo.removeAttribute("aria-invalid");
-      }
+      if (campo) { campo.classList.remove("invalid"); campo.removeAttribute("aria-invalid"); }
     }
-
-    function setErroGrupo(name, mensagem) {
+    function setErroGrupo(name, msg) {
       const erro = document.getElementById(`err-${name}`);
-      if (erro) erro.textContent = mensagem;
-
+      if (erro) erro.textContent = msg;
       const primeiro = document.querySelector(`input[name="${name}"]`);
       if (primeiro) {
-        const container = primeiro.closest(".options-grid") || primeiro.closest(".fluxo-grid") || primeiro.closest(".legal-box");
-        container?.classList.add("invalid-group");
+        const c = primeiro.closest(".options-list") || primeiro.closest(".fluxo-list") || primeiro.closest(".legal-box");
+        c?.classList.add("invalid-group");
       }
     }
-
     function limparErroGrupo(name) {
       const erro = document.getElementById(`err-${name}`);
       if (erro) erro.textContent = "";
-
       const primeiro = document.querySelector(`input[name="${name}"]`);
       if (primeiro) {
-        const container = primeiro.closest(".options-grid") || primeiro.closest(".fluxo-grid") || primeiro.closest(".legal-box");
-        container?.classList.remove("invalid-group");
+        const c = primeiro.closest(".options-list") || primeiro.closest(".fluxo-list") || primeiro.closest(".legal-box");
+        c?.classList.remove("invalid-group");
       }
     }
-
     function focarPrimeiroErro() {
       const campo = document.querySelector(".invalid, .invalid-group input");
-      if (campo) {
-        campo.scrollIntoView({ behavior: "smooth", block: "center" });
-        campo.focus({ preventScroll: true });
-      }
+      if (campo) { campo.scrollIntoView({ behavior: "smooth", block: "center" }); campo.focus({ preventScroll: true }); }
     }
 
-    function maskCPF(value) {
-      return onlyDigits(value)
-        .slice(0, 11)
+    /* ===== Máscaras e validadores (mantidos do original) ===== */
+    function maskCPF(v) {
+      return onlyDigits(v).slice(0, 11)
         .replace(/(\d{3})(\d)/, "$1.$2")
         .replace(/(\d{3})(\d)/, "$1.$2")
         .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
     }
-
     function validCPF(cpf) {
       cpf = onlyDigits(cpf);
-
-      if (!cpf) return true;
-      if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
-
-      let soma = 0;
-      let resto;
-
-      for (let i = 1; i <= 9; i++) {
-        soma += parseInt(cpf.substring(i - 1, i), 10) * (11 - i);
-      }
-
-      resto = (soma * 10) % 11;
-      if (resto === 10 || resto === 11) resto = 0;
+      if (!cpf || cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
+      let soma = 0, resto;
+      for (let i = 1; i <= 9; i++) soma += parseInt(cpf.substring(i - 1, i), 10) * (11 - i);
+      resto = (soma * 10) % 11; if (resto === 10 || resto === 11) resto = 0;
       if (resto !== parseInt(cpf.substring(9, 10), 10)) return false;
-
       soma = 0;
-
-      for (let i = 1; i <= 10; i++) {
-        soma += parseInt(cpf.substring(i - 1, i), 10) * (12 - i);
-      }
-
-      resto = (soma * 10) % 11;
-      if (resto === 10 || resto === 11) resto = 0;
-
+      for (let i = 1; i <= 10; i++) soma += parseInt(cpf.substring(i - 1, i), 10) * (12 - i);
+      resto = (soma * 10) % 11; if (resto === 10 || resto === 11) resto = 0;
       return resto === parseInt(cpf.substring(10, 11), 10);
     }
-
-    function maskPhone(value) {
-      const digits = onlyDigits(value).slice(0, 11);
-
-      if (digits.length <= 10) {
-        return digits
-          .replace(/(\d{2})(\d)/, "($1) $2")
-          .replace(/(\d{4})(\d)/, "$1-$2");
-      }
-
-      return digits
-        .replace(/(\d{2})(\d)/, "($1) $2")
-        .replace(/(\d{5})(\d)/, "$1-$2");
+    function maskPhone(v) {
+      const d = onlyDigits(v).slice(0, 11);
+      if (d.length <= 10) return d.replace(/(\d{2})(\d)/, "($1) $2").replace(/(\d{4})(\d)/, "$1-$2");
+      return d.replace(/(\d{2})(\d)/, "($1) $2").replace(/(\d{5})(\d)/, "$1-$2");
     }
+    function validPhone(v) { const d = onlyDigits(v); return d.length === 10 || d.length === 11; }
+    function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((v || "").trim()); }
+    function maskCEP(v) { return onlyDigits(v).slice(0, 8).replace(/(\d{5})(\d)/, "$1-$2"); }
 
-    function validPhone(value) {
-      const digits = onlyDigits(value);
-      return digits.length === 10 || digits.length === 11;
+    function escapeHTML(v) {
+      return String(v || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
     }
-
-    function validEmail(value) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((value || "").trim());
-    }
-
-    function escapeHTML(value) {
-      return String(value || "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
-
-    function nomePlausivel(value) {
-      const nome = (value || "").trim();
+    function nomePlausivel(v) {
+      const nome = (v || "").trim();
       if (nome.length < 7) return false;
       if (!/^[A-Za-zÀ-ÿ' -]+$/.test(nome)) return false;
-      const partes = nome.split(/\s+/).filter(Boolean);
-      if (partes.length < 2) return false;
+      if (nome.split(/\s+/).filter(Boolean).length < 2) return false;
       if (/(.)\1{3,}/.test(nome.toLowerCase())) return false;
       return true;
     }
-
-    function textoAleatorio(value) {
-      const texto = (value || "").trim().toLowerCase();
-      if (!texto) return false;
-
-      const letras = (texto.match(/[a-záàâãéèêíïóôõöúçñ]/gi) || []).length;
-      const numeros = (texto.match(/\d/g) || []).length;
-      const palavras = texto.split(/\s+/).filter(Boolean);
-      const palavrasComVogais = palavras.filter(p => /[aeiouáàâãéèêíóôõú]/i.test(p)).length;
-      const verbosOuTermosMinimos = /(recebi|fui|estou|tenho|houve|prazo|notifica|processo|pad|sindic|chefia|paciente|escala|plantão|plantao|corregedoria|documento|defesa|responder|apuração|apuracao)/i.test(texto);
-
-      if (/(.)\1{4,}/.test(texto)) return true;
-      if (/[a-z]{0,3}\d[a-z0-9-]{5,}/i.test(texto)) return true;
-      if (palavras.length >= 3 && palavrasComVogais / palavras.length < 0.55) return true;
+    function textoAleatorio(v) {
+      const t = (v || "").trim().toLowerCase();
+      if (!t) return false;
+      const letras = (t.match(/[a-záàâãéèêíïóôõöúçñ]/gi) || []).length;
+      const numeros = (t.match(/\d/g) || []).length;
+      const palavras = t.split(/\s+/).filter(Boolean);
+      const comVogais = palavras.filter(p => /[aeiouáàâãéèêíóôõú]/i.test(p)).length;
+      const termos = /(recebi|fui|estou|tenho|houve|prazo|notifica|processo|pad|sindic|chefia|paciente|escala|plantão|plantao|corregedoria|documento|defesa|responder|apuração|apuracao)/i.test(t);
+      if (/(.)\1{4,}/.test(t)) return true;
+      if (/[a-z]{0,3}\d[a-z0-9-]{5,}/i.test(t)) return true;
+      if (palavras.length >= 3 && comVogais / palavras.length < 0.55) return true;
       if (numeros > letras * 0.25) return true;
-      if (texto.length >= 40 && palavras.length < 5) return true;
-      if (texto.length >= 60 && !verbosOuTermosMinimos) return true;
-
+      if (t.length >= 40 && palavras.length < 5) return true;
+      if (t.length >= 60 && !termos) return true;
       return false;
     }
-
-    function emailDescartavelOuSuspeito(value) {
-      const email = (value || "").trim().toLowerCase();
+    function emailSuspeito(v) {
+      const email = (v || "").trim().toLowerCase();
       const dominio = email.split("@")[1] || "";
       if (!dominio) return true;
       if (/(.)\1{3,}/.test(email)) return true;
@@ -1039,294 +812,161 @@
       return false;
     }
 
-    function calcularPlausibilidade(data) {
-      let score = 0;
-      const flags = [];
-
-      const duracao = Number(data.fillDurationSeconds || 0);
-
-      if (nomePlausivel(data.nome)) score += 15; else flags.push("nome_inverossimil");
-      if (validEmail(data.email) && !emailDescartavelOuSuspeito(data.email)) score += 15; else flags.push("email_suspeito");
-      if (validPhone(data.telefone)) score += 10; else flags.push("telefone_invalido");
-      if (data.cpf && validCPF(data.cpf)) score += 10; else if (data.cpf) flags.push("cpf_invalido");
-      if (data.cep && onlyDigits(data.cep).length === 8) score += 5;
-
-      if (data.relato && data.relato.length >= 80 && !textoAleatorio(data.relato)) score += 20;
-      else if (data.relato && textoAleatorio(data.relato)) flags.push("relato_aleatorio");
-      else if (!data.relato || data.relato.length < 40) flags.push("relato_insuficiente");
-
-      if (duracao >= 120) score += 10; else flags.push("preenchimento_muito_rapido");
-      if (data.honeypot) flags.push("honeypot_preenchido");
-
-      if (data.procedimento && data.area && data.funcao && data.situacao && data.percepcao) score += 15;
+    function calcularPlausibilidade(d) {
+      let score = 0; const flags = [];
+      const dur = Number(d.fillDurationSeconds || 0);
+      if (nomePlausivel(d.nome)) score += 15; else flags.push("nome_inverossimil");
+      if (validEmail(d.email) && !emailSuspeito(d.email)) score += 15; else flags.push("email_suspeito");
+      if (validPhone(d.telefone)) score += 10; else flags.push("telefone_invalido");
+      if (d.cpf && validCPF(d.cpf)) score += 10; else flags.push("cpf_invalido");
+      if (d.cep && onlyDigits(d.cep).length === 8) score += 5;
+      if (d.relato && d.relato.length >= 80 && !textoAleatorio(d.relato)) score += 20;
+      else if (d.relato && textoAleatorio(d.relato)) flags.push("relato_aleatorio");
+      else if (!d.relato || d.relato.length < 40) flags.push("relato_insuficiente");
+      if (dur >= 120) score += 10; else flags.push("preenchimento_muito_rapido");
+      if (d.honeypot) flags.push("honeypot_preenchido");
+      if (d.procedimento && d.area && d.funcao && d.situacao && d.percepcao) score += 15;
       else flags.push("campos_essenciais_incompletos");
-
-      if (data.existePrazo === "Não consegui identificar" && data.prazoTermina === "Hoje") flags.push("prazo_contraditorio");
-
+      if (d.existePrazo === "Não consegui identificar" && d.prazoTermina === "Hoje") flags.push("prazo_contraditorio");
       if (flags.includes("honeypot_preenchido")) score = Math.min(score, 10);
       if (flags.includes("relato_aleatorio")) score = Math.min(score, 35);
       if (flags.includes("nome_inverossimil") && flags.includes("email_suspeito")) score = Math.min(score, 35);
-
       let classificacao = "revisao";
       if (score >= 75 && !flags.includes("relato_aleatorio") && !flags.includes("honeypot_preenchido")) classificacao = "plausivel";
       if (score < 45 || flags.includes("honeypot_preenchido") || flags.includes("relato_aleatorio")) classificacao = "suspeito";
-
       return { score, flags, classificacao };
     }
 
-    function maskCEP(value) {
-      return onlyDigits(value).slice(0, 8).replace(/(\d{5})(\d)/, "$1-$2");
-    }
-
     function gerarProtocolo(nome) {
-      const agora = new Date();
-
-      const dia = String(agora.getDate()).padStart(2, "0");
-      const mes = String(agora.getMonth() + 1).padStart(2, "0");
-      const ano = agora.getFullYear();
-
-      const hora = String(agora.getHours()).padStart(2, "0");
-      const minuto = String(agora.getMinutes()).padStart(2, "0");
-      const segundo = String(agora.getSeconds()).padStart(2, "0");
-
-      const primeiroNome = (nome || "SOLICITANTE")
-        .trim()
-        .split(" ")[0]
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^a-zA-Z0-9]/g, "")
-        .toUpperCase();
-
-      return `AL-${dia}${mes}${ano}-${primeiroNome}-${hora}${minuto}${segundo}`;
+      const a = new Date();
+      const dia = String(a.getDate()).padStart(2, "0");
+      const mes = String(a.getMonth() + 1).padStart(2, "0");
+      const ano = a.getFullYear();
+      const h = String(a.getHours()).padStart(2, "0");
+      const m = String(a.getMinutes()).padStart(2, "0");
+      const s = String(a.getSeconds()).padStart(2, "0");
+      const pn = (nome || "SOLICITANTE").trim().split(" ")[0]
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z0-9]/g, "").toUpperCase();
+      return `AL-${dia}${mes}${ano}-${pn}-${h}${m}${s}`;
     }
 
-    document.getElementById("cpf").addEventListener("input", event => {
-      event.target.value = maskCPF(event.target.value);
-      if (validCPF(event.target.value)) limparErro("cpf");
-    });
-
-    document.getElementById("telefone").addEventListener("input", event => {
-      event.target.value = maskPhone(event.target.value);
-      if (validPhone(event.target.value)) limparErro("telefone");
-    });
-
-    document.getElementById("email").addEventListener("input", event => {
-      if (validEmail(event.target.value)) limparErro("email");
-    });
-
-    document.getElementById("emailConfirmacao").addEventListener("input", event => {
+    /* ===== Máscaras em tempo real ===== */
+    document.getElementById("cpf").addEventListener("input", e => { e.target.value = maskCPF(e.target.value); if (validCPF(e.target.value)) limparErro("cpf"); });
+    document.getElementById("telefone").addEventListener("input", e => { e.target.value = maskPhone(e.target.value); if (validPhone(e.target.value)) limparErro("telefone"); });
+    document.getElementById("email").addEventListener("input", e => { if (validEmail(e.target.value)) limparErro("email"); });
+    document.getElementById("emailConfirmacao").addEventListener("input", e => {
       const email = document.getElementById("email").value.trim();
-      if (event.target.value.trim() === email && validEmail(email)) limparErro("emailConfirmacao");
+      if (e.target.value.trim() === email && validEmail(email)) limparErro("emailConfirmacao");
     });
+    document.getElementById("cep").addEventListener("input", e => { e.target.value = maskCEP(e.target.value); if (!e.target.value || onlyDigits(e.target.value).length === 8) limparErro("cep"); });
+    document.getElementById("relato").addEventListener("input", e => { document.getElementById("contador").textContent = e.target.value.length; if (!textoAleatorio(e.target.value)) limparErro("relato"); });
 
-    document.getElementById("cep").addEventListener("input", event => {
-      event.target.value = maskCEP(event.target.value);
-      if (!event.target.value || onlyDigits(event.target.value).length === 8) limparErro("cep");
-    });
+    document.querySelector('input[name="declaracao"]').addEventListener("change", e => { if (e.target.checked) limparErroGrupo("declaracao"); });
+    document.querySelector('input[name="lgpd"]').addEventListener("change", e => { if (e.target.checked) limparErroGrupo("lgpd"); });
 
-    document.getElementById("relato").addEventListener("input", event => {
-      document.getElementById("contador").textContent = event.target.value.length;
-      if (!textoAleatorio(event.target.value)) limparErro("relato");
-    });
-
-    document.querySelectorAll('input[name="fluxoEscolhido"]').forEach(el => {
-      el.addEventListener("change", () => limparErroGrupo("fluxoEscolhido"));
-    });
-
-    document.querySelector('input[name="declaracao"]').addEventListener("change", e => {
-      if (e.target.checked) limparErroGrupo("declaracao");
-    });
-
-    document.querySelector('input[name="lgpd"]').addEventListener("change", e => {
-      if (e.target.checked) limparErroGrupo("lgpd");
-    });
-
-    document.getElementById("cep").addEventListener("blur", async event => {
-      const cep = onlyDigits(event.target.value);
-
-      if (!cep) {
-        limparErro("cep");
-        return;
-      }
-
-      if (cep.length !== 8) {
-        setErro("cep", "Informe um CEP com 8 dígitos.");
-        return;
-      }
-
+    /* ===== ViaCEP ===== */
+    document.getElementById("cep").addEventListener("blur", async e => {
+      const cep = onlyDigits(e.target.value);
+      if (!cep) { limparErro("cep"); return; }
+      if (cep.length !== 8) { setErro("cep", "Informe um CEP com 8 dígitos."); return; }
       try {
-        const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-        const json = await response.json();
-
-        if (json.erro) {
-          setErro("cep", "CEP não localizado.");
-          return;
-        }
-
+        const r = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const j = await r.json();
+        if (j.erro) { setErro("cep", "CEP não localizado."); return; }
         limparErro("cep");
-
-        document.getElementById("endereco").value = json.logradouro || "";
-        document.getElementById("bairro").value = json.bairro || "";
-        document.getElementById("cidadeUf").value = `${json.localidade || ""}${json.uf ? "/" + json.uf : ""}`;
-      } catch (error) {
-        setErro("cep", "Não foi possível consultar o CEP neste momento.");
-      }
+        document.getElementById("endereco").value = j.logradouro || "";
+        document.getElementById("bairro").value = j.bairro || "";
+        document.getElementById("cidadeUf").value = `${j.localidade || ""}${j.uf ? "/" + j.uf : ""}`;
+      } catch (err) { setErro("cep", "Não foi possível consultar o CEP neste momento."); }
     });
 
-    function validarRadio(name, mensagem) {
-      if (!getRadio(name)) {
-        setErroGrupo(name, mensagem);
-        return false;
-      }
-
-      limparErroGrupo(name);
-      return true;
+    function validarRadio(name, msg) {
+      if (!getRadio(name)) { setErroGrupo(name, msg); return false; }
+      limparErroGrupo(name); return true;
     }
 
     function validateCurrent() {
       let ok = true;
-      const etapa = steps[current];
+      const stepNum = current + 1;
 
-      etapa.querySelectorAll("[required]").forEach(element => {
-        if (element.type === "radio") return;
-        if (element.type === "checkbox") return;
-
-        if (!element.value.trim()) {
-          setErro(element.id, "Preencha este campo.");
-          ok = false;
-        } else {
-          limparErro(element.id);
-        }
-      });
-
-      if (current === 0) {
+      if (stepNum === 1) {
         ok = validarRadio("procedimento", "Selecione o que você recebeu.") && ok;
         ok = validarRadio("area", "Selecione sua área de atuação.") && ok;
         ok = validarRadio("funcao", "Selecione sua função atual.") && ok;
-      }
-
-      if (current === 1) {
-        ok = validarRadio("existePrazo", "Informe se conseguiu identificar prazo.") && ok;
+        ok = validarRadio("existePrazo", "Informe se há prazo.") && ok;
         ok = validarRadio("prazoTermina", "Informe quando o prazo termina, ainda que não saiba precisar.") && ok;
       }
 
-      if (current === 2) {
+      if (stepNum === 2) {
         ok = validarRadio("respostaAnterior", "Informe se já apresentou resposta oficial.") && ok;
-        ok = validarRadio("situacao", "Selecione a situação que mais se aproxima do procedimento.") && ok;
-      }
-
-      if (current === 3) {
-        ok = validarRadio("percepcao", "Selecione a opção que melhor representa sua percepção atual.") && ok;
+        ok = validarRadio("situacao", "Selecione a situação que mais se aproxima.") && ok;
+        ok = validarRadio("percepcao", "Selecione a opção que melhor representa sua percepção.") && ok;
         ok = validarRadio("acessoDocumentos", "Informe se possui acesso aos documentos.") && ok;
       }
 
-      if (current === 4) {
+      if (stepNum === 3) {
         const relato = document.getElementById("relato").value.trim();
-
         if (relato && textoAleatorio(relato)) {
-          setErro("relato", "O relato parece conter caracteres aleatórios. Descreva brevemente a situação com palavras compreensíveis.");
+          setErro("relato", "O relato parece conter caracteres aleatórios. Descreva a situação com palavras compreensíveis.");
           ok = false;
-        } else {
-          limparErro("relato");
-        }
+        } else limparErro("relato");
       }
 
-      if (current === 5) {
+      if (stepNum === 4) {
+        const nome = document.getElementById("nome").value.trim();
         const telefone = document.getElementById("telefone").value;
         const email = document.getElementById("email").value.trim();
-        const emailConfirmacao = document.getElementById("emailConfirmacao").value.trim();
+        const emailConf = document.getElementById("emailConfirmacao").value.trim();
         const cpf = document.getElementById("cpf").value;
         const cep = document.getElementById("cep").value;
 
-        if (!validPhone(telefone)) {
-          setErro("telefone", "Informe um telefone válido com DDD.");
-          ok = false;
-        } else {
-          limparErro("telefone");
-        }
+        if (!nome) { setErro("nome", "Informe seu nome completo."); ok = false; }
+        else if (!nomePlausivel(nome)) { setErro("nome", "Informe o nome completo (nome e sobrenome)."); ok = false; }
+        else limparErro("nome");
 
-        if (!validEmail(email)) {
-          setErro("email", "Informe um e-mail válido.");
-          ok = false;
-        } else {
-          limparErro("email");
-        }
+        if (!validPhone(telefone)) { setErro("telefone", "Informe um telefone válido com DDD."); ok = false; } else limparErro("telefone");
 
-        if (!validEmail(emailConfirmacao)) {
-          setErro("emailConfirmacao", "Confirme o e-mail informado.");
-          ok = false;
-        } else if (emailConfirmacao !== email) {
-          setErro("emailConfirmacao", "Os e-mails informados não conferem.");
-          ok = false;
-        } else {
-          limparErro("emailConfirmacao");
-        }
+        if (!validEmail(email)) { setErro("email", "Informe um e-mail válido."); ok = false; } else limparErro("email");
 
-        if (!validCPF(cpf)) {
-          setErro("cpf", "Verifique o CPF informado.");
-          ok = false;
-        } else {
-          limparErro("cpf");
-        }
+        if (!validEmail(emailConf)) { setErro("emailConfirmacao", "Confirme o e-mail informado."); ok = false; }
+        else if (emailConf !== email) { setErro("emailConfirmacao", "Os e-mails informados não conferem."); ok = false; }
+        else limparErro("emailConfirmacao");
 
-        if (cep && onlyDigits(cep).length !== 8) {
-          setErro("cep", "Informe um CEP com 8 dígitos.");
-          ok = false;
-        } else if (!document.getElementById("err-cep").textContent) {
-          limparErro("cep");
-        }
+        // CPF agora OBRIGATÓRIO
+        if (!cpf.trim()) { setErro("cpf", "Informe o CPF para emissão de cobrança e nota fiscal, caso contrate."); ok = false; }
+        else if (!validCPF(cpf)) { setErro("cpf", "Verifique o CPF informado."); ok = false; }
+        else limparErro("cpf");
+
+        if (cep && onlyDigits(cep).length !== 8) { setErro("cep", "Informe um CEP com 8 dígitos."); ok = false; }
+        else if (!document.getElementById("err-cep").textContent) limparErro("cep");
 
         ok = validarRadio("retorno", "Selecione como prefere receber o retorno.") && ok;
-        ok = validarRadio("horario", "Selecione sua preferência geral para retorno.") && ok;
+        ok = validarRadio("horario", "Selecione sua preferência de horário.") && ok;
       }
 
-      if (current === 6) {
-        ok = validarRadio("fluxoEscolhido", "Selecione como deseja prosseguir.") && ok;
-
-        const declaracao = document.querySelector('input[name="declaracao"]');
+      if (stepNum === 5) {
+        const decl = document.querySelector('input[name="declaracao"]');
         const lgpd = document.querySelector('input[name="lgpd"]');
-
-        if (!declaracao.checked) {
-          setErroGrupo("declaracao", "Confirme a declaração para prosseguir.");
-          ok = false;
-        } else {
-          limparErroGrupo("declaracao");
-        }
-
-        if (!lgpd.checked) {
-          setErroGrupo("lgpd", "Confirme a autorização de tratamento dos dados para prosseguir.");
-          ok = false;
-        } else {
-          limparErroGrupo("lgpd");
-        }
+        if (!decl.checked) { setErroGrupo("declaracao", "Confirme a declaração para prosseguir."); ok = false; } else limparErroGrupo("declaracao");
+        if (!lgpd.checked) { setErroGrupo("lgpd", "Confirme a autorização de tratamento dos dados."); ok = false; } else limparErroGrupo("lgpd");
       }
 
       if (!ok) focarPrimeiroErro();
-
       return ok;
     }
 
     function urgencia() {
-      const prazo = getRadio("prazoTermina");
-
-      if (prazo === "Hoje" || prazo === "Em até 3 dias") return "Alta";
-      if (prazo === "Nesta semana") return "Média/alta";
-      if (prazo === "Depois desta semana") return "Média";
-
+      const p = getRadio("prazoTermina");
+      if (p === "Hoje" || p === "Em até 3 dias") return "Alta";
+      if (p === "Nesta semana") return "Média/alta";
+      if (p === "Depois desta semana") return "Média";
       return "A avaliar";
-    }
-
-    function fluxoEscolhidoLabel(valor) {
-      if (valor === "solicitar_atendimento") return "Solicitar atendimento com profissional";
-      if (valor === "aguardar_triagem") return "Aguardar triagem inicial";
-      return "Não informado";
     }
 
     function collect() {
       const now = new Date();
       const nome = document.getElementById("nome").value.trim();
-      const fluxo = getRadio("fluxoEscolhido");
-
+      const params = new URLSearchParams(location.search);
       return {
         protocolo: gerarProtocolo(nome),
         timestamp: now.toLocaleString("pt-BR"),
@@ -1357,13 +997,15 @@
         preocupacoes: getChecks("preocupacoes"),
         relato: document.getElementById("relato").value.trim(),
         urgencia: urgencia(),
-        fluxoEscolhido: fluxo,
-        fluxoEscolhidoLabel: fluxoEscolhidoLabel(fluxo),
-        origem: new URLSearchParams(location.search).get("origem") || "pad-saude-df",
-        assuntoBase: new URLSearchParams(location.search).get("assuntoBase") || "",
-        utm_source: new URLSearchParams(location.search).get("utm_source") || "",
-        utm_medium: new URLSearchParams(location.search).get("utm_medium") || "",
-        utm_campaign: new URLSearchParams(location.search).get("utm_campaign") || "",
+        // Fluxo curto: sempre solicitar atendimento (sem "aguardar triagem")
+        fluxoEscolhido: "solicitar_atendimento",
+        fluxoEscolhidoLabel: "Solicitar atendimento com profissional",
+        origem: params.get("origem") || "pad-saude-df",
+        tema: params.get("tema") || "PAD e Sindicancia na Saude do DF",
+        assuntoBase: params.get("assuntoBase") || "",
+        utm_source: params.get("utm_source") || "",
+        utm_medium: params.get("utm_medium") || "",
+        utm_campaign: params.get("utm_campaign") || "",
         dispositivo: innerWidth < 768 ? "mobile" : "desktop",
         navegador: navigator.userAgent,
         larguraTela: innerWidth,
@@ -1375,90 +1017,106 @@
     }
 
     function buildResumo() {
-      const data = collect();
-
+      const d = collect();
       document.getElementById("resumoFinal").innerHTML = `
-        <p><strong>Nome:</strong> ${escapeHTML(data.nome || "Não informado")}</p>
-        <p><strong>Contato:</strong> ${escapeHTML(data.telefone || "Não informado")} | ${escapeHTML(data.email || "Não informado")}</p>
-        <p><strong>Procedimento:</strong> ${escapeHTML(data.procedimento || "Não informado")}</p>
-        <p><strong>Urgência estimada:</strong> ${escapeHTML(data.urgencia)}</p>
-        <p><strong>Situação:</strong> ${escapeHTML(data.situacao || "Não informado")}</p>
-        <p><strong>Preocupação principal:</strong> ${escapeHTML(data.percepcao || "Não informado")}</p>
+        <p><strong>Nome:</strong> ${escapeHTML(d.nome || "Não informado")}</p>
+        <p><strong>Contato:</strong> ${escapeHTML(d.telefone || "Não informado")} | ${escapeHTML(d.email || "Não informado")}</p>
+        <p><strong>Procedimento:</strong> ${escapeHTML(d.procedimento || "Não informado")}</p>
+        <p><strong>Urgência estimada:</strong> ${escapeHTML(d.urgencia)}</p>
+        <p><strong>Situação:</strong> ${escapeHTML(d.situacao || "Não informado")}</p>
       `;
     }
 
     function showStep() {
-      steps.forEach((step, index) => {
-        step.classList.toggle("active", index === current);
-      });
-
+      steps.forEach((s, i) => s.classList.toggle("active", i === current));
       bar.style.width = `${((current + 1) / steps.length) * 100}%`;
       stepCount.textContent = `Etapa ${current + 1} de ${steps.length}`;
-
       prevBtn.style.visibility = current === 0 ? "hidden" : "visible";
       nextBtn.style.display = current === steps.length - 1 ? "none" : "inline-block";
       submitBtn.style.display = current === steps.length - 1 ? "inline-block" : "none";
-
       if (current === steps.length - 1) buildResumo();
 
+      // medição: registra visualização de etapa uma única vez
+      const stepNum = current + 1;
+      if (!etapasJaVistas.has(stepNum)) {
+        etapasJaVistas.add(stepNum);
+        track("form_etapa_view", { etapa: stepNum, total_etapas: steps.length });
+        if (stepNum === 1) track("form_iniciado", {});
+      }
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    prevBtn.addEventListener("click", () => {
-      if (current > 0) {
-        current--;
-        showStep();
-      }
-    });
-
+    prevBtn.addEventListener("click", () => { if (current > 0) { current--; showStep(); } });
     nextBtn.addEventListener("click", () => {
       if (validateCurrent() && current < steps.length - 1) {
-        current++;
-        showStep();
+        track("form_etapa_concluida", { etapa: current + 1 });
+        current++; showStep();
       }
     });
 
-    document.getElementById("formAnalise").addEventListener("submit", async event => {
-      event.preventDefault();
-
+    document.getElementById("formAnalise").addEventListener("submit", async e => {
+      e.preventDefault();
+      formErroGeral.style.display = "none";
       if (!validateCurrent()) return;
 
       const submittedAt = new Date();
-      const durationSeconds = Math.max(0, Math.round((submittedAt.getTime() - formStartedAt.getTime()) / 1000));
-
+      const dur = Math.max(0, Math.round((submittedAt.getTime() - formStartedAt.getTime()) / 1000));
       document.getElementById("formSubmittedAt").value = submittedAt.toISOString();
-      document.getElementById("fillDurationSeconds").value = String(durationSeconds);
+      document.getElementById("fillDurationSeconds").value = String(dur);
 
       const data = collect();
+      const plaus = calcularPlausibilidade(data);
+      data.plausibilidade = plaus;
+      data.clientPlausibilityScore = plaus.score;
+      data.clientPlausibilityFlags = plaus.flags;
+      data.clientPlausibilityClassificacao = plaus.classificacao;
+      document.getElementById("clientPlausibilityScore").value = String(plaus.score);
+      document.getElementById("clientPlausibilityFlags").value = plaus.flags.join(",");
 
-      const plausibilidade = calcularPlausibilidade(data);
-
-      data.plausibilidade = plausibilidade;
-      data.clientPlausibilityScore = plausibilidade.score;
-      data.clientPlausibilityFlags = plausibilidade.flags;
-      data.clientPlausibilityClassificacao = plausibilidade.classificacao;
-
-      document.getElementById("clientPlausibilityScore").value = String(plausibilidade.score);
-      document.getElementById("clientPlausibilityFlags").value = plausibilidade.flags.join(",");
-
-      sessionStorage.setItem("analiseLegalResumo", JSON.stringify(data));
+      // guarda local para o agendar.html poder exibir resumo se quiser
+      try { sessionStorage.setItem("analiseLegalResumo", JSON.stringify(data)); } catch (x) {}
 
       submitBtn.disabled = true;
       submitBtn.textContent = "REGISTRANDO...";
+      track("form_enviado", { protocolo: data.protocolo, score: plaus.score });
+
+      // BLOQUEIO-E-RETRY: só redireciona se o Worker confirmar a gravação do lead.
+      if (!WORKER_ENDPOINT) {
+        // Sem endpoint configurado, não há como gravar o lead: avisa.
+        submitBtn.disabled = false;
+        submitBtn.textContent = "IR PARA O AGENDAMENTO";
+        formErroGeral.style.display = "block";
+        formErroGeral.textContent = "Configuração de envio ausente. Tente novamente em instantes ou contate o escritório.";
+        return;
+      }
 
       try {
-        if (WORKER_ENDPOINT) {
-          await fetch(WORKER_ENDPOINT, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
-            keepalive: true
-          });
-        }
-      } catch (error) {
-        console.warn("Falha no envio ao Worker. Mantendo confirmação local.", error);
-      } finally {
-        window.location.href = "confirmacao.html";
+        const resp = await fetch(WORKER_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        if (!resp.ok) throw new Error("HTTP " + resp.status);
+
+        const json = await resp.json().catch(() => ({}));
+        // o Worker deve devolver { sucesso: true, protocolo: "..." }
+        const protocoloFinal = (json && json.protocolo) ? json.protocolo : data.protocolo;
+
+        if (json && json.sucesso === false) throw new Error(json.erro || json.mensagem || "Falha ao registrar.");
+
+        track("lead_gravado", { protocolo: protocoloFinal });
+
+        const url = `${AGENDAR_URL}?protocolo=${encodeURIComponent(protocoloFinal)}`;
+        window.location.href = url;
+      } catch (err) {
+        // Não perde o usuário: reabilita e permite tentar de novo.
+        submitBtn.disabled = false;
+        submitBtn.textContent = "IR PARA O AGENDAMENTO";
+        formErroGeral.style.display = "block";
+        formErroGeral.textContent = "Não foi possível registrar sua solicitação agora. Verifique sua conexão e toque novamente em \u201cIR PARA O AGENDAMENTO\u201d. Se persistir, contate o escritório informando o protocolo " + data.protocolo + ".";
+        track("lead_falha", { protocolo: data.protocolo });
+        formErroGeral.scrollIntoView({ behavior: "smooth", block: "center" });
       }
     });
 
