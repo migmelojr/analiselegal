@@ -1,288 +1,569 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- 
-  <title>Análise Legal™ | Organização estratégica de informações</title>
- 
-  <meta name="description" content="A Análise Legal™ organiza informações, documentos, cronologias e contexto para preparar situações complexas antes da etapa especializada." />
-  <meta name="author" content="Análise Legal™" />
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#0f2f28" />
- 
-  <link rel="canonical" href="https://www.analiselegal.com.br/" />
- 
-  <meta property="og:title" content="Análise Legal™ | Organização estratégica de informações" />
-  <meta property="og:description" content="Organize informações, documentos, cronologias e contexto antes da etapa especializada." />
-  <meta property="og:image" content="https://www.analiselegal.com.br/assets/img/og-home.jpg" />
-  <meta property="og:url" content="https://www.analiselegal.com.br/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="pt_BR" />
- 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Análise Legal™ | Organização estratégica de informações" />
-  <meta name="twitter:description" content="Organize informações, documentos, cronologias e contexto antes da etapa especializada." />
-  <meta name="twitter:image" content="https://www.analiselegal.com.br/assets/img/og-home.jpg" />
- 
-  <link rel="icon" href="/assets/img/Simbolo.svg" type="image/svg+xml" />
- 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet" />
- 
-  <link rel="stylesheet" href="/assets/css/style.css" />
- 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Análise Legal",
-    "url": "https://www.analiselegal.com.br/",
-    "logo": "https://www.analiselegal.com.br/assets/img/Marca.svg",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "privacy",
-      "email": "privacidade@analiselegal.com.br",
-      "availableLanguage": "Portuguese"
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Análise Legal™ | Precisão jurídica para decisões relevantes</title>
+  <meta name="description" content="A Análise Legal™ prepara usuários e profissionais para atendimentos mais claros, objetivos e produtivos, por meio de perguntas estruturadas e organização inicial das informações.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#082C27">
+  <meta name="color-scheme" content="light only">
+  <meta property="og:title" content="Análise Legal™">
+  <meta property="og:description" content="Precisão jurídica para decisões relevantes.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://www.analiselegal.com.br/assets/img/og-home.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://www.analiselegal.com.br/assets/img/og-home.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" as="image" href="assets/img/hero-pecas.webp" type="image/webp">
+  <link rel="preload" as="image" href="assets/img/Marca.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light only;
+      --green: #336666;
+      --green-soft: #669999;
+      --green-deep: #062d2a;
+      --ink: #303134;
+      --paper: #f7f8f7;
+      --card: #e7e8e8;
+      --card-alt: #e7e8e8;
+      --white: #ffffff;
+      --line: rgba(51,102,102,.58);
+      --shell: 1440px;
+      --gap: 28px;
+      --radius: 12px;
+      --card-min-h: 452px;
+      --footer-h: 205px;
     }
-  }
-  </script>
+
+    * { box-sizing: border-box; }
+    html { min-width: 320px; background: var(--paper); color-scheme: light only; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      font-family: "Crimson Text", Georgia, serif;
+      background: var(--paper);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--green-soft); outline-offset: 4px; }
+    img { display: block; max-width: 100%; }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: visible;
+    }
+    .skip-link:focus {
+      left: 16px;
+      top: 16px;
+      width: auto;
+      height: auto;
+      padding: 10px 14px;
+      background: var(--green);
+      color: #fff;
+      z-index: 9999;
+      border-radius: 8px;
+    }
+
+    .top-rule { height: 10px; background: #082C27; width: 100%; }
+
+    .utility {
+      height: 31px;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      color: var(--green);
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .shell {
+      width: min(100% - 48px, var(--shell));
+      margin: 0 auto;
+    }
+    .utility .shell {
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .utility-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: calc((100% - (2 * var(--gap))) / 3);
+      min-width: 320px;
+      white-space: nowrap;
+    }
+
+    .brand-bar {
+      background: var(--paper);
+      height: 96px;
+      border-bottom: 1px solid rgba(51,102,102,.22);
+    }
+    .brand-bar .shell {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .brand-logo { width: 390px; height: auto; }
+    .location {
+      min-height: 68px;
+      padding-left: 20px;
+      border-left: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.45;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .location-mobile { display: none; }
+
+    .hero {
+      min-height: 205px;
+      display: flex;
+      align-items: center;
+      background-image: linear-gradient(rgba(247,248,247,.42), rgba(247,248,247,.42)), url('assets/img/hero-pecas.webp');
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid rgba(51,102,102,.15);
+    }
+    .hero h1 {
+      margin: 0;
+      text-align: center;
+      font-size: clamp(2.15rem, 3.05vw, 3.36rem);
+      line-height: 1.18;
+      font-weight: 700;
+      color: #2f3032;
+      letter-spacing: -.015em;
+      text-shadow: 0 1px 1px rgba(255,255,255,.45);
+    }
+
+    .cards-wrap {
+      padding: 24px 0 10px;
+      background: var(--paper);
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--gap);
+      align-items: stretch;
+    }
+    .card {
+      min-height: var(--card-min-h);
+      height: auto;
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px 16px 16px;
+      background: var(--card);
+      overflow: visible;
+    }
+    .card h2 {
+      margin: 0 0 34px;
+      font-size: 1.21rem;
+      line-height: 1.1;
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .card p {
+      margin: 0 0 13px;
+      font-size: 1.16rem;
+      line-height: 1.34;
+      text-align: justify;
+      color: var(--ink);
+      hyphens: none;
+      word-break: normal;
+      overflow-wrap: normal;
+    }
+    .card p:last-child { margin-bottom: 0; }
+
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      padding: 7px 0 10px;
+      background: var(--paper);
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 37px;
+      padding: 6px 22px 7px;
+      border-radius: 7px;
+      background: var(--green);
+      color: #fff;
+      border: 2px solid rgba(0,0,0,.4);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.24), 0 1px 2px rgba(0,0,0,.18);
+      font-size: 1.55rem;
+      line-height: 1;
+      letter-spacing: .01em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .site-footer {
+      height: var(--footer-h);
+      background: var(--green);
+      color: #fff;
+      border-top: 1px solid rgba(255,255,255,.24);
+      overflow: visible;
+    }
+    .footer-grid {
+      width: min(100% - 48px, var(--shell));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 32px;
+      min-height: 138px;
+      padding-top: 16px;
+      border-bottom: 1px solid rgba(255,255,255,.25);
+    }
+    .footer-col h3 {
+      margin: 0 0 24px;
+      font-size: 1.05rem;
+      line-height: 1.1;
+      font-weight: 400;
+      letter-spacing: .035em;
+      text-transform: uppercase;
+    }
+    .footer-col ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .footer-col li {
+      margin: 0 0 4px;
+      font-size: 1.1rem;
+      line-height: 1.16;
+      font-weight: 700;
+    }
+    .footer-brand {
+      height: calc(var(--footer-h) - 138px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-brand img { width: 245px; opacity: .43; }
+
+    @media (max-width: 900px) {
+      :root { --gap: 18px; --card-min-h: 0; }
+      .shell { width: min(100% - 32px, var(--shell)); }
+      .utility { height: 42px; font-size: .68rem; }
+      .utility .shell { display: block; }
+      .utility-links {
+        width: 100%;
+        min-width: 0;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .brand-bar { height: 170px; }
+      .brand-bar .shell {
+        flex-direction: column;
+        justify-content: center;
+        gap: 13px;
+      }
+      .brand-logo { width: min(88vw, 620px); }
+      .location {
+        display: none;
+      }
+      .location-mobile {
+        display: block;
+        width: min(78vw, 510px);
+        padding-top: 14px;
+        border-top: 1px solid rgba(51,102,102,.32);
+        text-align: center;
+        font-size: .66rem;
+        color: var(--ink);
+      }
+      .hero { min-height: 233px; align-items: center; }
+      .hero .shell { width: min(100% - 76px, var(--shell)); }
+      .hero h1 {
+        text-align: left;
+        font-size: clamp(1.62rem, 7.5vw, 2.27rem);
+        line-height: 1.16;
+        letter-spacing: -.02em;
+      }
+      .cards-wrap { padding: 28px 0 8px; }
+      .cards { grid-template-columns: 1fr; gap: 18px; }
+      .card { padding: 20px 22px 22px; min-height: auto; }
+      .card h2 { margin-bottom: 24px; font-size: 1.6rem; }
+      .card p {
+        font-size: 1.28rem;
+        line-height: 1.38;
+        text-align: left;
+        margin-bottom: 14px;
+      }
+      .cta-row { padding: 12px 0 28px; }
+      .cta {
+        width: min(100% - 56px, 560px);
+        min-height: 52px;
+        padding: 10px 18px;
+        font-size: 1.32rem;
+        border-radius: 10px;
+      }
+      .site-footer { height: auto; min-height: 0; }
+      .footer-grid {
+        width: min(100% - 56px, var(--shell));
+        grid-template-columns: 1fr;
+        gap: 18px;
+        min-height: 0;
+        padding: 24px 0 20px;
+        text-align: center;
+      }
+      .footer-col h3 { margin-bottom: 8px; font-size: 1.04rem; letter-spacing: .045em; }
+      .footer-col li { font-size: .79rem; margin-bottom: 5px; }
+      .footer-brand { height: 72px; }
+      .footer-brand img { width: min(58vw, 280px); opacity: .5; }
+    }
+
+    @media (min-width: 901px) and (max-width: 1320px) {
+      .shell, .footer-grid { width: min(100% - 56px, var(--shell)); }
+      .card p { font-size: 1.05rem; }
+      .card h2 { margin-bottom: 24px; }
+      .hero h1 { font-size: 2.65rem; }
+    }
+
+    @media print {
+      @page { size: A4; margin: 16mm 14mm; }
+
+      * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+      }
+
+      html,
+      body {
+        background: #fff !important;
+        color: #111 !important;
+        font-size: 10.5pt !important;
+        line-height: 1.32 !important;
+      }
+
+      .top-rule,
+      .utility,
+      .cta-row,
+      .site-footer,
+      .location-mobile {
+        display: none !important;
+      }
+
+      .shell,
+      .hero .shell {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+      }
+
+      .brand-bar {
+        height: auto !important;
+        background: #fff !important;
+        border-bottom: 1px solid #777 !important;
+        padding: 0 0 7mm !important;
+        margin: 0 0 7mm !important;
+      }
+
+      .brand-bar .shell {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        gap: 12mm !important;
+      }
+
+      .brand-logo {
+        width: 60mm !important;
+        height: auto !important;
+      }
+
+      .location {
+        display: block !important;
+        min-height: 0 !important;
+        border-left: none !important;
+        padding: 0 !important;
+        font-size: 9pt !important;
+        line-height: 1.25 !important;
+        text-align: right !important;
+      }
+
+      .hero {
+        min-height: 0 !important;
+        background: #fff !important;
+        border-bottom: none !important;
+        padding: 0 !important;
+        margin: 0 0 7mm !important;
+      }
+
+      .hero h1 {
+        font-size: 15pt !important;
+        line-height: 1.22 !important;
+        text-align: center !important;
+        color: #111 !important;
+        margin: 0 !important;
+      }
+
+      .cards-wrap {
+        background: #fff !important;
+        padding: 0 !important;
+      }
+
+      .cards {
+        display: block !important;
+      }
+
+      .card {
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        border: 1px solid #999 !important;
+        border-radius: 0 !important;
+        background: #fff !important;
+        padding: 4.5mm !important;
+        margin: 0 0 5mm !important;
+      }
+
+      .card h2 {
+        font-size: 12.5pt !important;
+        line-height: 1.15 !important;
+        margin: 0 0 2.5mm !important;
+        color: #111 !important;
+      }
+
+      .card p {
+        font-size: 10.5pt !important;
+        line-height: 1.32 !important;
+        text-align: left !important;
+        margin: 0 0 2mm !important;
+        color: #111 !important;
+      }
+
+      a::after { content: "" !important; }
+    }
+  </style>
 </head>
- 
 <body>
- 
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
- 
-  <header>
-    <div class="header-inner">
-      <a class="brand" href="/" aria-label="Página inicial da Análise Legal">
-        <img
-          src="/assets/img/Marca.svg"
-          alt="Análise Legal"
-          width="180"
-          height="48"
-          decoding="async"
-          fetchpriority="high"
-        />
+  <div class="top-rule" aria-hidden="true"></div>
+
+  <nav class="utility" aria-label="Acesso rápido">
+    <div class="shell">
+      <div class="utility-links">
+        <a href="contato.html">Contato</a>
+        <a href="suporte.html">Suporte</a>
+        <a href="https://wa.me/5500000000000" rel="noopener">Whatsapp</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="brand-bar" role="banner">
+    <div class="shell">
+      <a href="index.html" aria-label="Página inicial da Análise Legal">
+        <img class="brand-logo" src="assets/img/Marca.svg" alt="Análise Legal™ — precisão jurídica para decisões relevantes" decoding="async" fetchpriority="high">
       </a>
+      <div class="location" aria-label="Localização">
+        <span>Brasília - DF</span>
+        <span>Brasil</span>
+      </div>
+      <div class="location-mobile" aria-label="Localização">Brasília - DF | Brasil</div>
     </div>
   </header>
- 
-  <main id="conteudo" role="main">
- 
-    <section class="hero" aria-labelledby="titulo-principal">
- 
-      <div class="tesseract-wrap" aria-hidden="true">
-        <svg viewBox="-1.6 -1.6 3.2 3.2" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet">
-          <title>Tesserato em rotação — símbolo da Análise Legal</title>
-          <g id="tesseract-group"></g>
-        </svg>
+
+  <main id="conteudo">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="shell">
+        <h1 id="hero-title">Problemas complexos raramente sofrem pela falta de informação.<br>Na maioria das vezes, o problema está na desorganização dela.</h1>
       </div>
- 
-      <div class="eyebrow">Plataforma de organização estratégica de informações</div>
- 
-      <h1 id="titulo-principal">Problemas complexos raramente sofrem pela falta de informação.</h1>
- 
-      <p class="lead">Na maioria das vezes, o problema está na desorganização dela.</p>
- 
-      <p>Documentos dispersos. Conversas desconexas. Datas imprecisas. Informações relevantes fora de contexto.</p>
- 
-      <p>Quando o cenário chega fragmentado, compreensão, comunicação e tomada de decisão também se tornam mais difíceis.</p>
- 
-      <p>A <strong>ANÁLISE LEGAL<span class="trademark">™</span></strong> foi criada para organizar esse cenário antes da atuação especializada.</p>
- 
-      <p>A plataforma transforma dados dispersos em uma base lógica, cronológica e contextualizada, permitindo que informações, documentos, contexto, riscos, objetivos e acontecimentos relevantes possam ser compreendidos de forma mais clara e estruturada.</p>
     </section>
- 
-    <section aria-labelledby="como-funciona">
-      <h2 id="como-funciona">Como funciona</h2>
- 
-      <div class="cards">
+
+    <section class="cards-wrap" aria-label="Como a Análise Legal funciona">
+      <div class="shell cards">
         <article class="card">
-          <span class="card-number" aria-hidden="true">1</span>
-          <h3>Inserção orientada</h3>
-          <p>O usuário preenche etapas estruturadas por contexto, cronologia, documentos, pessoas envolvidas, valores e objetivos.</p>
+          <h2>Como funciona</h2>
+          <p>É sempre melhor iniciar um atendimento profissional com informações relevantes já identificadas e organizadas.</p>
+          <p>Por meio de perguntas estruturadas, você é conduzido a refletir sobre fatos, documentos, pessoas envolvidas, valores, prazos e objetivos relacionados à situação apresentada.</p>
+          <p>Ao longo desse processo, muitos passam a compreender melhor o próprio problema e identificam informações que podem ser úteis posteriormente.</p>
+          <p>O resultado é uma preparação mais adequada para análises, orientações e atendimentos especializados.</p>
         </article>
- 
+
         <article class="card">
-          <span class="card-number" aria-hidden="true">2</span>
-          <h3>Organização contextual</h3>
-          <p>As informações são organizadas de forma lógica e contextual, sem conclusões automatizadas ou interpretação especializada.</p>
+          <h2>O papel da plataforma</h2>
+          <p>Situações relevantes costumam exigir a atuação de profissionais especializados em um contexto de prazo, urgência ou necessidade de tomada de decisão.</p>
+          <p>Nem sempre, porém, as informações estão organizadas ou acompanhadas dos elementos necessários para uma compreensão adequada da situação.</p>
+          <p>ANÁLISE LEGAL conduz o usuário, por perguntas estruturadas que auxiliam na compreensão do próprio contexto, na identificação de informações relevantes e na preparação para eventual atendimento profissional.</p>
+          <p>O objetivo é permitir que o atendimento profissional comece com maior clareza, contexto e produtividade para todas as partes envolvidas.</p>
         </article>
- 
+
         <article class="card">
-          <span class="card-number" aria-hidden="true">3</span>
-          <h3>Preparação do cenário</h3>
-          <p>A estruturação prévia reduz ruídos informacionais e melhora a qualidade da comunicação na etapa posterior.</p>
-        </article>
- 
-        <article class="card">
-          <span class="card-number" aria-hidden="true">4</span>
-          <h3>Continuidade profissional</h3>
-          <p>Eventual consulta, análise, parecer, requerimento ou atuação especializada ocorre sob responsabilidade exclusiva do profissional contratado.</p>
+          <h2>Quando faz sentido</h2>
+          <p>Quando uma situação envolve informações dispersas, documentos, prazos, valores ou pessoas que precisam ser compreendidos em conjunto.</p>
+          <p>Quando a decisão a ser tomada pode produzir consequências relevantes e exige maior clareza sobre o contexto.</p>
+          <p>Quando compreender melhor a situação é tão importante quanto decidir o que fazer em seguida.</p>
+          <p>Também pode ser útil quando existem versões divergentes dos fatos, dúvidas sobre documentos relevantes ou necessidade de compreender melhor os próximos passos antes de qualquer decisão.</p>
         </article>
       </div>
     </section>
- 
-    <section aria-labelledby="papel-plataforma">
-      <div class="role-box">
-        <h2 id="papel-plataforma">O papel da plataforma</h2>
- 
-        <p>A <strong>ANÁLISE LEGAL<span class="trademark">™</span></strong> atua exclusivamente na coleta, organização e estruturação técnica das informações fornecidas pelo usuário.</p>
- 
-        <p>A plataforma não substitui atuação profissional especializada, não exerce atividade privativa de qualquer profissão e não integra relações contratuais entre usuário e profissional.</p>
- 
-        <p>A interpretação técnica, definição de estratégia e eventual execução profissional pertencem exclusivamente ao responsável posteriormente contratado.</p>
-      </div>
-    </section>
- 
-    <section aria-labelledby="quando-faz-sentido">
-      <h2 id="quando-faz-sentido">Quando faz sentido</h2>
- 
-      <ul aria-label="Situações em que a plataforma pode ser útil">
-        <li>Quando as informações ainda estão dispersas.</li>
-        <li>Quando há dificuldade em organizar fatos, documentos e cronologia.</li>
-        <li>Quando o cenário envolve múltiplos fatores interligados.</li>
-        <li>Quando é necessário preparar melhor uma etapa especializada.</li>
-        <li>Quando decisões relevantes exigem maior clareza informacional.</li>
-      </ul>
-    </section>
- 
-    <section class="cta" aria-labelledby="cta-final">
-      <h2 id="cta-final">Clareza começa com organização.</h2>
-      <p>Estruture o cenário antes da próxima decisão.</p>
-      <a class="button" href="/analise.html">Organizar meu caso</a>
-    </section>
- 
+
+    <div class="cta-row">
+      <a class="cta" href="analise.html">Solicite análise</a>
+    </div>
   </main>
- 
-  <footer>
-    <div class="footer-inner">
- 
-      <p>
-        O tratamento de dados pessoais pela ANÁLISE LEGAL<span class="trademark">™</span> observa a Lei nº 13.709/2018 (LGPD).
-        Saiba mais em nossa <a href="/privacidade.html">Política de Privacidade</a>.
-        Contato do Encarregado: <a href="mailto:privacidade@analiselegal.com.br">privacidade@analiselegal.com.br</a>.
-      </p>
- 
-      <small>
-        A ANÁLISE LEGAL<span class="trademark">™</span> é uma plataforma digital destinada à coleta, organização e estruturação de informações fornecidas pelo usuário, com finalidade preparatória para eventual etapa profissional posterior. Sua atuação não constitui prestação de serviços jurídicos, parecer conclusivo, consultoria individualizada ou atividade privativa de profissão regulamentada. A contratação de serviços especializados ocorre diretamente entre usuário e profissional responsável, sem participação da plataforma na definição de honorários, execução do serviço ou relação contratual estabelecida. As informações inseridas são de responsabilidade exclusiva do usuário.
-        <br><br>
-        © ANÁLISE LEGAL<span class="trademark">™</span> — Todos os direitos reservados.
-      </small>
- 
-      <nav class="footer-links" aria-label="Links institucionais">
-        <a href="/privacidade.html">Política de Privacidade</a>
-        <a href="/termos.html">Termos de Uso</a>
-        <a href="/lgpd.html">LGPD e direitos do titular</a>
-        <a href="mailto:contato@analiselegal.com.br">Contato</a>
-      </nav>
- 
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid" aria-label="Links do rodapé">
+      <section class="footer-col">
+        <h3>Perguntas frequentes</h3>
+        <ul>
+          <li><a href="faq.html#duvidas-comuns">Dúvidas comuns</a></li>
+          <li><a href="faq.html#como-funciona">Como funciona</a></li>
+          <li><a href="faq.html#atendimento-profissional">Atendimento profissional</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-col">
+        <h3>Quando é útil?</h3>
+        <ul>
+          <li><a href="analise.html?motivo=antes-de-assinar">Antes de assinar</a></li>
+          <li><a href="analise.html?motivo=antes-de-decidir">Antes de decidir</a></li>
+          <li><a href="analise.html?motivo=antes-de-responder">Antes de responder</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-col">
+        <h3>Institucional</h3>
+        <ul>
+          <li><a href="contato.html">Contato</a></li>
+          <li><a href="suporte.html">Suporte</a></li>
+          <li><a href="sobre-a-plataforma.html">Sobre a plataforma</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-col">
+        <h3>Documentos</h3>
+        <ul>
+          <li><a href="termos.html">Termos de uso</a></li>
+          <li><a href="privacidade.html">Privacidade</a></li>
+          <li><a href="direitos-autorais.html">Direitos autorais</a></li>
+        </ul>
+      </section>
+    </div>
+    <div class="footer-brand" aria-hidden="true">
+      <img src="assets/img/Marca.svg" alt="" loading="lazy" decoding="async">
     </div>
   </footer>
- 
-  <noscript>
-    A ANÁLISE LEGAL<span class="trademark">™</span> funciona normalmente sem JavaScript. Apenas a animação decorativa do símbolo na página inicial requer JS.
-  </noscript>
- 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var group = document.getElementById("tesseract-group");
-      if (!group) {
-        console.warn('[tesserato] grupo SVG nao encontrado');
-        return;
-      }
- 
-      var svgNS = "http://www.w3.org/2000/svg";
- 
-      var vertices4D = [];
-      for (var i = 0; i < 16; i++) {
-        vertices4D.push([
-          (i & 1) ? 1 : -1,
-          (i & 2) ? 1 : -1,
-          (i & 4) ? 1 : -1,
-          (i & 8) ? 1 : -1
-        ]);
-      }
- 
-      var edges = [];
-      for (var a = 0; a < 16; a++) {
-        for (var b = a + 1; b < 16; b++) {
-          var diff = 0;
-          for (var k = 0; k < 4; k++) {
-            if (vertices4D[a][k] !== vertices4D[b][k]) diff++;
-          }
-          if (diff === 1) edges.push([a, b]);
-        }
-      }
- 
-      var lines = [];
-      for (var e = 0; e < edges.length; e++) {
-        var l = document.createElementNS(svgNS, "line");
-        l.setAttribute("fill", "none");
-        l.setAttribute("stroke", "#c8ad72");
-        l.setAttribute("stroke-width", "0.025");
-        l.setAttribute("stroke-linecap", "round");
-        l.setAttribute("stroke-linejoin", "round");
-        group.appendChild(l);
-        lines.push(l);
-      }
- 
-      function rotate4D(v, axw, ayw, azw, axy) {
-        var x = v[0], y = v[1], z = v[2], w = v[3];
-        var c, s, nx, nw, ny, nz;
- 
-        c = Math.cos(axw); s = Math.sin(axw);
-        nx = x * c - w * s; nw = x * s + w * c;
-        x = nx; w = nw;
- 
-        c = Math.cos(ayw); s = Math.sin(ayw);
-        ny = y * c - w * s; nw = y * s + w * c;
-        y = ny; w = nw;
- 
-        c = Math.cos(azw); s = Math.sin(azw);
-        nz = z * c - w * s; nw = z * s + w * c;
-        z = nz; w = nw;
- 
-        c = Math.cos(axy); s = Math.sin(axy);
-        nx = x * c - y * s; ny = x * s + y * c;
-        x = nx; y = ny;
- 
-        return [x, y, z, w];
-      }
- 
-      function project(v) {
-        var wf = 1 / (3 - v[3]);
-        var x3 = v[0] * wf, y3 = v[1] * wf, z3 = v[2] * wf;
-        var zf = 1 / (4 - z3);
-        return [x3 * zf * 2.2, y3 * zf * 2.2];
-      }
- 
-      function render(t) {
-        var projected = [];
-        for (var i = 0; i < vertices4D.length; i++) {
-          var r = rotate4D(vertices4D[i], t * 0.35, t * 0.25, t * 0.45, t * 0.15);
-          projected.push(project(r));
-        }
-        for (var j = 0; j < edges.length; j++) {
-          var p1 = projected[edges[j][0]];
-          var p2 = projected[edges[j][1]];
-          lines[j].setAttribute("x1", p1[0]);
-          lines[j].setAttribute("y1", p1[1]);
-          lines[j].setAttribute("x2", p2[0]);
-          lines[j].setAttribute("y2", p2[1]);
-        }
-      }
- 
-      var start = performance.now();
-      function loop(now) {
-        render((now - start) / 1000);
-        requestAnimationFrame(loop);
-      }
-      requestAnimationFrame(loop);
-    });
-  </script>
- 
 </body>
 </html>
