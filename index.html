@@ -101,16 +101,14 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      width: 100%;
-      min-width: 0;
+      width: calc((100% - (2 * var(--gap))) / 3);
+      min-width: 320px;
       white-space: nowrap;
     }
     .utility-links a {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      text-transform: uppercase;
-      letter-spacing: .035em;
     }
     .icon {
       display: inline-block;
@@ -131,7 +129,7 @@
     .icon-building { mask-image: url('assets/img/icon/building-office.svg'); -webkit-mask-image: url('assets/img/icon/building-office.svg'); }
     .icon-info { mask-image: url('assets/img/icon/info.svg'); -webkit-mask-image: url('assets/img/icon/info.svg'); }
     .icon-question { mask-image: url('assets/img/icon/question.svg'); -webkit-mask-image: url('assets/img/icon/question.svg'); }
-    .icon-list-search { mask-image: url('assets/img/icon/list-magnifying-glass.svg'); -webkit-mask-image: url('assets/img/icon/list-magnifying-glass.svg'); }
+    .icon-magnifying { mask-image: url('assets/img/icon/list-magnifying-glass.svg'); -webkit-mask-image: url('assets/img/icon/list-magnifying-glass.svg'); }
     .icon-funnel { mask-image: url('assets/img/icon/funnel.svg'); -webkit-mask-image: url('assets/img/icon/funnel.svg'); }
     .icon-clipboard { mask-image: url('assets/img/icon/clipboard-text.svg'); -webkit-mask-image: url('assets/img/icon/clipboard-text.svg'); }
     .icon-puzzle { mask-image: url('assets/img/icon/puzzle-piece.svg'); -webkit-mask-image: url('assets/img/icon/puzzle-piece.svg'); }
@@ -208,9 +206,12 @@
       font-weight: 700;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
     }
-    .card h2 .icon { width: 20px; height: 20px; color: var(--green); }
+    .card h2 .icon {
+      width: 20px;
+      height: 20px;
+    }
     .card p {
       margin: 0 0 13px;
       font-size: 1.16rem;
@@ -271,11 +272,26 @@
       font-weight: 400;
       letter-spacing: .035em;
       text-transform: uppercase;
+    }
+    .footer-toggle {
+      appearance: none;
+      -webkit-appearance: none;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      margin: 0;
+      font: inherit;
+      letter-spacing: inherit;
+      text-transform: inherit;
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      cursor: pointer;
+      pointer-events: none;
     }
-    .footer-col h3 .icon { width: 18px; height: 18px; }
+    .footer-toggle .icon { width: 18px; height: 18px; }
+    .footer-toggle::after { content: none; }
     .footer-col ul {
       margin: 0;
       padding: 0;
@@ -301,12 +317,13 @@
       .utility { height: 38px; font-size: .82rem; }
       .utility .shell { display: block; }
       .utility-links {
-        width: 100%;
+        width: min(100% - 44px, var(--shell));
         min-width: 0;
         height: 100%;
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        margin: 0 auto;
       }
       .utility-links a { gap: 6px; }
       .utility-links .icon { width: 16px; height: 16px; }
@@ -345,8 +362,8 @@
       .cards-wrap { padding: 28px 0 8px; }
       .cards { grid-template-columns: 1fr; gap: 18px; }
       .card { padding: 20px 22px 22px; min-height: auto; }
-      .card h2 { margin-bottom: 18px; font-size: 1.38rem; gap: 9px; }
-      .card h2 .icon { width: 22px; height: 22px; }
+      .card h2 { margin-bottom: 18px; font-size: 1.38rem; }
+      .card h2 .icon { width: 19px; height: 19px; }
       .card p {
         font-size: 1.08rem;
         line-height: 1.45;
@@ -370,8 +387,39 @@
         padding: 24px 0 20px;
         text-align: center;
       }
-      .footer-col h3 { margin-bottom: 8px; font-size: .92rem; letter-spacing: .04em; justify-content: center; }
-      .footer-col h3 .icon { width: 15px; height: 15px; }
+      .footer-col {
+        border-top: 1px solid rgba(255,255,255,.22);
+        padding-top: 10px;
+      }
+      .footer-col:first-child { border-top: 0; padding-top: 0; }
+      .footer-col h3 { margin: 0; font-size: .92rem; letter-spacing: .04em; }
+      .footer-toggle {
+        width: 100%;
+        min-height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        pointer-events: auto;
+      }
+      .footer-toggle .icon { width: 15px; height: 15px; }
+      .footer-toggle::after {
+        content: "+";
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 14px;
+        margin-left: 2px;
+        font-size: .96rem;
+        line-height: 1;
+        opacity: .85;
+      }
+      .footer-col.is-open .footer-toggle::after { content: "−"; }
+      .footer-col ul {
+        display: none;
+        padding-top: 8px;
+      }
+      .footer-col.is-open ul { display: block; }
       .footer-col li { font-size: .72rem; margin-bottom: 5px; }
       .footer-brand { height: 78px; }
       .footer-brand img { width: min(62vw, 290px); opacity: .5; }
@@ -508,10 +556,10 @@
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <div class="top-rule" aria-hidden="true"></div>
 
-  <nav class="utility" aria-label="Navegação principal">
+  <nav class="utility" aria-label="Acesso rápido">
     <div class="shell">
       <div class="utility-links">
-        <a href="o-que-fazemos.html"><span class="icon icon-list-search" aria-hidden="true"></span>O que fazemos</a>
+        <a href="o-que-fazemos.html"><span class="icon icon-magnifying" aria-hidden="true"></span>O que fazemos</a>
       </div>
     </div>
   </nav>
@@ -572,7 +620,7 @@
   <footer class="site-footer" role="contentinfo">
     <div class="footer-grid" aria-label="Links do rodapé">
       <section class="footer-col">
-        <h3><span class="icon icon-question" aria-hidden="true"></span>Perguntas frequentes</h3>
+        <h3><button class="footer-toggle" type="button" aria-expanded="false"><span class="icon icon-question" aria-hidden="true"></span>Perguntas frequentes</button></h3>
         <ul>
           <li><a href="faq.html#duvidas-comuns">Dúvidas comuns</a></li>
           <li><a href="faq.html#como-funciona">Como funciona</a></li>
@@ -581,7 +629,7 @@
       </section>
 
       <section class="footer-col">
-        <h3><span class="icon icon-info" aria-hidden="true"></span>Quando é útil</h3>
+        <h3><button class="footer-toggle" type="button" aria-expanded="false"><span class="icon icon-info" aria-hidden="true"></span>Quando é útil</button></h3>
         <ul>
           <li><a href="analise.html?motivo=antes-de-assinar">Antes de assinar</a></li>
           <li><a href="analise.html?motivo=antes-de-decidir">Antes de decidir</a></li>
@@ -590,7 +638,7 @@
       </section>
 
       <section class="footer-col">
-        <h3><span class="icon icon-building" aria-hidden="true"></span>Institucional</h3>
+        <h3><button class="footer-toggle" type="button" aria-expanded="false"><span class="icon icon-building" aria-hidden="true"></span>Institucional</button></h3>
         <ul>
           <li><a href="contato.html">Contato</a></li>
           <li><a href="sobre-a-plataforma.html">Sobre a plataforma</a></li>
@@ -599,7 +647,7 @@
       </section>
 
       <section class="footer-col">
-        <h3><span class="icon icon-files" aria-hidden="true"></span>Documentos</h3>
+        <h3><button class="footer-toggle" type="button" aria-expanded="false"><span class="icon icon-files" aria-hidden="true"></span>Documentos</button></h3>
         <ul>
           <li><a href="termos.html">Termos de uso</a></li>
           <li><a href="privacidade.html">Privacidade</a></li>
@@ -611,5 +659,46 @@
       <img src="assets/img/Marca-soft.svg" alt="" loading="lazy" decoding="async">
     </div>
   </footer>
+  <script>
+    (function () {
+      const footerSections = Array.from(document.querySelectorAll('.footer-col'));
+      const footerButtons = Array.from(document.querySelectorAll('.footer-toggle'));
+
+      function isMobileFooter() {
+        return window.matchMedia('(max-width: 900px)').matches;
+      }
+
+      function closeAll(except) {
+        footerSections.forEach(section => {
+          if (section !== except) {
+            section.classList.remove('is-open');
+            const button = section.querySelector('.footer-toggle');
+            if (button) button.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      footerButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          if (!isMobileFooter()) return;
+
+          const section = button.closest('.footer-col');
+          const willOpen = !section.classList.contains('is-open');
+
+          closeAll(section);
+          section.classList.toggle('is-open', willOpen);
+          button.setAttribute('aria-expanded', String(willOpen));
+        });
+      });
+
+      window.addEventListener('resize', () => {
+        if (!isMobileFooter()) {
+          footerSections.forEach(section => section.classList.remove('is-open'));
+          footerButtons.forEach(button => button.setAttribute('aria-expanded', 'false'));
+        }
+      });
+    })();
+  </script>
+
 </body>
 </html>
