@@ -19,7 +19,6 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" as="image" href="assets/img/hero-pecas.webp" type="image/webp">
   <link rel="preload" as="image" href="assets/img/Marca-PB.svg" type="image/svg+xml">
-  <link rel="preload" as="image" href="assets/img/An%C3%A1lise%20Legal%20-%20Vertical.jpg" type="image/jpeg" media="(max-width: 900px)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
@@ -143,7 +142,6 @@
       gap: 30px;
     }
     .brand-logo { width: 390px; height: auto; }
-    .brand-logo-vertical { display: none; }
     .location {
       min-height: 68px;
       padding-left: 20px;
@@ -302,16 +300,15 @@
       }
       .utility-links a { gap: 6px; }
       .utility-links .icon { width: 16px; height: 16px; }
-      .brand-bar { height: auto; min-height: 270px; padding: 22px 0 18px; }
+      .brand-bar { height: auto; min-height: 168px; padding: 24px 0 18px; }
       .brand-bar .shell {
         flex-direction: column;
         justify-content: center;
         gap: 10px;
       }
-      .brand-logo { display: none; }
-      .brand-logo-vertical {
+      .brand-logo {
         display: block;
-        width: min(82vw, 460px);
+        width: min(88vw, 500px);
         height: auto;
         margin: 0 auto;
       }
@@ -324,7 +321,7 @@
         padding-top: 10px;
         border-top: 1px solid rgba(51,102,102,.32);
         text-align: center;
-        font-size: .825rem;
+        font-size: 1.03rem;
         color: var(--ink);
       }
       .hero { min-height: 180px; align-items: center; }
@@ -429,10 +426,6 @@
         height: auto !important;
       }
 
-      .brand-logo-vertical {
-        display: none !important;
-      }
-
       .location {
         display: block !important;
         min-height: 0 !important;
@@ -517,7 +510,6 @@
     <div class="shell">
       <a href="index.html" aria-label="Página inicial da Análise Legal">
         <img class="brand-logo" src="assets/img/Marca-PB.svg" alt="Análise Legal™ — precisão jurídica para decisões relevantes" decoding="async" fetchpriority="high">
-        <img class="brand-logo-vertical" src="assets/img/An%C3%A1lise%20Legal%20-%20Vertical.jpg" alt="Análise Legal™ — precisão jurídica para decisões relevantes" decoding="async" fetchpriority="high">
       </a>
       <div class="location" aria-label="Localização">
         <span>Brasília - DF</span>
