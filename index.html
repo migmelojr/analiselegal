@@ -99,16 +99,18 @@
     }
     .utility-links {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
-      width: calc((100% - (2 * var(--gap))) / 3);
-      min-width: 320px;
+      width: 100%;
+      min-width: 0;
       white-space: nowrap;
     }
     .utility-links a {
       display: inline-flex;
       align-items: center;
       gap: 7px;
+      text-transform: uppercase;
+      letter-spacing: .035em;
     }
     .icon {
       display: inline-block;
@@ -129,6 +131,10 @@
     .icon-building { mask-image: url('assets/img/icon/building-office.svg'); -webkit-mask-image: url('assets/img/icon/building-office.svg'); }
     .icon-info { mask-image: url('assets/img/icon/info.svg'); -webkit-mask-image: url('assets/img/icon/info.svg'); }
     .icon-question { mask-image: url('assets/img/icon/question.svg'); -webkit-mask-image: url('assets/img/icon/question.svg'); }
+    .icon-list-search { mask-image: url('assets/img/icon/list-magnifying-glass.svg'); -webkit-mask-image: url('assets/img/icon/list-magnifying-glass.svg'); }
+    .icon-funnel { mask-image: url('assets/img/icon/funnel.svg'); -webkit-mask-image: url('assets/img/icon/funnel.svg'); }
+    .icon-clipboard { mask-image: url('assets/img/icon/clipboard-text.svg'); -webkit-mask-image: url('assets/img/icon/clipboard-text.svg'); }
+    .icon-puzzle { mask-image: url('assets/img/icon/puzzle-piece.svg'); -webkit-mask-image: url('assets/img/icon/puzzle-piece.svg'); }
 
     .brand-bar {
       background: var(--paper);
@@ -200,7 +206,11 @@
       line-height: 1.1;
       color: var(--ink);
       font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
+    .card h2 .icon { width: 20px; height: 20px; color: var(--green); }
     .card p {
       margin: 0 0 13px;
       font-size: 1.16rem;
@@ -295,7 +305,7 @@
         min-width: 0;
         height: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
       }
       .utility-links a { gap: 6px; }
@@ -335,7 +345,8 @@
       .cards-wrap { padding: 28px 0 8px; }
       .cards { grid-template-columns: 1fr; gap: 18px; }
       .card { padding: 20px 22px 22px; min-height: auto; }
-      .card h2 { margin-bottom: 18px; font-size: 1.38rem; }
+      .card h2 { margin-bottom: 18px; font-size: 1.38rem; gap: 9px; }
+      .card h2 .icon { width: 22px; height: 22px; }
       .card p {
         font-size: 1.08rem;
         line-height: 1.45;
@@ -497,11 +508,10 @@
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <div class="top-rule" aria-hidden="true"></div>
 
-  <nav class="utility" aria-label="Acesso rápido">
+  <nav class="utility" aria-label="Navegação principal">
     <div class="shell">
       <div class="utility-links">
-        <a href="contato.html"><span class="icon icon-envelope" aria-hidden="true"></span>Contato</a>
-        <a href="suporte.html"><span class="icon icon-headset" aria-hidden="true"></span>Suporte</a>
+        <a href="o-que-fazemos.html"><span class="icon icon-list-search" aria-hidden="true"></span>O que fazemos</a>
       </div>
     </div>
   </nav>
@@ -529,7 +539,7 @@
     <section class="cards-wrap" aria-label="Como a Análise Legal funciona">
       <div class="shell cards">
         <article class="card">
-          <h2>Como funciona</h2>
+          <h2><span class="icon icon-funnel" aria-hidden="true"></span>Como funciona</h2>
           <p>É sempre melhor iniciar um atendimento profissional com informações relevantes já identificadas e organizadas.</p>
           <p>Por meio de perguntas estruturadas, você é conduzido a refletir sobre fatos, documentos, pessoas envolvidas, valores, prazos e objetivos relacionados à situação apresentada.</p>
           <p>Ao longo desse processo, muitos passam a compreender melhor o próprio problema e identificam informações que podem ser úteis posteriormente.</p>
@@ -537,7 +547,7 @@
         </article>
 
         <article class="card">
-          <h2>O papel da plataforma</h2>
+          <h2><span class="icon icon-clipboard" aria-hidden="true"></span>O papel da plataforma</h2>
           <p>Situações relevantes costumam exigir a atuação de profissionais especializados em um contexto de prazo, urgência ou necessidade de tomada de decisão.</p>
           <p>Nem sempre, porém, as informações estão organizadas ou acompanhadas dos elementos necessários para uma compreensão adequada da situação.</p>
           <p>ANÁLISE LEGAL conduz o usuário, por perguntas estruturadas que auxiliam na compreensão do próprio contexto, na identificação de informações relevantes e na preparação para eventual atendimento profissional.</p>
@@ -545,7 +555,7 @@
         </article>
 
         <article class="card">
-          <h2>Quando faz sentido</h2>
+          <h2><span class="icon icon-puzzle" aria-hidden="true"></span>Quando faz sentido</h2>
           <p>Quando uma situação envolve informações dispersas, documentos, prazos, valores ou pessoas que precisam ser compreendidos em conjunto.</p>
           <p>Quando a decisão a ser tomada pode produzir consequências relevantes e exige maior clareza sobre o contexto.</p>
           <p>Quando compreender melhor a situação é tão importante quanto decidir o que fazer em seguida.</p>
@@ -583,8 +593,8 @@
         <h3><span class="icon icon-building" aria-hidden="true"></span>Institucional</h3>
         <ul>
           <li><a href="contato.html">Contato</a></li>
-          <li><a href="suporte.html">Suporte</a></li>
           <li><a href="sobre-a-plataforma.html">Sobre a plataforma</a></li>
+          <li><a href="quem-somos.html">Quem somos</a></li>
         </ul>
       </section>
 
