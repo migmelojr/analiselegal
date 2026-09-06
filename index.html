@@ -233,7 +233,8 @@
       background: var(--green-dark);
     }
 
-    .mobile-menu {
+    .mobile-situacoes,
+    .mobile-prefooter-nav {
       display: none;
     }
 
@@ -452,6 +453,10 @@
       font-style: italic;
     }
 
+    .step:last-child .step-note {
+      max-width: 320px;
+    }
+
     /* ===================== FOOTER ===================== */
 
     .site-footer {
@@ -599,7 +604,7 @@
 
       .site-header .shell {
         min-height: 78px;
-        grid-template-columns: minmax(220px, 310px) 1fr auto;
+        grid-template-columns: minmax(220px, 310px) 1fr;
       }
 
       .brand {
@@ -612,45 +617,6 @@
 
       .header-cta {
         min-width: 154px;
-      }
-
-      .mobile-menu {
-        display: block;
-        justify-self: end;
-        position: relative;
-      }
-
-      .mobile-menu summary {
-        list-style: none;
-        cursor: pointer;
-        padding: 8px 10px;
-        border: 1px solid rgba(7, 61, 58, .32);
-        border-radius: 7px;
-        color: var(--green);
-        font-weight: 700;
-      }
-
-      .mobile-menu summary::-webkit-details-marker {
-        display: none;
-      }
-
-      .mobile-menu nav {
-        position: absolute;
-        right: 0;
-        top: calc(100% + 8px);
-        z-index: 20;
-        width: 250px;
-        padding: 10px;
-        border: 1px solid rgba(7, 61, 58, .22);
-        border-radius: 8px;
-        background: #fff;
-        box-shadow: 0 12px 32px rgba(0, 0, 0, .12);
-      }
-
-      .mobile-menu nav a {
-        display: block;
-        padding: 9px 10px;
-        font-size: 18px;
       }
 
       .hero {
@@ -682,6 +648,37 @@
       .hero-copy .cta-wrap {
         justify-content: flex-start;
         padding-right: 0;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+      }
+
+      .mobile-situacoes {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 7px 2px 6px;
+        color: var(--green);
+        font-size: 21px;
+        line-height: 1;
+        border-bottom: 1px solid var(--green);
+      }
+
+      .mobile-prefooter-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: clamp(28px, 5vw, 64px);
+        padding: 26px 24px 28px;
+        border-top: 1px solid rgba(7, 61, 58, .18);
+        background: #fff;
+        color: var(--ink);
+        font-size: 21px;
+        text-align: center;
+      }
+
+      .mobile-prefooter-nav a {
+        padding: 4px 0;
       }
 
       .process {
@@ -727,13 +724,14 @@
       }
 
       .site-header .shell {
-        grid-template-columns: 1fr auto;
-        gap: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding: 12px 0;
       }
 
       .brand {
-        width: min(70vw, 280px);
+        width: min(92vw, 360px);
       }
 
       .header-cta {
@@ -764,12 +762,24 @@
       }
 
       .hero-copy .cta-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
         margin: 20px 0 28px;
       }
 
       .hero-cta {
         width: 100%;
         min-height: 48px;
+      }
+
+      .mobile-situacoes {
+        align-self: center;
+        width: auto;
+        min-height: 0;
+        padding: 3px 0 4px;
+        font-size: 20px;
       }
 
       .hero-aside {
@@ -795,6 +805,18 @@
 
       .process {
         padding: 14px 0 30px;
+      }
+
+      .mobile-prefooter-nav {
+        flex-direction: column;
+        gap: 14px;
+        padding: 30px 24px 32px;
+        font-size: 21px;
+        line-height: 1.2;
+      }
+
+      .desktop-step-break {
+        display: none;
       }
 
       .process .shell {
@@ -831,9 +853,10 @@
       }
 
       .footer-nav {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px 26px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
         width: 100%;
         white-space: normal;
         text-align: center;
@@ -869,7 +892,7 @@
       .hero-art,
       .hero-notes,
       .hero-copy .cta-wrap,
-      .mobile-menu {
+      .mobile-prefooter-nav {
         display: none !important;
       }
 
@@ -921,20 +944,6 @@
 
         <a class="header-cta" href="analise.html">Solicite análise</a>
 
-        <details class="mobile-menu">
-          <summary>Menu</summary>
-          <nav aria-label="Navegação para telas menores">
-            <a href="papel-da-plataforma.html">O papel da plataforma</a>
-            <a href="como-funciona.html">Como funciona</a>
-            <a href="quando-faz-sentido.html">Quando faz sentido</a>
-            <a href="situacoes-reais.html">Situações reais</a>
-            <a href="perguntas-frequentes.html">Perguntas frequentes</a>
-            <a href="privacidade.html">Privacidade</a>
-            <a href="termos-de-uso.html">Termos de uso</a>
-            <a href="contato.html">Contato</a>
-            <a href="analise.html"><strong>Solicite análise</strong></a>
-          </nav>
-        </details>
       </div>
     </header>
 
@@ -956,6 +965,7 @@
 
           <div class="cta-wrap">
             <a class="hero-cta" href="analise.html">Solicite análise</a>
+            <a class="mobile-situacoes" href="situacoes-reais.html">Situações reais</a>
           </div>
         </section>
 
@@ -1057,10 +1067,16 @@
           </div>
           <p class="step-main">com segurança.</p>
           <div class="step-rule" aria-hidden="true"></div>
-          <p class="step-note">Com melhor compreensão da situação, o<br>próximo passo se torna mais seguro.</p>
+          <p class="step-note">Com melhor compreensão da situação,<br class="desktop-step-break">o próximo passo se torna mais seguro.</p>
         </article>
       </div>
     </section>
+
+    <nav class="mobile-prefooter-nav" aria-label="Navegação institucional principal">
+      <a href="papel-da-plataforma.html">O papel da plataforma</a>
+      <a href="como-funciona.html">Como funciona</a>
+      <a href="quando-faz-sentido.html">Quando faz sentido</a>
+    </nav>
 
     <footer class="site-footer" role="contentinfo">
       <div class="shell">
