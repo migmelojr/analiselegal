@@ -1,0 +1,1117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Papel da Plataforma | Análise Legal™</title>
+  <meta
+    name="description"
+    content="Entenda o papel da Análise Legal na organização de informações, compreensão do contexto e preparação dos próximos passos."
+  >
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#073d3a">
+  <meta name="color-scheme" content="light only">
+
+  <meta property="og:title" content="Papel da Plataforma | Análise Legal™">
+  <meta
+    property="og:description"
+    content="Organizar informações, compreender o contexto e preparar os próximos passos."
+  >
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://www.analiselegal.com.br/assets/img/og-home.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.analiselegal.com.br/assets/img/og-home.jpg">
+
+  <link rel="preload" as="image" href="assets/img/Marca.svg" type="image/svg+xml">
+
+  <style>
+    @font-face {
+      font-family: "Crimson Text";
+      src: url("assets/fonts/CrimsonText-Regular.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Crimson Text";
+      src: url("assets/fonts/CrimsonText-SemiBold.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Crimson Text";
+      src: url("assets/fonts/CrimsonText-Bold.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    :root {
+      color-scheme: light only;
+
+      --green: #073d3a;
+      --green-dark: #043330;
+      --green-soft: #315f5d;
+      --ink: #302f30;
+      --paper: #ffffff;
+      --soft: #f7f7f4;
+      --line: rgba(7, 61, 58, .24);
+
+      --shell: 1740px;
+
+      /* Em 1920 × 722: 86 + 558 + 78 = 722 px */
+      --header-h: 86px;
+      --subpage-h: 558px;
+      --footer-h: 78px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-width: 320px;
+      background: var(--paper);
+      color-scheme: light only;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      font-family: "Crimson Text", Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid rgba(7, 61, 58, .35);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      left: 18px;
+      top: -80px;
+      z-index: 9999;
+      padding: 9px 14px;
+      border-radius: 6px;
+      background: var(--green);
+      color: #fff;
+      font-weight: 700;
+      transition: top .15s ease;
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    .page {
+      min-height: 100svh;
+      display: grid;
+      grid-template-rows:
+        var(--header-h)
+        minmax(var(--subpage-h), 1fr)
+        var(--footer-h);
+    }
+
+    .shell {
+      width: min(calc(100% - 144px), var(--shell));
+      margin-inline: auto;
+    }
+
+    /* ===================== HEADER ===================== */
+
+    .site-header {
+      height: var(--header-h);
+      background: var(--paper);
+      border-bottom: 1px solid rgba(7, 61, 58, .10);
+    }
+
+    .site-header .shell {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 345px minmax(0, 1fr) 190px;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .brand {
+      display: inline-flex;
+      width: 345px;
+      align-items: center;
+    }
+
+    .brand img {
+      width: 100%;
+      height: auto;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(30px, 3.1vw, 64px);
+      min-width: 0;
+      white-space: nowrap;
+      font-size: 21px;
+      line-height: 1;
+    }
+
+    .main-nav a {
+      position: relative;
+      padding: 12px 0;
+    }
+
+    .main-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: 4px;
+      height: 1px;
+      background: var(--green);
+      transition: right .16s ease;
+    }
+
+    .main-nav a:hover::after,
+    .main-nav a:focus-visible::after,
+    .main-nav a[aria-current="page"]::after {
+      right: 0;
+    }
+
+    .header-cta,
+    .closing-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--green-dark);
+      border-radius: 8px;
+      background: var(--green);
+      color: #fff;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .header-cta {
+      justify-self: end;
+      min-width: 184px;
+      min-height: 40px;
+      padding: 8px 20px 9px;
+      font-size: 22px;
+    }
+
+    .header-cta:hover,
+    .closing-cta:hover {
+      background: var(--green);
+      border-color: var(--green-dark);
+    }
+
+    .mobile-prefooter-nav {
+      display: none;
+    }
+
+    /* ===================== SUBPÁGINA ===================== */
+
+    .subpage-main {
+      min-height: var(--subpage-h);
+      background: var(--paper);
+    }
+
+    .subpage-main > .shell {
+      height: 100%;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) 112px;
+    }
+
+    .editorial-grid {
+      min-height: 0;
+      display: grid;
+      grid-template-columns:
+        minmax(440px, .78fr)
+        1px
+        minmax(0, 1.22fr);
+      gap: 52px;
+      align-items: stretch;
+    }
+
+    .intro {
+      align-self: center;
+      min-width: 0;
+      padding: 12px 0 16px;
+    }
+
+    .eyebrow {
+      margin: 0 0 13px;
+      font-size: 17px;
+      line-height: 1;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .eyebrow::after {
+      content: "";
+      display: block;
+      width: 44px;
+      height: 2px;
+      margin-top: 13px;
+      background: var(--green);
+    }
+
+    .intro h1 {
+      margin: 0;
+      max-width: 650px;
+      font-size: clamp(48px, 3.05vw, 59px);
+      line-height: .98;
+      letter-spacing: -.018em;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .intro-text {
+      margin: 24px 0 0;
+      max-width: 610px;
+      font-size: 21px;
+      line-height: 1.28;
+      color: var(--ink);
+    }
+
+    .editorial-divider {
+      align-self: stretch;
+      width: 1px;
+      margin: 30px 0;
+      background:
+        linear-gradient(
+          to bottom,
+          var(--green) 0 82px,
+          rgba(7, 61, 58, .30) 82px 100%
+        );
+    }
+
+    .role-list {
+      min-width: 0;
+      display: grid;
+      grid-template-rows: repeat(3, minmax(0, 1fr));
+      padding: 20px 0 14px;
+    }
+
+    .role-item {
+      display: grid;
+      grid-template-columns: 70px 58px minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
+      min-width: 0;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .role-item:last-child {
+      border-bottom: 0;
+    }
+
+    .role-number {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1;
+      font-weight: 400;
+      color: rgba(48, 47, 48, .42);
+    }
+
+    .role-icon {
+      width: 48px;
+      height: 48px;
+      color: var(--green);
+    }
+
+    .mask-icon {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background: currentColor;
+      -webkit-mask: var(--icon) center / contain no-repeat;
+      mask: var(--icon) center / contain no-repeat;
+    }
+
+    .role-copy {
+      min-width: 0;
+    }
+
+    .role-title {
+      margin: 0 0 7px;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .role-text {
+      margin: 0;
+      max-width: 720px;
+      font-size: 20px;
+      line-height: 1.26;
+      color: rgba(48, 47, 48, .84);
+    }
+
+    /* ===================== FECHO ===================== */
+
+    .closing-bar {
+      display: grid;
+      grid-template-columns: minmax(480px, 1.08fr) minmax(360px, .9fr) auto;
+      gap: 38px;
+      align-items: center;
+      min-width: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .closing-quote {
+      margin: 0;
+      max-width: 610px;
+      font-size: 29px;
+      line-height: 1.04;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .closing-note {
+      margin: 0;
+      padding-left: 34px;
+      border-left: 1px solid var(--line);
+      font-size: 17px;
+      line-height: 1.24;
+      color: rgba(48, 47, 48, .82);
+    }
+
+    .closing-cta {
+      justify-self: end;
+      min-width: 208px;
+      min-height: 42px;
+      padding: 8px 22px 9px;
+      font-size: 22px;
+    }
+
+    /* ===================== FOOTER ===================== */
+
+    .site-footer {
+      min-height: var(--footer-h);
+      background: var(--green);
+      color: #fff;
+    }
+
+    .site-footer .shell {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr) 330px;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .social-mark {
+      width: 24px;
+      height: 24px;
+      color: #fff;
+      opacity: .98;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(34px, 5vw, 92px);
+      white-space: nowrap;
+      font-size: 21px;
+    }
+
+    .footer-nav a:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .footer-brand {
+      justify-self: end;
+      width: 318px;
+    }
+
+    .footer-brand img {
+      width: 100%;
+      height: auto;
+      filter: brightness(0) invert(1);
+      opacity: .94;
+    }
+
+    /* ===================== RESPONSIVIDADE ===================== */
+
+    @media (max-width: 1500px) {
+      :root {
+        --shell: 1370px;
+      }
+
+      .shell {
+        width: min(calc(100% - 72px), var(--shell));
+      }
+
+      .site-header .shell {
+        grid-template-columns: 285px minmax(0, 1fr) 165px;
+        gap: 22px;
+      }
+
+      .brand {
+        width: 285px;
+      }
+
+      .main-nav {
+        gap: 28px;
+        font-size: 19px;
+      }
+
+      .header-cta {
+        min-width: 160px;
+        font-size: 19px;
+      }
+
+      .editorial-grid {
+        grid-template-columns: minmax(385px, .76fr) 1px minmax(0, 1.24fr);
+        gap: 36px;
+      }
+
+      .intro h1 {
+        font-size: clamp(45px, 3.8vw, 54px);
+      }
+
+      .intro-text {
+        font-size: 19px;
+      }
+
+      .role-item {
+        grid-template-columns: 62px 50px minmax(0, 1fr);
+        gap: 18px;
+      }
+
+      .role-icon {
+        width: 43px;
+        height: 43px;
+      }
+
+      .role-title {
+        font-size: 22px;
+      }
+
+      .role-text {
+        font-size: 18px;
+      }
+
+      .closing-bar {
+        grid-template-columns: minmax(430px, 1.05fr) minmax(320px, .95fr) auto;
+        gap: 26px;
+      }
+
+      .closing-quote {
+        font-size: 26px;
+      }
+
+      .closing-note {
+        padding-left: 24px;
+        font-size: 16px;
+      }
+
+      .closing-cta {
+        min-width: 190px;
+        font-size: 20px;
+      }
+
+      .footer-nav {
+        gap: 42px;
+        font-size: 19px;
+      }
+    }
+
+    @media (max-width: 1160px) {
+      .page {
+        display: block;
+        min-height: 100svh;
+      }
+
+      .shell {
+        width: min(calc(100% - 48px), 1040px);
+      }
+
+      .site-header {
+        height: auto;
+        min-height: 78px;
+      }
+
+      .site-header .shell {
+        min-height: 78px;
+        grid-template-columns: minmax(220px, 310px) 1fr;
+      }
+
+      .brand {
+        width: min(100%, 310px);
+      }
+
+      .main-nav {
+        display: none;
+      }
+
+      .header-cta {
+        min-width: 154px;
+      }
+
+      .subpage-main {
+        min-height: 0;
+        padding: 34px 0 0;
+      }
+
+      .subpage-main > .shell {
+        display: block;
+        height: auto;
+      }
+
+      .editorial-grid {
+        grid-template-columns: minmax(0, .88fr) 1px minmax(0, 1.12fr);
+        gap: 30px;
+      }
+
+      .intro {
+        padding: 10px 0 30px;
+      }
+
+      .intro h1 {
+        font-size: clamp(45px, 5.4vw, 58px);
+      }
+
+      .intro-text {
+        font-size: 20px;
+      }
+
+      .editorial-divider {
+        margin: 12px 0 30px;
+      }
+
+      .role-list {
+        padding: 0 0 22px;
+      }
+
+      .role-item {
+        grid-template-columns: 56px 46px minmax(0, 1fr);
+        gap: 15px;
+        padding: 20px 0;
+      }
+
+      .role-number {
+        font-size: 36px;
+      }
+
+      .role-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .role-title {
+        font-size: 21px;
+      }
+
+      .role-text {
+        font-size: 18px;
+      }
+
+      .closing-bar {
+        grid-template-columns: minmax(0, 1fr) minmax(280px, .82fr) auto;
+        gap: 24px;
+        min-height: 118px;
+      }
+
+      .closing-quote {
+        font-size: 25px;
+      }
+
+      .closing-note {
+        font-size: 15px;
+      }
+
+      .closing-cta {
+        min-width: 176px;
+        font-size: 19px;
+      }
+
+      .mobile-prefooter-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: clamp(28px, 5vw, 64px);
+        padding: 26px 24px 28px;
+        border-top: 1px solid rgba(7, 61, 58, .18);
+        background: #fff;
+        color: var(--ink);
+        font-size: 21px;
+        text-align: center;
+      }
+
+      .mobile-prefooter-nav a {
+        padding: 4px 0;
+      }
+
+      .mobile-prefooter-nav a[aria-current="page"] {
+        color: var(--green);
+        font-weight: 700;
+      }
+
+      .site-footer {
+        min-height: 98px;
+        padding: 16px 0;
+      }
+
+      .site-footer .shell {
+        min-height: 66px;
+        height: auto;
+        grid-template-columns: 150px 1fr 240px;
+        gap: 18px;
+      }
+
+      .footer-nav {
+        gap: 24px;
+        font-size: 17px;
+        flex-wrap: wrap;
+      }
+
+      .footer-brand {
+        width: 225px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        width: min(calc(100% - 32px), 620px);
+      }
+
+      .site-header .shell {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 0;
+      }
+
+      .brand {
+        width: min(92vw, 360px);
+      }
+
+      .header-cta {
+        display: none;
+      }
+
+      .subpage-main {
+        padding: 30px 0 0;
+      }
+
+      .editorial-grid {
+        display: block;
+      }
+
+      .intro {
+        padding: 0 0 28px;
+      }
+
+      .eyebrow {
+        margin-bottom: 17px;
+        font-size: 15px;
+      }
+
+      .eyebrow::after {
+        margin-top: 12px;
+      }
+
+      .intro h1 {
+        max-width: 560px;
+        font-size: clamp(43px, 12vw, 58px);
+        line-height: .98;
+      }
+
+      .intro-text {
+        margin-top: 22px;
+        max-width: none;
+        font-size: 20px;
+        line-height: 1.38;
+      }
+
+      .editorial-divider {
+        display: none;
+      }
+
+      .role-list {
+        padding: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .role-item {
+        grid-template-columns: 46px 44px minmax(0, 1fr);
+        gap: 14px;
+        padding: 24px 0;
+      }
+
+      .role-number {
+        font-size: 32px;
+      }
+
+      .role-icon {
+        width: 38px;
+        height: 38px;
+      }
+
+      .role-title {
+        margin-bottom: 8px;
+        font-size: 22px;
+        letter-spacing: .14em;
+      }
+
+      .role-text {
+        font-size: 19px;
+        line-height: 1.34;
+      }
+
+      .closing-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        min-height: 0;
+        padding: 26px 0 30px;
+      }
+
+      .closing-quote {
+        max-width: none;
+        font-size: 31px;
+        line-height: 1.03;
+      }
+
+      .closing-note {
+        padding: 16px 0 0;
+        border-left: 0;
+        border-top: 1px solid var(--line);
+        font-size: 17px;
+        line-height: 1.32;
+      }
+
+      .closing-cta {
+        width: 100%;
+        min-height: 48px;
+        font-size: 22px;
+      }
+
+      .mobile-prefooter-nav {
+        flex-direction: column;
+        gap: 14px;
+        padding: 30px 24px 32px;
+        font-size: 21px;
+        line-height: 1.2;
+      }
+
+      .site-footer {
+        padding: 22px 0 24px;
+      }
+
+      .site-footer .shell {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      .footer-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        white-space: normal;
+        text-align: center;
+        font-size: 18px;
+      }
+
+      .socials {
+        order: 2;
+      }
+
+      .footer-brand {
+        order: 3;
+        justify-self: auto;
+        width: min(80vw, 300px);
+      }
+    }
+
+    @media (max-width: 390px) {
+      .intro h1 {
+        font-size: clamp(40px, 11.4vw, 46px);
+      }
+
+      .role-item {
+        grid-template-columns: 40px 38px minmax(0, 1fr);
+        gap: 11px;
+      }
+
+      .role-number {
+        font-size: 29px;
+      }
+
+      .role-icon {
+        width: 34px;
+        height: 34px;
+      }
+
+      .role-title {
+        font-size: 20px;
+      }
+
+      .role-text {
+        font-size: 18px;
+      }
+
+      .closing-quote {
+        font-size: 28px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+
+    @media print {
+      .site-header,
+      .site-footer,
+      .closing-cta,
+      .mobile-prefooter-nav {
+        display: none !important;
+      }
+
+      .page,
+      .subpage-main,
+      .subpage-main > .shell,
+      .editorial-grid {
+        display: block !important;
+        min-height: 0 !important;
+        height: auto !important;
+        width: 100% !important;
+      }
+
+      .editorial-divider {
+        display: none !important;
+      }
+
+      .role-item,
+      .closing-bar {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="page">
+    <header class="site-header" role="banner">
+      <div class="shell">
+        <a class="brand" href="index.html" aria-label="Análise Legal — página inicial">
+          <img
+            src="assets/img/Marca.svg"
+            alt="Análise Legal"
+            width="620"
+            height="112"
+            decoding="async"
+            fetchpriority="high"
+          >
+        </a>
+
+        <nav class="main-nav" aria-label="Navegação principal">
+          <a href="papel-da-plataforma.html" aria-current="page">O papel da plataforma</a>
+          <a href="como-funciona.html">Como funciona</a>
+          <a href="quando-faz-sentido.html">Quando faz sentido</a>
+          <a href="situacoes-reais.html">Situações reais</a>
+        </nav>
+
+        <a class="header-cta" href="analise.html">Solicite análise</a>
+      </div>
+    </header>
+
+    <main class="subpage-main" id="conteudo">
+      <div class="shell">
+        <div class="editorial-grid">
+          <section class="intro" aria-labelledby="page-title">
+            <p class="eyebrow">Papel da plataforma</p>
+
+            <h1 id="page-title">
+              Entender melhor a situação antes de decidir o que fazer.
+            </h1>
+
+            <p class="intro-text">
+              Situações complexas costumam envolver fatos, documentos, dúvidas e informações
+              dispersas. A ANÁLISE LEGAL ajuda a organizar esse contexto antes da tomada de decisão.
+            </p>
+          </section>
+
+          <div class="editorial-divider" aria-hidden="true"></div>
+
+          <section class="role-list" aria-label="Como a plataforma contribui para a compreensão do contexto">
+            <article class="role-item">
+              <p class="role-number" aria-hidden="true">01</p>
+
+              <span class="role-icon" aria-hidden="true">
+                <span
+                  class="mask-icon"
+                  style="--icon:url('assets/img/icon/folders.svg')"
+                ></span>
+              </span>
+
+              <div class="role-copy">
+                <h2 class="role-title">Organizar</h2>
+                <p class="role-text">
+                  Perguntas estruturadas ajudam a reunir fatos, datas, documentos e outras
+                  informações relevantes.
+                </p>
+              </div>
+            </article>
+
+            <article class="role-item">
+              <p class="role-number" aria-hidden="true">02</p>
+
+              <span class="role-icon" aria-hidden="true">
+                <span
+                  class="mask-icon"
+                  style="--icon:url('assets/img/icon/magnifying-glass.svg')"
+                ></span>
+              </span>
+
+              <div class="role-copy">
+                <h2 class="role-title">Compreender</h2>
+                <p class="role-text">
+                  As informações são organizadas para destacar os principais pontos da situação
+                  e aquilo que ainda precisa ser esclarecido.
+                </p>
+              </div>
+            </article>
+
+            <article class="role-item">
+              <p class="role-number" aria-hidden="true">03</p>
+
+              <span class="role-icon" aria-hidden="true">
+                <span
+                  class="mask-icon"
+                  style="--icon:url('assets/img/icon/path.svg')"
+                ></span>
+              </span>
+
+              <div class="role-copy">
+                <h2 class="role-title">Preparar</h2>
+                <p class="role-text">
+                  Com o contexto mais claro, fica mais fácil compreender o cenário e avaliar
+                  os próximos passos.
+                </p>
+              </div>
+            </article>
+          </section>
+        </div>
+
+        <section class="closing-bar" aria-label="Conclusão">
+          <p class="closing-quote">
+            Com melhor compreensão da situação, o próximo passo se torna mais seguro.
+          </p>
+
+          <p class="closing-note">
+            A plataforma não substitui atendimento profissional, não garante resultados
+            e não toma decisões em seu nome.
+          </p>
+
+          <a class="closing-cta" href="analise.html">Solicite análise</a>
+        </section>
+      </div>
+    </main>
+
+    <nav class="mobile-prefooter-nav" aria-label="Navegação institucional principal">
+      <a href="papel-da-plataforma.html" aria-current="page">O papel da plataforma</a>
+      <a href="como-funciona.html">Como funciona</a>
+      <a href="quando-faz-sentido.html">Quando faz sentido</a>
+    </nav>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="shell">
+        <div class="socials" aria-label="Redes sociais">
+          <span class="social-mark" title="LinkedIn" aria-label="LinkedIn">
+            <span
+              class="mask-icon"
+              style="--icon:url('assets/img/icon/linkedin-logo.svg')"
+            ></span>
+          </span>
+
+          <span class="social-mark" title="Instagram" aria-label="Instagram">
+            <span
+              class="mask-icon"
+              style="--icon:url('assets/img/icon/instagram-logo.svg')"
+            ></span>
+          </span>
+
+          <span class="social-mark" title="Facebook" aria-label="Facebook">
+            <span
+              class="mask-icon"
+              style="--icon:url('assets/img/icon/facebook-logo.svg')"
+            ></span>
+          </span>
+        </div>
+
+        <nav class="footer-nav" aria-label="Navegação institucional">
+          <a href="perguntas-frequentes.html">Perguntas frequentes</a>
+          <a href="privacidade.html">Privacidade</a>
+          <a href="termos-de-uso.html">Termos de uso</a>
+          <a href="contato.html">Contato</a>
+        </nav>
+
+        <a class="footer-brand" href="index.html" aria-label="Análise Legal — página inicial">
+          <img
+            src="assets/img/Marca-soft.svg"
+            alt="Análise Legal"
+            width="620"
+            height="112"
+            loading="lazy"
+            decoding="async"
+          >
+        </a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
