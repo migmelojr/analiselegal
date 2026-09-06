@@ -1,0 +1,1860 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Quando Faz Sentido | Análise Legal™</title>
+
+  <meta
+    name="description"
+    content="Veja em quais situações a Análise Legal pode ajudar a organizar informações, compreender melhor o contexto e preparar o próximo passo."
+  >
+
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#073d3a">
+  <meta name="color-scheme" content="light only">
+
+  <meta property="og:title" content="Quando Faz Sentido | Análise Legal™">
+  <meta
+    property="og:description"
+    content="Quando ainda não está claro por onde começar, organizar o contexto pode ser o primeiro passo."
+  >
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta
+    property="og:image"
+    content="https://www.analiselegal.com.br/assets/img/og-home.jpg"
+  >
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta
+    name="twitter:image"
+    content="https://www.analiselegal.com.br/assets/img/og-home.jpg"
+  >
+
+  <link
+    rel="preload"
+    as="image"
+    href="assets/img/Marca.svg"
+    type="image/svg+xml"
+  >
+
+  <style>
+    /* =========================================================
+       FONTES
+       ========================================================= */
+
+    @font-face {
+      font-family: "Crimson Text";
+      src: url("assets/fonts/CrimsonText-Regular.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Crimson Text";
+      src: url("assets/fonts/CrimsonText-SemiBold.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Crimson Text";
+      src: url("assets/fonts/CrimsonText-Bold.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    /* =========================================================
+       VARIÁVEIS
+       ========================================================= */
+
+    :root {
+      color-scheme: light only;
+
+      --green: #073d3a;
+      --green-dark: #043330;
+      --green-soft: #315f5d;
+
+      --ink: #302f30;
+      --paper: #ffffff;
+      --soft: #f7f7f4;
+
+      --line: rgba(7, 61, 58, .24);
+      --line-soft: rgba(7, 61, 58, .10);
+
+      --shell: 1740px;
+
+      /*
+        Desktop 1920 × 722:
+        86 + 558 + 78 = 722 px
+      */
+      --header-h: 86px;
+      --subpage-h: 558px;
+      --footer-h: 78px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-width: 320px;
+      background: var(--paper);
+      color-scheme: light only;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      font-family:
+        "Crimson Text",
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      color: var(--ink);
+      background: var(--paper);
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible {
+      outline: 3px solid rgba(7, 61, 58, .35);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      left: 18px;
+      top: -80px;
+      z-index: 9999;
+
+      padding: 9px 14px;
+
+      border-radius: 6px;
+
+      background: var(--green);
+      color: #fff;
+
+      font-weight: 700;
+
+      transition: top .15s ease;
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    /* =========================================================
+       ESTRUTURA GERAL
+       ========================================================= */
+
+    .page {
+      min-height: 100svh;
+
+      display: grid;
+
+      grid-template-rows:
+        var(--header-h)
+        minmax(var(--subpage-h), 1fr)
+        var(--footer-h);
+    }
+
+    .shell {
+      width: min(calc(100% - 144px), var(--shell));
+      margin-inline: auto;
+    }
+
+    /* =========================================================
+       HEADER
+       ========================================================= */
+
+    .site-header {
+      height: var(--header-h);
+
+      background: var(--paper);
+
+      border-bottom: 1px solid rgba(7, 61, 58, .10);
+    }
+
+    .site-header .shell {
+      height: 100%;
+
+      display: grid;
+
+      grid-template-columns:
+        345px
+        minmax(0, 1fr)
+        190px;
+
+      align-items: center;
+
+      gap: 30px;
+    }
+
+    .brand {
+      display: inline-flex;
+      width: 345px;
+      align-items: center;
+    }
+
+    .brand img {
+      width: 100%;
+      height: auto;
+    }
+
+    .main-nav {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: clamp(30px, 3.1vw, 64px);
+
+      min-width: 0;
+
+      white-space: nowrap;
+
+      font-size: 21px;
+      line-height: 1;
+    }
+
+    .main-nav a {
+      position: relative;
+      padding: 12px 0;
+    }
+
+    .main-nav a::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 100%;
+      bottom: 4px;
+
+      height: 1px;
+
+      background: var(--green);
+
+      transition: right .16s ease;
+    }
+
+    .main-nav a:hover::after,
+    .main-nav a:focus-visible::after,
+    .main-nav a[aria-current="page"]::after {
+      right: 0;
+    }
+
+    .header-cta,
+    .closing-cta {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid var(--green-dark);
+      border-radius: 8px;
+
+      background: var(--green);
+      color: #fff;
+
+      line-height: 1;
+
+      white-space: nowrap;
+    }
+
+    .header-cta {
+      justify-self: end;
+
+      min-width: 184px;
+      min-height: 40px;
+
+      padding: 8px 20px 9px;
+
+      font-size: 22px;
+    }
+
+    .header-cta:hover,
+    .closing-cta:hover {
+      background: var(--green);
+      border-color: var(--green-dark);
+    }
+
+    .mobile-prefooter-nav {
+      display: none;
+    }
+
+    /* =========================================================
+       CONTEÚDO PRINCIPAL
+       ========================================================= */
+
+    .subpage-main {
+      min-height: var(--subpage-h);
+      background: var(--paper);
+    }
+
+    .subpage-main > .shell {
+      height: 100%;
+
+      display: grid;
+
+      /*
+        Em 1920 × 722:
+        aproximadamente 210px + 236px + 112px
+      */
+      grid-template-rows:
+        minmax(0, 1fr)
+        minmax(0, 1.12fr)
+        112px;
+    }
+
+    /* =========================================================
+       ABERTURA
+       ========================================================= */
+
+    .page-intro {
+      position: relative;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1.22fr)
+        1px
+        minmax(470px, .78fr);
+
+      gap: 48px;
+
+      align-items: center;
+
+      min-width: 0;
+
+      overflow: hidden;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .intro-copy {
+      position: relative;
+      z-index: 2;
+
+      min-width: 0;
+
+      padding: 14px 0 16px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+
+      font-size: 17px;
+      line-height: 1;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+
+      font-weight: 700;
+
+      color: var(--green);
+    }
+
+    .eyebrow::after {
+      content: "";
+
+      display: block;
+
+      width: 44px;
+      height: 2px;
+
+      margin-top: 13px;
+
+      background: var(--green);
+    }
+
+    .intro-copy h1 {
+      margin: 0;
+
+      max-width: 1040px;
+
+      font-size: clamp(42px, 2.62vw, 51px);
+
+      line-height: .99;
+
+      letter-spacing: -.018em;
+
+      font-weight: 400;
+
+      color: var(--ink);
+    }
+
+    .intro-divider {
+      position: relative;
+      z-index: 2;
+
+      align-self: stretch;
+
+      width: 1px;
+
+      margin: 31px 0;
+
+      background: var(--line);
+    }
+
+    .intro-explanation {
+      position: relative;
+      z-index: 2;
+
+      min-width: 0;
+
+      padding-right: 6px;
+
+      font-size: 21px;
+      line-height: 1.28;
+
+      color: rgba(48, 47, 48, .91);
+    }
+
+    .intro-explanation p {
+      margin: 0;
+    }
+
+    /*
+      Elemento gráfico em linhas.
+      Sem imagem, sem animação e sem requisição externa.
+    */
+
+    .context-lines {
+      position: absolute;
+
+      z-index: 1;
+
+      width: 720px;
+      height: 260px;
+
+      right: -58px;
+      top: -54px;
+
+      pointer-events: none;
+
+      opacity: .10;
+    }
+
+    .context-lines svg {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      overflow: visible;
+    }
+
+    .context-lines path {
+      fill: none;
+
+      stroke: var(--green);
+
+      stroke-width: 1;
+
+      vector-effect: non-scaling-stroke;
+    }
+
+    /* =========================================================
+       SITUAÇÕES
+       ========================================================= */
+
+    .situations {
+      display: grid;
+
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+
+      min-width: 0;
+
+      padding: 28px 0 18px;
+    }
+
+    .situation {
+      position: relative;
+
+      min-width: 0;
+
+      padding: 0 34px;
+    }
+
+    .situation:first-child {
+      padding-left: 0;
+    }
+
+    .situation:last-child {
+      padding-right: 0;
+    }
+
+    .situation:not(:last-child)::after {
+      content: "";
+
+      position: absolute;
+
+      top: 6px;
+      bottom: 4px;
+      right: 0;
+
+      width: 1px;
+
+      background: var(--line);
+    }
+
+    .situation-head {
+      display: flex;
+
+      align-items: center;
+
+      gap: 24px;
+
+      margin-bottom: 14px;
+    }
+
+    .situation-number {
+      margin: 0;
+
+      min-width: 54px;
+
+      font-size: 41px;
+      line-height: 1;
+
+      font-weight: 400;
+
+      color: rgba(48, 47, 48, .40);
+    }
+
+    .situation-icon {
+      width: 47px;
+      height: 47px;
+
+      flex: 0 0 auto;
+
+      color: var(--green);
+    }
+
+    .mask-icon {
+      display: inline-block;
+
+      width: 100%;
+      height: 100%;
+
+      background: currentColor;
+
+      -webkit-mask:
+        var(--icon)
+        center / contain
+        no-repeat;
+
+      mask:
+        var(--icon)
+        center / contain
+        no-repeat;
+    }
+
+    .situation-title {
+      margin: 0 0 8px;
+
+      max-width: 330px;
+
+      font-size: 25px;
+      line-height: 1.04;
+
+      font-weight: 600;
+
+      color: var(--ink);
+    }
+
+    .situation-text {
+      margin: 0;
+
+      max-width: 330px;
+
+      font-size: 18px;
+      line-height: 1.27;
+
+      color: rgba(48, 47, 48, .82);
+    }
+
+    /* =========================================================
+       FECHO
+       ========================================================= */
+
+    .closing-bar {
+      display: grid;
+
+      grid-template-columns:
+        minmax(560px, 1.24fr)
+        minmax(350px, .76fr)
+        auto;
+
+      gap: 40px;
+
+      align-items: center;
+
+      min-width: 0;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .closing-main {
+      display: flex;
+
+      align-items: center;
+
+      gap: 24px;
+
+      min-width: 0;
+    }
+
+    .closing-icon {
+      width: 34px;
+      height: 34px;
+
+      flex: 0 0 auto;
+
+      color: var(--green);
+    }
+
+    .closing-quote {
+      margin: 0;
+
+      max-width: 760px;
+
+      font-size: 29px;
+      line-height: 1.04;
+
+      font-weight: 400;
+
+      color: var(--ink);
+    }
+
+    .closing-note {
+      margin: 0;
+
+      padding-left: 34px;
+
+      border-left: 1px solid var(--line);
+
+      font-size: 17px;
+      line-height: 1.24;
+
+      color: rgba(48, 47, 48, .82);
+    }
+
+    .closing-cta {
+      justify-self: end;
+
+      min-width: 208px;
+      min-height: 42px;
+
+      padding: 8px 22px 9px;
+
+      font-size: 22px;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    .site-footer {
+      min-height: var(--footer-h);
+
+      background: var(--green);
+      color: #fff;
+    }
+
+    .site-footer .shell {
+      height: 100%;
+
+      display: grid;
+
+      grid-template-columns:
+        210px
+        minmax(0, 1fr)
+        330px;
+
+      gap: 30px;
+
+      align-items: center;
+    }
+
+    .socials {
+      display: flex;
+
+      align-items: center;
+
+      gap: 36px;
+    }
+
+    .social-mark {
+      width: 24px;
+      height: 24px;
+
+      color: #fff;
+
+      opacity: .98;
+    }
+
+    .footer-nav {
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      gap: clamp(34px, 5vw, 92px);
+
+      white-space: nowrap;
+
+      font-size: 21px;
+    }
+
+    .footer-nav a:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .footer-brand {
+      justify-self: end;
+
+      width: 318px;
+    }
+
+    .footer-brand img {
+      width: 100%;
+      height: auto;
+
+      filter: brightness(0) invert(1);
+
+      opacity: .94;
+    }
+
+    /* =========================================================
+       RESPONSIVIDADE — NOTEBOOKS
+       ========================================================= */
+
+    @media (max-width: 1500px) {
+      :root {
+        --shell: 1370px;
+      }
+
+      .shell {
+        width: min(calc(100% - 72px), var(--shell));
+      }
+
+      .site-header .shell {
+        grid-template-columns:
+          285px
+          minmax(0, 1fr)
+          165px;
+
+        gap: 22px;
+      }
+
+      .brand {
+        width: 285px;
+      }
+
+      .main-nav {
+        gap: 28px;
+        font-size: 19px;
+      }
+
+      .header-cta {
+        min-width: 160px;
+        font-size: 19px;
+      }
+
+      .page-intro {
+        grid-template-columns:
+          minmax(0, 1.16fr)
+          1px
+          minmax(410px, .84fr);
+
+        gap: 34px;
+      }
+
+      .intro-copy h1 {
+        font-size: clamp(40px, 3.05vw, 47px);
+      }
+
+      .intro-explanation {
+        font-size: 19px;
+      }
+
+      .situations {
+        padding-top: 25px;
+      }
+
+      .situation {
+        padding-inline: 24px;
+      }
+
+      .situation-head {
+        gap: 16px;
+      }
+
+      .situation-number {
+        min-width: 46px;
+        font-size: 37px;
+      }
+
+      .situation-icon {
+        width: 42px;
+        height: 42px;
+      }
+
+      .situation-title {
+        font-size: 22px;
+      }
+
+      .situation-text {
+        font-size: 17px;
+      }
+
+      .closing-bar {
+        grid-template-columns:
+          minmax(470px, 1.15fr)
+          minmax(300px, .85fr)
+          auto;
+
+        gap: 28px;
+      }
+
+      .closing-quote {
+        font-size: 26px;
+      }
+
+      .closing-note {
+        padding-left: 25px;
+
+        font-size: 16px;
+      }
+
+      .closing-cta {
+        min-width: 190px;
+
+        font-size: 20px;
+      }
+
+      .footer-nav {
+        gap: 42px;
+
+        font-size: 19px;
+      }
+    }
+
+    /* =========================================================
+       RESPONSIVIDADE — TABLETS / TELAS INTERMEDIÁRIAS
+       ========================================================= */
+
+    @media (max-width: 1160px) {
+      .page {
+        display: block;
+
+        min-height: 100svh;
+      }
+
+      .shell {
+        width: min(calc(100% - 48px), 1040px);
+      }
+
+      .site-header {
+        height: auto;
+        min-height: 78px;
+      }
+
+      .site-header .shell {
+        min-height: 78px;
+
+        grid-template-columns:
+          minmax(220px, 310px)
+          1fr;
+      }
+
+      .brand {
+        width: min(100%, 310px);
+      }
+
+      .main-nav {
+        display: none;
+      }
+
+      .header-cta {
+        min-width: 154px;
+      }
+
+      .subpage-main {
+        min-height: 0;
+
+        padding: 32px 0 0;
+      }
+
+      .subpage-main > .shell {
+        display: block;
+
+        height: auto;
+      }
+
+      .page-intro {
+        grid-template-columns:
+          minmax(0, 1.05fr)
+          1px
+          minmax(340px, .95fr);
+
+        gap: 28px;
+
+        padding-bottom: 28px;
+      }
+
+      .intro-copy {
+        padding: 0;
+      }
+
+      .intro-copy h1 {
+        font-size: clamp(41px, 5vw, 54px);
+      }
+
+      .intro-explanation {
+        font-size: 19px;
+      }
+
+      .intro-divider {
+        margin: 4px 0;
+      }
+
+      .context-lines {
+        width: 560px;
+        right: -120px;
+      }
+
+      .situations {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        padding: 0;
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .situation {
+        padding: 28px 30px;
+      }
+
+      .situation:nth-child(odd) {
+        padding-left: 0;
+      }
+
+      .situation:nth-child(even) {
+        padding-right: 0;
+      }
+
+      .situation:nth-child(2)::after {
+        display: none;
+      }
+
+      .situation:nth-child(-n+2) {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .situation-title,
+      .situation-text {
+        max-width: none;
+      }
+
+      .closing-bar {
+        grid-template-columns:
+          minmax(0, 1fr)
+          minmax(250px, .7fr)
+          auto;
+
+        gap: 24px;
+
+        min-height: 118px;
+      }
+
+      .closing-quote {
+        font-size: 25px;
+      }
+
+      .closing-note {
+        font-size: 15px;
+      }
+
+      .closing-cta {
+        min-width: 176px;
+
+        font-size: 19px;
+      }
+
+      .mobile-prefooter-nav {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: clamp(28px, 5vw, 64px);
+
+        padding: 26px 24px 28px;
+
+        border-top: 1px solid rgba(7, 61, 58, .18);
+
+        background: #fff;
+        color: var(--ink);
+
+        font-size: 21px;
+
+        text-align: center;
+      }
+
+      .mobile-prefooter-nav a {
+        padding: 4px 0;
+      }
+
+      .mobile-prefooter-nav a[aria-current="page"] {
+        color: var(--green);
+        font-weight: 700;
+      }
+
+      .site-footer {
+        min-height: 98px;
+
+        padding: 16px 0;
+      }
+
+      .site-footer .shell {
+        min-height: 66px;
+        height: auto;
+
+        grid-template-columns:
+          150px
+          1fr
+          240px;
+
+        gap: 18px;
+      }
+
+      .footer-nav {
+        gap: 24px;
+
+        font-size: 17px;
+
+        flex-wrap: wrap;
+      }
+
+      .footer-brand {
+        width: 225px;
+      }
+    }
+
+    /* =========================================================
+       RESPONSIVIDADE — MOBILE
+       ========================================================= */
+
+    @media (max-width: 760px) {
+      .shell {
+        width: min(calc(100% - 32px), 620px);
+      }
+
+      .site-header .shell {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        padding: 12px 0;
+      }
+
+      .brand {
+        width: min(92vw, 360px);
+      }
+
+      .header-cta {
+        display: none;
+      }
+
+      .subpage-main {
+        padding: 30px 0 0;
+      }
+
+      .page-intro {
+        display: block;
+
+        padding-bottom: 29px;
+      }
+
+      .intro-copy {
+        padding: 0;
+      }
+
+      .eyebrow {
+        margin-bottom: 17px;
+
+        font-size: 15px;
+      }
+
+      .eyebrow::after {
+        margin-top: 12px;
+      }
+
+      .intro-copy h1 {
+        max-width: 570px;
+
+        font-size: clamp(42px, 11.2vw, 56px);
+
+        line-height: .98;
+      }
+
+      .intro-divider {
+        display: none;
+      }
+
+      .intro-explanation {
+        margin-top: 24px;
+
+        max-width: none;
+
+        padding: 0;
+
+        font-size: 20px;
+        line-height: 1.38;
+      }
+
+      .context-lines {
+        display: none;
+      }
+
+      .situations {
+        display: block;
+
+        border-bottom: 0;
+      }
+
+      .situation,
+      .situation:nth-child(odd),
+      .situation:nth-child(even) {
+        padding: 25px 0;
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .situation:first-child {
+        padding-top: 27px;
+      }
+
+      .situation:not(:last-child)::after {
+        display: none;
+      }
+
+      .situation-head {
+        gap: 17px;
+
+        margin-bottom: 13px;
+      }
+
+      .situation-number {
+        min-width: 48px;
+
+        font-size: 34px;
+      }
+
+      .situation-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .situation-title {
+        max-width: none;
+
+        font-size: 24px;
+        line-height: 1.05;
+      }
+
+      .situation-text {
+        max-width: none;
+
+        font-size: 19px;
+        line-height: 1.34;
+      }
+
+      .closing-bar {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 20px;
+
+        min-height: 0;
+
+        padding: 27px 0 30px;
+
+        border-top: 0;
+      }
+
+      .closing-main {
+        align-items: flex-start;
+
+        gap: 18px;
+      }
+
+      .closing-icon {
+        width: 31px;
+        height: 31px;
+
+        margin-top: 3px;
+      }
+
+      .closing-quote {
+        max-width: none;
+
+        font-size: 31px;
+
+        line-height: 1.03;
+      }
+
+      .closing-note {
+        padding: 16px 0 0;
+
+        border-left: 0;
+        border-top: 1px solid var(--line);
+
+        font-size: 18px;
+
+        line-height: 1.32;
+      }
+
+      .closing-cta {
+        width: 100%;
+
+        min-height: 48px;
+
+        font-size: 22px;
+      }
+
+      .mobile-prefooter-nav {
+        flex-direction: column;
+
+        gap: 14px;
+
+        padding: 30px 24px 32px;
+
+        font-size: 21px;
+        line-height: 1.2;
+      }
+
+      .site-footer {
+        padding: 22px 0 24px;
+      }
+
+      .site-footer .shell {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 22px;
+      }
+
+      .footer-nav {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 10px;
+
+        width: 100%;
+
+        white-space: normal;
+
+        text-align: center;
+
+        font-size: 18px;
+      }
+
+      .socials {
+        order: 2;
+      }
+
+      .footer-brand {
+        order: 3;
+
+        justify-self: auto;
+
+        width: min(80vw, 300px);
+      }
+    }
+
+    @media (max-width: 390px) {
+      .intro-copy h1 {
+        font-size: clamp(39px, 10.8vw, 45px);
+      }
+
+      .situation-number {
+        min-width: 42px;
+
+        font-size: 31px;
+      }
+
+      .situation-icon {
+        width: 36px;
+        height: 36px;
+      }
+
+      .situation-title {
+        font-size: 22px;
+      }
+
+      .situation-text {
+        font-size: 18px;
+      }
+
+      .closing-quote {
+        font-size: 28px;
+      }
+    }
+
+    /* =========================================================
+       ACESSIBILIDADE
+       ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+
+    /* =========================================================
+       IMPRESSÃO
+       ========================================================= */
+
+    @media print {
+      .site-header,
+      .site-footer,
+      .closing-cta,
+      .mobile-prefooter-nav,
+      .context-lines {
+        display: none !important;
+      }
+
+      .page,
+      .subpage-main,
+      .subpage-main > .shell,
+      .page-intro,
+      .situations {
+        display: block !important;
+
+        min-height: 0 !important;
+        height: auto !important;
+
+        width: 100% !important;
+      }
+
+      .intro-divider {
+        display: none !important;
+      }
+
+      .situation,
+      .closing-bar {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#conteudo">
+    Pular para o conteúdo
+  </a>
+
+  <div class="page">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="site-header" role="banner">
+      <div class="shell">
+
+        <a
+          class="brand"
+          href="index.html"
+          aria-label="Análise Legal — página inicial"
+        >
+          <img
+            src="assets/img/Marca.svg"
+            alt="Análise Legal"
+            width="620"
+            height="112"
+            decoding="async"
+            fetchpriority="high"
+          >
+        </a>
+
+        <nav
+          class="main-nav"
+          aria-label="Navegação principal"
+        >
+          <a href="papel-da-plataforma.html">
+            O papel da plataforma
+          </a>
+
+          <a href="como-funciona.html">
+            Como funciona
+          </a>
+
+          <a
+            href="quando-faz-sentido.html"
+            aria-current="page"
+          >
+            Quando faz sentido
+          </a>
+
+          <a href="situacoes-reais.html">
+            Situações reais
+          </a>
+        </nav>
+
+        <a
+          class="header-cta"
+          href="analise.html"
+        >
+          Solicite análise
+        </a>
+
+      </div>
+    </header>
+
+    <!-- =====================================================
+         CONTEÚDO
+         ===================================================== -->
+
+    <main
+      class="subpage-main"
+      id="conteudo"
+    >
+      <div class="shell">
+
+        <!-- =================================================
+             ABERTURA
+             ================================================= -->
+
+        <section
+          class="page-intro"
+          aria-labelledby="page-title"
+        >
+
+          <div class="intro-copy">
+
+            <p class="eyebrow">
+              Quando faz sentido
+            </p>
+
+            <h1 id="page-title">
+              Algumas situações não pedem resposta imediata.
+              Pedem compreensão antes do próximo passo.
+            </h1>
+
+          </div>
+
+          <div
+            class="intro-divider"
+            aria-hidden="true"
+          ></div>
+
+          <div class="intro-explanation">
+
+            <p>
+              A ANÁLISE LEGAL faz sentido quando existe uma
+              situação concreta a resolver, mas ainda não está
+              claro o que realmente importa, quais informações
+              precisam ser reunidas ou como preparar o próximo
+              passo.
+            </p>
+
+          </div>
+
+          <!--
+            Elemento decorativo abstrato.
+            Construído apenas com linhas SVG.
+          -->
+
+          <div
+            class="context-lines"
+            aria-hidden="true"
+          >
+            <svg
+              viewBox="0 0 720 260"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M-20 22 C115 4 157 98 283 83 C411 68 447 -9 582 14 C656 27 702 68 758 42"/>
+              <path d="M-20 34 C108 15 159 107 287 93 C414 79 454 3 587 25 C658 37 703 79 758 53"/>
+              <path d="M-20 46 C104 27 161 117 291 104 C417 91 460 16 591 37 C661 48 705 90 758 65"/>
+              <path d="M-20 58 C101 39 164 126 295 114 C421 103 466 29 596 49 C664 60 707 101 758 77"/>
+              <path d="M-20 70 C98 52 166 136 299 125 C424 115 472 42 601 61 C667 71 709 112 758 89"/>
+              <path d="M-20 82 C95 64 169 146 303 136 C428 127 478 55 606 73 C670 82 711 123 758 101"/>
+              <path d="M-20 94 C92 77 172 156 307 147 C432 139 484 68 611 85 C673 94 713 134 758 113"/>
+              <path d="M-20 106 C89 89 175 166 311 158 C436 151 490 81 616 97 C676 106 715 145 758 125"/>
+              <path d="M-20 118 C86 102 178 176 315 169 C440 163 496 94 621 109 C679 118 717 156 758 137"/>
+              <path d="M-20 130 C83 114 181 186 319 180 C444 175 502 107 626 121 C682 130 719 167 758 149"/>
+              <path d="M-20 142 C80 127 184 196 323 191 C448 187 508 120 631 133 C685 142 721 178 758 161"/>
+              <path d="M-20 154 C77 139 187 206 327 202 C452 199 514 133 636 145 C688 154 723 189 758 173"/>
+              <path d="M-20 166 C74 152 190 216 331 213 C456 211 520 146 641 157 C691 166 725 200 758 185"/>
+              <path d="M-20 178 C71 164 193 226 335 224 C460 223 526 159 646 169 C694 178 727 211 758 197"/>
+            </svg>
+          </div>
+
+        </section>
+
+        <!-- =================================================
+             QUATRO SITUAÇÕES
+             ================================================= -->
+
+        <section
+          class="situations"
+          aria-label="Situações em que a plataforma pode ser útil"
+        >
+
+          <!-- 01 -->
+
+          <article class="situation">
+
+            <div class="situation-head">
+
+              <p
+                class="situation-number"
+                aria-hidden="true"
+              >
+                01
+              </p>
+
+              <span
+                class="situation-icon"
+                aria-hidden="true"
+              >
+                <span
+                  class="mask-icon"
+                  style="--icon:url('assets/img/icon/clipboard-text.svg')"
+                ></span>
+              </span>
+
+            </div>
+
+            <h2 class="situation-title">
+              Quando há muitas informações
+            </h2>
+
+            <p class="situation-text">
+              Documentos, mensagens, datas, acontecimentos e
+              versões diferentes tornam difícil enxergar o
+              cenário como um todo.
+            </p>
+
+          </article>
+
+          <!-- 02 -->
+
+          <article class="situation">
+
+            <div class="situation-head">
+
+              <p
+                class="situation-number"
+                aria-hidden="true"
+              >
+                02
+              </p>
+
+              <span
+                class="situation-icon"
+                aria-hidden="true"
+              >
+                <span
+                  class="mask-icon"
+                  style="--icon:url('assets/img/icon/compass.svg')"
+                ></span>
+              </span>
+
+            </div>
+
+            <h2 class="situation-title">
+              Quando você não sabe por onde começar
+            </h2>
+
+            <p class="situation-text">
+              Existe uma situação concreta, mas ainda não está
+              claro o que precisa ser verificado, reunido ou
+              explicado.
+            </p>
+
+          </article>
+
+          <!-- 03 -->
+
+          <article class="situation">
+
+            <div class="situation-head">
+
+              <p
+                class="situation-number"
+                aria-hidden="true"
+              >
+                03
+              </p>
+
+              <span
+                class="situation-icon"
+                aria-hidden="true"
+              >
+                <span
+                  class="mask-icon"
+                  style="--icon:url('assets/img/icon/stack.svg')"
+                ></span>
+              </span>
+
+            </div>
+
+            <h2 class="situation-title">
+              Quando é preciso organizar antes de decidir
+            </h2>
+
+            <p class="situation-text">
+              Antes de avançar, faz sentido compreender melhor
+              os fatos, o contexto e os pontos que merecem
+              atenção.
+            </p>
+
+          </article>
+
+          <!-- 04 -->
+
+          <article class="situation">
+
+            <div class="situation-head">
+
+              <p
+                class="situation-number"
+                aria-hidden="true"
+              >
+                04
+              </p>
+
+              <span
+                class="situation-icon"
+                aria-hidden="true"
+              >
+                <span
+                  class="mask-icon"
+                  style="--icon:url('assets/img/icon/user-check.svg')"
+                ></span>
+              </span>
+
+            </div>
+
+            <h2 class="situation-title">
+              Quando você quer chegar mais preparado
+            </h2>
+
+            <p class="situation-text">
+              Organizar previamente fatos, documentos e pontos
+              relevantes pode tornar um eventual atendimento
+              profissional mais objetivo.
+            </p>
+
+          </article>
+
+        </section>
+
+        <!-- =================================================
+             FECHO
+             ================================================= -->
+
+        <section
+          class="closing-bar"
+          aria-label="Conclusão"
+        >
+
+          <div class="closing-main">
+
+            <span
+              class="closing-icon"
+              aria-hidden="true"
+            >
+              <span
+                class="mask-icon"
+                style="--icon:url('assets/img/icon/shield-check.svg')"
+              ></span>
+            </span>
+
+            <p class="closing-quote">
+              Você não precisa saber exatamente o que perguntar.
+            </p>
+
+          </div>
+
+          <p class="closing-note">
+            Basta começar contando o que aconteceu.
+          </p>
+
+          <a
+            class="closing-cta"
+            href="analise.html"
+          >
+            Solicite análise
+          </a>
+
+        </section>
+
+      </div>
+    </main>
+
+    <!-- =====================================================
+         NAVEGAÇÃO MOBILE
+         ===================================================== -->
+
+    <nav
+      class="mobile-prefooter-nav"
+      aria-label="Navegação institucional principal"
+    >
+
+      <a href="papel-da-plataforma.html">
+        O papel da plataforma
+      </a>
+
+      <a href="como-funciona.html">
+        Como funciona
+      </a>
+
+      <a
+        href="quando-faz-sentido.html"
+        aria-current="page"
+      >
+        Quando faz sentido
+      </a>
+
+    </nav>
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer
+      class="site-footer"
+      role="contentinfo"
+    >
+      <div class="shell">
+
+        <div
+          class="socials"
+          aria-label="Redes sociais"
+        >
+
+          <span
+            class="social-mark"
+            title="LinkedIn"
+            aria-label="LinkedIn"
+          >
+            <span
+              class="mask-icon"
+              style="--icon:url('assets/img/icon/linkedin-logo.svg')"
+            ></span>
+          </span>
+
+          <span
+            class="social-mark"
+            title="Instagram"
+            aria-label="Instagram"
+          >
+            <span
+              class="mask-icon"
+              style="--icon:url('assets/img/icon/instagram-logo.svg')"
+            ></span>
+          </span>
+
+          <span
+            class="social-mark"
+            title="Facebook"
+            aria-label="Facebook"
+          >
+            <span
+              class="mask-icon"
+              style="--icon:url('assets/img/icon/facebook-logo.svg')"
+            ></span>
+          </span>
+
+        </div>
+
+        <nav
+          class="footer-nav"
+          aria-label="Navegação institucional"
+        >
+
+          <a href="perguntas-frequentes.html">
+            Perguntas frequentes
+          </a>
+
+          <a href="privacidade.html">
+            Privacidade
+          </a>
+
+          <a href="termos-de-uso.html">
+            Termos de uso
+          </a>
+
+          <a href="contato.html">
+            Contato
+          </a>
+
+        </nav>
+
+        <a
+          class="footer-brand"
+          href="index.html"
+          aria-label="Análise Legal — página inicial"
+        >
+          <img
+            src="assets/img/Marca-soft.svg"
+            alt="Análise Legal"
+            width="620"
+            height="112"
+            loading="lazy"
+            decoding="async"
+          >
+        </a>
+
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
