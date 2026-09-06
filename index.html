@@ -457,6 +457,10 @@
       max-width: 320px;
     }
 
+    .keep-together {
+      white-space: nowrap;
+    }
+
     /* ===================== FOOTER ===================== */
 
     .site-footer {
@@ -815,10 +819,6 @@
         line-height: 1.2;
       }
 
-      .desktop-step-break {
-        display: none;
-      }
-
       .process .shell {
         grid-template-columns: 1fr;
         gap: 28px;
@@ -1067,7 +1067,7 @@
           </div>
           <p class="step-main">com segurança.</p>
           <div class="step-rule" aria-hidden="true"></div>
-          <p class="step-note">Com melhor compreensão da situação,<br class="desktop-step-break">o próximo passo se torna mais seguro.</p>
+          <p class="step-note">Com melhor compreensão da <span class="keep-together">situação, o</span> próximo passo se torna mais seguro.</p>
         </article>
       </div>
     </section>
