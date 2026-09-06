@@ -1,0 +1,2764 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <title>Termos de Uso | Análise Legal™</title>
+
+  <meta
+    name="description"
+    content="Conheça as condições de uso da Análise Legal, o papel da plataforma, seus limites, responsabilidades e canais de contato."
+  >
+
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#073d3a">
+  <meta name="color-scheme" content="light only">
+
+  <link
+    rel="canonical"
+    href="https://www.analiselegal.com.br/termos-de-uso.html"
+  >
+
+  <meta property="og:title" content="Termos de Uso | Análise Legal™">
+  <meta
+    property="og:description"
+    content="Entenda como a plataforma funciona, quais são seus limites e as condições aplicáveis ao uso."
+  >
+  <meta property="og:type" content="website">
+  <meta
+    property="og:url"
+    content="https://www.analiselegal.com.br/termos-de-uso.html"
+  >
+  <meta property="og:locale" content="pt_BR">
+  <meta
+    property="og:image"
+    content="https://www.analiselegal.com.br/assets/img/og-home.jpg"
+  >
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta
+    name="twitter:image"
+    content="https://www.analiselegal.com.br/assets/img/og-home.jpg"
+  >
+
+  <link
+    rel="icon"
+    href="assets/img/Simbolo.svg"
+    type="image/svg+xml"
+  >
+
+  <link
+    rel="preload"
+    as="image"
+    href="assets/img/Marca.svg"
+    type="image/svg+xml"
+  >
+
+  <style>
+    /* =========================================================
+       FONTES
+       ========================================================= */
+
+    @font-face {
+      font-family: "Crimson Text";
+      src: url("assets/fonts/CrimsonText-Regular.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Crimson Text";
+      src: url("assets/fonts/CrimsonText-SemiBold.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Crimson Text";
+      src: url("assets/fonts/CrimsonText-Bold.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    /* =========================================================
+       VARIÁVEIS
+       ========================================================= */
+
+    :root {
+      color-scheme: light only;
+
+      --green: #073d3a;
+      --green-dark: #043330;
+      --green-soft: #315f5d;
+
+      --ink: #302f30;
+      --ink-soft: #666463;
+
+      --paper: #ffffff;
+      --soft: #f7f7f4;
+
+      --line: rgba(7, 61, 58, .19);
+      --line-strong: rgba(7, 61, 58, .32);
+      --number: rgba(7, 61, 58, .36);
+
+      --shell: 1740px;
+
+      --header-h: 86px;
+      --footer-h: 78px;
+    }
+
+    /* =========================================================
+       RESET
+       ========================================================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-width: 320px;
+      scroll-behavior: smooth;
+      background: var(--paper);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+
+      font-family:
+        "Crimson Text",
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      color: var(--ink);
+      background: var(--paper);
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    summary {
+      font: inherit;
+    }
+
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid rgba(7, 61, 58, .30);
+      outline-offset: 4px;
+    }
+
+    .shell {
+      width: min(calc(100% - 144px), var(--shell));
+      margin-inline: auto;
+    }
+
+    /* =========================================================
+       ACESSIBILIDADE
+       ========================================================= */
+
+    .skip-link {
+      position: fixed;
+      top: -80px;
+      left: 18px;
+      z-index: 9999;
+
+      padding: 9px 14px;
+
+      border-radius: 6px;
+
+      background: var(--green);
+      color: #fff;
+
+      font-weight: 700;
+
+      transition: top .15s ease;
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    /* =========================================================
+       HEADER
+       ========================================================= */
+
+    .site-header {
+      height: var(--header-h);
+
+      background: var(--paper);
+
+      border-bottom: 1px solid rgba(7, 61, 58, .10);
+    }
+
+    .site-header .shell {
+      height: 100%;
+
+      display: grid;
+
+      grid-template-columns:
+        345px
+        minmax(0, 1fr)
+        190px;
+
+      align-items: center;
+
+      gap: 30px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+
+      width: 345px;
+    }
+
+    .brand img {
+      width: 100%;
+      height: auto;
+    }
+
+    .main-nav {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: clamp(28px, 2.7vw, 56px);
+
+      min-width: 0;
+
+      white-space: nowrap;
+
+      font-size: 21px;
+      line-height: 1;
+    }
+
+    .main-nav a {
+      position: relative;
+      padding: 12px 0;
+    }
+
+    .main-nav a::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 100%;
+      bottom: 4px;
+
+      height: 1px;
+
+      background: var(--green);
+
+      transition: right .16s ease;
+    }
+
+    .main-nav a:hover::after,
+    .main-nav a:focus-visible::after,
+    .main-nav a[aria-current="page"]::after {
+      right: 0;
+    }
+
+    .header-cta {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      justify-self: end;
+
+      min-width: 184px;
+      min-height: 40px;
+
+      padding: 8px 20px 9px;
+
+      border: 1px solid var(--green-dark);
+      border-radius: 8px;
+
+      background: var(--green);
+      color: #fff;
+
+      font-size: 22px;
+      line-height: 1;
+
+      white-space: nowrap;
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .terms-hero {
+      padding: 18px 0 16px;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .terms-hero-grid {
+      display: grid;
+
+      grid-template-columns:
+        minmax(520px, 1.05fr)
+        1px
+        minmax(490px, .95fr);
+
+      gap: 50px;
+
+      min-height: 184px;
+
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+
+      color: var(--green);
+
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+    }
+
+    .eyebrow::after {
+      content: "";
+
+      display: block;
+
+      width: 44px;
+      height: 2px;
+
+      margin-top: 13px;
+
+      background: var(--green);
+    }
+
+    .terms-title {
+      margin: 0;
+
+      max-width: 760px;
+
+      font-size: clamp(46px, 3vw, 59px);
+      font-weight: 400;
+      line-height: .93;
+
+      letter-spacing: -.018em;
+    }
+
+    .terms-intro {
+      margin: 13px 0 0;
+
+      max-width: 820px;
+
+      font-size: 20px;
+      line-height: 1.26;
+    }
+
+    .terms-intro-secondary {
+      display: block;
+
+      margin-top: 7px;
+
+      color: var(--ink-soft);
+
+      font-size: 18px;
+    }
+
+    .hero-divider {
+      align-self: stretch;
+
+      width: 1px;
+
+      margin: 14px 0;
+
+      background: var(--line-strong);
+    }
+
+    .terms-visual {
+      position: relative;
+
+      min-height: 160px;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(220px, .72fr)
+        minmax(260px, 1fr);
+
+      align-items: center;
+
+      gap: 26px;
+
+      overflow: hidden;
+    }
+
+    .terms-statement {
+      position: relative;
+      z-index: 2;
+
+      margin: 0;
+
+      max-width: 315px;
+
+      font-size: 21px;
+      line-height: 1.28;
+    }
+
+    .document-art {
+      position: relative;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      min-height: 160px;
+    }
+
+    .document-art svg {
+      position: relative;
+      z-index: 2;
+
+      width: 158px;
+      height: 158px;
+
+      overflow: visible;
+    }
+
+    .document-path,
+    .document-line,
+    .document-check,
+    .document-circle {
+      fill: none;
+
+      stroke: rgba(7, 61, 58, .35);
+
+      stroke-width: 1.7;
+
+      stroke-linecap: round;
+      stroke-linejoin: round;
+
+      vector-effect: non-scaling-stroke;
+    }
+
+    .document-check {
+      stroke: rgba(7, 61, 58, .48);
+      stroke-width: 2;
+    }
+
+    .document-circle {
+      stroke: rgba(7, 61, 58, .40);
+    }
+
+    .context-line {
+      position: absolute;
+
+      right: -30px;
+
+      width: 430px;
+      height: 100px;
+
+      border-top: 1px solid rgba(7, 61, 58, .20);
+
+      border-radius: 50%;
+    }
+
+    .context-line.one {
+      top: 52px;
+      transform: rotate(-11deg);
+    }
+
+    .context-line.two {
+      top: 88px;
+      right: -80px;
+
+      transform: rotate(-17deg);
+
+      opacity: .75;
+    }
+
+    /* =========================================================
+       NAVEGAÇÃO INTERNA
+       ========================================================= */
+
+    .terms-index {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .terms-index .shell {
+      display: flex;
+
+      align-items: center;
+
+      min-height: 43px;
+
+      gap: 58px;
+    }
+
+    .terms-index a {
+      position: relative;
+
+      display: inline-flex;
+      align-items: center;
+
+      min-height: 43px;
+
+      color: var(--green);
+
+      font-size: 15px;
+      font-weight: 600;
+
+      letter-spacing: .08em;
+
+      text-transform: uppercase;
+    }
+
+    .terms-index a::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 100%;
+      bottom: -1px;
+
+      height: 2px;
+
+      background: var(--green);
+
+      transition: right .18s ease;
+    }
+
+    .terms-index a:hover::after,
+    .terms-index a:focus-visible::after {
+      right: 0;
+    }
+
+    /* =========================================================
+       ÁREA DOS TERMOS
+       ========================================================= */
+
+    .terms-content {
+      padding: 14px 0 0;
+    }
+
+    .terms-grid {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .terms-section {
+      min-width: 0;
+
+      padding: 6px 38px 18px 0;
+    }
+
+    .terms-section:nth-child(even) {
+      padding-left: 38px;
+      padding-right: 0;
+
+      border-left: 1px solid var(--line);
+    }
+
+    .terms-section:nth-child(n + 3) {
+      padding-top: 18px;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .terms-section-head {
+      display: grid;
+
+      grid-template-columns: 66px minmax(0, 1fr);
+
+      gap: 18px;
+
+      align-items: center;
+
+      min-height: 58px;
+    }
+
+    .section-number {
+      margin: 0;
+
+      color: var(--number);
+
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .section-heading {
+      margin: 0 0 1px;
+
+      color: var(--green);
+
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1;
+
+      letter-spacing: .07em;
+
+      text-transform: uppercase;
+    }
+
+    .section-description {
+      margin: 5px 0 0;
+
+      color: rgba(48, 47, 48, .66);
+
+      font-size: 16px;
+      line-height: 1.15;
+    }
+
+    /* =========================================================
+       ACCORDION
+       ========================================================= */
+
+    .terms-accordion {
+      border-top: 1px solid transparent;
+    }
+
+    .terms-item {
+      border-bottom: 1px solid rgba(7, 61, 58, .14);
+    }
+
+    .terms-item:last-child {
+      border-bottom: 0;
+    }
+
+    .terms-item summary {
+      position: relative;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        25px;
+
+      gap: 20px;
+
+      align-items: center;
+
+      min-height: 35px;
+
+      padding: 5px 0;
+
+      cursor: pointer;
+
+      list-style: none;
+
+      color: var(--ink);
+
+      font-size: 17px;
+      line-height: 1.14;
+
+      user-select: none;
+    }
+
+    .terms-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .accordion-mark {
+      position: relative;
+
+      width: 20px;
+      height: 20px;
+
+      justify-self: end;
+    }
+
+    .accordion-mark::before,
+    .accordion-mark::after {
+      content: "";
+
+      position: absolute;
+
+      top: 50%;
+      left: 50%;
+
+      width: 9px;
+      height: 1.5px;
+
+      background: var(--green);
+
+      border-radius: 2px;
+
+      transition:
+        transform .18s ease,
+        opacity .18s ease;
+    }
+
+    .accordion-mark::before {
+      transform:
+        translate(-75%, -50%)
+        rotate(45deg);
+    }
+
+    .accordion-mark::after {
+      transform:
+        translate(-25%, -50%)
+        rotate(-45deg);
+    }
+
+    .terms-item[open] .accordion-mark::before {
+      transform:
+        translate(-75%, -50%)
+        rotate(-45deg);
+    }
+
+    .terms-item[open] .accordion-mark::after {
+      transform:
+        translate(-25%, -50%)
+        rotate(45deg);
+    }
+
+    .terms-answer {
+      padding: 2px 38px 15px 0;
+
+      color: rgba(48, 47, 48, .88);
+
+      font-size: 17px;
+      line-height: 1.38;
+    }
+
+    .terms-answer p {
+      margin: 0 0 10px;
+    }
+
+    .terms-answer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .terms-answer ul {
+      margin: 7px 0 10px;
+      padding-left: 21px;
+    }
+
+    .terms-answer li + li {
+      margin-top: 4px;
+    }
+
+    .terms-answer strong {
+      font-weight: 600;
+    }
+
+    /* =========================================================
+       FECHAMENTO
+       ========================================================= */
+
+    .terms-closing {
+      min-height: 84px;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1.2fr)
+        1px
+        minmax(260px, .8fr)
+        220px;
+
+      gap: 38px;
+
+      align-items: center;
+    }
+
+    .closing-question {
+      display: flex;
+
+      align-items: center;
+
+      gap: 20px;
+
+      min-width: 0;
+    }
+
+    .closing-icon {
+      flex: 0 0 34px;
+
+      width: 34px;
+      height: 34px;
+
+      color: var(--green);
+    }
+
+    .closing-icon svg {
+      width: 100%;
+      height: 100%;
+
+      fill: none;
+      stroke: currentColor;
+
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .closing-question p {
+      margin: 0;
+
+      font-size: 25px;
+      line-height: 1.1;
+    }
+
+    .closing-divider {
+      width: 1px;
+      height: 30px;
+
+      background: var(--line-strong);
+    }
+
+    .closing-note {
+      margin: 0;
+
+      color: rgba(48, 47, 48, .72);
+
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    .terms-contact {
+      display: inline-flex;
+
+      justify-content: center;
+      align-items: center;
+
+      min-width: 208px;
+      min-height: 43px;
+
+      padding: 9px 20px;
+
+      border: 1px solid var(--green-dark);
+      border-radius: 8px;
+
+      background: var(--green);
+      color: #fff;
+
+      font-size: 20px;
+      line-height: 1;
+
+      white-space: nowrap;
+    }
+
+    /* =========================================================
+       NAVEGAÇÃO MOBILE ANTES DO FOOTER
+       ========================================================= */
+
+    .mobile-prefooter-nav {
+      display: none;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    .site-footer {
+      min-height: var(--footer-h);
+
+      background: var(--green);
+
+      color: #fff;
+    }
+
+    .site-footer .shell {
+      min-height: var(--footer-h);
+
+      display: grid;
+
+      grid-template-columns:
+        180px
+        minmax(0, 1fr)
+        365px;
+
+      gap: 34px;
+
+      align-items: center;
+    }
+
+    .socials {
+      display: flex;
+
+      align-items: center;
+
+      gap: 30px;
+    }
+
+    .social-mark {
+      display: inline-flex;
+
+      width: 22px;
+      height: 22px;
+
+      color: rgba(255, 255, 255, .88);
+    }
+
+    .mask-icon {
+      display: inline-block;
+
+      width: 100%;
+      height: 100%;
+
+      background: currentColor;
+
+      -webkit-mask:
+        var(--icon)
+        center / contain
+        no-repeat;
+
+      mask:
+        var(--icon)
+        center / contain
+        no-repeat;
+    }
+
+    .footer-nav {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: clamp(44px, 5vw, 92px);
+
+      font-size: 19px;
+      line-height: 1;
+
+      white-space: nowrap;
+    }
+
+    .footer-nav a {
+      position: relative;
+
+      padding: 8px 0;
+
+      color: rgba(255, 255, 255, .90);
+    }
+
+    .footer-nav a[aria-current="page"] {
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .footer-nav a[aria-current="page"]::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: 1px;
+
+      height: 1px;
+
+      background: rgba(255, 255, 255, .74);
+    }
+
+    .footer-brand {
+      display: flex;
+
+      justify-self: end;
+
+      width: 350px;
+    }
+
+    .footer-brand img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* =========================================================
+       DESKTOP INTERMEDIÁRIO
+       ========================================================= */
+
+    @media (max-width: 1500px) {
+
+      .shell {
+        width: min(calc(100% - 80px), var(--shell));
+      }
+
+      .site-header .shell {
+        grid-template-columns:
+          300px
+          minmax(0, 1fr)
+          170px;
+
+        gap: 22px;
+      }
+
+      .brand {
+        width: 300px;
+      }
+
+      .main-nav {
+        gap: 28px;
+        font-size: 19px;
+      }
+
+      .header-cta {
+        min-width: 165px;
+        font-size: 20px;
+      }
+
+      .terms-hero-grid {
+        gap: 36px;
+      }
+
+      .terms-title {
+        font-size: 52px;
+      }
+
+      .footer-brand {
+        width: 300px;
+      }
+    }
+
+    /* =========================================================
+       TABLET / NOTEBOOK
+       ========================================================= */
+
+    @media (max-width: 1180px) {
+
+      .site-header {
+        height: auto;
+        min-height: 82px;
+      }
+
+      .site-header .shell {
+        grid-template-columns:
+          280px
+          minmax(0, 1fr)
+          158px;
+      }
+
+      .brand {
+        width: 280px;
+      }
+
+      .main-nav {
+        gap: 18px;
+        font-size: 17px;
+      }
+
+      .main-nav a:nth-child(4) {
+        display: none;
+      }
+
+      .header-cta {
+        min-width: 155px;
+        font-size: 18px;
+      }
+
+      .terms-hero-grid {
+        grid-template-columns:
+          minmax(420px, 1fr)
+          1px
+          minmax(380px, .9fr);
+      }
+
+      .terms-visual {
+        grid-template-columns: 1fr 190px;
+      }
+
+      .document-art svg {
+        width: 130px;
+        height: 130px;
+      }
+
+      .terms-section {
+        padding-right: 25px;
+      }
+
+      .terms-section:nth-child(even) {
+        padding-left: 25px;
+      }
+
+      .terms-closing {
+        grid-template-columns:
+          minmax(0, 1fr)
+          minmax(230px, .7fr)
+          190px;
+      }
+
+      .closing-divider {
+        display: none;
+      }
+
+      .footer-nav {
+        gap: 30px;
+        font-size: 17px;
+      }
+
+      .footer-brand {
+        width: 250px;
+      }
+    }
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 760px) {
+
+      :root {
+        --header-h: auto;
+        --footer-h: auto;
+      }
+
+      .shell {
+        width: min(calc(100% - 32px), 620px);
+      }
+
+      /* HEADER */
+
+      .site-header {
+        min-height: 76px;
+      }
+
+      .site-header .shell {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        padding: 12px 0;
+      }
+
+      .brand {
+        width: min(92vw, 360px);
+      }
+
+      .main-nav,
+      .header-cta {
+        display: none;
+      }
+
+      /* HERO */
+
+      .terms-hero {
+        padding: 30px 0 27px;
+      }
+
+      .terms-hero-grid {
+        display: block;
+
+        min-height: 0;
+      }
+
+      .eyebrow {
+        margin-bottom: 17px;
+
+        font-size: 15px;
+      }
+
+      .terms-title {
+        max-width: 560px;
+
+        font-size: clamp(43px, 12vw, 57px);
+        line-height: .96;
+      }
+
+      .terms-intro {
+        margin-top: 20px;
+
+        font-size: 20px;
+        line-height: 1.38;
+      }
+
+      .terms-intro-secondary {
+        margin-top: 9px;
+
+        font-size: 17px;
+        line-height: 1.36;
+      }
+
+      .hero-divider,
+      .terms-visual {
+        display: none;
+      }
+
+      /* ÍNDICE */
+
+      .terms-index {
+        display: none;
+      }
+
+      /* CONTEÚDO */
+
+      .terms-content {
+        padding: 7px 0 0;
+      }
+
+      .terms-grid {
+        display: block;
+
+        border: 0;
+      }
+
+      .terms-section,
+      .terms-section:nth-child(even),
+      .terms-section:nth-child(n + 3) {
+        padding:
+          27px
+          0
+          20px;
+
+        border: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .terms-section:first-child {
+        padding-top: 22px;
+      }
+
+      .terms-section-head {
+        grid-template-columns:
+          52px
+          minmax(0, 1fr);
+
+        gap: 12px;
+
+        min-height: 62px;
+
+        margin-bottom: 5px;
+      }
+
+      .section-number {
+        font-size: 43px;
+      }
+
+      .section-heading {
+        font-size: 17px;
+      }
+
+      .section-description {
+        margin-top: 6px;
+
+        font-size: 16px;
+        line-height: 1.24;
+      }
+
+      .terms-item summary {
+        min-height: 52px;
+
+        padding: 11px 0;
+
+        font-size: 18px;
+        line-height: 1.22;
+      }
+
+      .terms-answer {
+        padding:
+          1px
+          30px
+          17px
+          0;
+
+        font-size: 17px;
+        line-height: 1.48;
+      }
+
+      /* FECHAMENTO */
+
+      .terms-closing {
+        display: block;
+
+        padding: 27px 0 30px;
+      }
+
+      .closing-question {
+        gap: 15px;
+      }
+
+      .closing-icon {
+        flex-basis: 30px;
+
+        width: 30px;
+        height: 30px;
+      }
+
+      .closing-question p {
+        font-size: 23px;
+        line-height: 1.16;
+      }
+
+      .closing-note {
+        margin: 18px 0;
+
+        font-size: 17px;
+        line-height: 1.35;
+      }
+
+      .terms-contact {
+        width: 100%;
+
+        min-height: 48px;
+
+        font-size: 20px;
+      }
+
+      /* NAVEGAÇÃO ANTES DO FOOTER */
+
+      .mobile-prefooter-nav {
+        display: grid;
+
+        grid-template-columns:
+          1fr
+          1fr;
+
+        gap: 0;
+
+        border-top: 1px solid var(--line);
+
+        background: #fff;
+      }
+
+      .mobile-prefooter-nav a {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        min-height: 58px;
+
+        padding: 10px 8px;
+
+        border-bottom: 1px solid var(--line);
+
+        font-size: 17px;
+        line-height: 1.15;
+
+        text-align: center;
+      }
+
+      .mobile-prefooter-nav a:nth-child(odd) {
+        border-right: 1px solid var(--line);
+      }
+
+      .mobile-prefooter-nav a[aria-current="page"] {
+        color: var(--green);
+        font-weight: 700;
+      }
+
+      /* FOOTER */
+
+      .site-footer {
+        padding: 21px 0;
+      }
+
+      .site-footer .shell {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 20px;
+
+        min-height: 0;
+      }
+
+      .socials {
+        order: 2;
+
+        gap: 34px;
+      }
+
+      .footer-nav {
+        display: none;
+      }
+
+      .footer-brand {
+        order: 1;
+
+        width: min(80vw, 310px);
+
+        justify-self: auto;
+      }
+    }
+
+    /* =========================================================
+       REDUÇÃO DE MOVIMENTO
+       ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+
+    /* =========================================================
+       IMPRESSÃO
+       ========================================================= */
+
+    @media print {
+
+      .site-header,
+      .site-footer,
+      .terms-index,
+      .terms-closing,
+      .mobile-prefooter-nav,
+      .terms-visual {
+        display: none !important;
+      }
+
+      .shell {
+        width: 100%;
+      }
+
+      .terms-hero {
+        border-bottom: 1px solid #999;
+      }
+
+      .terms-grid {
+        display: block;
+      }
+
+      .terms-section,
+      .terms-section:nth-child(even),
+      .terms-section:nth-child(n + 3) {
+        padding: 18px 0;
+
+        border: 0;
+        border-bottom: 1px solid #bbb;
+      }
+
+      .terms-item {
+        break-inside: avoid;
+      }
+
+      .terms-item > * {
+        display: block !important;
+      }
+
+      .accordion-mark {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#conteudo">
+    Pular para o conteúdo
+  </a>
+
+  <!-- =======================================================
+       HEADER
+       ======================================================= -->
+
+  <header class="site-header" role="banner">
+
+    <div class="shell">
+
+      <a
+        class="brand"
+        href="index.html"
+        aria-label="Análise Legal — página inicial"
+      >
+        <img
+          src="assets/img/Marca.svg"
+          alt="Análise Legal"
+          width="620"
+          height="112"
+          decoding="async"
+          fetchpriority="high"
+        >
+      </a>
+
+      <nav
+        class="main-nav"
+        aria-label="Navegação principal"
+      >
+        <a href="papel-da-plataforma.html">
+          O papel da plataforma
+        </a>
+
+        <a href="como-funciona.html">
+          Como funciona
+        </a>
+
+        <a href="quando-faz-sentido.html">
+          Quando faz sentido
+        </a>
+
+        <a href="situacoes-reais.html">
+          Situações reais
+        </a>
+
+        <a href="perguntas-frequentes.html">
+          Perguntas frequentes
+        </a>
+      </nav>
+
+      <a
+        class="header-cta"
+        href="analise.html"
+      >
+        Solicite análise
+      </a>
+
+    </div>
+
+  </header>
+
+  <!-- =======================================================
+       CONTEÚDO
+       ======================================================= -->
+
+  <main id="conteudo">
+
+    <!-- HERO -->
+
+    <section
+      class="terms-hero"
+      aria-labelledby="page-title"
+    >
+
+      <div class="shell terms-hero-grid">
+
+        <div>
+
+          <p class="eyebrow">
+            Termos de uso
+          </p>
+
+          <h1
+            class="terms-title"
+            id="page-title"
+          >
+            Condições claras para usar<br>
+            a plataforma com segurança.
+          </h1>
+
+          <p class="terms-intro">
+
+            Estes termos explicam o papel da plataforma, suas condições de
+            utilização, seus limites e as responsabilidades relacionadas ao uso.
+
+            <span class="terms-intro-secondary">
+              Ao utilizar a plataforma, você declara que leu e compreendeu
+              estas condições e a Política de Privacidade.
+            </span>
+
+          </p>
+
+        </div>
+
+        <div
+          class="hero-divider"
+          aria-hidden="true"
+        ></div>
+
+        <div class="terms-visual">
+
+          <p class="terms-statement">
+            Transparência para que você compreenda como a plataforma funciona,
+            seus limites e as condições aplicáveis ao uso.
+          </p>
+
+          <div
+            class="document-art"
+            aria-hidden="true"
+          >
+
+            <span class="context-line one"></span>
+            <span class="context-line two"></span>
+
+            <svg
+              viewBox="0 0 180 180"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="document-path"
+                d="M46 17 H112 L136 41 V134 H46 Z"
+              />
+
+              <path
+                class="document-path"
+                d="M112 17 V41 H136"
+              />
+
+              <path
+                class="document-line"
+                d="M63 54 H111"
+              />
+
+              <path
+                class="document-line"
+                d="M63 71 H118"
+              />
+
+              <path
+                class="document-line"
+                d="M63 88 H108"
+              />
+
+              <path
+                class="document-line"
+                d="M63 105 H91"
+              />
+
+              <circle
+                class="document-circle"
+                cx="126"
+                cy="119"
+                r="31"
+              />
+
+              <path
+                class="document-check"
+                d="M109 119 L121 131 L143 106"
+              />
+            </svg>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ÍNDICE INTERNO -->
+
+    <nav
+      class="terms-index"
+      aria-label="Seções dos termos de uso"
+    >
+
+      <div class="shell">
+
+        <a href="#visao-geral">
+          Visão geral
+        </a>
+
+        <a href="#uso-da-plataforma">
+          Uso da plataforma
+        </a>
+
+        <a href="#limites">
+          Limites
+        </a>
+
+        <a href="#contato-alteracoes">
+          Contato e alterações
+        </a>
+
+      </div>
+
+    </nav>
+
+    <!-- ACCORDIONS -->
+
+    <section
+      class="terms-content"
+      aria-label="Termos de uso da plataforma"
+    >
+
+      <div class="shell">
+
+        <div class="terms-grid">
+
+          <!-- =================================================
+               01 — VISÃO GERAL
+               ================================================= -->
+
+          <section
+            class="terms-section"
+            id="visao-geral"
+            aria-labelledby="heading-visao-geral"
+          >
+
+            <header class="terms-section-head">
+
+              <p
+                class="section-number"
+                aria-hidden="true"
+              >
+                01
+              </p>
+
+              <div>
+
+                <h2
+                  class="section-heading"
+                  id="heading-visao-geral"
+                >
+                  Visão geral
+                </h2>
+
+                <p class="section-description">
+                  O que é a plataforma e para que ela serve.
+                </p>
+
+              </div>
+
+            </header>
+
+            <div class="terms-accordion">
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>O que é o ANÁLISE LEGAL?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    O <strong>ANÁLISE LEGAL™</strong> é uma plataforma digital
+                    desenvolvida para auxiliar pessoas e empresas a organizar
+                    informações relacionadas a uma situação concreta.
+                  </p>
+
+                  <p>
+                    Por meio de perguntas estruturadas, a plataforma pode reunir
+                    informações sobre acontecimentos, pessoas envolvidas,
+                    documentos, valores, datas, objetivos e outros elementos
+                    relevantes.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Para que a plataforma foi criada?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    A plataforma foi criada para tornar situações complexas mais
+                    compreensíveis, organizar o contexto apresentado e preparar
+                    informações para os próximos passos que eventualmente se
+                    mostrem necessários.
+                  </p>
+
+                  <p>
+                    Ela pode apresentar perguntas, relacionar informações,
+                    identificar elementos ainda não apresentados e gerar formas
+                    organizadas de visualização do conteúdo fornecido.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>O uso da plataforma gera contratação profissional?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    Não. A utilização da plataforma e a organização das
+                    informações não geram automaticamente contratação de qualquer
+                    profissional.
+                  </p>
+
+                  <p>
+                    Caso você decida prosseguir para atendimento profissional,
+                    eventual contratação deverá ocorrer de maneira específica,
+                    direta e autônoma.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>A plataforma substitui uma avaliação individualizada?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    Não. A utilização do ANÁLISE LEGAL™, isoladamente, não
+                    substitui avaliação individualizada realizada por
+                    profissional habilitado.
+                  </p>
+
+                  <p>
+                    A plataforma não representa manifestação conclusiva, não
+                    define providências de forma definitiva e não garante que
+                    determinada medida seja adequada para a situação apresentada.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Existe garantia de resultado?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    Não. A plataforma organiza informações fornecidas pelo
+                    usuário. O resultado de qualquer situação pode depender de
+                    fatos não informados, documentos, acontecimentos posteriores
+                    e avaliações realizadas em momento próprio.
+                  </p>
+
+                  <p>
+                    Nenhuma informação apresentada durante o fluxo deve ser
+                    interpretada como promessa ou garantia de determinado
+                    resultado.
+                  </p>
+
+                </div>
+
+              </details>
+
+            </div>
+
+          </section>
+
+          <!-- =================================================
+               02 — USO DA PLATAFORMA
+               ================================================= -->
+
+          <section
+            class="terms-section"
+            id="uso-da-plataforma"
+            aria-labelledby="heading-uso"
+          >
+
+            <header class="terms-section-head">
+
+              <p
+                class="section-number"
+                aria-hidden="true"
+              >
+                02
+              </p>
+
+              <div>
+
+                <h2
+                  class="section-heading"
+                  id="heading-uso"
+                >
+                  Uso da plataforma
+                </h2>
+
+                <p class="section-description">
+                  Fluxo, informações fornecidas e funcionamento.
+                </p>
+
+              </div>
+
+            </header>
+
+            <div class="terms-accordion">
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Como funciona o preenchimento das perguntas?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    As perguntas podem variar de acordo com as respostas
+                    fornecidas durante o uso da plataforma.
+                  </p>
+
+                  <p>
+                    A existência ou ausência de determinada pergunta não
+                    significa, por si só, que uma informação seja relevante ou
+                    irrelevante para eventual avaliação posterior.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Qual é a responsabilidade sobre as informações fornecidas?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    O funcionamento da plataforma depende diretamente das
+                    informações apresentadas pelo usuário.
+                  </p>
+
+                  <p>
+                    Sempre que possível, forneça informações verdadeiras,
+                    atualizadas e suficientemente completas. Informações
+                    incorretas, incompletas ou fora de contexto podem alterar a
+                    organização produzida pela plataforma.
+                  </p>
+
+                  <p>
+                    O ANÁLISE LEGAL™ não possui obrigação de verificar
+                    independentemente a autenticidade ou exatidão de todas as
+                    informações fornecidas.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Posso enviar documentos?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    Quando essa funcionalidade estiver disponível, poderão ser
+                    inseridos documentos relacionados à situação apresentada.
+                  </p>
+
+                  <p>
+                    O envio de documentos para a plataforma não corresponde a
+                    protocolo, registro, apresentação perante terceiros ou
+                    entrega formal a qualquer instituição.
+                  </p>
+
+                  <p>
+                    O usuário deve conservar os documentos originais e suas
+                    próprias cópias. A plataforma não deve ser utilizada como
+                    sistema exclusivo de guarda permanente de documentos.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Posso inserir informações sobre terceiros?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    Sim, quando isso for necessário para compreender a situação
+                    apresentada.
+                  </p>
+
+                  <p>
+                    Informe apenas o que for pertinente ao contexto e evite dados
+                    desnecessários. Ao inserir informações, documentos ou imagens
+                    de terceiros, o usuário deve possuir fundamento legítimo para
+                    apresentá-los dentro da finalidade pretendida.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>A plataforma utiliza recursos automatizados?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    Sim. Sistemas automatizados, inclusive recursos de
+                    inteligência artificial, podem auxiliar na formulação de
+                    perguntas, organização, classificação, identificação de
+                    inconsistências e elaboração de resumos.
+                  </p>
+
+                  <p>
+                    Esses recursos funcionam como instrumentos de apoio. Seus
+                    resultados podem apresentar limitações ou imprecisões e não
+                    devem ser compreendidos como decisão, recomendação definitiva
+                    ou manifestação profissional individualizada.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Há acompanhamento de prazos?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    Não. A utilização do ANÁLISE LEGAL™ não deve ser considerada
+                    mecanismo de controle, suspensão, interrupção ou
+                    acompanhamento de prazos.
+                  </p>
+
+                  <p>
+                    O preenchimento de perguntas, o envio de informações ou a
+                    permanência de uma análise na plataforma não produzem efeitos
+                    sobre prazos externos.
+                  </p>
+
+                </div>
+
+              </details>
+
+            </div>
+
+          </section>
+
+          <!-- =================================================
+               03 — LIMITES E RESPONSABILIDADES
+               ================================================= -->
+
+          <section
+            class="terms-section"
+            id="limites"
+            aria-labelledby="heading-limites"
+          >
+
+            <header class="terms-section-head">
+
+              <p
+                class="section-number"
+                aria-hidden="true"
+              >
+                03
+              </p>
+
+              <div>
+
+                <h2
+                  class="section-heading"
+                  id="heading-limites"
+                >
+                  Limites
+                </h2>
+
+                <p class="section-description">
+                  Responsabilidades, segurança e propriedade intelectual.
+                </p>
+
+              </div>
+
+            </header>
+
+            <div class="terms-accordion">
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Qual é a relação entre a plataforma e eventual profissional?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    A infraestrutura tecnológica do ANÁLISE LEGAL™ é distinta da
+                    atividade eventualmente desenvolvida por profissional
+                    habilitado.
+                  </p>
+
+                  <p>
+                    A análise individualizada, as conclusões, a definição de
+                    estratégia, a escolha de providências e a responsabilidade
+                    técnica pertencem ao profissional que vier a ser formalmente
+                    contratado.
+                  </p>
+
+                  <p>
+                    A eventual apresentação de um canal de contato ou
+                    possibilidade de atendimento não constitui ranking,
+                    certificação de desempenho ou garantia de resultado.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Como funcionam valores e pagamentos de eventual atendimento?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    Qualquer remuneração decorrente de atendimento profissional
+                    será definida diretamente entre o usuário e o responsável
+                    pelo atendimento, em contratação própria e independente.
+                  </p>
+
+                  <p>
+                    O ANÁLISE LEGAL™ não recebe, retém, divide, administra ou
+                    intermedeia valores devidos pela atividade profissional.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Quais são as responsabilidades do usuário?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>Ao utilizar a plataforma, o usuário compromete-se a:</p>
+
+                  <ul>
+                    <li>utilizá-la para finalidades legítimas;</li>
+                    <li>fornecer informações de boa-fé;</li>
+                    <li>não se passar por outra pessoa;</li>
+                    <li>não inserir conteúdo sabidamente falso para manipular o sistema;</li>
+                    <li>não enviar arquivos maliciosos;</li>
+                    <li>não tentar obter acesso não autorizado a sistemas ou informações; e</li>
+                    <li>não utilizar a plataforma para violar interesses legítimos de terceiros.</li>
+                  </ul>
+
+                  <p>
+                    O usuário responde pelo conteúdo que deliberadamente fornece,
+                    sem prejuízo das responsabilidades que, por sua própria
+                    natureza, pertençam à operação da plataforma.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>A plataforma pode ficar temporariamente indisponível?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    Sim. Serviços digitais podem sofrer interrupções decorrentes
+                    de manutenção, atualização, falhas técnicas, indisponibilidade
+                    de fornecedores, incidentes de segurança ou circunstâncias
+                    externas.
+                  </p>
+
+                  <p>
+                    Quando possível, interrupções programadas relevantes poderão
+                    ser previamente informadas.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Como a segurança é tratada?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    São adotadas medidas técnicas e administrativas compatíveis
+                    com a natureza das informações tratadas e com os riscos
+                    envolvidos.
+                  </p>
+
+                  <p>
+                    Nenhum ambiente digital, entretanto, pode ser considerado
+                    absolutamente imune a falhas ou incidentes. O usuário também
+                    deve adotar cuidados razoáveis com seus dispositivos, contas,
+                    credenciais e meios de acesso.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>O conteúdo e a estrutura da plataforma podem ser reproduzidos?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    A marca ANÁLISE LEGAL™, seus textos, identidade visual,
+                    sistemas, estrutura de navegação, formulários, fluxos de
+                    perguntas, métodos de organização, códigos e elementos
+                    gráficos pertencem aos respectivos titulares e são protegidos.
+                  </p>
+
+                  <p>
+                    O acesso à plataforma não transfere qualquer titularidade ao
+                    usuário. Não é permitido copiar, reproduzir em escala,
+                    comercializar, extrair sistematicamente, realizar engenharia
+                    reversa, contornar mecanismos de segurança ou explorar esses
+                    elementos fora das finalidades permitidas.
+                  </p>
+
+                  <p>
+                    As informações e documentos inseridos pelo usuário permanecem
+                    pertencentes aos seus respectivos titulares.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Serviços de terceiros podem ser utilizados?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    Sim. Algumas funcionalidades poderão depender de serviços
+                    externos, como hospedagem, comunicação, armazenamento,
+                    autenticação, agendamento ou outras ferramentas tecnológicas.
+                  </p>
+
+                  <p>
+                    Quando o usuário acessar diretamente um serviço de terceiro,
+                    também poderão ser aplicáveis os termos e políticas próprios
+                    daquele fornecedor.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>O acesso pode ser restringido?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    Poderão ser adotadas medidas razoáveis para impedir ou
+                    restringir utilizações que comprometam a segurança, o
+                    funcionamento da plataforma, terceiros ou estas condições de
+                    uso.
+                  </p>
+
+                  <p>
+                    As medidas poderão incluir bloqueio de operações, limitação
+                    temporária de funcionalidades ou suspensão de acesso,
+                    observadas a natureza e a gravidade da situação.
+                  </p>
+
+                </div>
+
+              </details>
+
+            </div>
+
+          </section>
+
+          <!-- =================================================
+               04 — DADOS, ALTERAÇÕES E CONTATO
+               ================================================= -->
+
+          <section
+            class="terms-section"
+            id="contato-alteracoes"
+            aria-labelledby="heading-contato"
+          >
+
+            <header class="terms-section-head">
+
+              <p
+                class="section-number"
+                aria-hidden="true"
+              >
+                04
+              </p>
+
+              <div>
+
+                <h2
+                  class="section-heading"
+                  id="heading-contato"
+                >
+                  Contato e alterações
+                </h2>
+
+                <p class="section-description">
+                  Dados, atualizações dos termos e canais de contato.
+                </p>
+
+              </div>
+
+            </header>
+
+            <div class="terms-accordion">
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Como meus dados são tratados?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    O tratamento de dados pessoais é descrito de forma específica
+                    na <a href="privacidade.html"><strong>Política de
+                    Privacidade</strong></a>, que integra o conjunto de condições
+                    aplicáveis à utilização da plataforma.
+                  </p>
+
+                  <p>
+                    As informações serão tratadas de acordo com as finalidades
+                    apresentadas ao usuário e com as regras aplicáveis.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>As informações são comercializadas?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    Não. O ANÁLISE LEGAL™ não comercializa dados pessoais.
+                  </p>
+
+                  <p>
+                    Eventual compartilhamento poderá ocorrer apenas quando
+                    necessário para finalidades informadas, funcionamento e
+                    segurança da plataforma, cumprimento de obrigações aplicáveis
+                    ou quando o próprio usuário optar por prosseguir para etapa
+                    que exija o encaminhamento das informações.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Posso deixar de utilizar a plataforma?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    Sim. O usuário pode interromper sua utilização a qualquer
+                    momento.
+                  </p>
+
+                  <p>
+                    A interrupção do uso não implica necessariamente exclusão
+                    imediata de todas as informações, pois determinados dados
+                    poderão permanecer armazenados pelos períodos necessários às
+                    finalidades informadas, segurança e outras hipóteses
+                    aplicáveis.
+                  </p>
+
+                  <p>
+                    As regras sobre retenção e exclusão constam da Política de
+                    Privacidade.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Estes termos podem ser alterados?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    Sim. Os termos poderão ser atualizados em razão de mudanças
+                    na plataforma, novas funcionalidades, alterações operacionais
+                    ou necessidade de adequação às regras aplicáveis.
+                  </p>
+
+                  <p>
+                    A versão disponível no site indicará sempre a data da última
+                    atualização. Quando uma alteração exigir nova manifestação do
+                    usuário, ela será solicitada antes da continuidade da
+                    funcionalidade correspondente.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Como estes termos se relacionam com a Política de Privacidade?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    Os documentos são complementares.
+                  </p>
+
+                  <p>
+                    Estes Termos de Uso tratam principalmente da utilização da
+                    plataforma. A Política de Privacidade explica como as
+                    informações pessoais são coletadas, utilizadas, armazenadas,
+                    compartilhadas e protegidas.
+                  </p>
+
+                  <p>
+                    Em questões especificamente relacionadas ao tratamento de
+                    dados, devem ser observadas as disposições próprias da
+                    Política de Privacidade.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Qual regra se aplica ao uso da plataforma?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    A utilização do ANÁLISE LEGAL™ está sujeita às normas
+                    aplicáveis no Brasil.
+                  </p>
+
+                  <p>
+                    Eventuais controvérsias serão solucionadas perante o órgão
+                    competente conforme as regras aplicáveis ao caso concreto,
+                    preservadas as garantias que não possam ser afastadas por
+                    estes termos.
+                  </p>
+
+                </div>
+
+              </details>
+
+              <details class="terms-item">
+
+                <summary>
+                  <span>Como posso entrar em contato?</span>
+                  <span class="accordion-mark" aria-hidden="true"></span>
+                </summary>
+
+                <div class="terms-answer">
+
+                  <p>
+                    Dúvidas relacionadas à utilização do ANÁLISE LEGAL™,
+                    inclusive questões relacionadas à privacidade e ao tratamento
+                    de dados pessoais, poderão ser encaminhadas para:
+                  </p>
+
+                  <p>
+                    <strong>contato@analiselegal.com.br</strong>
+                  </p>
+
+                </div>
+
+              </details>
+
+            </div>
+
+          </section>
+
+        </div>
+
+        <!-- ===================================================
+             FECHAMENTO
+             =================================================== -->
+
+        <div class="terms-closing">
+
+          <div class="closing-question">
+
+            <span
+              class="closing-icon"
+              aria-hidden="true"
+            >
+
+              <svg
+                viewBox="0 0 32 32"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+
+                <path
+                  d="
+                    M8 4
+                    H20
+                    L25 9
+                    V27
+                    H8
+                    Z
+                  "
+                />
+
+                <path d="M20 4 V9 H25" />
+
+                <path d="M12 13 H21" />
+                <path d="M12 17 H21" />
+                <path d="M12 21 H18" />
+
+              </svg>
+
+            </span>
+
+            <p>
+              Ainda tem dúvidas sobre os termos de uso?
+            </p>
+
+          </div>
+
+          <div
+            class="closing-divider"
+            aria-hidden="true"
+          ></div>
+
+          <p class="closing-note">
+            Fale conosco pelo canal destinado a dúvidas sobre a utilização da
+            plataforma.
+          </p>
+
+          <a
+            class="terms-contact"
+            href="mailto:contato@analiselegal.com.br"
+          >
+            Fale conosco
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =======================================================
+       NAVEGAÇÃO MOBILE
+       ======================================================= -->
+
+  <nav
+    class="mobile-prefooter-nav"
+    aria-label="Navegação institucional"
+  >
+
+    <a href="perguntas-frequentes.html">
+      Perguntas frequentes
+    </a>
+
+    <a href="privacidade.html">
+      Privacidade
+    </a>
+
+    <a
+      href="termos-de-uso.html"
+      aria-current="page"
+    >
+      Termos de uso
+    </a>
+
+    <a href="contato.html">
+      Contato
+    </a>
+
+  </nav>
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
+  <footer
+    class="site-footer"
+    role="contentinfo"
+  >
+
+    <div class="shell">
+
+      <div
+        class="socials"
+        aria-label="Redes sociais"
+      >
+
+        <span
+          class="social-mark"
+          title="LinkedIn"
+          aria-label="LinkedIn"
+        >
+          <span
+            class="mask-icon"
+            style="--icon:url('assets/img/icon/linkedin-logo.svg')"
+          ></span>
+        </span>
+
+        <span
+          class="social-mark"
+          title="Instagram"
+          aria-label="Instagram"
+        >
+          <span
+            class="mask-icon"
+            style="--icon:url('assets/img/icon/instagram-logo.svg')"
+          ></span>
+        </span>
+
+        <span
+          class="social-mark"
+          title="Facebook"
+          aria-label="Facebook"
+        >
+          <span
+            class="mask-icon"
+            style="--icon:url('assets/img/icon/facebook-logo.svg')"
+          ></span>
+        </span>
+
+      </div>
+
+      <nav
+        class="footer-nav"
+        aria-label="Navegação institucional"
+      >
+
+        <a href="perguntas-frequentes.html">
+          Perguntas frequentes
+        </a>
+
+        <a href="privacidade.html">
+          Privacidade
+        </a>
+
+        <a
+          href="termos-de-uso.html"
+          aria-current="page"
+        >
+          Termos de uso
+        </a>
+
+        <a href="contato.html">
+          Contato
+        </a>
+
+      </nav>
+
+      <a
+        class="footer-brand"
+        href="index.html"
+        aria-label="Análise Legal — página inicial"
+      >
+
+        <img
+          src="assets/img/Marca-soft.svg"
+          alt="Análise Legal"
+          width="620"
+          height="112"
+          loading="lazy"
+          decoding="async"
+        >
+
+      </a>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
