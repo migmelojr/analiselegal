@@ -2,9 +2,13 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Contato | Análise Legal</title>
 
@@ -13,6 +17,17 @@
         content="Entre em contato com a Análise Legal para dúvidas, sugestões ou informações sobre a plataforma."
     >
 
+
+    <!-- =========================================================
+         CLOUDFLARE TURNSTILE
+    ========================================================== -->
+
+    <script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        defer
+    ></script>
+
+
     <style>
 
         /* =========================================================
@@ -20,6 +35,7 @@
         ========================================================= */
 
         :root {
+
             --verde: #064d49;
             --verde-hover: #0a5b55;
 
@@ -35,6 +51,7 @@
             --header-h: 110px;
             --main-h: 722px;
             --footer-h: 90px;
+
         }
 
 
@@ -43,36 +60,56 @@
         ========================================================= */
 
         * {
+
             margin: 0;
             padding: 0;
+
             box-sizing: border-box;
+
         }
+
 
         html {
+
             scroll-behavior: smooth;
+
         }
 
+
         body {
+
             margin: 0;
 
             background: var(--fundo);
+
             color: var(--texto);
 
-            font-family: Georgia, "Times New Roman", serif;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
             -webkit-font-smoothing: antialiased;
+
         }
 
+
         a {
+
             color: inherit;
+
             text-decoration: none;
+
         }
+
 
         button,
         input,
         select,
         textarea {
+
             font-family: inherit;
+
         }
 
 
@@ -81,6 +118,7 @@
         ========================================================= */
 
         .icon {
+
             display: inline-block;
 
             width: 34px;
@@ -96,87 +134,106 @@
 
             -webkit-mask-size: contain;
             mask-size: contain;
+
         }
 
 
         .icon-plane {
+
             -webkit-mask-image:
                 url("assets/img/icon/paper-plane-tilt.svg");
 
             mask-image:
                 url("assets/img/icon/paper-plane-tilt.svg");
+
         }
 
 
         .icon-lock {
+
             -webkit-mask-image:
                 url("assets/img/icon/lock.svg");
 
             mask-image:
                 url("assets/img/icon/lock.svg");
+
         }
 
 
         .icon-chat {
+
             -webkit-mask-image:
                 url("assets/img/icon/chat.svg");
 
             mask-image:
                 url("assets/img/icon/chat.svg");
+
         }
 
 
         .icon-clock {
+
             -webkit-mask-image:
                 url("assets/img/icon/clock.svg");
 
             mask-image:
                 url("assets/img/icon/clock.svg");
+
         }
 
 
         .icon-pin {
+
             -webkit-mask-image:
                 url("assets/img/icon/map-pin.svg");
 
             mask-image:
                 url("assets/img/icon/map-pin.svg");
+
         }
 
 
         .icon-arrow {
+
             -webkit-mask-image:
                 url("assets/img/icon/arrow-right.svg");
 
             mask-image:
                 url("assets/img/icon/arrow-right.svg");
+
         }
 
 
         .icon-linkedin {
+
             -webkit-mask-image:
                 url("assets/img/icon/linkedin-logo.svg");
 
             mask-image:
                 url("assets/img/icon/linkedin-logo.svg");
+
         }
 
 
         .icon-instagram {
+
             -webkit-mask-image:
                 url("assets/img/icon/instagram-logo.svg");
 
             mask-image:
                 url("assets/img/icon/instagram-logo.svg");
+
         }
 
 
         .icon-facebook {
+
             -webkit-mask-image:
                 url("assets/img/icon/facebook-logo.svg");
 
             mask-image:
                 url("assets/img/icon/facebook-logo.svg");
+
         }
 
 
@@ -185,20 +242,25 @@
         ========================================================= */
 
         .site-header {
+
             height: var(--header-h);
 
             background: #fff;
 
-            border-bottom: 1px solid var(--linha-clara);
+            border-bottom:
+                1px solid var(--linha-clara);
 
             display: flex;
+
             align-items: center;
 
             padding: 0 4.4%;
+
         }
 
 
         .header-inner {
+
             width: 100%;
 
             display: grid;
@@ -209,18 +271,23 @@
                 220px;
 
             align-items: center;
+
         }
 
 
         /* MARCA */
 
         .brand {
+
             display: flex;
+
             align-items: center;
+
         }
 
 
         .brand img {
+
             width: 350px;
 
             max-width: 100%;
@@ -228,31 +295,43 @@
             height: auto;
 
             display: block;
+
         }
 
 
         /* NAVEGAÇÃO */
 
         .main-nav {
+
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
-            gap: clamp(38px, 3.4vw, 70px);
+            gap:
+                clamp(
+                    38px,
+                    3.4vw,
+                    70px
+                );
 
             font-size: 18px;
+
         }
 
 
         .main-nav a {
+
             position: relative;
 
             white-space: nowrap;
+
         }
 
 
         .main-nav a::after {
+
             content: "";
 
             position: absolute;
@@ -263,50 +342,69 @@
             width: 0;
             height: 1px;
 
-            background: var(--verde);
+            background:
+                var(--verde);
 
-            transition: width .2s ease;
+            transition:
+                width .2s ease;
+
         }
 
 
         .main-nav a:hover::after {
+
             width: 100%;
+
         }
 
 
         /* BOTÃO SUPERIOR */
 
         .header-cta {
+
             display: flex;
 
             justify-content: flex-end;
+
         }
 
 
         .btn-main {
+
             min-width: 190px;
+
             height: 48px;
 
             display: inline-flex;
 
             align-items: center;
+
             justify-content: center;
 
-            padding: 0 26px;
+            padding:
+                0
+                26px;
 
             color: #fff;
-            background: var(--verde);
+
+            background:
+                var(--verde);
 
             border-radius: 8px;
 
             font-size: 18px;
 
-            transition: background .2s ease;
+            transition:
+                background .2s ease;
+
         }
 
 
         .btn-main:hover {
-            background: var(--verde-hover);
+
+            background:
+                var(--verde-hover);
+
         }
 
 
@@ -315,24 +413,32 @@
         ========================================================= */
 
         .contact-main {
-            height: var(--main-h);
 
-            padding: 30px 4.4%;
+            height:
+                var(--main-h);
+
+            padding:
+                30px
+                4.4%;
 
             display: flex;
 
             align-items: center;
 
             overflow: hidden;
+
         }
 
 
         .contact-grid {
+
             width: 100%;
 
             max-width: 1770px;
 
-            margin: 0 auto;
+            margin:
+                0
+                auto;
 
             display: grid;
 
@@ -344,6 +450,7 @@
             gap: 42px;
 
             align-items: stretch;
+
         }
 
 
@@ -352,131 +459,188 @@
         ========================================================= */
 
         .contact-intro {
+
             padding-right: 48px;
 
             border-right:
-                1px solid rgba(6, 77, 73, .72);
+                1px solid
+                rgba(6, 77, 73, .72);
 
             display: flex;
 
             flex-direction: column;
 
             justify-content: center;
+
         }
 
 
         .section-label {
-            color: var(--verde);
 
-            text-transform: uppercase;
+            color:
+                var(--verde);
 
-            letter-spacing: 4px;
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                4px;
 
             font-size: 14px;
+
             font-weight: 700;
 
             margin-bottom: 15px;
+
         }
 
 
         .section-label::after {
+
             content: "";
 
             display: block;
 
             width: 45px;
+
             height: 2px;
 
-            background: var(--verde);
+            background:
+                var(--verde);
 
             margin-top: 14px;
+
         }
 
 
         .contact-title {
+
             font-size:
-                clamp(48px, 3.15vw, 62px);
+                clamp(
+                    48px,
+                    3.15vw,
+                    62px
+                );
 
             line-height: .99;
 
             font-weight: 400;
 
-            letter-spacing: -1.5px;
+            letter-spacing:
+                -1.5px;
 
-            margin-bottom: 22px;
+            margin-bottom:
+                22px;
+
         }
 
 
         .contact-description {
-            max-width: 475px;
 
-            font-size: 19px;
+            max-width:
+                475px;
 
-            line-height: 1.45;
+            font-size:
+                19px;
 
-            margin-bottom: 20px;
+            line-height:
+                1.45;
+
+            margin-bottom:
+                20px;
+
         }
 
 
-        /* ITENS INFORMATIVOS */
+        /* =========================================================
+           ITENS INFORMATIVOS
+        ========================================================= */
 
         .benefit-list {
+
             margin-top: 3px;
+
         }
 
 
         .benefit {
+
             display: grid;
 
             grid-template-columns:
                 58px
                 1fr;
 
-            gap: 15px;
+            gap:
+                15px;
 
-            padding: 15px 0;
+            padding:
+                15px
+                0;
 
             border-bottom:
-                1px solid var(--linha);
+                1px solid
+                var(--linha);
+
         }
 
 
         .benefit:last-child {
+
             border-bottom: 0;
+
         }
 
 
         .benefit-icon {
+
             display: flex;
 
-            justify-content: flex-start;
-            align-items: flex-start;
+            justify-content:
+                flex-start;
 
-            padding-top: 2px;
+            align-items:
+                flex-start;
+
+            padding-top:
+                2px;
+
         }
 
 
         .benefit .icon {
+
             width: 40px;
+
             height: 40px;
+
         }
 
 
         .benefit strong {
+
             display: block;
 
-            font-size: 17px;
+            font-size:
+                17px;
 
-            margin-bottom: 3px;
+            margin-bottom:
+                3px;
+
         }
 
 
         .benefit p {
-            font-size: 15.5px;
 
-            line-height: 1.36;
+            font-size:
+                15.5px;
 
-            color: var(--texto-secundario);
+            line-height:
+                1.36;
+
+            color:
+                var(--texto-secundario);
+
         }
 
 
@@ -485,186 +649,394 @@
         ========================================================= */
 
         .form-card {
+
             height: 100%;
 
-            max-height: 650px;
+            max-height:
+                650px;
 
             padding:
                 27px
                 30px
                 23px;
 
-            background: var(--fundo-form);
+            background:
+                var(--fundo-form);
 
             border:
-                1px solid #edf0ef;
+                1px solid
+                #edf0ef;
 
-            border-radius: 10px;
+            border-radius:
+                10px;
 
             display: flex;
 
-            align-items: center;
+            align-items:
+                center;
+
         }
 
 
         .contact-form {
+
             width: 100%;
+
         }
 
 
         .field {
-            margin-bottom: 15px;
+
+            margin-bottom:
+                15px;
+
         }
 
 
         .field label {
+
             display: block;
 
-            font-size: 15px;
+            font-size:
+                15px;
 
-            font-weight: 700;
+            font-weight:
+                700;
 
-            margin-bottom: 6px;
+            margin-bottom:
+                6px;
+
         }
 
 
         .field input,
         .field select,
         .field textarea {
+
             width: 100%;
 
-            color: var(--texto);
+            color:
+                var(--texto);
 
-            background: #fff;
+            background:
+                #fff;
 
             border:
-                1px solid #c9d3d1;
+                1px solid
+                #c9d3d1;
 
-            border-radius: 5px;
+            border-radius:
+                5px;
 
-            outline: none;
+            outline:
+                none;
 
-            font-size: 15px;
+            font-size:
+                15px;
 
             transition:
                 border-color .2s ease,
                 box-shadow .2s ease;
+
         }
 
 
         .field input,
         .field select {
-            height: 45px;
 
-            padding: 0 13px;
+            height:
+                45px;
+
+            padding:
+                0
+                13px;
+
         }
 
 
         .field textarea {
-            height: 120px;
 
-            padding: 12px 13px;
+            height:
+                120px;
 
-            resize: none;
+            padding:
+                12px
+                13px;
 
-            line-height: 1.4;
+            resize:
+                none;
+
+            line-height:
+                1.4;
+
         }
 
 
         .field input:focus,
         .field select:focus,
         .field textarea:focus {
-            border-color: var(--verde);
+
+            border-color:
+                var(--verde);
 
             box-shadow:
                 0 0 0 3px
-                rgba(6, 77, 73, .07);
+                rgba(
+                    6,
+                    77,
+                    73,
+                    .07
+                );
+
         }
 
 
         .field input::placeholder,
         .field textarea::placeholder {
-            color: #788583;
+
+            color:
+                #788583;
+
         }
 
 
         .counter {
-            margin-top: 5px;
 
-            text-align: right;
+            margin-top:
+                5px;
 
-            color: #707977;
+            text-align:
+                right;
 
-            font-size: 13px;
+            color:
+                #707977;
+
+            font-size:
+                13px;
+
         }
 
 
-        /* BOTÃO DO FORMULÁRIO */
+        /* =========================================================
+           TURNSTILE
+        ========================================================= */
+
+        .turnstile-area {
+
+            width: 100%;
+
+            min-height: 1px;
+
+            margin:
+                2px
+                0
+                9px;
+
+        }
+
+
+        .cf-turnstile {
+
+            width: 100%;
+
+        }
+
+
+        /* =========================================================
+           HONEYPOT ANTISPAM
+        ========================================================= */
+
+        .hp-field {
+
+            position:
+                absolute !important;
+
+            left:
+                -10000px !important;
+
+            top:
+                auto !important;
+
+            width:
+                1px !important;
+
+            height:
+                1px !important;
+
+            overflow:
+                hidden !important;
+
+        }
+
+
+        /* =========================================================
+           BOTÃO DO FORMULÁRIO
+        ========================================================= */
 
         .send-button {
+
             width: 100%;
-            height: 52px;
 
-            border: 0;
+            height:
+                52px;
 
-            border-radius: 7px;
+            border:
+                0;
 
-            background: var(--verde);
+            border-radius:
+                7px;
 
-            color: #fff;
+            background:
+                var(--verde);
+
+            color:
+                #fff;
 
             display: flex;
 
-            align-items: center;
-            justify-content: center;
+            align-items:
+                center;
 
-            gap: 18px;
+            justify-content:
+                center;
 
-            cursor: pointer;
+            gap:
+                18px;
 
-            font-size: 18px;
+            cursor:
+                pointer;
+
+            font-size:
+                18px;
 
             transition:
-                background .2s ease;
+                background .2s ease,
+                opacity .2s ease;
+
         }
 
 
         .send-button:hover {
+
             background:
                 var(--verde-hover);
+
+        }
+
+
+        .send-button:disabled {
+
+            cursor:
+                wait;
+
+            opacity:
+                .72;
+
         }
 
 
         .send-button .icon {
-            width: 22px;
-            height: 22px;
 
-            background-color: #fff;
+            width:
+                22px;
+
+            height:
+                22px;
+
+            background-color:
+                #fff;
+
         }
 
 
+        /* =========================================================
+           STATUS DO ENVIO
+        ========================================================= */
+
+        .form-status {
+
+            min-height:
+                18px;
+
+            margin-top:
+                8px;
+
+            text-align:
+                center;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.35;
+
+        }
+
+
+        .form-status:empty {
+
+            display:
+                none;
+
+        }
+
+
+        .form-status.success {
+
+            color:
+                var(--verde);
+
+            font-weight:
+                700;
+
+        }
+
+
+        .form-status.error {
+
+            color:
+                #8b2e2e;
+
+        }
+
+
+        /* =========================================================
+           NOTA DE PRIVACIDADE
+        ========================================================= */
+
         .legal-note {
-            max-width: 455px;
+
+            max-width:
+                455px;
 
             margin:
-                13px
+                11px
                 auto
                 0;
 
-            text-align: center;
+            text-align:
+                center;
 
-            color: #646866;
+            color:
+                #646866;
 
-            font-size: 13px;
+            font-size:
+                13px;
 
-            line-height: 1.4;
+            line-height:
+                1.4;
+
         }
 
 
         .legal-note a {
-            text-decoration: underline;
 
-            text-underline-offset: 2px;
+            text-decoration:
+                underline;
+
+            text-underline-offset:
+                2px;
+
         }
 
 
@@ -673,84 +1045,125 @@
         ========================================================= */
 
         .contact-side {
+
             display: flex;
 
-            flex-direction: column;
+            flex-direction:
+                column;
 
-            justify-content: center;
+            justify-content:
+                center;
 
-            min-width: 0;
+            min-width:
+                0;
+
         }
 
 
         /* =========================================================
            ILUSTRAÇÃO TÉCNICA
-           GERADA POR ÍCONES EXISTENTES
         ========================================================= */
 
         .technical-art {
-            position: relative;
 
-            width: 100%;
-            max-width: 430px;
+            position:
+                relative;
 
-            height: 285px;
+            width:
+                100%;
+
+            max-width:
+                430px;
+
+            height:
+                285px;
 
             margin:
                 0
                 auto
                 5px;
 
-            overflow: hidden;
+            overflow:
+                hidden;
+
         }
 
-
-        /* CÍRCULO PRINCIPAL */
 
         .technical-art::before {
+
             content: "";
 
-            position: absolute;
+            position:
+                absolute;
 
-            width: 265px;
-            height: 265px;
+            width:
+                265px;
 
-            left: 81px;
-            top: 7px;
+            height:
+                265px;
+
+            left:
+                81px;
+
+            top:
+                7px;
 
             border:
                 1px solid
-                rgba(6, 77, 73, .18);
+                rgba(
+                    6,
+                    77,
+                    73,
+                    .18
+                );
 
-            border-radius: 50%;
+            border-radius:
+                50%;
+
         }
 
 
-        /* CÍRCULO SECUNDÁRIO */
-
         .technical-art::after {
+
             content: "";
 
-            position: absolute;
+            position:
+                absolute;
 
-            width: 185px;
-            height: 185px;
+            width:
+                185px;
 
-            left: 23px;
-            top: 75px;
+            height:
+                185px;
+
+            left:
+                23px;
+
+            top:
+                75px;
 
             border:
                 1px solid
-                rgba(6, 77, 73, .15);
+                rgba(
+                    6,
+                    77,
+                    73,
+                    .15
+                );
 
-            border-radius: 50%;
+            border-radius:
+                50%;
+
         }
 
 
         .tech-element {
-            position: absolute;
 
-            display: block;
+            position:
+                absolute;
+
+            display:
+                block;
 
             background-color:
                 var(--verde);
@@ -773,20 +1186,30 @@
             mask-size:
                 contain;
 
-            pointer-events: none;
+            pointer-events:
+                none;
+
         }
 
 
         /* AVIÃO PRINCIPAL */
 
         .tech-plane {
-            width: 235px;
-            height: 235px;
 
-            left: 102px;
-            top: 26px;
+            width:
+                235px;
 
-            opacity: .96;
+            height:
+                235px;
+
+            left:
+                102px;
+
+            top:
+                26px;
+
+            opacity:
+                .96;
 
             -webkit-mask-image:
                 url("assets/img/icon/paper-plane-tilt.svg");
@@ -794,20 +1217,30 @@
             mask-image:
                 url("assets/img/icon/paper-plane-tilt.svg");
 
-            z-index: 5;
+            z-index:
+                5;
+
         }
 
 
         /* COMPASS */
 
         .tech-compass {
-            width: 174px;
-            height: 174px;
 
-            right: 14px;
-            top: -1px;
+            width:
+                174px;
 
-            opacity: .10;
+            height:
+                174px;
+
+            right:
+                14px;
+
+            top:
+                -1px;
+
+            opacity:
+                .10;
 
             -webkit-mask-image:
                 url("assets/img/icon/compass.svg");
@@ -815,20 +1248,30 @@
             mask-image:
                 url("assets/img/icon/compass.svg");
 
-            z-index: 1;
+            z-index:
+                1;
+
         }
 
 
         /* CROSSHAIR 1 */
 
         .tech-crosshair-1 {
-            width: 92px;
-            height: 92px;
 
-            left: 24px;
-            top: 103px;
+            width:
+                92px;
 
-            opacity: .19;
+            height:
+                92px;
+
+            left:
+                24px;
+
+            top:
+                103px;
+
+            opacity:
+                .19;
 
             -webkit-mask-image:
                 url("assets/img/icon/crosshair.svg");
@@ -836,20 +1279,30 @@
             mask-image:
                 url("assets/img/icon/crosshair.svg");
 
-            z-index: 2;
+            z-index:
+                2;
+
         }
 
 
         /* CROSSHAIR 2 */
 
         .tech-crosshair-2 {
-            width: 66px;
-            height: 66px;
 
-            right: 35px;
-            bottom: 30px;
+            width:
+                66px;
 
-            opacity: .17;
+            height:
+                66px;
+
+            right:
+                35px;
+
+            bottom:
+                30px;
+
+            opacity:
+                .17;
 
             -webkit-mask-image:
                 url("assets/img/icon/crosshair.svg");
@@ -857,22 +1310,33 @@
             mask-image:
                 url("assets/img/icon/crosshair.svg");
 
-            z-index: 2;
+            z-index:
+                2;
+
         }
 
 
         /* PATH */
 
         .tech-path {
-            width: 165px;
-            height: 165px;
 
-            left: 52px;
-            bottom: 0;
+            width:
+                165px;
 
-            opacity: .11;
+            height:
+                165px;
 
-            transform: rotate(-12deg);
+            left:
+                52px;
+
+            bottom:
+                0;
+
+            opacity:
+                .11;
+
+            transform:
+                rotate(-12deg);
 
             -webkit-mask-image:
                 url("assets/img/icon/path.svg");
@@ -880,207 +1344,325 @@
             mask-image:
                 url("assets/img/icon/path.svg");
 
-            z-index: 1;
+            z-index:
+                1;
+
         }
 
 
         /* LINHAS TÉCNICAS */
 
         .construction-line {
-            position: absolute;
 
-            height: 1px;
+            position:
+                absolute;
+
+            height:
+                1px;
 
             background:
-                rgba(6, 77, 73, .18);
+                rgba(
+                    6,
+                    77,
+                    73,
+                    .18
+                );
 
             transform-origin:
                 left center;
 
-            z-index: 0;
+            z-index:
+                0;
+
         }
 
 
         .line-1 {
-            width: 350px;
 
-            left: 34px;
-            top: 92px;
+            width:
+                350px;
+
+            left:
+                34px;
+
+            top:
+                92px;
 
             transform:
                 rotate(-11deg);
+
         }
 
 
         .line-2 {
-            width: 338px;
 
-            left: 36px;
-            top: 204px;
+            width:
+                338px;
+
+            left:
+                36px;
+
+            top:
+                204px;
 
             transform:
                 rotate(9deg);
+
         }
 
 
         .line-3 {
-            width: 255px;
 
-            left: 158px;
-            top: 38px;
+            width:
+                255px;
+
+            left:
+                158px;
+
+            top:
+                38px;
 
             transform:
                 rotate(70deg);
+
         }
 
 
         .line-4 {
-            width: 225px;
 
-            left: 75px;
-            top: 33px;
+            width:
+                225px;
+
+            left:
+                75px;
+
+            top:
+                33px;
 
             transform:
                 rotate(89deg);
+
         }
 
 
         /* PONTOS TÉCNICOS */
 
         .construction-dot {
-            position: absolute;
 
-            width: 8px;
-            height: 8px;
+            position:
+                absolute;
+
+            width:
+                8px;
+
+            height:
+                8px;
 
             border:
                 1px solid
-                rgba(6, 77, 73, .36);
+                rgba(
+                    6,
+                    77,
+                    73,
+                    .36
+                );
 
-            border-radius: 50%;
+            border-radius:
+                50%;
 
-            z-index: 1;
+            z-index:
+                1;
+
         }
 
 
         .dot-1 {
-            left: 45px;
-            top: 88px;
+
+            left:
+                45px;
+
+            top:
+                88px;
+
         }
 
 
         .dot-2 {
-            right: 38px;
-            top: 45px;
+
+            right:
+                38px;
+
+            top:
+                45px;
+
         }
 
 
         .dot-3 {
-            left: 84px;
-            bottom: 32px;
+
+            left:
+                84px;
+
+            bottom:
+                32px;
+
         }
 
 
         /* FRASE */
 
         .contact-quote {
-            max-width: 335px;
+
+            max-width:
+                335px;
 
             margin:
                 0
                 auto
                 17px;
 
-            color: var(--verde);
+            color:
+                var(--verde);
 
-            font-size: 24px;
+            font-size:
+                24px;
 
-            line-height: 1.17;
+            line-height:
+                1.17;
 
-            font-style: italic;
+            font-style:
+                italic;
+
         }
 
 
         .contact-quote::after {
-            content: "";
 
-            display: block;
+            content:
+                "";
 
-            width: 50px;
-            height: 2px;
+            display:
+                block;
 
-            margin-top: 16px;
+            width:
+                50px;
+
+            height:
+                2px;
+
+            margin-top:
+                16px;
 
             background:
                 var(--verde);
+
         }
 
 
-        /* DADOS DE CONTATO */
+        /* =========================================================
+           DADOS DE CONTATO
+        ========================================================= */
 
         .contact-data {
-            width: 100%;
 
-            max-width: 365px;
+            width:
+                100%;
 
-            margin: 0 auto;
+            max-width:
+                365px;
+
+            margin:
+                0
+                auto;
+
         }
 
 
         .data-row {
-            display: grid;
+
+            display:
+                grid;
 
             grid-template-columns:
                 48px
                 1fr;
 
-            gap: 12px;
+            gap:
+                12px;
 
-            align-items: center;
+            align-items:
+                center;
 
-            padding: 11px 0;
+            padding:
+                11px
+                0;
 
             border-bottom:
                 1px solid
                 var(--linha);
+
         }
 
 
         .data-row:last-child {
-            border-bottom: 0;
+
+            border-bottom:
+                0;
+
         }
 
 
         .data-icon {
-            display: flex;
 
-            align-items: center;
-            justify-content: flex-start;
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                flex-start;
+
         }
 
 
         .data-icon .icon {
-            width: 34px;
-            height: 34px;
+
+            width:
+                34px;
+
+            height:
+                34px;
+
         }
 
 
         .data-row strong {
-            display: block;
 
-            font-size: 16px;
+            display:
+                block;
 
-            margin-bottom: 2px;
+            font-size:
+                16px;
+
+            margin-bottom:
+                2px;
+
         }
 
 
         .data-row span,
         .data-row a {
-            color: #363b39;
 
-            font-size: 15px;
+            color:
+                #363b39;
 
-            line-height: 1.3;
+            font-size:
+                15px;
+
+            line-height:
+                1.3;
+
         }
 
 
@@ -1089,108 +1671,162 @@
         ========================================================= */
 
         .site-footer {
-            height: var(--footer-h);
+
+            height:
+                var(--footer-h);
 
             background:
                 var(--verde);
 
-            color: #fff;
+            color:
+                #fff;
 
-            padding: 0 4.4%;
+            padding:
+                0
+                4.4%;
 
-            display: grid;
+            display:
+                grid;
 
             grid-template-columns:
                 260px
                 1fr
                 330px;
 
-            align-items: center;
+            align-items:
+                center;
+
         }
 
 
         /* REDES SOCIAIS */
 
         .social {
-            display: flex;
 
-            gap: 29px;
+            display:
+                flex;
 
-            align-items: center;
+            gap:
+                29px;
+
+            align-items:
+                center;
+
         }
 
 
         .social .icon {
-            width: 22px;
-            height: 22px;
 
-            background-color: #fff;
+            width:
+                22px;
+
+            height:
+                22px;
+
+            background-color:
+                #fff;
+
         }
 
 
         /* LINKS */
 
         .footer-nav {
-            display: flex;
 
-            align-items: center;
-            justify-content: center;
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
 
             gap:
-                clamp(44px, 5vw, 90px);
+                clamp(
+                    44px,
+                    5vw,
+                    90px
+                );
 
-            font-size: 17px;
+            font-size:
+                17px;
+
         }
 
 
         .footer-nav a {
-            white-space: nowrap;
+
+            white-space:
+                nowrap;
+
         }
 
 
         .footer-nav .active {
-            position: relative;
+
+            position:
+                relative;
+
         }
 
 
         .footer-nav .active::after {
-            content: "";
 
-            position: absolute;
+            content:
+                "";
 
-            left: 0;
-            right: 0;
+            position:
+                absolute;
 
-            bottom: -8px;
+            left:
+                0;
 
-            height: 1px;
+            right:
+                0;
 
-            background: #fff;
+            bottom:
+                -8px;
+
+            height:
+                1px;
+
+            background:
+                #fff;
+
         }
 
 
-        /* =========================================================
-           MARCA DO RODAPÉ
-           CORRIGIDO:
-           utiliza Marca-soft.svg
-        ========================================================= */
+        /* MARCA DO RODAPÉ */
 
         .footer-brand {
-            display: flex;
 
-            justify-content: flex-end;
-            align-items: center;
+            display:
+                flex;
+
+            justify-content:
+                flex-end;
+
+            align-items:
+                center;
+
         }
 
 
         .footer-brand img {
-            width: 300px;
 
-            max-width: 100%;
+            width:
+                300px;
 
-            height: auto;
+            max-width:
+                100%;
 
-            display: block;
+            height:
+                auto;
+
+            display:
+                block;
+
         }
 
 
@@ -1201,49 +1837,71 @@
         @media (max-width: 1450px) {
 
             .header-inner {
+
                 grid-template-columns:
                     330px
                     1fr
                     190px;
+
             }
 
 
             .brand img {
-                width: 310px;
+
+                width:
+                    310px;
+
             }
 
 
             .main-nav {
-                gap: 34px;
 
-                font-size: 16px;
+                gap:
+                    34px;
+
+                font-size:
+                    16px;
+
             }
 
 
             .contact-grid {
-                gap: 30px;
+
+                gap:
+                    30px;
 
                 grid-template-columns:
                     minmax(370px, .9fr)
                     minmax(465px, 1fr)
                     minmax(330px, .76fr);
+
             }
 
 
             .contact-intro {
-                padding-right: 35px;
+
+                padding-right:
+                    35px;
+
             }
 
 
             .contact-title {
-                font-size: 50px;
+
+                font-size:
+                    50px;
+
             }
 
 
             .technical-art {
-                transform: scale(.92);
 
-                transform-origin: center;
+                transform:
+                    scale(.92);
+
+                transform-origin:
+                    center;
+
             }
 
         }
@@ -1256,88 +1914,129 @@
         @media (max-width: 1100px) {
 
             :root {
-                --header-h: 92px;
+
+                --header-h:
+                    92px;
+
             }
 
 
             .header-inner {
+
                 grid-template-columns:
                     280px
                     1fr;
+
             }
 
 
             .brand img {
-                width: 270px;
+
+                width:
+                    270px;
+
             }
 
 
             .main-nav {
-                display: none;
+
+                display:
+                    none;
+
             }
 
 
             .contact-main {
-                height: auto;
 
-                overflow: visible;
+                height:
+                    auto;
 
-                padding-top: 45px;
-                padding-bottom: 45px;
+                overflow:
+                    visible;
+
+                padding-top:
+                    45px;
+
+                padding-bottom:
+                    45px;
+
             }
 
 
             .contact-grid {
+
                 grid-template-columns:
                     1fr
                     1fr;
+
             }
 
 
             .contact-side {
-                grid-column: 1 / -1;
 
-                display: grid;
+                grid-column:
+                    1 / -1;
+
+                display:
+                    grid;
 
                 grid-template-columns:
                     1fr
                     1fr;
 
-                align-items: center;
+                align-items:
+                    center;
 
-                padding-top: 30px;
+                padding-top:
+                    30px;
 
                 border-top:
-                    1px solid var(--linha);
+                    1px solid
+                    var(--linha);
+
             }
 
 
             .technical-art {
-                grid-row: 1 / span 2;
+
+                grid-row:
+                    1 / span 2;
+
             }
 
 
             .site-footer {
-                height: auto;
 
-                min-height: 90px;
+                height:
+                    auto;
+
+                min-height:
+                    90px;
 
                 grid-template-columns:
                     170px
                     1fr
                     220px;
+
             }
 
 
             .footer-nav {
-                gap: 25px;
 
-                font-size: 15px;
+                gap:
+                    25px;
+
+                font-size:
+                    15px;
+
             }
 
 
             .footer-brand img {
-                width: 210px;
+
+                width:
+                    210px;
+
             }
 
         }
@@ -1350,167 +2049,245 @@
         @media (max-width: 760px) {
 
             :root {
-                --header-h: auto;
+
+                --header-h:
+                    auto;
+
             }
 
 
             .site-header {
-                height: auto;
+
+                height:
+                    auto;
 
                 padding:
                     19px
                     22px;
+
             }
 
 
             .header-inner {
-                display: block;
+
+                display:
+                    block;
+
             }
 
 
             .brand img {
-                width: 245px;
+
+                width:
+                    245px;
+
             }
 
 
             .header-cta {
-                display: none;
+
+                display:
+                    none;
+
             }
 
 
             .contact-main {
+
                 padding:
                     35px
                     22px
                     45px;
+
             }
 
 
             .contact-grid {
-                display: block;
+
+                display:
+                    block;
+
             }
 
 
             .contact-intro {
-                padding: 0;
 
-                border-right: 0;
+                padding:
+                    0;
+
+                border-right:
+                    0;
+
             }
 
 
             .section-label {
-                font-size: 13px;
+
+                font-size:
+                    13px;
+
             }
 
 
             .contact-title {
-                font-size: 44px;
 
-                line-height: 1.01;
+                font-size:
+                    44px;
 
-                margin-bottom: 21px;
+                line-height:
+                    1.01;
+
+                margin-bottom:
+                    21px;
+
             }
 
 
             .contact-description {
-                font-size: 18px;
+
+                font-size:
+                    18px;
+
             }
 
 
             .benefit-list {
-                margin-bottom: 32px;
+
+                margin-bottom:
+                    32px;
+
             }
 
 
             .benefit {
+
                 grid-template-columns:
                     50px
                     1fr;
+
             }
 
 
             .form-card {
-                height: auto;
 
-                max-height: none;
+                height:
+                    auto;
+
+                max-height:
+                    none;
 
                 padding:
                     25px
                     20px;
+
             }
 
 
             .field input,
             .field select {
-                height: 50px;
 
-                font-size: 16px;
+                height:
+                    50px;
+
+                font-size:
+                    16px;
+
             }
 
 
             .field textarea {
-                height: 145px;
 
-                font-size: 16px;
+                height:
+                    145px;
+
+                font-size:
+                    16px;
+
             }
 
 
             .contact-side {
-                display: block;
 
-                margin-top: 38px;
+                display:
+                    block;
 
-                padding-top: 35px;
+                margin-top:
+                    38px;
+
+                padding-top:
+                    35px;
 
                 border-top:
-                    1px solid var(--linha);
+                    1px solid
+                    var(--linha);
+
             }
 
 
             .technical-art {
-                height: 270px;
+
+                height:
+                    270px;
 
                 transform:
                     scale(.9);
 
                 transform-origin:
                     center;
+
             }
 
 
             .contact-quote {
-                margin-left: 0;
 
-                font-size: 23px;
+                margin-left:
+                    0;
+
+                font-size:
+                    23px;
+
             }
 
 
             .contact-data {
-                max-width: none;
+
+                max-width:
+                    none;
+
             }
 
 
             .site-footer {
-                display: flex;
 
-                flex-direction: column;
+                display:
+                    flex;
 
-                height: auto;
+                flex-direction:
+                    column;
 
-                gap: 27px;
+                height:
+                    auto;
+
+                gap:
+                    27px;
 
                 padding:
                     32px
                     22px;
 
-                text-align: center;
+                text-align:
+                    center;
+
             }
 
 
             .footer-nav {
-                order: 1;
 
-                display: grid;
+                order:
+                    1;
+
+                display:
+                    grid;
 
                 grid-template-columns:
                     1fr
@@ -1520,24 +2297,36 @@
                     18px
                     32px;
 
-                font-size: 16px;
+                font-size:
+                    16px;
+
             }
 
 
             .social {
-                order: 2;
+
+                order:
+                    2;
+
             }
 
 
             .footer-brand {
-                order: 3;
 
-                justify-content: center;
+                order:
+                    3;
+
+                justify-content:
+                    center;
+
             }
 
 
             .footer-brand img {
-                width: 260px;
+
+                width:
+                    260px;
+
             }
 
         }
@@ -1550,30 +2339,43 @@
         @media (max-width: 460px) {
 
             .brand img {
-                width: 220px;
+
+                width:
+                    220px;
+
             }
 
 
             .contact-title {
-                font-size: 39px;
+
+                font-size:
+                    39px;
+
             }
 
 
             .technical-art {
-                width: 420px;
 
-                left: 50%;
+                width:
+                    420px;
 
-                margin-left: -210px;
+                left:
+                    50%;
+
+                margin-left:
+                    -210px;
 
                 transform:
                     scale(.78);
+
             }
 
 
             .footer-nav {
+
                 grid-template-columns:
                     1fr;
+
             }
 
         }
@@ -1649,7 +2451,6 @@
     </header>
 
 
-
     <!-- =========================================================
          CONTEÚDO
     ========================================================== -->
@@ -1721,7 +2522,6 @@
                     </div>
 
 
-
                     <div class="benefit">
 
                         <div class="benefit-icon">
@@ -1748,7 +2548,6 @@
                         </div>
 
                     </div>
-
 
 
                     <div class="benefit">
@@ -1783,7 +2582,6 @@
             </section>
 
 
-
             <!-- =================================================
                  FORMULÁRIO
             ================================================== -->
@@ -1799,6 +2597,33 @@
                 >
 
 
+                    <!--
+                        CAMPO INVISÍVEL ANTISPAM.
+                        Usuários normais nunca o veem.
+                    -->
+
+                    <div
+                        class="hp-field"
+                        aria-hidden="true"
+                    >
+
+                        <label for="website">
+                            Website
+                        </label>
+
+                        <input
+                            type="text"
+                            id="website"
+                            name="website"
+                            tabindex="-1"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <!-- NOME -->
+
                     <div class="field">
 
                         <label for="nome">
@@ -1811,12 +2636,14 @@
                             name="nome"
                             placeholder="Seu nome"
                             autocomplete="name"
+                            maxlength="120"
                             required
                         >
 
                     </div>
 
 
+                    <!-- EMAIL -->
 
                     <div class="field">
 
@@ -1830,12 +2657,14 @@
                             name="email"
                             placeholder="seu@email.com.br"
                             autocomplete="email"
+                            maxlength="200"
                             required
                         >
 
                     </div>
 
 
+                    <!-- ASSUNTO -->
 
                     <div class="field">
 
@@ -1882,6 +2711,7 @@
                     </div>
 
 
+                    <!-- MENSAGEM -->
 
                     <div class="field">
 
@@ -1897,6 +2727,7 @@
                             required
                         ></textarea>
 
+
                         <div
                             class="counter"
                             id="counter"
@@ -1907,13 +2738,40 @@
                     </div>
 
 
+                    <!-- =================================================
+                         CLOUDFLARE TURNSTILE
+
+                         Site Key pública.
+                         A Secret Key permanece somente no Worker.
+                    ================================================== -->
+
+                    <div class="turnstile-area">
+
+                        <div
+                            class="cf-turnstile"
+                            data-sitekey="0x4AAAAAAEry6CGc6xkfZZeB"
+                            data-theme="light"
+                            data-language="pt-BR"
+                            data-size="flexible"
+                            data-appearance="interaction-only"
+                            data-action="contato"
+                            data-callback="onTurnstileSuccess"
+                            data-error-callback="onTurnstileError"
+                            data-expired-callback="onTurnstileExpired"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- BOTÃO -->
 
                     <button
                         class="send-button"
                         type="submit"
+                        id="sendButton"
                     >
 
-                        <span>
+                        <span id="sendButtonText">
                             Enviar mensagem
                         </span>
 
@@ -1925,6 +2783,17 @@
                     </button>
 
 
+                    <!-- STATUS -->
+
+                    <div
+                        id="formStatus"
+                        class="form-status"
+                        role="status"
+                        aria-live="polite"
+                    ></div>
+
+
+                    <!-- AVISO -->
 
                     <p class="legal-note">
 
@@ -1948,7 +2817,6 @@
             </section>
 
 
-
             <!-- =================================================
                  COLUNA 3
             ================================================== -->
@@ -1963,8 +2831,6 @@
                     aria-hidden="true"
                 >
 
-
-                    <!-- LINHAS -->
 
                     <span
                         class="construction-line line-1"
@@ -1983,8 +2849,6 @@
                     ></span>
 
 
-                    <!-- PONTOS -->
-
                     <span
                         class="construction-dot dot-1"
                     ></span>
@@ -1998,14 +2862,10 @@
                     ></span>
 
 
-                    <!-- COMPASS -->
-
                     <span
                         class="tech-element tech-compass"
                     ></span>
 
-
-                    <!-- CROSSHAIRS -->
 
                     <span
                         class="tech-element tech-crosshair-1"
@@ -2016,21 +2876,16 @@
                     ></span>
 
 
-                    <!-- PATH -->
-
                     <span
                         class="tech-element tech-path"
                     ></span>
 
-
-                    <!-- PAPER PLANE -->
 
                     <span
                         class="tech-element tech-plane"
                     ></span>
 
                 </div>
-
 
 
                 <!-- FRASE -->
@@ -2041,7 +2896,6 @@
                     também abrem caminhos.”
 
                 </blockquote>
-
 
 
                 <!-- CONTATO -->
@@ -2078,7 +2932,6 @@
                     </div>
 
 
-
                     <div class="data-row">
 
                         <div class="data-icon">
@@ -2104,7 +2957,6 @@
                         </div>
 
                     </div>
-
 
 
                     <div class="data-row">
@@ -2140,7 +2992,6 @@
         </div>
 
     </main>
-
 
 
     <!-- =========================================================
@@ -2196,7 +3047,6 @@
         </div>
 
 
-
         <!-- NAVEGAÇÃO -->
 
         <nav
@@ -2226,12 +3076,7 @@
         </nav>
 
 
-
-        <!--
-            CORRIGIDO:
-            Marca-soft.svg para utilização
-            sobre o fundo verde.
-        -->
+        <!-- MARCA -->
 
         <div class="footer-brand">
 
@@ -2245,12 +3090,26 @@
     </footer>
 
 
-
     <!-- =========================================================
          JAVASCRIPT
     ========================================================== -->
 
     <script>
+
+        /* =========================================================
+           ENDPOINT DO CLOUDFLARE WORKER
+        ========================================================= */
+
+        const WORKER_ENDPOINT =
+            "https://analiselegal-contato.miguel-compras.workers.dev";
+
+
+        /* =========================================================
+           ELEMENTOS
+        ========================================================= */
+
+        const form =
+            document.getElementById("contactForm");
 
         const mensagem =
             document.getElementById("mensagem");
@@ -2258,8 +3117,22 @@
         const contador =
             document.getElementById("counter");
 
+        const sendButton =
+            document.getElementById("sendButton");
 
-        /* CONTADOR DE CARACTERES */
+        const sendButtonText =
+            document.getElementById("sendButtonText");
+
+        const formStatus =
+            document.getElementById("formStatus");
+
+
+        let turnstileToken = "";
+
+
+        /* =========================================================
+           CONTADOR DE CARACTERES
+        ========================================================= */
 
         mensagem.addEventListener(
             "input",
@@ -2273,34 +3146,372 @@
         );
 
 
-        /*
-        ==========================================================
-        ENVIO DO FORMULÁRIO
+        /* =========================================================
+           STATUS
+        ========================================================= */
 
-        Enquanto não houver um serviço de envio conectado,
-        o formulário não transmite dados.
+        function setStatus(
+            message,
+            type = ""
+        ) {
 
-        Quando o endpoint estiver definido, basta substituir
-        este trecho pela implementação correspondente.
-        ==========================================================
-        */
+            formStatus.textContent =
+                message;
 
-        document
-            .getElementById("contactForm")
-            .addEventListener(
-                "submit",
-                function (event) {
+            formStatus.className =
+                "form-status" +
+                (
+                    type
+                        ? " " + type
+                        : ""
+                );
 
-                    event.preventDefault();
+        }
 
-                    alert(
-                        "O envio pelo formulário ainda não está configurado. " +
-                        "Você pode entrar em contato pelo e-mail " +
-                        "contato@analiselegal.com.br."
-                    );
+
+        /* =========================================================
+           CALLBACKS DO TURNSTILE
+        ========================================================= */
+
+        function onTurnstileSuccess(
+            token
+        ) {
+
+            turnstileToken =
+                token;
+
+
+            if (
+                formStatus.classList.contains(
+                    "error"
+                )
+            ) {
+
+                setStatus("");
+
+            }
+
+        }
+
+
+        function onTurnstileError() {
+
+            turnstileToken =
+                "";
+
+            setStatus(
+                "Não foi possível concluir a validação de segurança. Tente novamente.",
+                "error"
+            );
+
+        }
+
+
+        function onTurnstileExpired() {
+
+            turnstileToken =
+                "";
+
+
+            if (
+                window.turnstile &&
+                typeof window.turnstile.reset ===
+                    "function"
+            ) {
+
+                window.turnstile.reset();
+
+            }
+
+        }
+
+
+        /* =========================================================
+           BOTÃO
+        ========================================================= */
+
+        function setSending(
+            isSending
+        ) {
+
+            sendButton.disabled =
+                isSending;
+
+
+            sendButtonText.textContent =
+                isSending
+                    ? "Enviando..."
+                    : "Enviar mensagem";
+
+        }
+
+
+        /* =========================================================
+           ENVIO DO FORMULÁRIO
+        ========================================================= */
+
+        form.addEventListener(
+            "submit",
+            async function (event) {
+
+                event.preventDefault();
+
+
+                setStatus("");
+
+
+                /* =============================================
+                   VALIDAÇÃO NATIVA DO NAVEGADOR
+                ============================================== */
+
+                if (
+                    !form.checkValidity()
+                ) {
+
+                    form.reportValidity();
+
+                    return;
 
                 }
-            );
+
+
+                /* =============================================
+                   TOKEN TURNSTILE
+                ============================================== */
+
+                const hiddenToken =
+                    form.querySelector(
+                        '[name="cf-turnstile-response"]'
+                    );
+
+
+                const token =
+                    turnstileToken ||
+                    hiddenToken?.value ||
+                    "";
+
+
+                if (!token) {
+
+                    setStatus(
+                        "Aguarde a validação de segurança e tente novamente.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                /* =============================================
+                   ASSUNTO
+
+                   Enviamos o texto visível ao e-mail.
+                ============================================== */
+
+                const assuntoSelect =
+                    document.getElementById(
+                        "assunto"
+                    );
+
+
+                const assunto =
+                    assuntoSelect.options[
+                        assuntoSelect.selectedIndex
+                    ].text;
+
+
+                /* =============================================
+                   DADOS ENVIADOS AO WORKER
+                ============================================== */
+
+                const payload = {
+
+                    nome:
+                        document
+                            .getElementById(
+                                "nome"
+                            )
+                            .value
+                            .trim(),
+
+                    email:
+                        document
+                            .getElementById(
+                                "email"
+                            )
+                            .value
+                            .trim(),
+
+                    assunto:
+                        assunto,
+
+                    mensagem:
+                        mensagem
+                            .value
+                            .trim(),
+
+                    website:
+                        document
+                            .getElementById(
+                                "website"
+                            )
+                            .value,
+
+                    turnstileToken:
+                        token
+
+                };
+
+
+                setSending(true);
+
+
+                try {
+
+
+                    /* =========================================
+                       ENVIA PARA CLOUDFLARE WORKER
+                    ========================================== */
+
+                    const response =
+                        await fetch(
+                            WORKER_ENDPOINT,
+                            {
+
+                                method:
+                                    "POST",
+
+                                headers: {
+
+                                    "Content-Type":
+                                        "application/json"
+
+                                },
+
+                                body:
+                                    JSON.stringify(
+                                        payload
+                                    )
+
+                            }
+                        );
+
+
+                    let result = {};
+
+
+                    try {
+
+                        result =
+                            await response.json();
+
+                    }
+                    catch {
+
+                        result = {};
+
+                    }
+
+
+                    /* =========================================
+                       ERRO INFORMADO PELO WORKER
+                    ========================================== */
+
+                    if (
+                        !response.ok ||
+                        !result.ok
+                    ) {
+
+                        throw new Error(
+                            result.error ||
+                            "Não foi possível enviar a mensagem."
+                        );
+
+                    }
+
+
+                    /* =========================================
+                       SUCESSO
+                    ========================================== */
+
+                    setStatus(
+                        "Mensagem enviada com sucesso.",
+                        "success"
+                    );
+
+
+                    form.reset();
+
+
+                    contador.textContent =
+                        "0 / 1000";
+
+
+                    turnstileToken =
+                        "";
+
+
+                    if (
+                        window.turnstile &&
+                        typeof window.turnstile.reset ===
+                            "function"
+                    ) {
+
+                        window.turnstile.reset();
+
+                    }
+
+                }
+
+
+                catch (error) {
+
+
+                    console.error(
+                        "Erro no envio do formulário:",
+                        error
+                    );
+
+
+                    setStatus(
+                        error.message ||
+                        "Não foi possível enviar a mensagem. Tente novamente.",
+                        "error"
+                    );
+
+
+                    /*
+                     * O token do Turnstile é de uso único.
+                     * Geramos outro para uma eventual
+                     * nova tentativa.
+                     */
+
+                    turnstileToken =
+                        "";
+
+
+                    if (
+                        window.turnstile &&
+                        typeof window.turnstile.reset ===
+                            "function"
+                    ) {
+
+                        window.turnstile.reset();
+
+                    }
+
+                }
+
+
+                finally {
+
+                    setSending(false);
+
+                }
+
+            }
+        );
 
     </script>
 
