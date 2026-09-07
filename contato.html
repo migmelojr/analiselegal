@@ -16,7 +16,7 @@
     <style>
 
         /* =========================================================
-           BASE
+           VARIÁVEIS
         ========================================================= */
 
         :root {
@@ -37,6 +37,11 @@
             --footer-h: 90px;
         }
 
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
         * {
             margin: 0;
             padding: 0;
@@ -49,6 +54,7 @@
 
         body {
             margin: 0;
+
             background: var(--fundo);
             color: var(--texto);
 
@@ -71,8 +77,7 @@
 
 
         /* =========================================================
-           ÍCONES EXTERNOS
-           Os SVGs ficam em assets/img/icon/
+           SISTEMA DE ÍCONES
         ========================================================= */
 
         .icon {
@@ -93,64 +98,85 @@
             mask-size: contain;
         }
 
+
         .icon-plane {
-            -webkit-mask-image: url("assets/img/icon/paper-plane-tilt.svg");
-            mask-image: url("assets/img/icon/paper-plane-tilt.svg");
+            -webkit-mask-image:
+                url("assets/img/icon/paper-plane-tilt.svg");
+
+            mask-image:
+                url("assets/img/icon/paper-plane-tilt.svg");
         }
+
 
         .icon-lock {
-            -webkit-mask-image: url("assets/img/icon/lock.svg");
-            mask-image: url("assets/img/icon/lock.svg");
+            -webkit-mask-image:
+                url("assets/img/icon/lock.svg");
+
+            mask-image:
+                url("assets/img/icon/lock.svg");
         }
+
 
         .icon-chat {
-            -webkit-mask-image: url("assets/img/icon/chat.svg");
-            mask-image: url("assets/img/icon/chat.svg");
+            -webkit-mask-image:
+                url("assets/img/icon/chat.svg");
+
+            mask-image:
+                url("assets/img/icon/chat.svg");
         }
+
 
         .icon-clock {
-            -webkit-mask-image: url("assets/img/icon/clock.svg");
-            mask-image: url("assets/img/icon/clock.svg");
+            -webkit-mask-image:
+                url("assets/img/icon/clock.svg");
+
+            mask-image:
+                url("assets/img/icon/clock.svg");
         }
+
 
         .icon-pin {
-            -webkit-mask-image: url("assets/img/icon/map-pin.svg");
-            mask-image: url("assets/img/icon/map-pin.svg");
+            -webkit-mask-image:
+                url("assets/img/icon/map-pin.svg");
+
+            mask-image:
+                url("assets/img/icon/map-pin.svg");
         }
+
 
         .icon-arrow {
-            -webkit-mask-image: url("assets/img/icon/arrow-right.svg");
-            mask-image: url("assets/img/icon/arrow-right.svg");
+            -webkit-mask-image:
+                url("assets/img/icon/arrow-right.svg");
+
+            mask-image:
+                url("assets/img/icon/arrow-right.svg");
         }
 
-        .icon-crosshair {
-            -webkit-mask-image: url("assets/img/icon/crosshair.svg");
-            mask-image: url("assets/img/icon/crosshair.svg");
-        }
-
-        .icon-compass {
-            -webkit-mask-image: url("assets/img/icon/compass.svg");
-            mask-image: url("assets/img/icon/compass.svg");
-        }
-
-        .icon-path {
-            -webkit-mask-image: url("assets/img/icon/path.svg");
-            mask-image: url("assets/img/icon/path.svg");
-        }
 
         .icon-linkedin {
-            -webkit-mask-image: url("assets/img/icon/linkedin-logo.svg");
-            mask-image: url("assets/img/icon/linkedin-logo.svg");
+            -webkit-mask-image:
+                url("assets/img/icon/linkedin-logo.svg");
+
+            mask-image:
+                url("assets/img/icon/linkedin-logo.svg");
         }
+
 
         .icon-instagram {
-            -webkit-mask-image: url("assets/img/icon/instagram-logo.svg");
-            mask-image: url("assets/img/icon/instagram-logo.svg");
+            -webkit-mask-image:
+                url("assets/img/icon/instagram-logo.svg");
+
+            mask-image:
+                url("assets/img/icon/instagram-logo.svg");
         }
 
+
         .icon-facebook {
-            -webkit-mask-image: url("assets/img/icon/facebook-logo.svg");
-            mask-image: url("assets/img/icon/facebook-logo.svg");
+            -webkit-mask-image:
+                url("assets/img/icon/facebook-logo.svg");
+
+            mask-image:
+                url("assets/img/icon/facebook-logo.svg");
         }
 
 
@@ -171,35 +197,45 @@
             padding: 0 4.4%;
         }
 
+
         .header-inner {
             width: 100%;
 
             display: grid;
-            grid-template-columns: 390px 1fr 220px;
+
+            grid-template-columns:
+                390px
+                1fr
+                220px;
 
             align-items: center;
         }
 
 
-        /* LOGO */
+        /* MARCA */
 
         .brand {
             display: flex;
             align-items: center;
         }
 
+
         .brand img {
             width: 350px;
+
             max-width: 100%;
+
             height: auto;
+
             display: block;
         }
 
 
-        /* MENU */
+        /* NAVEGAÇÃO */
 
         .main-nav {
             display: flex;
+
             align-items: center;
             justify-content: center;
 
@@ -208,10 +244,13 @@
             font-size: 18px;
         }
 
+
         .main-nav a {
             position: relative;
+
             white-space: nowrap;
         }
+
 
         .main-nav a::after {
             content: "";
@@ -229,23 +268,27 @@
             transition: width .2s ease;
         }
 
+
         .main-nav a:hover::after {
             width: 100%;
         }
 
 
-        /* CTA */
+        /* BOTÃO SUPERIOR */
 
         .header-cta {
             display: flex;
+
             justify-content: flex-end;
         }
 
+
         .btn-main {
-            height: 48px;
             min-width: 190px;
+            height: 48px;
 
             display: inline-flex;
+
             align-items: center;
             justify-content: center;
 
@@ -261,13 +304,14 @@
             transition: background .2s ease;
         }
 
+
         .btn-main:hover {
             background: var(--verde-hover);
         }
 
 
         /* =========================================================
-           MAIN
+           ÁREA PRINCIPAL
         ========================================================= */
 
         .contact-main {
@@ -276,13 +320,16 @@
             padding: 30px 4.4%;
 
             display: flex;
+
             align-items: center;
 
             overflow: hidden;
         }
 
+
         .contact-grid {
             width: 100%;
+
             max-width: 1770px;
 
             margin: 0 auto;
@@ -301,18 +348,22 @@
 
 
         /* =========================================================
-           ESQUERDA
+           COLUNA ESQUERDA
         ========================================================= */
 
         .contact-intro {
             padding-right: 48px;
 
-            border-right: 1px solid rgba(6, 77, 73, .72);
+            border-right:
+                1px solid rgba(6, 77, 73, .72);
 
             display: flex;
+
             flex-direction: column;
+
             justify-content: center;
         }
+
 
         .section-label {
             color: var(--verde);
@@ -327,6 +378,7 @@
             margin-bottom: 15px;
         }
 
+
         .section-label::after {
             content: "";
 
@@ -340,8 +392,10 @@
             margin-top: 14px;
         }
 
+
         .contact-title {
-            font-size: clamp(48px, 3.15vw, 62px);
+            font-size:
+                clamp(48px, 3.15vw, 62px);
 
             line-height: .99;
 
@@ -351,6 +405,7 @@
 
             margin-bottom: 22px;
         }
+
 
         .contact-description {
             max-width: 475px;
@@ -363,27 +418,33 @@
         }
 
 
-        /* BENEFÍCIOS */
+        /* ITENS INFORMATIVOS */
 
         .benefit-list {
             margin-top: 3px;
         }
 
+
         .benefit {
             display: grid;
 
-            grid-template-columns: 58px 1fr;
+            grid-template-columns:
+                58px
+                1fr;
 
             gap: 15px;
 
             padding: 15px 0;
 
-            border-bottom: 1px solid var(--linha);
+            border-bottom:
+                1px solid var(--linha);
         }
+
 
         .benefit:last-child {
             border-bottom: 0;
         }
+
 
         .benefit-icon {
             display: flex;
@@ -394,10 +455,12 @@
             padding-top: 2px;
         }
 
+
         .benefit .icon {
             width: 40px;
             height: 40px;
         }
+
 
         .benefit strong {
             display: block;
@@ -406,6 +469,7 @@
 
             margin-bottom: 3px;
         }
+
 
         .benefit p {
             font-size: 15.5px;
@@ -425,25 +489,33 @@
 
             max-height: 650px;
 
-            padding: 27px 30px 23px;
+            padding:
+                27px
+                30px
+                23px;
 
             background: var(--fundo-form);
 
-            border: 1px solid #edf0ef;
+            border:
+                1px solid #edf0ef;
 
             border-radius: 10px;
 
             display: flex;
+
             align-items: center;
         }
+
 
         .contact-form {
             width: 100%;
         }
 
+
         .field {
             margin-bottom: 15px;
         }
+
 
         .field label {
             display: block;
@@ -455,6 +527,7 @@
             margin-bottom: 6px;
         }
 
+
         .field input,
         .field select,
         .field textarea {
@@ -464,7 +537,9 @@
 
             background: #fff;
 
-            border: 1px solid #c9d3d1;
+            border:
+                1px solid #c9d3d1;
+
             border-radius: 5px;
 
             outline: none;
@@ -476,12 +551,14 @@
                 box-shadow .2s ease;
         }
 
+
         .field input,
         .field select {
             height: 45px;
 
             padding: 0 13px;
         }
+
 
         .field textarea {
             height: 120px;
@@ -493,19 +570,23 @@
             line-height: 1.4;
         }
 
+
         .field input:focus,
         .field select:focus,
         .field textarea:focus {
             border-color: var(--verde);
 
             box-shadow:
-                0 0 0 3px rgba(6, 77, 73, .07);
+                0 0 0 3px
+                rgba(6, 77, 73, .07);
         }
+
 
         .field input::placeholder,
         .field textarea::placeholder {
             color: #788583;
         }
+
 
         .counter {
             margin-top: 5px;
@@ -518,13 +599,14 @@
         }
 
 
-        /* BOTÃO */
+        /* BOTÃO DO FORMULÁRIO */
 
         .send-button {
             width: 100%;
             height: 52px;
 
             border: 0;
+
             border-radius: 7px;
 
             background: var(--verde);
@@ -532,6 +614,7 @@
             color: #fff;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
@@ -541,12 +624,16 @@
 
             font-size: 18px;
 
-            transition: background .2s ease;
+            transition:
+                background .2s ease;
         }
 
+
         .send-button:hover {
-            background: var(--verde-hover);
+            background:
+                var(--verde-hover);
         }
+
 
         .send-button .icon {
             width: 22px;
@@ -555,10 +642,14 @@
             background-color: #fff;
         }
 
+
         .legal-note {
             max-width: 455px;
 
-            margin: 13px auto 0;
+            margin:
+                13px
+                auto
+                0;
 
             text-align: center;
 
@@ -568,6 +659,7 @@
 
             line-height: 1.4;
         }
+
 
         .legal-note a {
             text-decoration: underline;
@@ -593,16 +685,7 @@
 
         /* =========================================================
            ILUSTRAÇÃO TÉCNICA
-
-           NÃO EXISTE UMA IMAGEM PRONTA.
-
-           Composição feita exclusivamente com:
-           paper-plane-tilt.svg
-           crosshair.svg
-           compass.svg
-           path.svg
-
-           + linhas e círculos CSS.
+           GERADA POR ÍCONES EXISTENTES
         ========================================================= */
 
         .technical-art {
@@ -610,15 +693,19 @@
 
             width: 100%;
             max-width: 430px;
+
             height: 285px;
 
-            margin: 0 auto 5px;
+            margin:
+                0
+                auto
+                5px;
 
             overflow: hidden;
         }
 
 
-        /* linhas construtivas */
+        /* CÍRCULO PRINCIPAL */
 
         .technical-art::before {
             content: "";
@@ -631,9 +718,15 @@
             left: 81px;
             top: 7px;
 
-            border: 1px solid rgba(6, 77, 73, .18);
+            border:
+                1px solid
+                rgba(6, 77, 73, .18);
+
             border-radius: 50%;
         }
+
+
+        /* CÍRCULO SECUNDÁRIO */
 
         .technical-art::after {
             content: "";
@@ -646,28 +739,39 @@
             left: 23px;
             top: 75px;
 
-            border: 1px solid rgba(6, 77, 73, .15);
+            border:
+                1px solid
+                rgba(6, 77, 73, .15);
+
             border-radius: 50%;
         }
 
-
-        /* elementos genéricos */
 
         .tech-element {
             position: absolute;
 
             display: block;
 
-            background-color: var(--verde);
+            background-color:
+                var(--verde);
 
-            -webkit-mask-repeat: no-repeat;
-            mask-repeat: no-repeat;
+            -webkit-mask-repeat:
+                no-repeat;
 
-            -webkit-mask-position: center;
-            mask-position: center;
+            mask-repeat:
+                no-repeat;
 
-            -webkit-mask-size: contain;
-            mask-size: contain;
+            -webkit-mask-position:
+                center;
+
+            mask-position:
+                center;
+
+            -webkit-mask-size:
+                contain;
+
+            mask-size:
+                contain;
 
             pointer-events: none;
         }
@@ -694,7 +798,7 @@
         }
 
 
-        /* COMPASSO */
+        /* COMPASS */
 
         .tech-compass {
             width: 174px;
@@ -780,19 +884,22 @@
         }
 
 
-        /* LINHAS */
+        /* LINHAS TÉCNICAS */
 
         .construction-line {
             position: absolute;
 
             height: 1px;
 
-            background: rgba(6, 77, 73, .18);
+            background:
+                rgba(6, 77, 73, .18);
 
-            transform-origin: left center;
+            transform-origin:
+                left center;
 
             z-index: 0;
         }
+
 
         .line-1 {
             width: 350px;
@@ -800,8 +907,10 @@
             left: 34px;
             top: 92px;
 
-            transform: rotate(-11deg);
+            transform:
+                rotate(-11deg);
         }
+
 
         .line-2 {
             width: 338px;
@@ -809,8 +918,10 @@
             left: 36px;
             top: 204px;
 
-            transform: rotate(9deg);
+            transform:
+                rotate(9deg);
         }
+
 
         .line-3 {
             width: 255px;
@@ -818,8 +929,10 @@
             left: 158px;
             top: 38px;
 
-            transform: rotate(70deg);
+            transform:
+                rotate(70deg);
         }
+
 
         .line-4 {
             width: 225px;
@@ -827,11 +940,12 @@
             left: 75px;
             top: 33px;
 
-            transform: rotate(89deg);
+            transform:
+                rotate(89deg);
         }
 
 
-        /* PONTOS */
+        /* PONTOS TÉCNICOS */
 
         .construction-dot {
             position: absolute;
@@ -839,21 +953,27 @@
             width: 8px;
             height: 8px;
 
-            border: 1px solid rgba(6, 77, 73, .36);
+            border:
+                1px solid
+                rgba(6, 77, 73, .36);
+
             border-radius: 50%;
 
             z-index: 1;
         }
+
 
         .dot-1 {
             left: 45px;
             top: 88px;
         }
 
+
         .dot-2 {
             right: 38px;
             top: 45px;
         }
+
 
         .dot-3 {
             left: 84px;
@@ -866,7 +986,10 @@
         .contact-quote {
             max-width: 335px;
 
-            margin: 0 auto 17px;
+            margin:
+                0
+                auto
+                17px;
 
             color: var(--verde);
 
@@ -876,6 +999,7 @@
 
             font-style: italic;
         }
+
 
         .contact-quote::after {
             content: "";
@@ -887,11 +1011,12 @@
 
             margin-top: 16px;
 
-            background: var(--verde);
+            background:
+                var(--verde);
         }
 
 
-        /* DADOS */
+        /* DADOS DE CONTATO */
 
         .contact-data {
             width: 100%;
@@ -901,10 +1026,13 @@
             margin: 0 auto;
         }
 
+
         .data-row {
             display: grid;
 
-            grid-template-columns: 48px 1fr;
+            grid-template-columns:
+                48px
+                1fr;
 
             gap: 12px;
 
@@ -912,12 +1040,16 @@
 
             padding: 11px 0;
 
-            border-bottom: 1px solid var(--linha);
+            border-bottom:
+                1px solid
+                var(--linha);
         }
+
 
         .data-row:last-child {
             border-bottom: 0;
         }
+
 
         .data-icon {
             display: flex;
@@ -926,10 +1058,12 @@
             justify-content: flex-start;
         }
 
+
         .data-icon .icon {
             width: 34px;
             height: 34px;
         }
+
 
         .data-row strong {
             display: block;
@@ -938,6 +1072,7 @@
 
             margin-bottom: 2px;
         }
+
 
         .data-row span,
         .data-row a {
@@ -956,7 +1091,8 @@
         .site-footer {
             height: var(--footer-h);
 
-            background: var(--verde);
+            background:
+                var(--verde);
 
             color: #fff;
 
@@ -964,13 +1100,16 @@
 
             display: grid;
 
-            grid-template-columns: 260px 1fr 330px;
+            grid-template-columns:
+                260px
+                1fr
+                330px;
 
             align-items: center;
         }
 
 
-        /* SOCIAL */
+        /* REDES SOCIAIS */
 
         .social {
             display: flex;
@@ -979,6 +1118,7 @@
 
             align-items: center;
         }
+
 
         .social .icon {
             width: 22px;
@@ -996,18 +1136,22 @@
             align-items: center;
             justify-content: center;
 
-            gap: clamp(44px, 5vw, 90px);
+            gap:
+                clamp(44px, 5vw, 90px);
 
             font-size: 17px;
         }
+
 
         .footer-nav a {
             white-space: nowrap;
         }
 
+
         .footer-nav .active {
             position: relative;
         }
+
 
         .footer-nav .active::after {
             content: "";
@@ -1016,6 +1160,7 @@
 
             left: 0;
             right: 0;
+
             bottom: -8px;
 
             height: 1px;
@@ -1024,7 +1169,11 @@
         }
 
 
-        /* LOGO RODAPÉ */
+        /* =========================================================
+           MARCA DO RODAPÉ
+           CORRIGIDO:
+           utiliza Marca-soft.svg
+        ========================================================= */
 
         .footer-brand {
             display: flex;
@@ -1033,9 +1182,12 @@
             align-items: center;
         }
 
+
         .footer-brand img {
             width: 300px;
+
             max-width: 100%;
+
             height: auto;
 
             display: block;
@@ -1043,24 +1195,30 @@
 
 
         /* =========================================================
-           RESPONSIVIDADE INTERMEDIÁRIA
+           RESPONSIVIDADE
         ========================================================= */
 
         @media (max-width: 1450px) {
 
             .header-inner {
-                grid-template-columns: 330px 1fr 190px;
+                grid-template-columns:
+                    330px
+                    1fr
+                    190px;
             }
+
 
             .brand img {
                 width: 310px;
             }
+
 
             .main-nav {
                 gap: 34px;
 
                 font-size: 16px;
             }
+
 
             .contact-grid {
                 gap: 30px;
@@ -1071,19 +1229,23 @@
                     minmax(330px, .76fr);
             }
 
+
             .contact-intro {
                 padding-right: 35px;
             }
 
+
             .contact-title {
                 font-size: 50px;
             }
+
 
             .technical-art {
                 transform: scale(.92);
 
                 transform-origin: center;
             }
+
         }
 
 
@@ -1097,17 +1259,23 @@
                 --header-h: 92px;
             }
 
+
             .header-inner {
-                grid-template-columns: 280px 1fr;
+                grid-template-columns:
+                    280px
+                    1fr;
             }
+
 
             .brand img {
                 width: 270px;
             }
 
+
             .main-nav {
                 display: none;
             }
+
 
             .contact-main {
                 height: auto;
@@ -1118,35 +1286,48 @@
                 padding-bottom: 45px;
             }
 
+
             .contact-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns:
+                    1fr
+                    1fr;
             }
+
 
             .contact-side {
                 grid-column: 1 / -1;
 
                 display: grid;
 
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns:
+                    1fr
+                    1fr;
 
                 align-items: center;
 
                 padding-top: 30px;
 
-                border-top: 1px solid var(--linha);
+                border-top:
+                    1px solid var(--linha);
             }
+
 
             .technical-art {
                 grid-row: 1 / span 2;
             }
+
 
             .site-footer {
                 height: auto;
 
                 min-height: 90px;
 
-                grid-template-columns: 170px 1fr 220px;
+                grid-template-columns:
+                    170px
+                    1fr
+                    220px;
             }
+
 
             .footer-nav {
                 gap: 25px;
@@ -1154,9 +1335,11 @@
                 font-size: 15px;
             }
 
+
             .footer-brand img {
                 width: 210px;
             }
+
         }
 
 
@@ -1170,31 +1353,43 @@
                 --header-h: auto;
             }
 
+
             .site-header {
                 height: auto;
 
-                padding: 19px 22px;
+                padding:
+                    19px
+                    22px;
             }
+
 
             .header-inner {
                 display: block;
             }
 
+
             .brand img {
                 width: 245px;
             }
+
 
             .header-cta {
                 display: none;
             }
 
+
             .contact-main {
-                padding: 35px 22px 45px;
+                padding:
+                    35px
+                    22px
+                    45px;
             }
+
 
             .contact-grid {
                 display: block;
             }
+
 
             .contact-intro {
                 padding: 0;
@@ -1202,9 +1397,11 @@
                 border-right: 0;
             }
 
+
             .section-label {
                 font-size: 13px;
             }
+
 
             .contact-title {
                 font-size: 44px;
@@ -1214,25 +1411,34 @@
                 margin-bottom: 21px;
             }
 
+
             .contact-description {
                 font-size: 18px;
             }
+
 
             .benefit-list {
                 margin-bottom: 32px;
             }
 
+
             .benefit {
-                grid-template-columns: 50px 1fr;
+                grid-template-columns:
+                    50px
+                    1fr;
             }
+
 
             .form-card {
                 height: auto;
 
                 max-height: none;
 
-                padding: 25px 20px;
+                padding:
+                    25px
+                    20px;
             }
+
 
             .field input,
             .field select {
@@ -1241,11 +1447,13 @@
                 font-size: 16px;
             }
 
+
             .field textarea {
                 height: 145px;
 
                 font-size: 16px;
             }
+
 
             .contact-side {
                 display: block;
@@ -1254,16 +1462,21 @@
 
                 padding-top: 35px;
 
-                border-top: 1px solid var(--linha);
+                border-top:
+                    1px solid var(--linha);
             }
+
 
             .technical-art {
                 height: 270px;
 
-                transform: scale(.9);
+                transform:
+                    scale(.9);
 
-                transform-origin: center;
+                transform-origin:
+                    center;
             }
+
 
             .contact-quote {
                 margin-left: 0;
@@ -1271,9 +1484,11 @@
                 font-size: 23px;
             }
 
+
             .contact-data {
                 max-width: none;
             }
+
 
             .site-footer {
                 display: flex;
@@ -1284,26 +1499,35 @@
 
                 gap: 27px;
 
-                padding: 32px 22px;
+                padding:
+                    32px
+                    22px;
 
                 text-align: center;
             }
+
 
             .footer-nav {
                 order: 1;
 
                 display: grid;
 
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns:
+                    1fr
+                    1fr;
 
-                gap: 18px 32px;
+                gap:
+                    18px
+                    32px;
 
                 font-size: 16px;
             }
 
+
             .social {
                 order: 2;
             }
+
 
             .footer-brand {
                 order: 3;
@@ -1311,9 +1535,11 @@
                 justify-content: center;
             }
 
+
             .footer-brand img {
                 width: 260px;
             }
+
         }
 
 
@@ -1327,9 +1553,11 @@
                 width: 220px;
             }
 
+
             .contact-title {
                 font-size: 39px;
             }
+
 
             .technical-art {
                 width: 420px;
@@ -1338,12 +1566,16 @@
 
                 margin-left: -210px;
 
-                transform: scale(.78);
+                transform:
+                    scale(.78);
             }
 
+
             .footer-nav {
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    1fr;
             }
+
         }
 
     </style>
@@ -1363,21 +1595,19 @@
         <div class="header-inner">
 
 
-            <!-- LOGO REAL EXISTENTE NO PROJETO -->
-
             <a
                 class="brand"
                 href="index.html"
                 aria-label="Análise Legal - página inicial"
             >
+
                 <img
                     src="assets/img/Marca.svg"
                     alt="Análise Legal"
                 >
+
             </a>
 
-
-            <!-- MENU -->
 
             <nav
                 class="main-nav"
@@ -1402,8 +1632,6 @@
 
             </nav>
 
-
-            <!-- CTA -->
 
             <div class="header-cta">
 
@@ -1432,7 +1660,7 @@
 
 
             <!-- =================================================
-                 COLUNA ESQUERDA
+                 COLUNA 1
             ================================================== -->
 
             <section class="contact-intro">
@@ -1443,24 +1671,27 @@
 
 
                 <h1 class="contact-title">
+
                     Fale com a gente.<br>
-                    Estamos à disposição.
+
+                    Estamos à<br>
+
+                    disposição.
+
                 </h1>
 
 
                 <p class="contact-description">
 
-                    Se tiver dúvidas, sugestões ou precisar
-                    de mais informações, envie sua mensagem.
-                    Respondemos o mais breve possível.
+                    Se tiver dúvidas, sugestões ou precisar de mais
+                    informações, envie sua mensagem. Respondemos o
+                    mais breve possível.
 
                 </p>
 
 
                 <div class="benefit-list">
 
-
-                    <!-- MENSAGEM -->
 
                     <div class="benefit">
 
@@ -1472,6 +1703,7 @@
                             ></span>
 
                         </div>
+
 
                         <div>
 
@@ -1489,7 +1721,6 @@
                     </div>
 
 
-                    <!-- INFORMAÇÕES -->
 
                     <div class="benefit">
 
@@ -1501,6 +1732,7 @@
                             ></span>
 
                         </div>
+
 
                         <div>
 
@@ -1518,7 +1750,6 @@
                     </div>
 
 
-                    <!-- SEM COMPROMISSO -->
 
                     <div class="benefit">
 
@@ -1530,6 +1761,7 @@
                             ></span>
 
                         </div>
+
 
                         <div>
 
@@ -1567,8 +1799,6 @@
                 >
 
 
-                    <!-- NOME -->
-
                     <div class="field">
 
                         <label for="nome">
@@ -1587,7 +1817,6 @@
                     </div>
 
 
-                    <!-- EMAIL -->
 
                     <div class="field">
 
@@ -1607,7 +1836,6 @@
                     </div>
 
 
-                    <!-- ASSUNTO -->
 
                     <div class="field">
 
@@ -1654,7 +1882,6 @@
                     </div>
 
 
-                    <!-- MENSAGEM -->
 
                     <div class="field">
 
@@ -1680,7 +1907,6 @@
                     </div>
 
 
-                    <!-- BOTÃO -->
 
                     <button
                         class="send-button"
@@ -1699,7 +1925,6 @@
                     </button>
 
 
-                    <!-- AVISO -->
 
                     <p class="legal-note">
 
@@ -1725,44 +1950,62 @@
 
 
             <!-- =================================================
-                 COLUNA DIREITA
+                 COLUNA 3
             ================================================== -->
 
             <aside class="contact-side">
 
 
-                <!-- =============================================
-                     ILUSTRAÇÃO TÉCNICA CONSTRUÍDA EM HTML/CSS
-                ============================================== -->
+                <!-- ILUSTRAÇÃO TÉCNICA -->
 
                 <div
                     class="technical-art"
                     aria-hidden="true"
                 >
 
-                    <!-- LINHAS GEOMÉTRICAS -->
 
-                    <span class="construction-line line-1"></span>
-                    <span class="construction-line line-2"></span>
-                    <span class="construction-line line-3"></span>
-                    <span class="construction-line line-4"></span>
+                    <!-- LINHAS -->
+
+                    <span
+                        class="construction-line line-1"
+                    ></span>
+
+                    <span
+                        class="construction-line line-2"
+                    ></span>
+
+                    <span
+                        class="construction-line line-3"
+                    ></span>
+
+                    <span
+                        class="construction-line line-4"
+                    ></span>
 
 
                     <!-- PONTOS -->
 
-                    <span class="construction-dot dot-1"></span>
-                    <span class="construction-dot dot-2"></span>
-                    <span class="construction-dot dot-3"></span>
+                    <span
+                        class="construction-dot dot-1"
+                    ></span>
+
+                    <span
+                        class="construction-dot dot-2"
+                    ></span>
+
+                    <span
+                        class="construction-dot dot-3"
+                    ></span>
 
 
-                    <!-- PHOSPHOR: COMPASS -->
+                    <!-- COMPASS -->
 
                     <span
                         class="tech-element tech-compass"
                     ></span>
 
 
-                    <!-- PHOSPHOR: CROSSHAIR -->
+                    <!-- CROSSHAIRS -->
 
                     <span
                         class="tech-element tech-crosshair-1"
@@ -1773,14 +2016,14 @@
                     ></span>
 
 
-                    <!-- PHOSPHOR: PATH -->
+                    <!-- PATH -->
 
                     <span
                         class="tech-element tech-path"
                     ></span>
 
 
-                    <!-- PHOSPHOR: PAPER PLANE TILT -->
+                    <!-- PAPER PLANE -->
 
                     <span
                         class="tech-element tech-plane"
@@ -1801,12 +2044,10 @@
 
 
 
-                <!-- DADOS -->
+                <!-- CONTATO -->
 
                 <div class="contact-data">
 
-
-                    <!-- EMAIL -->
 
                     <div class="data-row">
 
@@ -1818,6 +2059,7 @@
                             ></span>
 
                         </div>
+
 
                         <div>
 
@@ -1836,7 +2078,6 @@
                     </div>
 
 
-                    <!-- RESPOSTA -->
 
                     <div class="data-row">
 
@@ -1848,6 +2089,7 @@
                             ></span>
 
                         </div>
+
 
                         <div>
 
@@ -1864,7 +2106,6 @@
                     </div>
 
 
-                    <!-- ATENDIMENTO -->
 
                     <div class="data-row">
 
@@ -1876,6 +2117,7 @@
                             ></span>
 
                         </div>
+
 
                         <div>
 
@@ -1902,51 +2144,60 @@
 
 
     <!-- =========================================================
-         FOOTER
+         RODAPÉ
     ========================================================== -->
 
     <footer class="site-footer">
 
 
-        <!-- REDES -->
+        <!-- REDES SOCIAIS -->
 
         <div class="social">
+
 
             <a
                 href="#"
                 aria-label="LinkedIn"
             >
+
                 <span
                     class="icon icon-linkedin"
                     aria-hidden="true"
                 ></span>
+
             </a>
+
 
             <a
                 href="#"
                 aria-label="Instagram"
             >
+
                 <span
                     class="icon icon-instagram"
                     aria-hidden="true"
                 ></span>
+
             </a>
+
 
             <a
                 href="#"
                 aria-label="Facebook"
             >
+
                 <span
                     class="icon icon-facebook"
                     aria-hidden="true"
                 ></span>
+
             </a>
 
         </div>
 
 
 
-        <!-- LINKS -->
+        <!-- NAVEGAÇÃO -->
 
         <nav
             class="footer-nav"
@@ -1976,12 +2227,16 @@
 
 
 
-        <!-- MARCA PB -->
+        <!--
+            CORRIGIDO:
+            Marca-soft.svg para utilização
+            sobre o fundo verde.
+        -->
 
         <div class="footer-brand">
 
             <img
-                src="assets/img/Marca-PB.svg"
+                src="assets/img/Marca-soft.svg"
                 alt="Análise Legal"
             >
 
@@ -2004,14 +2259,15 @@
             document.getElementById("counter");
 
 
-        /* CONTADOR DA MENSAGEM */
+        /* CONTADOR DE CARACTERES */
 
         mensagem.addEventListener(
             "input",
             function () {
 
                 contador.textContent =
-                    this.value.length + " / 1000";
+                    this.value.length +
+                    " / 1000";
 
             }
         );
@@ -2019,14 +2275,13 @@
 
         /*
         ==========================================================
-        FORMULÁRIO
+        ENVIO DO FORMULÁRIO
 
-        Enquanto não houver endpoint de envio configurado,
-        impedimos que o navegador simule um envio inexistente.
+        Enquanto não houver um serviço de envio conectado,
+        o formulário não transmite dados.
 
-        Quando o mecanismo de envio estiver definido,
-        basta substituir este listener pelo respectivo fetch()
-        ou configurar action/method no <form>.
+        Quando o endpoint estiver definido, basta substituir
+        este trecho pela implementação correspondente.
         ==========================================================
         */
 
