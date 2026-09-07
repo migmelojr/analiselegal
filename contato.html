@@ -1,0 +1,2054 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contato | Análise Legal</title>
+
+    <meta
+        name="description"
+        content="Entre em contato com a Análise Legal para dúvidas, sugestões ou informações sobre a plataforma."
+    >
+
+    <style>
+
+        /* =========================================================
+           BASE
+        ========================================================= */
+
+        :root {
+            --verde: #064d49;
+            --verde-hover: #0a5b55;
+
+            --texto: #282725;
+            --texto-secundario: #575754;
+
+            --linha: #c8d5d3;
+            --linha-clara: #e1e7e5;
+
+            --fundo: #fdfdfb;
+            --fundo-form: #fafaf8;
+
+            --header-h: 110px;
+            --main-h: 722px;
+            --footer-h: 90px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--fundo);
+            color: var(--texto);
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+        }
+
+
+        /* =========================================================
+           ÍCONES EXTERNOS
+           Os SVGs ficam em assets/img/icon/
+        ========================================================= */
+
+        .icon {
+            display: inline-block;
+
+            width: 34px;
+            height: 34px;
+
+            background-color: var(--verde);
+
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+
+            -webkit-mask-position: center;
+            mask-position: center;
+
+            -webkit-mask-size: contain;
+            mask-size: contain;
+        }
+
+        .icon-plane {
+            -webkit-mask-image: url("assets/img/icon/paper-plane-tilt.svg");
+            mask-image: url("assets/img/icon/paper-plane-tilt.svg");
+        }
+
+        .icon-lock {
+            -webkit-mask-image: url("assets/img/icon/lock.svg");
+            mask-image: url("assets/img/icon/lock.svg");
+        }
+
+        .icon-chat {
+            -webkit-mask-image: url("assets/img/icon/chat.svg");
+            mask-image: url("assets/img/icon/chat.svg");
+        }
+
+        .icon-clock {
+            -webkit-mask-image: url("assets/img/icon/clock.svg");
+            mask-image: url("assets/img/icon/clock.svg");
+        }
+
+        .icon-pin {
+            -webkit-mask-image: url("assets/img/icon/map-pin.svg");
+            mask-image: url("assets/img/icon/map-pin.svg");
+        }
+
+        .icon-arrow {
+            -webkit-mask-image: url("assets/img/icon/arrow-right.svg");
+            mask-image: url("assets/img/icon/arrow-right.svg");
+        }
+
+        .icon-crosshair {
+            -webkit-mask-image: url("assets/img/icon/crosshair.svg");
+            mask-image: url("assets/img/icon/crosshair.svg");
+        }
+
+        .icon-compass {
+            -webkit-mask-image: url("assets/img/icon/compass.svg");
+            mask-image: url("assets/img/icon/compass.svg");
+        }
+
+        .icon-path {
+            -webkit-mask-image: url("assets/img/icon/path.svg");
+            mask-image: url("assets/img/icon/path.svg");
+        }
+
+        .icon-linkedin {
+            -webkit-mask-image: url("assets/img/icon/linkedin-logo.svg");
+            mask-image: url("assets/img/icon/linkedin-logo.svg");
+        }
+
+        .icon-instagram {
+            -webkit-mask-image: url("assets/img/icon/instagram-logo.svg");
+            mask-image: url("assets/img/icon/instagram-logo.svg");
+        }
+
+        .icon-facebook {
+            -webkit-mask-image: url("assets/img/icon/facebook-logo.svg");
+            mask-image: url("assets/img/icon/facebook-logo.svg");
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .site-header {
+            height: var(--header-h);
+
+            background: #fff;
+
+            border-bottom: 1px solid var(--linha-clara);
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 4.4%;
+        }
+
+        .header-inner {
+            width: 100%;
+
+            display: grid;
+            grid-template-columns: 390px 1fr 220px;
+
+            align-items: center;
+        }
+
+
+        /* LOGO */
+
+        .brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand img {
+            width: 350px;
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
+        /* MENU */
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: clamp(38px, 3.4vw, 70px);
+
+            font-size: 18px;
+        }
+
+        .main-nav a {
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .main-nav a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -11px;
+
+            width: 0;
+            height: 1px;
+
+            background: var(--verde);
+
+            transition: width .2s ease;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+
+        /* CTA */
+
+        .header-cta {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn-main {
+            height: 48px;
+            min-width: 190px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0 26px;
+
+            color: #fff;
+            background: var(--verde);
+
+            border-radius: 8px;
+
+            font-size: 18px;
+
+            transition: background .2s ease;
+        }
+
+        .btn-main:hover {
+            background: var(--verde-hover);
+        }
+
+
+        /* =========================================================
+           MAIN
+        ========================================================= */
+
+        .contact-main {
+            height: var(--main-h);
+
+            padding: 30px 4.4%;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+        }
+
+        .contact-grid {
+            width: 100%;
+            max-width: 1770px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(430px, .93fr)
+                minmax(530px, 1.04fr)
+                minmax(370px, .81fr);
+
+            gap: 42px;
+
+            align-items: stretch;
+        }
+
+
+        /* =========================================================
+           ESQUERDA
+        ========================================================= */
+
+        .contact-intro {
+            padding-right: 48px;
+
+            border-right: 1px solid rgba(6, 77, 73, .72);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-label {
+            color: var(--verde);
+
+            text-transform: uppercase;
+
+            letter-spacing: 4px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            margin-bottom: 15px;
+        }
+
+        .section-label::after {
+            content: "";
+
+            display: block;
+
+            width: 45px;
+            height: 2px;
+
+            background: var(--verde);
+
+            margin-top: 14px;
+        }
+
+        .contact-title {
+            font-size: clamp(48px, 3.15vw, 62px);
+
+            line-height: .99;
+
+            font-weight: 400;
+
+            letter-spacing: -1.5px;
+
+            margin-bottom: 22px;
+        }
+
+        .contact-description {
+            max-width: 475px;
+
+            font-size: 19px;
+
+            line-height: 1.45;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* BENEFÍCIOS */
+
+        .benefit-list {
+            margin-top: 3px;
+        }
+
+        .benefit {
+            display: grid;
+
+            grid-template-columns: 58px 1fr;
+
+            gap: 15px;
+
+            padding: 15px 0;
+
+            border-bottom: 1px solid var(--linha);
+        }
+
+        .benefit:last-child {
+            border-bottom: 0;
+        }
+
+        .benefit-icon {
+            display: flex;
+
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            padding-top: 2px;
+        }
+
+        .benefit .icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .benefit strong {
+            display: block;
+
+            font-size: 17px;
+
+            margin-bottom: 3px;
+        }
+
+        .benefit p {
+            font-size: 15.5px;
+
+            line-height: 1.36;
+
+            color: var(--texto-secundario);
+        }
+
+
+        /* =========================================================
+           FORMULÁRIO
+        ========================================================= */
+
+        .form-card {
+            height: 100%;
+
+            max-height: 650px;
+
+            padding: 27px 30px 23px;
+
+            background: var(--fundo-form);
+
+            border: 1px solid #edf0ef;
+
+            border-radius: 10px;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-form {
+            width: 100%;
+        }
+
+        .field {
+            margin-bottom: 15px;
+        }
+
+        .field label {
+            display: block;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            margin-bottom: 6px;
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+
+            color: var(--texto);
+
+            background: #fff;
+
+            border: 1px solid #c9d3d1;
+            border-radius: 5px;
+
+            outline: none;
+
+            font-size: 15px;
+
+            transition:
+                border-color .2s ease,
+                box-shadow .2s ease;
+        }
+
+        .field input,
+        .field select {
+            height: 45px;
+
+            padding: 0 13px;
+        }
+
+        .field textarea {
+            height: 120px;
+
+            padding: 12px 13px;
+
+            resize: none;
+
+            line-height: 1.4;
+        }
+
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            border-color: var(--verde);
+
+            box-shadow:
+                0 0 0 3px rgba(6, 77, 73, .07);
+        }
+
+        .field input::placeholder,
+        .field textarea::placeholder {
+            color: #788583;
+        }
+
+        .counter {
+            margin-top: 5px;
+
+            text-align: right;
+
+            color: #707977;
+
+            font-size: 13px;
+        }
+
+
+        /* BOTÃO */
+
+        .send-button {
+            width: 100%;
+            height: 52px;
+
+            border: 0;
+            border-radius: 7px;
+
+            background: var(--verde);
+
+            color: #fff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 18px;
+
+            cursor: pointer;
+
+            font-size: 18px;
+
+            transition: background .2s ease;
+        }
+
+        .send-button:hover {
+            background: var(--verde-hover);
+        }
+
+        .send-button .icon {
+            width: 22px;
+            height: 22px;
+
+            background-color: #fff;
+        }
+
+        .legal-note {
+            max-width: 455px;
+
+            margin: 13px auto 0;
+
+            text-align: center;
+
+            color: #646866;
+
+            font-size: 13px;
+
+            line-height: 1.4;
+        }
+
+        .legal-note a {
+            text-decoration: underline;
+
+            text-underline-offset: 2px;
+        }
+
+
+        /* =========================================================
+           COLUNA DIREITA
+        ========================================================= */
+
+        .contact-side {
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            min-width: 0;
+        }
+
+
+        /* =========================================================
+           ILUSTRAÇÃO TÉCNICA
+
+           NÃO EXISTE UMA IMAGEM PRONTA.
+
+           Composição feita exclusivamente com:
+           paper-plane-tilt.svg
+           crosshair.svg
+           compass.svg
+           path.svg
+
+           + linhas e círculos CSS.
+        ========================================================= */
+
+        .technical-art {
+            position: relative;
+
+            width: 100%;
+            max-width: 430px;
+            height: 285px;
+
+            margin: 0 auto 5px;
+
+            overflow: hidden;
+        }
+
+
+        /* linhas construtivas */
+
+        .technical-art::before {
+            content: "";
+
+            position: absolute;
+
+            width: 265px;
+            height: 265px;
+
+            left: 81px;
+            top: 7px;
+
+            border: 1px solid rgba(6, 77, 73, .18);
+            border-radius: 50%;
+        }
+
+        .technical-art::after {
+            content: "";
+
+            position: absolute;
+
+            width: 185px;
+            height: 185px;
+
+            left: 23px;
+            top: 75px;
+
+            border: 1px solid rgba(6, 77, 73, .15);
+            border-radius: 50%;
+        }
+
+
+        /* elementos genéricos */
+
+        .tech-element {
+            position: absolute;
+
+            display: block;
+
+            background-color: var(--verde);
+
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+
+            -webkit-mask-position: center;
+            mask-position: center;
+
+            -webkit-mask-size: contain;
+            mask-size: contain;
+
+            pointer-events: none;
+        }
+
+
+        /* AVIÃO PRINCIPAL */
+
+        .tech-plane {
+            width: 235px;
+            height: 235px;
+
+            left: 102px;
+            top: 26px;
+
+            opacity: .96;
+
+            -webkit-mask-image:
+                url("assets/img/icon/paper-plane-tilt.svg");
+
+            mask-image:
+                url("assets/img/icon/paper-plane-tilt.svg");
+
+            z-index: 5;
+        }
+
+
+        /* COMPASSO */
+
+        .tech-compass {
+            width: 174px;
+            height: 174px;
+
+            right: 14px;
+            top: -1px;
+
+            opacity: .10;
+
+            -webkit-mask-image:
+                url("assets/img/icon/compass.svg");
+
+            mask-image:
+                url("assets/img/icon/compass.svg");
+
+            z-index: 1;
+        }
+
+
+        /* CROSSHAIR 1 */
+
+        .tech-crosshair-1 {
+            width: 92px;
+            height: 92px;
+
+            left: 24px;
+            top: 103px;
+
+            opacity: .19;
+
+            -webkit-mask-image:
+                url("assets/img/icon/crosshair.svg");
+
+            mask-image:
+                url("assets/img/icon/crosshair.svg");
+
+            z-index: 2;
+        }
+
+
+        /* CROSSHAIR 2 */
+
+        .tech-crosshair-2 {
+            width: 66px;
+            height: 66px;
+
+            right: 35px;
+            bottom: 30px;
+
+            opacity: .17;
+
+            -webkit-mask-image:
+                url("assets/img/icon/crosshair.svg");
+
+            mask-image:
+                url("assets/img/icon/crosshair.svg");
+
+            z-index: 2;
+        }
+
+
+        /* PATH */
+
+        .tech-path {
+            width: 165px;
+            height: 165px;
+
+            left: 52px;
+            bottom: 0;
+
+            opacity: .11;
+
+            transform: rotate(-12deg);
+
+            -webkit-mask-image:
+                url("assets/img/icon/path.svg");
+
+            mask-image:
+                url("assets/img/icon/path.svg");
+
+            z-index: 1;
+        }
+
+
+        /* LINHAS */
+
+        .construction-line {
+            position: absolute;
+
+            height: 1px;
+
+            background: rgba(6, 77, 73, .18);
+
+            transform-origin: left center;
+
+            z-index: 0;
+        }
+
+        .line-1 {
+            width: 350px;
+
+            left: 34px;
+            top: 92px;
+
+            transform: rotate(-11deg);
+        }
+
+        .line-2 {
+            width: 338px;
+
+            left: 36px;
+            top: 204px;
+
+            transform: rotate(9deg);
+        }
+
+        .line-3 {
+            width: 255px;
+
+            left: 158px;
+            top: 38px;
+
+            transform: rotate(70deg);
+        }
+
+        .line-4 {
+            width: 225px;
+
+            left: 75px;
+            top: 33px;
+
+            transform: rotate(89deg);
+        }
+
+
+        /* PONTOS */
+
+        .construction-dot {
+            position: absolute;
+
+            width: 8px;
+            height: 8px;
+
+            border: 1px solid rgba(6, 77, 73, .36);
+            border-radius: 50%;
+
+            z-index: 1;
+        }
+
+        .dot-1 {
+            left: 45px;
+            top: 88px;
+        }
+
+        .dot-2 {
+            right: 38px;
+            top: 45px;
+        }
+
+        .dot-3 {
+            left: 84px;
+            bottom: 32px;
+        }
+
+
+        /* FRASE */
+
+        .contact-quote {
+            max-width: 335px;
+
+            margin: 0 auto 17px;
+
+            color: var(--verde);
+
+            font-size: 24px;
+
+            line-height: 1.17;
+
+            font-style: italic;
+        }
+
+        .contact-quote::after {
+            content: "";
+
+            display: block;
+
+            width: 50px;
+            height: 2px;
+
+            margin-top: 16px;
+
+            background: var(--verde);
+        }
+
+
+        /* DADOS */
+
+        .contact-data {
+            width: 100%;
+
+            max-width: 365px;
+
+            margin: 0 auto;
+        }
+
+        .data-row {
+            display: grid;
+
+            grid-template-columns: 48px 1fr;
+
+            gap: 12px;
+
+            align-items: center;
+
+            padding: 11px 0;
+
+            border-bottom: 1px solid var(--linha);
+        }
+
+        .data-row:last-child {
+            border-bottom: 0;
+        }
+
+        .data-icon {
+            display: flex;
+
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .data-icon .icon {
+            width: 34px;
+            height: 34px;
+        }
+
+        .data-row strong {
+            display: block;
+
+            font-size: 16px;
+
+            margin-bottom: 2px;
+        }
+
+        .data-row span,
+        .data-row a {
+            color: #363b39;
+
+            font-size: 15px;
+
+            line-height: 1.3;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .site-footer {
+            height: var(--footer-h);
+
+            background: var(--verde);
+
+            color: #fff;
+
+            padding: 0 4.4%;
+
+            display: grid;
+
+            grid-template-columns: 260px 1fr 330px;
+
+            align-items: center;
+        }
+
+
+        /* SOCIAL */
+
+        .social {
+            display: flex;
+
+            gap: 29px;
+
+            align-items: center;
+        }
+
+        .social .icon {
+            width: 22px;
+            height: 22px;
+
+            background-color: #fff;
+        }
+
+
+        /* LINKS */
+
+        .footer-nav {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: clamp(44px, 5vw, 90px);
+
+            font-size: 17px;
+        }
+
+        .footer-nav a {
+            white-space: nowrap;
+        }
+
+        .footer-nav .active {
+            position: relative;
+        }
+
+        .footer-nav .active::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: -8px;
+
+            height: 1px;
+
+            background: #fff;
+        }
+
+
+        /* LOGO RODAPÉ */
+
+        .footer-brand {
+            display: flex;
+
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .footer-brand img {
+            width: 300px;
+            max-width: 100%;
+            height: auto;
+
+            display: block;
+        }
+
+
+        /* =========================================================
+           RESPONSIVIDADE INTERMEDIÁRIA
+        ========================================================= */
+
+        @media (max-width: 1450px) {
+
+            .header-inner {
+                grid-template-columns: 330px 1fr 190px;
+            }
+
+            .brand img {
+                width: 310px;
+            }
+
+            .main-nav {
+                gap: 34px;
+
+                font-size: 16px;
+            }
+
+            .contact-grid {
+                gap: 30px;
+
+                grid-template-columns:
+                    minmax(370px, .9fr)
+                    minmax(465px, 1fr)
+                    minmax(330px, .76fr);
+            }
+
+            .contact-intro {
+                padding-right: 35px;
+            }
+
+            .contact-title {
+                font-size: 50px;
+            }
+
+            .technical-art {
+                transform: scale(.92);
+
+                transform-origin: center;
+            }
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 1100px) {
+
+            :root {
+                --header-h: 92px;
+            }
+
+            .header-inner {
+                grid-template-columns: 280px 1fr;
+            }
+
+            .brand img {
+                width: 270px;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .contact-main {
+                height: auto;
+
+                overflow: visible;
+
+                padding-top: 45px;
+                padding-bottom: 45px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-side {
+                grid-column: 1 / -1;
+
+                display: grid;
+
+                grid-template-columns: 1fr 1fr;
+
+                align-items: center;
+
+                padding-top: 30px;
+
+                border-top: 1px solid var(--linha);
+            }
+
+            .technical-art {
+                grid-row: 1 / span 2;
+            }
+
+            .site-footer {
+                height: auto;
+
+                min-height: 90px;
+
+                grid-template-columns: 170px 1fr 220px;
+            }
+
+            .footer-nav {
+                gap: 25px;
+
+                font-size: 15px;
+            }
+
+            .footer-brand img {
+                width: 210px;
+            }
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 760px) {
+
+            :root {
+                --header-h: auto;
+            }
+
+            .site-header {
+                height: auto;
+
+                padding: 19px 22px;
+            }
+
+            .header-inner {
+                display: block;
+            }
+
+            .brand img {
+                width: 245px;
+            }
+
+            .header-cta {
+                display: none;
+            }
+
+            .contact-main {
+                padding: 35px 22px 45px;
+            }
+
+            .contact-grid {
+                display: block;
+            }
+
+            .contact-intro {
+                padding: 0;
+
+                border-right: 0;
+            }
+
+            .section-label {
+                font-size: 13px;
+            }
+
+            .contact-title {
+                font-size: 44px;
+
+                line-height: 1.01;
+
+                margin-bottom: 21px;
+            }
+
+            .contact-description {
+                font-size: 18px;
+            }
+
+            .benefit-list {
+                margin-bottom: 32px;
+            }
+
+            .benefit {
+                grid-template-columns: 50px 1fr;
+            }
+
+            .form-card {
+                height: auto;
+
+                max-height: none;
+
+                padding: 25px 20px;
+            }
+
+            .field input,
+            .field select {
+                height: 50px;
+
+                font-size: 16px;
+            }
+
+            .field textarea {
+                height: 145px;
+
+                font-size: 16px;
+            }
+
+            .contact-side {
+                display: block;
+
+                margin-top: 38px;
+
+                padding-top: 35px;
+
+                border-top: 1px solid var(--linha);
+            }
+
+            .technical-art {
+                height: 270px;
+
+                transform: scale(.9);
+
+                transform-origin: center;
+            }
+
+            .contact-quote {
+                margin-left: 0;
+
+                font-size: 23px;
+            }
+
+            .contact-data {
+                max-width: none;
+            }
+
+            .site-footer {
+                display: flex;
+
+                flex-direction: column;
+
+                height: auto;
+
+                gap: 27px;
+
+                padding: 32px 22px;
+
+                text-align: center;
+            }
+
+            .footer-nav {
+                order: 1;
+
+                display: grid;
+
+                grid-template-columns: 1fr 1fr;
+
+                gap: 18px 32px;
+
+                font-size: 16px;
+            }
+
+            .social {
+                order: 2;
+            }
+
+            .footer-brand {
+                order: 3;
+
+                justify-content: center;
+            }
+
+            .footer-brand img {
+                width: 260px;
+            }
+        }
+
+
+        /* =========================================================
+           MOBILE PEQUENO
+        ========================================================= */
+
+        @media (max-width: 460px) {
+
+            .brand img {
+                width: 220px;
+            }
+
+            .contact-title {
+                font-size: 39px;
+            }
+
+            .technical-art {
+                width: 420px;
+
+                left: 50%;
+
+                margin-left: -210px;
+
+                transform: scale(.78);
+            }
+
+            .footer-nav {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
+    <header class="site-header">
+
+        <div class="header-inner">
+
+
+            <!-- LOGO REAL EXISTENTE NO PROJETO -->
+
+            <a
+                class="brand"
+                href="index.html"
+                aria-label="Análise Legal - página inicial"
+            >
+                <img
+                    src="assets/img/Marca.svg"
+                    alt="Análise Legal"
+                >
+            </a>
+
+
+            <!-- MENU -->
+
+            <nav
+                class="main-nav"
+                aria-label="Navegação principal"
+            >
+
+                <a href="papel-da-plataforma.html">
+                    O papel da plataforma
+                </a>
+
+                <a href="como-funciona.html">
+                    Como funciona
+                </a>
+
+                <a href="quando-faz-sentido.html">
+                    Quando faz sentido
+                </a>
+
+                <a href="situacoes-reais.html">
+                    Situações reais
+                </a>
+
+            </nav>
+
+
+            <!-- CTA -->
+
+            <div class="header-cta">
+
+                <a
+                    class="btn-main"
+                    href="analise.html"
+                >
+                    Solicite análise
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         CONTEÚDO
+    ========================================================== -->
+
+    <main class="contact-main">
+
+        <div class="contact-grid">
+
+
+            <!-- =================================================
+                 COLUNA ESQUERDA
+            ================================================== -->
+
+            <section class="contact-intro">
+
+                <div class="section-label">
+                    Contato
+                </div>
+
+
+                <h1 class="contact-title">
+                    Fale com a gente.<br>
+                    Estamos à disposição.
+                </h1>
+
+
+                <p class="contact-description">
+
+                    Se tiver dúvidas, sugestões ou precisar
+                    de mais informações, envie sua mensagem.
+                    Respondemos o mais breve possível.
+
+                </p>
+
+
+                <div class="benefit-list">
+
+
+                    <!-- MENSAGEM -->
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+
+                            <span
+                                class="icon icon-plane"
+                                aria-hidden="true"
+                            ></span>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Atendimento por mensagem
+                            </strong>
+
+                            <p>
+                                Sua mensagem chega diretamente
+                                à nossa equipe.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- INFORMAÇÕES -->
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+
+                            <span
+                                class="icon icon-lock"
+                                aria-hidden="true"
+                            ></span>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Uso limitado das informações
+                            </strong>
+
+                            <p>
+                                As informações enviadas são utilizadas
+                                para responder ao seu contato.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SEM COMPROMISSO -->
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+
+                            <span
+                                class="icon icon-chat"
+                                aria-hidden="true"
+                            ></span>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Sem compromisso
+                            </strong>
+
+                            <p>
+                                O envio de uma mensagem não gera
+                                qualquer obrigação.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 FORMULÁRIO
+            ================================================== -->
+
+            <section
+                class="form-card"
+                aria-label="Formulário de contato"
+            >
+
+                <form
+                    class="contact-form"
+                    id="contactForm"
+                >
+
+
+                    <!-- NOME -->
+
+                    <div class="field">
+
+                        <label for="nome">
+                            Nome
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nome"
+                            name="nome"
+                            placeholder="Seu nome"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="field">
+
+                        <label for="email">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="seu@email.com.br"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- ASSUNTO -->
+
+                    <div class="field">
+
+                        <label for="assunto">
+                            Assunto
+                        </label>
+
+                        <select
+                            id="assunto"
+                            name="assunto"
+                            required
+                        >
+
+                            <option
+                                value=""
+                                selected
+                                disabled
+                            >
+                                Selecione um assunto
+                            </option>
+
+                            <option value="duvida">
+                                Dúvida sobre a plataforma
+                            </option>
+
+                            <option value="funcionamento">
+                                Funcionamento
+                            </option>
+
+                            <option value="privacidade">
+                                Privacidade
+                            </option>
+
+                            <option value="sugestao">
+                                Sugestão
+                            </option>
+
+                            <option value="outro">
+                                Outro assunto
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- MENSAGEM -->
+
+                    <div class="field">
+
+                        <label for="mensagem">
+                            Mensagem
+                        </label>
+
+                        <textarea
+                            id="mensagem"
+                            name="mensagem"
+                            maxlength="1000"
+                            placeholder="Escreva sua mensagem aqui..."
+                            required
+                        ></textarea>
+
+                        <div
+                            class="counter"
+                            id="counter"
+                        >
+                            0 / 1000
+                        </div>
+
+                    </div>
+
+
+                    <!-- BOTÃO -->
+
+                    <button
+                        class="send-button"
+                        type="submit"
+                    >
+
+                        <span>
+                            Enviar mensagem
+                        </span>
+
+                        <span
+                            class="icon icon-arrow"
+                            aria-hidden="true"
+                        ></span>
+
+                    </button>
+
+
+                    <!-- AVISO -->
+
+                    <p class="legal-note">
+
+                        Ao enviar sua mensagem, você declara estar
+                        ciente dos nossos
+
+                        <a href="termos-de-uso.html">
+                            Termos de Uso
+                        </a>
+
+                        e da
+
+                        <a href="privacidade.html">
+                            Política de Privacidade
+                        </a>.
+
+                    </p>
+
+                </form>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 COLUNA DIREITA
+            ================================================== -->
+
+            <aside class="contact-side">
+
+
+                <!-- =============================================
+                     ILUSTRAÇÃO TÉCNICA CONSTRUÍDA EM HTML/CSS
+                ============================================== -->
+
+                <div
+                    class="technical-art"
+                    aria-hidden="true"
+                >
+
+                    <!-- LINHAS GEOMÉTRICAS -->
+
+                    <span class="construction-line line-1"></span>
+                    <span class="construction-line line-2"></span>
+                    <span class="construction-line line-3"></span>
+                    <span class="construction-line line-4"></span>
+
+
+                    <!-- PONTOS -->
+
+                    <span class="construction-dot dot-1"></span>
+                    <span class="construction-dot dot-2"></span>
+                    <span class="construction-dot dot-3"></span>
+
+
+                    <!-- PHOSPHOR: COMPASS -->
+
+                    <span
+                        class="tech-element tech-compass"
+                    ></span>
+
+
+                    <!-- PHOSPHOR: CROSSHAIR -->
+
+                    <span
+                        class="tech-element tech-crosshair-1"
+                    ></span>
+
+                    <span
+                        class="tech-element tech-crosshair-2"
+                    ></span>
+
+
+                    <!-- PHOSPHOR: PATH -->
+
+                    <span
+                        class="tech-element tech-path"
+                    ></span>
+
+
+                    <!-- PHOSPHOR: PAPER PLANE TILT -->
+
+                    <span
+                        class="tech-element tech-plane"
+                    ></span>
+
+                </div>
+
+
+
+                <!-- FRASE -->
+
+                <blockquote class="contact-quote">
+
+                    “Perguntas bem feitas<br>
+                    também abrem caminhos.”
+
+                </blockquote>
+
+
+
+                <!-- DADOS -->
+
+                <div class="contact-data">
+
+
+                    <!-- EMAIL -->
+
+                    <div class="data-row">
+
+                        <div class="data-icon">
+
+                            <span
+                                class="icon icon-plane"
+                                aria-hidden="true"
+                            ></span>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                E-mail
+                            </strong>
+
+                            <a
+                                href="mailto:contato@analiselegal.com.br"
+                            >
+                                contato@analiselegal.com.br
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RESPOSTA -->
+
+                    <div class="data-row">
+
+                        <div class="data-icon">
+
+                            <span
+                                class="icon icon-clock"
+                                aria-hidden="true"
+                            ></span>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Resposta
+                            </strong>
+
+                            <span>
+                                O mais breve possível
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ATENDIMENTO -->
+
+                    <div class="data-row">
+
+                        <div class="data-icon">
+
+                            <span
+                                class="icon icon-pin"
+                                aria-hidden="true"
+                            ></span>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Atendimento
+                            </strong>
+
+                            <span>
+                                On-line
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="site-footer">
+
+
+        <!-- REDES -->
+
+        <div class="social">
+
+            <a
+                href="#"
+                aria-label="LinkedIn"
+            >
+                <span
+                    class="icon icon-linkedin"
+                    aria-hidden="true"
+                ></span>
+            </a>
+
+            <a
+                href="#"
+                aria-label="Instagram"
+            >
+                <span
+                    class="icon icon-instagram"
+                    aria-hidden="true"
+                ></span>
+            </a>
+
+            <a
+                href="#"
+                aria-label="Facebook"
+            >
+                <span
+                    class="icon icon-facebook"
+                    aria-hidden="true"
+                ></span>
+            </a>
+
+        </div>
+
+
+
+        <!-- LINKS -->
+
+        <nav
+            class="footer-nav"
+            aria-label="Navegação institucional"
+        >
+
+            <a href="perguntas-frequentes.html">
+                Perguntas frequentes
+            </a>
+
+            <a href="privacidade.html">
+                Privacidade
+            </a>
+
+            <a href="termos-de-uso.html">
+                Termos de uso
+            </a>
+
+            <a
+                href="contato.html"
+                class="active"
+            >
+                Contato
+            </a>
+
+        </nav>
+
+
+
+        <!-- MARCA PB -->
+
+        <div class="footer-brand">
+
+            <img
+                src="assets/img/Marca-PB.svg"
+                alt="Análise Legal"
+            >
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        const mensagem =
+            document.getElementById("mensagem");
+
+        const contador =
+            document.getElementById("counter");
+
+
+        /* CONTADOR DA MENSAGEM */
+
+        mensagem.addEventListener(
+            "input",
+            function () {
+
+                contador.textContent =
+                    this.value.length + " / 1000";
+
+            }
+        );
+
+
+        /*
+        ==========================================================
+        FORMULÁRIO
+
+        Enquanto não houver endpoint de envio configurado,
+        impedimos que o navegador simule um envio inexistente.
+
+        Quando o mecanismo de envio estiver definido,
+        basta substituir este listener pelo respectivo fetch()
+        ou configurar action/method no <form>.
+        ==========================================================
+        */
+
+        document
+            .getElementById("contactForm")
+            .addEventListener(
+                "submit",
+                function (event) {
+
+                    event.preventDefault();
+
+                    alert(
+                        "O envio pelo formulário ainda não está configurado. " +
+                        "Você pode entrar em contato pelo e-mail " +
+                        "contato@analiselegal.com.br."
+                    );
+
+                }
+            );
+
+    </script>
+
+</body>
+
+</html>
