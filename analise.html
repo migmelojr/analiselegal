@@ -296,6 +296,11 @@
       min-height: 560px;
     }
 
+    .analysis-main.is-finished {
+      padding-top: 52px;
+      min-height: calc(100svh - var(--header-h) - var(--footer-h));
+    }
+
     .stage {
       background: var(--paper);
       border: 1px solid var(--line-soft);
@@ -1044,7 +1049,7 @@
     </div>
   </header>
 
-  <section class="analysis-intro">
+  <section class="analysis-intro" x-show="!bookingSubmitted" x-transition.opacity x-cloak>
     <div class="form-shell">
       <div>
         <p class="eyebrow">Análise Legal</p>
@@ -1059,7 +1064,7 @@
     </div>
   </section>
 
-  <section class="journey" aria-label="Etapas da análise">
+  <section class="journey" x-show="!bookingSubmitted" x-transition.opacity x-cloak aria-label="Etapas da análise">
     <div class="form-shell journey-grid">
       <template x-for="item in progressSteps" :key="item.id">
         <div class="journey-step" :class="step >= item.id ? 'is-reached' : ''">
@@ -1070,7 +1075,7 @@
     </div>
   </section>
 
-  <main class="analysis-main" id="analise">
+  <main class="analysis-main" id="analise" :class="bookingSubmitted ? 'is-finished' : ''">
     <div class="form-shell">
 
       <section x-show="step === 1" x-transition.opacity class="stage">
@@ -1363,7 +1368,7 @@
         <div x-show="bookingSubmitted" x-cloak class="payment-finished">
           <p class="stage-kicker">Solicitação registrada</p>
           <h2>Agora, acompanhe seu e-mail.</h2>
-          <p>O próximo passo é o envio do QR Code PIX e das instruções para encaminhamento do comprovante. O horário solicitado será confirmado após a validação do pagamento.</p>
+          <p><strong x-text="primeiroNome"></strong><span x-show="primeiroNome">, </span>confira o e-mail informado no cadastro: <strong x-text="formData.email"></strong>. O profissional indicado para seu atendimento encaminhará para esse endereço o QR Code PIX para pagamento e as instruções para envio do comprovante. Após a validação do pagamento, o horário solicitado será confirmado.</p>
           <div class="confirmation-strip" style="max-width:760px;margin:28px auto 0;">
             <div>
               <p class="label">Modalidade</p>
@@ -1544,6 +1549,10 @@ function homeFunnel() {
         const anchor = document.getElementById('analise');
         if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
+    },
+
+    get primeiroNome() {
+      return (this.formData.nome || '').trim().split(/\s+/)[0] || '';
     },
 
     labelOf(list, id) {
