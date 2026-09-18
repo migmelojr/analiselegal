@@ -895,12 +895,14 @@
                   </label>
 
                   <label>
-                    Slug
-                    <input type="text" id="landingSlug" maxlength="120" required
-                      placeholder="Ex.: divida-fies">
+                    Caminho
+                    <input type="text" id="landingPath" maxlength="240" required
+                      placeholder="Ex.: contratos/fies">
                   </label>
                   <div class="field-help">
-                    Identificador único utilizado pela plataforma para localizar a landing page.
+                    Informe apenas o trecho após <strong>/situacoes/</strong>, por exemplo:
+                    <strong>contratos/fies</strong>, <strong>imoveis/leilao</strong> ou
+                    <strong>familia/inventario</strong>.
                   </div>
 
                   <label>
@@ -1093,6 +1095,7 @@
           "",
         professional_email: item.professional_email || "",
         profession: item.profession || "",
+        path: item.path || item.slug || "",
         slug: item.slug || "",
         title: item.title || "",
         situation: item.situation || "",
@@ -1103,14 +1106,22 @@
       };
     }
 
-    function normalizeSlugClient(value = "") {
+    function normalizeLandingPathClient(value = "") {
       return String(value)
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-+|-+$/g, "")
-        .slice(0, 120);
+        .replace(/^\/+|\/+$/g, "")
+        .split("/")
+        .map(segment =>
+          segment
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "")
+        )
+        .filter(Boolean)
+        .slice(0, 12)
+        .join("/")
+        .slice(0, 240);
     }
 
     function sortedProfessionals() {
@@ -1285,7 +1296,7 @@
         <tr>
           <td>
             <div class="landing-title">${escapeHTML(item.title || "—")}</div>
-            <div class="landing-slug">${escapeHTML(item.slug || "—")}</div>
+            <div class="landing-slug">${escapeHTML(item.path || item.slug || "—")}</div>
           </td>
           <td>
             ${escapeHTML(item.professional_name || "—")}
@@ -1360,7 +1371,7 @@
       $("#landingPageId").value = "";
       $("#landingProfessional").value = "";
       $("#landingTitle").value = "";
-      $("#landingSlug").value = "";
+      $("#landingPath").value = "";
       $("#landingSituation").value = "";
       $("#landingStatus").value = "draft";
       $("#landingFormTitle").textContent = "Nova landing page";
@@ -1379,7 +1390,7 @@
       $("#landingPageId").value = item.landing_page_id;
       $("#landingProfessional").value = item.professional_id;
       $("#landingTitle").value = item.title;
-      $("#landingSlug").value = item.slug;
+      $("#landingPath").value = item.path || item.slug;
       $("#landingSituation").value = item.situation || "";
       $("#landingStatus").value = item.status;
       $("#landingFormTitle").textContent = "Editar landing page";
@@ -1569,24 +1580,19 @@
     });
 
 
-    let landingSlugEdited = false;
+    $("#landingPath").addEventListener("input", event => {
+      const cursor = event.target.selectionStart;
+      const original = event.target.value;
+      const normalized = normalizeLandingPathClient(original);
 
-    $("#landingTitle").addEventListener("input", event => {
-      if (!landingSlugEdited && !$("#landingPageId").value) {
-        $("#landingSlug").value = normalizeSlugClient(event.target.value);
-      }
-    });
-
-    $("#landingSlug").addEventListener("input", event => {
-      landingSlugEdited = true;
-      const normalized = normalizeSlugClient(event.target.value);
-      if (event.target.value !== normalized) {
+      if (original !== normalized) {
         event.target.value = normalized;
+        const nextCursor = Math.min(cursor ?? normalized.length, normalized.length);
+        event.target.setSelectionRange(nextCursor, nextCursor);
       }
     });
 
     $("#landingCancelBtn").addEventListener("click", () => {
-      landingSlugEdited = false;
       resetLandingForm();
     });
 
@@ -1596,14 +1602,14 @@
       const id = $("#landingPageId").value.trim();
       const professionalId = $("#landingProfessional").value.trim();
       const title = $("#landingTitle").value.trim();
-      const slug = normalizeSlugClient($("#landingSlug").value);
+      const path = normalizeLandingPathClient($("#landingPath").value);
       const situation = $("#landingSituation").value.trim();
       const status = $("#landingStatus").value;
 
-      if (!professionalId || !title || !slug) {
+      if (!professionalId || !title || !path) {
         $("#landingResult").hidden = false;
         $("#landingResult").innerHTML =
-          "<strong>Preencha profissional, título e slug.</strong>";
+          "<strong>Preencha profissional, título e caminho.</strong>";
         return;
       }
 
@@ -1627,7 +1633,7 @@
           body: JSON.stringify({
             professional_id: professionalId,
             title,
-            slug,
+            path,
             situation,
             status
           })
@@ -1648,11 +1654,10 @@
         await Promise.all([loadLandingPages(), loadProfessionals()]);
 
         if (!id) {
-          landingSlugEdited = false;
           $("#landingPageId").value = "";
           $("#landingProfessional").value = "";
           $("#landingTitle").value = "";
-          $("#landingSlug").value = "";
+          $("#landingPath").value = "";
           $("#landingSituation").value = "";
           $("#landingStatus").value = "draft";
         } else {
