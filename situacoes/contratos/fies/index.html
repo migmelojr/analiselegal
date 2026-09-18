@@ -1,0 +1,2165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FIES: renegociação alterada, desconto reduzido ou cobrança diferente do acordo</title>
+
+  <meta
+    name="description"
+    content="Entenda o que pode estar acontecendo quando uma renegociação do FIES é modificada depois da adesão, do pagamento da entrada ou do início das parcelas."
+  >
+
+  <meta
+    name="robots"
+    content="index, follow, max-image-preview:large"
+  >
+
+  <meta
+    name="theme-color"
+    content="#073d3a"
+  >
+
+  <link
+    rel="canonical"
+    href="https://www.analiselegal.com.br/situacoes/contratos/fies"
+  >
+
+  <link
+    rel="icon"
+    href="/assets/img/Simbolo.svg"
+    type="image/svg+xml"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="/assets/css/style.css"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:locale"
+    content="pt_BR"
+  >
+
+  <meta
+    property="og:site_name"
+    content="ANÁLISE LEGAL"
+  >
+
+  <meta
+    property="og:title"
+    content="FIES: renegociação alterada, desconto reduzido ou cobrança diferente do acordo"
+  >
+
+  <meta
+    property="og:description"
+    content="Entenda o que pode estar acontecendo quando uma renegociação do FIES é modificada depois da adesão, do pagamento da entrada ou do início das parcelas."
+  >
+
+  <meta
+    property="og:url"
+    content="https://www.analiselegal.com.br/situacoes/contratos/fies"
+  >
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "FIES: renegociação alterada, desconto reduzido ou cobrança diferente do acordo",
+    "description": "Entenda o que pode estar acontecendo quando uma renegociação do FIES é modificada depois da adesão, do pagamento da entrada ou do início das parcelas.",
+    "url": "https://www.analiselegal.com.br/situacoes/contratos/fies",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "ANÁLISE LEGAL",
+      "url": "https://www.analiselegal.com.br/"
+    }
+  }
+  </script>
+
+  <style>
+
+    :root {
+      --case-green: #073d3a;
+      --case-green-dark: #043330;
+      --case-green-mid: #315f5d;
+
+      --case-text: #302f30;
+      --case-muted: #69716f;
+
+      --case-bg: #ffffff;
+      --case-soft: #f5f7f4;
+      --case-soft-2: #eef3ef;
+
+      --case-line: #d9dfda;
+      --case-line-dark: #c8d0ca;
+
+      --case-alert: #98564c;
+      --case-alert-soft: #f7ece9;
+
+      --case-radius: 10px;
+      --case-shell: 1740px;
+    }
+
+
+    /* =========================================================
+       BASE DA LANDING PAGE
+       ========================================================= */
+
+    .fies-page {
+      background: var(--case-bg);
+      color: var(--case-text);
+      overflow-x: hidden;
+    }
+
+    .fies-page *,
+    .fies-page *::before,
+    .fies-page *::after {
+      box-sizing: border-box;
+    }
+
+    .case-shell {
+      width: min(calc(100% - 144px), var(--case-shell));
+      margin-inline: auto;
+    }
+
+    .case-serif {
+      font-family: "Crimson Text", Georgia, serif;
+    }
+
+    .case-icon {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      flex: 0 0 auto;
+
+      background: currentColor;
+
+      -webkit-mask-image: var(--icon);
+      mask-image: var(--icon);
+
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+
+      -webkit-mask-position: center;
+      mask-position: center;
+
+      -webkit-mask-size: contain;
+      mask-size: contain;
+    }
+
+    .case-sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .case-hero {
+      position: relative;
+      min-height: 558px;
+
+      background:
+        radial-gradient(
+          circle at 73% 48%,
+          rgba(7, 61, 58, 0.055) 0,
+          rgba(7, 61, 58, 0.025) 24%,
+          transparent 48%
+        ),
+        #ffffff;
+
+      border-top: 1px solid rgba(7, 61, 58, 0.07);
+      border-bottom: 1px solid var(--case-line);
+    }
+
+    .case-hero-inner {
+      min-height: 558px;
+
+      display: grid;
+      grid-template-columns:
+        minmax(520px, 0.92fr)
+        minmax(650px, 1.08fr);
+
+      gap: 70px;
+
+      align-items: center;
+
+      padding-top: 30px;
+      padding-bottom: 34px;
+    }
+
+
+    /* breadcrumb */
+
+    .case-breadcrumb {
+      margin: 0 0 24px;
+
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 9px;
+
+      color: var(--case-muted);
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .case-breadcrumb a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .case-breadcrumb a:hover,
+    .case-breadcrumb a:focus-visible {
+      color: var(--case-green);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .case-breadcrumb-separator {
+      opacity: 0.55;
+    }
+
+
+    /* editorial */
+
+    .case-kicker {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+
+      margin: 0 0 14px;
+
+      color: var(--case-green);
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .case-kicker::before {
+      content: "";
+      width: 38px;
+      height: 2px;
+      background: var(--case-green);
+    }
+
+    .case-title {
+      max-width: 770px;
+
+      margin: 0;
+
+      font-family: "Crimson Text", Georgia, serif;
+
+      font-size: clamp(52px, 3.45vw, 70px);
+      line-height: 0.98;
+      font-weight: 600;
+
+      letter-spacing: -0.025em;
+
+      color: #15201f;
+    }
+
+    .case-lead {
+      max-width: 690px;
+
+      margin: 24px 0 0;
+
+      font-family: Arial, Helvetica, sans-serif;
+
+      font-size: 20px;
+      line-height: 1.52;
+
+      color: var(--case-muted);
+    }
+
+
+    /* CTA */
+
+    .case-hero-actions {
+      margin-top: 29px;
+
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .case-primary-button {
+      min-height: 56px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 16px;
+
+      padding: 0 29px;
+
+      border: 1px solid var(--case-green-dark);
+      border-radius: 8px;
+
+      background: var(--case-green);
+      color: #ffffff;
+
+      text-decoration: none;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+
+      transition:
+        background 160ms ease,
+        transform 160ms ease;
+    }
+
+    .case-primary-button:hover,
+    .case-primary-button:focus-visible {
+      background: var(--case-green-dark);
+      transform: translateY(-1px);
+    }
+
+    .case-primary-button-arrow {
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 400;
+    }
+
+    .case-hero-note {
+      max-width: 230px;
+
+      color: var(--case-muted);
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+
+    /* =========================================================
+       REPRESENTAÇÃO VISUAL DO CASO
+       ========================================================= */
+
+    .case-flow {
+      position: relative;
+
+      min-height: 390px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      isolation: isolate;
+    }
+
+    .case-flow::before {
+      content: "";
+
+      position: absolute;
+      z-index: -2;
+
+      width: 430px;
+      height: 430px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(7, 61, 58, 0.08),
+          rgba(7, 61, 58, 0.018) 58%,
+          transparent 70%
+        );
+    }
+
+    .case-flow-line {
+      position: absolute;
+
+      left: 8%;
+      right: 8%;
+      top: 50%;
+
+      height: 1px;
+
+      background: #817b73;
+
+      z-index: -1;
+    }
+
+    .case-flow-line::after {
+      content: "";
+
+      position: absolute;
+      right: -1px;
+      top: -5px;
+
+      width: 10px;
+      height: 10px;
+
+      border-top: 1px solid #817b73;
+      border-right: 1px solid #817b73;
+
+      transform: rotate(45deg);
+    }
+
+    .case-flow-grid {
+      width: 100%;
+
+      display: grid;
+      grid-template-columns:
+        minmax(210px, 1fr)
+        minmax(150px, 0.72fr)
+        minmax(210px, 1fr);
+
+      align-items: center;
+      gap: 28px;
+    }
+
+    .flow-card {
+      min-height: 240px;
+
+      padding: 28px;
+
+      background: rgba(255, 255, 255, 0.97);
+
+      border: 1px solid var(--case-line);
+      border-radius: 12px;
+
+      box-shadow:
+        0 15px 45px rgba(24, 45, 40, 0.06);
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    .flow-card-small {
+      min-height: 160px;
+      padding: 24px 20px;
+
+      justify-content: center;
+      text-align: center;
+    }
+
+    .flow-card-changed {
+      border-color: #e8d3ce;
+    }
+
+    .flow-icon-wrap {
+      width: 52px;
+      height: 52px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: var(--case-soft-2);
+      color: var(--case-green);
+
+      margin-bottom: 19px;
+    }
+
+    .flow-card-small .flow-icon-wrap {
+      width: 45px;
+      height: 45px;
+
+      margin: 0 auto 14px;
+    }
+
+    .flow-card-changed .flow-icon-wrap {
+      background: var(--case-alert-soft);
+      color: var(--case-alert);
+    }
+
+    .flow-title {
+      margin: 0;
+
+      font-family: "Crimson Text", Georgia, serif;
+      font-size: 25px;
+      line-height: 1.1;
+      font-weight: 600;
+
+      color: #182321;
+    }
+
+    .flow-card-small .flow-title {
+      font-size: 21px;
+    }
+
+    .flow-caption {
+      margin: 7px 0 0;
+
+      color: var(--case-muted);
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      line-height: 1.4;
+
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .flow-data {
+      margin-top: 22px;
+      padding-top: 17px;
+
+      border-top: 1px solid var(--case-line);
+
+      display: grid;
+      gap: 12px;
+    }
+
+    .flow-data-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 15px;
+
+      color: var(--case-muted);
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+    }
+
+    .flow-bar {
+      width: 78px;
+      height: 8px;
+
+      background: #e2e4e1;
+      border-radius: 2px;
+    }
+
+    .flow-card-changed .flow-bar {
+      background: #ead2cd;
+    }
+
+
+    /* =========================================================
+       TESE EDITORIAL CENTRAL
+       ========================================================= */
+
+    .case-core {
+      padding: 80px 0;
+
+      background: var(--case-green-dark);
+      color: #ffffff;
+    }
+
+    .case-core-grid {
+      display: grid;
+      grid-template-columns: minmax(380px, 0.78fr) minmax(560px, 1.22fr);
+
+      gap: 100px;
+      align-items: start;
+    }
+
+    .case-section-kicker {
+      margin: 0 0 12px;
+
+      color: rgba(255, 255, 255, 0.68);
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .case-core-title {
+      max-width: 520px;
+
+      margin: 0;
+
+      font-family: "Crimson Text", Georgia, serif;
+
+      font-size: clamp(39px, 2.5vw, 50px);
+      line-height: 1.04;
+      font-weight: 600;
+    }
+
+    .case-core-copy {
+      margin: 0;
+
+      max-width: 730px;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      line-height: 1.72;
+
+      color: rgba(255, 255, 255, 0.81);
+    }
+
+    .case-sequence {
+      margin-top: 36px;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .case-sequence-item {
+      padding: 22px 26px 0 0;
+    }
+
+    .case-sequence-number {
+      display: block;
+
+      margin-bottom: 8px;
+
+      color: rgba(255, 255, 255, 0.47);
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+
+      letter-spacing: 0.12em;
+    }
+
+    .case-sequence-label {
+      color: #ffffff;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+
+    /* =========================================================
+       CONTEÚDO PRINCIPAL
+       ========================================================= */
+
+    .case-content {
+      padding: 92px 0 105px;
+    }
+
+    .case-content-grid {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        390px;
+
+      gap: 120px;
+
+      align-items: start;
+    }
+
+    .case-article {
+      max-width: 930px;
+    }
+
+    .case-block + .case-block {
+      margin-top: 68px;
+    }
+
+    .case-block h2 {
+      max-width: 790px;
+
+      margin: 0 0 17px;
+
+      font-family: "Crimson Text", Georgia, serif;
+
+      font-size: clamp(34px, 2.1vw, 44px);
+      line-height: 1.08;
+      font-weight: 600;
+
+      color: #172220;
+    }
+
+    .case-block p {
+      max-width: 850px;
+
+      margin: 0;
+
+      color: #555d5b;
+
+      font-family: Arial, Helvetica, sans-serif;
+
+      font-size: 17px;
+      line-height: 1.78;
+    }
+
+    .case-block p + p {
+      margin-top: 16px;
+    }
+
+
+    /* lateral */
+
+    .case-aside {
+      position: sticky;
+      top: 110px;
+
+      padding: 32px;
+
+      background: var(--case-soft);
+
+      border: 1px solid var(--case-line);
+      border-radius: 12px;
+    }
+
+    .case-aside-label {
+      margin: 0 0 13px;
+
+      color: var(--case-green);
+
+      font-family: Arial, Helvetica, sans-serif;
+
+      font-size: 12px;
+      line-height: 1.4;
+
+      font-weight: 700;
+
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .case-aside-title {
+      margin: 0;
+
+      font-family: "Crimson Text", Georgia, serif;
+
+      font-size: 29px;
+      line-height: 1.08;
+      font-weight: 600;
+
+      color: #182321;
+    }
+
+    .case-attention-list {
+      margin: 25px 0 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .case-attention-list li {
+      position: relative;
+
+      padding: 15px 0 15px 27px;
+
+      border-top: 1px solid var(--case-line);
+
+      color: #56605d;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .case-attention-list li::before {
+      content: "";
+
+      position: absolute;
+      left: 2px;
+      top: 22px;
+
+      width: 7px;
+      height: 7px;
+
+      border: 1.5px solid var(--case-green);
+      border-radius: 50%;
+    }
+
+
+    /* =========================================================
+       COMO A ANÁLISE É ORGANIZADA
+       ========================================================= */
+
+    .case-method {
+      padding: 86px 0 92px;
+
+      background: var(--case-soft);
+      border-top: 1px solid var(--case-line);
+      border-bottom: 1px solid var(--case-line);
+    }
+
+    .case-method-header {
+      max-width: 800px;
+    }
+
+    .case-method-header h2 {
+      margin: 0;
+
+      font-family: "Crimson Text", Georgia, serif;
+
+      font-size: clamp(40px, 2.55vw, 52px);
+      line-height: 1.04;
+      font-weight: 600;
+
+      color: #172220;
+    }
+
+    .case-method-header p {
+      margin: 17px 0 0;
+
+      color: var(--case-muted);
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 17px;
+      line-height: 1.68;
+    }
+
+    .case-method-grid {
+      margin-top: 52px;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      border-top: 1px solid var(--case-line-dark);
+    }
+
+    .case-method-item {
+      padding: 31px 42px 0 0;
+    }
+
+    .case-method-item + .case-method-item {
+      padding-left: 42px;
+      border-left: 1px solid var(--case-line-dark);
+    }
+
+    .case-method-icon {
+      width: 48px;
+      height: 48px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 19px;
+
+      color: var(--case-green);
+    }
+
+    .case-method-icon .case-icon {
+      width: 34px;
+      height: 34px;
+    }
+
+    .case-method-item h3 {
+      margin: 0 0 10px;
+
+      font-family: "Crimson Text", Georgia, serif;
+
+      font-size: 27px;
+      line-height: 1.1;
+      font-weight: 600;
+
+      color: #1c2826;
+    }
+
+    .case-method-item p {
+      margin: 0;
+
+      color: var(--case-muted);
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+
+    /* =========================================================
+       DOCUMENTOS
+       ========================================================= */
+
+    .case-documents {
+      padding: 90px 0;
+    }
+
+    .case-documents-grid {
+      display: grid;
+      grid-template-columns: minmax(400px, 0.85fr) minmax(520px, 1.15fr);
+
+      gap: 90px;
+      align-items: center;
+    }
+
+    .case-documents h2 {
+      margin: 0;
+
+      font-family: "Crimson Text", Georgia, serif;
+
+      font-size: clamp(40px, 2.5vw, 50px);
+      line-height: 1.05;
+      font-weight: 600;
+
+      color: #172220;
+    }
+
+    .case-documents p {
+      margin: 17px 0 0;
+
+      max-width: 620px;
+
+      color: var(--case-muted);
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .case-document-items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 14px;
+    }
+
+    .case-document-item {
+      min-height: 82px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 16px;
+
+      padding: 19px 20px;
+
+      border: 1px solid var(--case-line);
+      border-radius: 8px;
+
+      background: #ffffff;
+
+      color: #4d5754;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .case-document-item .case-icon {
+      width: 25px;
+      height: 25px;
+
+      color: var(--case-green);
+    }
+
+
+    /* =========================================================
+       CTA FINAL
+       ========================================================= */
+
+    .case-final {
+      padding: 84px 0 88px;
+
+      background:
+        linear-gradient(
+          105deg,
+          var(--case-green-dark),
+          var(--case-green)
+        );
+
+      color: #ffffff;
+    }
+
+    .case-final-grid {
+      display: grid;
+      grid-template-columns: minmax(500px, 1fr) auto;
+
+      gap: 80px;
+      align-items: center;
+    }
+
+    .case-final h2 {
+      max-width: 830px;
+
+      margin: 0;
+
+      font-family: "Crimson Text", Georgia, serif;
+
+      font-size: clamp(42px, 2.7vw, 55px);
+      line-height: 1.03;
+      font-weight: 600;
+    }
+
+    .case-final p {
+      max-width: 720px;
+
+      margin: 17px 0 0;
+
+      color: rgba(255, 255, 255, 0.76);
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    .case-final .case-primary-button {
+      min-width: 230px;
+
+      background: #ffffff;
+      color: var(--case-green-dark);
+
+      border-color: #ffffff;
+    }
+
+    .case-final .case-primary-button:hover,
+    .case-final .case-primary-button:focus-visible {
+      background: #f4f6f4;
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 1180px) {
+
+      .case-shell {
+        width: min(calc(100% - 64px), var(--case-shell));
+      }
+
+      .case-hero-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 42px;
+      }
+
+      .case-flow-grid {
+        gap: 15px;
+      }
+
+      .flow-card {
+        padding: 22px;
+      }
+
+      .case-content-grid {
+        gap: 65px;
+        grid-template-columns: minmax(0, 1fr) 330px;
+      }
+
+      .case-core-grid,
+      .case-documents-grid {
+        gap: 60px;
+      }
+    }
+
+
+    @media (max-width: 900px) {
+
+      .case-shell {
+        width: min(calc(100% - 40px), var(--case-shell));
+      }
+
+      .case-hero,
+      .case-hero-inner {
+        min-height: auto;
+      }
+
+      .case-hero-inner {
+        display: block;
+
+        padding-top: 28px;
+        padding-bottom: 55px;
+      }
+
+      .case-title {
+        font-size: clamp(44px, 11vw, 60px);
+      }
+
+      .case-lead {
+        font-size: 18px;
+      }
+
+      .case-flow {
+        margin-top: 54px;
+        min-height: auto;
+      }
+
+      .case-flow-line {
+        display: none;
+      }
+
+      .case-flow-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+      }
+
+      .flow-card,
+      .flow-card-small {
+        min-height: auto;
+        text-align: left;
+      }
+
+      .flow-card-small {
+        padding: 22px 25px;
+
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 14px;
+        align-items: center;
+      }
+
+      .flow-card-small .flow-icon-wrap {
+        margin: 0;
+      }
+
+      .case-core-grid,
+      .case-content-grid,
+      .case-documents-grid,
+      .case-final-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-core-grid {
+        gap: 34px;
+      }
+
+      .case-sequence {
+        grid-template-columns: 1fr;
+      }
+
+      .case-sequence-item {
+        padding: 18px 0;
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+      }
+
+      .case-content {
+        padding: 68px 0 75px;
+      }
+
+      .case-content-grid {
+        gap: 60px;
+      }
+
+      .case-aside {
+        position: static;
+      }
+
+      .case-method-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-method-item,
+      .case-method-item + .case-method-item {
+        padding: 28px 0;
+
+        border-left: 0;
+        border-bottom: 1px solid var(--case-line-dark);
+      }
+
+      .case-document-items {
+        grid-template-columns: 1fr;
+      }
+
+      .case-final-grid {
+        gap: 35px;
+      }
+    }
+
+
+    @media (max-width: 760px) {
+
+      .case-shell {
+        width: calc(100% - 32px);
+      }
+
+      .case-breadcrumb {
+        margin-bottom: 20px;
+        font-size: 12px;
+      }
+
+      .case-kicker {
+        font-size: 12px;
+      }
+
+      .case-title {
+        font-size: 46px;
+        line-height: 0.99;
+      }
+
+      .case-lead {
+        margin-top: 19px;
+
+        font-size: 17px;
+        line-height: 1.55;
+      }
+
+      .case-hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .case-primary-button {
+        width: 100%;
+      }
+
+      .case-hero-note {
+        max-width: none;
+      }
+
+      .case-core,
+      .case-method,
+      .case-documents,
+      .case-final {
+        padding-top: 64px;
+        padding-bottom: 64px;
+      }
+
+      .case-core-title,
+      .case-method-header h2,
+      .case-documents h2,
+      .case-final h2 {
+        font-size: 39px;
+      }
+
+      .case-block + .case-block {
+        margin-top: 50px;
+      }
+
+      .case-block h2 {
+        font-size: 34px;
+      }
+
+      .case-block p {
+        font-size: 16px;
+      }
+    }
+
+  </style>
+
+</head>
+
+
+<body class="fies-page">
+
+  <a
+    class="skip-link"
+    href="#conteudo"
+  >
+    Ir para o conteúdo
+  </a>
+
+
+  <!-- =======================================================
+       CABEÇALHO PADRÃO DO PROJETO
+       ======================================================= -->
+
+  <header class="site-header">
+
+    <div class="shell header-inner">
+
+      <a
+        class="brand"
+        href="/"
+        aria-label="ANÁLISE LEGAL - Página inicial"
+      >
+        <img
+          src="/assets/img/Marca.svg"
+          alt="ANÁLISE LEGAL"
+        >
+      </a>
+
+
+      <nav
+        class="primary-nav"
+        aria-label="Navegação principal"
+      >
+
+        <a href="/papel-da-plataforma.html">
+          O papel da plataforma
+        </a>
+
+        <a href="/como-funciona.html">
+          Como funciona
+        </a>
+
+        <a href="/quando-faz-sentido.html">
+          Quando faz sentido
+        </a>
+
+        <a
+          href="/situacoes/"
+          aria-current="page"
+        >
+          Situações reais
+        </a>
+
+      </nav>
+
+
+      <a
+        class="header-cta"
+        href="/analise-home"
+      >
+        SOLICITE ANÁLISE
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <main id="conteudo">
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="case-hero">
+
+      <div class="case-shell case-hero-inner">
+
+
+        <div class="case-hero-copy">
+
+          <nav
+            class="case-breadcrumb"
+            aria-label="Navegação estrutural"
+          >
+
+            <a href="/situacoes/">
+              Situações reais
+            </a>
+
+            <span
+              class="case-breadcrumb-separator"
+              aria-hidden="true"
+            >
+              /
+            </span>
+
+            <span>
+              Contratos
+            </span>
+
+            <span
+              class="case-breadcrumb-separator"
+              aria-hidden="true"
+            >
+              /
+            </span>
+
+            <span aria-current="page">
+              FIES
+            </span>
+
+          </nav>
+
+
+          <p class="case-kicker">
+            FIES
+          </p>
+
+
+          <h1 class="case-title">
+            Seu acordo do FIES mudou depois que você já havia renegociado?
+          </h1>
+
+
+          <p class="case-lead">
+            Quando desconto, saldo ou parcelas mudam depois da formalização,
+            o histórico da renegociação pode ser tão importante quanto o valor
+            cobrado hoje.
+          </p>
+
+
+          <div class="case-hero-actions">
+
+            <a
+              class="case-primary-button"
+              href="/analise-home"
+            >
+              Solicite análise
+
+              <span
+                class="case-primary-button-arrow"
+                aria-hidden="true"
+              >
+                →
+              </span>
+            </a>
+
+            <span class="case-hero-note">
+              A análise começa pela compreensão da sequência dos fatos.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- representação conceitual, sem marca oficial do FIES -->
+
+        <figure
+          class="case-flow"
+          aria-labelledby="case-flow-caption"
+        >
+
+          <div
+            class="case-flow-line"
+            aria-hidden="true"
+          ></div>
+
+
+          <div class="case-flow-grid">
+
+
+            <div class="flow-card">
+
+              <div class="flow-icon-wrap">
+
+                <span
+                  class="case-icon"
+                  style="--icon:url('/assets/img/icon/clipboard-text.svg')"
+                  aria-hidden="true"
+                ></span>
+
+              </div>
+
+              <h2 class="flow-title">
+                Condição apresentada
+              </h2>
+
+              <p class="flow-caption">
+                Renegociação
+              </p>
+
+              <div
+                class="flow-data"
+                aria-hidden="true"
+              >
+
+                <div class="flow-data-row">
+                  <span>Saldo</span>
+                  <span class="flow-bar"></span>
+                </div>
+
+                <div class="flow-data-row">
+                  <span>Desconto</span>
+                  <span class="flow-bar"></span>
+                </div>
+
+                <div class="flow-data-row">
+                  <span>Parcelas</span>
+                  <span class="flow-bar"></span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="flow-card flow-card-small">
+
+              <div class="flow-icon-wrap">
+
+                <span
+                  class="case-icon"
+                  style="--icon:url('/assets/img/icon/shield-check.svg')"
+                  aria-hidden="true"
+                ></span>
+
+              </div>
+
+              <div>
+
+                <h2 class="flow-title">
+                  Acordo iniciado
+                </h2>
+
+                <p class="flow-caption">
+                  Adesão e pagamento
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="flow-card flow-card-changed">
+
+              <div class="flow-icon-wrap">
+
+                <span
+                  class="case-icon"
+                  style="--icon:url('/assets/img/icon/stack.svg')"
+                  aria-hidden="true"
+                ></span>
+
+              </div>
+
+              <h2 class="flow-title">
+                Condição alterada
+              </h2>
+
+              <p class="flow-caption">
+                Situação posterior
+              </p>
+
+              <div
+                class="flow-data"
+                aria-hidden="true"
+              >
+
+                <div class="flow-data-row">
+                  <span>Novo saldo</span>
+                  <span class="flow-bar"></span>
+                </div>
+
+                <div class="flow-data-row">
+                  <span>Parcelas</span>
+                  <span class="flow-bar"></span>
+                </div>
+
+                <div class="flow-data-row">
+                  <span>Valor</span>
+                  <span class="flow-bar"></span>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <figcaption
+            id="case-flow-caption"
+            class="case-sr-only"
+          >
+            Representação da sequência em que uma condição de renegociação
+            é apresentada, o acordo começa a ser cumprido e posteriormente
+            surgem condições diferentes.
+          </figcaption>
+
+        </figure>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PONTO CENTRAL
+         ===================================================== -->
+
+    <section class="case-core">
+
+      <div class="case-shell case-core-grid">
+
+
+        <div>
+
+          <p class="case-section-kicker">
+            O ponto central
+          </p>
+
+          <h2 class="case-core-title">
+            O saldo atual não conta, sozinho, toda a história.
+          </h2>
+
+        </div>
+
+
+        <div>
+
+          <p class="case-core-copy">
+            Em determinadas situações, a divergência não está apenas no valor
+            atualmente cobrado, mas na sequência de informações utilizadas para
+            formar a renegociação. Por isso, é importante compreender o que existia
+            antes, o que foi apresentado, o que efetivamente foi formalizado e em
+            que momento ocorreu a alteração.
+          </p>
+
+
+          <div class="case-sequence">
+
+            <div class="case-sequence-item">
+
+              <span class="case-sequence-number">
+                01
+              </span>
+
+              <span class="case-sequence-label">
+                O que existia antes da renegociação
+              </span>
+
+            </div>
+
+
+            <div class="case-sequence-item">
+
+              <span class="case-sequence-number">
+                02
+              </span>
+
+              <span class="case-sequence-label">
+                O que foi apresentado e formalizado
+              </span>
+
+            </div>
+
+
+            <div class="case-sequence-item">
+
+              <span class="case-sequence-number">
+                03
+              </span>
+
+              <span class="case-sequence-label">
+                O que foi modificado posteriormente
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+         ===================================================== -->
+
+    <section class="case-content">
+
+      <div class="case-shell case-content-grid">
+
+
+        <article class="case-article">
+
+
+          <section class="case-block">
+
+            <h2>
+              Nem toda renegociação do FIES funciona da mesma forma
+            </h2>
+
+            <p>
+              O FIES passou por diferentes períodos e modalidades de renegociação.
+              As condições disponibilizadas variaram conforme a situação do
+              financiamento, o período considerado, informações cadastrais e outros
+              elementos utilizados em cada modalidade.
+            </p>
+
+            <p>
+              Por isso, contratos com valores aparentemente semelhantes podem ter
+              recebido condições distintas. Percentual de redução, saldo renegociado,
+              quantidade de parcelas e valor apresentado precisam ser compreendidos
+              dentro do histórico específico de cada financiamento.
+            </p>
+
+          </section>
+
+
+          <section class="case-block">
+
+            <h2>
+              Quando o problema aparece depois do acordo
+            </h2>
+
+            <p>
+              A situação merece uma leitura diferente quando determinada condição é
+              apresentada, aceita pelo interessado e posteriormente modificada.
+            </p>
+
+            <p>
+              Existe diferença entre uma possibilidade visualizada no sistema e uma
+              renegociação que avançou para definição do novo saldo, quantidade de
+              parcelas, vencimentos e início dos pagamentos. Quando a alteração surge
+              depois dessa sequência, o histórico passa a ter relevância própria.
+            </p>
+
+          </section>
+
+
+          <section class="case-block">
+
+            <h2>
+              Reenquadramento, reprocessamento ou revisão explicam apenas parte do problema
+            </h2>
+
+            <p>
+              Em alguns casos, a mudança é acompanhada de expressões como
+              reenquadramento, reprocessamento, revisão cadastral ou correção das
+              condições anteriormente disponibilizadas.
+            </p>
+
+            <p>
+              Essas expressões podem indicar o motivo operacional da alteração, mas
+              não esclarecem, por si mesmas, o que aconteceu naquele financiamento.
+              Ainda é necessário compreender qual informação mudou, quando isso ocorreu
+              e quais efeitos foram produzidos sobre a renegociação já realizada.
+            </p>
+
+          </section>
+
+
+          <section class="case-block">
+
+            <h2>
+              Cadastros e benefícios podem fazer diferença
+            </h2>
+
+            <p>
+              Algumas modalidades utilizaram condições relacionadas à situação
+              cadastral do interessado ou ao recebimento de determinados benefícios
+              em períodos específicos.
+            </p>
+
+            <p>
+              Por isso, nem sempre basta saber se determinada condição existiu em
+              algum momento. Pode ser necessário compreender quando ela existiu,
+              como foi considerada e qual relação possuía com a renegociação
+              efetivamente realizada.
+            </p>
+
+          </section>
+
+
+          <section class="case-block">
+
+            <h2>
+              O histórico pode ser mais importante que o valor cobrado hoje
+            </h2>
+
+            <p>
+              Quando uma dívida reduzida volta a apresentar saldo significativamente
+              superior, surgem parcelas diferentes ou deixa de ser possível continuar
+              pagando nas condições inicialmente apresentadas, observar apenas a tela
+              atual pode ser insuficiente.
+            </p>
+
+            <p>
+              O ponto passa a ser reconstruir a sequência: qual era o saldo anterior,
+              qual condição foi oferecida, o que foi formalizado, quais pagamentos
+              ocorreram e em que momento os valores foram modificados.
+            </p>
+
+          </section>
+
+        </article>
+
+
+        <aside
+          class="case-aside"
+          aria-labelledby="atencao-title"
+        >
+
+          <p class="case-aside-label">
+            Quando observar com mais cuidado
+          </p>
+
+          <h2
+            id="atencao-title"
+            class="case-aside-title"
+          >
+            Alguns sinais tornam a reconstrução do histórico especialmente importante.
+          </h2>
+
+
+          <ul class="case-attention-list">
+
+            <li>
+              O desconto inicialmente apresentado desapareceu.
+            </li>
+
+            <li>
+              O saldo voltou a aumentar depois da renegociação.
+            </li>
+
+            <li>
+              As parcelas mudaram após a adesão.
+            </li>
+
+            <li>
+              O pagamento já havia começado quando ocorreu a alteração.
+            </li>
+
+            <li>
+              A explicação recebida menciona apenas erro, revisão ou reenquadramento.
+            </li>
+
+            <li>
+              A nova cobrança passou a produzir consequências sobre o débito.
+            </li>
+
+          </ul>
+
+        </aside>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         COMO A ANÁLISE É ESTRUTURADA
+         ===================================================== -->
+
+    <section class="case-method">
+
+      <div class="case-shell">
+
+
+        <div class="case-method-header">
+
+          <h2>
+            O que uma análise procura esclarecer
+          </h2>
+
+          <p>
+            A compreensão começa pela sequência dos acontecimentos, não por uma
+            conclusão antecipada sobre o valor atualmente cobrado.
+          </p>
+
+        </div>
+
+
+        <div class="case-method-grid">
+
+
+          <article class="case-method-item">
+
+            <div class="case-method-icon">
+
+              <span
+                class="case-icon"
+                style="--icon:url('/assets/img/icon/clipboard-text.svg')"
+                aria-hidden="true"
+              ></span>
+
+            </div>
+
+            <h3>
+              Reconstruir
+            </h3>
+
+            <p>
+              Compreender a situação anterior do financiamento e as condições
+              efetivamente apresentadas no momento da renegociação.
+            </p>
+
+          </article>
+
+
+          <article class="case-method-item">
+
+            <div class="case-method-icon">
+
+              <span
+                class="case-icon"
+                style="--icon:url('/assets/img/icon/stack.svg')"
+                aria-hidden="true"
+              ></span>
+
+            </div>
+
+            <h3>
+              Comparar
+            </h3>
+
+            <p>
+              Identificar a diferença entre aquilo que foi formalizado e o que passou
+              a ser apresentado posteriormente.
+            </p>
+
+          </article>
+
+
+          <article class="case-method-item">
+
+            <div class="case-method-icon">
+
+              <span
+                class="case-icon"
+                style="--icon:url('/assets/img/icon/compass.svg')"
+                aria-hidden="true"
+              ></span>
+
+            </div>
+
+            <h3>
+              Compreender
+            </h3>
+
+            <p>
+              Verificar de onde surgiu a alteração e quais consequências ela produziu
+              sobre aquele financiamento específico.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         DOCUMENTOS
+         ===================================================== -->
+
+    <section class="case-documents">
+
+      <div class="case-shell case-documents-grid">
+
+
+        <div>
+
+          <h2>
+            O que é útil ter em mãos
+          </h2>
+
+          <p>
+            Não é necessário saber explicar tecnicamente o problema. Os registros
+            disponíveis ajudam a reconstruir o que aconteceu. Mesmo quando parte deles
+            não está mais acessível, a sequência relatada pelo próprio interessado já
+            permite iniciar a compreensão da situação.
+          </p>
+
+        </div>
+
+
+        <div class="case-document-items">
+
+
+          <div class="case-document-item">
+
+            <span
+              class="case-icon"
+              style="--icon:url('/assets/img/icon/clipboard-text.svg')"
+              aria-hidden="true"
+            ></span>
+
+            <span>
+              Documentos da renegociação
+            </span>
+
+          </div>
+
+
+          <div class="case-document-item">
+
+            <span
+              class="case-icon"
+              style="--icon:url('/assets/img/icon/stack.svg')"
+              aria-hidden="true"
+            ></span>
+
+            <span>
+              Comprovantes de pagamento
+            </span>
+
+          </div>
+
+
+          <div class="case-document-item">
+
+            <span
+              class="case-icon"
+              style="--icon:url('/assets/img/icon/compass.svg')"
+              aria-hidden="true"
+            ></span>
+
+            <span>
+              Telas, extratos e boletos
+            </span>
+
+          </div>
+
+
+          <div class="case-document-item">
+
+            <span
+              class="case-icon"
+              style="--icon:url('/assets/img/icon/shield-check.svg')"
+              aria-hidden="true"
+            ></span>
+
+            <span>
+              Comunicações recebidas
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA FINAL
+         ===================================================== -->
+
+    <section class="case-final">
+
+      <div class="case-shell case-final-grid">
+
+
+        <div>
+
+          <h2>
+            Seu FIES foi renegociado e depois as condições mudaram?
+          </h2>
+
+          <p>
+            Explique o que aconteceu. A análise começa pela reconstrução do que foi
+            apresentado, formalizado e posteriormente alterado no seu financiamento.
+          </p>
+
+        </div>
+
+
+        <a
+          class="case-primary-button"
+          href="/analise-home"
+        >
+          Solicite análise
+
+          <span
+            class="case-primary-button-arrow"
+            aria-hidden="true"
+          >
+            →
+          </span>
+        </a>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =======================================================
+       NAVEGAÇÃO MOBILE PRÉ-RODAPÉ
+       ======================================================= -->
+
+  <nav
+    class="mobile-prefooter-nav"
+    aria-label="Navegação institucional principal"
+  >
+
+    <a href="/papel-da-plataforma.html">
+      O papel da plataforma
+    </a>
+
+    <a href="/como-funciona.html">
+      Como funciona
+    </a>
+
+    <a href="/quando-faz-sentido.html">
+      Quando faz sentido
+    </a>
+
+  </nav>
+
+
+  <!-- =======================================================
+       RODAPÉ
+       ======================================================= -->
+
+  <footer
+    class="site-footer"
+    role="contentinfo"
+  >
+
+    <div class="shell">
+
+
+      <nav
+        class="footer-nav"
+        aria-label="Navegação do rodapé"
+      >
+
+        <a href="/perguntas-frequentes.html">
+          Perguntas frequentes
+        </a>
+
+        <a href="/privacidade.html">
+          Privacidade
+        </a>
+
+        <a href="/termos-de-uso.html">
+          Termos de uso
+        </a>
+
+        <a href="/contato.html">
+          Contato
+        </a>
+
+      </nav>
+
+
+      <a
+        class="footer-brand"
+        href="/"
+        aria-label="ANÁLISE LEGAL - Página inicial"
+      >
+
+        <img
+          src="/assets/img/Marca-soft.svg"
+          alt="ANÁLISE LEGAL"
+          width="620"
+          height="112"
+          loading="lazy"
+        >
+
+      </a>
+
+    </div>
+
+  </footer>
+
+</body>
+
+</html>
