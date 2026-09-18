@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#073d3a">
+  <title>Análise Legal | Cadastro profissional</title>
+
+  <link rel="preload" href="/assets/img/Marca.svg" as="image" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/analiselegal.css">
+
+  <style>
+    :root{
+      --green:#073d3a;
+      --green-dark:#043330;
+      --green-soft:#315f5d;
+      --ink:#302f30;
+      --muted:#6f7472;
+      --line:#d9dfdc;
+      --line-strong:#c8d5d3;
+      --paper:#ffffff;
+      --soft:#f7f7f4;
+      --danger:#8e3434;
+      --danger-soft:#fbefef;
+      --success:#0b624f;
+      --success-soft:#e8f4ef;
+      --warning:#8a651f;
+      --warning-soft:#fbf4df;
+      --shadow:0 18px 48px rgba(7,61,58,.08);
+      --radius:16px;
+      --font:"Crimson Text", Georgia, "Times New Roman", serif;
+    }
+
+    *{box-sizing:border-box}
+    html{background:var(--soft);color:var(--ink)}
+    body{
+      margin:0;
+      min-height:100vh;
+      background:
+        radial-gradient(circle at top right, rgba(7,61,58,.055), transparent 28%),
+        var(--soft);
+      color:var(--ink);
+      font-family:var(--font);
+      font-size:18px;
+      line-height:1.45;
+    }
+
+    input,select,textarea,button{font:inherit}
+    button{cursor:pointer}
+    [hidden]{display:none!important}
+
+    .page{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .header{
+      background:#fff;
+      border-bottom:1px solid var(--line);
+    }
+
+    .header-inner{
+      width:min(1180px,calc(100% - 36px));
+      min-height:92px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:22px;
+    }
+
+    .brand{
+      display:block;
+      width:210px;
+      max-width:55vw;
+    }
+
+    .brand img{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+
+    .header-note{
+      color:var(--muted);
+      font-size:15px;
+      text-align:right;
+    }
+
+    .main{
+      flex:1;
+      width:min(1180px,calc(100% - 36px));
+      margin:0 auto;
+      padding:44px 0 54px;
+    }
+
+    .intro{
+      max-width:760px;
+      margin-bottom:24px;
+    }
+
+    .eyebrow{
+      margin:0 0 8px;
+      color:var(--green);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    h1{
+      margin:0;
+      color:var(--green-dark);
+      font-size:42px;
+      line-height:1.04;
+      font-weight:700;
+    }
+
+    .lead{
+      margin:14px 0 0;
+      max-width:720px;
+      color:var(--muted);
+      font-size:19px;
+    }
+
+    .status{
+      margin-bottom:20px;
+      padding:14px 16px;
+      border:1px solid var(--line);
+      border-radius:11px;
+      background:#fff;
+      color:var(--muted);
+    }
+
+    .status.success{
+      border-color:#bdd8cc;
+      background:var(--success-soft);
+      color:var(--success);
+    }
+
+    .status.error{
+      border-color:#dababa;
+      background:var(--danger-soft);
+      color:var(--danger);
+    }
+
+    .status.warning{
+      border-color:#e6d4a5;
+      background:var(--warning-soft);
+      color:var(--warning);
+    }
+
+    .card{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .card-head{
+      padding:22px 26px 18px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .card-head h2{
+      margin:0;
+      color:var(--green-dark);
+      font-size:25px;
+      line-height:1.1;
+    }
+
+    .card-head p{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .form{
+      padding:26px;
+    }
+
+    .section{
+      padding:0 0 26px;
+      margin:0 0 26px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section:last-of-type{
+      border-bottom:0;
+      margin-bottom:0;
+      padding-bottom:0;
+    }
+
+    .section-title{
+      margin:0 0 16px;
+      color:var(--green-dark);
+      font-size:21px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:17px 20px;
+    }
+
+    .field{
+      display:grid;
+      gap:6px;
+    }
+
+    .field.full{
+      grid-column:1 / -1;
+    }
+
+    .field label,
+    .group-label{
+      color:var(--green-dark);
+      font-size:15px;
+      font-weight:700;
+    }
+
+    .optional{
+      color:var(--muted);
+      font-weight:400;
+    }
+
+    input,
+    select,
+    textarea{
+      width:100%;
+      border:1px solid var(--line-strong);
+      border-radius:9px;
+      background:#fff;
+      color:var(--ink);
+      padding:11px 12px;
+      outline:none;
+    }
+
+    input,
+    select{
+      min-height:46px;
+    }
+
+    textarea{
+      min-height:116px;
+      resize:vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus{
+      border-color:var(--green);
+      box-shadow:0 0 0 3px rgba(7,61,58,.08);
+    }
+
+    input[readonly]{
+      background:#f2f3f1;
+      color:#5f6562;
+    }
+
+    .hint{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.35;
+    }
+
+    .checks{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 18px;
+      margin-top:3px;
+    }
+
+    .check{
+      display:flex;
+      align-items:flex-start;
+      gap:9px;
+      color:var(--ink);
+      font-size:15px;
+    }
+
+    .check input{
+      width:18px;
+      height:18px;
+      min-height:auto;
+      margin:2px 0 0;
+      accent-color:var(--green);
+      flex:0 0 auto;
+    }
+
+    .consents{
+      display:grid;
+      gap:12px;
+    }
+
+    .consents a{
+      color:var(--green);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .actions{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      margin-top:28px;
+      padding-top:22px;
+      border-top:1px solid var(--line);
+    }
+
+    .submit-note{
+      max-width:560px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .btn{
+      min-height:46px;
+      border:1px solid var(--green);
+      border-radius:9px;
+      padding:10px 18px;
+      background:var(--green);
+      color:#fff;
+      font-weight:700;
+      white-space:nowrap;
+    }
+
+    .btn:hover{
+      background:var(--green-dark);
+      border-color:var(--green-dark);
+    }
+
+    .btn:disabled{
+      opacity:.55;
+      cursor:not-allowed;
+    }
+
+    .success-card{
+      padding:34px 26px;
+      text-align:center;
+    }
+
+    .success-card h2{
+      margin:0 0 10px;
+      color:var(--green-dark);
+      font-size:30px;
+    }
+
+    .success-card p{
+      max-width:640px;
+      margin:0 auto;
+      color:var(--muted);
+    }
+
+    .footer{
+      border-top:1px solid var(--line);
+      background:#fff;
+    }
+
+    .footer-inner{
+      width:min(1180px,calc(100% - 36px));
+      margin:0 auto;
+      padding:20px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .footer a{
+      color:var(--green);
+      text-decoration:none;
+    }
+
+    @media (max-width:760px){
+      .header-inner{
+        min-height:78px;
+      }
+
+      .header-note{
+        display:none;
+      }
+
+      .main{
+        padding:30px 0 38px;
+      }
+
+      h1{
+        font-size:33px;
+      }
+
+      .lead{
+        font-size:17px;
+      }
+
+      .card-head,
+      .form{
+        padding-left:18px;
+        padding-right:18px;
+      }
+
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .field.full{
+        grid-column:auto;
+      }
+
+      .actions{
+        align-items:stretch;
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .footer-inner{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+    }
+
+    @media print{
+      @page{
+        size:A4 portrait;
+        margin:18mm 16mm;
+      }
+
+      body{
+        background:#fff!important;
+        font-size:11pt;
+      }
+
+      .header,
+      .footer,
+      .actions,
+      .status{
+        display:none!important;
+      }
+
+      .main{
+        width:auto;
+        margin:0;
+        padding:0;
+      }
+
+      .intro{
+        margin-bottom:8mm;
+      }
+
+      h1{
+        font-size:20pt;
+      }
+
+      .lead{
+        font-size:10pt;
+      }
+
+      .card{
+        border:0;
+        box-shadow:none;
+      }
+
+      .card-head{
+        padding:0 0 5mm;
+      }
+
+      .form{
+        padding:0;
+      }
+
+      .section{
+        break-inside:avoid;
+      }
+
+      input,
+      select,
+      textarea{
+        border:1px solid #aaa;
+        color:#222;
+        background:#fff!important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <header class="header">
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="Análise Legal">
+          <img src="/assets/img/Marca.svg" alt="Análise Legal">
+        </a>
+        <div class="header-note">Cadastro profissional por convite</div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="intro">
+        <p class="eyebrow">Área restrita</p>
+        <h1>Cadastro profissional</h1>
+        <p class="lead">
+          Complete as informações abaixo. O envio não ativa automaticamente o cadastro:
+          os dados serão analisados antes da liberação do perfil.
+        </p>
+      </div>
+
+      <div id="pageStatus" class="status" role="status">
+        Validando convite...
+      </div>
+
+      <section class="card" id="formCard" hidden>
+        <div class="card-head">
+          <h2>Informações profissionais</h2>
+          <p>Os campos marcados como opcionais podem ser complementados posteriormente.</p>
+        </div>
+
+        <form class="form" id="professionalForm" novalidate>
+
+          <section class="section">
+            <h3 class="section-title">Identificação</h3>
+
+            <div class="grid">
+              <div class="field">
+                <label for="full_name">Nome completo</label>
+                <input id="full_name" name="full_name" type="text" autocomplete="name" maxlength="140" required>
+              </div>
+
+              <div class="field">
+                <label for="display_name">Nome profissional <span class="optional">(opcional)</span></label>
+                <input id="display_name" name="display_name" type="text" maxlength="120"
+                       placeholder="Como deseja aparecer nas páginas">
+              </div>
+
+              <div class="field">
+                <label for="email">E-mail vinculado ao convite</label>
+                <input id="email" name="email" type="email" readonly required>
+                <div class="hint">Este endereço não pode ser alterado neste cadastro.</div>
+              </div>
+
+              <div class="field">
+                <label for="phone">Telefone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel"
+                       maxlength="30" placeholder="(61) 99999-9999" required>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h3 class="section-title">Registro e atuação</h3>
+
+            <div class="grid">
+              <div class="field">
+                <label for="profession">Profissão</label>
+                <input id="profession" name="profession" type="text" maxlength="100"
+                       placeholder="Ex.: Advogado" required>
+              </div>
+
+              <div class="field">
+                <label for="registration_body">Conselho ou órgão <span class="optional">(opcional)</span></label>
+                <input id="registration_body" name="registration_body" type="text" maxlength="80"
+                       placeholder="Ex.: OAB, CRC, CREA">
+              </div>
+
+              <div class="field">
+                <label for="registration_number">Número do registro <span class="optional">(opcional)</span></label>
+                <input id="registration_number" name="registration_number" type="text" maxlength="60">
+              </div>
+
+              <div class="field">
+                <label for="registration_state">UF do registro <span class="optional">(opcional)</span></label>
+                <select id="registration_state" name="registration_state">
+                  <option value="">Selecione</option>
+                  <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+                  <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+                  <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+                  <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+                  <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+                  <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+                  <option>SP</option><option>SE</option><option>TO</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="practice_areas">Áreas de atuação</label>
+                <textarea id="practice_areas" name="practice_areas" maxlength="900"
+                          placeholder="Informe, de forma objetiva, as principais áreas em que atua." required></textarea>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h3 class="section-title">Localização e atendimento</h3>
+
+            <div class="grid">
+              <div class="field">
+                <label for="city">Cidade</label>
+                <input id="city" name="city" type="text" autocomplete="address-level2" maxlength="100" required>
+              </div>
+
+              <div class="field">
+                <label for="state">UF</label>
+                <select id="state" name="state" autocomplete="address-level1" required>
+                  <option value="">Selecione</option>
+                  <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+                  <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+                  <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+                  <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+                  <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+                  <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+                  <option>SP</option><option>SE</option><option>TO</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <span class="group-label">Modalidade de atendimento</span>
+                <div class="checks">
+                  <label class="check">
+                    <input type="checkbox" name="service_modes" value="online">
+                    <span>On-line</span>
+                  </label>
+
+                  <label class="check">
+                    <input type="checkbox" name="service_modes" value="presencial">
+                    <span>Presencial</span>
+                  </label>
+                </div>
+                <div class="hint">Selecione ao menos uma modalidade.</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h3 class="section-title">Apresentação pública</h3>
+
+            <div class="grid">
+              <div class="field full">
+                <label for="bio">Breve apresentação profissional</label>
+                <textarea id="bio" name="bio" maxlength="1200"
+                          placeholder="Apresente sua experiência e forma de atuação em linguagem objetiva." required></textarea>
+                <div class="hint">Este texto poderá ser utilizado posteriormente em páginas vinculadas ao seu perfil, após aprovação.</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h3 class="section-title">Confirmações</h3>
+
+            <div class="consents">
+              <label class="check">
+                <input id="truth" type="checkbox" required>
+                <span>Declaro que as informações apresentadas são verdadeiras e estão atualizadas.</span>
+              </label>
+
+              <label class="check">
+                <input id="terms" type="checkbox" required>
+                <span>Li e aceito os <a href="/termos-de-uso.html" target="_blank" rel="noopener">Termos de Uso</a>.</span>
+              </label>
+
+              <label class="check">
+                <input id="privacy" type="checkbox" required>
+                <span>Li a <a href="/privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span>
+              </label>
+            </div>
+          </section>
+
+          <div class="actions">
+            <div class="submit-note">
+              Após o envio, o cadastro ficará com status pendente e será ativado somente após análise interna do Análise Legal.
+            </div>
+
+            <button class="btn" id="submitBtn" type="submit">
+              Enviar cadastro
+            </button>
+          </div>
+
+        </form>
+      </section>
+
+      <section class="card success-card" id="successCard" hidden>
+        <h2>Cadastro recebido</h2>
+        <p>
+          As informações foram registradas e serão analisadas antes da ativação.
+          O envio do formulário não representa aprovação automática.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <span>ANÁLISE LEGAL</span>
+        <span>
+          <a href="/privacidade.html">Privacidade</a>
+          &nbsp;·&nbsp;
+          <a href="/termos-de-uso.html">Termos de uso</a>
+        </span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    const API_VALIDATE = "/api/invites/validate";
+    const API_REGISTER = "/api/professionals/register";
+
+    const statusBox = document.getElementById("pageStatus");
+    const formCard = document.getElementById("formCard");
+    const form = document.getElementById("professionalForm");
+    const successCard = document.getElementById("successCard");
+    const submitBtn = document.getElementById("submitBtn");
+    const emailInput = document.getElementById("email");
+
+    let token = "";
+    let validatedEmail = "";
+
+    function setStatus(message, type = "") {
+      statusBox.textContent = message;
+      statusBox.className = "status";
+      if (type) statusBox.classList.add(type);
+      statusBox.hidden = false;
+    }
+
+    function invalidInvite(message) {
+      formCard.hidden = true;
+      successCard.hidden = true;
+      setStatus(message, "error");
+    }
+
+    function getToken() {
+      const params = new URLSearchParams(window.location.search);
+      return (params.get("token") || "").trim();
+    }
+
+    async function validateInvite() {
+      token = getToken();
+
+      if (!token) {
+        invalidInvite("Convite não identificado. Utilize o link recebido por e-mail.");
+        return;
+      }
+
+      setStatus("Validando convite...");
+
+      try {
+        const response = await fetch(
+          `${API_VALIDATE}?token=${encodeURIComponent(token)}`,
+          {
+            method: "GET",
+            credentials: "same-origin",
+            headers: { "accept": "application/json" }
+          }
+        );
+
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok || !data.valid) {
+          const reason = data.reason || "";
+
+          if (reason === "expired") {
+            invalidInvite("Este convite expirou. Solicite um novo convite ao Análise Legal.");
+            return;
+          }
+
+          if (reason === "used") {
+            invalidInvite("Este convite já foi utilizado.");
+            return;
+          }
+
+          if (reason === "revoked") {
+            invalidInvite("Este convite foi substituído por outro mais recente.");
+            return;
+          }
+
+          invalidInvite("Este convite não é válido.");
+          return;
+        }
+
+        validatedEmail = String(data.email || "").trim().toLowerCase();
+
+        if (!validatedEmail) {
+          invalidInvite("Não foi possível identificar o e-mail vinculado ao convite.");
+          return;
+        }
+
+        emailInput.value = validatedEmail;
+        setStatus(`Convite válido para ${validatedEmail}.`, "success");
+        formCard.hidden = false;
+
+      } catch (error) {
+        invalidInvite("Não foi possível validar o convite neste momento.");
+      }
+    }
+
+    function selectedServiceModes() {
+      return [...document.querySelectorAll('input[name="service_modes"]:checked')]
+        .map(input => input.value);
+    }
+
+    function validateForm() {
+      if (!form.reportValidity()) return false;
+
+      if (selectedServiceModes().length === 0) {
+        setStatus("Selecione ao menos uma modalidade de atendimento.", "warning");
+        document.querySelector('input[name="service_modes"]').focus();
+        return false;
+      }
+
+      return true;
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (!validateForm()) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Enviando...";
+      setStatus("Enviando cadastro...");
+
+      const payload = {
+        token,
+        full_name: document.getElementById("full_name").value.trim(),
+        display_name: document.getElementById("display_name").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+
+        profession: document.getElementById("profession").value.trim(),
+        registration_body: document.getElementById("registration_body").value.trim(),
+        registration_number: document.getElementById("registration_number").value.trim(),
+        registration_state: document.getElementById("registration_state").value,
+
+        practice_areas: document.getElementById("practice_areas").value.trim(),
+
+        city: document.getElementById("city").value.trim(),
+        state: document.getElementById("state").value,
+        service_modes: selectedServiceModes(),
+
+        bio: document.getElementById("bio").value.trim(),
+
+        accepted_terms: true,
+        accepted_privacy: true,
+        declared_truth: true
+      };
+
+      try {
+        const response = await fetch(API_REGISTER, {
+          method: "POST",
+          credentials: "same-origin",
+          headers: {
+            "content-type": "application/json",
+            "accept": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          throw new Error(data.error || "Não foi possível concluir o cadastro.");
+        }
+
+        formCard.hidden = true;
+        statusBox.hidden = true;
+        successCard.hidden = false;
+
+        window.history.replaceState(
+          {},
+          document.title,
+          "/cadastro.html"
+        );
+
+      } catch (error) {
+        setStatus(error.message || "Não foi possível concluir o cadastro.", "error");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Enviar cadastro";
+      }
+    });
+
+    validateInvite();
+  </script>
+</body>
+</html>
