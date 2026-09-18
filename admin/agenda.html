@@ -1,0 +1,1336 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#073d3a">
+  <title>Análise Legal | Agenda profissional</title>
+
+  <link rel="preload" href="/assets/img/Marca.svg" as="image" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/analiselegal.css">
+
+  <style>
+    :root{
+      --green:#073d3a;
+      --green-dark:#043330;
+      --green-soft:#315f5d;
+      --ink:#302f30;
+      --muted:#6f7472;
+      --line:#d9dfdc;
+      --line-strong:#c8d5d3;
+      --paper:#ffffff;
+      --soft:#f7f7f4;
+      --danger:#8e3434;
+      --danger-soft:#fbefef;
+      --success:#0b624f;
+      --success-soft:#e8f4ef;
+      --warning:#8a651f;
+      --warning-soft:#fbf4df;
+      --shadow:0 12px 34px rgba(7,61,58,.06);
+      --radius:14px;
+      --font:"Crimson Text", Georgia, "Times New Roman", serif;
+    }
+
+    *{box-sizing:border-box}
+    html{background:var(--soft);color:var(--ink)}
+    body{
+      margin:0;
+      min-height:100vh;
+      background:var(--soft);
+      color:var(--ink);
+      font-family:var(--font);
+      font-size:17px;
+      line-height:1.42;
+    }
+    input,select,button,textarea{font:inherit}
+    button{cursor:pointer}
+    [hidden]{display:none!important}
+
+    .page{min-height:100vh}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,255,255,.97);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(8px);
+    }
+
+    .topbar-inner{
+      width:min(1500px,calc(100% - 36px));
+      min-height:88px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .brand{
+      display:block;
+      width:205px;
+      flex:0 0 auto;
+    }
+    .brand img{display:block;width:100%;height:auto}
+
+    .top-actions{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      border:1px solid var(--line-strong);
+      border-radius:9px;
+      background:#fff;
+      color:var(--ink);
+      padding:9px 13px;
+      font-weight:700;
+      text-decoration:none;
+    }
+    .btn:hover{border-color:var(--green)}
+    .btn-primary{
+      background:var(--green);
+      border-color:var(--green);
+      color:#fff;
+    }
+    .btn-danger{
+      background:#fff;
+      border-color:#dababa;
+      color:var(--danger);
+    }
+    .btn-small{
+      padding:6px 9px;
+      border-radius:7px;
+      font-size:14px;
+    }
+
+    .main{
+      width:min(1500px,calc(100% - 36px));
+      margin:0 auto;
+      padding:30px 0 48px;
+    }
+
+    .hero{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:24px;
+      margin-bottom:22px;
+    }
+    .eyebrow{
+      margin:0 0 7px;
+      color:var(--green);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    h1{
+      margin:0;
+      color:var(--green-dark);
+      font-size:34px;
+      line-height:1.06;
+    }
+    .hero p{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:16px;
+    }
+    .status-badge{
+      display:inline-flex;
+      align-items:center;
+      margin-top:10px;
+      padding:5px 10px;
+      border-radius:999px;
+      background:var(--success-soft);
+      color:var(--success);
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .notice{
+      margin-bottom:18px;
+      padding:12px 14px;
+      border:1px solid var(--line);
+      border-radius:9px;
+      background:#fff;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .notice.success{
+      background:var(--success-soft);
+      border-color:#bdd8cc;
+      color:var(--success);
+    }
+    .notice.error{
+      background:var(--danger-soft);
+      border-color:#dababa;
+      color:var(--danger);
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns:minmax(0,1.65fr) minmax(340px,.72fr);
+      gap:18px;
+      align-items:start;
+    }
+
+    .stack{display:grid;gap:18px}
+
+    .card{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .card-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      padding:20px 22px 16px;
+      border-bottom:1px solid var(--line);
+    }
+    .card-head h2{
+      margin:0;
+      color:var(--green-dark);
+      font-size:22px;
+      line-height:1.12;
+    }
+    .card-head p{
+      margin:5px 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .card-body{padding:20px 22px}
+
+    .table-scroll{
+      width:100%;
+      overflow:auto;
+      border:1px solid var(--line);
+      border-radius:10px;
+    }
+    table{
+      width:100%;
+      min-width:960px;
+      border-collapse:collapse;
+      background:#fff;
+    }
+    th,td{
+      padding:10px 10px;
+      border-bottom:1px solid var(--line);
+      text-align:left;
+      vertical-align:middle;
+    }
+    th{
+      background:var(--soft);
+      color:var(--green-dark);
+      font-size:13px;
+      white-space:nowrap;
+    }
+    td{font-size:14px}
+    tr:last-child td{border-bottom:0}
+
+    input,select,textarea{
+      width:100%;
+      min-height:40px;
+      border:1px solid var(--line-strong);
+      border-radius:8px;
+      background:#fff;
+      color:var(--ink);
+      padding:8px 9px;
+      outline:none;
+    }
+    input:focus,select:focus,textarea:focus{
+      border-color:var(--green);
+      box-shadow:0 0 0 3px rgba(7,61,58,.08);
+    }
+
+    .schedule-input{min-width:98px}
+    .price-input{min-width:104px}
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+    }
+    .field{display:grid;gap:5px}
+    .field.full{grid-column:1 / -1}
+    .field label{
+      color:var(--green-dark);
+      font-size:14px;
+      font-weight:700;
+    }
+    .hint{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .block-list,.holiday-list,.slot-list{
+      display:grid;
+      gap:9px;
+    }
+
+    .item{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:12px;
+      align-items:center;
+      padding:11px 12px;
+      border:1px solid var(--line);
+      border-radius:9px;
+      background:#fff;
+    }
+    .item strong{
+      display:block;
+      color:var(--green-dark);
+      font-size:15px;
+    }
+    .item small{color:var(--muted)}
+
+    .badge{
+      display:inline-block;
+      padding:4px 8px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+    }
+    .badge-active{background:var(--success-soft);color:var(--success)}
+    .badge-cancelled{background:#efefef;color:#666}
+    .badge-national{background:#edf2f1;color:var(--green)}
+    .badge-state{background:#f4f0e6;color:#75602b}
+    .badge-municipal{background:#f1edf5;color:#6f4c82}
+
+    .empty{
+      padding:24px 14px;
+      text-align:center;
+      color:var(--muted);
+      border:1px dashed var(--line-strong);
+      border-radius:9px;
+      background:var(--soft);
+    }
+
+    .calendar-preview{
+      display:grid;
+      gap:12px;
+    }
+
+    .slot-list{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .slot{
+      padding:10px 11px;
+      border:1px solid var(--line);
+      border-radius:9px;
+      background:#fff;
+    }
+    .slot strong{
+      display:block;
+      color:var(--green-dark);
+      font-size:17px;
+    }
+    .slot span{
+      display:block;
+      margin-top:2px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .footer-actions{
+      display:flex;
+      justify-content:flex-end;
+      gap:9px;
+      margin-top:14px;
+    }
+
+    .print-header,.print-footer{display:none}
+
+    @media (max-width:1050px){
+      .layout{grid-template-columns:1fr}
+    }
+
+    @media (max-width:720px){
+      .topbar-inner{
+        min-height:76px;
+        align-items:flex-start;
+        padding:14px 0;
+      }
+      .brand{width:175px}
+      .top-actions .btn:not(.btn-primary){display:none}
+      .main{padding-top:22px}
+      .hero{display:block}
+      .hero h1{font-size:29px}
+      .form-grid{grid-template-columns:1fr}
+      .field.full{grid-column:auto}
+      .slot-list{grid-template-columns:1fr}
+      .card-head,.card-body{padding-left:15px;padding-right:15px}
+    }
+
+    @media print{
+      @page{
+        size:A4 portrait;
+        margin:17mm 15mm 18mm;
+      }
+      body{
+        background:#fff!important;
+        color:#222!important;
+        font-size:10.5pt;
+      }
+      .topbar,.no-print,.btn,.footer-actions,.notice{
+        display:none!important;
+      }
+      .main{
+        width:auto!important;
+        margin:0!important;
+        padding:0!important;
+      }
+      .print-header{
+        display:flex!important;
+        justify-content:space-between;
+        align-items:flex-end;
+        gap:10mm;
+        padding-bottom:6mm;
+        margin-bottom:8mm;
+        border-bottom:1px solid #bbb;
+      }
+      .print-header img{width:50mm}
+      .print-header div{text-align:right;font-size:9pt;color:#555}
+      .layout,.stack{
+        display:block!important;
+      }
+      .card{
+        border:0!important;
+        box-shadow:none!important;
+        margin-bottom:8mm!important;
+        break-inside:auto;
+      }
+      .card-head{
+        padding:0 0 4mm!important;
+        border:0!important;
+      }
+      .card-body{padding:0!important}
+      h1{font-size:19pt!important}
+      .card-head h2{font-size:14pt!important}
+      .table-scroll{overflow:visible!important;border:0!important}
+      table{
+        min-width:0!important;
+        font-size:8.5pt;
+      }
+      thead{display:table-header-group}
+      tr{break-inside:avoid}
+      th,td{
+        padding:2mm!important;
+        font-size:8.5pt!important;
+      }
+      input,select{
+        border:0!important;
+        padding:0!important;
+        background:#fff!important;
+        min-height:0!important;
+        appearance:none;
+      }
+      .print-footer{
+        display:block!important;
+        margin-top:8mm;
+        padding-top:4mm;
+        border-top:1px solid #bbb;
+        color:#555;
+        font-size:8.5pt;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <div class="print-header">
+      <img src="/assets/img/Marca.svg" alt="Análise Legal">
+      <div>
+        <strong>Agenda profissional</strong><br>
+        <span id="printDate"></span>
+      </div>
+    </div>
+
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="/admin/" aria-label="Análise Legal — Administração">
+          <img src="/assets/img/Marca.svg" alt="Análise Legal">
+        </a>
+
+        <div class="top-actions no-print">
+          <a class="btn" href="/admin/">Voltar ao painel</a>
+          <button class="btn" id="refreshBtn" type="button">Atualizar</button>
+          <button class="btn" id="printBtn" type="button">Imprimir</button>
+          <button class="btn btn-primary" id="saveCalendarBtn" type="button">Salvar agenda</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Administração · Agenda</p>
+          <h1 id="professionalName">Carregando profissional...</h1>
+          <p id="professionalMeta"></p>
+          <span class="status-badge" id="professionalStatus" hidden></span>
+        </div>
+      </section>
+
+      <div id="notice" class="notice">Carregando agenda...</div>
+
+      <div class="layout">
+        <div class="stack">
+
+          <section class="card">
+            <div class="card-head">
+              <div>
+                <h2>Agenda semanal</h2>
+                <p>Defina os períodos recorrentes de atendimento.</p>
+              </div>
+              <button class="btn btn-small no-print" id="addScheduleRowBtn" type="button">Adicionar período</button>
+            </div>
+
+            <div class="card-body">
+              <div class="table-scroll">
+                <table aria-label="Agenda semanal">
+                  <thead>
+                    <tr>
+                      <th>Dia</th>
+                      <th>Modalidade</th>
+                      <th>Início</th>
+                      <th>Fim</th>
+                      <th>Duração</th>
+                      <th>Antecedência</th>
+                      <th>Preço</th>
+                      <th class="no-print">Ação</th>
+                    </tr>
+                  </thead>
+                  <tbody id="scheduleBody"></tbody>
+                </table>
+              </div>
+              <div class="footer-actions no-print">
+                <button class="btn btn-primary" id="saveCalendarBtnBottom" type="button">Salvar agenda</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card-head">
+              <div>
+                <h2>Férias e indisponibilidades</h2>
+                <p>Bloqueios temporários não alteram a agenda semanal.</p>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <form id="blockForm" class="form-grid no-print">
+                <div class="field">
+                  <label for="blockStart">Início</label>
+                  <input id="blockStart" type="datetime-local" required>
+                </div>
+
+                <div class="field">
+                  <label for="blockEnd">Fim</label>
+                  <input id="blockEnd" type="datetime-local" required>
+                </div>
+
+                <div class="field full">
+                  <label for="blockReason">Motivo</label>
+                  <input id="blockReason" type="text" maxlength="300" placeholder="Ex.: férias, congresso, indisponibilidade">
+                </div>
+
+                <div class="field full">
+                  <button class="btn btn-primary" type="submit">Adicionar bloqueio</button>
+                </div>
+              </form>
+
+              <div style="height:16px"></div>
+              <div id="blockList" class="block-list">
+                <div class="empty">Nenhum bloqueio carregado.</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card-head">
+              <div>
+                <h2>Feriados</h2>
+                <p>Nacionais podem ser importados; estaduais e municipais podem ser incluídos manualmente.</p>
+              </div>
+              <button class="btn btn-small no-print" id="importHolidaysBtn" type="button">Importar nacionais</button>
+            </div>
+
+            <div class="card-body">
+              <form id="holidayForm" class="form-grid no-print">
+                <div class="field">
+                  <label for="holidayDate">Data</label>
+                  <input id="holidayDate" type="date" required>
+                </div>
+
+                <div class="field">
+                  <label for="holidayName">Nome</label>
+                  <input id="holidayName" type="text" maxlength="200" required>
+                </div>
+
+                <div class="field">
+                  <label for="holidayScope">Abrangência</label>
+                  <select id="holidayScope" required>
+                    <option value="municipal">Municipal</option>
+                    <option value="state">Estadual</option>
+                    <option value="national">Nacional</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="holidayState">UF</label>
+                  <input id="holidayState" type="text" maxlength="2" placeholder="DF">
+                </div>
+
+                <div class="field full" id="holidayCityField">
+                  <label for="holidayCity">Cidade</label>
+                  <input id="holidayCity" type="text" maxlength="100">
+                </div>
+
+                <div class="field full">
+                  <button class="btn btn-primary" type="submit">Adicionar feriado</button>
+                </div>
+              </form>
+
+              <div style="height:16px"></div>
+              <div id="holidayList" class="holiday-list">
+                <div class="empty">Nenhum feriado carregado.</div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <aside class="stack">
+
+          <section class="card">
+            <div class="card-head">
+              <div>
+                <h2>Prévia de disponibilidade</h2>
+                <p>Mostra os horários efetivamente livres.</p>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="calendar-preview">
+                <div class="field">
+                  <label for="previewDate">Data</label>
+                  <input id="previewDate" type="date">
+                </div>
+
+                <div class="field">
+                  <label for="previewMode">Modalidade</label>
+                  <select id="previewMode">
+                    <option value="online">On-line</option>
+                    <option value="presencial">Presencial</option>
+                  </select>
+                </div>
+
+                <button class="btn btn-primary no-print" id="previewBtn" type="button">Consultar disponibilidade</button>
+
+                <div id="previewInfo"></div>
+                <div id="slotList" class="slot-list">
+                  <div class="empty">Escolha uma data para consultar.</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card-head">
+              <div>
+                <h2>Regras aplicadas</h2>
+                <p>A disponibilidade considera automaticamente:</p>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="item">
+                <div>
+                  <strong>Agenda semanal</strong>
+                  <small>Períodos recorrentes cadastrados.</small>
+                </div>
+              </div>
+
+              <div class="item">
+                <div>
+                  <strong>Antecedência mínima</strong>
+                  <small>Configurada separadamente em cada período.</small>
+                </div>
+              </div>
+
+              <div class="item">
+                <div>
+                  <strong>Férias e bloqueios</strong>
+                  <small>Períodos indisponíveis são retirados da agenda.</small>
+                </div>
+              </div>
+
+              <div class="item">
+                <div>
+                  <strong>Feriados</strong>
+                  <small>Nacionais, estaduais e municipais ativos bloqueiam o dia.</small>
+                </div>
+              </div>
+
+              <div class="item">
+                <div>
+                  <strong>Reservas existentes</strong>
+                  <small>Horários já ocupados não voltam a ser ofertados.</small>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </aside>
+      </div>
+    </main>
+
+    <div class="print-footer">
+      ANÁLISE LEGAL — Agenda profissional — uso interno — www.analiselegal.com.br
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const professionalId = (params.get("professional_id") || "").trim();
+
+    const $ = (selector, root = document) => root.querySelector(selector);
+    const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+    const weekdayNames = [
+      "Domingo",
+      "Segunda-feira",
+      "Terça-feira",
+      "Quarta-feira",
+      "Quinta-feira",
+      "Sexta-feira",
+      "Sábado"
+    ];
+
+    let professional = null;
+    let calendarRows = [];
+    let blocks = [];
+    let holidays = [];
+
+    function setNotice(message, type = "") {
+      const el = $("#notice");
+      el.textContent = message;
+      el.className = "notice";
+      if (type) el.classList.add(type);
+      el.hidden = !message;
+    }
+
+    function moneyFromCents(cents) {
+      return (Number(cents || 0) / 100).toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+      });
+    }
+
+    function centsFromMoney(value) {
+      const normalized = String(value || "")
+        .replace(/\s/g, "")
+        .replace("R$", "")
+        .replace(/\./g, "")
+        .replace(",", ".")
+        .trim();
+
+      const number = Number(normalized);
+      return Number.isFinite(number) ? Math.round(number * 100) : 0;
+    }
+
+    function moneyInput(cents) {
+      return (Number(cents || 0) / 100).toFixed(2).replace(".", ",");
+    }
+
+    function formatDateTime(value) {
+      if (!value) return "—";
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return value;
+      return new Intl.DateTimeFormat("pt-BR", {
+        dateStyle: "short",
+        timeStyle: "short"
+      }).format(date);
+    }
+
+    function formatDate(value) {
+      if (!value) return "—";
+      const date = new Date(value + "T12:00:00");
+      if (Number.isNaN(date.getTime())) return value;
+      return new Intl.DateTimeFormat("pt-BR", {
+        dateStyle: "long"
+      }).format(date);
+    }
+
+    function currentYear() {
+      return Number(
+        ($("#previewDate").value || "").slice(0, 4)
+      ) || new Date().getFullYear();
+    }
+
+    function defaultPreviewDate() {
+      const now = new Date();
+      now.setDate(now.getDate() + 1);
+      return [
+        now.getFullYear(),
+        String(now.getMonth() + 1).padStart(2, "0"),
+        String(now.getDate()).padStart(2, "0")
+      ].join("-");
+    }
+
+    function toOffsetDateTime(localValue) {
+      if (!localValue) return "";
+      return localValue.length === 16
+        ? `${localValue}:00-03:00`
+        : `${localValue}-03:00`;
+    }
+
+    function scheduleRowHTML(row = {}) {
+      const weekday = Number.isInteger(Number(row.weekday))
+        ? Number(row.weekday)
+        : 1;
+
+      const serviceMode = row.service_mode || "online";
+      const startTime = row.start_time || "09:00";
+      const endTime = row.end_time || "12:00";
+      const slotMinutes = Number(row.slot_minutes || 60);
+      const advance = Number(row.min_advance_days ?? (serviceMode === "presencial" ? 2 : 1));
+      const price = moneyInput(row.price_cents || 0);
+
+      return `
+        <tr class="schedule-row">
+          <td>
+            <select data-field="weekday" class="schedule-input">
+              ${weekdayNames.map((name, index) =>
+                `<option value="${index}" ${index === weekday ? "selected" : ""}>${name}</option>`
+              ).join("")}
+            </select>
+          </td>
+
+          <td>
+            <select data-field="service_mode" class="schedule-input">
+              <option value="online" ${serviceMode === "online" ? "selected" : ""}>On-line</option>
+              <option value="presencial" ${serviceMode === "presencial" ? "selected" : ""}>Presencial</option>
+            </select>
+          </td>
+
+          <td>
+            <input data-field="start_time" class="schedule-input" type="time" value="${startTime}">
+          </td>
+
+          <td>
+            <input data-field="end_time" class="schedule-input" type="time" value="${endTime}">
+          </td>
+
+          <td>
+            <select data-field="slot_minutes" class="schedule-input">
+              ${[30,45,60,90,120].map(value =>
+                `<option value="${value}" ${value === slotMinutes ? "selected" : ""}>${value} min</option>`
+              ).join("")}
+            </select>
+          </td>
+
+          <td>
+            <input data-field="min_advance_days" class="schedule-input" type="number" min="0" max="365" value="${advance}">
+          </td>
+
+          <td>
+            <input data-field="price" class="price-input" type="text" inputmode="decimal" value="${price}" placeholder="0,00">
+          </td>
+
+          <td class="no-print">
+            <button class="btn btn-danger btn-small remove-schedule" type="button">Excluir</button>
+          </td>
+        </tr>
+      `;
+    }
+
+    function renderCalendar() {
+      const body = $("#scheduleBody");
+
+      body.innerHTML = calendarRows.length
+        ? calendarRows.map(scheduleRowHTML).join("")
+        : scheduleRowHTML({
+            weekday: 1,
+            service_mode: "online",
+            start_time: "09:00",
+            end_time: "12:00",
+            slot_minutes: 60,
+            min_advance_days: 1,
+            price_cents: 0
+          });
+
+      bindScheduleRows();
+    }
+
+    function bindScheduleRows() {
+      $$(".remove-schedule").forEach(button => {
+        button.onclick = () => {
+          button.closest("tr").remove();
+        };
+      });
+
+      $$('[data-field="service_mode"]').forEach(select => {
+        select.onchange = () => {
+          const row = select.closest("tr");
+          const advance = $('[data-field="min_advance_days"]', row);
+          if (!advance.dataset.touched) {
+            advance.value = select.value === "presencial" ? 2 : 1;
+          }
+        };
+      });
+
+      $$('[data-field="min_advance_days"]').forEach(input => {
+        input.oninput = () => {
+          input.dataset.touched = "true";
+        };
+      });
+    }
+
+    function collectCalendarRows() {
+      return $$(".schedule-row").map(row => ({
+        weekday: Number($('[data-field="weekday"]', row).value),
+        service_mode: $('[data-field="service_mode"]', row).value,
+        start_time: $('[data-field="start_time"]', row).value,
+        end_time: $('[data-field="end_time"]', row).value,
+        slot_minutes: Number($('[data-field="slot_minutes"]', row).value),
+        min_advance_days: Number($('[data-field="min_advance_days"]', row).value),
+        price_cents: centsFromMoney($('[data-field="price"]', row).value)
+      }));
+    }
+
+    async function loadCalendar() {
+      if (!professionalId) {
+        setNotice("Profissional não identificado. Abra esta página a partir do painel administrativo.", "error");
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          `/api/admin/professionals/${encodeURIComponent(professionalId)}/calendar`,
+          { credentials: "same-origin" }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Não foi possível carregar a agenda.");
+        }
+
+        professional = data.professional;
+        calendarRows = data.calendar || [];
+
+        $("#professionalName").textContent = professional.full_name || "Profissional";
+        $("#professionalMeta").textContent =
+          [professional.profession, professional.city, professional.state]
+            .filter(Boolean)
+            .join(" · ");
+
+        $("#professionalStatus").textContent = professional.status || "";
+        $("#professionalStatus").hidden = false;
+
+        if (professional.state) {
+          $("#holidayState").value = professional.state;
+        }
+        if (professional.city) {
+          $("#holidayCity").value = professional.city;
+        }
+
+        renderCalendar();
+        setNotice("Agenda carregada.", "success");
+      } catch (error) {
+        setNotice(error.message, "error");
+      }
+    }
+
+    async function saveCalendar() {
+      const rows = collectCalendarRows();
+
+      const invalid = rows.some(row =>
+        !row.start_time ||
+        !row.end_time ||
+        row.end_time <= row.start_time ||
+        row.price_cents < 100
+      );
+
+      if (invalid) {
+        setNotice("Revise horários e preços. O preço deve ser superior a zero.", "error");
+        return;
+      }
+
+      try {
+        setNotice("Salvando agenda...");
+
+        const response = await fetch(
+          `/api/admin/professionals/${encodeURIComponent(professionalId)}/calendar`,
+          {
+            method: "PUT",
+            credentials: "same-origin",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ calendar: rows })
+          }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Não foi possível salvar a agenda.");
+        }
+
+        setNotice(`Agenda salva com ${data.rows} período(s).`, "success");
+        await loadCalendar();
+      } catch (error) {
+        setNotice(error.message, "error");
+      }
+    }
+
+    async function loadBlocks() {
+      try {
+        const response = await fetch(
+          `/api/admin/professionals/${encodeURIComponent(professionalId)}/blocks`,
+          { credentials: "same-origin" }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Não foi possível carregar os bloqueios.");
+        }
+
+        blocks = data.blocks || [];
+        renderBlocks();
+      } catch (error) {
+        $("#blockList").innerHTML = `<div class="empty">${error.message}</div>`;
+      }
+    }
+
+    function renderBlocks() {
+      const list = $("#blockList");
+
+      if (!blocks.length) {
+        list.innerHTML = `<div class="empty">Nenhum período bloqueado.</div>`;
+        return;
+      }
+
+      list.innerHTML = blocks.map(block => `
+        <div class="item">
+          <div>
+            <strong>${formatDateTime(block.starts_at)} → ${formatDateTime(block.ends_at)}</strong>
+            <small>${block.reason || "Sem motivo informado"}</small>
+          </div>
+
+          <div>
+            <span class="badge badge-${block.status}">${block.status}</span>
+            ${block.status === "active"
+              ? `<button class="btn btn-danger btn-small no-print cancel-block" data-id="${block.block_id}" type="button">Cancelar</button>`
+              : ""}
+          </div>
+        </div>
+      `).join("");
+
+      $$(".cancel-block").forEach(button => {
+        button.onclick = async () => {
+          if (!confirm("Cancelar este bloqueio?")) return;
+
+          const response = await fetch(
+            `/api/admin/calendar-blocks/${encodeURIComponent(button.dataset.id)}/cancel`,
+            {
+              method: "POST",
+              credentials: "same-origin"
+            }
+          );
+
+          const data = await response.json();
+
+          if (!response.ok) {
+            setNotice(data.error || "Não foi possível cancelar o bloqueio.", "error");
+            return;
+          }
+
+          setNotice("Bloqueio cancelado.", "success");
+          await loadBlocks();
+        };
+      });
+    }
+
+    async function addBlock(event) {
+      event.preventDefault();
+
+      const startsAt = toOffsetDateTime($("#blockStart").value);
+      const endsAt = toOffsetDateTime($("#blockEnd").value);
+      const reason = $("#blockReason").value.trim();
+
+      try {
+        const response = await fetch(
+          `/api/admin/professionals/${encodeURIComponent(professionalId)}/blocks`,
+          {
+            method: "POST",
+            credentials: "same-origin",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({
+              starts_at: startsAt,
+              ends_at: endsAt,
+              reason
+            })
+          }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Não foi possível criar o bloqueio.");
+        }
+
+        $("#blockForm").reset();
+        setNotice("Bloqueio criado.", "success");
+        await loadBlocks();
+      } catch (error) {
+        setNotice(error.message, "error");
+      }
+    }
+
+    async function loadHolidays() {
+      try {
+        const year = currentYear();
+
+        const response = await fetch(
+          `/api/admin/holidays?year=${year}`,
+          { credentials: "same-origin" }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Não foi possível carregar os feriados.");
+        }
+
+        holidays = data.holidays || [];
+        renderHolidays();
+      } catch (error) {
+        $("#holidayList").innerHTML = `<div class="empty">${error.message}</div>`;
+      }
+    }
+
+    function renderHolidays() {
+      const list = $("#holidayList");
+
+      const relevant = holidays.filter(item => {
+        if (item.scope === "national") return true;
+        if (!professional) return true;
+
+        if (item.scope === "state") {
+          return item.state === professional.state;
+        }
+
+        if (item.scope === "municipal") {
+          return item.state === professional.state &&
+            String(item.city || "").toLocaleLowerCase("pt-BR") ===
+            String(professional.city || "").toLocaleLowerCase("pt-BR");
+        }
+
+        return false;
+      });
+
+      if (!relevant.length) {
+        list.innerHTML = `<div class="empty">Nenhum feriado aplicável ao profissional neste ano.</div>`;
+        return;
+      }
+
+      list.innerHTML = relevant.map(item => `
+        <div class="item">
+          <div>
+            <strong>${formatDate(item.date)} · ${item.name}</strong>
+            <small>${item.state || ""}${item.city ? " · " + item.city : ""}</small>
+          </div>
+          <span class="badge badge-${item.scope}">${item.scope}</span>
+        </div>
+      `).join("");
+    }
+
+    async function importHolidays() {
+      const year = currentYear();
+
+      try {
+        setNotice(`Importando feriados nacionais de ${year}...`);
+
+        const response = await fetch("/api/admin/holidays/import", {
+          method: "POST",
+          credentials: "same-origin",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ year })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Não foi possível importar os feriados.");
+        }
+
+        setNotice(`${data.imported} feriado(s) nacional(is) importado(s) para ${year}.`, "success");
+        await loadHolidays();
+      } catch (error) {
+        setNotice(error.message, "error");
+      }
+    }
+
+    async function addHoliday(event) {
+      event.preventDefault();
+
+      const payload = {
+        date: $("#holidayDate").value,
+        name: $("#holidayName").value.trim(),
+        scope: $("#holidayScope").value,
+        state: $("#holidayState").value.trim().toUpperCase(),
+        city: $("#holidayCity").value.trim()
+      };
+
+      try {
+        const response = await fetch("/api/admin/holidays", {
+          method: "POST",
+          credentials: "same-origin",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Não foi possível adicionar o feriado.");
+        }
+
+        $("#holidayName").value = "";
+        $("#holidayDate").value = "";
+        setNotice("Feriado adicionado.", "success");
+        await loadHolidays();
+      } catch (error) {
+        setNotice(error.message, "error");
+      }
+    }
+
+    async function previewAvailability() {
+      const date = $("#previewDate").value;
+      const mode = $("#previewMode").value;
+
+      if (!date) {
+        setNotice("Escolha uma data para consultar a disponibilidade.", "error");
+        return;
+      }
+
+      try {
+        $("#slotList").innerHTML = `<div class="empty">Consultando...</div>`;
+        $("#previewInfo").innerHTML = "";
+
+        const response = await fetch(
+          `/api/availability?professional_id=${encodeURIComponent(professionalId)}&date=${encodeURIComponent(date)}&service_mode=${encodeURIComponent(mode)}`
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Não foi possível consultar a disponibilidade.");
+        }
+
+        if (data.holiday) {
+          $("#previewInfo").innerHTML = `
+            <div class="notice">
+              ${data.holiday.name} · feriado ${data.holiday.scope}.
+            </div>
+          `;
+        }
+
+        const slots = data.slots || [];
+
+        $("#slotList").innerHTML = slots.length
+          ? slots.map(slot => `
+              <div class="slot">
+                <strong>${new Date(slot.starts_at).toLocaleTimeString("pt-BR", {hour:"2-digit",minute:"2-digit"})}</strong>
+                <span>${slot.slot_minutes} min · ${moneyFromCents(slot.price_cents)}</span>
+              </div>
+            `).join("")
+          : `<div class="empty">Nenhum horário disponível nesta data.</div>`;
+      } catch (error) {
+        $("#slotList").innerHTML = `<div class="empty">${error.message}</div>`;
+      }
+    }
+
+    $("#addScheduleRowBtn").addEventListener("click", () => {
+      $("#scheduleBody").insertAdjacentHTML(
+        "beforeend",
+        scheduleRowHTML({
+          weekday: 1,
+          service_mode: "online",
+          start_time: "09:00",
+          end_time: "12:00",
+          slot_minutes: 60,
+          min_advance_days: 1,
+          price_cents: 0
+        })
+      );
+      bindScheduleRows();
+    });
+
+    $("#saveCalendarBtn").addEventListener("click", saveCalendar);
+    $("#saveCalendarBtnBottom").addEventListener("click", saveCalendar);
+    $("#refreshBtn").addEventListener("click", async () => {
+      await Promise.all([
+        loadCalendar(),
+        loadBlocks(),
+        loadHolidays()
+      ]);
+    });
+
+    $("#blockForm").addEventListener("submit", addBlock);
+    $("#holidayForm").addEventListener("submit", addHoliday);
+    $("#importHolidaysBtn").addEventListener("click", importHolidays);
+    $("#previewBtn").addEventListener("click", previewAvailability);
+
+    $("#holidayScope").addEventListener("change", () => {
+      const scope = $("#holidayScope").value;
+      $("#holidayCityField").hidden = scope !== "municipal";
+      $("#holidayState").disabled = scope === "national";
+      $("#holidayCity").disabled = scope !== "municipal";
+
+      if (scope === "national") {
+        $("#holidayState").value = "";
+        $("#holidayCity").value = "";
+      } else if (professional?.state && !$("#holidayState").value) {
+        $("#holidayState").value = professional.state;
+      }
+    });
+
+    $("#previewDate").addEventListener("change", loadHolidays);
+
+    $("#printBtn").addEventListener("click", () => {
+      $("#printDate").textContent =
+        "Emitido em " +
+        new Intl.DateTimeFormat("pt-BR", {
+          dateStyle: "long",
+          timeStyle: "short"
+        }).format(new Date());
+
+      window.print();
+    });
+
+    $("#previewDate").value = defaultPreviewDate();
+
+    Promise.all([
+      loadCalendar(),
+      loadBlocks(),
+      loadHolidays()
+    ]);
+  </script>
+</body>
+</html>
