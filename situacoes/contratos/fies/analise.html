@@ -1124,12 +1124,52 @@
 
         <div class="question-block" x-show="formData.renegociacao" x-cloak>
           <h3 class="question-title">Você lembra qual era a condição oferecida?</h3>
-          <p class="question-note">Preencha apenas o que lembrar. Todos os campos abaixo são opcionais.</p>
+          <p class="question-note">Preencha apenas o que lembrar. Todos os campos abaixo são opcionais. Nos campos de valor, digite apenas os números; ao sair do campo, o valor será formatado em reais.</p>
           <div class="fields-grid">
-            <input x-model="formData.saldoAnterior" class="field" placeholder="Valor aproximado da dívida">
-            <input x-model="formData.desconto" class="field" placeholder="Desconto informado">
-            <input x-model="formData.saldoRenegociado" class="field" placeholder="Valor após a renegociação">
-            <input x-model="formData.parcelas" class="field" placeholder="Valor ou quantidade das parcelas">
+            <input
+              type="text"
+              inputmode="numeric"
+              autocomplete="off"
+              x-model="formData.saldoAnterior"
+              @blur="formData.saldoAnterior = formatMoneyBR(formData.saldoAnterior)"
+              class="field"
+              placeholder="Valor aproximado da dívida">
+
+            <input
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              x-model="formData.desconto"
+              class="field"
+              placeholder="Desconto informado (ex.: 77%)">
+
+            <input
+              type="text"
+              inputmode="numeric"
+              autocomplete="off"
+              x-model="formData.saldoRenegociado"
+              @blur="formData.saldoRenegociado = formatMoneyBR(formData.saldoRenegociado)"
+              class="field"
+              placeholder="Valor após a renegociação">
+
+            <input
+              type="text"
+              inputmode="numeric"
+              autocomplete="off"
+              x-model="formData.valorParcela"
+              @blur="formData.valorParcela = formatMoneyBR(formData.valorParcela)"
+              class="field"
+              placeholder="Valor da parcela">
+
+            <input
+              type="number"
+              inputmode="numeric"
+              min="1"
+              step="1"
+              autocomplete="off"
+              x-model="formData.quantidadeParcelas"
+              class="field"
+              placeholder="Quantidade de parcelas">
           </div>
         </div>
 
@@ -1251,7 +1291,7 @@
         </div>
 
         <div class="question-block">
-          <h3 class="question-title">Você tentou resolver diretamente com o banco ou com o FNDE?</h3>
+          <h3 class="question-title">Você tentou resolver diretamente com o banco?</h3>
           <div class="answer-grid one">
             <button type="button" class="answer-card" @click="setSingle('tentativaSolucao','sem_solucao')" :class="formData.tentativaSolucao === 'sem_solucao' ? 'active' : ''">Sim, mas não resolveram</button>
             <button type="button" class="answer-card" @click="setSingle('tentativaSolucao','com_explicacao')" :class="formData.tentativaSolucao === 'com_explicacao' ? 'active' : ''">Sim, deram uma explicação</button>
@@ -1377,7 +1417,7 @@
           </div>
         </div>
 
-        <p class="scope-note">A contratação desta análise não significa contratação de advogado para atuar em processo, representar você perante o banco, FNDE ou terceiros, elaborar medidas ou acompanhar procedimentos. Qualquer atuação adicional depende de contratação específica.</p>
+        <p class="scope-note">A contratação desta análise não significa contratação de advogado para atuar em processo, representar você perante o banco ou terceiros, elaborar medidas ou acompanhar procedimentos. Qualquer atuação adicional depende de contratação específica.</p>
 
         <div x-show="!bookingOpen" class="actions end" style="border-top:0;padding-top:0;margin-top:0;">
           <button type="button" @click="openBooking()" class="primary-btn">Escolher dia e horário</button>
@@ -1677,7 +1717,8 @@
           saldoAnterior: '',
           desconto: '',
           saldoRenegociado: '',
-          parcelas: '',
+          valorParcela: '',
+          quantidadeParcelas: '',
 
           houveMudanca: '',
           mudancas: [],
@@ -1871,7 +1912,8 @@
           if (this.formData.saldoAnterior) detalhes.push('dívida aproximada: ' + this.formData.saldoAnterior);
           if (this.formData.desconto) detalhes.push('desconto informado: ' + this.formData.desconto);
           if (this.formData.saldoRenegociado) detalhes.push('valor após a renegociação: ' + this.formData.saldoRenegociado);
-          if (this.formData.parcelas) detalhes.push('parcelamento: ' + this.formData.parcelas);
+          if (this.formData.valorParcela) detalhes.push('valor da parcela: ' + this.formData.valorParcela);
+          if (this.formData.quantidadeParcelas) detalhes.push('quantidade de parcelas: ' + this.formData.quantidadeParcelas);
           if (detalhes.length) text += ' Condições lembradas: ' + detalhes.join('; ') + '.';
 
           return text;
@@ -1931,7 +1973,7 @@
           const tentativa = {
             sem_solucao: 'Você tentou resolver diretamente, mas não houve solução.',
             com_explicacao: 'Você tentou resolver diretamente e recebeu uma explicação.',
-            nao_tentei: 'Você ainda não tentou resolver diretamente com o banco ou FNDE.'
+            nao_tentei: 'Você ainda não tentou resolver diretamente com o banco.'
           }[this.formData.tentativaSolucao] || '';
 
           return 'Situação atual informada: ' + atual.toLowerCase() + '. ' + neg + ' ' + tentativa;
@@ -2131,7 +2173,8 @@
                 saldoAnterior: this.formData.saldoAnterior,
                 desconto: this.formData.desconto,
                 saldoRenegociado: this.formData.saldoRenegociado,
-                parcelas: this.formData.parcelas,
+                valorParcela: this.formData.valorParcela,
+                quantidadeParcelas: this.formData.quantidadeParcelas,
                 houveMudanca: this.formData.houveMudanca,
                 mudancas: this.formData.mudancas,
                 momentoMudanca: this.formData.momentoMudanca,
@@ -2249,6 +2292,32 @@
           } finally {
             this.cepLoading = false;
           }
+        },
+
+        formatMoneyBR(value) {
+          if (value === null || value === undefined || String(value).trim() === '') return '';
+
+          let raw = String(value)
+            .trim()
+            .replace(/\s/g, '')
+            .replace(/^R\$/i, '');
+
+          if (raw.includes(',')) {
+            raw = raw.replace(/\./g, '').replace(',', '.');
+          } else {
+            raw = raw.replace(/\./g, '');
+          }
+
+          raw = raw.replace(/[^0-9.-]/g, '');
+          const numero = Number(raw);
+          if (!Number.isFinite(numero)) return '';
+
+          return numero.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          });
         },
 
         formatCPF(value) {
