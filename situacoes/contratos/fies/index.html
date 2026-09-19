@@ -1,54 +1,17 @@
 <!doctype html>
-
 <html lang="pt-BR">
-
 <head>
-
   <meta charset="utf-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>FIES: renegociação alterada, desconto reduzido ou cobrança diferente do acordo</title>
-
-  <meta
-    name="description"
-    content="Entenda o que pode estar acontecendo quando uma renegociação do FIES é modificada depois da adesão, do pagamento da entrada ou do início das parcelas."
-  >
-
-  <meta
-    name="robots"
-    content="index, follow"
-  >
-
-  <meta
-    name="theme-color"
-    content="#073d3a"
-  >
-
-  <meta
-    name="color-scheme"
-    content="light only"
-  >
-
-  <link
-    rel="canonical"
-    href="https://www.analiselegal.com.br/situacoes/contratos/fies"
-  >
-
-
-  <link
-    rel="preload"
-    as="image"
-    href="/assets/img/Marca.svg"
-    type="image/svg+xml"
-  >
-
+  <meta name="description" content="Entenda o que pode estar acontecendo quando uma renegociação do FIES é modificada depois da adesão, do pagamento da entrada ou do início das parcelas.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#073d3a">
+  <meta name="color-scheme" content="light only">
+  <link rel="canonical" href="https://www.analiselegal.com.br/situacoes/contratos/fies">
+  <link rel="preload" as="image" href="/assets/img/Marca.svg" type="image/svg+xml">
 
   <style>
-
     @font-face {
       font-family: "Crimson Text";
       src: url("/assets/fonts/CrimsonText-Regular.ttf") format("truetype");
@@ -73,71 +36,43 @@
       font-display: swap;
     }
 
-
     :root {
-
       color-scheme: light only;
-
       --green: #073d3a;
       --green-dark: #043330;
       --green-soft: #315f5d;
-
       --ink: #302f30;
-
       --paper: #ffffff;
       --soft: #f7f7f4;
-
       --line: rgba(7, 61, 58, .20);
       --line-strong: rgba(7, 61, 58, .34);
-
       --red: #995d53;
       --red-soft: #f5ebe8;
-
       --shell: 1740px;
-
       --header-h: 86px;
       --footer-h: 78px;
     }
-
 
     * {
       box-sizing: border-box;
     }
 
-
     html {
-
       min-width: 320px;
-
       background: var(--paper);
-
       color-scheme: light only;
-
       scroll-behavior: smooth;
     }
 
-
     body {
-
       margin: 0;
-
       min-width: 320px;
-
-      font-family:
-        "Crimson Text",
-        Georgia,
-        "Times New Roman",
-        serif;
-
+      font-family: "Crimson Text", Georgia, "Times New Roman", serif;
       color: var(--ink);
-
       background: var(--paper);
-
       -webkit-font-smoothing: antialiased;
-
       text-rendering: optimizeLegibility;
     }
-
 
     button,
     input,
@@ -146,255 +81,139 @@
       font: inherit;
     }
 
-
     img {
-
       display: block;
-
       max-width: 100%;
     }
 
-
     a {
-
       color: inherit;
-
       text-decoration: none;
     }
 
-
     a:focus-visible {
-
       outline: 3px solid rgba(7, 61, 58, .35);
-
       outline-offset: 4px;
     }
 
-
     .skip-link {
-
       position: fixed;
-
       left: 18px;
       top: -80px;
-
       z-index: 9999;
-
       padding: 9px 14px;
-
       border-radius: 6px;
-
       background: var(--green);
-
       color: #fff;
-
       font-weight: 700;
-
       transition: top .15s ease;
     }
-
 
     .skip-link:focus {
       top: 12px;
     }
 
-
     .shell {
-
-      width: min(
-        calc(100% - 144px),
-        var(--shell)
-      );
-
+      width: min(calc(100% - 144px), var(--shell));
       margin-inline: auto;
     }
 
-
     .mask-icon {
-
       display: inline-block;
-
       width: 100%;
       height: 100%;
-
       background: currentColor;
-
-      -webkit-mask:
-        var(--icon)
-        center / contain
-        no-repeat;
-
-      mask:
-        var(--icon)
-        center / contain
-        no-repeat;
+      -webkit-mask: var(--icon) center / contain no-repeat;
+      mask: var(--icon) center / contain no-repeat;
     }
 
-
-
-    /* ======================================================
-       CABEÇALHO
-       MESMO PADRÃO DA HOME
-       ====================================================== */
-
-
     .site-header {
-
       height: var(--header-h);
-
       background: var(--paper);
     }
 
-
     .site-header .shell {
-
       height: 100%;
-
       display: grid;
-
-      grid-template-columns:
-        345px
-        minmax(0, 1fr)
-        190px;
-
+      grid-template-columns: 345px minmax(0, 1fr) 190px;
       align-items: center;
-
       gap: 30px;
     }
 
-
     .brand {
-
       display: inline-flex;
-
       width: 345px;
-
       align-items: center;
     }
 
-
     .brand img {
-
       width: 100%;
-
       height: auto;
     }
 
-
     .main-nav {
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
       gap: clamp(30px, 3.1vw, 64px);
-
       min-width: 0;
-
       white-space: nowrap;
-
       font-size: 21px;
-
       line-height: 1;
     }
 
-
     .main-nav a {
-
       position: relative;
-
       padding: 12px 0;
     }
 
-
     .main-nav a::after {
-
       content: "";
-
       position: absolute;
-
       left: 0;
       right: 100%;
       bottom: 4px;
-
       height: 1px;
-
       background: var(--green);
-
       transition: right .16s ease;
     }
-
 
     .main-nav a:hover::after,
     .main-nav a:focus-visible::after {
       right: 0;
     }
 
-
     .header-cta,
     .page-cta {
-
       display: inline-flex;
-
       align-items: center;
-
       justify-content: center;
-
       border: 1px solid var(--green-dark);
-
       border-radius: 8px;
-
       background: var(--green);
-
       color: #fff;
-
       line-height: 1;
-
       white-space: nowrap;
     }
 
-
     .header-cta {
-
       justify-self: end;
-
       min-width: 184px;
-
       min-height: 40px;
-
       padding: 8px 20px 9px;
-
       font-size: 22px;
     }
-
 
     .mobile-prefooter-nav {
       display: none;
     }
 
-
-
-    /* ======================================================
-       HERO DO CASE
-       ====================================================== */
-
-
     .case-hero {
-
       min-height: 540px;
-
       display: flex;
-
       align-items: center;
-
-      border-top:
-        1px solid rgba(7, 61, 58, .08);
-
-      border-bottom:
-        1px solid rgba(7, 61, 58, .12);
-
+      border-top: 1px solid rgba(7, 61, 58, .08);
+      border-bottom: 1px solid rgba(7, 61, 58, .12);
       background:
         radial-gradient(
           circle at 77% 48%,
@@ -404,1606 +223,899 @@
         var(--paper);
     }
 
-
     .case-hero .shell {
-
       display: grid;
-
-      grid-template-columns:
-        minmax(0, .93fr)
-        minmax(680px, 1.07fr);
-
+      grid-template-columns: minmax(0, .93fr) minmax(680px, 1.07fr);
       gap: 90px;
-
       align-items: center;
-
       padding-top: 30px;
-
       padding-bottom: 34px;
     }
 
-
     .breadcrumb {
-
       display: flex;
-
       align-items: center;
-
       gap: 10px;
-
       margin: 0 0 22px;
-
       color: rgba(48, 47, 48, .66);
-
       font-size: 17px;
-
       line-height: 1;
     }
-
 
     .breadcrumb span {
       opacity: .55;
     }
 
-
     .case-kicker {
-
       display: flex;
-
       align-items: center;
-
       gap: 13px;
-
       margin: 0 0 14px;
-
       color: var(--green);
-
       font-size: 18px;
-
       line-height: 1;
-
       font-weight: 700;
-
       letter-spacing: .10em;
-
       text-transform: uppercase;
     }
 
-
     .case-kicker::before {
-
       content: "";
-
       width: 36px;
-
       height: 2px;
-
       background: var(--green);
     }
 
-
     .case-hero h1 {
-
       max-width: 760px;
-
       margin: 0 0 18px;
-
       color: var(--ink);
-
-      font-size:
-        clamp(54px, 3.7vw, 72px);
-
+      font-size: clamp(54px, 3.7vw, 72px);
       line-height: .93;
-
       letter-spacing: -.018em;
-
       font-weight: 400;
     }
 
-
     .case-lead {
-
       max-width: 770px;
-
       margin: 0;
-
       font-size: 22px;
-
       line-height: 1.27;
     }
 
-
     .case-action {
-
       display: flex;
-
       align-items: center;
-
       gap: 24px;
-
       margin-top: 23px;
     }
 
-
     .page-cta {
-
       min-width: 208px;
-
       min-height: 42px;
-
       padding: 8px 22px 9px;
-
       font-size: 23px;
     }
 
-
     .case-action-note {
-
       max-width: 310px;
-
       font-size: 18px;
-
       line-height: 1.22;
-
       color: rgba(48, 47, 48, .72);
     }
 
-
-
-    /* ======================================================
-       3 CAIXAS IGUAIS
-       ====================================================== */
-
-
     .case-history {
-
       position: relative;
-
       min-width: 0;
     }
 
-
     .case-history::before {
-
       content: "";
-
       position: absolute;
-
       left: 7%;
       right: 7%;
-
       top: 50%;
-
       height: 1px;
-
-      background:
-        rgba(7, 61, 58, .28);
-
-      transform:
-        translateY(-50%);
+      background: rgba(7, 61, 58, .28);
+      transform: translateY(-50%);
     }
 
-
     .history-grid {
-
       position: relative;
-
       z-index: 1;
-
       display: grid;
-
-      grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 28px;
-
       align-items: stretch;
     }
 
-
     .history-card {
-
       height: 280px;
-
       min-width: 0;
-
       padding: 27px 25px 24px;
-
       display: flex;
-
       flex-direction: column;
-
       background: rgba(255, 255, 255, .98);
-
-      border:
-        1px solid rgba(7, 61, 58, .13);
-
+      border: 1px solid rgba(7, 61, 58, .13);
       border-radius: 12px;
-
-      box-shadow:
-        0 16px 42px
-        rgba(7, 61, 58, .065);
+      box-shadow: 0 16px 42px rgba(7, 61, 58, .065);
     }
 
-
     .history-icon {
-
       width: 52px;
-
       height: 52px;
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
       margin: 0 0 19px;
-
       border-radius: 50%;
-
-      background:
-        rgba(7, 61, 58, .09);
-
+      background: rgba(7, 61, 58, .09);
       color: var(--green);
     }
 
-
     .history-icon .mask-icon {
-
       width: 27px;
-
       height: 27px;
     }
 
-
-    .history-card.changed
-    .history-icon {
-
+    .history-card.changed .history-icon {
       background: var(--red-soft);
-
       color: var(--red);
     }
 
-
     .history-card h2 {
-
       margin: 0;
-
       min-height: 58px;
-
       font-size: 28px;
-
       line-height: 1;
-
       font-weight: 600;
     }
 
-
     .history-card small {
-
       display: block;
-
       margin-top: 3px;
-
       color: rgba(48, 47, 48, .58);
-
       font-size: 14px;
-
       line-height: 1.1;
-
       letter-spacing: .06em;
-
       text-transform: uppercase;
     }
 
-
     .history-data {
-
       margin-top: auto;
-
       padding-top: 15px;
-
       border-top: 1px solid var(--line);
-
       display: grid;
-
       gap: 10px;
     }
 
-
     .history-row {
-
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
       gap: 16px;
-
       font-size: 16px;
-
       color: rgba(48, 47, 48, .72);
     }
 
-
     .history-value {
-
       width: 66px;
-
       height: 6px;
-
       border-radius: 6px;
-
-      background:
-        rgba(7, 61, 58, .13);
+      background: rgba(7, 61, 58, .13);
     }
-
 
     .changed .history-value {
-
-      background:
-        rgba(153, 93, 83, .35);
+      background: rgba(153, 93, 83, .35);
     }
 
-
-
-    /* ======================================================
-       PONTO CENTRAL
-       ====================================================== */
-
-
     .case-center {
-
       padding: 82px 0 84px;
-
       background: var(--paper);
     }
 
-
     .case-center .shell {
-
       display: grid;
-
-      grid-template-columns:
-        .78fr
-        1.22fr;
-
+      grid-template-columns: .78fr 1.22fr;
       gap: 120px;
-
       align-items: start;
     }
 
-
     .section-eyebrow {
-
       margin: 0 0 11px;
-
       color: var(--green);
-
       font-size: 17px;
-
       line-height: 1;
-
       font-weight: 700;
-
       letter-spacing: .10em;
-
       text-transform: uppercase;
     }
 
-
     .section-heading {
-
       max-width: 650px;
-
       margin: 0;
-
-      font-size:
-        clamp(42px, 2.65vw, 52px);
-
+      font-size: clamp(42px, 2.65vw, 52px);
       line-height: 1;
-
       font-weight: 400;
-
       letter-spacing: -.01em;
     }
 
-
     .case-center-copy > p {
-
       max-width: 850px;
-
       margin: 0;
-
       font-size: 23px;
-
       line-height: 1.38;
     }
 
-
     .sequence {
-
       display: grid;
-
-      grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       margin-top: 35px;
-
-      border-top:
-        1px solid var(--line-strong);
+      border-top: 1px solid var(--line-strong);
     }
 
-
     .sequence-item {
-
       padding: 19px 30px 0 0;
     }
 
-
     .sequence-item + .sequence-item {
-
       padding-left: 30px;
-
-      border-left:
-        1px solid var(--line);
+      border-left: 1px solid var(--line);
     }
 
-
     .sequence-number {
-
       display: block;
-
       margin-bottom: 6px;
-
       color: var(--green);
-
       font-size: 17px;
-
       font-weight: 700;
     }
 
-
     .sequence-item p {
-
       margin: 0;
-
       font-size: 19px;
-
       line-height: 1.2;
     }
 
-
-
-    /* ======================================================
-       CONDIÇÕES
-       ====================================================== */
-
-
     .case-context {
-
       padding: 74px 0 78px;
-
       background: var(--green-dark);
-
       color: #fff;
     }
-
 
     .case-context-heading {
-
       max-width: 850px;
     }
 
-
-    .case-context
-    .section-eyebrow {
-
-      color:
-        rgba(255, 255, 255, .65);
+    .case-context .section-eyebrow {
+      color: rgba(255, 255, 255, .65);
     }
 
-
-    .case-context
-    .section-heading {
-
+    .case-context .section-heading {
       max-width: 850px;
-
       color: #fff;
     }
 
-
     .context-grid {
-
       display: grid;
-
-      grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       margin-top: 38px;
-
-      border-top:
-        1px solid
-        rgba(255, 255, 255, .22);
+      border-top: 1px solid rgba(255, 255, 255, .22);
     }
 
-
     .context-item {
-
-      padding:
-        27px 42px 0 0;
+      padding: 27px 42px 0 0;
     }
 
-
-    .context-item +
-    .context-item {
-
+    .context-item + .context-item {
       padding-left: 42px;
-
-      border-left:
-        1px solid
-        rgba(255, 255, 255, .17);
+      border-left: 1px solid rgba(255, 255, 255, .17);
     }
-
 
     .context-number {
-
       margin: 0 0 8px;
-
-      color:
-        rgba(255, 255, 255, .52);
-
+      color: rgba(255, 255, 255, .52);
       font-size: 16px;
-
       font-weight: 700;
     }
 
-
     .context-item h3 {
-
       margin: 0 0 8px;
-
       font-size: 28px;
-
       line-height: 1;
-
       font-weight: 600;
     }
 
-
     .context-item p {
-
       margin: 0;
-
-      color:
-        rgba(255, 255, 255, .77);
-
+      color: rgba(255, 255, 255, .77);
       font-size: 19px;
-
       line-height: 1.3;
     }
 
-
-
-    /* ======================================================
-       QUANDO OBSERVAR
-       ====================================================== */
-
-
     .case-attention {
-
       padding: 82px 0;
     }
 
-
     .case-attention .shell {
-
       display: grid;
-
-      grid-template-columns:
-        .72fr
-        1.28fr;
-
+      grid-template-columns: .72fr 1.28fr;
       gap: 120px;
     }
 
-
     .attention-intro p:last-child {
-
       max-width: 520px;
-
       margin: 18px 0 0;
-
       font-size: 21px;
-
       line-height: 1.33;
     }
 
-
     .attention-list {
-
-      border-top:
-        1px solid var(--line-strong);
+      border-top: 1px solid var(--line-strong);
     }
-
 
     .attention-row {
-
       display: grid;
-
-      grid-template-columns:
-        42px 1fr;
-
+      grid-template-columns: 42px 1fr;
       gap: 18px;
-
       align-items: start;
-
       padding: 18px 0;
-
-      border-bottom:
-        1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
-
     .attention-row span {
-
       padding-top: 4px;
-
-      color:
-        rgba(7, 61, 58, .56);
-
+      color: rgba(7, 61, 58, .56);
       font-size: 17px;
-
       font-weight: 700;
     }
 
-
     .attention-row p {
-
       margin: 0;
-
       font-size: 25px;
-
       line-height: 1.08;
     }
 
-
-
-    /* ======================================================
-       ANÁLISE
-       ====================================================== */
-
-
     .case-analysis {
-
       padding: 76px 0 80px;
-
       background: var(--soft);
-
-      border-top:
-        1px solid rgba(7, 61, 58, .08);
-
-      border-bottom:
-        1px solid rgba(7, 61, 58, .08);
+      border-top: 1px solid rgba(7, 61, 58, .08);
+      border-bottom: 1px solid rgba(7, 61, 58, .08);
     }
 
-
     .analysis-intro {
-
       max-width: 920px;
     }
 
-
     .analysis-intro > p:last-child {
-
       max-width: 780px;
-
       margin: 15px 0 0;
-
       font-size: 21px;
-
       line-height: 1.34;
     }
 
-
     .analysis-grid {
-
       display: grid;
-
-      grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       margin-top: 36px;
-
-      border-top:
-        1px solid var(--line-strong);
+      border-top: 1px solid var(--line-strong);
     }
 
-
     .analysis-item {
-
-      padding:
-        25px 42px 0 0;
+      padding: 25px 42px 0 0;
     }
 
-
-    .analysis-item +
-    .analysis-item {
-
+    .analysis-item + .analysis-item {
       padding-left: 42px;
-
-      border-left:
-        1px solid var(--line);
+      border-left: 1px solid var(--line);
     }
-
 
     .analysis-number {
-
       margin: 0 0 7px;
-
       color: var(--green);
-
       font-size: 16px;
-
       font-weight: 700;
-
       letter-spacing: .05em;
     }
 
-
     .analysis-item h3 {
-
       margin: 0 0 8px;
-
       font-size: 28px;
-
       line-height: 1;
-
       font-weight: 600;
     }
 
-
     .analysis-item p {
-
       margin: 0;
-
       font-size: 19px;
-
       line-height: 1.3;
     }
 
+    .analysis-outcome {
+      max-width: 1180px;
+      margin-top: 38px;
+      padding: 24px 28px 25px;
+      border-left: 3px solid var(--green);
+      background: #fff;
+    }
 
-
-    /* ======================================================
-       DOCUMENTOS E CTA
-       ====================================================== */
-
+    .analysis-outcome p {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.35;
+    }
 
     .case-closing {
-
       padding: 80px 0 86px;
     }
 
-
     .case-closing .shell {
-
       display: grid;
-
-      grid-template-columns:
-        .85fr
-        1.15fr;
-
+      grid-template-columns: .85fr 1.15fr;
       gap: 90px;
-
       align-items: stretch;
     }
 
-
     .documents-text {
-
       max-width: 620px;
-
       margin: 17px 0 0;
-
       font-size: 21px;
-
       line-height: 1.33;
     }
 
-
     .documents-grid {
-
       display: grid;
-
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       margin-top: 28px;
-
       column-gap: 30px;
-
-      border-top:
-        1px solid var(--line-strong);
+      border-top: 1px solid var(--line-strong);
     }
 
-
     .document-item {
-
       padding: 13px 0;
-
-      border-bottom:
-        1px solid var(--line);
-
+      border-bottom: 1px solid var(--line);
       font-size: 18px;
     }
 
-
     .final-card {
-
       min-height: 330px;
-
       padding: 52px 60px;
-
       display: flex;
-
       flex-direction: column;
-
       justify-content: center;
-
       background: var(--green);
-
       color: #fff;
     }
 
-
     .final-card h2 {
-
       max-width: 680px;
-
       margin: 0;
-
-      font-size:
-        clamp(42px, 2.7vw, 54px);
-
+      font-size: clamp(42px, 2.7vw, 54px);
       line-height: .98;
-
       font-weight: 400;
     }
 
-
     .final-card p {
-
       max-width: 660px;
-
       margin: 17px 0 25px;
-
-      color:
-        rgba(255, 255, 255, .82);
-
+      color: rgba(255, 255, 255, .82);
       font-size: 20px;
-
       line-height: 1.3;
     }
 
-
     .final-card .page-cta {
-
       align-self: flex-start;
-
       background: #fff;
-
       border-color: #fff;
-
       color: var(--green);
     }
 
-
-
-    /* ======================================================
-       RODAPÉ
-       MESMO PADRÃO DA HOME
-       ====================================================== */
-
-
     .site-footer {
-
       min-height: var(--footer-h);
-
       background: var(--green);
-
       color: #fff;
     }
 
-
     .site-footer .shell {
-
       min-height: var(--footer-h);
-
       display: grid;
-
-      grid-template-columns:
-        210px
-        minmax(0, 1fr)
-        330px;
-
+      grid-template-columns: 210px minmax(0, 1fr) 330px;
       gap: 30px;
-
       align-items: center;
     }
 
-
     .socials {
-
       display: flex;
-
       align-items: center;
-
       gap: 36px;
     }
 
-
     .social-mark {
-
       width: 24px;
-
       height: 24px;
-
       color: #fff;
-
       opacity: .98;
     }
 
-
     .footer-nav {
-
       display: flex;
-
       justify-content: center;
-
       align-items: center;
-
       gap: clamp(34px, 5vw, 92px);
-
       white-space: nowrap;
-
       font-size: 21px;
     }
 
-
     .footer-nav a:hover {
-
       text-decoration: underline;
-
       text-underline-offset: 4px;
     }
 
-
     .footer-brand {
-
       justify-self: end;
-
       width: 318px;
     }
 
-
     .footer-brand img {
-
       width: 100%;
-
       height: auto;
-
-      filter:
-        brightness(0)
-        invert(1);
-
+      filter: brightness(0) invert(1);
       opacity: .94;
     }
 
-
-
-    /* ======================================================
-       RESPONSIVIDADE
-       ====================================================== */
-
-
     @media (max-width: 1500px) {
-
       :root {
         --shell: 1370px;
       }
 
-
       .shell {
-
-        width:
-          min(
-            calc(100% - 72px),
-            var(--shell)
-          );
+        width: min(calc(100% - 72px), var(--shell));
       }
-
 
       .site-header .shell {
-
-        grid-template-columns:
-          285px
-          minmax(0, 1fr)
-          165px;
-
+        grid-template-columns: 285px minmax(0, 1fr) 165px;
         gap: 22px;
       }
-
 
       .brand {
         width: 285px;
       }
 
-
       .main-nav {
-
         gap: 28px;
-
         font-size: 19px;
       }
-
 
       .header-cta {
-
         min-width: 160px;
-
         font-size: 19px;
       }
 
-
       .case-hero .shell {
-
-        grid-template-columns:
-          minmax(0, .9fr)
-          minmax(610px, 1.1fr);
-
+        grid-template-columns: minmax(0, .9fr) minmax(610px, 1.1fr);
         gap: 55px;
       }
 
-
       .case-hero h1 {
-
-        font-size:
-          clamp(50px, 4vw, 62px);
+        font-size: clamp(50px, 4vw, 62px);
       }
-
 
       .history-grid {
         gap: 18px;
       }
 
-
       .history-card {
-
         height: 252px;
-
         padding: 23px 21px;
       }
 
-
       .history-card h2 {
-
         font-size: 25px;
       }
 
-
       .case-center .shell,
       .case-attention .shell {
-
         gap: 80px;
       }
 
-
       .footer-nav {
-
         gap: 42px;
-
         font-size: 19px;
       }
-
     }
 
-
-
     @media (max-width: 1160px) {
-
-
       .shell {
-
-        width:
-          min(
-            calc(100% - 48px),
-            1040px
-          );
+        width: min(calc(100% - 48px), 1040px);
       }
-
 
       .site-header {
-
         height: auto;
-
         min-height: 78px;
-
-        border-bottom:
-          1px solid
-          rgba(7, 61, 58, .12);
+        border-bottom: 1px solid rgba(7, 61, 58, .12);
       }
-
 
       .site-header .shell {
-
         min-height: 78px;
-
-        grid-template-columns:
-          minmax(220px, 310px)
-          1fr;
+        grid-template-columns: minmax(220px, 310px) 1fr;
       }
-
 
       .brand {
-
-        width:
-          min(100%, 310px);
+        width: min(100%, 310px);
       }
-
 
       .main-nav {
         display: none;
       }
-
 
       .header-cta {
         min-width: 154px;
       }
 
-
       .case-hero {
-
         min-height: 0;
-
         padding: 40px 0 48px;
       }
 
-
       .case-hero .shell {
-
         grid-template-columns: 1fr;
-
         gap: 48px;
-
         padding: 0;
       }
-
 
       .case-history {
         max-width: 900px;
       }
 
-
       .case-center .shell,
       .case-attention .shell,
       .case-closing .shell {
-
         grid-template-columns: 1fr;
-
         gap: 45px;
       }
 
-
       .mobile-prefooter-nav {
-
         display: flex;
-
         justify-content: center;
-
         align-items: center;
-
-        gap:
-          clamp(28px, 5vw, 64px);
-
-        padding:
-          26px 24px 28px;
-
-        border-top:
-          1px solid
-          rgba(7, 61, 58, .18);
-
+        gap: clamp(28px, 5vw, 64px);
+        padding: 26px 24px 28px;
+        border-top: 1px solid rgba(7, 61, 58, .18);
         background: #fff;
-
         color: var(--ink);
-
         font-size: 21px;
-
         text-align: center;
       }
 
-
       .site-footer {
-
         min-height: 98px;
-
         padding: 16px 0;
       }
 
-
       .site-footer .shell {
-
         min-height: 66px;
-
-        grid-template-columns:
-          150px
-          1fr
-          240px;
-
+        grid-template-columns: 150px 1fr 240px;
         gap: 18px;
       }
 
-
       .footer-nav {
-
         gap: 24px;
-
         font-size: 17px;
-
         flex-wrap: wrap;
       }
-
 
       .footer-brand {
         width: 225px;
       }
-
     }
 
-
-
     @media (max-width: 760px) {
-
-
       .shell {
-
-        width:
-          min(
-            calc(100% - 32px),
-            620px
-          );
+        width: min(calc(100% - 32px), 620px);
       }
 
-
       .site-header .shell {
-
         display: flex;
-
         justify-content: center;
-
         align-items: center;
-
         padding: 12px 0;
       }
 
-
       .brand {
-
-        width:
-          min(92vw, 360px);
+        width: min(92vw, 360px);
       }
-
 
       .header-cta {
         display: none;
       }
 
-
       .case-hero {
-
-        padding:
-          28px 0 34px;
+        padding: 28px 0 34px;
       }
 
-
       .breadcrumb {
-
         font-size: 15px;
-
         margin-bottom: 22px;
       }
 
-
       .case-kicker {
-
         font-size: 16px;
       }
 
-
       .case-hero h1 {
-
-        font-size:
-          clamp(43px, 12vw, 57px);
-
+        font-size: clamp(43px, 12vw, 57px);
         line-height: .94;
       }
 
-
       .case-lead {
-
         font-size: 20px;
-
         line-height: 1.34;
       }
 
-
       .case-action {
-
         flex-direction: column;
-
         align-items: stretch;
-
         gap: 14px;
       }
 
-
       .page-cta {
-
         width: 100%;
-
         min-height: 48px;
       }
 
-
       .case-action-note {
-
         max-width: none;
-
         font-size: 18px;
       }
-
 
       .case-history::before {
         display: none;
       }
 
-
       .history-grid {
-
         grid-template-columns: 1fr;
-
         gap: 14px;
       }
 
-
       .history-card {
-
         height: 240px;
       }
-
 
       .case-center,
       .case-attention,
       .case-analysis,
       .case-closing {
-
-        padding:
-          60px 0;
+        padding: 60px 0;
       }
-
 
       .case-context {
-
-        padding:
-          58px 0 62px;
+        padding: 58px 0 62px;
       }
-
 
       .section-heading {
-
-        font-size:
-          40px;
+        font-size: 40px;
       }
-
 
       .case-center .shell,
       .case-attention .shell {
-
         gap: 34px;
       }
-
 
       .case-center-copy > p,
       .attention-intro p:last-child,
       .analysis-intro > p:last-child,
       .documents-text {
-
         font-size: 20px;
       }
-
 
       .sequence,
       .context-grid,
       .analysis-grid {
-
         grid-template-columns: 1fr;
       }
-
 
       .sequence-item,
       .sequence-item + .sequence-item {
-
-        padding:
-          17px 0;
-
+        padding: 17px 0;
         border-left: 0;
-
-        border-bottom:
-          1px solid var(--line);
+        border-bottom: 1px solid var(--line);
       }
-
 
       .context-item,
       .context-item + .context-item {
-
-        padding:
-          23px 0;
-
+        padding: 23px 0;
         border-left: 0;
-
-        border-bottom:
-          1px solid
-          rgba(255, 255, 255, .14);
+        border-bottom: 1px solid rgba(255, 255, 255, .14);
       }
-
 
       .analysis-item,
       .analysis-item + .analysis-item {
-
-        padding:
-          23px 0;
-
+        padding: 23px 0;
         border-left: 0;
-
-        border-bottom:
-          1px solid var(--line);
+        border-bottom: 1px solid var(--line);
       }
 
+      .analysis-outcome {
+        margin-top: 28px;
+        padding: 20px 21px;
+      }
+
+      .analysis-outcome p {
+        font-size: 19px;
+      }
 
       .attention-row p {
-
         font-size: 23px;
       }
 
-
       .documents-grid {
-
         grid-template-columns: 1fr;
       }
 
-
       .final-card {
-
         min-height: 0;
-
-        padding:
-          40px 28px;
+        padding: 40px 28px;
       }
 
-
       .final-card h2 {
-
         font-size: 41px;
       }
 
-
       .mobile-prefooter-nav {
-
         flex-direction: column;
-
         gap: 14px;
-
-        padding:
-          30px 24px 32px;
-
+        padding: 30px 24px 32px;
         font-size: 21px;
-
         line-height: 1.2;
       }
 
-
       .site-footer {
-
-        padding:
-          22px 0 24px;
+        padding: 22px 0 24px;
       }
 
-
       .site-footer .shell {
-
         display: flex;
-
         flex-direction: column;
-
         gap: 22px;
       }
 
-
       .footer-nav {
-
         display: flex;
-
         flex-direction: column;
-
         align-items: center;
-
         gap: 10px;
-
         width: 100%;
-
         white-space: normal;
-
         text-align: center;
-
         font-size: 18px;
       }
-
 
       .socials {
         order: 2;
       }
 
-
       .footer-brand {
-
         order: 3;
-
         justify-self: auto;
-
-        width:
-          min(80vw, 300px);
+        width: min(80vw, 300px);
       }
-
     }
-
   </style>
-
 </head>
 
-
 <body>
-
-
-  <a
-    class="skip-link"
-    href="#conteudo"
-  >
+  <a class="skip-link" href="#conteudo">
     Pular para o conteúdo
   </a>
 
-
-
-  <!-- =====================================================
-       CABEÇALHO
-       PRESERVADO NO PADRÃO DA HOME
-       ===================================================== -->
-
-
-  <header
-    class="site-header"
-    role="banner"
-  >
-
+  <header class="site-header" role="banner">
     <div class="shell">
-
 
       <a
         class="brand"
         href="/index.html"
         aria-label="Análise Legal — página inicial"
       >
-
         <img
           src="/assets/img/Marca.svg"
           alt="Análise Legal — precisão jurídica para decisões relevantes"
@@ -2012,15 +1124,12 @@
           decoding="async"
           fetchpriority="high"
         >
-
       </a>
-
 
       <nav
         class="main-nav"
         aria-label="Navegação principal"
       >
-
         <a href="/papel-da-plataforma.html">
           O papel da plataforma
         </a>
@@ -2033,76 +1142,49 @@
           Quando faz sentido
         </a>
 
-        <a href="/situacoes">
+        <a href="/situacoes-reais.html">
           Situações reais
         </a>
-
       </nav>
-
 
       <a
         class="header-cta"
-        href="/situacoes/contratos/fies/analise.html"
+        href="/analise.html"
       >
         Solicite análise
       </a>
 
-
     </div>
-
   </header>
-
-
 
   <main id="conteudo">
 
-
-    <!-- ===================================================
-         HERO
-         =================================================== -->
-
-
     <section class="case-hero">
-
       <div class="shell">
 
-
         <div class="case-copy">
-
 
           <nav
             class="breadcrumb"
             aria-label="Navegação estrutural"
           >
-
-            <a href="/situacoes">
+            <a href="/situacoes-reais.html">
               Situações reais
             </a>
 
             <span>›</span>
-
-            <span>
-              Contratos
-            </span>
-
+            <span>Contratos</span>
             <span>›</span>
-
-            <span>
-              FIES
-            </span>
-
+            <span>FIES</span>
           </nav>
-
 
           <p class="case-kicker">
             FIES
           </p>
 
-
           <h1>
             Seu acordo do FIES mudou depois que você já havia renegociado?
           </h1>
-
 
           <p class="case-lead">
             Quando desconto, saldo ou parcelas mudam depois da formalização,
@@ -2110,287 +1192,178 @@
             cobrado hoje.
           </p>
 
-
           <div class="case-action">
-
 
             <a
               class="page-cta"
-              href="/situacoes/contratos/fies/analise.html"
+              href="/analise.html"
             >
               Solicite análise
             </a>
-
 
             <span class="case-action-note">
               A compreensão começa pela sequência do que foi apresentado,
               formalizado e posteriormente alterado.
             </span>
 
-
           </div>
 
-
         </div>
-
-
 
         <div
           class="case-history"
           aria-label="Sequência da renegociação"
         >
 
-
           <div class="history-grid">
 
-
             <article class="history-card">
-
 
               <div
                 class="history-icon"
                 aria-hidden="true"
               >
-
                 <span
                   class="mask-icon"
                   style="--icon:url('/assets/img/icon/folders.svg')"
                 ></span>
-
               </div>
-
 
               <h2>
                 Condição apresentada
               </h2>
 
-
               <small>
                 Renegociação
               </small>
 
-
               <div class="history-data">
 
-
                 <div class="history-row">
-
-                  <span>
-                    Saldo
-                  </span>
-
+                  <span>Saldo</span>
                   <span class="history-value"></span>
-
                 </div>
 
-
                 <div class="history-row">
-
-                  <span>
-                    Desconto
-                  </span>
-
+                  <span>Desconto</span>
                   <span class="history-value"></span>
-
                 </div>
 
-
                 <div class="history-row">
-
-                  <span>
-                    Parcelas
-                  </span>
-
+                  <span>Parcelas</span>
                   <span class="history-value"></span>
-
                 </div>
-
 
               </div>
 
-
             </article>
 
-
-
             <article class="history-card">
-
 
               <div
                 class="history-icon"
                 aria-hidden="true"
               >
-
                 <span
                   class="mask-icon"
                   style="--icon:url('/assets/img/icon/shield-check.svg')"
                 ></span>
-
               </div>
-
 
               <h2>
                 Acordo iniciado
               </h2>
 
-
               <small>
                 Adesão e pagamento
               </small>
 
-
               <div class="history-data">
 
-
                 <div class="history-row">
-
-                  <span>
-                    Condição
-                  </span>
-
+                  <span>Condição</span>
                   <span class="history-value"></span>
-
                 </div>
 
-
                 <div class="history-row">
-
-                  <span>
-                    Adesão
-                  </span>
-
+                  <span>Adesão</span>
                   <span class="history-value"></span>
-
                 </div>
 
-
                 <div class="history-row">
-
-                  <span>
-                    Pagamento
-                  </span>
-
+                  <span>Pagamento</span>
                   <span class="history-value"></span>
-
                 </div>
-
 
               </div>
 
-
             </article>
 
-
-
             <article class="history-card changed">
-
 
               <div
                 class="history-icon"
                 aria-hidden="true"
               >
-
                 <span
                   class="mask-icon"
                   style="--icon:url('/assets/img/icon/magnifying-glass.svg')"
                 ></span>
-
               </div>
-
 
               <h2>
                 Condição alterada
               </h2>
 
-
               <small>
                 Situação posterior
               </small>
 
-
               <div class="history-data">
 
-
                 <div class="history-row">
-
-                  <span>
-                    Novo saldo
-                  </span>
-
+                  <span>Novo saldo</span>
                   <span class="history-value"></span>
-
                 </div>
 
-
                 <div class="history-row">
-
-                  <span>
-                    Parcelas
-                  </span>
-
+                  <span>Parcelas</span>
                   <span class="history-value"></span>
-
                 </div>
 
-
                 <div class="history-row">
-
-                  <span>
-                    Valor
-                  </span>
-
+                  <span>Valor</span>
                   <span class="history-value"></span>
-
                 </div>
-
 
               </div>
 
-
             </article>
-
 
           </div>
 
-
         </div>
 
-
       </div>
-
     </section>
-
-
-
-    <!-- ===================================================
-         PONTO CENTRAL
-         =================================================== -->
-
 
     <section class="case-center">
 
-
       <div class="shell">
 
-
         <div>
-
 
           <p class="section-eyebrow">
             O ponto central
           </p>
 
-
           <h2 class="section-heading">
             O saldo atual não conta, sozinho, toda a história.
           </h2>
 
-
         </div>
 
-
         <div class="case-center-copy">
-
 
           <p>
             Em determinadas situações, a divergência não está apenas no valor
@@ -2400,9 +1373,7 @@
             momento ocorreu a alteração.
           </p>
 
-
           <div class="sequence">
-
 
             <div class="sequence-item">
 
@@ -2416,7 +1387,6 @@
 
             </div>
 
-
             <div class="sequence-item">
 
               <span class="sequence-number">
@@ -2428,7 +1398,6 @@
               </p>
 
             </div>
-
 
             <div class="sequence-item">
 
@@ -2442,62 +1411,41 @@
 
             </div>
 
-
           </div>
-
 
         </div>
 
-
       </div>
-
 
     </section>
 
-
-
-    <!-- ===================================================
-         CONTEXTO
-         =================================================== -->
-
-
     <section class="case-context">
-
 
       <div class="shell">
 
-
         <div class="case-context-heading">
-
 
           <p class="section-eyebrow">
             Por que as situações podem ser diferentes
           </p>
 
-
           <h2 class="section-heading">
             Nem toda renegociação do FIES foi formada pelas mesmas condições.
           </h2>
 
-
         </div>
-
 
         <div class="context-grid">
 
-
           <article class="context-item">
-
 
             <p class="context-number">
               01
             </p>
 
-
             <h3>
               Modalidade da renegociação
             </h3>
-
 
             <p>
               Ao longo do tempo foram disponibilizadas condições distintas.
@@ -2505,46 +1453,34 @@
               diferentes.
             </p>
 
-
           </article>
 
-
-
           <article class="context-item">
-
 
             <p class="context-number">
               02
             </p>
 
-
             <h3>
               Informações consideradas
             </h3>
-
 
             <p>
               Situação do financiamento, períodos específicos, dados cadastrais
               e outras informações podem ter influenciado a condição apresentada.
             </p>
 
-
           </article>
 
-
-
           <article class="context-item">
-
 
             <p class="context-number">
               03
             </p>
 
-
             <h3>
               Alteração posterior
             </h3>
-
 
             <p>
               Reenquadramento, reprocessamento ou revisão podem explicar como
@@ -2552,43 +1488,27 @@
               sobre aquele financiamento.
             </p>
 
-
           </article>
-
 
         </div>
 
-
       </div>
-
 
     </section>
 
-
-
-    <!-- ===================================================
-         ATENÇÃO
-         =================================================== -->
-
-
     <section class="case-attention">
-
 
       <div class="shell">
 
-
         <div class="attention-intro">
-
 
           <p class="section-eyebrow">
             Quando observar com mais cuidado
           </p>
 
-
           <h2 class="section-heading">
             Alguns acontecimentos tornam o histórico especialmente relevante.
           </h2>
-
 
           <p>
             O ponto não é presumir que a cobrança esteja incorreta, mas
@@ -2596,113 +1516,70 @@
             daquilo que havia sido apresentado anteriormente.
           </p>
 
-
         </div>
-
-
 
         <div class="attention-list">
 
-
           <div class="attention-row">
-
-            <span>
-              01
-            </span>
+            <span>01</span>
 
             <p>
               O desconto inicialmente apresentado desapareceu ou foi reduzido.
             </p>
-
           </div>
 
-
           <div class="attention-row">
-
-            <span>
-              02
-            </span>
+            <span>02</span>
 
             <p>
               O saldo aumentou novamente depois da renegociação.
             </p>
-
           </div>
 
-
           <div class="attention-row">
-
-            <span>
-              03
-            </span>
+            <span>03</span>
 
             <p>
               As parcelas passaram a apresentar valores diferentes.
             </p>
-
           </div>
 
-
           <div class="attention-row">
-
-            <span>
-              04
-            </span>
+            <span>04</span>
 
             <p>
               A alteração aconteceu depois da adesão ou do início dos pagamentos.
             </p>
-
           </div>
 
-
           <div class="attention-row">
-
-            <span>
-              05
-            </span>
+            <span>05</span>
 
             <p>
               A única explicação recebida foi erro, revisão, reprocessamento
               ou reenquadramento do contrato.
             </p>
-
           </div>
-
 
         </div>
 
-
       </div>
-
 
     </section>
 
-
-
-    <!-- ===================================================
-         ANÁLISE
-         =================================================== -->
-
-
     <section class="case-analysis">
-
 
       <div class="shell">
 
-
         <div class="analysis-intro">
-
 
           <p class="section-eyebrow">
             Compreensão do caso
           </p>
 
-
           <h2 class="section-heading">
-            O que uma análise procura esclarecer
+            O que pode ser feito quando as condições mudam
           </h2>
-
 
           <p>
             A análise começa pela reconstrução dos acontecimentos. O objetivo
@@ -2710,115 +1587,91 @@
             realizada e a condição posteriormente apresentada.
           </p>
 
-
         </div>
-
-
 
         <div class="analysis-grid">
 
-
           <article class="analysis-item">
-
 
             <p class="analysis-number">
               01 · RECONSTRUIR
             </p>
 
-
             <h3>
               O que foi apresentado
             </h3>
-
 
             <p>
               Identificar saldo, desconto, quantidade de parcelas e demais
               condições existentes no momento da renegociação.
             </p>
 
-
           </article>
 
-
-
           <article class="analysis-item">
-
 
             <p class="analysis-number">
               02 · COMPARAR
             </p>
 
-
             <h3>
               O que mudou depois
             </h3>
-
 
             <p>
               Comparar a condição formalizada com aquela que passou a ser
               apresentada posteriormente.
             </p>
 
-
           </article>
 
-
-
           <article class="analysis-item">
-
 
             <p class="analysis-number">
               03 · COMPREENDER
             </p>
 
-
             <h3>
               Por que ocorreu a diferença
             </h3>
-
 
             <p>
               Examinar a origem da alteração e quais consequências ela produziu
               especificamente sobre aquele financiamento.
             </p>
 
-
           </article>
-
 
         </div>
 
+        <div class="analysis-outcome">
+
+          <p>
+            Dependendo do que ocorreu no contrato, a situação pode envolver o
+            restabelecimento das condições anteriormente formalizadas, a correção
+            do saldo apresentado, o afastamento de cobranças decorrentes da alteração
+            e medidas para evitar consequências enquanto a divergência estiver sendo discutida.
+          </p>
+
+        </div>
 
       </div>
 
-
     </section>
-
-
-
-    <!-- ===================================================
-         DOCUMENTOS E CTA
-         =================================================== -->
-
 
     <section class="case-closing">
 
-
       <div class="shell">
 
-
         <div>
-
 
           <p class="section-eyebrow">
             Para iniciar
           </p>
 
-
           <h2 class="section-heading">
             O que é útil ter em mãos
           </h2>
-
 
           <p class="documents-text">
             Não é necessário saber explicar tecnicamente o problema.
@@ -2827,86 +1680,61 @@
             iniciar a compreensão da situação.
           </p>
 
-
           <div class="documents-grid">
-
 
             <div class="document-item">
               Documentos da renegociação
             </div>
 
-
             <div class="document-item">
               Comprovantes de pagamento
             </div>
-
 
             <div class="document-item">
               Boletos e extratos
             </div>
 
-
             <div class="document-item">
               Telas do sistema
             </div>
-
 
             <div class="document-item">
               Mensagens recebidas
             </div>
 
-
             <div class="document-item">
               Histórico relatado
             </div>
 
-
           </div>
-
 
         </div>
 
-
-
         <div class="final-card">
-
 
           <h2>
             Seu FIES foi renegociado e depois as condições mudaram?
           </h2>
-
 
           <p>
             Explique o que aconteceu. A análise começa pela reconstrução
             do que foi apresentado, formalizado e posteriormente alterado.
           </p>
 
-
           <a
             class="page-cta"
-            href="/situacoes/contratos/fies/analise.html"
+            href="/analise.html"
           >
             Solicite análise
           </a>
 
-
         </div>
-
 
       </div>
 
-
     </section>
 
-
   </main>
-
-
-
-  <!-- =====================================================
-       MESMO PRÉ-RODAPÉ MOBILE DA HOME
-       ===================================================== -->
-
 
   <nav
     class="mobile-prefooter-nav"
@@ -2927,74 +1755,52 @@
 
   </nav>
 
-
-
-  <!-- =====================================================
-       RODAPÉ
-       PRESERVADO NO PADRÃO DA HOME
-       ===================================================== -->
-
-
   <footer
     class="site-footer"
     role="contentinfo"
   >
 
-
     <div class="shell">
-
 
       <div
         class="socials"
         aria-label="Redes sociais"
       >
 
-
         <span
           class="social-mark"
           title="LinkedIn"
           aria-label="LinkedIn"
         >
-
           <span
             class="mask-icon"
             style="--icon:url('/assets/img/icon/linkedin-logo.svg')"
           ></span>
-
         </span>
-
 
         <span
           class="social-mark"
           title="Instagram"
           aria-label="Instagram"
         >
-
           <span
             class="mask-icon"
             style="--icon:url('/assets/img/icon/instagram-logo.svg')"
           ></span>
-
         </span>
-
 
         <span
           class="social-mark"
           title="Facebook"
           aria-label="Facebook"
         >
-
           <span
             class="mask-icon"
             style="--icon:url('/assets/img/icon/facebook-logo.svg')"
           ></span>
-
         </span>
 
-
       </div>
-
-
 
       <nav
         class="footer-nav"
@@ -3019,8 +1825,6 @@
 
       </nav>
 
-
-
       <a
         class="footer-brand"
         href="/index.html"
@@ -3038,13 +1842,9 @@
 
       </a>
 
-
     </div>
-
 
   </footer>
 
-
 </body>
-
 </html>
