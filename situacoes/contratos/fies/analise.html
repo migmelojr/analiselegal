@@ -1,0 +1,2279 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Renegociação do FIES | Análise Legal</title>
+  <meta name="description" content="Organize o que aconteceu com sua renegociação do FIES, receba um resumo das informações e decida se deseja solicitar uma análise individual.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#073d3a">
+  <meta name="color-scheme" content="light only">
+
+  <link rel="preload" as="image" href="/assets/img/Marca.svg" type="image/svg+xml">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <style>
+    @font-face {
+      font-family: "Crimson Text";
+      src: url("/assets/fonts/CrimsonText-Regular.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Crimson Text";
+      src: url("/assets/fonts/CrimsonText-SemiBold.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Crimson Text";
+      src: url("/assets/fonts/CrimsonText-Bold.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    :root {
+      color-scheme: light only;
+      --green: #073d3a;
+      --green-dark: #043330;
+      --green-soft: #315f5d;
+      --ink: #302f30;
+      --paper: #ffffff;
+      --soft: #f7f7f4;
+      --soft-green: rgba(7, 61, 58, .045);
+      --line: rgba(7, 61, 58, .28);
+      --line-soft: rgba(7, 61, 58, .14);
+      --muted: rgba(48, 47, 48, .66);
+      --danger: #8f2929;
+      --ok: #256b57;
+      --shell: 1740px;
+      --form: 1180px;
+      --header-h: 86px;
+      --footer-h: 78px;
+    }
+
+    * { box-sizing: border-box; }
+    [x-cloak] { display: none !important; }
+
+    html {
+      min-width: 320px;
+      background: var(--paper);
+      color-scheme: light only;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      font-family: "Crimson Text", Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    button, input, select, textarea { font: inherit; }
+    button { color: inherit; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid rgba(7, 61, 58, .24);
+      outline-offset: 3px;
+    }
+
+    .shell {
+      width: min(calc(100% - 144px), var(--shell));
+      margin-inline: auto;
+    }
+
+    .form-shell {
+      width: min(calc(100% - 64px), var(--form));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      left: 18px;
+      top: -80px;
+      z-index: 9999;
+      padding: 9px 14px;
+      border-radius: 6px;
+      background: var(--green);
+      color: #fff;
+      font-weight: 700;
+      transition: top .15s ease;
+    }
+
+    .skip-link:focus { top: 12px; }
+
+    .site-header {
+      height: var(--header-h);
+      background: var(--paper);
+      border-bottom: 1px solid rgba(7, 61, 58, .08);
+    }
+
+    .site-header .shell {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 345px minmax(0, 1fr) 190px;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .brand {
+      display: inline-flex;
+      width: 345px;
+      align-items: center;
+    }
+
+    .brand img { width: 100%; height: auto; }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(30px, 3.1vw, 64px);
+      min-width: 0;
+      white-space: nowrap;
+      font-size: 21px;
+      line-height: 1;
+    }
+
+    .main-nav a {
+      position: relative;
+      padding: 12px 0;
+    }
+
+    .main-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: 4px;
+      height: 1px;
+      background: var(--green);
+      transition: right .16s ease;
+    }
+
+    .main-nav a:hover::after,
+    .main-nav a:focus-visible::after { right: 0; }
+
+    .header-cta,
+    .primary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--green-dark);
+      border-radius: 8px;
+      background: var(--green);
+      color: #fff;
+      line-height: 1;
+      cursor: pointer;
+      transition: background .16s ease, border-color .16s ease, opacity .16s ease;
+    }
+
+    .header-cta {
+      justify-self: end;
+      min-width: 184px;
+      min-height: 40px;
+      padding: 8px 20px 9px;
+      font-size: 22px;
+    }
+
+    .header-cta:hover,
+    .primary-btn:hover { background: var(--green-dark); }
+
+    .analysis-intro {
+      padding: 50px 0 38px;
+      background: var(--paper);
+    }
+
+    .analysis-intro .form-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 330px;
+      gap: 68px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--green);
+      font-size: 18px;
+      line-height: 1;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .analysis-intro h1 {
+      margin: 0;
+      max-width: 820px;
+      font-size: clamp(44px, 4vw, 62px);
+      line-height: .96;
+      letter-spacing: -.018em;
+      font-weight: 400;
+    }
+
+    .analysis-intro .lead {
+      margin: 16px 0 0;
+      max-width: 820px;
+      font-size: 22px;
+      line-height: 1.28;
+    }
+
+    .intro-note {
+      border: 2px solid var(--green);
+      border-radius: 12px;
+      padding: 17px 18px 16px;
+      background: #fff;
+    }
+
+    .intro-note strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--green);
+      font-size: 22px;
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    .intro-note span {
+      display: block;
+      font-size: 18px;
+      line-height: 1.28;
+    }
+
+    .journey {
+      padding: 0 0 30px;
+      background: var(--paper);
+    }
+
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 26px;
+    }
+
+    .journey-step {
+      border-top: 2px solid rgba(7, 61, 58, .18);
+      padding-top: 11px;
+      opacity: .42;
+      transition: opacity .15s ease, border-color .15s ease;
+    }
+
+    .journey-step.is-reached {
+      border-top-color: var(--green);
+      opacity: 1;
+    }
+
+    .journey-number {
+      margin: 0;
+      color: var(--green);
+      font-size: 28px;
+      line-height: .9;
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    .journey-label {
+      margin: 5px 0 0;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+    }
+
+    .analysis-main {
+      background: var(--soft);
+      border-top: 1px solid var(--line-soft);
+      padding: 44px 0 62px;
+      min-height: 560px;
+    }
+
+    .stage {
+      background: var(--paper);
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      padding: 34px 38px 38px;
+    }
+
+    .stage + .stage { margin-top: 28px; }
+
+    .stage-head {
+      display: grid;
+      grid-template-columns: 100px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+      margin-bottom: 31px;
+    }
+
+    .stage-number {
+      margin: 0;
+      color: var(--green);
+      font-size: 48px;
+      line-height: .88;
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    .stage-kicker {
+      margin: 0 0 2px;
+      color: var(--green);
+      font-size: 17px;
+      line-height: 1;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .stage h2 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 38px;
+      line-height: .98;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .stage-description {
+      margin: 9px 0 0;
+      max-width: 790px;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.34;
+    }
+
+    .question-block {
+      padding: 29px 0 0;
+      margin-top: 29px;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .question-block:first-of-type {
+      padding-top: 0;
+      margin-top: 0;
+      border-top: 0;
+    }
+
+    .question-title {
+      margin: 0 0 12px;
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1.18;
+      font-weight: 700;
+    }
+
+    .question-note {
+      margin: -4px 0 15px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    .answer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .answer-grid.one { grid-template-columns: 1fr; }
+    .answer-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .answer-card {
+      width: 100%;
+      min-height: 57px;
+      padding: 13px 15px 14px;
+      border: 1px solid rgba(7, 61, 58, .24);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      text-align: left;
+      font-size: 18px;
+      line-height: 1.18;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color .15s ease, background .15s ease, color .15s ease;
+    }
+
+    .answer-card:hover {
+      border-color: var(--green);
+      background: rgba(7, 61, 58, .025);
+    }
+
+    .answer-card.active {
+      border: 2px solid var(--green);
+      padding: 12px 14px 13px;
+      background: rgba(7, 61, 58, .055);
+      color: var(--green-dark);
+    }
+
+    .fields-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .field {
+      width: 100%;
+      min-height: 48px;
+      padding: 11px 13px;
+      border: 1px solid rgba(7, 61, 58, .24);
+      border-radius: 8px;
+      outline: none;
+      background: #fff;
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.25;
+      transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+
+    .field:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(7, 61, 58, .08);
+    }
+
+    .field-ok {
+      border-color: var(--ok) !important;
+      background: #f4fbf8 !important;
+    }
+
+    .field-error {
+      border-color: var(--danger) !important;
+      background: #fff8f8 !important;
+    }
+
+    .error {
+      margin: 8px 0 0;
+      color: var(--danger);
+      font-size: 15px;
+      line-height: 1.2;
+    }
+
+    .help {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.25;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-top: 34px;
+      padding-top: 25px;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .actions.end { justify-content: flex-end; }
+
+    .primary-btn,
+    .secondary-btn {
+      min-height: 44px;
+      padding: 9px 22px 10px;
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--green);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--green);
+      line-height: 1;
+      cursor: pointer;
+      transition: background .15s ease, color .15s ease;
+    }
+
+    .secondary-btn:hover { background: rgba(7, 61, 58, .045); }
+
+    .summary-card {
+      border: 2px solid var(--green);
+      border-radius: 12px;
+      padding: 25px 27px;
+      background: #fff;
+    }
+
+    .summary-label {
+      margin: 0 0 7px;
+      color: var(--green);
+      font-size: 17px;
+      line-height: 1;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .summary-intro {
+      margin: 0;
+      max-width: 850px;
+      font-size: 24px;
+      line-height: 1.28;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 28px;
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .summary-item {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(7, 61, 58, .09);
+    }
+
+    .summary-item .label {
+      margin: 0 0 4px;
+      color: var(--muted);
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    .summary-item .value {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.3;
+      font-weight: 600;
+    }
+
+    .summary-disclaimer {
+      margin: 15px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.34;
+    }
+
+    .choice-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .service-wrap {
+      margin-top: 34px;
+      padding-top: 6px;
+    }
+
+    .service-stage {
+      border: 2px solid var(--green);
+      box-shadow: 0 12px 32px rgba(7, 61, 58, .06);
+    }
+
+    .service-headline {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .service-headline .small {
+      margin: 0;
+      color: var(--green);
+      font-size: 16px;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .service-headline h3 {
+      margin: 4px 0 0;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .price-block { text-align: right; }
+
+    .price-label {
+      margin: 0 0 3px;
+      color: var(--muted);
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    .price {
+      margin: 0;
+      color: var(--ink);
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .service-copy {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-bottom: 24px;
+    }
+
+    .service-box {
+      padding: 18px 19px;
+      border: 1px solid var(--line-soft);
+      border-radius: 9px;
+      background: #fff;
+    }
+
+    .service-box h4 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.1;
+    }
+
+    .service-box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.38;
+    }
+
+    .scope-note {
+      margin: 0 0 24px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--green);
+      background: var(--soft-green);
+      font-size: 17px;
+      line-height: 1.38;
+    }
+
+    .booking-panel {
+      margin-top: 26px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .calendar {
+      padding: 16px;
+      border: 1px solid var(--line-soft);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .calendar h4 {
+      margin: 0 0 12px;
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .weekdays,
+    .days {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 4px;
+    }
+
+    .weekdays {
+      margin-bottom: 5px;
+      color: rgba(48,47,48,.45);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .day-button {
+      aspect-ratio: 1 / 1;
+      min-width: 0;
+      border: 1px solid var(--line-soft);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .calendar-empty { opacity: 0; pointer-events: none; }
+
+    .calendar-disabled {
+      border-color: rgba(48,47,48,.08);
+      background: #f4f4f1;
+      color: rgba(48,47,48,.22);
+      cursor: not-allowed;
+    }
+
+    .calendar-available:hover { border-color: var(--green); }
+
+    .calendar-selected {
+      border-color: var(--green);
+      background: var(--green);
+      color: #fff;
+    }
+
+    .slots-box {
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid var(--line-soft);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .slots-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .slots-head h3 {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1;
+    }
+
+    .slots-head span {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .slots {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .slot-button {
+      min-height: 42px;
+      border: 1px solid var(--line-soft);
+      border-radius: 7px;
+      background: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .slot-button:hover:not(:disabled) { border-color: var(--green); }
+    .slot-button.selected { background: var(--green); border-color: var(--green); color: #fff; }
+    .slot-button:disabled { background: #f4f4f1; color: rgba(48,47,48,.24); cursor: not-allowed; }
+
+    .confirmation-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin: 26px 0 28px;
+      padding: 17px 0;
+      border-top: 2px solid var(--green);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .confirmation-strip .label {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1;
+      font-style: italic;
+    }
+
+    .confirmation-strip .value {
+      margin: 4px 0 0;
+      color: var(--ink);
+      font-size: 19px;
+      line-height: 1.15;
+      font-weight: 700;
+    }
+
+    .span-2 { grid-column: span 2; }
+
+    .operational-note,
+    .terms-box {
+      margin-top: 22px;
+      padding: 17px 18px;
+      border: 1px solid var(--line-soft);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 16px;
+      line-height: 1.38;
+    }
+
+    .operational-note {
+      border-left: 3px solid var(--green);
+      background: var(--soft-green);
+    }
+
+    .terms-box p { margin: 0; color: var(--muted); }
+
+    .payment-finished {
+      text-align: center;
+      padding: 30px 0 14px;
+    }
+
+    .payment-finished h2 {
+      margin: 0;
+      font-size: 40px;
+      text-transform: none;
+    }
+
+    .payment-finished p {
+      max-width: 680px;
+      margin: 13px auto 0;
+      font-size: 19px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 17px;
+      height: 17px;
+      border: 2px solid rgba(255,255,255,.38);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .mobile-prefooter-nav { display: none; }
+
+    .site-footer {
+      min-height: var(--footer-h);
+      background: var(--green);
+      color: #fff;
+    }
+
+    .site-footer .shell {
+      min-height: var(--footer-h);
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr) 330px;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .social-mark {
+      width: 24px;
+      height: 24px;
+      color: #fff;
+      opacity: .98;
+    }
+
+    .mask-icon {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background: currentColor;
+      -webkit-mask: var(--icon) center / contain no-repeat;
+      mask: var(--icon) center / contain no-repeat;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(34px, 5vw, 92px);
+      white-space: nowrap;
+      font-size: 21px;
+    }
+
+    .footer-nav a:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .footer-brand {
+      justify-self: end;
+      width: 318px;
+    }
+
+    .footer-brand img {
+      width: 100%;
+      height: auto;
+      filter: brightness(0) invert(1);
+      opacity: .94;
+    }
+
+    .print-only { display: none; }
+
+    @media (max-width: 1500px) {
+      :root { --shell: 1370px; }
+      .shell { width: min(calc(100% - 72px), var(--shell)); }
+      .site-header .shell { grid-template-columns: 285px minmax(0, 1fr) 165px; gap: 22px; }
+      .brand { width: 285px; }
+      .main-nav { gap: 28px; font-size: 19px; }
+      .header-cta { min-width: 160px; font-size: 19px; }
+    }
+
+    @media (max-width: 1160px) {
+      .shell { width: min(calc(100% - 48px), 1040px); }
+      .form-shell { width: min(calc(100% - 48px), 980px); }
+      .site-header { height: auto; min-height: 78px; }
+      .site-header .shell { min-height: 78px; grid-template-columns: minmax(220px, 310px) 1fr; }
+      .brand { width: min(100%, 310px); }
+      .main-nav { display: none; }
+      .header-cta { min-width: 154px; }
+      .analysis-intro .form-shell { grid-template-columns: 1fr 290px; gap: 36px; }
+      .analysis-intro h1 { font-size: clamp(42px, 6vw, 58px); }
+      .journey-grid { gap: 16px; }
+      .journey-label { font-size: 16px; }
+      .site-footer { min-height: 98px; padding: 16px 0; }
+      .site-footer .shell { min-height: 66px; height: auto; grid-template-columns: 150px 1fr 240px; gap: 18px; }
+      .footer-nav { gap: 24px; font-size: 17px; flex-wrap: wrap; }
+      .footer-brand { width: 225px; }
+    }
+
+    @media (max-width: 760px) {
+      .shell, .form-shell { width: min(calc(100% - 32px), 620px); }
+      .site-header .shell { display: flex; justify-content: center; align-items: center; padding: 12px 0; }
+      .brand { width: min(92vw, 360px); }
+      .header-cta { display: none; }
+
+      .analysis-intro { padding: 31px 0 28px; }
+      .analysis-intro .form-shell { display: block; }
+      .analysis-intro h1 { font-size: clamp(40px, 11vw, 54px); }
+      .analysis-intro .lead { font-size: 20px; line-height: 1.34; }
+      .intro-note { margin-top: 24px; }
+
+      .journey { padding-bottom: 20px; }
+      .journey-grid { gap: 6px; }
+      .journey-step { padding-top: 7px; }
+      .journey-number { font-size: 23px; }
+      .journey-label { display: none; }
+
+      .analysis-main { padding: 18px 0 38px; }
+      .stage { padding: 24px 18px 27px; border-radius: 10px; }
+      .stage-head { grid-template-columns: 62px 1fr; gap: 14px; margin-bottom: 24px; }
+      .stage-number { font-size: 39px; }
+      .stage h2 { font-size: 30px; }
+      .stage-description { font-size: 18px; }
+
+      .question-block { padding-top: 24px; margin-top: 24px; }
+      .question-title { font-size: 20px; }
+      .answer-grid, .answer-grid.three { grid-template-columns: 1fr; }
+      .answer-card { font-size: 17px; }
+      .fields-grid { grid-template-columns: 1fr; }
+      .span-2 { grid-column: auto; }
+      .field { font-size: 17px; }
+
+      .actions { flex-direction: column-reverse; align-items: stretch; }
+      .actions.end { flex-direction: column; }
+      .primary-btn, .secondary-btn { width: 100%; min-height: 48px; }
+
+      .summary-grid { grid-template-columns: 1fr; gap: 0; }
+      .choice-actions { grid-template-columns: 1fr; }
+      .summary-card { padding: 19px 18px; }
+      .summary-intro { font-size: 21px; }
+
+      .service-headline { grid-template-columns: 1fr; gap: 14px; }
+      .price-block { text-align: left; }
+      .service-copy { grid-template-columns: 1fr; }
+      .calendar-grid { grid-template-columns: 1fr; }
+      .slots { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .confirmation-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+      .mobile-prefooter-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        padding: 30px 24px 32px;
+        border-top: 1px solid rgba(7,61,58,.18);
+        background: #fff;
+        font-size: 21px;
+        line-height: 1.2;
+        text-align: center;
+      }
+
+      .site-footer { padding: 22px 0 24px; }
+      .site-footer .shell { display: flex; flex-direction: column; gap: 22px; }
+      .footer-nav { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%; white-space: normal; text-align: center; font-size: 18px; }
+      .socials { order: 2; }
+      .footer-brand { order: 3; justify-self: auto; width: min(80vw, 300px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+
+    @media print {
+      @page { size: A4; margin: 18mm 16mm; }
+      .site-header,
+      .analysis-intro,
+      .journey,
+      .analysis-main,
+      .mobile-prefooter-nav,
+      .site-footer { display: none !important; }
+      body { background: #fff !important; color: #111 !important; }
+      .print-only { display: block !important; width: 100%; }
+      .print-only h1 { font-size: 24pt; margin: 0 0 14px; }
+      .print-only h2 { font-size: 14pt; margin: 18px 0 6px; }
+      .print-only p { font-size: 11pt; line-height: 1.5; margin: 5px 0; }
+    }
+  </style>
+</head>
+
+<body x-data="fiesFunnel()" x-init="init()">
+  <a class="skip-link" href="#analise">Pular para a análise</a>
+
+  <header class="site-header" role="banner">
+    <div class="shell">
+      <a class="brand" href="/" aria-label="Análise Legal — página inicial">
+        <img src="/assets/img/Marca.svg" alt="Análise Legal" width="620" height="112" decoding="async" fetchpriority="high">
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="/papel-da-plataforma.html">O papel da plataforma</a>
+        <a href="/como-funciona.html">Como funciona</a>
+        <a href="/quando-faz-sentido.html">Quando faz sentido</a>
+        <a href="https://www.analiselegal.com.br/situacoes/">Situações reais</a>
+      </nav>
+
+      <a class="header-cta" href="#analise">Solicite análise</a>
+    </div>
+  </header>
+
+  <section class="analysis-intro" x-show="!bookingSubmitted" x-transition.opacity x-cloak>
+    <div class="form-shell">
+      <div>
+        <p class="eyebrow">Situação real • FIES</p>
+        <h1>Entenda o que aconteceu com sua renegociação.</h1>
+        <p class="lead">Responda algumas perguntas simples. Ao final, você receberá um resumo organizado do que informou e poderá decidir se deseja encerrar ou solicitar uma análise individual.</p>
+      </div>
+
+      <aside class="intro-note" aria-label="Como funciona">
+        <strong>Você não precisa saber explicar tecnicamente.</strong>
+        <span>As perguntas se adaptam às suas respostas e ajudam a reconstruir a sequência do que aconteceu.</span>
+      </aside>
+    </div>
+  </section>
+
+  <section class="journey" x-show="!bookingSubmitted" x-transition.opacity x-cloak aria-label="Etapas">
+    <div class="form-shell journey-grid">
+      <template x-for="item in progressSteps" :key="item.id">
+        <div class="journey-step" :class="step >= item.id ? 'is-reached' : ''">
+          <p class="journey-number" x-text="String(item.id).padStart(2,'0')"></p>
+          <p class="journey-label" x-text="item.label"></p>
+        </div>
+      </template>
+    </div>
+  </section>
+
+  <main class="analysis-main" id="analise">
+    <div class="form-shell">
+
+      <section x-show="step === 1 && !bookingSubmitted" x-transition.opacity class="stage">
+        <div class="stage-head">
+          <p class="stage-number">01</p>
+          <div>
+            <p class="stage-kicker">Etapa 1 de 4</p>
+            <h2>Renegociação</h2>
+            <p class="stage-description">Comece pelo que aconteceu no início. Não é necessário lembrar todos os valores.</p>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h3 class="question-title">Você chegou a fazer a renegociação do FIES?</h3>
+          <div class="answer-grid three">
+            <button type="button" class="answer-card" @click="setSingle('renegociacao','formalizei')" :class="formData.renegociacao === 'formalizei' ? 'active' : ''">Sim</button>
+            <button type="button" class="answer-card" @click="setSingle('renegociacao','simulei')" :class="formData.renegociacao === 'simulei' ? 'active' : ''">Só fiz uma simulação</button>
+            <button type="button" class="answer-card" @click="setSingle('renegociacao','nao_sei')" :class="formData.renegociacao === 'nao_sei' ? 'active' : ''">Não sei</button>
+          </div>
+          <p class="question-note" style="margin-top:12px;">Uma proposta exibida e uma renegociação efetivamente concluída podem representar situações diferentes.</p>
+          <p x-show="errors.renegociacao" class="error" x-text="errors.renegociacao"></p>
+        </div>
+
+        <div class="question-block" x-show="formData.renegociacao && formData.renegociacao !== 'simulei'" x-cloak>
+          <h3 class="question-title">Você recebeu algum documento ou comprovante da renegociação?</h3>
+          <div class="answer-grid three">
+            <button type="button" class="answer-card" @click="setSingle('documentoRenegociacao','sim')" :class="formData.documentoRenegociacao === 'sim' ? 'active' : ''">Sim</button>
+            <button type="button" class="answer-card" @click="setSingle('documentoRenegociacao','nao')" :class="formData.documentoRenegociacao === 'nao' ? 'active' : ''">Não</button>
+            <button type="button" class="answer-card" @click="setSingle('documentoRenegociacao','nao_lembro')" :class="formData.documentoRenegociacao === 'nao_lembro' ? 'active' : ''">Não lembro</button>
+          </div>
+          <p x-show="errors.documentoRenegociacao" class="error" x-text="errors.documentoRenegociacao"></p>
+        </div>
+
+        <div class="question-block" x-show="formData.renegociacao && formData.renegociacao !== 'simulei'" x-cloak>
+          <h3 class="question-title">Você chegou a pagar alguma coisa?</h3>
+          <div class="answer-grid">
+            <button type="button" class="answer-card" @click="setSingle('pagamentoInicial','sim')" :class="formData.pagamentoInicial === 'sim' ? 'active' : ''">Sim</button>
+            <button type="button" class="answer-card" @click="setSingle('pagamentoInicial','nao')" :class="formData.pagamentoInicial === 'nao' ? 'active' : ''">Não</button>
+            <button type="button" class="answer-card" @click="setSingle('pagamentoInicial','mudou_antes')" :class="formData.pagamentoInicial === 'mudou_antes' ? 'active' : ''">Não consegui pagar porque as condições mudaram</button>
+          </div>
+          <p x-show="errors.pagamentoInicial" class="error" x-text="errors.pagamentoInicial"></p>
+        </div>
+
+        <div class="question-block" x-show="formData.renegociacao" x-cloak>
+          <h3 class="question-title">Você lembra qual era a condição oferecida?</h3>
+          <p class="question-note">Preencha apenas o que lembrar. Todos os campos abaixo são opcionais.</p>
+          <div class="fields-grid">
+            <input x-model="formData.saldoAnterior" class="field" placeholder="Valor aproximado da dívida">
+            <input x-model="formData.desconto" class="field" placeholder="Desconto informado">
+            <input x-model="formData.saldoRenegociado" class="field" placeholder="Valor após a renegociação">
+            <input x-model="formData.parcelas" class="field" placeholder="Valor ou quantidade das parcelas">
+          </div>
+        </div>
+
+        <div class="actions end">
+          <button type="button" @click="validateStep1()" class="primary-btn">Continuar</button>
+        </div>
+      </section>
+
+      <section x-show="step === 2 && !bookingSubmitted" x-transition.opacity class="stage">
+        <div class="stage-head">
+          <p class="stage-number">02</p>
+          <div>
+            <p class="stage-kicker">Etapa 2 de 4</p>
+            <h2>Alteração</h2>
+            <p class="stage-description">Agora indique se o que apareceu inicialmente permaneceu igual ou se alguma condição mudou.</p>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h3 class="question-title">Depois disso, alguma coisa mudou?</h3>
+          <div class="answer-grid three">
+            <button type="button" class="answer-card" @click="setMudanca('sim')" :class="formData.houveMudanca === 'sim' ? 'active' : ''">Sim</button>
+            <button type="button" class="answer-card" @click="setMudanca('nao')" :class="formData.houveMudanca === 'nao' ? 'active' : ''">Não</button>
+            <button type="button" class="answer-card" @click="setMudanca('nao_sei')" :class="formData.houveMudanca === 'nao_sei' ? 'active' : ''">Não sei</button>
+          </div>
+          <p x-show="errors.houveMudanca" class="error" x-text="errors.houveMudanca"></p>
+        </div>
+
+        <div class="question-block" x-show="formData.houveMudanca === 'sim'" x-cloak>
+          <h3 class="question-title">O que mudou?</h3>
+          <p class="question-note">Você pode marcar mais de uma opção.</p>
+          <div class="answer-grid">
+            <template x-for="item in mudancas" :key="item.id">
+              <button type="button" class="answer-card" @click="toggleArray('mudancas', item.id)" :class="formData.mudancas.includes(item.id) ? 'active' : ''" x-text="item.titulo"></button>
+            </template>
+          </div>
+          <p x-show="errors.mudancas" class="error" x-text="errors.mudancas"></p>
+        </div>
+
+        <div class="question-block" x-show="formData.houveMudanca === 'sim'" x-cloak>
+          <h3 class="question-title">Quando você percebeu a mudança?</h3>
+          <div class="answer-grid one">
+            <button type="button" class="answer-card" @click="setSingle('momentoMudanca','antes_pagamento')" :class="formData.momentoMudanca === 'antes_pagamento' ? 'active' : ''">Antes de eu pagar qualquer valor</button>
+            <button type="button" class="answer-card" @click="setSingle('momentoMudanca','depois_entrada')" :class="formData.momentoMudanca === 'depois_entrada' ? 'active' : ''">Depois de pagar a entrada</button>
+            <button type="button" class="answer-card" @click="setSingle('momentoMudanca','depois_parcelas')" :class="formData.momentoMudanca === 'depois_parcelas' ? 'active' : ''">Depois de pagar uma ou mais parcelas</button>
+            <button type="button" class="answer-card" @click="setSingle('momentoMudanca','nao_sei')" :class="formData.momentoMudanca === 'nao_sei' ? 'active' : ''">Não sei</button>
+          </div>
+          <p class="question-note" style="margin-top:12px;">O momento em que a alteração ocorreu pode ser importante para compreender a sequência dos acontecimentos.</p>
+          <p x-show="errors.momentoMudanca" class="error" x-text="errors.momentoMudanca"></p>
+        </div>
+
+        <div class="question-block" x-show="formData.houveMudanca === 'sim'" x-cloak>
+          <h3 class="question-title">Disseram por que as condições mudaram?</h3>
+          <div class="answer-grid">
+            <button type="button" class="answer-card" @click="setSingle('explicacaoMudanca','sim')" :class="formData.explicacaoMudanca === 'sim' ? 'active' : ''">Sim</button>
+            <button type="button" class="answer-card" @click="setSingle('explicacaoMudanca','nao')" :class="formData.explicacaoMudanca === 'nao' ? 'active' : ''">Não</button>
+            <button type="button" class="answer-card" @click="setSingle('explicacaoMudanca','nao_clara')" :class="formData.explicacaoMudanca === 'nao_clara' ? 'active' : ''">Deram uma explicação que não ficou clara</button>
+            <button type="button" class="answer-card" @click="setSingle('explicacaoMudanca','nao_lembro')" :class="formData.explicacaoMudanca === 'nao_lembro' ? 'active' : ''">Não lembro</button>
+          </div>
+          <p x-show="errors.explicacaoMudanca" class="error" x-text="errors.explicacaoMudanca"></p>
+        </div>
+
+        <div class="question-block" x-show="formData.houveMudanca === 'sim' && ['sim','nao_clara'].includes(formData.explicacaoMudanca)" x-cloak>
+          <h3 class="question-title">A explicação mencionava algum cadastro, benefício ou informação sobre você ou seu contrato?</h3>
+          <div class="answer-grid three">
+            <button type="button" class="answer-card" @click="setSingle('referenciaCadastral','sim')" :class="formData.referenciaCadastral === 'sim' ? 'active' : ''">Sim</button>
+            <button type="button" class="answer-card" @click="setSingle('referenciaCadastral','nao')" :class="formData.referenciaCadastral === 'nao' ? 'active' : ''">Não</button>
+            <button type="button" class="answer-card" @click="setSingle('referenciaCadastral','nao_sei')" :class="formData.referenciaCadastral === 'nao_sei' ? 'active' : ''">Não sei</button>
+          </div>
+          <p class="question-note" style="margin-top:12px;">Algumas alterações podem depender das informações utilizadas para enquadrar o contrato em determinada condição.</p>
+          <p x-show="errors.referenciaCadastral" class="error" x-text="errors.referenciaCadastral"></p>
+        </div>
+
+        <div class="question-block" x-show="formData.houveMudanca === 'sim'" x-cloak>
+          <h3 class="question-title">Depois da mudança, apareceu uma nova proposta?</h3>
+          <div class="answer-grid three">
+            <button type="button" class="answer-card" @click="setSingle('novaProposta','sim')" :class="formData.novaProposta === 'sim' ? 'active' : ''">Sim</button>
+            <button type="button" class="answer-card" @click="setSingle('novaProposta','nao')" :class="formData.novaProposta === 'nao' ? 'active' : ''">Não</button>
+            <button type="button" class="answer-card" @click="setSingle('novaProposta','nao_sei')" :class="formData.novaProposta === 'nao_sei' ? 'active' : ''">Não sei</button>
+          </div>
+          <p x-show="errors.novaProposta" class="error" x-text="errors.novaProposta"></p>
+        </div>
+
+        <div class="actions">
+          <button type="button" @click="goStep(1)" class="secondary-btn">Voltar</button>
+          <button type="button" @click="validateStep2()" class="primary-btn">Continuar</button>
+        </div>
+      </section>
+
+      <section x-show="step === 3 && !bookingSubmitted" x-transition.opacity class="stage">
+        <div class="stage-head">
+          <p class="stage-number">03</p>
+          <div>
+            <p class="stage-kicker">Etapa 3 de 4</p>
+            <h2>Situação atual</h2>
+            <p class="stage-description">Informe apenas como o contrato está hoje e quais registros você já possui.</p>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h3 class="question-title">Como está o FIES hoje?</h3>
+          <div class="answer-grid">
+            <template x-for="item in situacoesAtuais" :key="item.id">
+              <button type="button" class="answer-card" @click="setSingle('situacaoAtual',item.id)" :class="formData.situacaoAtual === item.id ? 'active' : ''" x-text="item.titulo"></button>
+            </template>
+          </div>
+          <p x-show="errors.situacaoAtual" class="error" x-text="errors.situacaoAtual"></p>
+        </div>
+
+        <div class="question-block">
+          <h3 class="question-title">Seu nome foi negativado ou você recebeu aviso de negativação?</h3>
+          <div class="answer-grid">
+            <button type="button" class="answer-card" @click="setSingle('negativacao','negativado')" :class="formData.negativacao === 'negativado' ? 'active' : ''">Sim, já fui negativado</button>
+            <button type="button" class="answer-card" @click="setSingle('negativacao','aviso')" :class="formData.negativacao === 'aviso' ? 'active' : ''">Recebi aviso</button>
+            <button type="button" class="answer-card" @click="setSingle('negativacao','nao')" :class="formData.negativacao === 'nao' ? 'active' : ''">Não</button>
+            <button type="button" class="answer-card" @click="setSingle('negativacao','nao_sei')" :class="formData.negativacao === 'nao_sei' ? 'active' : ''">Não sei</button>
+          </div>
+          <p x-show="errors.negativacao" class="error" x-text="errors.negativacao"></p>
+        </div>
+
+        <div class="question-block">
+          <h3 class="question-title">Você tentou resolver diretamente com o banco ou com o FNDE?</h3>
+          <div class="answer-grid one">
+            <button type="button" class="answer-card" @click="setSingle('tentativaSolucao','sem_solucao')" :class="formData.tentativaSolucao === 'sem_solucao' ? 'active' : ''">Sim, mas não resolveram</button>
+            <button type="button" class="answer-card" @click="setSingle('tentativaSolucao','com_explicacao')" :class="formData.tentativaSolucao === 'com_explicacao' ? 'active' : ''">Sim, deram uma explicação</button>
+            <button type="button" class="answer-card" @click="setSingle('tentativaSolucao','nao_tentei')" :class="formData.tentativaSolucao === 'nao_tentei' ? 'active' : ''">Ainda não tentei</button>
+          </div>
+          <p x-show="errors.tentativaSolucao" class="error" x-text="errors.tentativaSolucao"></p>
+        </div>
+
+        <div class="question-block">
+          <h3 class="question-title">Quais documentos ou registros você tem?</h3>
+          <p class="question-note">Você pode marcar mais de uma opção.</p>
+          <div class="answer-grid">
+            <template x-for="item in documentos" :key="item.id">
+              <button type="button" class="answer-card" @click="toggleDocument(item.id)" :class="formData.documentos.includes(item.id) ? 'active' : ''" x-text="item.titulo"></button>
+            </template>
+          </div>
+          <p class="question-note" style="margin-top:12px;">Mesmo quando não existe um documento único explicando o problema, a combinação dos registros pode ajudar a reconstruir o que ocorreu.</p>
+          <p x-show="errors.documentos" class="error" x-text="errors.documentos"></p>
+        </div>
+
+        <div class="actions">
+          <button type="button" @click="goStep(2)" class="secondary-btn">Voltar</button>
+          <button type="button" @click="validateStep3()" class="primary-btn">Continuar</button>
+        </div>
+      </section>
+
+      <section x-show="step === 4 && !bookingSubmitted" x-transition.opacity class="stage">
+        <div class="stage-head">
+          <p class="stage-number">04</p>
+          <div>
+            <p class="stage-kicker">Etapa 4 de 4</p>
+            <h2>Seu resumo</h2>
+            <p class="stage-description">Indique o que você quer compreender primeiro. Em seguida, organizaremos o que foi informado.</p>
+          </div>
+        </div>
+
+        <div class="question-block" x-show="!summaryReady">
+          <h3 class="question-title">O que você quer entender primeiro?</h3>
+          <div class="answer-grid one">
+            <template x-for="item in objetivos" :key="item.id">
+              <button type="button" class="answer-card" @click="setSingle('objetivo',item.id)" :class="formData.objetivo === item.id ? 'active' : ''" x-text="item.titulo"></button>
+            </template>
+          </div>
+          <p x-show="errors.objetivo" class="error" x-text="errors.objetivo"></p>
+
+          <div class="actions">
+            <button type="button" @click="goStep(3)" class="secondary-btn">Voltar</button>
+            <button type="button" @click="generateSummary()" class="primary-btn">Gerar meu resumo</button>
+          </div>
+        </div>
+
+        <div x-show="summaryReady" x-cloak>
+          <div class="summary-card">
+            <p class="summary-label">Informações organizadas</p>
+            <p class="summary-intro">Pelas suas respostas, há uma sequência de fatos que merece ser examinada em conjunto. O resumo abaixo organiza apenas o que você informou.</p>
+
+            <div class="summary-grid">
+              <div class="summary-item">
+                <p class="label">O que aconteceu no início</p>
+                <p class="value" x-text="summaryStart()"></p>
+              </div>
+              <div class="summary-item">
+                <p class="label">O que mudou</p>
+                <p class="value" x-text="summaryChange()"></p>
+              </div>
+              <div class="summary-item">
+                <p class="label">Como está hoje</p>
+                <p class="value" x-text="summaryCurrent()"></p>
+              </div>
+              <div class="summary-item">
+                <p class="label">Documentos e registros</p>
+                <p class="value" x-text="summaryDocuments()"></p>
+              </div>
+              <div class="summary-item" style="grid-column:1 / -1;">
+                <p class="label">O que você quer compreender</p>
+                <p class="value" x-text="labelOf(objetivos, formData.objetivo)"></p>
+              </div>
+            </div>
+          </div>
+
+          <p class="summary-disclaimer">Este resumo organiza exclusivamente as informações fornecidas. Ele não contém conclusão sobre o caso, definição de estratégia ou orientação profissional.</p>
+
+          <div class="choice-actions">
+            <button type="button" onclick="window.print()" class="secondary-btn">Imprimir meu resumo</button>
+            <button type="button" @click="openService()" class="primary-btn">Solicitar análise do meu caso</button>
+          </div>
+
+          <div class="actions" style="border-top:0;padding-top:0;margin-top:18px;">
+            <button type="button" @click="summaryReady=false" class="secondary-btn">Alterar respostas</button>
+          </div>
+        </div>
+      </section>
+
+      <section x-show="serviceOpen && !bookingSubmitted" x-transition.opacity x-cloak class="stage service-stage" id="servico">
+        <div class="stage-head">
+          <p class="stage-number" style="font-size:38px;">AL</p>
+          <div>
+            <p class="stage-kicker">Etapa opcional</p>
+            <h2 style="text-transform:none;">Análise individual</h2>
+            <p class="stage-description">Se quiser aprofundar a compreensão do que aconteceu, você pode solicitar uma análise individual da situação e dos documentos relacionados ao caso.</p>
+          </div>
+        </div>
+
+        <div class="service-headline">
+          <div>
+            <p class="small">Serviço individual</p>
+            <h3>Análise da situação apresentada</h3>
+          </div>
+          <div class="price-block">
+            <p class="price-label">Valor</p>
+            <p class="price">R$ 500,00</p>
+          </div>
+        </div>
+
+        <div class="service-copy">
+          <div class="service-box">
+            <h4>O que será examinado</h4>
+            <p>As informações fornecidas, a sequência dos acontecimentos e os documentos que forem disponibilizados para compreender a situação de forma individual.</p>
+          </div>
+          <div class="service-box">
+            <h4>O que você recebe</h4>
+            <p>Uma análise individual da situação apresentada, com esclarecimento dos pontos relevantes e dos próximos passos que possam fazer sentido para o caso.</p>
+          </div>
+        </div>
+
+        <p class="scope-note">A contratação desta análise não significa contratação de advogado para atuar em processo, representar você perante o banco, FNDE ou terceiros, elaborar medidas ou acompanhar procedimentos. Qualquer atuação adicional depende de contratação específica.</p>
+
+        <div x-show="!bookingOpen" class="actions end" style="border-top:0;padding-top:0;margin-top:0;">
+          <button type="button" @click="openBooking()" class="primary-btn">Escolher dia e horário</button>
+        </div>
+
+        <div class="booking-panel" x-show="bookingOpen" x-cloak>
+          <div class="question-block" style="margin-top:0;padding-top:0;border-top:0;">
+            <h3 class="question-title">Como prefere ser atendido?</h3>
+            <div class="answer-grid">
+              <button type="button" class="answer-card" @click="selectModalidade('online')" :class="formData.modalidade === 'online' ? 'active' : ''">Online</button>
+              <button type="button" class="answer-card" @click="selectModalidade('presencial')" :class="formData.modalidade === 'presencial' ? 'active' : ''">Presencial em Brasília</button>
+            </div>
+          </div>
+
+          <div class="question-block" x-show="formData.modalidade" x-cloak>
+            <h3 class="question-title">Escolha a data</h3>
+            <div class="calendar-grid">
+              <template x-for="calendar in calendars" :key="calendar.key">
+                <div class="calendar">
+                  <h4 x-text="monthLabel(calendar.year, calendar.month)"></h4>
+                  <div class="weekdays"><span>D</span><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span></div>
+                  <div class="days">
+                    <template x-for="(day, idx) in calendar.days" :key="calendar.key + '-' + idx">
+                      <button type="button" class="day-button" @click="pickDate(day)" :disabled="!day.ok" :class="calendarClass(day)" x-text="day.day || ''"></button>
+                    </template>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+
+          <div class="slots-box" x-show="preferredDate" x-cloak>
+            <div class="slots-head">
+              <h3>Horários disponíveis</h3>
+              <span x-text="formatDateBR(preferredDate)"></span>
+            </div>
+            <div class="slots">
+              <template x-for="slot in calSlots" :key="slot.hour">
+                <button type="button" class="slot-button" @click="pickHour(slot)" :disabled="slot.status !== 'available'" :class="preferredHour === slot.hour ? 'selected' : ''" x-text="slot.hour"></button>
+              </template>
+            </div>
+          </div>
+
+          <p x-show="errors.agenda" class="error" x-text="errors.agenda"></p>
+
+          <div x-show="preferredDate && preferredHour" x-cloak>
+            <div class="confirmation-strip">
+              <div>
+                <p class="label">Modalidade</p>
+                <p class="value" x-text="formData.modalidade === 'presencial' ? 'Presencial' : 'Online'"></p>
+              </div>
+              <div>
+                <p class="label">Data</p>
+                <p class="value" x-text="formatDateBR(preferredDate)"></p>
+              </div>
+              <div>
+                <p class="label">Horário</p>
+                <p class="value" x-text="preferredHour"></p>
+              </div>
+              <div>
+                <p class="label">Valor</p>
+                <p class="value">R$ 500,00</p>
+              </div>
+            </div>
+
+            <h3 class="question-title">Dados para a solicitação</h3>
+            <div class="fields-grid">
+              <input x-model="formData.nome" class="field span-2" placeholder="Nome completo *">
+
+              <div>
+                <input x-model="formData.documento" @input="formData.documento = formatCPF($event.target.value); errors.cpf = ''" @blur="validateCPFField()" class="field" :class="errors.cpf ? 'field-error' : (cpfValido ? 'field-ok' : '')" placeholder="CPF *">
+                <p x-show="errors.cpf" class="error" x-text="errors.cpf"></p>
+              </div>
+
+              <input x-model="formData.profissao" class="field" placeholder="Profissão *">
+
+              <select x-model="formData.estadoCivil" class="field">
+                <option value="">Estado civil *</option>
+                <option value="solteiro">Solteiro(a)</option>
+                <option value="casado">Casado(a)</option>
+                <option value="divorciado">Divorciado(a)</option>
+                <option value="viuvo">Viúvo(a)</option>
+                <option value="uniao_estavel">União estável</option>
+              </select>
+
+              <select x-show="formData.estadoCivil === 'casado' || formData.estadoCivil === 'uniao_estavel'" x-model="formData.regimeCasamento" class="field" x-cloak>
+                <option value="">Regime de bens *</option>
+                <option value="comunhao_parcial">Comunhão parcial de bens</option>
+                <option value="comunhao_universal">Comunhão universal de bens</option>
+                <option value="separacao_total">Separação total de bens</option>
+                <option value="participacao_final">Participação final nos aquestos</option>
+              </select>
+
+              <div>
+                <input x-model="formData.email" @input="errors.email = ''" @blur="validateEmailField()" class="field" :class="errors.email ? 'field-error' : (emailValido ? 'field-ok' : '')" placeholder="E-mail *">
+                <p x-show="errors.email" class="error" x-text="errors.email"></p>
+              </div>
+
+              <div>
+                <input x-model="formData.telefone" @input="formData.telefone = formatPhone($event.target.value); errors.telefone = ''" @blur="validateTelefoneField()" class="field" :class="errors.telefone ? 'field-error' : (telefoneValido ? 'field-ok' : '')" placeholder="Telefone *">
+                <p x-show="errors.telefone" class="error" x-text="errors.telefone"></p>
+              </div>
+
+              <div>
+                <input x-model="formData.cep" @input="onCepInput($event.target.value)" class="field" :class="errors.cep ? 'field-error' : (cepValido && !cepLoading ? 'field-ok' : '')" placeholder="CEP *">
+                <p x-show="cepLoading" class="help">Buscando endereço...</p>
+                <p x-show="errors.cep" class="error" x-text="errors.cep"></p>
+              </div>
+
+              <input x-model="formData.endereco" class="field" placeholder="Endereço *">
+              <input x-model="formData.numero" class="field" placeholder="Número *">
+              <input x-model="formData.complemento" class="field" placeholder="Complemento">
+              <input x-model="formData.bairro" class="field" placeholder="Bairro *">
+              <input x-model="formData.cidade" class="field" placeholder="Cidade *">
+              <input x-model="formData.uf" maxlength="2" class="field" placeholder="UF *" style="text-transform:uppercase;">
+            </div>
+
+            <p x-show="errors.dados" class="error" x-text="errors.dados"></p>
+
+            <div class="operational-note">Após o envio, você receberá por e-mail o QR Code PIX e as instruções de pagamento. A data e o horário serão confirmados após a conferência do pagamento.</div>
+
+            <div class="terms-box">
+              <p>Ao clicar em “Confirmar solicitação”, você declara que as informações fornecidas são de sua responsabilidade e concorda com o tratamento dos dados necessários à organização da demanda, agenda, contratação, pagamento e emissão fiscal. A contratação refere-se exclusivamente à análise individual descrita nesta página e não inclui representação ou atuação em processo.</p>
+            </div>
+
+            <p x-show="errors.envio" class="error" x-text="errors.envio"></p>
+
+            <div class="actions">
+              <button type="button" @click="bookingOpen=false" class="secondary-btn">Voltar</button>
+              <button type="button" @click="submitBooking()" :disabled="submitting" class="primary-btn">
+                <span x-show="!submitting">Confirmar solicitação</span>
+                <span x-show="submitting" style="display:inline-flex;align-items:center;gap:8px;"><span class="spinner"></span>Enviando</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section x-show="bookingSubmitted" x-cloak class="stage">
+        <div class="payment-finished">
+          <p class="stage-kicker">Solicitação registrada</p>
+          <h2>Agora, acompanhe seu e-mail.</h2>
+          <p><strong x-text="primeiroNome"></strong><span x-show="primeiroNome">, </span>confira o endereço informado: <strong x-text="formData.email"></strong>. Você receberá as instruções para pagamento e confirmação do horário solicitado.</p>
+
+          <div class="confirmation-strip" style="max-width:820px;margin:28px auto 0;">
+            <div>
+              <p class="label">Modalidade</p>
+              <p class="value" x-text="formData.modalidade === 'presencial' ? 'Presencial' : 'Online'"></p>
+            </div>
+            <div>
+              <p class="label">Data solicitada</p>
+              <p class="value" x-text="formatDateBR(preferredDate)"></p>
+            </div>
+            <div>
+              <p class="label">Horário solicitado</p>
+              <p class="value" x-text="preferredHour"></p>
+            </div>
+            <div>
+              <p class="label">Referência</p>
+              <p class="value" x-text="externalRef || 'registrada'"></p>
+            </div>
+          </div>
+
+          <div class="choice-actions" style="max-width:560px;margin-inline:auto;">
+            <button type="button" onclick="window.print()" class="secondary-btn">Imprimir resumo</button>
+            <a href="/" class="primary-btn">Voltar à página inicial</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <section class="print-only">
+    <img src="/assets/img/Marca.svg" alt="Análise Legal" style="width:250px;margin-bottom:24px;">
+    <h1>Resumo das informações — Renegociação do FIES</h1>
+
+    <h2>O que aconteceu no início</h2>
+    <p x-text="summaryStart()"></p>
+
+    <h2>O que mudou</h2>
+    <p x-text="summaryChange()"></p>
+
+    <h2>Como está hoje</h2>
+    <p x-text="summaryCurrent()"></p>
+
+    <h2>Documentos e registros informados</h2>
+    <p x-text="summaryDocuments()"></p>
+
+    <h2>O que você quer compreender</h2>
+    <p x-text="labelOf(objetivos, formData.objetivo)"></p>
+
+    <hr style="margin:20px 0;border:0;border-top:1px solid #999;">
+    <p>Este documento representa exclusivamente a organização das informações fornecidas pelo usuário e não constitui avaliação, parecer ou orientação profissional.</p>
+  </section>
+
+  <nav class="mobile-prefooter-nav" aria-label="Navegação institucional principal">
+    <a href="/papel-da-plataforma.html">O papel da plataforma</a>
+    <a href="/como-funciona.html">Como funciona</a>
+    <a href="/quando-faz-sentido.html">Quando faz sentido</a>
+    <a href="https://www.analiselegal.com.br/situacoes/">Situações reais</a>
+  </nav>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="shell">
+      <div class="socials" aria-label="Redes sociais">
+        <span class="social-mark" title="LinkedIn" aria-label="LinkedIn"><span class="mask-icon" style="--icon:url('/assets/img/icon/linkedin-logo.svg')"></span></span>
+        <span class="social-mark" title="Instagram" aria-label="Instagram"><span class="mask-icon" style="--icon:url('/assets/img/icon/instagram-logo.svg')"></span></span>
+        <span class="social-mark" title="Facebook" aria-label="Facebook"><span class="mask-icon" style="--icon:url('/assets/img/icon/facebook-logo.svg')"></span></span>
+      </div>
+
+      <nav class="footer-nav" aria-label="Navegação institucional">
+        <a href="/perguntas-frequentes.html">Perguntas frequentes</a>
+        <a href="/privacidade.html">Privacidade</a>
+        <a href="/termos-de-uso.html">Termos de uso</a>
+        <a href="/contato.html">Contato</a>
+      </nav>
+
+      <a class="footer-brand" href="/" aria-label="Análise Legal — página inicial">
+        <img src="/assets/img/Marca-soft.svg" alt="Análise Legal" width="620" height="112" loading="lazy" decoding="async">
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    function fiesFunnel() {
+      return {
+        workerBase: 'https://analiselegal-formulario.miguel-compras.workers.dev',
+        step: 1,
+        summaryReady: false,
+        serviceOpen: false,
+        bookingOpen: false,
+        bookingSubmitted: false,
+        submitting: false,
+        externalRef: null,
+        errors: {},
+
+        cpfValido: false,
+        emailValido: false,
+        telefoneValido: false,
+        cepValido: false,
+        cepLoading: false,
+
+        preferredDate: '',
+        preferredHour: '',
+        calSlots: [],
+        calendars: [],
+
+        progressSteps: [
+          { id: 1, label: 'Renegociação' },
+          { id: 2, label: 'Alteração' },
+          { id: 3, label: 'Situação atual' },
+          { id: 4, label: 'Resumo' }
+        ],
+
+        mudancas: [
+          { id: 'desconto_diminuiu', titulo: 'O desconto diminuiu' },
+          { id: 'divida_aumentou', titulo: 'A dívida aumentou' },
+          { id: 'parcela_aumentou', titulo: 'A parcela aumentou' },
+          { id: 'renegociacao_sumiu', titulo: 'A renegociação sumiu' },
+          { id: 'outra_proposta', titulo: 'Apareceu outra proposta' },
+          { id: 'outro', titulo: 'Outra coisa mudou' }
+        ],
+
+        situacoesAtuais: [
+          { id: 'pagando', titulo: 'Estou pagando' },
+          { id: 'atrasado', titulo: 'Está atrasado' },
+          { id: 'cobrancas', titulo: 'Estou recebendo cobranças' },
+          { id: 'nova_proposta', titulo: 'Apareceu outra proposta' },
+          { id: 'nao_sei', titulo: 'Não sei' }
+        ],
+
+        documentos: [
+          { id: 'termo', titulo: 'Termo da renegociação' },
+          { id: 'pagamentos', titulo: 'Comprovantes de pagamento' },
+          { id: 'boletos', titulo: 'Boletos' },
+          { id: 'extratos', titulo: 'Extratos' },
+          { id: 'telas', titulo: 'Telas do aplicativo ou site' },
+          { id: 'protocolos', titulo: 'Protocolos ou mensagens' },
+          { id: 'negativacao', titulo: 'Aviso de negativação' },
+          { id: 'nenhum', titulo: 'Nenhum' }
+        ],
+
+        objetivos: [
+          { id: 'entender_mudanca', titulo: 'Por que mudaram as condições' },
+          { id: 'questionar_mudanca', titulo: 'Se a mudança pode ser questionada' },
+          { id: 'conferir_divida', titulo: 'Se a dívida está correta' },
+          { id: 'recuperar_condicao', titulo: 'Se a condição anterior pode ser recuperada' },
+          { id: 'evitar_consequencias', titulo: 'Como evitar novas cobranças ou outras consequências' },
+          { id: 'nao_sei', titulo: 'Não sei o que fazer' }
+        ],
+
+        formData: {
+          renegociacao: '',
+          documentoRenegociacao: '',
+          pagamentoInicial: '',
+          saldoAnterior: '',
+          desconto: '',
+          saldoRenegociado: '',
+          parcelas: '',
+
+          houveMudanca: '',
+          mudancas: [],
+          momentoMudanca: '',
+          explicacaoMudanca: '',
+          referenciaCadastral: '',
+          novaProposta: '',
+
+          situacaoAtual: '',
+          negativacao: '',
+          tentativaSolucao: '',
+          documentos: [],
+          objetivo: '',
+
+          produto: 'analise_fies',
+          modalidade: 'online',
+          nome: '',
+          documento: '',
+          profissao: '',
+          estadoCivil: '',
+          regimeCasamento: '',
+          email: '',
+          telefone: '',
+          preferenciaContato: 'telefone_mensagem',
+          cep: '',
+          endereco: '',
+          numero: '',
+          complemento: '',
+          bairro: '',
+          cidade: '',
+          uf: ''
+        },
+
+        init() {
+          this.prepareMonths();
+        },
+
+        get primeiroNome() {
+          return (this.formData.nome || '').trim().split(/\s+/)[0] || '';
+        },
+
+        setSingle(field, value) {
+          this.formData[field] = value;
+          delete this.errors[field];
+        },
+
+        setMudanca(value) {
+          this.formData.houveMudanca = value;
+          delete this.errors.houveMudanca;
+
+          if (value !== 'sim') {
+            this.formData.mudancas = [];
+            this.formData.momentoMudanca = '';
+            this.formData.explicacaoMudanca = '';
+            this.formData.referenciaCadastral = '';
+            this.formData.novaProposta = '';
+          }
+        },
+
+        toggleArray(field, value) {
+          if (this.formData[field].includes(value)) {
+            this.formData[field] = this.formData[field].filter(v => v !== value);
+          } else {
+            this.formData[field].push(value);
+          }
+          delete this.errors[field];
+        },
+
+        toggleDocument(value) {
+          if (value === 'nenhum') {
+            this.formData.documentos = ['nenhum'];
+            delete this.errors.documentos;
+            return;
+          }
+
+          this.formData.documentos = this.formData.documentos.filter(v => v !== 'nenhum');
+          this.toggleArray('documentos', value);
+        },
+
+        labelOf(list, id) {
+          const item = list.find(i => i.id === id);
+          return item ? item.titulo : 'Não informado';
+        },
+
+        labelsOf(list, ids) {
+          if (!ids || !ids.length) return 'Não informado';
+          return ids.map(id => this.labelOf(list, id)).join(', ');
+        },
+
+        goStep(n) {
+          this.step = n;
+          this.summaryReady = false;
+          this.errors = {};
+          this.$nextTick(() => {
+            const anchor = document.getElementById('analise');
+            if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        },
+
+        validateStep1() {
+          this.errors = {};
+
+          if (!this.formData.renegociacao) {
+            this.errors.renegociacao = 'Selecione uma opção.';
+            return;
+          }
+
+          if (this.formData.renegociacao !== 'simulei') {
+            if (!this.formData.documentoRenegociacao) this.errors.documentoRenegociacao = 'Selecione uma opção.';
+            if (!this.formData.pagamentoInicial) this.errors.pagamentoInicial = 'Selecione uma opção.';
+          } else {
+            this.formData.documentoRenegociacao = '';
+            this.formData.pagamentoInicial = '';
+          }
+
+          if (Object.keys(this.errors).length) return;
+          this.goStep(2);
+        },
+
+        validateStep2() {
+          this.errors = {};
+
+          if (!this.formData.houveMudanca) {
+            this.errors.houveMudanca = 'Selecione uma opção.';
+            return;
+          }
+
+          if (this.formData.houveMudanca === 'sim') {
+            if (!this.formData.mudancas.length) this.errors.mudancas = 'Selecione ao menos uma mudança.';
+            if (!this.formData.momentoMudanca) this.errors.momentoMudanca = 'Selecione uma opção.';
+            if (!this.formData.explicacaoMudanca) this.errors.explicacaoMudanca = 'Selecione uma opção.';
+
+            if (['sim','nao_clara'].includes(this.formData.explicacaoMudanca) && !this.formData.referenciaCadastral) {
+              this.errors.referenciaCadastral = 'Selecione uma opção.';
+            }
+
+            if (!this.formData.novaProposta) this.errors.novaProposta = 'Selecione uma opção.';
+          }
+
+          if (Object.keys(this.errors).length) return;
+          this.goStep(3);
+        },
+
+        validateStep3() {
+          this.errors = {};
+
+          if (!this.formData.situacaoAtual) this.errors.situacaoAtual = 'Selecione uma opção.';
+          if (!this.formData.negativacao) this.errors.negativacao = 'Selecione uma opção.';
+          if (!this.formData.tentativaSolucao) this.errors.tentativaSolucao = 'Selecione uma opção.';
+          if (!this.formData.documentos.length) this.errors.documentos = 'Selecione ao menos uma opção.';
+
+          if (Object.keys(this.errors).length) return;
+          this.goStep(4);
+        },
+
+        generateSummary() {
+          this.errors = {};
+          if (!this.formData.objetivo) {
+            this.errors.objetivo = 'Selecione uma opção.';
+            return;
+          }
+          this.summaryReady = true;
+        },
+
+        summaryStart() {
+          const r = this.formData.renegociacao;
+          let text = r === 'formalizei'
+            ? 'Você informou que chegou a formalizar a renegociação do FIES.'
+            : r === 'simulei'
+              ? 'Você informou que apenas visualizou ou simulou uma proposta de renegociação.'
+              : 'Você não tem certeza se a renegociação chegou a ser formalizada.';
+
+          if (r !== 'simulei') {
+            const doc = {
+              sim: 'Você recebeu algum documento ou comprovante.',
+              nao: 'Você não recebeu documento ou comprovante.',
+              nao_lembro: 'Você não lembra se recebeu documento ou comprovante.'
+            }[this.formData.documentoRenegociacao];
+
+            const pag = {
+              sim: 'Você informou que chegou a realizar pagamento.',
+              nao: 'Você informou que não realizou pagamento.',
+              mudou_antes: 'Você informou que não conseguiu pagar porque as condições mudaram.'
+            }[this.formData.pagamentoInicial];
+
+            if (doc) text += ' ' + doc;
+            if (pag) text += ' ' + pag;
+          }
+
+          const detalhes = [];
+          if (this.formData.saldoAnterior) detalhes.push('dívida aproximada: ' + this.formData.saldoAnterior);
+          if (this.formData.desconto) detalhes.push('desconto informado: ' + this.formData.desconto);
+          if (this.formData.saldoRenegociado) detalhes.push('valor após a renegociação: ' + this.formData.saldoRenegociado);
+          if (this.formData.parcelas) detalhes.push('parcelamento: ' + this.formData.parcelas);
+          if (detalhes.length) text += ' Condições lembradas: ' + detalhes.join('; ') + '.';
+
+          return text;
+        },
+
+        summaryChange() {
+          if (this.formData.houveMudanca === 'nao') return 'Você informou que não percebeu mudança nas condições apresentadas.';
+          if (this.formData.houveMudanca === 'nao_sei') return 'Você não consegue identificar se houve mudança nas condições.';
+          if (this.formData.houveMudanca !== 'sim') return 'Não informado.';
+
+          let text = 'Você informou que houve alteração: ' + this.labelsOf(this.mudancas, this.formData.mudancas).toLowerCase() + '.';
+
+          const momento = {
+            antes_pagamento: 'A mudança foi percebida antes de qualquer pagamento.',
+            depois_entrada: 'A mudança foi percebida depois do pagamento da entrada.',
+            depois_parcelas: 'A mudança foi percebida depois do pagamento de uma ou mais parcelas.',
+            nao_sei: 'Você não consegue identificar quando a mudança ocorreu.'
+          }[this.formData.momentoMudanca];
+          if (momento) text += ' ' + momento;
+
+          const exp = {
+            sim: 'Foi apresentada alguma explicação.',
+            nao: 'Não foi apresentada explicação.',
+            nao_clara: 'Foi apresentada uma explicação que não ficou clara.',
+            nao_lembro: 'Você não lembra se houve explicação.'
+          }[this.formData.explicacaoMudanca];
+          if (exp) text += ' ' + exp;
+
+          if (['sim','nao_clara'].includes(this.formData.explicacaoMudanca)) {
+            const ref = {
+              sim: 'A explicação mencionava alguma informação cadastral, benefício ou situação do contrato.',
+              nao: 'A explicação não mencionava esse tipo de informação.',
+              nao_sei: 'Você não sabe dizer se a explicação mencionava esse tipo de informação.'
+            }[this.formData.referenciaCadastral];
+            if (ref) text += ' ' + ref;
+          }
+
+          const nova = {
+            sim: 'Depois da mudança, apareceu uma nova proposta.',
+            nao: 'Depois da mudança, não apareceu nova proposta.',
+            nao_sei: 'Você não sabe dizer se apareceu nova proposta.'
+          }[this.formData.novaProposta];
+          if (nova) text += ' ' + nova;
+
+          return text;
+        },
+
+        summaryCurrent() {
+          const atual = this.labelOf(this.situacoesAtuais, this.formData.situacaoAtual);
+          const neg = {
+            negativado: 'Seu nome já foi negativado.',
+            aviso: 'Você recebeu aviso de negativação.',
+            nao: 'Você não informou negativação ou aviso.',
+            nao_sei: 'Você não sabe dizer se houve negativação ou aviso.'
+          }[this.formData.negativacao] || '';
+
+          const tentativa = {
+            sem_solucao: 'Você tentou resolver diretamente, mas não houve solução.',
+            com_explicacao: 'Você tentou resolver diretamente e recebeu uma explicação.',
+            nao_tentei: 'Você ainda não tentou resolver diretamente com o banco ou FNDE.'
+          }[this.formData.tentativaSolucao] || '';
+
+          return 'Situação atual informada: ' + atual.toLowerCase() + '. ' + neg + ' ' + tentativa;
+        },
+
+        summaryDocuments() {
+          return this.labelsOf(this.documentos, this.formData.documentos) + '.';
+        },
+
+        resumoCompleto() {
+          return [
+            this.summaryStart(),
+            this.summaryChange(),
+            this.summaryCurrent(),
+            'Documentos e registros: ' + this.summaryDocuments(),
+            'Objetivo principal: ' + this.labelOf(this.objetivos, this.formData.objetivo) + '.'
+          ].join(' ');
+        },
+
+        openService() {
+          this.serviceOpen = true;
+          this.$nextTick(() => {
+            const anchor = document.getElementById('servico');
+            if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        },
+
+        openBooking() {
+          this.bookingOpen = true;
+          this.prepareMonths();
+        },
+
+        selectModalidade(value) {
+          if (this.formData.modalidade === value) return;
+          this.formData.modalidade = value;
+          this.preferredDate = '';
+          this.preferredHour = '';
+          this.calSlots = [];
+          this.prepareMonths();
+        },
+
+        minAdvanceDays() {
+          return this.formData.modalidade === 'presencial' ? 2 : 1;
+        },
+
+        prepareMonths() {
+          const base = new Date();
+          const year = base.getFullYear();
+          const month = base.getMonth() + 1;
+          const next = new Date(year, month, 1);
+
+          this.calendars = [
+            { key: 'a', year, month, days: this.buildMonth(year, month) },
+            { key: 'b', year: next.getFullYear(), month: next.getMonth() + 1, days: this.buildMonth(next.getFullYear(), next.getMonth() + 1) }
+          ];
+        },
+
+        buildMonth(year, month) {
+          const minDate = new Date();
+          minDate.setHours(0,0,0,0);
+          minDate.setDate(minDate.getDate() + this.minAdvanceDays());
+
+          const firstDay = new Date(year, month - 1, 1);
+          const lastDay = new Date(year, month, 0);
+          const days = [];
+
+          for (let i = 0; i < firstDay.getDay(); i++) days.push({ type: 'empty', ok: false });
+
+          for (let d = 1; d <= lastDay.getDate(); d++) {
+            const date = new Date(year, month - 1, d);
+            date.setHours(0,0,0,0);
+            const dateStr = `${year}-${String(month).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+            const dow = date.getDay();
+            days.push({ day: d, date: dateStr, ok: date >= minDate && dow !== 0 && dow !== 6 });
+          }
+
+          return days;
+        },
+
+        monthLabel(year, month) {
+          const names = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+          return `${names[month - 1]} ${year}`;
+        },
+
+        formatDateBR(dateStr) {
+          if (!dateStr) return '';
+          const [y,m,d] = dateStr.split('-');
+          return `${d}/${m}/${y}`;
+        },
+
+        calendarClass(day) {
+          if (day.type === 'empty') return 'calendar-empty';
+          if (!day.ok) return 'calendar-disabled';
+          if (this.preferredDate === day.date) return 'calendar-selected';
+          return 'calendar-available';
+        },
+
+        async pickDate(day) {
+          if (!day.ok) return;
+          this.preferredDate = day.date;
+          this.preferredHour = '';
+          this.calSlots = [];
+          this.errors.agenda = '';
+
+          try {
+            const res = await fetch(this.workerBase + '/agenda/disponibilidade', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ data: day.date })
+            });
+
+            if (!res.ok) throw new Error('Não foi possível consultar a agenda.');
+            const data = await res.json();
+            const livres = data.horarios_disponiveis || [];
+            this.calSlots = livres.map(hora => ({ hour: hora, status: 'available' }));
+          } catch (e) {
+            this.errors.agenda = 'Não foi possível consultar a agenda neste momento.';
+          }
+        },
+
+        pickHour(slot) {
+          if (slot.status !== 'available') return;
+          this.preferredHour = slot.hour;
+          this.errors.agenda = '';
+        },
+
+        validatePersonalData() {
+          this.errors = {};
+
+          if (!this.preferredDate || !this.preferredHour) {
+            this.errors.agenda = 'Selecione data e horário.';
+            return false;
+          }
+
+          const required = ['nome','documento','profissao','estadoCivil','email','telefone','cep','endereco','numero','bairro','cidade','uf'];
+
+          for (const field of required) {
+            if (!this.formData[field] || !String(this.formData[field]).trim()) {
+              this.errors.dados = 'Preencha todos os campos obrigatórios.';
+              return false;
+            }
+          }
+
+          if ((this.formData.estadoCivil === 'casado' || this.formData.estadoCivil === 'uniao_estavel') && !this.formData.regimeCasamento) {
+            this.errors.dados = 'Informe o regime de bens.';
+            return false;
+          }
+
+          if (!this.validateCPFField()) return false;
+          if (!this.validateEmailField()) return false;
+          if (!this.validateTelefoneField()) return false;
+
+          return true;
+        },
+
+        async submitBooking() {
+          if (!this.validatePersonalData()) return;
+          if (this.submitting) return;
+
+          this.errors = {};
+          this.submitting = true;
+
+          try {
+            const payload = {
+              nome: this.formData.nome,
+              email: this.formData.email,
+              telefone: this.formData.telefone,
+              cpf: this.formData.documento,
+              profissao: this.formData.profissao,
+              estadoCivil: this.formData.estadoCivil,
+              regimeCasamento: this.formData.regimeCasamento || null,
+              cep: this.formData.cep,
+              endereco: this.formData.endereco,
+              numero: this.formData.numero,
+              complemento: this.formData.complemento || '',
+              bairro: this.formData.bairro,
+              cidade: this.formData.cidade,
+              uf: this.formData.uf,
+
+              relato: this.resumoCompleto(),
+              descricao: this.resumoCompleto(),
+              resumoOrganizado: this.resumoCompleto(),
+
+              fluxoEscolhido: 'analise_fies',
+              fluxoEscolhidoLabel: 'Solicitar análise individual — FIES',
+              produto: 'analise_fies',
+              situacao: 'fies_renegociacao',
+              estadoSituacao: this.formData.situacaoAtual,
+              documentos: this.formData.documentos,
+              impacto: '',
+              urgencia: this.formData.negativacao === 'negativado' || this.formData.negativacao === 'aviso' ? 'possivel_consequencia' : 'nao_informada',
+
+              fies: {
+                renegociacao: this.formData.renegociacao,
+                documentoRenegociacao: this.formData.documentoRenegociacao,
+                pagamentoInicial: this.formData.pagamentoInicial,
+                saldoAnterior: this.formData.saldoAnterior,
+                desconto: this.formData.desconto,
+                saldoRenegociado: this.formData.saldoRenegociado,
+                parcelas: this.formData.parcelas,
+                houveMudanca: this.formData.houveMudanca,
+                mudancas: this.formData.mudancas,
+                momentoMudanca: this.formData.momentoMudanca,
+                explicacaoMudanca: this.formData.explicacaoMudanca,
+                referenciaCadastral: this.formData.referenciaCadastral,
+                novaProposta: this.formData.novaProposta,
+                situacaoAtual: this.formData.situacaoAtual,
+                negativacao: this.formData.negativacao,
+                tentativaSolucao: this.formData.tentativaSolucao,
+                objetivo: this.formData.objetivo
+              },
+
+              modalidade: this.formData.modalidade,
+              preferredDate: this.preferredDate,
+              preferredHour: this.preferredHour,
+              valor: 500,
+              origem: 'situacoes-contratos-fies-analise',
+              pagamento: 'pix_estatico_por_email',
+              statusSolicitado: 'aguardando_pagamento_e_confirmacao'
+            };
+
+            const res = await fetch(this.workerBase + '/formulario', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+
+            const data = await res.json().catch(() => ({}));
+
+            if (!res.ok || data.sucesso === false) {
+              throw new Error(data.erro || data.mensagem || 'Não foi possível registrar a solicitação.');
+            }
+
+            this.externalRef = data.protocolo || null;
+            this.bookingSubmitted = true;
+            this.$nextTick(() => {
+              const anchor = document.getElementById('analise');
+              if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+          } catch (e) {
+            this.errors.envio = e.message || 'Não foi possível registrar a solicitação agora.';
+          } finally {
+            this.submitting = false;
+          }
+        },
+
+        isValidCPF(cpfRaw) {
+          const cpf = (cpfRaw || '').replace(/\D/g, '');
+          if (cpf.length !== 11) return false;
+          if (/^(\d)\1+$/.test(cpf)) return false;
+
+          let sum = 0;
+          for (let i = 0; i < 9; i++) sum += parseInt(cpf[i]) * (10 - i);
+          let d1 = (sum * 10) % 11;
+          if (d1 === 10) d1 = 0;
+          if (d1 !== parseInt(cpf[9])) return false;
+
+          sum = 0;
+          for (let i = 0; i < 10; i++) sum += parseInt(cpf[i]) * (11 - i);
+          let d2 = (sum * 10) % 11;
+          if (d2 === 10) d2 = 0;
+          return d2 === parseInt(cpf[10]);
+        },
+
+        validateCPFField() {
+          const raw = (this.formData.documento || '').replace(/\D/g, '');
+          this.cpfValido = false;
+          if (!raw) { this.errors.cpf = 'CPF é obrigatório.'; return false; }
+          if (raw.length !== 11) { this.errors.cpf = 'CPF deve ter 11 dígitos.'; return false; }
+          if (!this.isValidCPF(raw)) { this.errors.cpf = 'CPF inválido.'; return false; }
+          this.errors.cpf = '';
+          this.cpfValido = true;
+          return true;
+        },
+
+        validateEmailField() {
+          const email = (this.formData.email || '').trim();
+          this.emailValido = false;
+          if (!email) { this.errors.email = 'E-mail é obrigatório.'; return false; }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { this.errors.email = 'Informe um e-mail válido.'; return false; }
+          this.errors.email = '';
+          this.emailValido = true;
+          return true;
+        },
+
+        validateTelefoneField() {
+          const nums = (this.formData.telefone || '').replace(/\D/g, '');
+          this.telefoneValido = false;
+          if (!nums) { this.errors.telefone = 'Telefone é obrigatório.'; return false; }
+          if (nums.length !== 10 && nums.length !== 11) { this.errors.telefone = 'Telefone deve ter DDD e 10 ou 11 dígitos.'; return false; }
+          this.errors.telefone = '';
+          this.telefoneValido = true;
+          return true;
+        },
+
+        async onCepInput(value) {
+          this.formData.cep = this.formatCEP(value);
+          this.errors.cep = '';
+          this.cepValido = false;
+          const cep = this.formData.cep.replace(/\D/g, '');
+          if (cep.length !== 8) return;
+
+          this.cepLoading = true;
+          try {
+            const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+            const data = await res.json();
+            if (data.erro) { this.errors.cep = 'CEP não encontrado.'; return; }
+            this.formData.endereco = data.logradouro || this.formData.endereco;
+            this.formData.bairro = data.bairro || this.formData.bairro;
+            this.formData.cidade = data.localidade || this.formData.cidade;
+            this.formData.uf = data.uf || this.formData.uf;
+            this.cepValido = true;
+          } catch (e) {
+            this.errors.cep = 'Erro ao consultar CEP.';
+          } finally {
+            this.cepLoading = false;
+          }
+        },
+
+        formatCPF(value) {
+          const nums = (value || '').replace(/\D/g, '').slice(0, 11);
+          return nums
+            .replace(/(\d{3})(\d)/, '$1.$2')
+            .replace(/(\d{3})\.(\d{3})(\d)/, '$1.$2.$3')
+            .replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
+        },
+
+        formatPhone(value) {
+          const nums = (value || '').replace(/\D/g, '').slice(0, 11);
+          if (nums.length <= 10) return nums.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+          return nums.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+        },
+
+        formatCEP(value) {
+          const nums = (value || '').replace(/\D/g, '').slice(0, 8);
+          if (nums.length <= 5) return nums;
+          return nums.slice(0, 5) + '-' + nums.slice(5);
+        }
+      };
+    }
+  </script>
+
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" defer></script>
+</body>
+</html>
