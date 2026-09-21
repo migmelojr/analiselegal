@@ -485,14 +485,19 @@
     .socials {
       display: flex;
       align-items: center;
-      gap: 36px;
+      gap: 20px;
     }
 
     .social-mark {
+      display: inline-flex;
       width: 24px;
       height: 24px;
       color: #fff;
       opacity: .98;
+    }
+
+    .social-mark:hover {
+      opacity: .78;
     }
 
     .footer-nav {
@@ -716,6 +721,15 @@
         gap: 18px;
       }
 
+      .socials {
+        gap: 8px;
+      }
+
+      .social-mark {
+        width: 22px;
+        height: 22px;
+      }
+
       .footer-nav {
         gap: 24px;
         font-size: 17px;
@@ -876,6 +890,12 @@
 
       .socials {
         order: 2;
+        gap: 22px;
+      }
+
+      .social-mark {
+        width: 24px;
+        height: 24px;
       }
 
       .footer-brand {
@@ -1030,6 +1050,7 @@
               <h2 class="step-title">Apresente</h2>
             </div>
           </div>
+
           <p class="step-main">a situação.</p>
           <div class="step-rule" aria-hidden="true"></div>
           <p class="step-note">Conte o que aconteceu<br>e o que é relevante.</p>
@@ -1045,6 +1066,7 @@
               <h2 class="step-title">Organize</h2>
             </div>
           </div>
+
           <p class="step-main">as informações.</p>
           <div class="step-rule" aria-hidden="true"></div>
           <p class="step-note">Dados estruturados ajudam<br>a identificar o que é importante.</p>
@@ -1060,6 +1082,7 @@
               <h2 class="step-title">Compreenda</h2>
             </div>
           </div>
+
           <p class="step-main">o contexto.</p>
           <div class="step-rule" aria-hidden="true"></div>
           <p class="step-note">Com informações reunidas a visão<br>se torna mais clara da situação.</p>
@@ -1075,9 +1098,14 @@
               <h2 class="step-title">Decida</h2>
             </div>
           </div>
+
           <p class="step-main">com segurança.</p>
           <div class="step-rule" aria-hidden="true"></div>
-          <p class="step-note">Com melhor compreensão da <span class="keep-together">situação, o</span> próximo passo se torna mais seguro.</p>
+          <p class="step-note">
+            Com melhor compreensão da
+            <span class="keep-together">situação, o</span>
+            próximo passo se torna mais seguro.
+          </p>
         </article>
       </div>
     </section>
@@ -1090,19 +1118,79 @@
 
     <footer class="site-footer" role="contentinfo">
       <div class="shell">
-        <!-- Ícones mantidos sem URL até serem definidos os perfis oficiais. -->
+
         <div class="socials" aria-label="Redes sociais">
-          <span class="social-mark" title="LinkedIn" aria-label="LinkedIn">
-            <span class="mask-icon" style="--icon:url('assets/img/icon/linkedin-logo.svg')"></span>
-          </span>
 
-          <span class="social-mark" title="Instagram" aria-label="Instagram">
-            <span class="mask-icon" style="--icon:url('assets/img/icon/instagram-logo.svg')"></span>
-          </span>
+          <a
+            class="social-mark"
+            href="https://www.linkedin.com/company/analiselegal/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="LinkedIn"
+            aria-label="Análise Legal no LinkedIn"
+          >
+            <span
+              class="mask-icon"
+              style="--icon:url('assets/img/icon/linkedin-logo.svg')"
+            ></span>
+          </a>
 
-          <span class="social-mark" title="Facebook" aria-label="Facebook">
-            <span class="mask-icon" style="--icon:url('assets/img/icon/facebook-logo.svg')"></span>
-          </span>
+          <a
+            class="social-mark"
+            href="https://www.instagram.com/analiselegal/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Instagram"
+            aria-label="Análise Legal no Instagram"
+          >
+            <span
+              class="mask-icon"
+              style="--icon:url('assets/img/icon/instagram-logo.svg')"
+            ></span>
+          </a>
+
+          <a
+            class="social-mark"
+            href="https://www.facebook.com/analiselegal"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Facebook"
+            aria-label="Análise Legal no Facebook"
+          >
+            <span
+              class="mask-icon"
+              style="--icon:url('assets/img/icon/facebook-logo.svg')"
+            ></span>
+          </a>
+
+          <a
+            class="social-mark"
+            href="https://www.tiktok.com/@analiselegal"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="TikTok"
+            aria-label="Análise Legal no TikTok"
+          >
+            <span
+              class="mask-icon"
+              style="--icon:url('assets/img/icon/tiktok-logo.svg')"
+            ></span>
+          </a>
+
+          <a
+            class="social-mark"
+            href="https://www.youtube.com/@analiselegal"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="YouTube"
+            aria-label="Análise Legal no YouTube"
+          >
+            <span
+              class="mask-icon"
+              style="--icon:url('assets/img/icon/youtube-logo.svg')"
+            ></span>
+          </a>
+
         </div>
 
         <nav class="footer-nav" aria-label="Navegação institucional">
@@ -1112,7 +1200,11 @@
           <a href="contato.html">Contato</a>
         </nav>
 
-        <a class="footer-brand" href="index.html" aria-label="Análise Legal — página inicial">
+        <a
+          class="footer-brand"
+          href="index.html"
+          aria-label="Análise Legal — página inicial"
+        >
           <img
             src="assets/img/Marca-soft.svg"
             alt="Análise Legal — precisão jurídica para decisões relevantes"
@@ -1122,6 +1214,7 @@
             decoding="async"
           >
         </a>
+
       </div>
     </footer>
   </div>
