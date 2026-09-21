@@ -17,22 +17,9 @@
   <meta property="og:image" content="https://www.analiselegal.com.br/assets/img/og-home.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://www.analiselegal.com.br/assets/img/og-home.jpg">
-
-  <!--
-    Estrutura prevista na raiz do repositório:
-    index.html
-    papel-da-plataforma.html
-    como-funciona.html
-    quando-faz-sentido.html
-    situacoes/index.html
-    perguntas-frequentes.html
-    privacidade.html
-    termos-de-uso.html
-    contato.html
-    analise.html
-  -->
 
   <link rel="preload" as="image" href="assets/img/Marca.svg" type="image/svg+xml">
   <link rel="preload" as="image" href="assets/img/Tinteiro.svg" type="image/svg+xml">
@@ -75,7 +62,6 @@
 
       --shell: 1740px;
 
-      /* Em 1920 × 722: 86 + 340 + 218 + 78 = 722 px */
       --header-h: 86px;
       --hero-h: 340px;
       --steps-h: 218px;
@@ -113,8 +99,7 @@
       text-decoration: none;
     }
 
-    a:focus-visible,
-    summary:focus-visible {
+    a:focus-visible {
       outline: 3px solid rgba(7, 61, 58, .35);
       outline-offset: 4px;
     }
@@ -252,7 +237,10 @@
 
     .hero .shell {
       display: grid;
-      grid-template-columns: minmax(0, 1.52fr) minmax(285px, .68fr) minmax(360px, .76fr);
+      grid-template-columns:
+        minmax(0, 1.52fr)
+        minmax(285px, .68fr)
+        minmax(360px, .76fr);
       gap: 42px;
       align-items: center;
       height: 100%;
@@ -557,7 +545,10 @@
       }
 
       .hero .shell {
-        grid-template-columns: minmax(0, 1.43fr) minmax(245px, .58fr) minmax(330px, .72fr);
+        grid-template-columns:
+          minmax(0, 1.43fr)
+          minmax(245px, .58fr)
+          minmax(330px, .72fr);
         gap: 28px;
       }
 
@@ -953,8 +944,10 @@
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <div class="page">
+
     <header class="site-header" role="banner">
       <div class="shell">
+
         <a class="brand" href="index.html" aria-label="Análise Legal — página inicial">
           <img
             src="assets/img/Marca.svg"
@@ -973,14 +966,22 @@
           <a href="https://www.analiselegal.com.br/situacoes/index.html">Situações reais</a>
         </nav>
 
-        <a class="header-cta" href="analise.html">Solicite análise</a>
+        <a class="header-cta" href="analise.html">
+          Solicite análise
+        </a>
+
       </div>
     </header>
 
     <main class="hero" id="conteudo">
       <div class="shell">
+
         <section class="hero-copy" aria-labelledby="hero-title">
-          <h1 id="hero-title">Informação clara.<br>Decisão segura.</h1>
+
+          <h1 id="hero-title">
+            Informação clara.<br>
+            Decisão segura.
+          </h1>
 
           <p class="hero-lead">
             Problemas complexos raramente sofrem pela falta de informação.<br>
@@ -994,9 +995,18 @@
           </p>
 
           <div class="cta-wrap">
-            <a class="hero-cta" href="analise.html">Solicite análise</a>
-            <a class="mobile-situacoes" href="https://www.analiselegal.com.br/situacoes/index.html">Situações reais</a>
+            <a class="hero-cta" href="analise.html">
+              Solicite análise
+            </a>
+
+            <a
+              class="mobile-situacoes"
+              href="https://www.analiselegal.com.br/situacoes/index.html"
+            >
+              Situações reais
+            </a>
           </div>
+
         </section>
 
         <div class="hero-art" aria-hidden="true">
@@ -1010,8 +1020,13 @@
         </div>
 
         <aside class="hero-aside" aria-label="Orientação inicial">
+
           <div class="decision-card">
-            <h2>Antes de decidir,<br>entenda.</h2>
+            <h2>
+              Antes de decidir,<br>
+              entenda.
+            </h2>
+
             <p>
               Quando existem informações dispersas, documentos variados, prazos,
               valores ou versões diferentes dos fatos, compreender antes de agir é
@@ -1020,100 +1035,179 @@
           </div>
 
           <div class="hero-notes">
+
             <div class="hero-note">
               <span class="icon-box" aria-hidden="true">
-                <span class="mask-icon" style="--icon:url('assets/img/icon/folder-lock.svg')"></span>
+                <span
+                  class="mask-icon"
+                  style="--icon:url('assets/img/icon/folder-lock.svg')"
+                ></span>
               </span>
-              <span>Privacidade desde o início.</span>
+
+              <span>
+                Privacidade desde o início.
+              </span>
             </div>
 
             <div class="hero-note">
               <span class="icon-box" aria-hidden="true">
-                <span class="mask-icon" style="--icon:url('assets/img/icon/users.svg')"></span>
+                <span
+                  class="mask-icon"
+                  style="--icon:url('assets/img/icon/users.svg')"
+                ></span>
               </span>
-              <span>Se fizer sentido, você poderá seguir para atendimento com um profissional da área.</span>
+
+              <span>
+                Se fizer sentido, você poderá seguir para atendimento com um profissional da área.
+              </span>
             </div>
+
           </div>
+
         </aside>
+
       </div>
     </main>
 
     <section class="process" aria-label="Etapas da Análise Legal">
       <div class="shell">
+
         <article class="step">
           <div class="step-head">
+
             <span class="step-icon" aria-hidden="true">
-              <span class="mask-icon" style="--icon:url('assets/img/icon/chat-text.svg')"></span>
+              <span
+                class="mask-icon"
+                style="--icon:url('assets/img/icon/chat-text.svg')"
+              ></span>
             </span>
+
             <div>
               <p class="step-number">01</p>
               <h2 class="step-title">Apresente</h2>
             </div>
+
           </div>
 
-          <p class="step-main">a situação.</p>
+          <p class="step-main">
+            a situação.
+          </p>
+
           <div class="step-rule" aria-hidden="true"></div>
-          <p class="step-note">Conte o que aconteceu<br>e o que é relevante.</p>
+
+          <p class="step-note">
+            Conte o que aconteceu<br>
+            e o que é relevante.
+          </p>
         </article>
 
         <article class="step">
           <div class="step-head">
+
             <span class="step-icon" aria-hidden="true">
-              <span class="mask-icon" style="--icon:url('assets/img/icon/folders.svg')"></span>
+              <span
+                class="mask-icon"
+                style="--icon:url('assets/img/icon/folders.svg')"
+              ></span>
             </span>
+
             <div>
               <p class="step-number">02</p>
               <h2 class="step-title">Organize</h2>
             </div>
+
           </div>
 
-          <p class="step-main">as informações.</p>
+          <p class="step-main">
+            as informações.
+          </p>
+
           <div class="step-rule" aria-hidden="true"></div>
-          <p class="step-note">Dados estruturados ajudam<br>a identificar o que é importante.</p>
+
+          <p class="step-note">
+            Dados estruturados ajudam<br>
+            a identificar o que é importante.
+          </p>
         </article>
 
         <article class="step">
           <div class="step-head">
+
             <span class="step-icon" aria-hidden="true">
-              <span class="mask-icon" style="--icon:url('assets/img/icon/magnifying-glass.svg')"></span>
+              <span
+                class="mask-icon"
+                style="--icon:url('assets/img/icon/magnifying-glass.svg')"
+              ></span>
             </span>
+
             <div>
               <p class="step-number">03</p>
               <h2 class="step-title">Compreenda</h2>
             </div>
+
           </div>
 
-          <p class="step-main">o contexto.</p>
+          <p class="step-main">
+            o contexto.
+          </p>
+
           <div class="step-rule" aria-hidden="true"></div>
-          <p class="step-note">Com informações reunidas a visão<br>se torna mais clara da situação.</p>
+
+          <p class="step-note">
+            Com informações reunidas a visão<br>
+            se torna mais clara da situação.
+          </p>
         </article>
 
         <article class="step">
           <div class="step-head">
+
             <span class="step-icon" aria-hidden="true">
-              <span class="mask-icon" style="--icon:url('assets/img/icon/shield-check.svg')"></span>
+              <span
+                class="mask-icon"
+                style="--icon:url('assets/img/icon/shield-check.svg')"
+              ></span>
             </span>
+
             <div>
               <p class="step-number">04</p>
               <h2 class="step-title">Decida</h2>
             </div>
+
           </div>
 
-          <p class="step-main">com segurança.</p>
+          <p class="step-main">
+            com segurança.
+          </p>
+
           <div class="step-rule" aria-hidden="true"></div>
+
           <p class="step-note">
             Com melhor compreensão da
             <span class="keep-together">situação, o</span>
             próximo passo se torna mais seguro.
           </p>
+
         </article>
+
       </div>
     </section>
 
-    <nav class="mobile-prefooter-nav" aria-label="Navegação institucional principal">
-      <a href="papel-da-plataforma.html">O papel da plataforma</a>
-      <a href="como-funciona.html">Como funciona</a>
-      <a href="quando-faz-sentido.html">Quando faz sentido</a>
+    <nav
+      class="mobile-prefooter-nav"
+      aria-label="Navegação institucional principal"
+    >
+      <a href="papel-da-plataforma.html">
+        O papel da plataforma
+      </a>
+
+      <a href="como-funciona.html">
+        Como funciona
+      </a>
+
+      <a href="quando-faz-sentido.html">
+        Quando faz sentido
+      </a>
     </nav>
 
     <footer class="site-footer" role="contentinfo">
@@ -1179,7 +1273,7 @@
 
           <a
             class="social-mark"
-            href="https://www.youtube.com/@analiselegal"
+            href="https://www.youtube.com/@analiselegalbr"
             target="_blank"
             rel="noopener noreferrer"
             title="YouTube"
@@ -1193,11 +1287,25 @@
 
         </div>
 
-        <nav class="footer-nav" aria-label="Navegação institucional">
-          <a href="perguntas-frequentes.html">Perguntas frequentes</a>
-          <a href="privacidade.html">Privacidade</a>
-          <a href="termos-de-uso.html">Termos de uso</a>
-          <a href="contato.html">Contato</a>
+        <nav
+          class="footer-nav"
+          aria-label="Navegação institucional"
+        >
+          <a href="perguntas-frequentes.html">
+            Perguntas frequentes
+          </a>
+
+          <a href="privacidade.html">
+            Privacidade
+          </a>
+
+          <a href="termos-de-uso.html">
+            Termos de uso
+          </a>
+
+          <a href="contato.html">
+            Contato
+          </a>
         </nav>
 
         <a
@@ -1217,6 +1325,7 @@
 
       </div>
     </footer>
+
   </div>
 </body>
 </html>
