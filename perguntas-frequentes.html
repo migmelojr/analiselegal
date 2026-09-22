@@ -22,14 +22,17 @@
   >
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
+
   <meta
     property="og:image"
     content="https://www.analiselegal.com.br/assets/img/og-home.jpg"
   >
+
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
   <meta name="twitter:card" content="summary_large_image">
+
   <meta
     name="twitter:image"
     content="https://www.analiselegal.com.br/assets/img/og-home.jpg"
@@ -548,10 +551,6 @@
       color: var(--ink);
     }
 
-    /*
-      Chevron criado integralmente em CSS.
-      Não exige novo SVG.
-    */
     .faq-chevron {
       position: relative;
 
@@ -737,7 +736,7 @@
       display: grid;
 
       grid-template-columns:
-        210px
+        250px
         minmax(0, 1fr)
         330px;
 
@@ -751,16 +750,23 @@
 
       align-items: center;
 
-      gap: 36px;
+      gap: 24px;
     }
 
     .social-mark {
+      display: inline-flex;
+
       width: 24px;
       height: 24px;
 
       color: #fff;
 
       opacity: .98;
+    }
+
+    .social-mark:hover,
+    .social-mark:focus-visible {
+      opacity: .72;
     }
 
     .footer-nav {
@@ -1084,11 +1090,15 @@
         height: auto;
 
         grid-template-columns:
-          150px
+          220px
           1fr
           240px;
 
         gap: 18px;
+      }
+
+      .socials {
+        gap: 20px;
       }
 
       .footer-nav {
@@ -1507,7 +1517,7 @@
             Quando faz sentido
           </a>
 
-          <a href="situacoes-reais.html">
+          <a href="https://www.analiselegal.com.br/situacoes/index.html">
             Situações reais
           </a>
 
@@ -2024,7 +2034,7 @@
         Quando faz sentido
       </a>
 
-      <a href="situacoes-reais.html">
+      <a href="https://www.analiselegal.com.br/situacoes/index.html">
         Situações reais
       </a>
 
@@ -2055,40 +2065,79 @@
           aria-label="Redes sociais"
         >
 
-          <span
+          <a
             class="social-mark"
+            href="https://www.linkedin.com/company/analiselegal"
+            target="_blank"
+            rel="noopener noreferrer"
             title="LinkedIn"
-            aria-label="LinkedIn"
+            aria-label="LinkedIn da Análise Legal"
           >
             <span
               class="mask-icon"
               style="--icon:url('assets/img/icon/linkedin-logo.svg')"
             ></span>
-          </span>
+          </a>
 
 
-          <span
+          <a
             class="social-mark"
+            href="https://www.instagram.com/analiselegal/"
+            target="_blank"
+            rel="noopener noreferrer"
             title="Instagram"
-            aria-label="Instagram"
+            aria-label="Instagram da Análise Legal"
           >
             <span
               class="mask-icon"
               style="--icon:url('assets/img/icon/instagram-logo.svg')"
             ></span>
-          </span>
+          </a>
 
 
-          <span
+          <a
             class="social-mark"
+            href="https://www.facebook.com/analiselegal"
+            target="_blank"
+            rel="noopener noreferrer"
             title="Facebook"
-            aria-label="Facebook"
+            aria-label="Facebook da Análise Legal"
           >
             <span
               class="mask-icon"
               style="--icon:url('assets/img/icon/facebook-logo.svg')"
             ></span>
-          </span>
+          </a>
+
+
+          <a
+            class="social-mark"
+            href="https://www.tiktok.com/@analiselegal"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="TikTok"
+            aria-label="TikTok da Análise Legal"
+          >
+            <span
+              class="mask-icon"
+              style="--icon:url('assets/img/icon/tiktok-logo.svg')"
+            ></span>
+          </a>
+
+
+          <a
+            class="social-mark"
+            href="https://www.youtube.com/channel/UCR2CCMwU6WkqEvY2tbTyHvw"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="YouTube"
+            aria-label="YouTube da Análise Legal"
+          >
+            <span
+              class="mask-icon"
+              style="--icon:url('assets/img/icon/youtube-logo.svg')"
+            ></span>
+          </a>
 
         </div>
 
