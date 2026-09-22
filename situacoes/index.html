@@ -634,14 +634,31 @@
     .socials {
       display: flex;
       align-items: center;
-      gap: 36px;
+      gap: 20px;
     }
 
     .social-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 24px;
       width: 24px;
       height: 24px;
       color: #fff;
       opacity: .98;
+      transition:
+        opacity .15s ease,
+        transform .15s ease;
+    }
+
+    .social-mark:hover {
+      opacity: .78;
+      transform: translateY(-1px);
+    }
+
+    .social-mark .mask-icon {
+      width: 24px;
+      height: 24px;
     }
 
     .footer-nav {
@@ -805,8 +822,12 @@
       .site-footer .shell {
         min-height: 66px;
         height: auto;
-        grid-template-columns: 150px 1fr 240px;
+        grid-template-columns: 210px 1fr 240px;
         gap: 18px;
+      }
+
+      .socials {
+        gap: 20px;
       }
 
       .footer-nav {
@@ -966,6 +987,8 @@
 
       .socials {
         order: 2;
+        justify-content: center;
+        gap: 24px;
       }
 
       .footer-brand {
@@ -1050,7 +1073,10 @@
           >
         </a>
 
-        <nav class="main-nav" aria-label="Navegação principal">
+        <nav
+          class="main-nav"
+          aria-label="Navegação principal"
+        >
 
           <a href="/papel-da-plataforma.html">
             O papel da plataforma
@@ -1084,7 +1110,10 @@
 
     </header>
 
-    <main class="situations-page" id="conteudo">
+    <main
+      class="situations-page"
+      id="conteudo"
+    >
 
       <div class="shell">
 
@@ -1210,7 +1239,9 @@
           >
 
             <div class="loading-state">
-              <p>Carregando situações...</p>
+              <p>
+                Carregando situações...
+              </p>
             </div>
 
           </div>
@@ -1275,38 +1306,80 @@
           aria-label="Redes sociais"
         >
 
-          <span
+          <a
             class="social-mark"
+            href="https://www.linkedin.com/company/analiselegal"
+            target="_blank"
+            rel="noopener noreferrer"
             title="LinkedIn"
-            aria-label="LinkedIn"
+            aria-label="Análise Legal no LinkedIn"
           >
             <span
               class="mask-icon"
               style="--icon:url('/assets/img/icon/linkedin-logo.svg')"
+              aria-hidden="true"
             ></span>
-          </span>
+          </a>
 
-          <span
+          <a
             class="social-mark"
+            href="https://www.instagram.com/analiselegal/"
+            target="_blank"
+            rel="noopener noreferrer"
             title="Instagram"
-            aria-label="Instagram"
+            aria-label="Análise Legal no Instagram"
           >
             <span
               class="mask-icon"
               style="--icon:url('/assets/img/icon/instagram-logo.svg')"
+              aria-hidden="true"
             ></span>
-          </span>
+          </a>
 
-          <span
+          <a
             class="social-mark"
+            href="https://www.facebook.com/analiselegal"
+            target="_blank"
+            rel="noopener noreferrer"
             title="Facebook"
-            aria-label="Facebook"
+            aria-label="Análise Legal no Facebook"
           >
             <span
               class="mask-icon"
               style="--icon:url('/assets/img/icon/facebook-logo.svg')"
+              aria-hidden="true"
             ></span>
-          </span>
+          </a>
+
+          <a
+            class="social-mark"
+            href="https://www.tiktok.com/@analiselegal"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="TikTok"
+            aria-label="Análise Legal no TikTok"
+          >
+            <span
+              class="mask-icon"
+              style="--icon:url('/assets/img/icon/tiktok-logo.svg')"
+              aria-hidden="true"
+            ></span>
+          </a>
+
+          <a
+            class="social-mark"
+            href="https://www.youtube.com/channel/UCR2CCMwU6WkqEvY2tbTyHvw"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="YouTube"
+            aria-label="Análise Legal no YouTube"
+          >
+            <span
+              class="mask-icon"
+              style="--icon:url('/assets/img/icon/youtube-logo.svg')"
+              aria-hidden="true"
+            ></span>
+          </a>
 
         </div>
 
@@ -1357,7 +1430,8 @@
   <script>
     (() => {
 
-      const API_URL = "/api/situacoes";
+      const API_URL =
+        "/api/situacoes";
 
       const FALLBACK_ITEMS = [
         {
@@ -1396,19 +1470,29 @@
       ];
 
       const grid =
-        document.getElementById("situations-grid");
+        document.getElementById(
+          "situations-grid"
+        );
 
       const filters =
-        document.getElementById("filters");
+        document.getElementById(
+          "filters"
+        );
 
       const search =
-        document.getElementById("situation-search");
+        document.getElementById(
+          "situation-search"
+        );
 
       const clearSearch =
-        document.getElementById("clear-search");
+        document.getElementById(
+          "clear-search"
+        );
 
       const count =
-        document.getElementById("results-count");
+        document.getElementById(
+          "results-count"
+        );
 
       let items = [];
 
@@ -1421,17 +1505,35 @@
       const normalizeText = (value) =>
         String(value || "")
           .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
+          .replace(
+            /[\u0300-\u036f]/g,
+            ""
+          )
           .toLowerCase()
           .trim();
 
       const escapeHtml = (value) =>
         String(value || "")
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;")
-          .replace(/'/g, "&#039;");
+          .replace(
+            /&/g,
+            "&amp;"
+          )
+          .replace(
+            /</g,
+            "&lt;"
+          )
+          .replace(
+            />/g,
+            "&gt;"
+          )
+          .replace(
+            /"/g,
+            "&quot;"
+          )
+          .replace(
+            /'/g,
+            "&#039;"
+          );
 
       const normalizeItem =
         (item, index) => ({
@@ -1473,11 +1575,20 @@
             ).trim(),
 
           keywords:
-            Array.isArray(item.keywords)
-              ? item.keywords.map(String)
-              : String(item.keywords || "")
+            Array.isArray(
+              item.keywords
+            )
+              ? item.keywords.map(
+                  String
+                )
+              : String(
+                  item.keywords || ""
+                )
                   .split(",")
-                  .map((value) => value.trim())
+                  .map(
+                    (value) =>
+                      value.trim()
+                  )
                   .filter(Boolean)
 
         });
@@ -1486,10 +1597,12 @@
         (a, b) => {
 
           const ai =
-            preferredCategoryOrder.indexOf(a);
+            preferredCategoryOrder
+              .indexOf(a);
 
           const bi =
-            preferredCategoryOrder.indexOf(b);
+            preferredCategoryOrder
+              .indexOf(b);
 
           const av =
             ai === -1
@@ -1503,7 +1616,10 @@
 
           return (
             av - bv ||
-            a.localeCompare(b, "pt-BR")
+            a.localeCompare(
+              b,
+              "pt-BR"
+            )
           );
 
         };
@@ -1514,11 +1630,14 @@
           [
             ...new Set(
               items.map(
-                (item) => item.category
+                (item) =>
+                  item.category
               )
             )
           ]
-          .sort(categorySort);
+          .sort(
+            categorySort
+          );
 
         const allCategories =
           [
@@ -1527,51 +1646,60 @@
           ];
 
         filters
-          .querySelectorAll("button")
+          .querySelectorAll(
+            "button"
+          )
           .forEach(
-            (button) => button.remove()
+            (button) =>
+              button.remove()
           );
 
-        allCategories.forEach(
-          (category) => {
+        allCategories
+          .forEach(
+            (category) => {
 
-            const button =
-              document.createElement("button");
+              const button =
+                document.createElement(
+                  "button"
+                );
 
-            button.type =
-              "button";
+              button.type =
+                "button";
 
-            button.className =
-              "filter-button";
+              button.className =
+                "filter-button";
 
-            button.textContent =
-              category;
+              button.textContent =
+                category;
 
-            button.setAttribute(
-              "aria-pressed",
-              String(
-                category === activeCategory
-              )
-            );
+              button.setAttribute(
+                "aria-pressed",
+                String(
+                  category ===
+                  activeCategory
+                )
+              );
 
-            button.addEventListener(
-              "click",
-              () => {
+              button.addEventListener(
+                "click",
+                () => {
 
-                activeCategory =
-                  category;
+                  activeCategory =
+                    category;
 
-                renderFilters();
+                  renderFilters();
 
-                renderCards();
+                  renderCards();
 
-              }
-            );
+                }
+              );
 
-            filters.appendChild(button);
+              filters.appendChild(
+                button
+              );
 
-          }
-        );
+            }
+          );
 
       };
 
@@ -1597,7 +1725,9 @@
             .filter(Boolean)
             .every(
               (term) =>
-                haystack.includes(term)
+                haystack.includes(
+                  term
+                )
             );
 
         };
@@ -1607,8 +1737,10 @@
           (item) => {
 
             const categoryMatch =
-              activeCategory === "Todas" ||
-              item.category === activeCategory;
+              activeCategory ===
+                "Todas" ||
+              item.category ===
+                activeCategory;
 
             return (
               categoryMatch &&
@@ -1716,9 +1848,11 @@
               );
 
             if (!response.ok) {
+
               throw new Error(
                 `HTTP ${response.status}`
               );
+
             }
 
             const data =
@@ -1733,13 +1867,17 @@
               !Array.isArray(source) ||
               !source.length
             ) {
+
               throw new Error(
                 "Nenhuma situação publicada retornada pela API."
               );
+
             }
 
             items =
-              source.map(normalizeItem);
+              source.map(
+                normalizeItem
+              );
 
           } catch (error) {
 
@@ -1749,7 +1887,9 @@
             );
 
             items =
-              FALLBACK_ITEMS.map(normalizeItem);
+              FALLBACK_ITEMS.map(
+                normalizeItem
+              );
 
           }
 
@@ -1764,7 +1904,9 @@
         () => {
 
           query =
-            normalizeText(search.value);
+            normalizeText(
+              search.value
+            );
 
           clearSearch.hidden =
             !search.value;
