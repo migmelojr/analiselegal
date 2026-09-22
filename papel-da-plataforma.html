@@ -432,14 +432,22 @@
     .socials {
       display: flex;
       align-items: center;
-      gap: 36px;
+      gap: 22px;
     }
 
     .social-mark {
+      display: inline-flex;
       width: 24px;
       height: 24px;
       color: #fff;
       opacity: .98;
+      flex: 0 0 24px;
+      transition: opacity .16s ease;
+    }
+
+    .social-mark:hover,
+    .social-mark:focus-visible {
+      opacity: .72;
     }
 
     .footer-nav {
@@ -693,7 +701,7 @@
       .site-footer .shell {
         min-height: 66px;
         height: auto;
-        grid-template-columns: 150px 1fr 240px;
+        grid-template-columns: 210px 1fr 240px;
         gap: 18px;
       }
 
@@ -962,7 +970,7 @@
           <a href="papel-da-plataforma.html" aria-current="page">O papel da plataforma</a>
           <a href="como-funciona.html">Como funciona</a>
           <a href="quando-faz-sentido.html">Quando faz sentido</a>
-          <a href="situacoes-reais.html">Situações reais</a>
+          <a href="https://www.analiselegal.com.br/situacoes/index.html">Situações reais</a>
         </nav>
 
         <a class="header-cta" href="analise.html">Solicite análise</a>
@@ -1071,26 +1079,60 @@
     <footer class="site-footer" role="contentinfo">
       <div class="shell">
         <div class="socials" aria-label="Redes sociais">
-          <span class="social-mark" title="LinkedIn" aria-label="LinkedIn">
-            <span
-              class="mask-icon"
-              style="--icon:url('assets/img/icon/linkedin-logo.svg')"
-            ></span>
-          </span>
+          <a
+            class="social-mark"
+            href="https://www.linkedin.com/company/analiselegal"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="LinkedIn"
+            aria-label="Análise Legal no LinkedIn"
+          >
+            <span class="mask-icon" style="--icon:url('assets/img/icon/linkedin-logo.svg')"></span>
+          </a>
 
-          <span class="social-mark" title="Instagram" aria-label="Instagram">
-            <span
-              class="mask-icon"
-              style="--icon:url('assets/img/icon/instagram-logo.svg')"
-            ></span>
-          </span>
+          <a
+            class="social-mark"
+            href="https://www.instagram.com/analiselegal/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Instagram"
+            aria-label="Análise Legal no Instagram"
+          >
+            <span class="mask-icon" style="--icon:url('assets/img/icon/instagram-logo.svg')"></span>
+          </a>
 
-          <span class="social-mark" title="Facebook" aria-label="Facebook">
-            <span
-              class="mask-icon"
-              style="--icon:url('assets/img/icon/facebook-logo.svg')"
-            ></span>
-          </span>
+          <a
+            class="social-mark"
+            href="https://www.facebook.com/analiselegal"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Facebook"
+            aria-label="Análise Legal no Facebook"
+          >
+            <span class="mask-icon" style="--icon:url('assets/img/icon/facebook-logo.svg')"></span>
+          </a>
+
+          <a
+            class="social-mark"
+            href="https://www.tiktok.com/@analiselegal"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="TikTok"
+            aria-label="Análise Legal no TikTok"
+          >
+            <span class="mask-icon" style="--icon:url('assets/img/icon/tiktok-logo.svg')"></span>
+          </a>
+
+          <a
+            class="social-mark"
+            href="https://www.youtube.com/channel/UCR2CCMwU6WkqEvY2tbTyHvw"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="YouTube"
+            aria-label="Análise Legal no YouTube"
+          >
+            <span class="mask-icon" style="--icon:url('assets/img/icon/youtube-logo.svg')"></span>
+          </a>
         </div>
 
         <nav class="footer-nav" aria-label="Navegação institucional">
