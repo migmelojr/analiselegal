@@ -1,8 +1,14 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
+
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
 
   <title>FIES: renegociação alterada, desconto reduzido ou cobrança diferente do acordo</title>
 
@@ -11,9 +17,20 @@
     content="Entenda o que pode estar acontecendo quando uma renegociação do FIES é modificada depois da adesão, do pagamento da entrada ou do início das parcelas."
   >
 
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#073d3a">
-  <meta name="color-scheme" content="light only">
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <meta
+    name="theme-color"
+    content="#073d3a"
+  >
+
+  <meta
+    name="color-scheme"
+    content="light only"
+  >
 
   <link
     rel="canonical"
@@ -27,7 +44,9 @@
     type="image/svg+xml"
   >
 
+
   <style>
+
     @font-face {
       font-family: "Crimson Text";
       src: url("/assets/fonts/CrimsonText-Regular.ttf") format("truetype");
@@ -52,7 +71,9 @@
       font-display: swap;
     }
 
+
     :root {
+
       color-scheme: light only;
 
       --green: #073d3a;
@@ -76,19 +97,28 @@
       --footer-h: 78px;
     }
 
+
     * {
       box-sizing: border-box;
     }
 
+
     html {
+
       min-width: 320px;
+
       background: var(--paper);
+
       color-scheme: light only;
+
       scroll-behavior: smooth;
     }
 
+
     body {
+
       margin: 0;
+
       min-width: 320px;
 
       font-family:
@@ -98,11 +128,14 @@
         serif;
 
       color: var(--ink);
+
       background: var(--paper);
 
       -webkit-font-smoothing: antialiased;
+
       text-rendering: optimizeLegibility;
     }
+
 
     button,
     input,
@@ -111,22 +144,33 @@
       font: inherit;
     }
 
+
     img {
+
       display: block;
+
       max-width: 100%;
     }
 
+
     a {
+
       color: inherit;
+
       text-decoration: none;
     }
 
+
     a:focus-visible {
+
       outline: 3px solid rgba(7, 61, 58, .35);
+
       outline-offset: 4px;
     }
 
+
     .skip-link {
+
       position: fixed;
 
       left: 18px;
@@ -139,6 +183,7 @@
       border-radius: 6px;
 
       background: var(--green);
+
       color: #fff;
 
       font-weight: 700;
@@ -146,11 +191,14 @@
       transition: top .15s ease;
     }
 
+
     .skip-link:focus {
       top: 12px;
     }
 
+
     .shell {
+
       width: min(
         calc(100% - 144px),
         var(--shell)
@@ -159,7 +207,9 @@
       margin-inline: auto;
     }
 
+
     .mask-icon {
+
       display: inline-block;
 
       width: 100%;
@@ -178,16 +228,23 @@
         no-repeat;
     }
 
+
+
     /* ======================================================
        CABEÇALHO
        ====================================================== */
 
+
     .site-header {
+
       height: var(--header-h);
+
       background: var(--paper);
     }
 
+
     .site-header .shell {
+
       height: 100%;
 
       display: grid;
@@ -202,21 +259,31 @@
       gap: 30px;
     }
 
+
     .brand {
+
       display: inline-flex;
+
       width: 345px;
+
       align-items: center;
     }
 
+
     .brand img {
+
       width: 100%;
+
       height: auto;
     }
 
+
     .main-nav {
+
       display: flex;
 
       align-items: center;
+
       justify-content: center;
 
       gap: clamp(30px, 3.1vw, 64px);
@@ -226,15 +293,21 @@
       white-space: nowrap;
 
       font-size: 21px;
+
       line-height: 1;
     }
 
+
     .main-nav a {
+
       position: relative;
+
       padding: 12px 0;
     }
 
+
     .main-nav a::after {
+
       content: "";
 
       position: absolute;
@@ -250,19 +323,24 @@
       transition: right .16s ease;
     }
 
+
     .main-nav a:hover::after,
     .main-nav a:focus-visible::after {
       right: 0;
     }
 
+
     .header-cta,
     .page-cta {
+
       display: inline-flex;
 
       align-items: center;
+
       justify-content: center;
 
       border: 1px solid var(--green-dark);
+
       border-radius: 8px;
 
       background: var(--green);
@@ -274,10 +352,13 @@
       white-space: nowrap;
     }
 
+
     .header-cta {
+
       justify-self: end;
 
       min-width: 184px;
+
       min-height: 40px;
 
       padding: 8px 20px 9px;
@@ -285,18 +366,24 @@
       font-size: 22px;
     }
 
+
     .mobile-prefooter-nav {
       display: none;
     }
+
+
 
     /* ======================================================
        HERO
        ====================================================== */
 
+
     .case-hero {
+
       min-height: 540px;
 
       display: flex;
+
       align-items: center;
 
       border-top:
@@ -314,7 +401,9 @@
         var(--paper);
     }
 
+
     .case-hero .shell {
+
       display: grid;
 
       grid-template-columns:
@@ -326,10 +415,13 @@
       align-items: center;
 
       padding-top: 30px;
+
       padding-bottom: 34px;
     }
 
+
     .breadcrumb {
+
       display: flex;
 
       align-items: center;
@@ -341,14 +433,18 @@
       color: rgba(48, 47, 48, .66);
 
       font-size: 17px;
+
       line-height: 1;
     }
+
 
     .breadcrumb span {
       opacity: .55;
     }
 
+
     .case-kicker {
+
       display: flex;
 
       align-items: center;
@@ -360,6 +456,7 @@
       color: var(--green);
 
       font-size: 18px;
+
       line-height: 1;
 
       font-weight: 700;
@@ -369,16 +466,21 @@
       text-transform: uppercase;
     }
 
+
     .case-kicker::before {
+
       content: "";
 
       width: 36px;
+
       height: 2px;
 
       background: var(--green);
     }
 
+
     .case-hero h1 {
+
       max-width: 760px;
 
       margin: 0 0 18px;
@@ -395,7 +497,9 @@
       font-weight: 400;
     }
 
+
     .case-lead {
+
       max-width: 770px;
 
       margin: 0;
@@ -405,7 +509,57 @@
       line-height: 1.27;
     }
 
+
+    .professional-identification {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      width: fit-content;
+
+      margin-top: 20px;
+
+      padding-top: 14px;
+
+      border-top:
+        1px solid var(--line);
+
+      color:
+        rgba(48, 47, 48, .72);
+
+      font-size: 16px;
+
+      line-height: 1.3;
+    }
+
+
+    .professional-identification strong {
+
+      color: var(--green);
+
+      font-weight: 600;
+    }
+
+
+    .professional-identification-dot {
+
+      width: 4px;
+      height: 4px;
+
+      flex: 0 0 auto;
+
+      border-radius: 50%;
+
+      background:
+        rgba(7, 61, 58, .48);
+    }
+
+
     .case-action {
+
       display: flex;
 
       align-items: center;
@@ -415,8 +569,11 @@
       margin-top: 23px;
     }
 
+
     .page-cta {
+
       min-width: 208px;
+
       min-height: 42px;
 
       padding: 8px 22px 9px;
@@ -424,7 +581,9 @@
       font-size: 23px;
     }
 
+
     .case-action-note {
+
       max-width: 310px;
 
       font-size: 18px;
@@ -434,22 +593,30 @@
       color: rgba(48, 47, 48, .72);
     }
 
+
+
     /* ======================================================
        HISTÓRICO
        ====================================================== */
 
+
     .case-history {
+
       position: relative;
+
       min-width: 0;
     }
 
+
     .case-history::before {
+
       content: "";
 
       position: absolute;
 
       left: 7%;
       right: 7%;
+
       top: 50%;
 
       height: 1px;
@@ -461,7 +628,9 @@
         translateY(-50%);
     }
 
+
     .history-grid {
+
       position: relative;
 
       z-index: 1;
@@ -476,7 +645,9 @@
       align-items: stretch;
     }
 
+
     .history-card {
+
       height: 280px;
 
       min-width: 0;
@@ -500,13 +671,17 @@
         rgba(7, 61, 58, .065);
     }
 
+
     .history-icon {
+
       width: 52px;
+
       height: 52px;
 
       display: flex;
 
       align-items: center;
+
       justify-content: center;
 
       margin: 0 0 19px;
@@ -519,18 +694,26 @@
       color: var(--green);
     }
 
+
     .history-icon .mask-icon {
+
       width: 27px;
+
       height: 27px;
     }
 
+
     .history-card.changed
     .history-icon {
+
       background: var(--red-soft);
+
       color: var(--red);
     }
 
+
     .history-card h2 {
+
       margin: 0;
 
       min-height: 58px;
@@ -542,7 +725,9 @@
       font-weight: 600;
     }
 
+
     .history-card small {
+
       display: block;
 
       margin-top: 3px;
@@ -558,7 +743,9 @@
       text-transform: uppercase;
     }
 
+
     .history-data {
+
       margin-top: auto;
 
       padding-top: 15px;
@@ -571,10 +758,13 @@
       gap: 10px;
     }
 
+
     .history-row {
+
       display: flex;
 
       align-items: center;
+
       justify-content: space-between;
 
       gap: 16px;
@@ -584,8 +774,11 @@
       color: rgba(48, 47, 48, .72);
     }
 
+
     .history-value {
+
       width: 66px;
+
       height: 6px;
 
       border-radius: 6px;
@@ -594,22 +787,30 @@
         rgba(7, 61, 58, .13);
     }
 
+
     .changed .history-value {
+
       background:
         rgba(153, 93, 83, .35);
     }
+
+
 
     /* ======================================================
        PONTO CENTRAL
        ====================================================== */
 
+
     .case-center {
+
       padding: 82px 0 84px;
 
       background: var(--paper);
     }
 
+
     .case-center .shell {
+
       display: grid;
 
       grid-template-columns:
@@ -621,7 +822,9 @@
       align-items: start;
     }
 
+
     .section-eyebrow {
+
       margin: 0 0 11px;
 
       color: var(--green);
@@ -637,7 +840,9 @@
       text-transform: uppercase;
     }
 
+
     .section-heading {
+
       max-width: 650px;
 
       margin: 0;
@@ -652,7 +857,9 @@
       letter-spacing: -.01em;
     }
 
+
     .case-center-copy > p {
+
       max-width: 850px;
 
       margin: 0;
@@ -662,7 +869,9 @@
       line-height: 1.38;
     }
 
+
     .sequence {
+
       display: grid;
 
       grid-template-columns:
@@ -674,18 +883,25 @@
         1px solid var(--line-strong);
     }
 
+
     .sequence-item {
+
       padding: 19px 30px 0 0;
     }
 
-    .sequence-item + .sequence-item {
+
+    .sequence-item +
+    .sequence-item {
+
       padding-left: 30px;
 
       border-left:
         1px solid var(--line);
     }
 
+
     .sequence-number {
+
       display: block;
 
       margin-bottom: 6px;
@@ -697,7 +913,9 @@
       font-weight: 700;
     }
 
+
     .sequence-item p {
+
       margin: 0;
 
       font-size: 19px;
@@ -705,11 +923,15 @@
       line-height: 1.2;
     }
 
+
+
     /* ======================================================
        CONTEXTO
        ====================================================== */
 
+
     .case-context {
+
       padding: 74px 0 78px;
 
       background: var(--green-dark);
@@ -717,24 +939,32 @@
       color: #fff;
     }
 
+
     .case-context-heading {
+
       max-width: 850px;
     }
 
+
     .case-context
     .section-eyebrow {
+
       color:
         rgba(255, 255, 255, .65);
     }
 
+
     .case-context
     .section-heading {
+
       max-width: 850px;
 
       color: #fff;
     }
 
+
     .context-grid {
+
       display: grid;
 
       grid-template-columns:
@@ -747,13 +977,17 @@
         rgba(255, 255, 255, .22);
     }
 
+
     .context-item {
+
       padding:
         27px 42px 0 0;
     }
 
+
     .context-item +
     .context-item {
+
       padding-left: 42px;
 
       border-left:
@@ -761,7 +995,9 @@
         rgba(255, 255, 255, .17);
     }
 
+
     .context-number {
+
       margin: 0 0 8px;
 
       color:
@@ -772,7 +1008,9 @@
       font-weight: 700;
     }
 
+
     .context-item h3 {
+
       margin: 0 0 8px;
 
       font-size: 28px;
@@ -782,7 +1020,9 @@
       font-weight: 600;
     }
 
+
     .context-item p {
+
       margin: 0;
 
       color:
@@ -793,15 +1033,21 @@
       line-height: 1.3;
     }
 
+
+
     /* ======================================================
        ATENÇÃO
        ====================================================== */
 
+
     .case-attention {
+
       padding: 82px 0;
     }
 
+
     .case-attention .shell {
+
       display: grid;
 
       grid-template-columns:
@@ -811,7 +1057,9 @@
       gap: 120px;
     }
 
+
     .attention-intro p:last-child {
+
       max-width: 520px;
 
       margin: 18px 0 0;
@@ -821,12 +1069,16 @@
       line-height: 1.33;
     }
 
+
     .attention-list {
+
       border-top:
         1px solid var(--line-strong);
     }
 
+
     .attention-row {
+
       display: grid;
 
       grid-template-columns:
@@ -842,7 +1094,9 @@
         1px solid var(--line);
     }
 
+
     .attention-row span {
+
       padding-top: 4px;
 
       color:
@@ -853,7 +1107,9 @@
       font-weight: 700;
     }
 
+
     .attention-row p {
+
       margin: 0;
 
       font-size: 25px;
@@ -861,11 +1117,15 @@
       line-height: 1.08;
     }
 
+
+
     /* ======================================================
        ANÁLISE
        ====================================================== */
 
+
     .case-analysis {
+
       padding: 76px 0 80px;
 
       background: var(--soft);
@@ -877,11 +1137,15 @@
         1px solid rgba(7, 61, 58, .08);
     }
 
+
     .analysis-intro {
+
       max-width: 920px;
     }
 
+
     .analysis-intro > p:last-child {
+
       max-width: 780px;
 
       margin: 15px 0 0;
@@ -891,7 +1155,9 @@
       line-height: 1.34;
     }
 
+
     .analysis-grid {
+
       display: grid;
 
       grid-template-columns:
@@ -903,20 +1169,26 @@
         1px solid var(--line-strong);
     }
 
+
     .analysis-item {
+
       padding:
         25px 42px 0 0;
     }
 
+
     .analysis-item +
     .analysis-item {
+
       padding-left: 42px;
 
       border-left:
         1px solid var(--line);
     }
 
+
     .analysis-number {
+
       margin: 0 0 7px;
 
       color: var(--green);
@@ -928,7 +1200,9 @@
       letter-spacing: .05em;
     }
 
+
     .analysis-item h3 {
+
       margin: 0 0 8px;
 
       font-size: 28px;
@@ -938,7 +1212,9 @@
       font-weight: 600;
     }
 
+
     .analysis-item p {
+
       margin: 0;
 
       font-size: 19px;
@@ -946,7 +1222,9 @@
       line-height: 1.3;
     }
 
+
     .analysis-outcome {
+
       max-width: 1180px;
 
       margin-top: 38px;
@@ -959,7 +1237,9 @@
       background: #fff;
     }
 
+
     .analysis-outcome p {
+
       margin: 0;
 
       font-size: 21px;
@@ -967,15 +1247,21 @@
       line-height: 1.35;
     }
 
+
+
     /* ======================================================
        DOCUMENTOS E CTA
        ====================================================== */
 
+
     .case-closing {
+
       padding: 80px 0 86px;
     }
 
+
     .case-closing .shell {
+
       display: grid;
 
       grid-template-columns:
@@ -987,7 +1273,9 @@
       align-items: stretch;
     }
 
+
     .documents-text {
+
       max-width: 620px;
 
       margin: 17px 0 0;
@@ -997,7 +1285,9 @@
       line-height: 1.33;
     }
 
+
     .documents-grid {
+
       display: grid;
 
       grid-template-columns:
@@ -1011,7 +1301,9 @@
         1px solid var(--line-strong);
     }
 
+
     .document-item {
+
       padding: 13px 0;
 
       border-bottom:
@@ -1020,7 +1312,9 @@
       font-size: 18px;
     }
 
+
     .final-card {
+
       min-height: 330px;
 
       padding: 52px 60px;
@@ -1036,7 +1330,9 @@
       color: #fff;
     }
 
+
     .final-card h2 {
+
       max-width: 680px;
 
       margin: 0;
@@ -1049,7 +1345,9 @@
       font-weight: 400;
     }
 
+
     .final-card p {
+
       max-width: 660px;
 
       margin: 17px 0 25px;
@@ -1062,7 +1360,37 @@
       line-height: 1.3;
     }
 
+
+    .final-professional {
+
+      margin:
+        0 0 24px;
+
+      padding-top: 16px;
+
+      border-top:
+        1px solid
+        rgba(255, 255, 255, .24);
+
+      color:
+        rgba(255, 255, 255, .72);
+
+      font-size: 16px;
+
+      line-height: 1.3;
+    }
+
+
+    .final-professional strong {
+
+      color: #fff;
+
+      font-weight: 600;
+    }
+
+
     .final-card .page-cta {
+
       align-self: flex-start;
 
       background: #fff;
@@ -1072,11 +1400,15 @@
       color: var(--green);
     }
 
+
+
     /* ======================================================
        RODAPÉ
        ====================================================== */
 
+
     .site-footer {
+
       min-height: var(--footer-h);
 
       background: var(--green);
@@ -1084,7 +1416,9 @@
       color: #fff;
     }
 
+
     .site-footer .shell {
+
       min-height: var(--footer-h);
 
       display: grid;
@@ -1099,7 +1433,9 @@
       align-items: center;
     }
 
+
     .socials {
+
       display: flex;
 
       align-items: center;
@@ -1107,23 +1443,39 @@
       gap: 26px;
     }
 
+
     .social-mark {
+
       width: 24px;
+
       height: 24px;
 
       color: #fff;
 
       opacity: .98;
+
+      transition:
+        opacity .15s ease,
+        transform .15s ease;
     }
 
-    .social-mark:hover {
-      opacity: .75;
+
+    .social-mark:hover,
+    .social-mark:focus-visible {
+
+      opacity: .72;
+
+      transform:
+        translateY(-1px);
     }
+
 
     .footer-nav {
+
       display: flex;
 
       justify-content: center;
+
       align-items: center;
 
       gap:
@@ -1134,19 +1486,25 @@
       font-size: 21px;
     }
 
+
     .footer-nav a:hover {
+
       text-decoration: underline;
 
       text-underline-offset: 4px;
     }
 
+
     .footer-brand {
+
       justify-self: end;
 
       width: 318px;
     }
 
+
     .footer-brand img {
+
       width: 100%;
 
       height: auto;
@@ -1158,16 +1516,22 @@
       opacity: .94;
     }
 
+
+
     /* ======================================================
        RESPONSIVIDADE
        ====================================================== */
 
+
     @media (max-width: 1500px) {
+
       :root {
         --shell: 1370px;
       }
 
+
       .shell {
+
         width:
           min(
             calc(100% - 72px),
@@ -1175,7 +1539,9 @@
           );
       }
 
+
       .site-header .shell {
+
         grid-template-columns:
           285px
           minmax(0, 1fr)
@@ -1184,23 +1550,30 @@
         gap: 22px;
       }
 
+
       .brand {
         width: 285px;
       }
 
+
       .main-nav {
+
         gap: 28px;
 
         font-size: 19px;
       }
 
+
       .header-cta {
+
         min-width: 160px;
 
         font-size: 19px;
       }
 
+
       .case-hero .shell {
+
         grid-template-columns:
           minmax(0, .9fr)
           minmax(610px, 1.1fr);
@@ -1208,39 +1581,56 @@
         gap: 55px;
       }
 
+
       .case-hero h1 {
+
         font-size:
           clamp(50px, 4vw, 62px);
       }
+
 
       .history-grid {
         gap: 18px;
       }
 
+
       .history-card {
+
         height: 252px;
 
         padding: 23px 21px;
       }
 
+
       .history-card h2 {
+
         font-size: 25px;
       }
 
+
       .case-center .shell,
       .case-attention .shell {
+
         gap: 80px;
       }
 
+
       .footer-nav {
+
         gap: 42px;
 
         font-size: 19px;
       }
+
     }
 
+
+
     @media (max-width: 1160px) {
+
+
       .shell {
+
         width:
           min(
             calc(100% - 48px),
@@ -1248,7 +1638,9 @@
           );
       }
 
+
       .site-header {
+
         height: auto;
 
         min-height: 78px;
@@ -1258,7 +1650,9 @@
           rgba(7, 61, 58, .12);
       }
 
+
       .site-header .shell {
+
         min-height: 78px;
 
         grid-template-columns:
@@ -1266,26 +1660,34 @@
           1fr;
       }
 
+
       .brand {
+
         width:
           min(100%, 310px);
       }
+
 
       .main-nav {
         display: none;
       }
 
+
       .header-cta {
         min-width: 154px;
       }
 
+
       .case-hero {
+
         min-height: 0;
 
         padding: 40px 0 48px;
       }
 
+
       .case-hero .shell {
+
         grid-template-columns: 1fr;
 
         gap: 48px;
@@ -1293,22 +1695,28 @@
         padding: 0;
       }
 
+
       .case-history {
         max-width: 900px;
       }
 
+
       .case-center .shell,
       .case-attention .shell,
       .case-closing .shell {
+
         grid-template-columns: 1fr;
 
         gap: 45px;
       }
 
+
       .mobile-prefooter-nav {
+
         display: flex;
 
         justify-content: center;
+
         align-items: center;
 
         gap:
@@ -1330,13 +1738,17 @@
         text-align: center;
       }
 
+
       .site-footer {
+
         min-height: 98px;
 
         padding: 16px 0;
       }
 
+
       .site-footer .shell {
+
         min-height: 66px;
 
         grid-template-columns:
@@ -1347,7 +1759,9 @@
         gap: 18px;
       }
 
+
       .footer-nav {
+
         gap: 24px;
 
         font-size: 17px;
@@ -1355,13 +1769,20 @@
         flex-wrap: wrap;
       }
 
+
       .footer-brand {
         width: 225px;
       }
+
     }
 
+
+
     @media (max-width: 760px) {
+
+
       .shell {
+
         width:
           min(
             calc(100% - 32px),
@@ -1369,53 +1790,90 @@
           );
       }
 
+
       .site-header .shell {
+
         display: flex;
 
         justify-content: center;
+
         align-items: center;
 
         padding: 12px 0;
       }
 
+
       .brand {
+
         width:
           min(92vw, 360px);
       }
+
 
       .header-cta {
         display: none;
       }
 
+
       .case-hero {
+
         padding:
           28px 0 34px;
       }
 
+
       .breadcrumb {
+
         font-size: 15px;
 
         margin-bottom: 22px;
       }
 
+
       .case-kicker {
+
         font-size: 16px;
       }
 
+
       .case-hero h1 {
+
         font-size:
           clamp(43px, 12vw, 57px);
 
         line-height: .94;
       }
 
+
       .case-lead {
+
         font-size: 20px;
 
         line-height: 1.34;
       }
 
+
+      .professional-identification {
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 3px;
+
+        width: 100%;
+
+        font-size: 15px;
+      }
+
+
+      .professional-identification-dot {
+        display: none;
+      }
+
+
       .case-action {
+
         flex-direction: column;
 
         align-items: stretch;
@@ -1423,70 +1881,94 @@
         gap: 14px;
       }
 
+
       .page-cta {
+
         width: 100%;
 
         min-height: 48px;
       }
 
+
       .case-action-note {
+
         max-width: none;
 
         font-size: 18px;
       }
 
+
       .case-history::before {
         display: none;
       }
 
+
       .history-grid {
+
         grid-template-columns: 1fr;
 
         gap: 14px;
       }
 
+
       .history-card {
+
         height: 240px;
       }
+
 
       .case-center,
       .case-attention,
       .case-analysis,
       .case-closing {
+
         padding:
           60px 0;
       }
 
+
       .case-context {
+
         padding:
           58px 0 62px;
       }
 
+
       .section-heading {
+
         font-size:
           40px;
       }
 
+
       .case-center .shell,
       .case-attention .shell {
+
         gap: 34px;
       }
+
 
       .case-center-copy > p,
       .attention-intro p:last-child,
       .analysis-intro > p:last-child,
       .documents-text {
+
         font-size: 20px;
       }
+
 
       .sequence,
       .context-grid,
       .analysis-grid {
+
         grid-template-columns: 1fr;
       }
 
+
       .sequence-item,
-      .sequence-item + .sequence-item {
+      .sequence-item +
+      .sequence-item {
+
         padding:
           17px 0;
 
@@ -1496,8 +1978,11 @@
           1px solid var(--line);
       }
 
+
       .context-item,
-      .context-item + .context-item {
+      .context-item +
+      .context-item {
+
         padding:
           23px 0;
 
@@ -1508,8 +1993,11 @@
           rgba(255, 255, 255, .14);
       }
 
+
       .analysis-item,
-      .analysis-item + .analysis-item {
+      .analysis-item +
+      .analysis-item {
+
         padding:
           23px 0;
 
@@ -1519,36 +2007,56 @@
           1px solid var(--line);
       }
 
+
       .analysis-outcome {
+
         margin-top: 28px;
 
         padding: 20px 21px;
       }
 
+
       .analysis-outcome p {
+
         font-size: 19px;
       }
 
+
       .attention-row p {
+
         font-size: 23px;
       }
 
+
       .documents-grid {
+
         grid-template-columns: 1fr;
       }
 
+
       .final-card {
+
         min-height: 0;
 
         padding:
           40px 28px;
       }
 
+
       .final-card h2 {
+
         font-size: 41px;
       }
 
+
+      .final-professional {
+
+        font-size: 15px;
+      }
+
+
       .mobile-prefooter-nav {
+
         flex-direction: column;
 
         gap: 14px;
@@ -1561,12 +2069,16 @@
         line-height: 1.2;
       }
 
+
       .site-footer {
+
         padding:
           22px 0 24px;
       }
 
+
       .site-footer .shell {
+
         display: flex;
 
         flex-direction: column;
@@ -1574,7 +2086,9 @@
         gap: 22px;
       }
 
+
       .footer-nav {
+
         display: flex;
 
         flex-direction: column;
@@ -1592,13 +2106,17 @@
         font-size: 18px;
       }
 
+
       .socials {
+
         order: 2;
 
         gap: 28px;
       }
 
+
       .footer-brand {
+
         order: 3;
 
         justify-self: auto;
@@ -1606,11 +2124,16 @@
         width:
           min(80vw, 300px);
       }
+
     }
+
   </style>
+
 </head>
 
+
 <body>
+
 
   <a
     class="skip-link"
@@ -1619,6 +2142,8 @@
     Pular para o conteúdo
   </a>
 
+
+
   <header
     class="site-header"
     role="banner"
@@ -1626,11 +2151,13 @@
 
     <div class="shell">
 
+
       <a
         class="brand"
         href="/index.html"
         aria-label="Análise Legal — página inicial"
       >
+
         <img
           src="/assets/img/Marca.svg"
           alt="Análise Legal — precisão jurídica para decisões relevantes"
@@ -1639,7 +2166,9 @@
           decoding="async"
           fetchpriority="high"
         >
+
       </a>
+
 
       <nav
         class="main-nav"
@@ -1664,6 +2193,7 @@
 
       </nav>
 
+
       <a
         class="header-cta"
         href="/situacoes/contratos/fies/analise.html"
@@ -1671,17 +2201,23 @@
         Solicite análise
       </a>
 
+
     </div>
 
   </header>
 
+
+
   <main id="conteudo">
+
 
     <section class="case-hero">
 
       <div class="shell">
 
+
         <div class="case-copy">
+
 
           <nav
             class="breadcrumb"
@@ -1706,13 +2242,16 @@
 
           </nav>
 
+
           <p class="case-kicker">
             FIES
           </p>
 
+
           <h1>
             Seu acordo do FIES mudou depois que você já havia renegociado?
           </h1>
+
 
           <p class="case-lead">
             Quando desconto, saldo ou parcelas mudam depois da formalização,
@@ -1720,7 +2259,31 @@
             cobrado hoje.
           </p>
 
+
+          <div class="professional-identification">
+
+            <span>
+              Conteúdo de responsabilidade de
+            </span>
+
+            <strong>
+              Miguel Ferreira de Melo Junior
+            </strong>
+
+            <span
+              class="professional-identification-dot"
+              aria-hidden="true"
+            ></span>
+
+            <span>
+              OAB/DF 70.192
+            </span>
+
+          </div>
+
+
           <div class="case-action">
+
 
             <a
               class="page-cta"
@@ -1729,23 +2292,31 @@
               Solicite análise
             </a>
 
+
             <span class="case-action-note">
               A compreensão começa pela sequência do que foi apresentado,
               formalizado e posteriormente alterado.
             </span>
 
+
           </div>
 
+
         </div>
+
+
 
         <div
           class="case-history"
           aria-label="Sequência da renegociação"
         >
 
+
           <div class="history-grid">
 
+
             <article class="history-card">
+
 
               <div
                 class="history-icon"
@@ -1759,45 +2330,62 @@
 
               </div>
 
+
               <h2>
                 Condição apresentada
               </h2>
+
 
               <small>
                 Renegociação
               </small>
 
+
               <div class="history-data">
 
+
                 <div class="history-row">
+
                   <span>
                     Saldo
                   </span>
 
                   <span class="history-value"></span>
+
                 </div>
 
+
                 <div class="history-row">
+
                   <span>
                     Desconto
                   </span>
 
                   <span class="history-value"></span>
+
                 </div>
 
+
                 <div class="history-row">
+
                   <span>
                     Parcelas
                   </span>
 
                   <span class="history-value"></span>
+
                 </div>
+
 
               </div>
 
+
             </article>
 
+
+
             <article class="history-card">
+
 
               <div
                 class="history-icon"
@@ -1811,45 +2399,62 @@
 
               </div>
 
+
               <h2>
                 Acordo iniciado
               </h2>
+
 
               <small>
                 Adesão e pagamento
               </small>
 
+
               <div class="history-data">
 
+
                 <div class="history-row">
+
                   <span>
                     Condição
                   </span>
 
                   <span class="history-value"></span>
+
                 </div>
 
+
                 <div class="history-row">
+
                   <span>
                     Adesão
                   </span>
 
                   <span class="history-value"></span>
+
                 </div>
 
+
                 <div class="history-row">
+
                   <span>
                     Pagamento
                   </span>
 
                   <span class="history-value"></span>
+
                 </div>
+
 
               </div>
 
+
             </article>
 
+
+
             <article class="history-card changed">
+
 
               <div
                 class="history-icon"
@@ -1863,69 +2468,96 @@
 
               </div>
 
+
               <h2>
                 Condição alterada
               </h2>
+
 
               <small>
                 Situação posterior
               </small>
 
+
               <div class="history-data">
 
+
                 <div class="history-row">
+
                   <span>
                     Novo saldo
                   </span>
 
                   <span class="history-value"></span>
+
                 </div>
 
+
                 <div class="history-row">
+
                   <span>
                     Parcelas
                   </span>
 
                   <span class="history-value"></span>
+
                 </div>
 
+
                 <div class="history-row">
+
                   <span>
                     Valor
                   </span>
 
                   <span class="history-value"></span>
+
                 </div>
+
 
               </div>
 
+
             </article>
+
 
           </div>
 
+
         </div>
+
 
       </div>
 
     </section>
 
+
+
     <section class="case-center">
+
 
       <div class="shell">
 
+
         <div>
+
 
           <p class="section-eyebrow">
             O ponto central
           </p>
 
+
           <h2 class="section-heading">
             O saldo atual não conta, sozinho, toda a história.
           </h2>
 
+
         </div>
 
+
+
         <div class="case-center-copy">
+
 
           <p>
             Em determinadas situações, a divergência não está apenas no valor
@@ -1935,7 +2567,9 @@
             momento ocorreu a alteração.
           </p>
 
+
           <div class="sequence">
+
 
             <div class="sequence-item">
 
@@ -1949,6 +2583,7 @@
 
             </div>
 
+
             <div class="sequence-item">
 
               <span class="sequence-number">
@@ -1960,6 +2595,7 @@
               </p>
 
             </div>
+
 
             <div class="sequence-item">
 
@@ -1973,41 +2609,58 @@
 
             </div>
 
+
           </div>
+
 
         </div>
 
+
       </div>
+
 
     </section>
 
+
+
     <section class="case-context">
+
 
       <div class="shell">
 
+
         <div class="case-context-heading">
+
 
           <p class="section-eyebrow">
             Por que as situações podem ser diferentes
           </p>
 
+
           <h2 class="section-heading">
             Nem toda renegociação do FIES foi formada pelas mesmas condições.
           </h2>
 
+
         </div>
+
+
 
         <div class="context-grid">
 
+
           <article class="context-item">
+
 
             <p class="context-number">
               01
             </p>
 
+
             <h3>
               Modalidade da renegociação
             </h3>
+
 
             <p>
               Ao longo do tempo foram disponibilizadas condições distintas.
@@ -2015,34 +2668,46 @@
               diferentes.
             </p>
 
+
           </article>
 
+
+
           <article class="context-item">
+
 
             <p class="context-number">
               02
             </p>
 
+
             <h3>
               Informações consideradas
             </h3>
+
 
             <p>
               Situação do financiamento, períodos específicos, dados cadastrais
               e outras informações podem ter influenciado a condição apresentada.
             </p>
 
+
           </article>
 
+
+
           <article class="context-item">
+
 
             <p class="context-number">
               03
             </p>
 
+
             <h3>
               Alteração posterior
             </h3>
+
 
             <p>
               Reenquadramento, reprocessamento ou revisão podem explicar como
@@ -2050,27 +2715,38 @@
               sobre aquele financiamento.
             </p>
 
+
           </article>
+
 
         </div>
 
+
       </div>
+
 
     </section>
 
+
+
     <section class="case-attention">
+
 
       <div class="shell">
 
+
         <div class="attention-intro">
+
 
           <p class="section-eyebrow">
             Quando observar com mais cuidado
           </p>
 
+
           <h2 class="section-heading">
             Alguns acontecimentos tornam o histórico especialmente relevante.
           </h2>
+
 
           <p>
             O ponto não é presumir que a cobrança esteja incorreta, mas
@@ -2078,9 +2754,13 @@
             daquilo que havia sido apresentado anteriormente.
           </p>
 
+
         </div>
 
+
+
         <div class="attention-list">
+
 
           <div class="attention-row">
 
@@ -2094,6 +2774,7 @@
 
           </div>
 
+
           <div class="attention-row">
 
             <span>
@@ -2105,6 +2786,7 @@
             </p>
 
           </div>
+
 
           <div class="attention-row">
 
@@ -2118,6 +2800,7 @@
 
           </div>
 
+
           <div class="attention-row">
 
             <span>
@@ -2129,6 +2812,7 @@
             </p>
 
           </div>
+
 
           <div class="attention-row">
 
@@ -2143,25 +2827,35 @@
 
           </div>
 
+
         </div>
+
 
       </div>
 
+
     </section>
+
+
 
     <section class="case-analysis">
 
+
       <div class="shell">
 
+
         <div class="analysis-intro">
+
 
           <p class="section-eyebrow">
             Compreensão do caso
           </p>
 
+
           <h2 class="section-heading">
-            O que pode ser feito quando as condições mudam
+            O que uma análise procura esclarecer
           </h2>
+
 
           <p>
             A análise começa pela reconstrução dos acontecimentos. O objetivo
@@ -2169,91 +2863,125 @@
             realizada e a condição posteriormente apresentada.
           </p>
 
+
         </div>
+
+
 
         <div class="analysis-grid">
 
+
           <article class="analysis-item">
+
 
             <p class="analysis-number">
               01 · RECONSTRUIR
             </p>
 
+
             <h3>
               O que foi apresentado
             </h3>
+
 
             <p>
               Identificar saldo, desconto, quantidade de parcelas e demais
               condições existentes no momento da renegociação.
             </p>
 
+
           </article>
 
+
+
           <article class="analysis-item">
+
 
             <p class="analysis-number">
               02 · COMPARAR
             </p>
 
+
             <h3>
               O que mudou depois
             </h3>
+
 
             <p>
               Comparar a condição formalizada com aquela que passou a ser
               apresentada posteriormente.
             </p>
 
+
           </article>
 
+
+
           <article class="analysis-item">
+
 
             <p class="analysis-number">
               03 · COMPREENDER
             </p>
 
+
             <h3>
               Por que ocorreu a diferença
             </h3>
+
 
             <p>
               Examinar a origem da alteração e quais consequências ela produziu
               especificamente sobre aquele financiamento.
             </p>
 
+
           </article>
 
+
         </div>
+
+
 
         <div class="analysis-outcome">
 
+
           <p>
-            Dependendo do que ocorreu no contrato, a situação pode envolver o
-            restabelecimento das condições anteriormente formalizadas, a correção
-            do saldo apresentado, o afastamento de cobranças decorrentes da alteração
-            e medidas para evitar consequências enquanto a divergência estiver sendo discutida.
+            Dependendo do histórico do contrato, a análise pode examinar se a
+            alteração realizada corresponde às condições anteriormente
+            formalizadas, quais efeitos produziu sobre o saldo e quais
+            consequências precisam ser consideradas.
           </p>
+
 
         </div>
 
+
       </div>
+
 
     </section>
 
+
+
     <section class="case-closing">
+
 
       <div class="shell">
 
+
         <div>
+
 
           <p class="section-eyebrow">
             Para iniciar
           </p>
 
+
           <h2 class="section-heading">
             O que é útil ter em mãos
           </h2>
+
 
           <p class="documents-text">
             Não é necessário saber explicar tecnicamente o problema.
@@ -2262,46 +2990,70 @@
             iniciar a compreensão da situação.
           </p>
 
+
           <div class="documents-grid">
+
 
             <div class="document-item">
               Documentos da renegociação
             </div>
 
+
             <div class="document-item">
               Comprovantes de pagamento
             </div>
+
 
             <div class="document-item">
               Boletos e extratos
             </div>
 
+
             <div class="document-item">
               Telas do sistema
             </div>
+
 
             <div class="document-item">
               Mensagens recebidas
             </div>
 
+
             <div class="document-item">
               Histórico relatado
             </div>
 
+
           </div>
+
 
         </div>
 
+
+
         <div class="final-card">
+
 
           <h2>
             Seu FIES foi renegociado e depois as condições mudaram?
           </h2>
 
+
           <p>
             Explique o que aconteceu. A análise começa pela reconstrução
             do que foi apresentado, formalizado e posteriormente alterado.
           </p>
+
+
+          <div class="final-professional">
+
+            Conteúdo de responsabilidade de
+            <strong>
+              Miguel Ferreira de Melo Junior · OAB/DF 70.192
+            </strong>
+
+          </div>
+
 
           <a
             class="page-cta"
@@ -2310,13 +3062,19 @@
             Solicite análise
           </a>
 
+
         </div>
+
 
       </div>
 
+
     </section>
 
+
   </main>
+
+
 
   <nav
     class="mobile-prefooter-nav"
@@ -2337,17 +3095,22 @@
 
   </nav>
 
+
+
   <footer
     class="site-footer"
     role="contentinfo"
   >
 
+
     <div class="shell">
+
 
       <div
         class="socials"
         aria-label="Redes sociais"
       >
+
 
         <a
           class="social-mark"
@@ -2357,11 +3120,14 @@
           title="LinkedIn"
           aria-label="LinkedIn"
         >
+
           <span
             class="mask-icon"
             style="--icon:url('/assets/img/icon/linkedin-logo.svg')"
           ></span>
+
         </a>
+
 
         <a
           class="social-mark"
@@ -2371,11 +3137,14 @@
           title="Instagram"
           aria-label="Instagram"
         >
+
           <span
             class="mask-icon"
             style="--icon:url('/assets/img/icon/instagram-logo.svg')"
           ></span>
+
         </a>
+
 
         <a
           class="social-mark"
@@ -2385,11 +3154,14 @@
           title="Facebook"
           aria-label="Facebook"
         >
+
           <span
             class="mask-icon"
             style="--icon:url('/assets/img/icon/facebook-logo.svg')"
           ></span>
+
         </a>
+
 
         <a
           class="social-mark"
@@ -2399,11 +3171,14 @@
           title="TikTok"
           aria-label="TikTok"
         >
+
           <span
             class="mask-icon"
             style="--icon:url('/assets/img/icon/tiktok-logo.svg')"
           ></span>
+
         </a>
+
 
         <a
           class="social-mark"
@@ -2413,13 +3188,18 @@
           title="YouTube"
           aria-label="YouTube"
         >
+
           <span
             class="mask-icon"
             style="--icon:url('/assets/img/icon/youtube-logo.svg')"
           ></span>
+
         </a>
 
+
       </div>
+
+
 
       <nav
         class="footer-nav"
@@ -2444,6 +3224,8 @@
 
       </nav>
 
+
+
       <a
         class="footer-brand"
         href="/index.html"
@@ -2461,9 +3243,13 @@
 
       </a>
 
+
     </div>
+
 
   </footer>
 
+
 </body>
+
 </html>
