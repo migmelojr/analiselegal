@@ -19,7 +19,7 @@
     content="#073d3a"
   >
 
-  <title>Pagamento | Análise Legal</title>
+  <title>Agendamento | Análise Legal</title>
 
   <link
     rel="preload"
@@ -77,21 +77,15 @@
       min-height: 100vh;
 
       background: var(--soft);
-
       color: var(--ink);
 
       font-family: var(--font);
-
       font-size: 17px;
       line-height: 1.48;
     }
 
-    button,
-    input {
-      font: inherit;
-    }
-
     button {
+      font: inherit;
       cursor: pointer;
     }
 
@@ -198,7 +192,7 @@
 
     .intro {
       max-width:
-        720px;
+        760px;
 
       margin:
         12px 0 28px;
@@ -210,21 +204,10 @@
         17px;
     }
 
-    .layout {
-      display: grid;
-
-      grid-template-columns:
-        minmax(0, 1fr)
-        minmax(300px, 360px);
-
-      gap:
-        22px;
-
-      align-items:
-        start;
-    }
-
     .card {
+      margin:
+        0 0 20px;
+
       background:
         var(--paper);
 
@@ -258,6 +241,9 @@
 
       font-size:
         22px;
+
+      line-height:
+        1.15;
     }
 
     .card-head p {
@@ -276,51 +262,377 @@
         24px;
     }
 
-    .status {
+    .protocol-box {
       display:
-        inline-flex;
+        flex;
+
+      justify-content:
+        space-between;
 
       align-items:
         center;
 
       gap:
-        7px;
+        20px;
 
       padding:
-        6px 11px;
+        13px 15px;
+
+      border:
+        1px solid var(--line);
 
       border-radius:
-        999px;
+        10px;
+
+      background:
+        var(--soft);
+    }
+
+    .protocol-box span {
+      color:
+        var(--muted);
 
       font-size:
-        13px;
+        14px;
+    }
+
+    .protocol-box strong {
+      color:
+        var(--green-dark);
+
+      text-align:
+        right;
+
+      word-break:
+        break-word;
+    }
+
+    .mode-grid {
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap:
+        14px;
+    }
+
+    .mode {
+      min-height:
+        112px;
+
+      padding:
+        18px;
+
+      border:
+        1px solid var(--line-strong);
+
+      border-radius:
+        12px;
+
+      background:
+        #fff;
+
+      text-align:
+        left;
+
+      transition:
+        border-color .15s,
+        background .15s,
+        box-shadow .15s;
+    }
+
+    .mode:hover {
+      border-color:
+        var(--green);
+    }
+
+    .mode.selected {
+      border-color:
+        var(--green);
+
+      background:
+        var(--success-soft);
+
+      box-shadow:
+        inset 0 0 0 1px var(--green);
+    }
+
+    .mode strong {
+      display:
+        block;
+
+      margin-bottom:
+        5px;
+
+      color:
+        var(--green-dark);
+
+      font-size:
+        19px;
+    }
+
+    .mode span {
+      display:
+        block;
+
+      color:
+        var(--muted);
+
+      font-size:
+        14px;
+
+      line-height:
+        1.4;
+    }
+
+    .calendar-wrap {
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap:
+        18px;
+    }
+
+    .month {
+      padding:
+        15px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        12px;
+
+      background:
+        #fff;
+    }
+
+    .month h3 {
+      margin:
+        0 0 12px;
+
+      color:
+        var(--green-dark);
+
+      text-align:
+        center;
+
+      font-size:
+        17px;
+
+      text-transform:
+        capitalize;
+    }
+
+    .calendar-grid {
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(7, 1fr);
+
+      gap:
+        5px;
+    }
+
+    .weekday {
+      padding:
+        5px 0;
+
+      color:
+        var(--muted);
+
+      text-align:
+        center;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size:
+        11px;
 
       font-weight:
         700;
     }
 
-    .status-waiting {
-      color:
-        var(--warning);
+    .day {
+      aspect-ratio:
+        1 / 1;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      border:
+        1px solid transparent;
+
+      border-radius:
+        9px;
 
       background:
-        var(--warning-soft);
+        var(--soft);
+
+      color:
+        var(--ink);
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size:
+        13px;
     }
 
-    .status-success {
-      color:
-        var(--success);
-
-      background:
-        var(--success-soft);
+    button.day {
+      cursor:
+        pointer;
     }
 
-    .status-error {
-      color:
-        var(--danger);
+    button.day:hover {
+      border-color:
+        var(--green);
 
       background:
-        var(--danger-soft);
+        #fff;
+    }
+
+    .day.disabled {
+      color:
+        #b8b9b5;
+
+      background:
+        #f1f1ee;
+    }
+
+    .day.selected {
+      border-color:
+        var(--green);
+
+      background:
+        var(--green);
+
+      color:
+        #fff;
+
+      font-weight:
+        700;
+    }
+
+    .slots {
+      margin-top:
+        24px;
+    }
+
+    .slots-title {
+      margin:
+        0 0 4px;
+
+      color:
+        var(--green-dark);
+
+      font-size:
+        19px;
+    }
+
+    .slots-subtitle {
+      margin:
+        0 0 16px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        14px;
+    }
+
+    .period {
+      margin:
+        0 0 18px;
+    }
+
+    .period-title {
+      margin:
+        0 0 8px;
+
+      color:
+        var(--green-dark);
+
+      font-size:
+        15px;
+
+      font-weight:
+        700;
+    }
+
+    .slot-list {
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        9px;
+    }
+
+    .slot {
+      min-width:
+        94px;
+
+      min-height:
+        45px;
+
+      padding:
+        8px 16px;
+
+      border:
+        1px solid var(--line-strong);
+
+      border-radius:
+        9px;
+
+      background:
+        #fff;
+
+      color:
+        var(--green-dark);
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-weight:
+        700;
+    }
+
+    .slot:hover {
+      border-color:
+        var(--green);
+    }
+
+    .slot.selected {
+      border-color:
+        var(--green);
+
+      background:
+        var(--green);
+
+      color:
+        #fff;
     }
 
     .summary {
@@ -329,9 +641,6 @@
 
       gap:
         0;
-
-      margin-top:
-        20px;
 
       border-top:
         1px solid var(--line);
@@ -349,7 +658,7 @@
         20px;
 
       padding:
-        11px 0;
+        12px 0;
 
       border-bottom:
         1px solid var(--line);
@@ -374,72 +683,38 @@
         15px;
     }
 
-    .qr-wrap {
-      display:
-        flex;
-
-      justify-content:
-        center;
-
-      margin:
-        6px 0 20px;
-    }
-
-    .qr {
-      display:
-        block;
-
-      width:
-        min(
-          270px,
-          100%
-        );
-
-      height:
-        auto;
+    .reserve-note {
+      margin-top:
+        17px;
 
       padding:
-        10px;
-
-      background:
-        #fff;
+        13px 15px;
 
       border:
-        1px solid var(--line);
+        1px solid #e3dac6;
 
       border-radius:
-        12px;
-    }
+        9px;
 
-    .pix-label {
-      margin:
-        0 0 7px;
+      background:
+        var(--warning-soft);
 
       color:
-        var(--green-dark);
+        var(--warning);
 
       font-size:
         14px;
-
-      font-weight:
-        700;
     }
 
-    .pix-code {
-      width:
-        100%;
-
-      min-height:
-        92px;
+    .status {
+      margin-top:
+        16px;
 
       padding:
-        12px;
-
-      resize:
-        none;
+        13px 15px;
 
       border:
-        1px solid var(--line-strong);
+        1px solid var(--line);
 
       border-radius:
         9px;
@@ -448,32 +723,51 @@
         var(--soft);
 
       color:
-        var(--ink);
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+        var(--muted);
 
       font-size:
-        12px;
+        14px;
+    }
 
-      line-height:
-        1.45;
+    .status.error {
+      border-color:
+        #dababa;
 
-      word-break:
-        break-all;
+      background:
+        var(--danger-soft);
+
+      color:
+        var(--danger);
+    }
+
+    .status.success {
+      border-color:
+        #bdd8cc;
+
+      background:
+        var(--success-soft);
+
+      color:
+        var(--success);
+    }
+
+    .button-row {
+      display:
+        flex;
+
+      justify-content:
+        flex-end;
+
+      margin-top:
+        20px;
     }
 
     .btn {
-      width:
-        100%;
-
-      margin-top:
-        12px;
+      min-height:
+        48px;
 
       padding:
-        12px 16px;
+        11px 20px;
 
       border:
         1px solid var(--green);
@@ -499,176 +793,20 @@
         var(--green-dark);
     }
 
-    .btn-secondary {
-      background:
-        #fff;
+    .btn:disabled {
+      opacity:
+        .5;
 
-      color:
-        var(--green);
+      cursor:
+        default;
     }
 
-    .btn-secondary:hover {
-      background:
-        var(--soft);
-
-      color:
-        var(--green-dark);
-    }
-
-    .countdown-box {
-      margin-top:
-        18px;
-
-      padding:
-        14px 15px;
-
-      border:
-        1px solid #e3dac6;
-
-      border-radius:
-        10px;
-
-      background:
-        var(--warning-soft);
-
-      color:
-        var(--warning);
-
-      text-align:
-        center;
-    }
-
-    .countdown-box strong {
-      display:
-        block;
-
-      margin-top:
-        3px;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-      font-size:
-        25px;
-
-      letter-spacing:
-        .03em;
-    }
-
-    .notice {
-      margin-top:
-        18px;
-
-      padding:
-        13px 15px;
-
-      border:
-        1px solid var(--line);
-
-      border-radius:
-        9px;
-
-      background:
-        var(--soft);
-
+    .loading {
       color:
         var(--muted);
 
       font-size:
         14px;
-    }
-
-    .notice.success {
-      border-color:
-        #bdd8cc;
-
-      background:
-        var(--success-soft);
-
-      color:
-        var(--success);
-    }
-
-    .notice.error {
-      border-color:
-        #dababa;
-
-      background:
-        var(--danger-soft);
-
-      color:
-        var(--danger);
-    }
-
-    .confirmed {
-      text-align:
-        center;
-
-      padding:
-        20px 0 6px;
-    }
-
-    .confirmed-icon {
-      width:
-        66px;
-
-      height:
-        66px;
-
-      margin:
-        0 auto 16px;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      border-radius:
-        50%;
-
-      background:
-        var(--success-soft);
-
-      color:
-        var(--success);
-
-      font-family:
-        Arial,
-        sans-serif;
-
-      font-size:
-        36px;
-
-      font-weight:
-        700;
-    }
-
-    .confirmed h2 {
-      margin:
-        0 0 10px;
-
-      color:
-        var(--green-dark);
-
-      font-size:
-        28px;
-    }
-
-    .confirmed p {
-      margin:
-        0 auto 18px;
-
-      max-width:
-        580px;
-
-      color:
-        var(--muted);
     }
 
     footer {
@@ -681,11 +819,11 @@
       background:
         #fff;
 
-      text-align:
-        center;
-
       color:
         var(--muted);
+
+      text-align:
+        center;
 
       font-size:
         13px;
@@ -697,17 +835,6 @@
 
       text-decoration:
         none;
-    }
-
-    .loading {
-      padding:
-        34px;
-
-      text-align:
-        center;
-
-      color:
-        var(--muted);
     }
 
     @media (
@@ -728,7 +855,12 @@
           28px 0 40px;
       }
 
-      .layout {
+      .mode-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .calendar-wrap {
         grid-template-columns:
           1fr;
       }
@@ -746,6 +878,22 @@
           left;
       }
 
+      .protocol-box {
+        display:
+          block;
+      }
+
+      .protocol-box strong {
+        display:
+          block;
+
+        margin-top:
+          3px;
+
+        text-align:
+          left;
+      }
+
       .card-head,
       .card-body {
         padding-left:
@@ -753,6 +901,16 @@
 
         padding-right:
           18px;
+      }
+
+      .button-row {
+        display:
+          block;
+      }
+
+      .btn {
+        width:
+          100%;
       }
     }
   </style>
@@ -763,6 +921,7 @@
 <div class="page">
 
   <header class="topbar">
+
     <div class="topbar-inner">
 
       <a
@@ -777,6 +936,7 @@
       </a>
 
     </div>
+
   </header>
 
 
@@ -786,319 +946,96 @@
       Atendimento individual
     </p>
 
-    <h1 id="pageTitle">
-      Finalize sua solicitação
+    <h1>
+      Escolha o dia e o horário
     </h1>
 
-    <p
-      class="intro"
-      id="pageIntro"
-    >
-      O horário solicitado será confirmado após a identificação do pagamento.
+    <p class="intro">
+      Selecione a modalidade do atendimento e, em seguida, escolha entre os dias e horários disponíveis.
     </p>
 
 
-    <div
-      id="loading"
-      class="card loading"
-    >
-      Carregando os dados da solicitação...
-    </div>
-
-
-    <div
-      id="errorBox"
-      class="notice error"
-      hidden
-    ></div>
-
-
-    <div
-      id="paymentContent"
-      class="layout"
-      hidden
-    >
-
-      <section class="card">
-
-        <div class="card-head">
-
-          <h2>
-            Pagamento via PIX
-          </h2>
-
-          <p>
-            Leia o QR Code pelo aplicativo do seu banco ou utilize o código Pix Copia e Cola.
-          </p>
-
-        </div>
-
-
-        <div class="card-body">
-
-          <span
-            id="statusBadge"
-            class="status status-waiting"
-          >
-            Aguardando pagamento
-          </span>
-
-
-          <div class="qr-wrap">
-
-            <img
-              id="qrImage"
-              class="qr"
-              alt="QR Code PIX"
-            >
-
-          </div>
-
-
-          <p class="pix-label">
-            Pix Copia e Cola
-          </p>
-
-          <textarea
-            id="pixCode"
-            class="pix-code"
-            readonly
-          ></textarea>
-
-
-          <button
-            id="copyBtn"
-            class="btn"
-            type="button"
-          >
-            COPIAR CÓDIGO PIX
-          </button>
-
-
-          <div
-            id="countdownBox"
-            class="countdown-box"
-          >
-            Pagamento disponível por
-
-            <strong
-              id="countdown"
-            >
-              --:--
-            </strong>
-          </div>
-
-
-          <div class="notice">
-
-            Não é necessário enviar comprovante. A identificação do pagamento é automática.
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <aside class="card">
-
-        <div class="card-head">
-
-          <h2>
-            Sua solicitação
-          </h2>
-
-          <p>
-            Confira os dados antes de efetuar o pagamento.
-          </p>
-
-        </div>
-
-
-        <div class="card-body">
-
-          <div class="summary">
-
-            <div class="summary-row">
-              <span>
-                Referência
-              </span>
-
-              <strong
-                id="protocolView"
-              >
-                —
-              </strong>
-            </div>
-
-
-            <div class="summary-row">
-              <span>
-                Modalidade
-              </span>
-
-              <strong
-                id="modeView"
-              >
-                —
-              </strong>
-            </div>
-
-
-            <div class="summary-row">
-              <span>
-                Data
-              </span>
-
-              <strong
-                id="dateView"
-              >
-                —
-              </strong>
-            </div>
-
-
-            <div class="summary-row">
-              <span>
-                Horário
-              </span>
-
-              <strong
-                id="timeView"
-              >
-                —
-              </strong>
-            </div>
-
-
-            <div class="summary-row">
-              <span>
-                Valor
-              </span>
-
-              <strong
-                id="valueView"
-              >
-                —
-              </strong>
-            </div>
-
-
-            <div class="summary-row">
-              <span>
-                Situação
-              </span>
-
-              <strong
-                id="statusView"
-              >
-                Aguardando pagamento
-              </strong>
-            </div>
-
-          </div>
-
-
-          <button
-            id="refreshBtn"
-            class="btn btn-secondary"
-            type="button"
-          >
-            VERIFICAR PAGAMENTO
-          </button>
-
-        </div>
-
-      </aside>
-
-    </div>
-
-
-    <section
-      id="confirmedContent"
-      class="card"
-      hidden
-    >
+    <section class="card">
 
       <div class="card-body">
 
-        <div class="confirmed">
+        <div class="protocol-box">
 
-          <div class="confirmed-icon">
-            ✓
-          </div>
+          <span>
+            Referência da solicitação
+          </span>
 
-          <h2>
-            Atendimento confirmado
-          </h2>
+          <strong id="protocolView">
+            —
+          </strong>
 
-          <p>
-            O pagamento foi identificado e a data e o horário foram confirmados.
-          </p>
+        </div>
+
+        <div
+          id="initialError"
+          class="status error"
+          hidden
+        ></div>
+
+      </div>
+
+    </section>
 
 
-          <div
-            class="summary"
-            style="
-              max-width:560px;
-              margin-left:auto;
-              margin-right:auto;
-              text-align:left;
-            "
+    <section
+      id="modeCard"
+      class="card"
+    >
+
+      <div class="card-head">
+
+        <h2>
+          Como prefere ser atendido?
+        </h2>
+
+        <p>
+          A disponibilidade pode variar conforme a modalidade.
+        </p>
+
+      </div>
+
+
+      <div class="card-body">
+
+        <div class="mode-grid">
+
+          <button
+            type="button"
+            class="mode"
+            data-mode="online"
           >
 
-            <div class="summary-row">
+            <strong>
+              On-line
+            </strong>
 
-              <span>
-                Referência
-              </span>
+            <span>
+              Atendimento por videochamada. As instruções de acesso são encaminhadas após a confirmação.
+            </span>
 
-              <strong
-                id="confirmedProtocol"
-              >
-                —
-              </strong>
-
-            </div>
+          </button>
 
 
-            <div class="summary-row">
+          <button
+            type="button"
+            class="mode"
+            data-mode="presencial"
+          >
 
-              <span>
-                Modalidade
-              </span>
+            <strong>
+              Presencial
+            </strong>
 
-              <strong
-                id="confirmedMode"
-              >
-                —
-              </strong>
+            <span>
+              Atendimento presencial no escritório em Brasília/DF.
+            </span>
 
-            </div>
-
-
-            <div class="summary-row">
-
-              <span>
-                Data e horário
-              </span>
-
-              <strong
-                id="confirmedDate"
-              >
-                —
-              </strong>
-
-            </div>
-
-          </div>
-
-
-          <div class="notice success">
-
-            A confirmação também será enviada ao e-mail informado na solicitação.
-
-          </div>
+          </button>
 
         </div>
 
@@ -1108,38 +1045,165 @@
 
 
     <section
-      id="expiredContent"
+      id="calendarCard"
       class="card"
       hidden
     >
 
+      <div class="card-head">
+
+        <h2>
+          Escolha o dia
+        </h2>
+
+        <p>
+          Os dias indisponíveis aparecem bloqueados.
+        </p>
+
+      </div>
+
+
       <div class="card-body">
 
-        <div class="confirmed">
+        <div
+          id="calendar"
+          class="calendar-wrap"
+        ></div>
+
+
+        <div
+          id="slots"
+          class="slots"
+          hidden
+        >
+
+          <h3 class="slots-title">
+            Horários disponíveis
+          </h3>
+
+          <p
+            id="selectedDateLabel"
+            class="slots-subtitle"
+          ></p>
 
           <div
-            class="confirmed-icon"
-            style="
-              background:var(--warning-soft);
-              color:var(--warning);
-            "
+            id="slotStatus"
+            class="status"
+            hidden
+          ></div>
+
+          <div
+            id="slotGroups"
+          ></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section
+      id="summaryCard"
+      class="card"
+      hidden
+    >
+
+      <div class="card-head">
+
+        <h2>
+          Confira sua escolha
+        </h2>
+
+        <p>
+          O horário somente será confirmado após a identificação do pagamento.
+        </p>
+
+      </div>
+
+
+      <div class="card-body">
+
+        <div class="summary">
+
+          <div class="summary-row">
+
+            <span>
+              Modalidade
+            </span>
+
+            <strong id="summaryMode">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="summary-row">
+
+            <span>
+              Data
+            </span>
+
+            <strong id="summaryDate">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="summary-row">
+
+            <span>
+              Horário
+            </span>
+
+            <strong id="summaryTime">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="summary-row">
+
+            <span>
+              Valor
+            </span>
+
+            <strong id="summaryValue">
+              Consultando...
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="reserve-note">
+
+          Ao prosseguir, o horário ficará reservado provisoriamente por até 15 minutos para conclusão do pagamento via PIX.
+
+        </div>
+
+
+        <div
+          id="reserveStatus"
+          class="status"
+          hidden
+        ></div>
+
+
+        <div class="button-row">
+
+          <button
+            id="continueButton"
+            class="btn"
+            type="button"
+            disabled
           >
-            !
-          </div>
-
-          <h2>
-            Prazo de pagamento encerrado
-          </h2>
-
-          <p>
-            O pagamento não foi identificado dentro do prazo e o horário solicitado foi liberado.
-          </p>
-
-          <div class="notice">
-
-            Seus dados permanecem registrados. Utilize o link enviado por e-mail para retomar a solicitação sem preencher novamente as informações iniciais.
-
-          </div>
+            CONTINUAR PARA PAGAMENTO
+          </button>
 
         </div>
 
@@ -1192,17 +1256,50 @@
 const WORKER_BASE =
   "https://analiselegal-formulario.miguel-compras.workers.dev";
 
-const ROTA_PIX =
-  WORKER_BASE +
-  "/pagamento/pix";
-
-const ROTA_STATUS =
-  WORKER_BASE +
-  "/pagamento/status";
-
 const ROTA_VALOR =
   WORKER_BASE +
   "/config/valor";
+
+const ROTA_DISPONIBILIDADE =
+  WORKER_BASE +
+  "/agenda/disponibilidade";
+
+const ROTA_PRERESERVAR =
+  WORKER_BASE +
+  "/agenda/pre-reservar";
+
+const PAGAMENTO_URL =
+  "/pagamento.html";
+
+
+/*
+ * Deve permanecer igual à regra do Worker.
+ *
+ * Online:
+ * D+2 úteis
+ *
+ * Presencial:
+ * D+3 úteis
+ */
+
+const DIAS_UTEIS = {
+  online: 2,
+  presencial: 3
+};
+
+
+const HORARIOS_MANHA = [
+  "09:00",
+  "10:00",
+  "11:00"
+];
+
+const HORARIOS_TARDE = [
+  "14:00",
+  "15:00",
+  "16:00",
+  "17:00"
+];
 
 
 /* ============================================================
@@ -1220,7 +1317,7 @@ const protocolo =
     ""
   ).trim();
 
-const token =
+const tokenRetomada =
   (
     params.get("token") ||
     ""
@@ -1231,89 +1328,99 @@ const token =
    ESTADO
 ============================================================ */
 
-let expiraEm =
-  null;
-
-let timerCountdown =
-  null;
-
-let timerStatus =
-  null;
-
-let ultimoStatus =
+let modalidade =
   "";
 
-let dadosStatus =
+let dataEscolhida =
+  "";
+
+let horaEscolhida =
+  "";
+
+let valorAtendimento =
   null;
+
+let reservaEmAndamento =
+  false;
 
 
 /* ============================================================
    ELEMENTOS
 ============================================================ */
 
-const loading =
+const protocolView =
   document.getElementById(
-    "loading"
+    "protocolView"
   );
 
-const errorBox =
+const initialError =
   document.getElementById(
-    "errorBox"
+    "initialError"
   );
 
-const paymentContent =
+const calendarCard =
   document.getElementById(
-    "paymentContent"
+    "calendarCard"
   );
 
-const confirmedContent =
+const calendar =
   document.getElementById(
-    "confirmedContent"
+    "calendar"
   );
 
-const expiredContent =
+const slots =
   document.getElementById(
-    "expiredContent"
+    "slots"
   );
 
-const qrImage =
+const selectedDateLabel =
   document.getElementById(
-    "qrImage"
+    "selectedDateLabel"
   );
 
-const pixCode =
+const slotStatus =
   document.getElementById(
-    "pixCode"
+    "slotStatus"
   );
 
-const copyBtn =
+const slotGroups =
   document.getElementById(
-    "copyBtn"
+    "slotGroups"
   );
 
-const refreshBtn =
+const summaryCard =
   document.getElementById(
-    "refreshBtn"
+    "summaryCard"
   );
 
-const countdown =
+const summaryMode =
   document.getElementById(
-    "countdown"
+    "summaryMode"
   );
 
-const countdownBox =
+const summaryDate =
   document.getElementById(
-    "countdownBox"
+    "summaryDate"
   );
 
-const statusBadge =
+const summaryTime =
   document.getElementById(
-    "statusBadge"
+    "summaryTime"
   );
 
-const statusView =
+const summaryValue =
   document.getElementById(
-    "statusView"
+    "summaryValue"
+  );
+
+const reserveStatus =
+  document.getElementById(
+    "reserveStatus"
+  );
+
+const continueButton =
+  document.getElementById(
+    "continueButton"
   );
 
 
@@ -1321,31 +1428,7 @@ const statusView =
    UTILITÁRIOS
 ============================================================ */
 
-function mostrarErro(
-  mensagem
-) {
-
-  loading.hidden =
-    true;
-
-  paymentContent.hidden =
-    true;
-
-  confirmedContent.hidden =
-    true;
-
-  expiredContent.hidden =
-    true;
-
-  errorBox.hidden =
-    false;
-
-  errorBox.textContent =
-    mensagem;
-}
-
-
-function formatoValor(
+function formatarValor(
   valor
 ) {
 
@@ -1364,22 +1447,19 @@ function formatoValor(
 }
 
 
-function formatarDataISO(
-  value
+function formatarData(
+  iso
 ) {
 
-  if (!value) {
-    return "—";
-  }
-
   const partes =
-    String(value)
-      .split("-");
+    String(
+      iso || ""
+    ).split("-");
 
   if (
     partes.length !== 3
   ) {
-    return value;
+    return iso || "—";
   }
 
   return (
@@ -1392,109 +1472,152 @@ function formatarDataISO(
 }
 
 
-function separarInicio(
-  inicio
-) {
-
-  if (!inicio) {
-
-    return {
-      data: "—",
-      hora: "—"
-    };
-  }
-
-
-  const valor =
-    String(inicio)
-      .trim();
-
-
-  const match =
-    valor.match(
-      /^(\d{4}-\d{2}-\d{2})\s+(\d{2}:\d{2})/
-    );
-
-
-  if (match) {
-
-    return {
-      data:
-        formatarDataISO(
-          match[1]
-        ),
-
-      hora:
-        match[2]
-    };
-  }
-
-
-  return {
-    data:
-      valor,
-
-    hora:
-      ""
-  };
-}
-
-
 function modalidadeLabel(
-  modalidade
+  value
 ) {
 
-  return String(
-    modalidade || ""
-  ).toLowerCase() ===
+  return value ===
     "presencial"
       ? "Presencial"
-      : "Online";
+      : "On-line";
 }
 
 
-function statusLabel(
-  status
+function dataISO(
+  date
 ) {
 
-  switch (
-    String(status || "")
+  const ano =
+    date.getFullYear();
+
+  const mes =
+    String(
+      date.getMonth() + 1
+    ).padStart(
+      2,
+      "0"
+    );
+
+  const dia =
+    String(
+      date.getDate()
+    ).padStart(
+      2,
+      "0"
+    );
+
+  return (
+    ano +
+    "-" +
+    mes +
+    "-" +
+    dia
+  );
+}
+
+
+function ehFimDeSemana(
+  date
+) {
+
+  const dia =
+    date.getDay();
+
+  return (
+    dia === 0 ||
+    dia === 6
+  );
+}
+
+
+function primeiraDataPermitida(
+  mode
+) {
+
+  const quantidade =
+    DIAS_UTEIS[
+      mode
+    ] || 2;
+
+  const date =
+    new Date();
+
+  date.setHours(
+    0,
+    0,
+    0,
+    0
+  );
+
+  let contados =
+    0;
+
+  while (
+    contados <
+    quantidade
   ) {
 
-    case "confirmado":
+    date.setDate(
+      date.getDate() +
+      1
+    );
 
-      return "Confirmado";
+    if (
+      !ehFimDeSemana(
+        date
+      )
+    ) {
 
-
-    case "expirado":
-
-      return "Prazo encerrado";
-
-
-    case "cancelado":
-
-      return "Cancelado";
-
-
-    case "aguardando_pagamento":
-
-      return "Aguardando pagamento";
-
-
-    case "pre_reservado":
-
-      return "Aguardando pagamento";
-
-
-    default:
-
-      return "Aguardando pagamento";
+      contados++;
+    }
   }
+
+  return date;
+}
+
+
+function nomeMes(
+  date
+) {
+
+  return date
+    .toLocaleDateString(
+      "pt-BR",
+      {
+        month:
+          "long",
+
+        year:
+          "numeric"
+      }
+    );
+}
+
+
+function mostrarStatus(
+  elemento,
+  mensagem,
+  tipo = ""
+) {
+
+  elemento.hidden =
+    !mensagem;
+
+  elemento.textContent =
+    mensagem;
+
+  elemento.className =
+    "status" +
+    (
+      tipo
+        ? " " + tipo
+        : ""
+    );
 }
 
 
 /* ============================================================
-   CARREGA VALOR
+   VALOR
 ============================================================ */
 
 async function carregarValor() {
@@ -1504,64 +1627,6 @@ async function carregarValor() {
     const response =
       await fetch(
         ROTA_VALOR,
-        {
-          cache:
-            "no-store"
-        }
-      );
-
-
-    if (
-      !response.ok
-    ) {
-      return;
-    }
-
-
-    const data =
-      await response.json();
-
-
-    document.getElementById(
-      "valueView"
-    ).textContent =
-      data.valor_formatado ||
-      formatoValor(
-        data.valor
-      );
-
-  } catch {
-
-    /* não bloqueia */
-  }
-}
-
-
-/* ============================================================
-   CARREGA STATUS
-============================================================ */
-
-async function consultarStatus(
-  silencioso = false
-) {
-
-  try {
-
-    const url =
-      ROTA_STATUS +
-      "?protocolo=" +
-      encodeURIComponent(
-        protocolo
-      ) +
-      "&token=" +
-      encodeURIComponent(
-        token
-      );
-
-
-    const response =
-      await fetch(
-        url,
         {
           cache:
             "no-store"
@@ -1582,638 +1647,1013 @@ async function consultarStatus(
       data.sucesso === false
     ) {
 
-      if (!silencioso) {
-
-        throw new Error(
-          data.erro ||
-          "Não foi possível consultar a solicitação."
-        );
-      }
-
-      return null;
+      throw new Error();
     }
 
 
-    dadosStatus =
-      data;
+    valorAtendimento =
+      Number(
+        data.valor
+      );
 
 
-    ultimoStatus =
-      data.status ||
-      "";
+    summaryValue.textContent =
+      data.valor_formatado ||
+      formatarValor(
+        valorAtendimento
+      );
+
+  } catch {
+
+    summaryValue.textContent =
+      "Indisponível";
+
+    mostrarStatus(
+      reserveStatus,
+      "Não foi possível consultar o valor do atendimento. Atualize a página antes de prosseguir.",
+      "error"
+    );
+  }
+}
 
 
-    atualizarResumo(
-      data
+/* ============================================================
+   MODALIDADE
+============================================================ */
+
+document
+  .querySelectorAll(
+    ".mode"
+  )
+  .forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          if (
+            reservaEmAndamento
+          ) {
+            return;
+          }
+
+
+          modalidade =
+            button.dataset.mode;
+
+
+          document
+            .querySelectorAll(
+              ".mode"
+            )
+            .forEach(
+              item => {
+
+                item.classList
+                  .toggle(
+                    "selected",
+                    item ===
+                    button
+                  );
+
+              }
+            );
+
+
+          dataEscolhida =
+            "";
+
+          horaEscolhida =
+            "";
+
+
+          slots.hidden =
+            true;
+
+          summaryCard.hidden =
+            true;
+
+          continueButton.disabled =
+            true;
+
+
+          calendarCard.hidden =
+            false;
+
+
+          montarCalendario();
+
+
+          calendarCard
+            .scrollIntoView(
+              {
+                behavior:
+                  "smooth",
+
+                block:
+                  "start"
+              }
+            );
+        }
+      );
+
+    }
+  );
+
+
+/* ============================================================
+   CALENDÁRIO
+============================================================ */
+
+function montarCalendario() {
+
+  calendar.innerHTML =
+    "";
+
+
+  const minimo =
+    primeiraDataPermitida(
+      modalidade
     );
 
 
-    if (
-      data.status ===
-      "confirmado"
-    ) {
+  const primeiroMes =
+    new Date();
 
-      mostrarConfirmado(
-        data
+  primeiroMes.setHours(
+    0,
+    0,
+    0,
+    0
+  );
+
+  primeiroMes.setDate(
+    1
+  );
+
+
+  for (
+    let offset = 0;
+    offset < 2;
+    offset++
+  ) {
+
+    const mes =
+      new Date(
+        primeiroMes.getFullYear(),
+        primeiroMes.getMonth() +
+          offset,
+        1
       );
 
-      return data;
+
+    calendar.appendChild(
+      montarMes(
+        mes,
+        minimo
+      )
+    );
+  }
+}
+
+
+function montarMes(
+  mes,
+  minimo
+) {
+
+  const box =
+    document.createElement(
+      "div"
+    );
+
+  box.className =
+    "month";
+
+
+  const titulo =
+    document.createElement(
+      "h3"
+    );
+
+  titulo.textContent =
+    nomeMes(
+      mes
+    );
+
+
+  box.appendChild(
+    titulo
+  );
+
+
+  const grid =
+    document.createElement(
+      "div"
+    );
+
+  grid.className =
+    "calendar-grid";
+
+
+  [
+    "D",
+    "S",
+    "T",
+    "Q",
+    "Q",
+    "S",
+    "S"
+  ].forEach(
+    nome => {
+
+      const el =
+        document.createElement(
+          "div"
+        );
+
+      el.className =
+        "weekday";
+
+      el.textContent =
+        nome;
+
+      grid.appendChild(
+        el
+      );
     }
+  );
+
+
+  const primeiroDia =
+    new Date(
+      mes.getFullYear(),
+      mes.getMonth(),
+      1
+    );
+
+
+  const quantidadeDias =
+    new Date(
+      mes.getFullYear(),
+      mes.getMonth() + 1,
+      0
+    ).getDate();
+
+
+  for (
+    let i = 0;
+    i < primeiroDia.getDay();
+    i++
+  ) {
+
+    const vazio =
+      document.createElement(
+        "div"
+      );
+
+    grid.appendChild(
+      vazio
+    );
+  }
+
+
+  for (
+    let numero = 1;
+    numero <= quantidadeDias;
+    numero++
+  ) {
+
+    const date =
+      new Date(
+        mes.getFullYear(),
+        mes.getMonth(),
+        numero
+      );
+
+
+    date.setHours(
+      0,
+      0,
+      0,
+      0
+    );
+
+
+    const bloqueado =
+      ehFimDeSemana(
+        date
+      ) ||
+      date.getTime() <
+        minimo.getTime();
 
 
     if (
-      data.status ===
-        "expirado" ||
-      data.status ===
-        "cancelado"
+      bloqueado
     ) {
 
-      mostrarExpirado();
+      const el =
+        document.createElement(
+          "div"
+        );
 
-      return data;
+      el.className =
+        "day disabled";
+
+      el.textContent =
+        String(
+          numero
+        );
+
+      grid.appendChild(
+        el
+      );
+
+      continue;
     }
 
 
-    return data;
+    const button =
+      document.createElement(
+        "button"
+      );
+
+    button.type =
+      "button";
+
+    button.className =
+      "day";
+
+    button.textContent =
+      String(
+        numero
+      );
+
+
+    const iso =
+      dataISO(
+        date
+      );
+
+
+    if (
+      iso ===
+      dataEscolhida
+    ) {
+
+      button.classList.add(
+        "selected"
+      );
+    }
+
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        selecionarData(
+          iso,
+          button
+        );
+
+      }
+    );
+
+
+    grid.appendChild(
+      button
+    );
+  }
+
+
+  box.appendChild(
+    grid
+  );
+
+
+  return box;
+}
+
+
+/* ============================================================
+   CONSULTA DE DISPONIBILIDADE
+============================================================ */
+
+async function selecionarData(
+  iso,
+  button
+) {
+
+  if (
+    reservaEmAndamento
+  ) {
+    return;
+  }
+
+
+  dataEscolhida =
+    iso;
+
+  horaEscolhida =
+    "";
+
+
+  document
+    .querySelectorAll(
+      ".day.selected"
+    )
+    .forEach(
+      el => {
+
+        el.classList
+          .remove(
+            "selected"
+          );
+
+      }
+    );
+
+
+  button.classList.add(
+    "selected"
+  );
+
+
+  slots.hidden =
+    false;
+
+  summaryCard.hidden =
+    true;
+
+  continueButton.disabled =
+    true;
+
+  slotGroups.innerHTML =
+    "";
+
+
+  selectedDateLabel.textContent =
+    formatarData(
+      iso
+    );
+
+
+  mostrarStatus(
+    slotStatus,
+    "Consultando horários disponíveis..."
+  );
+
+
+  try {
+
+    const response =
+      await fetch(
+        ROTA_DISPONIBILIDADE,
+        {
+          method:
+            "POST",
+
+          headers: {
+            "Content-Type":
+              "application/json"
+          },
+
+          body:
+            JSON.stringify(
+              {
+                data:
+                  iso
+              }
+            )
+        }
+      );
+
+
+    const data =
+      await response
+        .json()
+        .catch(
+          () => ({})
+        );
+
+
+    if (
+      !response.ok ||
+      data.sucesso === false
+    ) {
+
+      throw new Error(
+        data.erro ||
+        "Não foi possível consultar a disponibilidade."
+      );
+    }
+
+
+    const disponiveis =
+      Array.isArray(
+        data.horarios_disponiveis
+      )
+        ? data.horarios_disponiveis
+        : [];
+
+
+    renderizarHorarios(
+      disponiveis
+    );
 
   } catch (
     error
   ) {
 
-    if (!silencioso) {
+    slotGroups.innerHTML =
+      "";
 
-      mostrarErro(
-        error.message ||
-        "Não foi possível consultar a solicitação."
-      );
-    }
-
-
-    return null;
+    mostrarStatus(
+      slotStatus,
+      error.message ||
+      "Não foi possível consultar os horários neste momento.",
+      "error"
+    );
   }
 }
 
 
 /* ============================================================
-   RESUMO
+   HORÁRIOS
 ============================================================ */
 
-function atualizarResumo(
-  data
+function renderizarHorarios(
+  disponiveis
 ) {
 
-  document.getElementById(
-    "protocolView"
-  ).textContent =
-    protocolo;
+  slotGroups.innerHTML =
+    "";
 
 
-  document.getElementById(
-    "modeView"
-  ).textContent =
-    modalidadeLabel(
-      data.modalidade
+  const manha =
+    HORARIOS_MANHA.filter(
+      hora =>
+        disponiveis.includes(
+          hora
+        )
     );
 
 
-  const inicio =
-    separarInicio(
-      data.inicio
+  const tarde =
+    HORARIOS_TARDE.filter(
+      hora =>
+        disponiveis.includes(
+          hora
+        )
     );
 
 
-  document.getElementById(
-    "dateView"
-  ).textContent =
-    inicio.data;
+  /*
+   * Mantém o comportamento da versão anterior:
+   * oferece até um horário no período da manhã
+   * e até um horário no período da tarde.
+   */
 
-
-  document.getElementById(
-    "timeView"
-  ).textContent =
-    inicio.hora;
-
-
-  statusView.textContent =
-    statusLabel(
-      data.status
-    );
-
-
-  expiraEm =
-    data.expira_em ||
-    expiraEm;
-}
-
-
-/* ============================================================
-   CARREGA PIX
-============================================================ */
-
-async function carregarPix() {
-
-  const url =
-    ROTA_PIX +
-    "?protocolo=" +
-    encodeURIComponent(
-      protocolo
-    ) +
-    "&token=" +
-    encodeURIComponent(
-      token
-    );
-
-
-  const response =
-    await fetch(
-      url,
-      {
-        cache:
-          "no-store"
-      }
-    );
-
-
-  const data =
-    await response
-      .json()
-      .catch(
-        () => ({})
-      );
+  const grupos =
+    [];
 
 
   if (
-    response.status ===
-      410
+    manha.length
   ) {
 
-    mostrarExpirado();
+    grupos.push(
+      {
+        titulo:
+          "Manhã",
+
+        horarios:
+          [
+            manha[0]
+          ]
+      }
+    );
+  }
+
+
+  if (
+    tarde.length
+  ) {
+
+    grupos.push(
+      {
+        titulo:
+          "Tarde",
+
+        horarios:
+          [
+            tarde[0]
+          ]
+      }
+    );
+  }
+
+
+  if (
+    !grupos.length
+  ) {
+
+    mostrarStatus(
+      slotStatus,
+      "Não há horários disponíveis neste dia. Escolha outra data."
+    );
 
     return;
   }
 
 
-  if (
-    !response.ok ||
-    data.sucesso === false
-  ) {
-
-    throw new Error(
-      data.erro ||
-      "Não foi possível carregar a cobrança PIX."
-    );
-  }
+  mostrarStatus(
+    slotStatus,
+    ""
+  );
 
 
-  const qr =
-    data.pix?.qr_code_base64 ||
-    "";
+  grupos.forEach(
+    grupo => {
+
+      const period =
+        document.createElement(
+          "div"
+        );
+
+      period.className =
+        "period";
 
 
-  const copiaCola =
-    data.pix?.copia_e_cola ||
-    "";
+      const titulo =
+        document.createElement(
+          "p"
+        );
+
+      titulo.className =
+        "period-title";
+
+      titulo.textContent =
+        grupo.titulo;
 
 
-  if (
-    !qr ||
-    !copiaCola
-  ) {
+      const lista =
+        document.createElement(
+          "div"
+        );
 
-    throw new Error(
-      "A cobrança PIX não retornou os dados necessários."
-    );
-  }
+      lista.className =
+        "slot-list";
 
 
-  qrImage.src =
-    "data:image/png;base64," +
-    qr;
+      grupo.horarios
+        .forEach(
+          hora => {
+
+            const button =
+              document.createElement(
+                "button"
+              );
+
+            button.type =
+              "button";
+
+            button.className =
+              "slot";
+
+            button.textContent =
+              hora;
 
 
-  pixCode.value =
-    copiaCola;
+            button.addEventListener(
+              "click",
+              () => {
+
+                selecionarHorario(
+                  hora,
+                  button
+                );
+
+              }
+            );
 
 
-  expiraEm =
-    data.expira_em ||
-    expiraEm;
+            lista.appendChild(
+              button
+            );
+          }
+        );
 
 
-  iniciarCountdown();
-
-
-  loading.hidden =
-    true;
-
-  errorBox.hidden =
-    true;
-
-  paymentContent.hidden =
-    false;
-}
-
-
-/* ============================================================
-   COUNTDOWN
-============================================================ */
-
-function iniciarCountdown() {
-
-  if (
-    timerCountdown
-  ) {
-
-    clearInterval(
-      timerCountdown
-    );
-  }
-
-
-  function atualizar() {
-
-    if (
-      !expiraEm
-    ) {
-
-      countdown.textContent =
-        "--:--";
-
-      return;
-    }
-
-
-    const fim =
-      new Date(
-        expiraEm
-      ).getTime();
-
-
-    const agora =
-      Date.now();
-
-
-    const restante =
-      Math.max(
-        0,
-        fim - agora
+      period.appendChild(
+        titulo
       );
 
-
-    const totalSegundos =
-      Math.floor(
-        restante /
-        1000
+      period.appendChild(
+        lista
       );
 
-
-    const minutos =
-      Math.floor(
-        totalSegundos /
-        60
-      );
-
-
-    const segundos =
-      totalSegundos %
-      60;
-
-
-    countdown.textContent =
-      String(
-        minutos
-      ).padStart(
-        2,
-        "0"
-      ) +
-      ":" +
-      String(
-        segundos
-      ).padStart(
-        2,
-        "0"
-      );
-
-
-    if (
-      restante <= 0
-    ) {
-
-      clearInterval(
-        timerCountdown
-      );
-
-
-      setTimeout(
-        () => {
-          consultarStatus(
-            true
-          );
-        },
-        1200
+      slotGroups.appendChild(
+        period
       );
     }
-  }
-
-
-  atualizar();
-
-
-  timerCountdown =
-    setInterval(
-      atualizar,
-      1000
-    );
+  );
 }
 
 
 /* ============================================================
-   POLLING DO PAGAMENTO
+   SELEÇÃO DO HORÁRIO
 ============================================================ */
 
-function iniciarPolling() {
-
-  if (
-    timerStatus
-  ) {
-
-    clearInterval(
-      timerStatus
-    );
-  }
-
-
-  timerStatus =
-    setInterval(
-      async () => {
-
-        if (
-          document.hidden
-        ) {
-          return;
-        }
-
-
-        const data =
-          await consultarStatus(
-            true
-          );
-
-
-        if (
-          !data
-        ) {
-          return;
-        }
-
-
-        if (
-          data.status ===
-            "confirmado" ||
-          data.status ===
-            "expirado" ||
-          data.status ===
-            "cancelado"
-        ) {
-
-          clearInterval(
-            timerStatus
-          );
-        }
-
-      },
-      5000
-    );
-}
-
-
-/* ============================================================
-   CONFIRMADO
-============================================================ */
-
-function mostrarConfirmado(
-  data
+function selecionarHorario(
+  hora,
+  button
 ) {
 
   if (
-    timerCountdown
+    reservaEmAndamento
   ) {
-
-    clearInterval(
-      timerCountdown
-    );
+    return;
   }
 
 
-  if (
-    timerStatus
-  ) {
+  horaEscolhida =
+    hora;
 
-    clearInterval(
-      timerStatus
+
+  document
+    .querySelectorAll(
+      ".slot.selected"
+    )
+    .forEach(
+      item => {
+
+        item.classList
+          .remove(
+            "selected"
+          );
+
+      }
     );
-  }
 
 
-  loading.hidden =
-    true;
-
-  paymentContent.hidden =
-    true;
-
-  expiredContent.hidden =
-    true;
-
-  errorBox.hidden =
-    true;
-
-  confirmedContent.hidden =
-    false;
+  button.classList.add(
+    "selected"
+  );
 
 
-  document.getElementById(
-    "pageTitle"
-  ).textContent =
-    "Atendimento confirmado";
-
-
-  document.getElementById(
-    "pageIntro"
-  ).textContent =
-    "O pagamento foi identificado e o atendimento foi confirmado.";
-
-
-  document.getElementById(
-    "confirmedProtocol"
-  ).textContent =
-    protocolo;
-
-
-  document.getElementById(
-    "confirmedMode"
-  ).textContent =
+  summaryMode.textContent =
     modalidadeLabel(
-      data.modalidade
+      modalidade
     );
 
 
-  const inicio =
-    separarInicio(
-      data.inicio
+  summaryDate.textContent =
+    formatarData(
+      dataEscolhida
     );
 
 
-  document.getElementById(
-    "confirmedDate"
-  ).textContent =
-    inicio.data +
-    (
-      inicio.hora
-        ? " às " +
-          inicio.hora
-        : ""
-    );
-}
+  summaryTime.textContent =
+    horaEscolhida;
 
 
-/* ============================================================
-   EXPIRADO
-============================================================ */
-
-function mostrarExpirado() {
-
-  if (
-    timerCountdown
-  ) {
-
-    clearInterval(
-      timerCountdown
-    );
-  }
-
-
-  if (
-    timerStatus
-  ) {
-
-    clearInterval(
-      timerStatus
-    );
-  }
-
-
-  loading.hidden =
-    true;
-
-  paymentContent.hidden =
-    true;
-
-  confirmedContent.hidden =
-    true;
-
-  errorBox.hidden =
-    true;
-
-  expiredContent.hidden =
+  summaryCard.hidden =
     false;
 
 
-  document.getElementById(
-    "pageTitle"
-  ).textContent =
-    "Prazo encerrado";
+  continueButton.disabled =
+    !(
+      protocolo &&
+      modalidade &&
+      dataEscolhida &&
+      horaEscolhida &&
+      Number.isFinite(
+        valorAtendimento
+      )
+    );
 
 
-  document.getElementById(
-    "pageIntro"
-  ).textContent =
-    "O horário solicitado foi liberado porque o pagamento não foi identificado dentro do prazo.";
+  summaryCard
+    .scrollIntoView(
+      {
+        behavior:
+          "smooth",
+
+        block:
+          "start"
+      }
+    );
 }
 
 
 /* ============================================================
-   COPIAR PIX
+   PRÉ-RESERVA + CRIAÇÃO DO PIX
 ============================================================ */
 
-copyBtn.addEventListener(
+continueButton.addEventListener(
   "click",
   async () => {
 
-    const texto =
-      pixCode.value;
-
-
-    if (!texto) {
+    if (
+      reservaEmAndamento
+    ) {
       return;
     }
+
+
+    if (
+      !protocolo ||
+      !modalidade ||
+      !dataEscolhida ||
+      !horaEscolhida
+    ) {
+
+      mostrarStatus(
+        reserveStatus,
+        "Escolha modalidade, data e horário antes de prosseguir.",
+        "error"
+      );
+
+      return;
+    }
+
+
+    reservaEmAndamento =
+      true;
+
+
+    continueButton.disabled =
+      true;
+
+    continueButton.textContent =
+      "GERANDO PIX...";
+
+
+    mostrarStatus(
+      reserveStatus,
+      "Reservando provisoriamente o horário e preparando o pagamento."
+    );
 
 
     try {
 
-      await navigator
-        .clipboard
-        .writeText(
-          texto
+      const response =
+        await fetch(
+          ROTA_PRERESERVAR,
+          {
+            method:
+              "POST",
+
+            headers: {
+              "Content-Type":
+                "application/json"
+            },
+
+            body:
+              JSON.stringify(
+                {
+                  protocolo:
+                    protocolo,
+
+                  modalidade:
+                    modalidade,
+
+                  data:
+                    dataEscolhida,
+
+                  hora:
+                    horaEscolhida
+                }
+              )
+          }
         );
 
-    } catch {
 
-      pixCode.focus();
+      const data =
+        await response
+          .json()
+          .catch(
+            () => ({})
+          );
 
-      pixCode.select();
 
-      document.execCommand(
-        "copy"
+      if (
+        !response.ok ||
+        data.sucesso === false
+      ) {
+
+        throw new Error(
+          data.erro ||
+          "Não foi possível reservar o horário."
+        );
+      }
+
+
+      const protocoloFinal =
+        (
+          data.protocolo ||
+          protocolo
+        ).trim();
+
+
+      const token =
+        (
+          data.retomar_token ||
+          ""
+        ).trim();
+
+
+      if (
+        !token
+      ) {
+
+        throw new Error(
+          "A reserva foi criada, mas o código de acesso ao pagamento não foi retornado."
+        );
+      }
+
+
+      try {
+
+        sessionStorage.setItem(
+          "analiseLegalPagamento",
+          JSON.stringify(
+            {
+              protocolo:
+                protocoloFinal,
+
+              token:
+                token,
+
+              modalidade:
+                modalidade,
+
+              data:
+                dataEscolhida,
+
+              hora:
+                horaEscolhida,
+
+              expiraEm:
+                data.expira_em ||
+                ""
+            }
+          )
+        );
+
+      } catch {
+
+        /* sessionStorage não é obrigatório */
+      }
+
+
+      mostrarStatus(
+        reserveStatus,
+        "Horário reservado provisoriamente. Abrindo o pagamento...",
+        "success"
+      );
+
+
+      const destino =
+        PAGAMENTO_URL +
+        "?protocolo=" +
+        encodeURIComponent(
+          protocoloFinal
+        ) +
+        "&token=" +
+        encodeURIComponent(
+          token
+        );
+
+
+      window.location.href =
+        destino;
+
+    } catch (
+      error
+    ) {
+
+      reservaEmAndamento =
+        false;
+
+
+      continueButton.disabled =
+        false;
+
+      continueButton.textContent =
+        "CONTINUAR PARA PAGAMENTO";
+
+
+      mostrarStatus(
+        reserveStatus,
+        error.message ||
+        "Não foi possível concluir a reserva provisória. Tente novamente.",
+        "error"
       );
     }
 
-
-    const original =
-      copyBtn.textContent;
-
-
-    copyBtn.textContent =
-      "CÓDIGO COPIADO";
-
-
-    setTimeout(
-      () => {
-
-        copyBtn.textContent =
-          original;
-
-      },
-      1800
-    );
-  }
-);
-
-
-/* ============================================================
-   ATUALIZAÇÃO MANUAL
-============================================================ */
-
-refreshBtn.addEventListener(
-  "click",
-  async () => {
-
-    refreshBtn.disabled =
-      true;
-
-    refreshBtn.textContent =
-      "VERIFICANDO...";
-
-
-    await consultarStatus(
-      false
-    );
-
-
-    refreshBtn.disabled =
-      false;
-
-    refreshBtn.textContent =
-      "VERIFICAR PAGAMENTO";
   }
 );
 
@@ -2224,80 +2664,67 @@ refreshBtn.addEventListener(
 
 async function iniciar() {
 
+  protocolView.textContent =
+    protocolo ||
+    "não identificado";
+
+
   if (
-    !protocolo ||
-    !token
+    !protocolo
   ) {
 
-    mostrarErro(
-      "Não foi possível identificar esta solicitação. Utilize o link gerado ao final do preenchimento."
-    );
+    initialError.hidden =
+      false;
+
+    initialError.textContent =
+      "Não foi possível identificar a solicitação. Retorne ao formulário e conclua o preenchimento antes de acessar o agendamento.";
+
+
+    document
+      .querySelectorAll(
+        ".mode"
+      )
+      .forEach(
+        button => {
+
+          button.disabled =
+            true;
+
+        }
+      );
+
 
     return;
   }
 
 
-  document.getElementById(
-    "protocolView"
-  ).textContent =
-    protocolo;
+  /*
+   * tokenRetomada pode existir quando o usuário retorna
+   * pelo link enviado após a expiração de uma reserva.
+   *
+   * A escolha de nova data permanece vinculada ao mesmo
+   * protocolo.
+   */
+
+  if (
+    tokenRetomada
+  ) {
+
+    try {
+
+      sessionStorage.setItem(
+        "analiseLegalRetomadaToken",
+        tokenRetomada
+      );
+
+    } catch {
+
+      /* não bloqueia */
+    }
+  }
 
 
   await carregarValor();
-
-
-  const status =
-    await consultarStatus(
-      false
-    );
-
-
-  if (!status) {
-    return;
-  }
-
-
-  if (
-    status.status ===
-    "confirmado"
-  ) {
-
-    mostrarConfirmado(
-      status
-    );
-
-    return;
-  }
-
-
-  if (
-    status.status ===
-      "expirado" ||
-    status.status ===
-      "cancelado"
-  ) {
-
-    mostrarExpirado();
-
-    return;
-  }
-
-
-  try {
-
-    await carregarPix();
-
-    iniciarPolling();
-
-  } catch (
-    error
-  ) {
-
-    mostrarErro(
-      error.message ||
-      "Não foi possível carregar a cobrança PIX."
-    );
-  }
 }
 
 
