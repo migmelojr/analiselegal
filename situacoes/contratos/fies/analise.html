@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -71,6 +70,9 @@
     body {
       margin: 0;
       min-width: 320px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
       font-family: "Crimson Text", Georgia, "Times New Roman", serif;
       color: var(--ink);
       background: var(--paper);
@@ -296,6 +298,7 @@
     }
 
     .analysis-main {
+      flex: 1 0 auto;
       background: var(--soft);
       border-top: 1px solid var(--line-soft);
       padding: 44px 0 62px;
@@ -950,6 +953,8 @@
     .mobile-prefooter-nav { display: none; }
 
     .site-footer {
+      flex: 0 0 auto;
+      margin-top: auto;
       min-height: var(--footer-h);
       background: var(--green);
       color: #fff;
@@ -1123,11 +1128,107 @@
       .analysis-main,
       .mobile-prefooter-nav,
       .site-footer { display: none !important; }
-      body { background: #fff !important; color: #111 !important; }
-      .print-only { display: block !important; width: 100%; }
-      .print-only h1 { font-size: 24pt; margin: 0 0 14px; }
-      .print-only h2 { font-size: 14pt; margin: 18px 0 6px; }
-      .print-only p { font-size: 11pt; line-height: 1.5; margin: 5px 0; }
+
+      body {
+        display: block !important;
+        min-height: auto !important;
+        background: #fff !important;
+        color: #111 !important;
+      }
+
+      .print-only {
+        display: block !important;
+        width: 100%;
+      }
+
+      .print-only h1 {
+        margin: 0 0 8px;
+        font-size: 23pt;
+        line-height: 1.08;
+      }
+
+      .print-only h2 {
+        margin: 18px 0 6px;
+        font-size: 14pt;
+      }
+
+      .print-only p {
+        margin: 5px 0;
+        font-size: 10.5pt;
+        line-height: 1.45;
+      }
+
+      .print-request-kicker {
+        margin: 0 0 4px !important;
+        color: #315f5d;
+        font-size: 10pt !important;
+        font-style: italic;
+        font-weight: 700;
+      }
+
+      .print-request-lead {
+        margin: 0 0 16px !important;
+      }
+
+      .print-request-meta {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10mm;
+        margin: 16px 0 18px;
+        padding: 10px 0 11px;
+        border-top: 1.5px solid #073d3a;
+        border-bottom: 1px solid #9fb4b2;
+      }
+
+      .print-request-meta .label {
+        margin: 0 0 3px;
+        color: #666;
+        font-size: 8.5pt;
+        line-height: 1.1;
+        font-style: italic;
+      }
+
+      .print-request-meta .value {
+        margin: 0;
+        font-size: 10.5pt;
+        line-height: 1.2;
+        font-weight: 700;
+        overflow-wrap: anywhere;
+      }
+
+      .print-price-box {
+        margin: 0 0 20px;
+        padding: 12px 14px;
+        border-left: 2px solid #073d3a;
+        background: #f5f7f6;
+      }
+
+      .print-price-box .label {
+        margin: 0;
+        color: #315f5d;
+        font-size: 9pt;
+        font-style: italic;
+        font-weight: 700;
+      }
+
+      .print-price-box .amount {
+        margin: 2px 0 6px;
+        font-size: 17pt;
+        line-height: 1;
+        font-weight: 700;
+      }
+
+      .print-price-box .description {
+        margin: 0;
+        font-size: 9.5pt;
+        line-height: 1.4;
+      }
+
+      .print-summary-title {
+        margin-top: 22px !important;
+        padding-top: 16px;
+        border-top: 1px solid #999;
+      }
     }
   </style>
 </head>
@@ -1730,8 +1831,40 @@
   </main>
 
   <section class="print-only">
-    <img src="/assets/img/Marca.svg" alt="Análise Legal" style="width:250px;margin-bottom:24px;">
-    <h1>Resumo das informações — Renegociação do FIES</h1>
+    <img src="/assets/img/Marca.svg" alt="Análise Legal" style="width:250px;margin-bottom:22px;">
+
+    <div x-show="bookingSubmitted">
+      <p class="print-request-kicker">Solicitação registrada</p>
+      <h1>Agora, acompanhe seu e-mail.</h1>
+      <p class="print-request-lead"><strong x-text="primeiroNome"></strong><span x-show="primeiroNome">, </span>confira o endereço informado: <strong x-text="formData.email"></strong>. Você receberá as instruções para pagamento e confirmação do horário solicitado.</p>
+
+      <div class="print-request-meta">
+        <div>
+          <p class="label">Modalidade</p>
+          <p class="value" x-text="formData.modalidade === 'presencial' ? 'Presencial em Brasília' : 'Online'"></p>
+        </div>
+        <div>
+          <p class="label">Data solicitada</p>
+          <p class="value" x-text="formatDateBR(preferredDate)"></p>
+        </div>
+        <div>
+          <p class="label">Horário solicitado</p>
+          <p class="value" x-text="preferredHour"></p>
+        </div>
+        <div>
+          <p class="label">Referência</p>
+          <p class="value" x-text="externalRef || 'registrada'"></p>
+        </div>
+      </div>
+
+      <div class="print-price-box">
+        <p class="label">Valor da análise</p>
+        <p class="amount" x-text="analysisPriceLabel"></p>
+        <p class="description">O valor inclui o atendimento individual na modalidade escolhida, com duração de até 1 hora, a análise das informações e dos documentos disponibilizados e, se necessária, uma devolutiva de até 1 hora, também na modalidade escolhida.</p>
+      </div>
+    </div>
+
+    <h1 class="print-summary-title">Resumo das informações — Renegociação do FIES</h1>
 
     <h2>O que aconteceu no início</h2>
     <p x-text="summaryStart()"></p>
