@@ -1,0 +1,2310 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="robots"
+    content="noindex,nofollow,noarchive"
+  >
+
+  <meta
+    name="theme-color"
+    content="#073d3a"
+  >
+
+  <title>Pagamento | Análise Legal</title>
+
+  <link
+    rel="preload"
+    href="/assets/img/Marca.svg"
+    as="image"
+    type="image/svg+xml"
+  >
+
+  <style>
+    :root {
+      --green: #073d3a;
+      --green-dark: #043330;
+      --green-soft: #315f5d;
+
+      --ink: #302f30;
+      --muted: #6f7472;
+
+      --line: #d9dfdc;
+      --line-strong: #c8d5d3;
+
+      --paper: #ffffff;
+      --soft: #f7f7f4;
+
+      --success: #0b624f;
+      --success-soft: #e8f4ef;
+
+      --warning: #8a651f;
+      --warning-soft: #fbf4df;
+
+      --danger: #8e3434;
+      --danger-soft: #fbefef;
+
+      --shadow:
+        0 14px 38px rgba(7, 61, 58, .07);
+
+      --radius: 16px;
+
+      --font:
+        Georgia,
+        "Times New Roman",
+        serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--soft);
+      color: var(--ink);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      background: var(--soft);
+
+      color: var(--ink);
+
+      font-family: var(--font);
+
+      font-size: 17px;
+      line-height: 1.48;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    .page {
+      min-height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topbar {
+      background: #fff;
+
+      border-bottom:
+        1px solid var(--line);
+    }
+
+    .topbar-inner {
+      width:
+        min(
+          1120px,
+          calc(100% - 32px)
+        );
+
+      min-height: 84px;
+
+      margin:
+        0 auto;
+
+      display: flex;
+      align-items: center;
+    }
+
+    .brand {
+      display: block;
+
+      width: 205px;
+    }
+
+    .brand img {
+      display: block;
+
+      width: 100%;
+      height: auto;
+    }
+
+    main {
+      flex: 1;
+
+      width:
+        min(
+          1020px,
+          calc(100% - 32px)
+        );
+
+      margin:
+        0 auto;
+
+      padding:
+        42px 0 56px;
+    }
+
+    .eyebrow {
+      margin:
+        0 0 8px;
+
+      color:
+        var(--green);
+
+      font-size:
+        12px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        .08em;
+
+      text-transform:
+        uppercase;
+    }
+
+    h1 {
+      margin:
+        0;
+
+      color:
+        var(--green-dark);
+
+      font-size:
+        clamp(
+          29px,
+          5vw,
+          40px
+        );
+
+      line-height:
+        1.08;
+    }
+
+    .intro {
+      max-width:
+        720px;
+
+      margin:
+        12px 0 28px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        17px;
+    }
+
+    .layout {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(300px, 360px);
+
+      gap:
+        22px;
+
+      align-items:
+        start;
+    }
+
+    .card {
+      background:
+        var(--paper);
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        var(--radius);
+
+      box-shadow:
+        var(--shadow);
+
+      overflow:
+        hidden;
+    }
+
+    .card-head {
+      padding:
+        21px 24px 17px;
+
+      border-bottom:
+        1px solid var(--line);
+    }
+
+    .card-head h2 {
+      margin:
+        0;
+
+      color:
+        var(--green-dark);
+
+      font-size:
+        22px;
+    }
+
+    .card-head p {
+      margin:
+        6px 0 0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        14px;
+    }
+
+    .card-body {
+      padding:
+        24px;
+    }
+
+    .status {
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      gap:
+        7px;
+
+      padding:
+        6px 11px;
+
+      border-radius:
+        999px;
+
+      font-size:
+        13px;
+
+      font-weight:
+        700;
+    }
+
+    .status-waiting {
+      color:
+        var(--warning);
+
+      background:
+        var(--warning-soft);
+    }
+
+    .status-success {
+      color:
+        var(--success);
+
+      background:
+        var(--success-soft);
+    }
+
+    .status-error {
+      color:
+        var(--danger);
+
+      background:
+        var(--danger-soft);
+    }
+
+    .summary {
+      display:
+        grid;
+
+      gap:
+        0;
+
+      margin-top:
+        20px;
+
+      border-top:
+        1px solid var(--line);
+    }
+
+    .summary-row {
+      display:
+        grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        auto;
+
+      gap:
+        20px;
+
+      padding:
+        11px 0;
+
+      border-bottom:
+        1px solid var(--line);
+    }
+
+    .summary-row span {
+      color:
+        var(--muted);
+
+      font-size:
+        14px;
+    }
+
+    .summary-row strong {
+      color:
+        var(--green-dark);
+
+      text-align:
+        right;
+
+      font-size:
+        15px;
+    }
+
+    .qr-wrap {
+      display:
+        flex;
+
+      justify-content:
+        center;
+
+      margin:
+        6px 0 20px;
+    }
+
+    .qr {
+      display:
+        block;
+
+      width:
+        min(
+          270px,
+          100%
+        );
+
+      height:
+        auto;
+
+      padding:
+        10px;
+
+      background:
+        #fff;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        12px;
+    }
+
+    .pix-label {
+      margin:
+        0 0 7px;
+
+      color:
+        var(--green-dark);
+
+      font-size:
+        14px;
+
+      font-weight:
+        700;
+    }
+
+    .pix-code {
+      width:
+        100%;
+
+      min-height:
+        92px;
+
+      padding:
+        12px;
+
+      resize:
+        none;
+
+      border:
+        1px solid var(--line-strong);
+
+      border-radius:
+        9px;
+
+      background:
+        var(--soft);
+
+      color:
+        var(--ink);
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size:
+        12px;
+
+      line-height:
+        1.45;
+
+      word-break:
+        break-all;
+    }
+
+    .btn {
+      width:
+        100%;
+
+      margin-top:
+        12px;
+
+      padding:
+        12px 16px;
+
+      border:
+        1px solid var(--green);
+
+      border-radius:
+        9px;
+
+      background:
+        var(--green);
+
+      color:
+        #fff;
+
+      font-weight:
+        700;
+    }
+
+    .btn:hover {
+      background:
+        var(--green-dark);
+
+      border-color:
+        var(--green-dark);
+    }
+
+    .btn-secondary {
+      background:
+        #fff;
+
+      color:
+        var(--green);
+    }
+
+    .btn-secondary:hover {
+      background:
+        var(--soft);
+
+      color:
+        var(--green-dark);
+    }
+
+    .countdown-box {
+      margin-top:
+        18px;
+
+      padding:
+        14px 15px;
+
+      border:
+        1px solid #e3dac6;
+
+      border-radius:
+        10px;
+
+      background:
+        var(--warning-soft);
+
+      color:
+        var(--warning);
+
+      text-align:
+        center;
+    }
+
+    .countdown-box strong {
+      display:
+        block;
+
+      margin-top:
+        3px;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size:
+        25px;
+
+      letter-spacing:
+        .03em;
+    }
+
+    .notice {
+      margin-top:
+        18px;
+
+      padding:
+        13px 15px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        9px;
+
+      background:
+        var(--soft);
+
+      color:
+        var(--muted);
+
+      font-size:
+        14px;
+    }
+
+    .notice.success {
+      border-color:
+        #bdd8cc;
+
+      background:
+        var(--success-soft);
+
+      color:
+        var(--success);
+    }
+
+    .notice.error {
+      border-color:
+        #dababa;
+
+      background:
+        var(--danger-soft);
+
+      color:
+        var(--danger);
+    }
+
+    .confirmed {
+      text-align:
+        center;
+
+      padding:
+        20px 0 6px;
+    }
+
+    .confirmed-icon {
+      width:
+        66px;
+
+      height:
+        66px;
+
+      margin:
+        0 auto 16px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--success-soft);
+
+      color:
+        var(--success);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        36px;
+
+      font-weight:
+        700;
+    }
+
+    .confirmed h2 {
+      margin:
+        0 0 10px;
+
+      color:
+        var(--green-dark);
+
+      font-size:
+        28px;
+    }
+
+    .confirmed p {
+      margin:
+        0 auto 18px;
+
+      max-width:
+        580px;
+
+      color:
+        var(--muted);
+    }
+
+    footer {
+      padding:
+        24px 16px 32px;
+
+      border-top:
+        1px solid var(--line);
+
+      background:
+        #fff;
+
+      text-align:
+        center;
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+    }
+
+    footer a {
+      color:
+        var(--green);
+
+      text-decoration:
+        none;
+    }
+
+    .loading {
+      padding:
+        34px;
+
+      text-align:
+        center;
+
+      color:
+        var(--muted);
+    }
+
+    @media (
+      max-width: 780px
+    ) {
+      .topbar-inner {
+        min-height:
+          74px;
+      }
+
+      .brand {
+        width:
+          174px;
+      }
+
+      main {
+        padding:
+          28px 0 40px;
+      }
+
+      .layout {
+        grid-template-columns:
+          1fr;
+      }
+
+      .summary-row {
+        grid-template-columns:
+          1fr;
+
+        gap:
+          2px;
+      }
+
+      .summary-row strong {
+        text-align:
+          left;
+      }
+
+      .card-head,
+      .card-body {
+        padding-left:
+          18px;
+
+        padding-right:
+          18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <header class="topbar">
+    <div class="topbar-inner">
+
+      <a
+        class="brand"
+        href="/"
+        aria-label="Análise Legal"
+      >
+        <img
+          src="/assets/img/Marca.svg"
+          alt="Análise Legal"
+        >
+      </a>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <p class="eyebrow">
+      Atendimento individual
+    </p>
+
+    <h1 id="pageTitle">
+      Finalize sua solicitação
+    </h1>
+
+    <p
+      class="intro"
+      id="pageIntro"
+    >
+      O horário solicitado será confirmado após a identificação do pagamento.
+    </p>
+
+
+    <div
+      id="loading"
+      class="card loading"
+    >
+      Carregando os dados da solicitação...
+    </div>
+
+
+    <div
+      id="errorBox"
+      class="notice error"
+      hidden
+    ></div>
+
+
+    <div
+      id="paymentContent"
+      class="layout"
+      hidden
+    >
+
+      <section class="card">
+
+        <div class="card-head">
+
+          <h2>
+            Pagamento via PIX
+          </h2>
+
+          <p>
+            Leia o QR Code pelo aplicativo do seu banco ou utilize o código Pix Copia e Cola.
+          </p>
+
+        </div>
+
+
+        <div class="card-body">
+
+          <span
+            id="statusBadge"
+            class="status status-waiting"
+          >
+            Aguardando pagamento
+          </span>
+
+
+          <div class="qr-wrap">
+
+            <img
+              id="qrImage"
+              class="qr"
+              alt="QR Code PIX"
+            >
+
+          </div>
+
+
+          <p class="pix-label">
+            Pix Copia e Cola
+          </p>
+
+          <textarea
+            id="pixCode"
+            class="pix-code"
+            readonly
+          ></textarea>
+
+
+          <button
+            id="copyBtn"
+            class="btn"
+            type="button"
+          >
+            COPIAR CÓDIGO PIX
+          </button>
+
+
+          <div
+            id="countdownBox"
+            class="countdown-box"
+          >
+            Pagamento disponível por
+
+            <strong
+              id="countdown"
+            >
+              --:--
+            </strong>
+          </div>
+
+
+          <div class="notice">
+
+            Não é necessário enviar comprovante. A identificação do pagamento é automática.
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <aside class="card">
+
+        <div class="card-head">
+
+          <h2>
+            Sua solicitação
+          </h2>
+
+          <p>
+            Confira os dados antes de efetuar o pagamento.
+          </p>
+
+        </div>
+
+
+        <div class="card-body">
+
+          <div class="summary">
+
+            <div class="summary-row">
+              <span>
+                Referência
+              </span>
+
+              <strong
+                id="protocolView"
+              >
+                —
+              </strong>
+            </div>
+
+
+            <div class="summary-row">
+              <span>
+                Modalidade
+              </span>
+
+              <strong
+                id="modeView"
+              >
+                —
+              </strong>
+            </div>
+
+
+            <div class="summary-row">
+              <span>
+                Data
+              </span>
+
+              <strong
+                id="dateView"
+              >
+                —
+              </strong>
+            </div>
+
+
+            <div class="summary-row">
+              <span>
+                Horário
+              </span>
+
+              <strong
+                id="timeView"
+              >
+                —
+              </strong>
+            </div>
+
+
+            <div class="summary-row">
+              <span>
+                Valor
+              </span>
+
+              <strong
+                id="valueView"
+              >
+                —
+              </strong>
+            </div>
+
+
+            <div class="summary-row">
+              <span>
+                Situação
+              </span>
+
+              <strong
+                id="statusView"
+              >
+                Aguardando pagamento
+              </strong>
+            </div>
+
+          </div>
+
+
+          <button
+            id="refreshBtn"
+            class="btn btn-secondary"
+            type="button"
+          >
+            VERIFICAR PAGAMENTO
+          </button>
+
+        </div>
+
+      </aside>
+
+    </div>
+
+
+    <section
+      id="confirmedContent"
+      class="card"
+      hidden
+    >
+
+      <div class="card-body">
+
+        <div class="confirmed">
+
+          <div class="confirmed-icon">
+            ✓
+          </div>
+
+          <h2>
+            Atendimento confirmado
+          </h2>
+
+          <p>
+            O pagamento foi identificado e a data e o horário foram confirmados.
+          </p>
+
+
+          <div
+            class="summary"
+            style="
+              max-width:560px;
+              margin-left:auto;
+              margin-right:auto;
+              text-align:left;
+            "
+          >
+
+            <div class="summary-row">
+
+              <span>
+                Referência
+              </span>
+
+              <strong
+                id="confirmedProtocol"
+              >
+                —
+              </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+              <span>
+                Modalidade
+              </span>
+
+              <strong
+                id="confirmedMode"
+              >
+                —
+              </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+              <span>
+                Data e horário
+              </span>
+
+              <strong
+                id="confirmedDate"
+              >
+                —
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <div class="notice success">
+
+            A confirmação também será enviada ao e-mail informado na solicitação.
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section
+      id="expiredContent"
+      class="card"
+      hidden
+    >
+
+      <div class="card-body">
+
+        <div class="confirmed">
+
+          <div
+            class="confirmed-icon"
+            style="
+              background:var(--warning-soft);
+              color:var(--warning);
+            "
+          >
+            !
+          </div>
+
+          <h2>
+            Prazo de pagamento encerrado
+          </h2>
+
+          <p>
+            O pagamento não foi identificado dentro do prazo e o horário solicitado foi liberado.
+          </p>
+
+          <div class="notice">
+
+            Seus dados permanecem registrados. Utilize o link enviado por e-mail para retomar a solicitação sem preencher novamente as informações iniciais.
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <p>
+
+      <a href="/privacidade.html">
+        Privacidade
+      </a>
+
+      &nbsp; · &nbsp;
+
+      <a href="/termos-de-uso.html">
+        Termos de uso
+      </a>
+
+      &nbsp; · &nbsp;
+
+      <a href="mailto:contato@analiselegal.com.br">
+        Contato
+      </a>
+
+    </p>
+
+    <p>
+      © 2026 Análise Legal.
+    </p>
+
+  </footer>
+
+</div>
+
+
+<script>
+"use strict";
+
+
+/* ============================================================
+   CONFIGURAÇÃO
+============================================================ */
+
+const WORKER_BASE =
+  "https://analiselegal-formulario.miguel-compras.workers.dev";
+
+const ROTA_PIX =
+  WORKER_BASE +
+  "/pagamento/pix";
+
+const ROTA_STATUS =
+  WORKER_BASE +
+  "/pagamento/status";
+
+const ROTA_VALOR =
+  WORKER_BASE +
+  "/config/valor";
+
+
+/* ============================================================
+   PARÂMETROS
+============================================================ */
+
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
+
+const protocolo =
+  (
+    params.get("protocolo") ||
+    ""
+  ).trim();
+
+const token =
+  (
+    params.get("token") ||
+    ""
+  ).trim();
+
+
+/* ============================================================
+   ESTADO
+============================================================ */
+
+let expiraEm =
+  null;
+
+let timerCountdown =
+  null;
+
+let timerStatus =
+  null;
+
+let ultimoStatus =
+  "";
+
+let dadosStatus =
+  null;
+
+
+/* ============================================================
+   ELEMENTOS
+============================================================ */
+
+const loading =
+  document.getElementById(
+    "loading"
+  );
+
+const errorBox =
+  document.getElementById(
+    "errorBox"
+  );
+
+const paymentContent =
+  document.getElementById(
+    "paymentContent"
+  );
+
+const confirmedContent =
+  document.getElementById(
+    "confirmedContent"
+  );
+
+const expiredContent =
+  document.getElementById(
+    "expiredContent"
+  );
+
+const qrImage =
+  document.getElementById(
+    "qrImage"
+  );
+
+const pixCode =
+  document.getElementById(
+    "pixCode"
+  );
+
+const copyBtn =
+  document.getElementById(
+    "copyBtn"
+  );
+
+const refreshBtn =
+  document.getElementById(
+    "refreshBtn"
+  );
+
+const countdown =
+  document.getElementById(
+    "countdown"
+  );
+
+const countdownBox =
+  document.getElementById(
+    "countdownBox"
+  );
+
+const statusBadge =
+  document.getElementById(
+    "statusBadge"
+  );
+
+const statusView =
+  document.getElementById(
+    "statusView"
+  );
+
+
+/* ============================================================
+   UTILITÁRIOS
+============================================================ */
+
+function mostrarErro(
+  mensagem
+) {
+
+  loading.hidden =
+    true;
+
+  paymentContent.hidden =
+    true;
+
+  confirmedContent.hidden =
+    true;
+
+  expiredContent.hidden =
+    true;
+
+  errorBox.hidden =
+    false;
+
+  errorBox.textContent =
+    mensagem;
+}
+
+
+function formatoValor(
+  valor
+) {
+
+  return Number(
+    valor || 0
+  ).toLocaleString(
+    "pt-BR",
+    {
+      style:
+        "currency",
+
+      currency:
+        "BRL"
+    }
+  );
+}
+
+
+function formatarDataISO(
+  value
+) {
+
+  if (!value) {
+    return "—";
+  }
+
+  const partes =
+    String(value)
+      .split("-");
+
+  if (
+    partes.length !== 3
+  ) {
+    return value;
+  }
+
+  return (
+    partes[2] +
+    "/" +
+    partes[1] +
+    "/" +
+    partes[0]
+  );
+}
+
+
+function separarInicio(
+  inicio
+) {
+
+  if (!inicio) {
+
+    return {
+      data: "—",
+      hora: "—"
+    };
+  }
+
+
+  const valor =
+    String(inicio)
+      .trim();
+
+
+  const match =
+    valor.match(
+      /^(\d{4}-\d{2}-\d{2})\s+(\d{2}:\d{2})/
+    );
+
+
+  if (match) {
+
+    return {
+      data:
+        formatarDataISO(
+          match[1]
+        ),
+
+      hora:
+        match[2]
+    };
+  }
+
+
+  return {
+    data:
+      valor,
+
+    hora:
+      ""
+  };
+}
+
+
+function modalidadeLabel(
+  modalidade
+) {
+
+  return String(
+    modalidade || ""
+  ).toLowerCase() ===
+    "presencial"
+      ? "Presencial"
+      : "Online";
+}
+
+
+function statusLabel(
+  status
+) {
+
+  switch (
+    String(status || "")
+  ) {
+
+    case "confirmado":
+
+      return "Confirmado";
+
+
+    case "expirado":
+
+      return "Prazo encerrado";
+
+
+    case "cancelado":
+
+      return "Cancelado";
+
+
+    case "aguardando_pagamento":
+
+      return "Aguardando pagamento";
+
+
+    case "pre_reservado":
+
+      return "Aguardando pagamento";
+
+
+    default:
+
+      return "Aguardando pagamento";
+  }
+}
+
+
+/* ============================================================
+   CARREGA VALOR
+============================================================ */
+
+async function carregarValor() {
+
+  try {
+
+    const response =
+      await fetch(
+        ROTA_VALOR,
+        {
+          cache:
+            "no-store"
+        }
+      );
+
+
+    if (
+      !response.ok
+    ) {
+      return;
+    }
+
+
+    const data =
+      await response.json();
+
+
+    document.getElementById(
+      "valueView"
+    ).textContent =
+      data.valor_formatado ||
+      formatoValor(
+        data.valor
+      );
+
+  } catch {
+
+    /* não bloqueia */
+  }
+}
+
+
+/* ============================================================
+   CARREGA STATUS
+============================================================ */
+
+async function consultarStatus(
+  silencioso = false
+) {
+
+  try {
+
+    const url =
+      ROTA_STATUS +
+      "?protocolo=" +
+      encodeURIComponent(
+        protocolo
+      ) +
+      "&token=" +
+      encodeURIComponent(
+        token
+      );
+
+
+    const response =
+      await fetch(
+        url,
+        {
+          cache:
+            "no-store"
+        }
+      );
+
+
+    const data =
+      await response
+        .json()
+        .catch(
+          () => ({})
+        );
+
+
+    if (
+      !response.ok ||
+      data.sucesso === false
+    ) {
+
+      if (!silencioso) {
+
+        throw new Error(
+          data.erro ||
+          "Não foi possível consultar a solicitação."
+        );
+      }
+
+      return null;
+    }
+
+
+    dadosStatus =
+      data;
+
+
+    ultimoStatus =
+      data.status ||
+      "";
+
+
+    atualizarResumo(
+      data
+    );
+
+
+    if (
+      data.status ===
+      "confirmado"
+    ) {
+
+      mostrarConfirmado(
+        data
+      );
+
+      return data;
+    }
+
+
+    if (
+      data.status ===
+        "expirado" ||
+      data.status ===
+        "cancelado"
+    ) {
+
+      mostrarExpirado();
+
+      return data;
+    }
+
+
+    return data;
+
+  } catch (
+    error
+  ) {
+
+    if (!silencioso) {
+
+      mostrarErro(
+        error.message ||
+        "Não foi possível consultar a solicitação."
+      );
+    }
+
+
+    return null;
+  }
+}
+
+
+/* ============================================================
+   RESUMO
+============================================================ */
+
+function atualizarResumo(
+  data
+) {
+
+  document.getElementById(
+    "protocolView"
+  ).textContent =
+    protocolo;
+
+
+  document.getElementById(
+    "modeView"
+  ).textContent =
+    modalidadeLabel(
+      data.modalidade
+    );
+
+
+  const inicio =
+    separarInicio(
+      data.inicio
+    );
+
+
+  document.getElementById(
+    "dateView"
+  ).textContent =
+    inicio.data;
+
+
+  document.getElementById(
+    "timeView"
+  ).textContent =
+    inicio.hora;
+
+
+  statusView.textContent =
+    statusLabel(
+      data.status
+    );
+
+
+  expiraEm =
+    data.expira_em ||
+    expiraEm;
+}
+
+
+/* ============================================================
+   CARREGA PIX
+============================================================ */
+
+async function carregarPix() {
+
+  const url =
+    ROTA_PIX +
+    "?protocolo=" +
+    encodeURIComponent(
+      protocolo
+    ) +
+    "&token=" +
+    encodeURIComponent(
+      token
+    );
+
+
+  const response =
+    await fetch(
+      url,
+      {
+        cache:
+          "no-store"
+      }
+    );
+
+
+  const data =
+    await response
+      .json()
+      .catch(
+        () => ({})
+      );
+
+
+  if (
+    response.status ===
+      410
+  ) {
+
+    mostrarExpirado();
+
+    return;
+  }
+
+
+  if (
+    !response.ok ||
+    data.sucesso === false
+  ) {
+
+    throw new Error(
+      data.erro ||
+      "Não foi possível carregar a cobrança PIX."
+    );
+  }
+
+
+  const qr =
+    data.pix?.qr_code_base64 ||
+    "";
+
+
+  const copiaCola =
+    data.pix?.copia_e_cola ||
+    "";
+
+
+  if (
+    !qr ||
+    !copiaCola
+  ) {
+
+    throw new Error(
+      "A cobrança PIX não retornou os dados necessários."
+    );
+  }
+
+
+  qrImage.src =
+    "data:image/png;base64," +
+    qr;
+
+
+  pixCode.value =
+    copiaCola;
+
+
+  expiraEm =
+    data.expira_em ||
+    expiraEm;
+
+
+  iniciarCountdown();
+
+
+  loading.hidden =
+    true;
+
+  errorBox.hidden =
+    true;
+
+  paymentContent.hidden =
+    false;
+}
+
+
+/* ============================================================
+   COUNTDOWN
+============================================================ */
+
+function iniciarCountdown() {
+
+  if (
+    timerCountdown
+  ) {
+
+    clearInterval(
+      timerCountdown
+    );
+  }
+
+
+  function atualizar() {
+
+    if (
+      !expiraEm
+    ) {
+
+      countdown.textContent =
+        "--:--";
+
+      return;
+    }
+
+
+    const fim =
+      new Date(
+        expiraEm
+      ).getTime();
+
+
+    const agora =
+      Date.now();
+
+
+    const restante =
+      Math.max(
+        0,
+        fim - agora
+      );
+
+
+    const totalSegundos =
+      Math.floor(
+        restante /
+        1000
+      );
+
+
+    const minutos =
+      Math.floor(
+        totalSegundos /
+        60
+      );
+
+
+    const segundos =
+      totalSegundos %
+      60;
+
+
+    countdown.textContent =
+      String(
+        minutos
+      ).padStart(
+        2,
+        "0"
+      ) +
+      ":" +
+      String(
+        segundos
+      ).padStart(
+        2,
+        "0"
+      );
+
+
+    if (
+      restante <= 0
+    ) {
+
+      clearInterval(
+        timerCountdown
+      );
+
+
+      setTimeout(
+        () => {
+          consultarStatus(
+            true
+          );
+        },
+        1200
+      );
+    }
+  }
+
+
+  atualizar();
+
+
+  timerCountdown =
+    setInterval(
+      atualizar,
+      1000
+    );
+}
+
+
+/* ============================================================
+   POLLING DO PAGAMENTO
+============================================================ */
+
+function iniciarPolling() {
+
+  if (
+    timerStatus
+  ) {
+
+    clearInterval(
+      timerStatus
+    );
+  }
+
+
+  timerStatus =
+    setInterval(
+      async () => {
+
+        if (
+          document.hidden
+        ) {
+          return;
+        }
+
+
+        const data =
+          await consultarStatus(
+            true
+          );
+
+
+        if (
+          !data
+        ) {
+          return;
+        }
+
+
+        if (
+          data.status ===
+            "confirmado" ||
+          data.status ===
+            "expirado" ||
+          data.status ===
+            "cancelado"
+        ) {
+
+          clearInterval(
+            timerStatus
+          );
+        }
+
+      },
+      5000
+    );
+}
+
+
+/* ============================================================
+   CONFIRMADO
+============================================================ */
+
+function mostrarConfirmado(
+  data
+) {
+
+  if (
+    timerCountdown
+  ) {
+
+    clearInterval(
+      timerCountdown
+    );
+  }
+
+
+  if (
+    timerStatus
+  ) {
+
+    clearInterval(
+      timerStatus
+    );
+  }
+
+
+  loading.hidden =
+    true;
+
+  paymentContent.hidden =
+    true;
+
+  expiredContent.hidden =
+    true;
+
+  errorBox.hidden =
+    true;
+
+  confirmedContent.hidden =
+    false;
+
+
+  document.getElementById(
+    "pageTitle"
+  ).textContent =
+    "Atendimento confirmado";
+
+
+  document.getElementById(
+    "pageIntro"
+  ).textContent =
+    "O pagamento foi identificado e o atendimento foi confirmado.";
+
+
+  document.getElementById(
+    "confirmedProtocol"
+  ).textContent =
+    protocolo;
+
+
+  document.getElementById(
+    "confirmedMode"
+  ).textContent =
+    modalidadeLabel(
+      data.modalidade
+    );
+
+
+  const inicio =
+    separarInicio(
+      data.inicio
+    );
+
+
+  document.getElementById(
+    "confirmedDate"
+  ).textContent =
+    inicio.data +
+    (
+      inicio.hora
+        ? " às " +
+          inicio.hora
+        : ""
+    );
+}
+
+
+/* ============================================================
+   EXPIRADO
+============================================================ */
+
+function mostrarExpirado() {
+
+  if (
+    timerCountdown
+  ) {
+
+    clearInterval(
+      timerCountdown
+    );
+  }
+
+
+  if (
+    timerStatus
+  ) {
+
+    clearInterval(
+      timerStatus
+    );
+  }
+
+
+  loading.hidden =
+    true;
+
+  paymentContent.hidden =
+    true;
+
+  confirmedContent.hidden =
+    true;
+
+  errorBox.hidden =
+    true;
+
+  expiredContent.hidden =
+    false;
+
+
+  document.getElementById(
+    "pageTitle"
+  ).textContent =
+    "Prazo encerrado";
+
+
+  document.getElementById(
+    "pageIntro"
+  ).textContent =
+    "O horário solicitado foi liberado porque o pagamento não foi identificado dentro do prazo.";
+}
+
+
+/* ============================================================
+   COPIAR PIX
+============================================================ */
+
+copyBtn.addEventListener(
+  "click",
+  async () => {
+
+    const texto =
+      pixCode.value;
+
+
+    if (!texto) {
+      return;
+    }
+
+
+    try {
+
+      await navigator
+        .clipboard
+        .writeText(
+          texto
+        );
+
+    } catch {
+
+      pixCode.focus();
+
+      pixCode.select();
+
+      document.execCommand(
+        "copy"
+      );
+    }
+
+
+    const original =
+      copyBtn.textContent;
+
+
+    copyBtn.textContent =
+      "CÓDIGO COPIADO";
+
+
+    setTimeout(
+      () => {
+
+        copyBtn.textContent =
+          original;
+
+      },
+      1800
+    );
+  }
+);
+
+
+/* ============================================================
+   ATUALIZAÇÃO MANUAL
+============================================================ */
+
+refreshBtn.addEventListener(
+  "click",
+  async () => {
+
+    refreshBtn.disabled =
+      true;
+
+    refreshBtn.textContent =
+      "VERIFICANDO...";
+
+
+    await consultarStatus(
+      false
+    );
+
+
+    refreshBtn.disabled =
+      false;
+
+    refreshBtn.textContent =
+      "VERIFICAR PAGAMENTO";
+  }
+);
+
+
+/* ============================================================
+   INICIALIZAÇÃO
+============================================================ */
+
+async function iniciar() {
+
+  if (
+    !protocolo ||
+    !token
+  ) {
+
+    mostrarErro(
+      "Não foi possível identificar esta solicitação. Utilize o link gerado ao final do preenchimento."
+    );
+
+    return;
+  }
+
+
+  document.getElementById(
+    "protocolView"
+  ).textContent =
+    protocolo;
+
+
+  await carregarValor();
+
+
+  const status =
+    await consultarStatus(
+      false
+    );
+
+
+  if (!status) {
+    return;
+  }
+
+
+  if (
+    status.status ===
+    "confirmado"
+  ) {
+
+    mostrarConfirmado(
+      status
+    );
+
+    return;
+  }
+
+
+  if (
+    status.status ===
+      "expirado" ||
+    status.status ===
+      "cancelado"
+  ) {
+
+    mostrarExpirado();
+
+    return;
+  }
+
+
+  try {
+
+    await carregarPix();
+
+    iniciarPolling();
+
+  } catch (
+    error
+  ) {
+
+    mostrarErro(
+      error.message ||
+      "Não foi possível carregar a cobrança PIX."
+    );
+  }
+}
+
+
+iniciar();
+
+</script>
+
+</body>
+
+</html>
