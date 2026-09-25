@@ -807,7 +807,8 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .confirmation-strip .label {
+    .confirmation-strip .label,
+    .booking-meta .label {
       margin: 0;
       color: var(--muted);
       font-size: 14px;
@@ -815,12 +816,84 @@
       font-style: italic;
     }
 
-    .confirmation-strip .value {
+    .confirmation-strip .value,
+    .booking-meta .value {
       margin: 4px 0 0;
       color: var(--ink);
       font-size: 19px;
       line-height: 1.15;
       font-weight: 700;
+    }
+
+    .booking-summary {
+      margin: 26px 0 28px;
+      border-top: 2px solid var(--green);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .booking-price {
+      padding: 20px 0 18px;
+    }
+
+    .booking-price .label {
+      margin: 0 0 4px;
+      color: var(--green);
+      font-size: 15px;
+      line-height: 1;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .booking-price .amount {
+      margin: 0;
+      color: var(--ink);
+      font-size: 32px;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .booking-price .description {
+      max-width: 900px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.4;
+    }
+
+    .booking-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      padding: 16px 0 17px;
+      border-top: 1px solid var(--line);
+    }
+
+    .request-data-note {
+      margin: -4px 0 16px;
+      max-width: 920px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.38;
+    }
+
+    .slots-loading,
+    .slots-empty {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 42px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .slots-loading .loading-dot {
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(7,61,58,.18);
+      border-top-color: var(--green);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      flex: 0 0 auto;
     }
 
     .span-2 { grid-column: span 2; }
@@ -1014,6 +1087,8 @@
       .calendar-grid { grid-template-columns: 1fr; }
       .slots { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .confirmation-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .booking-meta { grid-template-columns: 1fr; gap: 12px; }
+      .booking-price .amount { font-size: 29px; }
 
       .mobile-prefooter-nav {
         display: flex;
@@ -1440,7 +1515,7 @@
             <p class="service-step-number">02</p>
             <h4>Análise</h4>
             <p>Após o primeiro atendimento, as informações e os documentos são examinados individualmente. Você recebe uma análise organizada da situação, com síntese dos fatos relevantes, exame dos documentos apresentados, pontos que merecem atenção, alternativas identificadas e próximos passos que podem ser considerados.</p>
-            <p>A análise é preparada especificamente para a situação apresentada, considerando as informações fornecidas e os documentos disponibilizados. Não se trata de uma resposta automática nem da simples reprodução das respostas fornecidas no formulário.</p>
+            <p>A análise é preparada especificamente para a situação apresentada, considerando as informações fornecidas e os documentos disponibilizados. O conteúdo resulta do exame individual do caso e não da geração automática ou da simples reprodução das respostas do formulário.</p>
           </div>
 
           <div class="service-step-box">
@@ -1502,38 +1577,51 @@
               <h3>Horários disponíveis</h3>
               <span x-text="formatDateBR(preferredDate)"></span>
             </div>
-            <div class="slots">
+
+            <div class="slots-loading" x-show="loadingSlots" x-cloak>
+              <span class="loading-dot" aria-hidden="true"></span>
+              <span>Consultando horários disponíveis...</span>
+            </div>
+
+            <div class="slots" x-show="!loadingSlots && calSlots.length" x-cloak>
               <template x-for="slot in calSlots" :key="slot.hour">
                 <button type="button" class="slot-button" @click="pickHour(slot)" :disabled="slot.status !== 'available'" :class="preferredHour === slot.hour ? 'selected' : ''" x-text="slot.hour"></button>
               </template>
+            </div>
+
+            <div class="slots-empty" x-show="!loadingSlots && preferredDate && !calSlots.length && !errors.agenda" x-cloak>
+              Não há horários disponíveis para esta data.
             </div>
           </div>
 
           <p x-show="errors.agenda" class="error" x-text="errors.agenda"></p>
 
           <div x-show="preferredDate && preferredHour" x-cloak>
-            <div class="confirmation-strip">
-              <div>
-                <p class="label">Modalidade</p>
-                <p class="value" x-text="formData.modalidade === 'presencial' ? 'Presencial' : 'Online'"></p>
+            <div class="booking-summary">
+              <div class="booking-price">
+                <p class="label">Valor da análise</p>
+                <p class="amount" x-text="analysisPriceLabel"></p>
+                <p class="description">O valor inclui o atendimento individual na modalidade escolhida, com duração de até 1 hora, a análise das informações e dos documentos disponibilizados e, se necessária, uma devolutiva de até 1 hora, também na modalidade escolhida.</p>
               </div>
-              <div>
-                <p class="label">Data</p>
-                <p class="value" x-text="formatDateBR(preferredDate)"></p>
-              </div>
-              <div>
-                <p class="label">Horário</p>
-                <p class="value" x-text="preferredHour"></p>
-              </div>
-              <div>
-                <p class="label">Valor</p>
-                <p class="value" x-text="analysisPriceLabel"></p>
+
+              <div class="booking-meta">
+                <div>
+                  <p class="label">Modalidade</p>
+                  <p class="value" x-text="formData.modalidade === 'presencial' ? 'Presencial em Brasília' : 'Online'"></p>
+                </div>
+                <div>
+                  <p class="label">Data</p>
+                  <p class="value" x-text="formatDateBR(preferredDate)"></p>
+                </div>
+                <div>
+                  <p class="label">Horário</p>
+                  <p class="value" x-text="preferredHour"></p>
+                </div>
               </div>
             </div>
 
-            <div class="operational-note" style="margin-top:0;">A contratação compreende o atendimento individual, a análise da situação e uma devolutiva para esclarecimentos. Caso haja contratação profissional posterior para atuação na situação, o valor pago nesta etapa será considerado na composição dos honorários do serviço subsequente.</div>
-
             <h3 class="question-title">Dados para a solicitação</h3>
+            <p class="request-data-note">Solicitamos estes dados para formalização da contratação e emissão da nota fiscal. Caso posteriormente seja contratado outro serviço profissional, eles também poderão ser aproveitados na preparação dos documentos necessários, evitando novo preenchimento.</p>
             <div class="fields-grid">
               <input x-model="formData.nome" class="field span-2" placeholder="Nome completo *">
 
@@ -1717,6 +1805,9 @@
         preferredHour: '',
         calSlots: [],
         calendars: [],
+        loadingSlots: false,
+        availabilityCache: {},
+        availabilityPromises: {},
 
         progressSteps: [
           { id: 1, label: 'Renegociação' },
@@ -2047,6 +2138,12 @@
 
         openService() {
           this.serviceOpen = true;
+          this.prepareMonths();
+
+          // Antecipamos a consulta dos primeiros dias úteis enquanto a pessoa lê a oferta.
+          // Assim, na maior parte dos casos, os horários já estarão em cache quando a data for escolhida.
+          this.prefetchAvailability();
+
           this.$nextTick(() => {
             const anchor = document.getElementById('servico');
             if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -2056,6 +2153,7 @@
         openBooking() {
           this.bookingOpen = true;
           this.prepareMonths();
+          this.prefetchAvailability();
         },
 
         selectModalidade(value) {
@@ -2064,7 +2162,9 @@
           this.preferredDate = '';
           this.preferredHour = '';
           this.calSlots = [];
+          this.loadingSlots = false;
           this.prepareMonths();
+          this.prefetchAvailability();
         },
 
         minAdvanceDays() {
@@ -2123,26 +2223,96 @@
           return 'calendar-available';
         },
 
+        async fetchAvailability(dateStr) {
+          if (Object.prototype.hasOwnProperty.call(this.availabilityCache, dateStr)) {
+            return this.availabilityCache[dateStr];
+          }
+
+          if (this.availabilityPromises[dateStr]) {
+            return this.availabilityPromises[dateStr];
+          }
+
+          const request = (async () => {
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 12000);
+
+            try {
+              const res = await fetch(this.workerBase + '/agenda/disponibilidade', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ data: dateStr }),
+                signal: controller.signal
+              });
+
+              if (!res.ok) throw new Error('Não foi possível consultar a agenda.');
+
+              const data = await res.json();
+              const livres = data.horarios_disponiveis || [];
+              const slots = livres.map(hora => ({ hour: hora, status: 'available' }));
+              this.availabilityCache[dateStr] = slots;
+              return slots;
+            } finally {
+              clearTimeout(timeout);
+              delete this.availabilityPromises[dateStr];
+            }
+          })();
+
+          this.availabilityPromises[dateStr] = request;
+          return request;
+        },
+
+        async prefetchAvailability() {
+          const dates = this.calendars
+            .flatMap(calendar => calendar.days)
+            .filter(day => day.ok && day.date)
+            .map(day => day.date)
+            .filter(date => !Object.prototype.hasOwnProperty.call(this.availabilityCache, date))
+            .slice(0, 10);
+
+          if (!dates.length) return;
+
+          let index = 0;
+          const worker = async () => {
+            while (index < dates.length) {
+              const current = dates[index++];
+              try {
+                await this.fetchAvailability(current);
+              } catch (e) {
+                // Pré-carregamento silencioso: eventual falha será tratada se a data for escolhida.
+              }
+            }
+          };
+
+          await Promise.all([worker(), worker(), worker()]);
+        },
+
         async pickDate(day) {
           if (!day.ok) return;
-          this.preferredDate = day.date;
+
+          const selectedDate = day.date;
+          this.preferredDate = selectedDate;
           this.preferredHour = '';
           this.calSlots = [];
           this.errors.agenda = '';
+          this.loadingSlots = true;
 
           try {
-            const res = await fetch(this.workerBase + '/agenda/disponibilidade', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ data: day.date })
-            });
+            const slots = await this.fetchAvailability(selectedDate);
 
-            if (!res.ok) throw new Error('Não foi possível consultar a agenda.');
-            const data = await res.json();
-            const livres = data.horarios_disponiveis || [];
-            this.calSlots = livres.map(hora => ({ hour: hora, status: 'available' }));
+            // Evita que uma resposta antiga substitua a data escolhida depois.
+            if (this.preferredDate === selectedDate) {
+              this.calSlots = slots;
+            }
           } catch (e) {
-            this.errors.agenda = 'Não foi possível consultar a agenda neste momento.';
+            if (this.preferredDate === selectedDate) {
+              this.errors.agenda = e && e.name === 'AbortError'
+                ? 'A consulta de horários demorou mais que o esperado. Tente novamente.'
+                : 'Não foi possível consultar a agenda neste momento.';
+            }
+          } finally {
+            if (this.preferredDate === selectedDate) {
+              this.loadingSlots = false;
+            }
           }
         },
 
