@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -577,11 +578,7 @@
     }
 
     .service-headline {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 28px;
-      align-items: end;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
       padding-bottom: 22px;
       border-bottom: 1px solid var(--line);
     }
@@ -596,35 +593,33 @@
 
     .service-headline h3 {
       margin: 4px 0 0;
-      font-size: 30px;
-      line-height: 1;
+      font-size: 32px;
+      line-height: 1.03;
     }
 
-    .price-block { text-align: right; }
-
-    .price-label {
-      margin: 0 0 3px;
+    .service-headline .lead {
+      margin: 12px 0 0;
+      max-width: 910px;
       color: var(--muted);
-      font-size: 15px;
-      font-style: italic;
+      font-size: 19px;
+      line-height: 1.42;
     }
 
-    .price {
-      margin: 0;
+    .service-section-title {
+      margin: 0 0 14px;
       color: var(--ink);
-      font-size: 30px;
-      line-height: 1;
-      font-weight: 700;
-      white-space: nowrap;
+      font-size: 23px;
+      line-height: 1.1;
     }
 
-    .service-copy {
+    .service-flow {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      margin-bottom: 24px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 26px;
     }
 
+    .service-step-box,
     .service-box {
       padding: 18px 19px;
       border: 1px solid var(--line-soft);
@@ -632,12 +627,23 @@
       background: #fff;
     }
 
+    .service-step-number {
+      margin: 0 0 8px;
+      color: var(--green);
+      font-size: 19px;
+      line-height: 1;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .service-step-box h4,
     .service-box h4 {
       margin: 0 0 8px;
       font-size: 20px;
       line-height: 1.1;
     }
 
+    .service-step-box p,
     .service-box p {
       margin: 0;
       color: var(--muted);
@@ -645,13 +651,33 @@
       line-height: 1.38;
     }
 
+    .service-step-box p + p { margin-top: 10px; }
+
+    .service-copy {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
     .scope-note {
-      margin: 0 0 24px;
+      margin: 0 0 18px;
       padding: 16px 18px;
       border-left: 3px solid var(--green);
       background: var(--soft-green);
       font-size: 17px;
       line-height: 1.38;
+    }
+
+    .value-note {
+      margin: 0 0 24px;
+      padding: 15px 18px;
+      border: 1px solid var(--line-soft);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.35;
     }
 
     .booking-panel {
@@ -983,8 +1009,7 @@
       .summary-card { padding: 19px 18px; }
       .summary-intro { font-size: 21px; }
 
-      .service-headline { grid-template-columns: 1fr; gap: 14px; }
-      .price-block { text-align: left; }
+      .service-flow { grid-template-columns: 1fr; }
       .service-copy { grid-template-columns: 1fr; }
       .calendar-grid { grid-template-columns: 1fr; }
       .slots { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -1376,7 +1401,7 @@
 
           <div class="choice-actions">
             <button type="button" onclick="window.print()" class="secondary-btn">Imprimir meu resumo</button>
-            <button type="button" @click="openService()" class="primary-btn">Solicitar análise do meu caso</button>
+            <button type="button" @click="openService()" class="primary-btn">Quero uma análise individual</button>
           </div>
 
           <div class="actions" style="border-top:0;padding-top:0;margin-top:18px;">
@@ -1390,37 +1415,60 @@
           <p class="stage-number" style="font-size:38px;">AL</p>
           <div>
             <p class="stage-kicker">Etapa opcional</p>
-            <h2 style="text-transform:none;">Análise individual</h2>
-            <p class="stage-description">Se quiser aprofundar a compreensão do que aconteceu, você pode solicitar uma análise individual da situação e dos documentos relacionados ao caso.</p>
+            <h2 style="text-transform:none;">Análise individual da sua situação</h2>
+            <p class="stage-description">Entenda o seu caso antes de decidir o que fazer.</p>
           </div>
         </div>
 
         <div class="service-headline">
-          <div>
-            <p class="small">Serviço individual</p>
-            <h3>Análise da situação apresentada</h3>
+          <p class="small">Serviço individual</p>
+          <h3>Uma análise preparada para a situação apresentada</h3>
+          <p class="lead">A análise individual é um trabalho completo, realizado a partir do atendimento e dos documentos disponíveis. O objetivo é compreender a situação concreta, identificar os pontos relevantes e apresentar de forma organizada o que foi apurado e quais caminhos podem fazer sentido.</p>
+        </div>
+
+        <h3 class="service-section-title">Como funciona</h3>
+
+        <div class="service-flow">
+          <div class="service-step-box">
+            <p class="service-step-number">01</p>
+            <h4>Atendimento individual</h4>
+            <p>Você apresenta o que aconteceu, esclarece suas principais dúvidas e disponibiliza os documentos relacionados à situação.</p>
+            <p>Formas de atendimento: online ou presencial em Brasília. Consulte a agenda para verificar a disponibilidade.</p>
           </div>
-          <div class="price-block">
-            <p class="price-label">Valor</p>
-            <p class="price">R$ 500,00</p>
+
+          <div class="service-step-box">
+            <p class="service-step-number">02</p>
+            <h4>Análise</h4>
+            <p>Após o primeiro atendimento, as informações e os documentos são examinados individualmente. Você recebe uma análise organizada da situação, com síntese dos fatos relevantes, exame dos documentos apresentados, pontos que merecem atenção, alternativas identificadas e próximos passos que podem ser considerados.</p>
+            <p>A análise é preparada especificamente para a situação apresentada, considerando as informações fornecidas e os documentos disponibilizados. Não se trata de uma resposta automática nem da simples reprodução das respostas fornecidas no formulário.</p>
+          </div>
+
+          <div class="service-step-box">
+            <p class="service-step-number">03</p>
+            <h4>Devolutiva</h4>
+            <p>Depois de receber a análise, você poderá realizar uma devolutiva para esclarecer dúvidas sobre o conteúdo apresentado.</p>
+            <p>A devolutiva poderá ser online ou presencial em Brasília, conforme disponibilidade de agenda.</p>
           </div>
         </div>
 
         <div class="service-copy">
           <div class="service-box">
-            <h4>O que será examinado</h4>
-            <p>As informações fornecidas, a sequência dos acontecimentos e os documentos que forem disponibilizados para compreender a situação de forma individual.</p>
+            <h4>O que está incluído?</h4>
+            <p>Atendimento individual, exame das informações e documentos apresentados, preparação da análise da situação e uma devolutiva para esclarecimentos.</p>
           </div>
+
           <div class="service-box">
-            <h4>O que você recebe</h4>
-            <p>Uma análise individual da situação apresentada, com esclarecimento dos pontos relevantes e dos próximos passos que possam fazer sentido para o caso.</p>
+            <h4>O que não está incluído?</h4>
+            <p>Esta contratação não inclui atuação ou representação perante terceiros, processos ou procedimentos. Qualquer providência posterior dependerá de contratação específica.</p>
           </div>
         </div>
 
-        <p class="scope-note">A contratação desta análise não significa contratação de advogado para atuar em processo, representar você perante o banco ou terceiros, elaborar medidas ou acompanhar procedimentos. Qualquer atuação adicional depende de contratação específica.</p>
+        <p class="scope-note"><strong>Se houver necessidade de atuação:</strong> caso, após a análise, você decida prosseguir com a contratação profissional, será apresentada proposta específica para o serviço necessário. O valor pago pela análise inicial será considerado na composição dos honorários da contratação posterior, observados os valores aplicáveis ao serviço contratado.</p>
+
+        <p class="value-note"><strong>Valor e condições:</strong> apresentados antes da confirmação da contratação.</p>
 
         <div x-show="!bookingOpen" class="actions end" style="border-top:0;padding-top:0;margin-top:0;">
-          <button type="button" @click="openBooking()" class="primary-btn">Escolher dia e horário</button>
+          <button type="button" @click="openBooking()" class="primary-btn">Escolher modalidade de atendimento e horário</button>
         </div>
 
         <div class="booking-panel" x-show="bookingOpen" x-cloak>
@@ -1479,9 +1527,11 @@
               </div>
               <div>
                 <p class="label">Valor</p>
-                <p class="value">R$ 500,00</p>
+                <p class="value" x-text="analysisPriceLabel"></p>
               </div>
             </div>
+
+            <div class="operational-note" style="margin-top:0;">A contratação compreende o atendimento individual, a análise da situação e uma devolutiva para esclarecimentos. Caso haja contratação profissional posterior para atuação na situação, o valor pago nesta etapa será considerado na composição dos honorários do serviço subsequente.</div>
 
             <h3 class="question-title">Dados para a solicitação</h3>
             <div class="fields-grid">
@@ -1540,7 +1590,7 @@
             <div class="operational-note">Após o envio, você receberá por e-mail o QR Code PIX e as instruções de pagamento. A data e o horário serão confirmados após a conferência do pagamento.</div>
 
             <div class="terms-box">
-              <p>Ao clicar em “Confirmar solicitação”, você declara que as informações fornecidas são de sua responsabilidade e concorda com o tratamento dos dados necessários à organização da demanda, agenda, contratação, pagamento e emissão fiscal. A contratação refere-se exclusivamente à análise individual descrita nesta página e não inclui representação ou atuação em processo.</p>
+              <p>Ao clicar em “Confirmar solicitação”, você declara que as informações fornecidas são de sua responsabilidade e concorda com o tratamento dos dados necessários à organização da demanda, agenda, contratação, pagamento e emissão fiscal. A contratação refere-se exclusivamente à análise individual descrita nesta página. Não inclui atuação ou representação perante terceiros, processos ou procedimentos, que dependerão de contratação específica.</p>
             </div>
 
             <p x-show="errors.envio" class="error" x-text="errors.envio"></p>
@@ -1653,6 +1703,8 @@
         bookingSubmitted: false,
         submitting: false,
         externalRef: null,
+        analysisPrice: 1000,
+        analysisPriceLabel: 'R$ 1.000,00',
         errors: {},
 
         cpfValido: false,
@@ -1734,7 +1786,7 @@
           objetivo: '',
 
           produto: 'analise_fies',
-          modalidade: 'online',
+          modalidade: '',
           nome: '',
           documento: '',
           profissao: '',
@@ -2190,7 +2242,7 @@
               modalidade: this.formData.modalidade,
               preferredDate: this.preferredDate,
               preferredHour: this.preferredHour,
-              valor: 500,
+              valor: this.analysisPrice,
               origem: 'situacoes-contratos-fies-analise',
               pagamento: 'pix_estatico_por_email',
               statusSolicitado: 'aguardando_pagamento_e_confirmacao'
@@ -2344,5 +2396,6 @@
   </script>
 
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" defer></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"47ff298b52d5443faf129a182858f8a0","r":1,"spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
