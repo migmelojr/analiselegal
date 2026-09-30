@@ -1,12 +1,11 @@
 <!doctype html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="utf-8">
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
   >
 
   <meta
@@ -453,7 +452,7 @@
         inline-block;
     }
 
-    .btn:hover {
+    .btn:hover:not(:disabled) {
       background:
         var(--green-dark);
 
@@ -477,7 +476,7 @@
         var(--green);
     }
 
-    .btn-secondary:hover {
+    .btn-secondary:hover:not(:disabled) {
       background:
         var(--soft);
 
@@ -759,20 +758,24 @@
 
     @keyframes dots {
       0% {
-        content: "";
+        content:
+          "";
       }
 
       25% {
-        content: ".";
+        content:
+          ".";
       }
 
       50% {
-        content: "..";
+        content:
+          "..";
       }
 
       75%,
       100% {
-        content: "...";
+        content:
+          "...";
       }
     }
 
@@ -915,7 +918,7 @@
 
 
     <!-- =====================================================
-         ERRO GERAL
+         ERRO
     ====================================================== -->
 
     <section
@@ -1083,6 +1086,19 @@
             <div class="summary-row">
 
               <span>
+                Profissional
+              </span>
+
+              <strong id="professionalView">
+                —
+              </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+              <span>
                 Modalidade
               </span>
 
@@ -1172,7 +1188,7 @@
 
 
     <!-- =====================================================
-         PAGAMENTO SENDO VERIFICADO APÓS O PRAZO
+         VERIFICAÇÃO FINAL
     ====================================================== -->
 
     <section
@@ -1230,12 +1246,12 @@
           </div>
 
 
-          <h2>
+          <h2 id="confirmedTitle">
             Atendimento confirmado
           </h2>
 
 
-          <p>
+          <p id="confirmedText">
             O pagamento foi identificado e a data e o horário estão confirmados.
           </p>
 
@@ -1243,7 +1259,7 @@
           <div
             class="summary"
             style="
-              max-width:580px;
+              max-width:620px;
               margin-left:auto;
               margin-right:auto;
               text-align:left;
@@ -1258,6 +1274,19 @@
               </span>
 
               <strong id="confirmedProtocol">
+                —
+              </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+              <span>
+                Profissional
+              </span>
+
+              <strong id="confirmedProfessional">
                 —
               </strong>
 
@@ -1289,6 +1318,27 @@
 
             </div>
 
+
+          </div>
+
+
+          <div
+            id="meetBox"
+            class="notice success"
+            hidden
+          >
+
+            Seu atendimento será on-line.
+
+            <a
+              id="meetLink"
+              class="btn"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ACESSAR GOOGLE MEET
+            </a>
 
           </div>
 
@@ -1388,7 +1438,7 @@
 
           <div class="notice">
 
-            Caso tenha ocorrido pagamento, o tratamento correspondente será realizado automaticamente. Você receberá as informações necessárias pelo e-mail cadastrado.
+            Caso tenha ocorrido pagamento, o tratamento correspondente será realizado conforme o estado registrado da cobrança. As informações necessárias serão encaminhadas ao e-mail cadastrado quando aplicável.
 
           </div>
 
@@ -1453,22 +1503,17 @@
 ============================================================ */
 
 const WORKER_BASE =
-  "https://analiselegal-formulario.miguel-compras.workers.dev";
+  "https://analiselegal-api.miguel-compras.workers.dev";
 
 
 const ROTA_STATUS =
   WORKER_BASE +
-  "/pagamento/status";
+  "/api/payment/status";
 
 
 const ROTA_PIX =
   WORKER_BASE +
-  "/pagamento/pix";
-
-
-const ROTA_VALOR =
-  WORKER_BASE +
-  "/config/valor";
+  "/api/payment/pix";
 
 
 const AGENDAR_URL =
@@ -1538,12 +1583,11 @@ if (
         String(
           salvo.token
         ).trim();
-
     }
 
   } catch {
 
-    /* não bloqueia */
+    /* sessionStorage não é obrigatório */
   }
 }
 
@@ -1652,12 +1696,6 @@ const copyButton =
   );
 
 
-const refreshButton =
-  document.getElementById(
-    "refreshButton"
-  );
-
-
 const countdown =
   document.getElementById(
     "countdown"
@@ -1673,6 +1711,12 @@ const statusBadge =
 const protocolView =
   document.getElementById(
     "protocolView"
+  );
+
+
+const professionalView =
+  document.getElementById(
+    "professionalView"
   );
 
 
@@ -1706,6 +1750,12 @@ const statusView =
   );
 
 
+const refreshButton =
+  document.getElementById(
+    "refreshButton"
+  );
+
+
 const manualStatus =
   document.getElementById(
     "manualStatus"
@@ -1721,6 +1771,54 @@ const retryButton =
 const cancelledRetryButton =
   document.getElementById(
     "cancelledRetryButton"
+  );
+
+
+const confirmedTitle =
+  document.getElementById(
+    "confirmedTitle"
+  );
+
+
+const confirmedText =
+  document.getElementById(
+    "confirmedText"
+  );
+
+
+const confirmedProtocol =
+  document.getElementById(
+    "confirmedProtocol"
+  );
+
+
+const confirmedProfessional =
+  document.getElementById(
+    "confirmedProfessional"
+  );
+
+
+const confirmedMode =
+  document.getElementById(
+    "confirmedMode"
+  );
+
+
+const confirmedDate =
+  document.getElementById(
+    "confirmedDate"
+  );
+
+
+const meetBox =
+  document.getElementById(
+    "meetBox"
+  );
+
+
+const meetLink =
+  document.getElementById(
+    "meetLink"
   );
 
 
@@ -1763,110 +1861,18 @@ function esconderTelas() {
    UTILITÁRIOS
 ============================================================ */
 
-function formatoValor(
-  valor
+function mensagemErroApi(
+  data,
+  fallback
 ) {
-
-  return Number(
-    valor || 0
-  ).toLocaleString(
-    "pt-BR",
-    {
-      style:
-        "currency",
-
-      currency:
-        "BRL"
-    }
-  );
-}
-
-
-function formatarDataISO(
-  iso
-) {
-
-  const partes =
-    String(
-      iso ||
-      ""
-    ).split("-");
-
-
-  if (
-    partes.length !== 3
-  ) {
-
-    return (
-      iso ||
-      "—"
-    );
-  }
-
 
   return (
-    partes[2] +
-    "/" +
-    partes[1] +
-    "/" +
-    partes[0]
+    data?.error ||
+    data?.erro ||
+    data?.message ||
+    data?.mensagem ||
+    fallback
   );
-}
-
-
-function separarInicio(
-  inicio
-) {
-
-  if (
-    !inicio
-  ) {
-
-    return {
-      data:
-        "—",
-
-      hora:
-        "—"
-    };
-  }
-
-
-  const valor =
-    String(
-      inicio
-    ).trim();
-
-
-  const match =
-    valor.match(
-      /^(\d{4}-\d{2}-\d{2})\s+(\d{2}:\d{2})/
-    );
-
-
-  if (
-    match
-  ) {
-
-    return {
-      data:
-        formatarDataISO(
-          match[1]
-        ),
-
-      hora:
-        match[2]
-    };
-  }
-
-
-  return {
-    data:
-      valor,
-
-    hora:
-      ""
-  };
 }
 
 
@@ -1895,35 +1901,195 @@ function statusLabel(
     )
   ) {
 
-    case "confirmado":
+    case "pending_payment":
+      return "Aguardando pagamento";
 
+
+    case "confirmed":
       return "Confirmado";
 
 
-    case "expirado":
+    case "completed":
+      return "Concluído";
 
+
+    case "no_show":
+      return "Encerrado";
+
+
+    case "expired":
       return "Prazo encerrado";
 
 
-    case "cancelado":
-
+    case "cancelled":
       return "Não confirmado";
 
 
-    case "aguardando_pagamento":
-
-      return "Aguardando pagamento";
-
-
-    case "pre_reservado":
-
-      return "Aguardando pagamento";
-
-
     default:
-
       return "Em processamento";
   }
+}
+
+
+function profissionalLabel(
+  data
+) {
+
+  const nome =
+    String(
+      data
+        ?.professional
+        ?.name ||
+      ""
+    ).trim();
+
+
+  const registro =
+    String(
+      data
+        ?.professional
+        ?.registration ||
+      ""
+    ).trim();
+
+
+  if (
+    nome &&
+    registro
+  ) {
+
+    return (
+      nome +
+      " · " +
+      registro
+    );
+  }
+
+
+  return (
+    nome ||
+    "—"
+  );
+}
+
+
+function partesDataHora(
+  iso
+) {
+
+  if (
+    !iso
+  ) {
+
+    return {
+      data:
+        "—",
+
+      hora:
+        "—"
+    };
+  }
+
+
+  const date =
+    new Date(
+      iso
+    );
+
+
+  if (
+    Number.isNaN(
+      date.getTime()
+    )
+  ) {
+
+    return {
+      data:
+        "—",
+
+      hora:
+        "—"
+    };
+  }
+
+
+  const formatter =
+    new Intl.DateTimeFormat(
+      "pt-BR",
+      {
+        timeZone:
+          "America/Sao_Paulo",
+
+        day:
+          "2-digit",
+
+        month:
+          "2-digit",
+
+        year:
+          "numeric",
+
+        hour:
+          "2-digit",
+
+        minute:
+          "2-digit",
+
+        hour12:
+          false
+      }
+    );
+
+
+  const parts =
+    formatter.formatToParts(
+      date
+    );
+
+
+  const values =
+    {};
+
+
+  parts.forEach(
+    part => {
+
+      values[
+        part.type
+      ] =
+        part.value;
+    }
+  );
+
+
+  return {
+    data:
+      (
+        values.day ||
+        ""
+      ) +
+      "/" +
+      (
+        values.month ||
+        ""
+      ) +
+      "/" +
+      (
+        values.year ||
+        ""
+      ),
+
+    hora:
+      (
+        values.hour ||
+        ""
+      ) +
+      ":" +
+      (
+        values.minute ||
+        ""
+      )
+  };
 }
 
 
@@ -1951,6 +2117,23 @@ function mostrarErro(
   mensagem
 ) {
 
+  pararPolling();
+
+
+  if (
+    timerCountdown
+  ) {
+
+    clearInterval(
+      timerCountdown
+    );
+
+
+    timerCountdown =
+      null;
+  }
+
+
   esconderTelas();
 
 
@@ -1961,55 +2144,6 @@ function mostrarErro(
   errorMessage.textContent =
     mensagem ||
     "Não foi possível abrir esta solicitação.";
-}
-
-
-/* ============================================================
-   VALOR
-============================================================ */
-
-async function carregarValor() {
-
-  try {
-
-    const response =
-      await fetch(
-        ROTA_VALOR,
-        {
-          cache:
-            "no-store"
-        }
-      );
-
-
-    const data =
-      await response
-        .json()
-        .catch(
-          () => ({})
-        );
-
-
-    if (
-      !response.ok ||
-      data.sucesso === false
-    ) {
-
-      throw new Error();
-    }
-
-
-    valueView.textContent =
-      data.valor_formatado ||
-      formatoValor(
-        data.valor
-      );
-
-  } catch {
-
-    valueView.textContent =
-      "—";
-  }
 }
 
 
@@ -2025,15 +2159,21 @@ function atualizarResumo(
     protocolo;
 
 
+  professionalView.textContent =
+    profissionalLabel(
+      data
+    );
+
+
   modeView.textContent =
     modalidadeLabel(
-      data.modalidade
+      data.service_mode
     );
 
 
   const inicio =
-    separarInicio(
-      data.inicio
+    partesDataHora(
+      data.starts_at
     );
 
 
@@ -2045,6 +2185,11 @@ function atualizarResumo(
     inicio.hora;
 
 
+  valueView.textContent =
+    data.price_formatted ||
+    "—";
+
+
   statusView.textContent =
     statusLabel(
       data.status
@@ -2052,13 +2197,13 @@ function atualizarResumo(
 
 
   expiraEm =
-    data.expira_em ||
+    data.expires_at ||
     expiraEm;
 }
 
 
 /* ============================================================
-   STATUS DA COBRANÇA
+   STATUS
 ============================================================ */
 
 async function consultarStatus(
@@ -2111,7 +2256,8 @@ async function consultarStatus(
 
     if (
       !response.ok ||
-      data.sucesso === false
+      data.success ===
+        false
     ) {
 
       if (
@@ -2119,8 +2265,10 @@ async function consultarStatus(
       ) {
 
         throw new Error(
-          data.erro ||
-          "Não foi possível consultar a solicitação."
+          mensagemErroApi(
+            data,
+            "Não foi possível consultar a solicitação."
+          )
         );
       }
 
@@ -2176,7 +2324,7 @@ async function consultarStatus(
 
 
 /* ============================================================
-   APLICA STATUS
+   APLICAÇÃO DO STATUS
 ============================================================ */
 
 function aplicarStatus(
@@ -2192,12 +2340,14 @@ function aplicarStatus(
 
   if (
     status ===
-    "confirmado"
+      "confirmed"
   ) {
 
     mostrarConfirmado(
-      data
+      data,
+      false
     );
+
 
     return;
   }
@@ -2205,30 +2355,43 @@ function aplicarStatus(
 
   if (
     status ===
-    "expirado"
+      "completed" ||
+    status ===
+      "no_show"
+  ) {
+
+    mostrarConfirmado(
+      data,
+      true
+    );
+
+
+    return;
+  }
+
+
+  if (
+    status ===
+      "expired"
   ) {
 
     mostrarExpirado();
 
+
     return;
   }
 
 
   if (
     status ===
-    "cancelado"
+      "cancelled"
   ) {
 
     mostrarCancelado();
 
+
     return;
   }
-
-
-  /*
-   * Os demais estados continuam sendo considerados
-   * uma solicitação ainda não confirmada.
-   */
 }
 
 
@@ -2268,14 +2431,9 @@ async function carregarPix() {
       );
 
 
-  /*
-   * Pode haver mudança de estado entre a consulta
-   * do status e a consulta do PIX.
-   */
-
   if (
     response.status ===
-    410
+      410
   ) {
 
     const atualizado =
@@ -2285,41 +2443,14 @@ async function carregarPix() {
 
 
     if (
-      atualizado?.status ===
-      "confirmado"
+      atualizado
     ) {
 
-      mostrarConfirmado(
+      aplicarStatus(
         atualizado
       );
-
-      return false;
     }
 
-
-    if (
-      atualizado?.status ===
-      "expirado"
-    ) {
-
-      mostrarExpirado();
-
-      return false;
-    }
-
-
-    if (
-      atualizado?.status ===
-      "cancelado"
-    ) {
-
-      mostrarCancelado();
-
-      return false;
-    }
-
-
-    mostrarVerificacaoFinal();
 
     return false;
   }
@@ -2327,23 +2458,30 @@ async function carregarPix() {
 
   if (
     !response.ok ||
-    data.sucesso === false
+    data.success ===
+      false
   ) {
 
     throw new Error(
-      data.erro ||
-      "Não foi possível carregar a cobrança PIX."
+      mensagemErroApi(
+        data,
+        "Não foi possível carregar a cobrança PIX."
+      )
     );
   }
 
 
   const qr =
-    data.pix?.qr_code_base64 ||
+    data
+      ?.pix
+      ?.qr_code_base64 ||
     "";
 
 
   const copiaCola =
-    data.pix?.copia_e_cola ||
+    data
+      ?.pix
+      ?.copia_e_cola ||
     "";
 
 
@@ -2368,8 +2506,17 @@ async function carregarPix() {
 
 
   expiraEm =
-    data.expira_em ||
+    data.expires_at ||
     expiraEm;
+
+
+  if (
+    data.price_formatted
+  ) {
+
+    valueView.textContent =
+      data.price_formatted;
+  }
 
 
   esconderTelas();
@@ -2399,7 +2546,7 @@ async function carregarPix() {
 
 
 /* ============================================================
-   COUNTDOWN
+   CONTADOR
 ============================================================ */
 
 function iniciarCountdown() {
@@ -2423,6 +2570,7 @@ function iniciarCountdown() {
       countdown.textContent =
         "--:--";
 
+
       return;
     }
 
@@ -2441,6 +2589,7 @@ function iniciarCountdown() {
 
       countdown.textContent =
         "--:--";
+
 
       return;
     }
@@ -2490,7 +2639,8 @@ function iniciarCountdown() {
 
 
     if (
-      restante <= 0
+      restante <=
+        0
     ) {
 
       clearInterval(
@@ -2498,16 +2648,13 @@ function iniciarCountdown() {
       );
 
 
+      timerCountdown =
+        null;
+
+
       countdown.textContent =
         "00:00";
 
-
-      /*
-       * Não declaramos localmente que o pagamento
-       * expirou, porque pode existir um pagamento
-       * efetuado nos últimos segundos ainda não
-       * processado pelo webhook.
-       */
 
       mostrarVerificacaoFinal();
 
@@ -2531,7 +2678,7 @@ function iniciarCountdown() {
 
 
 /* ============================================================
-   VERIFICAÇÃO APÓS O FIM DO CONTADOR
+   VERIFICAÇÃO APÓS PRAZO
 ============================================================ */
 
 function mostrarVerificacaoFinal() {
@@ -2557,9 +2704,7 @@ function iniciarPolling() {
     timerStatus
   ) {
 
-    clearInterval(
-      timerStatus
-    );
+    return;
   }
 
 
@@ -2591,9 +2736,11 @@ function iniciarPolling() {
 
         if (
           [
-            "confirmado",
-            "expirado",
-            "cancelado"
+            "confirmed",
+            "completed",
+            "no_show",
+            "expired",
+            "cancelled"
           ].includes(
             data.status
           )
@@ -2626,11 +2773,12 @@ function pararPolling() {
 
 
 /* ============================================================
-   CONFIRMADO
+   CONFIRMADO / ENCERRADO
 ============================================================ */
 
 function mostrarConfirmado(
-  data
+  data,
+  encerrado = false
 ) {
 
   if (
@@ -2640,6 +2788,10 @@ function mostrarConfirmado(
     clearInterval(
       timerCountdown
     );
+
+
+    timerCountdown =
+      null;
   }
 
 
@@ -2656,45 +2808,89 @@ function mostrarConfirmado(
   document.getElementById(
     "pageTitle"
   ).textContent =
-    "Atendimento confirmado";
+    encerrado
+      ? "Atendimento encerrado"
+      : "Atendimento confirmado";
 
 
   document.getElementById(
     "pageIntro"
   ).textContent =
-    "O pagamento foi identificado e o atendimento está confirmado.";
+    encerrado
+      ? "Esta solicitação já possui atendimento encerrado."
+      : "O pagamento foi identificado e o atendimento está confirmado.";
 
 
-  document.getElementById(
-    "confirmedProtocol"
-  ).textContent =
+  confirmedTitle.textContent =
+    encerrado
+      ? "Atendimento encerrado"
+      : "Atendimento confirmado";
+
+
+  confirmedText.textContent =
+    encerrado
+      ? "O registro desta solicitação indica que o atendimento já foi encerrado."
+      : "O pagamento foi identificado e a data e o horário estão confirmados.";
+
+
+  confirmedProtocol.textContent =
     protocolo;
 
 
-  document.getElementById(
-    "confirmedMode"
-  ).textContent =
+  confirmedProfessional.textContent =
+    profissionalLabel(
+      data
+    );
+
+
+  confirmedMode.textContent =
     modalidadeLabel(
-      data.modalidade
+      data.service_mode
     );
 
 
   const inicio =
-    separarInicio(
-      data.inicio
+    partesDataHora(
+      data.starts_at
     );
 
 
-  document.getElementById(
-    "confirmedDate"
-  ).textContent =
+  confirmedDate.textContent =
     inicio.data +
     (
-      inicio.hora
+      inicio.hora &&
+      inicio.hora !==
+        "—"
         ? " às " +
           inicio.hora
         : ""
     );
+
+
+  const meet =
+    String(
+      data.meet_link ||
+      ""
+    ).trim();
+
+
+  if (
+    !encerrado &&
+    meet
+  ) {
+
+    meetLink.href =
+      meet;
+
+
+    meetBox.hidden =
+      false;
+
+  } else {
+
+    meetBox.hidden =
+      true;
+  }
 }
 
 
@@ -2711,6 +2907,10 @@ function mostrarExpirado() {
     clearInterval(
       timerCountdown
     );
+
+
+    timerCountdown =
+      null;
   }
 
 
@@ -2754,6 +2954,10 @@ function mostrarCancelado() {
     clearInterval(
       timerCountdown
     );
+
+
+    timerCountdown =
+      null;
   }
 
 
@@ -2875,13 +3079,8 @@ refreshButton.addEventListener(
 
     if (
       data &&
-      ![
-        "confirmado",
-        "expirado",
-        "cancelado"
-      ].includes(
-        data.status
-      )
+      data.status ===
+        "pending_payment"
     ) {
 
       manualStatus.hidden =
@@ -2949,14 +3148,10 @@ async function iniciar() {
       "Não foi possível identificar esta solicitação. Acesse o pagamento a partir da etapa de agendamento."
     );
 
+
     return;
   }
 
-
-  /*
-   * Mantém o token disponível para recarregamentos
-   * realizados na mesma sessão.
-   */
 
   try {
 
@@ -2964,23 +3159,23 @@ async function iniciar() {
       "analiseLegalPagamento",
       JSON.stringify(
         {
-          protocolo,
-          token
+          protocolo:
+            protocolo,
+
+          token:
+            token
         }
       )
     );
 
   } catch {
 
-    /* não bloqueia */
+    /* sessionStorage não é obrigatório */
   }
 
 
   loadingText.textContent =
     "Consultando sua solicitação";
-
-
-  await carregarValor();
 
 
   const status =
@@ -2998,8 +3193,15 @@ async function iniciar() {
 
 
   if (
-    status.status ===
-    "confirmado"
+    [
+      "confirmed",
+      "completed",
+      "no_show",
+      "expired",
+      "cancelled"
+    ].includes(
+      status.status
+    )
   ) {
 
     return;
@@ -3007,36 +3209,26 @@ async function iniciar() {
 
 
   if (
-    status.status ===
-    "expirado"
+    status.status !==
+      "pending_payment"
   ) {
+
+    mostrarErro(
+      "Esta solicitação não está disponível para pagamento."
+    );
+
 
     return;
   }
 
 
   if (
-    status.status ===
-    "cancelado"
-  ) {
-
-    return;
-  }
-
-
-  /*
-   * Se o prazo já tiver chegado ao fim, não mostramos
-   * novamente o QR Code. Primeiro verificamos o estado
-   * efetivo do pagamento.
-   */
-
-  if (
-    status.expira_em
+    status.expires_at
   ) {
 
     const vencimento =
       new Date(
-        status.expira_em
+        status.expires_at
       ).getTime();
 
 
@@ -3049,6 +3241,7 @@ async function iniciar() {
     ) {
 
       mostrarVerificacaoFinal();
+
 
       return;
     }
@@ -3085,5 +3278,4 @@ iniciar();
 </script>
 
 </body>
-
 </html>
