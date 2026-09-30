@@ -1,24 +1,10 @@
 <!doctype html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="utf-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
-
-  <meta
-    name="robots"
-    content="noindex,nofollow,noarchive"
-  >
-
-  <meta
-    name="theme-color"
-    content="#073d3a"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#073d3a">
   <title>Agendamento | Análise Legal</title>
 
   <link
@@ -32,7 +18,6 @@
     :root {
       --green: #073d3a;
       --green-dark: #043330;
-      --green-soft: #315f5d;
 
       --ink: #302f30;
       --muted: #6f7472;
@@ -52,9 +37,7 @@
       --danger: #8e3434;
       --danger-soft: #fbefef;
 
-      --shadow:
-        0 14px 38px rgba(7, 61, 58, .07);
-
+      --shadow: 0 14px 38px rgba(7, 61, 58, .07);
       --radius: 16px;
 
       --font:
@@ -262,7 +245,15 @@
         24px;
     }
 
-    .protocol-box {
+    .request-grid {
+      display:
+        grid;
+
+      gap:
+        10px;
+    }
+
+    .request-row {
       display:
         flex;
 
@@ -288,7 +279,7 @@
         var(--soft);
     }
 
-    .protocol-box span {
+    .request-row span {
       color:
         var(--muted);
 
@@ -296,7 +287,7 @@
         14px;
     }
 
-    .protocol-box strong {
+    .request-row strong {
       color:
         var(--green-dark);
 
@@ -312,7 +303,10 @@
         grid;
 
       grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+        repeat(
+          2,
+          minmax(0, 1fr)
+        );
 
       gap:
         14px;
@@ -343,7 +337,7 @@
         box-shadow .15s;
     }
 
-    .mode:hover {
+    .mode:hover:not(:disabled) {
       border-color:
         var(--green);
     }
@@ -357,6 +351,14 @@
 
       box-shadow:
         inset 0 0 0 1px var(--green);
+    }
+
+    .mode:disabled {
+      opacity:
+        .5;
+
+      cursor:
+        default;
     }
 
     .mode strong {
@@ -392,7 +394,10 @@
         grid;
 
       grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+        repeat(
+          2,
+          minmax(0, 1fr)
+        );
 
       gap:
         18px;
@@ -434,7 +439,10 @@
         grid;
 
       grid-template-columns:
-        repeat(7, 1fr);
+        repeat(
+          7,
+          1fr
+        );
 
       gap:
         5px;
@@ -496,11 +504,6 @@
         13px;
     }
 
-    button.day {
-      cursor:
-        pointer;
-    }
-
     button.day:hover {
       border-color:
         var(--green);
@@ -515,6 +518,9 @@
 
       background:
         #f1f1ee;
+
+      cursor:
+        default;
     }
 
     .day.selected {
@@ -785,7 +791,7 @@
         700;
     }
 
-    .btn:hover {
+    .btn:hover:not(:disabled) {
       background:
         var(--green-dark);
 
@@ -799,14 +805,6 @@
 
       cursor:
         default;
-    }
-
-    .loading {
-      color:
-        var(--muted);
-
-      font-size:
-        14px;
     }
 
     footer {
@@ -855,14 +853,26 @@
           28px 0 40px;
       }
 
-      .mode-grid {
+      .mode-grid,
+      .calendar-wrap {
         grid-template-columns:
           1fr;
       }
 
-      .calendar-wrap {
-        grid-template-columns:
-          1fr;
+      .request-row {
+        display:
+          block;
+      }
+
+      .request-row strong {
+        display:
+          block;
+
+        margin-top:
+          3px;
+
+        text-align:
+          left;
       }
 
       .summary-row {
@@ -874,22 +884,6 @@
       }
 
       .summary-row strong {
-        text-align:
-          left;
-      }
-
-      .protocol-box {
-        display:
-          block;
-      }
-
-      .protocol-box strong {
-        display:
-          block;
-
-        margin-top:
-          3px;
-
         text-align:
           left;
       }
@@ -957,19 +951,71 @@
 
     <section class="card">
 
+      <div class="card-head">
+
+        <h2>
+          Sua solicitação
+        </h2>
+
+        <p>
+          As informações abaixo são carregadas a partir da situação que originou o atendimento.
+        </p>
+
+      </div>
+
+
       <div class="card-body">
 
-        <div class="protocol-box">
+        <div class="request-grid">
 
-          <span>
-            Referência da solicitação
-          </span>
+          <div class="request-row">
 
-          <strong id="protocolView">
-            —
-          </strong>
+            <span>
+              Referência da solicitação
+            </span>
+
+            <strong id="protocolView">
+              —
+            </strong>
+
+          </div>
+
+
+          <div
+            class="request-row"
+            id="situationRow"
+            hidden
+          >
+
+            <span>
+              Situação
+            </span>
+
+            <strong id="situationView">
+              —
+            </strong>
+
+          </div>
+
+
+          <div
+            class="request-row"
+            id="professionalRow"
+            hidden
+          >
+
+            <span>
+              Profissional responsável
+            </span>
+
+            <strong id="professionalView">
+              —
+            </strong>
+
+          </div>
 
         </div>
+
 
         <div
           id="initialError"
@@ -1008,6 +1054,7 @@
             type="button"
             class="mode"
             data-mode="online"
+            disabled
           >
 
             <strong>
@@ -1015,7 +1062,7 @@
             </strong>
 
             <span>
-              Atendimento por videochamada. As instruções de acesso são encaminhadas após a confirmação.
+              Atendimento por videochamada. As informações de acesso são encaminhadas após a confirmação.
             </span>
 
           </button>
@@ -1025,6 +1072,7 @@
             type="button"
             class="mode"
             data-mode="presencial"
+            disabled
           >
 
             <strong>
@@ -1032,7 +1080,7 @@
             </strong>
 
             <span>
-              Atendimento presencial no escritório em Brasília/DF.
+              Atendimento presencial no endereço informado para o profissional responsável.
             </span>
 
           </button>
@@ -1057,7 +1105,7 @@
         </h2>
 
         <p>
-          Os dias indisponíveis aparecem bloqueados.
+          Os dias anteriores à primeira data permitida aparecem bloqueados. A disponibilidade efetiva é confirmada ao selecionar o dia.
         </p>
 
       </div>
@@ -1092,9 +1140,7 @@
             hidden
           ></div>
 
-          <div
-            id="slotGroups"
-          ></div>
+          <div id="slotGroups"></div>
 
         </div>
 
@@ -1181,9 +1227,7 @@
 
 
         <div class="reserve-note">
-
-          Ao prosseguir, o horário ficará reservado provisoriamente por até 15 minutos para conclusão do pagamento via PIX.
-
+          Ao prosseguir, o horário ficará reservado provisoriamente por um período limitado para conclusão do pagamento via PIX.
         </div>
 
 
@@ -1254,52 +1298,26 @@
 ============================================================ */
 
 const WORKER_BASE =
-  "https://analiselegal-formulario.miguel-compras.workers.dev";
+  "https://analiselegal-api.miguel-compras.workers.dev";
 
-const ROTA_VALOR =
-  WORKER_BASE +
-  "/config/valor";
 
 const ROTA_DISPONIBILIDADE =
   WORKER_BASE +
-  "/agenda/disponibilidade";
+  "/api/availability";
+
 
 const ROTA_PRERESERVAR =
   WORKER_BASE +
-  "/agenda/pre-reservar";
+  "/api/bookings/pre-reserve";
+
+
+const ROTA_RETOMADA =
+  WORKER_BASE +
+  "/api/request/resume";
+
 
 const PAGAMENTO_URL =
   "/pagamento.html";
-
-
-/*
- * Deve permanecer igual à regra do Worker.
- *
- * Online:
- * D+2 úteis
- *
- * Presencial:
- * D+3 úteis
- */
-
-const DIAS_UTEIS = {
-  online: 2,
-  presencial: 3
-};
-
-
-const HORARIOS_MANHA = [
-  "09:00",
-  "10:00",
-  "11:00"
-];
-
-const HORARIOS_TARDE = [
-  "14:00",
-  "15:00",
-  "16:00",
-  "17:00"
-];
 
 
 /* ============================================================
@@ -1311,37 +1329,83 @@ const params =
     window.location.search
   );
 
+
 const protocolo =
   (
-    params.get("protocolo") ||
+    params.get(
+      "protocolo"
+    ) ||
     ""
   ).trim();
 
+
 const tokenRetomada =
   (
-    params.get("token") ||
+    params.get(
+      "token"
+    ) ||
     ""
   ).trim();
+
+
+let landingPath =
+  normalizarLandingPath(
+    params.get(
+      "landing_page"
+    ) ||
+    params.get(
+      "landing"
+    ) ||
+    ""
+  );
 
 
 /* ============================================================
    ESTADO
 ============================================================ */
 
+let landingConfig =
+  null;
+
+
+let serviceModes =
+  [];
+
+
+let minimumDates =
+  {};
+
+
 let modalidade =
   "";
+
 
 let dataEscolhida =
   "";
 
+
 let horaEscolhida =
   "";
 
-let valorAtendimento =
+
+let valorAtendimentoCents =
   null;
+
+
+let valorAtendimentoFormatado =
+  "";
+
 
 let reservaEmAndamento =
   false;
+
+
+let professionalName =
+  "";
+
+
+let professionalRegistration =
+  "";
 
 
 /* ============================================================
@@ -1353,70 +1417,108 @@ const protocolView =
     "protocolView"
   );
 
+
+const situationRow =
+  document.getElementById(
+    "situationRow"
+  );
+
+
+const situationView =
+  document.getElementById(
+    "situationView"
+  );
+
+
+const professionalRow =
+  document.getElementById(
+    "professionalRow"
+  );
+
+
+const professionalView =
+  document.getElementById(
+    "professionalView"
+  );
+
+
 const initialError =
   document.getElementById(
     "initialError"
   );
+
 
 const calendarCard =
   document.getElementById(
     "calendarCard"
   );
 
+
 const calendar =
   document.getElementById(
     "calendar"
   );
+
 
 const slots =
   document.getElementById(
     "slots"
   );
 
+
 const selectedDateLabel =
   document.getElementById(
     "selectedDateLabel"
   );
+
 
 const slotStatus =
   document.getElementById(
     "slotStatus"
   );
 
+
 const slotGroups =
   document.getElementById(
     "slotGroups"
   );
+
 
 const summaryCard =
   document.getElementById(
     "summaryCard"
   );
 
+
 const summaryMode =
   document.getElementById(
     "summaryMode"
   );
+
 
 const summaryDate =
   document.getElementById(
     "summaryDate"
   );
 
+
 const summaryTime =
   document.getElementById(
     "summaryTime"
   );
+
 
 const summaryValue =
   document.getElementById(
     "summaryValue"
   );
 
+
 const reserveStatus =
   document.getElementById(
     "reserveStatus"
   );
+
 
 const continueButton =
   document.getElementById(
@@ -1428,12 +1530,57 @@ const continueButton =
    UTILITÁRIOS
 ============================================================ */
 
-function formatarValor(
-  valor
+function normalizarLandingPath(
+  value
 ) {
 
-  return Number(
-    valor || 0
+  return String(
+    value ||
+    ""
+  )
+    .trim()
+    .replace(
+      /^\/+|\/+$/g,
+      ""
+    )
+    .replace(
+      /^situacoes\//,
+      ""
+    )
+    .replace(
+      /\/index\.html$/i,
+      ""
+    )
+    .replace(
+      /\/analise\.html$/i,
+      ""
+    );
+}
+
+
+function formatarValorCentavos(
+  cents
+) {
+
+  const valor =
+    Number(
+      cents
+    );
+
+
+  if (
+    !Number.isFinite(
+      valor
+    )
+  ) {
+
+    return "—";
+  }
+
+
+  return (
+    valor /
+    100
   ).toLocaleString(
     "pt-BR",
     {
@@ -1453,14 +1600,24 @@ function formatarData(
 
   const partes =
     String(
-      iso || ""
-    ).split("-");
+      iso ||
+      ""
+    ).split(
+      "-"
+    );
+
 
   if (
-    partes.length !== 3
+    partes.length !==
+    3
   ) {
-    return iso || "—";
+
+    return (
+      iso ||
+      "—"
+    );
   }
+
 
   return (
     partes[2] +
@@ -1490,13 +1647,16 @@ function dataISO(
   const ano =
     date.getFullYear();
 
+
   const mes =
     String(
-      date.getMonth() + 1
+      date.getMonth() +
+      1
     ).padStart(
       2,
       "0"
     );
+
 
   const dia =
     String(
@@ -1505,6 +1665,7 @@ function dataISO(
       2,
       "0"
     );
+
 
   return (
     ano +
@@ -1516,63 +1677,23 @@ function dataISO(
 }
 
 
-function ehFimDeSemana(
-  date
-) {
+function hojeISO() {
 
-  const dia =
-    date.getDay();
-
-  return (
-    dia === 0 ||
-    dia === 6
-  );
-}
-
-
-function primeiraDataPermitida(
-  mode
-) {
-
-  const quantidade =
-    DIAS_UTEIS[
-      mode
-    ] || 2;
-
-  const date =
+  const hoje =
     new Date();
 
-  date.setHours(
+
+  hoje.setHours(
     0,
     0,
     0,
     0
   );
 
-  let contados =
-    0;
 
-  while (
-    contados <
-    quantidade
-  ) {
-
-    date.setDate(
-      date.getDate() +
-      1
-    );
-
-    if (
-      !ehFimDeSemana(
-        date
-      )
-    ) {
-
-      contados++;
-    }
-  }
-
-  return date;
+  return dataISO(
+    hoje
+  );
 }
 
 
@@ -1603,77 +1724,532 @@ function mostrarStatus(
   elemento.hidden =
     !mensagem;
 
+
   elemento.textContent =
     mensagem;
+
 
   elemento.className =
     "status" +
     (
       tipo
-        ? " " + tipo
+        ? " " +
+          tipo
         : ""
     );
 }
 
 
-/* ============================================================
-   VALOR
-============================================================ */
+function mensagemErroApi(
+  data,
+  fallback
+) {
 
-async function carregarValor() {
+  return (
+    data?.error ||
+    data?.erro ||
+    data?.message ||
+    data?.mensagem ||
+    fallback
+  );
+}
 
-  try {
 
-    const response =
-      await fetch(
-        ROTA_VALOR,
-        {
-          cache:
-            "no-store"
-        }
+function landingEndpoint(
+  path
+) {
+
+  const safePath =
+    String(
+      path ||
+      ""
+    )
+      .split(
+        "/"
+      )
+      .filter(
+        Boolean
+      )
+      .map(
+        encodeURIComponent
+      )
+      .join(
+        "/"
       );
 
 
-    const data =
-      await response
-        .json()
-        .catch(
-          () => ({})
-        );
+  return (
+    WORKER_BASE +
+    "/api/landing-pages/" +
+    safePath
+  );
+}
 
 
-    if (
-      !response.ok ||
-      data.sucesso === false
-    ) {
+function primeiraDataPermitida(
+  mode
+) {
 
-      throw new Error();
-    }
-
-
-    valorAtendimento =
-      Number(
-        data.valor
-      );
+  const backend =
+    minimumDates?.[
+      mode
+    ];
 
 
-    summaryValue.textContent =
-      data.valor_formatado ||
-      formatarValor(
-        valorAtendimento
-      );
+  if (
+    /^\d{4}-\d{2}-\d{2}$/.test(
+      String(
+        backend ||
+        ""
+      )
+    )
+  ) {
 
-  } catch {
+    return backend;
+  }
 
-    summaryValue.textContent =
-      "Indisponível";
+
+  return hojeISO();
+}
+
+
+function atualizarCabecalhoContexto() {
+
+  const titulo =
+    String(
+      landingConfig
+        ?.landing_page
+        ?.title ||
+      ""
+    ).trim();
+
+
+  situationRow.hidden =
+    !titulo;
+
+
+  situationView.textContent =
+    titulo ||
+    "—";
+
+
+  professionalRow.hidden =
+    !professionalName;
+
+
+  professionalView.textContent =
+    professionalName
+      ? (
+          professionalRegistration
+            ? (
+                professionalName +
+                " · " +
+                professionalRegistration
+              )
+            : professionalName
+        )
+      : "—";
+}
+
+
+function atualizarModalidades() {
+
+  document
+    .querySelectorAll(
+      ".mode"
+    )
+    .forEach(
+      button => {
+
+        const mode =
+          button.dataset.mode;
+
+
+        const disponivel =
+          serviceModes.includes(
+            mode
+          );
+
+
+        button.hidden =
+          !disponivel;
+
+
+        button.disabled =
+          !disponivel;
+      }
+    );
+
+
+  if (
+    !serviceModes.length
+  ) {
 
     mostrarStatus(
-      reserveStatus,
-      "Não foi possível consultar o valor do atendimento. Atualize a página antes de prosseguir.",
+      initialError,
+      "Não há modalidade de atendimento disponível para esta solicitação.",
       "error"
     );
   }
+}
+
+
+function atualizarValor() {
+
+  summaryValue.textContent =
+    valorAtendimentoFormatado ||
+    formatarValorCentavos(
+      valorAtendimentoCents
+    );
+}
+
+
+/* ============================================================
+   CONTEXTO DE SESSÃO
+============================================================ */
+
+function salvarContextoAgendamento() {
+
+  try {
+
+    sessionStorage.setItem(
+      "analiseLegalAgendamento",
+      JSON.stringify(
+        {
+          protocolo:
+            protocolo,
+
+          landing_page:
+            landingPath
+        }
+      )
+    );
+
+  } catch {
+
+    /* sessionStorage não é obrigatório */
+  }
+}
+
+
+function recuperarLandingDaSessao() {
+
+  try {
+
+    const salvo =
+      JSON.parse(
+        sessionStorage.getItem(
+          "analiseLegalAgendamento"
+        ) ||
+        "null"
+      );
+
+
+    if (
+      salvo &&
+      salvo.protocolo ===
+        protocolo
+    ) {
+
+      return normalizarLandingPath(
+        salvo.landing_page ||
+        ""
+      );
+    }
+
+  } catch {
+
+    /* não bloqueia */
+  }
+
+
+  return "";
+}
+
+
+/* ============================================================
+   CONTEXTO DA LANDING PAGE
+============================================================ */
+
+async function carregarLanding(
+  path
+) {
+
+  const response =
+    await fetch(
+      landingEndpoint(
+        path
+      ),
+      {
+        cache:
+          "no-store"
+      }
+    );
+
+
+  const data =
+    await response
+      .json()
+      .catch(
+        () => ({})
+      );
+
+
+  if (
+    !response.ok
+  ) {
+
+    throw new Error(
+      mensagemErroApi(
+        data,
+        "Não foi possível carregar as informações do atendimento."
+      )
+    );
+  }
+
+
+  landingConfig =
+    data;
+
+
+  landingPath =
+    normalizarLandingPath(
+      data
+        ?.landing_page
+        ?.path ||
+      data
+        ?.landing_page
+        ?.slug ||
+      path
+    );
+
+
+  serviceModes =
+    Array.isArray(
+      data
+        ?.service
+        ?.service_modes
+    )
+      ? data
+          .service
+          .service_modes
+      : [];
+
+
+  minimumDates =
+    data
+      ?.service
+      ?.minimum_dates &&
+    typeof data
+      .service
+      .minimum_dates ===
+      "object"
+      ? data
+          .service
+          .minimum_dates
+      : {};
+
+
+  valorAtendimentoCents =
+    Number.isFinite(
+      Number(
+        data
+          ?.service
+          ?.price_cents
+      )
+    )
+      ? Number(
+          data
+            .service
+            .price_cents
+        )
+      : null;
+
+
+  valorAtendimentoFormatado =
+    String(
+      data
+        ?.service
+        ?.price_formatted ||
+      ""
+    ).trim();
+
+
+  professionalName =
+    String(
+      data
+        ?.professional
+        ?.display_name ||
+      data
+        ?.professional
+        ?.full_name ||
+      ""
+    ).trim();
+
+
+  professionalRegistration =
+    String(
+      data
+        ?.professional
+        ?.registration ||
+      ""
+    ).trim();
+
+
+  atualizarCabecalhoContexto();
+
+
+  atualizarModalidades();
+
+
+  atualizarValor();
+
+
+  salvarContextoAgendamento();
+}
+
+
+/* ============================================================
+   RETOMADA
+============================================================ */
+
+async function carregarRetomada() {
+
+  const url =
+    ROTA_RETOMADA +
+    "?protocolo=" +
+    encodeURIComponent(
+      protocolo
+    ) +
+    "&token=" +
+    encodeURIComponent(
+      tokenRetomada
+    );
+
+
+  const response =
+    await fetch(
+      url,
+      {
+        cache:
+          "no-store"
+      }
+    );
+
+
+  const data =
+    await response
+      .json()
+      .catch(
+        () => ({})
+      );
+
+
+  if (
+    !response.ok ||
+    data.success ===
+      false
+  ) {
+
+    throw new Error(
+      mensagemErroApi(
+        data,
+        "Não foi possível retomar esta solicitação."
+      )
+    );
+  }
+
+
+  const recoveredPath =
+    normalizarLandingPath(
+      data
+        ?.landing_page
+        ?.path ||
+      data
+        ?.landing_page
+        ?.slug ||
+      ""
+    );
+
+
+  if (
+    !recoveredPath
+  ) {
+
+    throw new Error(
+      "A solicitação foi localizada, mas a origem do atendimento não pôde ser identificada."
+    );
+  }
+
+
+  landingPath =
+    recoveredPath;
+
+
+  const status =
+    String(
+      data
+        ?.booking
+        ?.status ||
+      ""
+    );
+
+
+  if (
+    status ===
+      "pending_payment"
+  ) {
+
+    window.location.replace(
+      PAGAMENTO_URL +
+      "?protocolo=" +
+      encodeURIComponent(
+        protocolo
+      ) +
+      "&token=" +
+      encodeURIComponent(
+        tokenRetomada
+      )
+    );
+
+
+    return {
+      redirect:
+        true
+    };
+  }
+
+
+  if (
+    [
+      "confirmed",
+      "completed",
+      "no_show"
+    ].includes(
+      status
+    )
+  ) {
+
+    throw new Error(
+      "Esta solicitação já possui atendimento confirmado ou encerrado."
+    );
+  }
+
+
+  if (
+    !data.can_rebook
+  ) {
+
+    throw new Error(
+      "Esta solicitação não está disponível para um novo agendamento."
+    );
+  }
+
+
+  return {
+    redirect:
+      false
+  };
 }
 
 
@@ -1693,8 +2269,10 @@ document
         () => {
 
           if (
-            reservaEmAndamento
+            reservaEmAndamento ||
+            button.disabled
           ) {
+
             return;
           }
 
@@ -1714,15 +2292,15 @@ document
                   .toggle(
                     "selected",
                     item ===
-                    button
+                      button
                   );
-
               }
             );
 
 
           dataEscolhida =
             "";
+
 
           horaEscolhida =
             "";
@@ -1731,11 +2309,19 @@ document
           slots.hidden =
             true;
 
+
           summaryCard.hidden =
             true;
 
+
           continueButton.disabled =
             true;
+
+
+          mostrarStatus(
+            reserveStatus,
+            ""
+          );
 
 
           calendarCard.hidden =
@@ -1757,7 +2343,6 @@ document
             );
         }
       );
-
     }
   );
 
@@ -1778,19 +2363,64 @@ function montarCalendario() {
     );
 
 
-  const primeiroMes =
+  const hoje =
     new Date();
 
-  primeiroMes.setHours(
+
+  hoje.setHours(
     0,
     0,
     0,
     0
   );
 
-  primeiroMes.setDate(
-    1
-  );
+
+  const minDate =
+    new Date(
+      minimo +
+      "T00:00:00"
+    );
+
+
+  const inicio =
+    new Date(
+      hoje.getFullYear(),
+      hoje.getMonth(),
+      1
+    );
+
+
+  const fimSegundoMes =
+    new Date(
+      inicio.getFullYear(),
+      inicio.getMonth() +
+        2,
+      0
+    );
+
+
+  if (
+    Number.isFinite(
+      minDate.getTime()
+    ) &&
+    minDate >
+      fimSegundoMes
+  ) {
+
+    inicio.setFullYear(
+      minDate.getFullYear()
+    );
+
+
+    inicio.setMonth(
+      minDate.getMonth()
+    );
+
+
+    inicio.setDate(
+      1
+    );
+  }
 
 
   for (
@@ -1801,8 +2431,8 @@ function montarCalendario() {
 
     const mes =
       new Date(
-        primeiroMes.getFullYear(),
-        primeiroMes.getMonth() +
+        inicio.getFullYear(),
+        inicio.getMonth() +
           offset,
         1
       );
@@ -1828,6 +2458,7 @@ function montarMes(
       "div"
     );
 
+
   box.className =
     "month";
 
@@ -1836,6 +2467,7 @@ function montarMes(
     document.createElement(
       "h3"
     );
+
 
   titulo.textContent =
     nomeMes(
@@ -1852,6 +2484,7 @@ function montarMes(
     document.createElement(
       "div"
     );
+
 
   grid.className =
     "calendar-grid";
@@ -1873,11 +2506,14 @@ function montarMes(
           "div"
         );
 
+
       el.className =
         "weekday";
 
+
       el.textContent =
         nome;
+
 
       grid.appendChild(
         el
@@ -1897,31 +2533,31 @@ function montarMes(
   const quantidadeDias =
     new Date(
       mes.getFullYear(),
-      mes.getMonth() + 1,
+      mes.getMonth() +
+        1,
       0
     ).getDate();
 
 
   for (
     let i = 0;
-    i < primeiroDia.getDay();
+    i <
+      primeiroDia.getDay();
     i++
   ) {
 
-    const vazio =
+    grid.appendChild(
       document.createElement(
         "div"
-      );
-
-    grid.appendChild(
-      vazio
+      )
     );
   }
 
 
   for (
     let numero = 1;
-    numero <= quantidadeDias;
+    numero <=
+      quantidadeDias;
     numero++
   ) {
 
@@ -1941,16 +2577,15 @@ function montarMes(
     );
 
 
-    const bloqueado =
-      ehFimDeSemana(
+    const iso =
+      dataISO(
         date
-      ) ||
-      date.getTime() <
-        minimo.getTime();
+      );
 
 
     if (
-      bloqueado
+      iso <
+      minimo
     ) {
 
       const el =
@@ -1958,17 +2593,21 @@ function montarMes(
           "div"
         );
 
+
       el.className =
         "day disabled";
+
 
       el.textContent =
         String(
           numero
         );
 
+
       grid.appendChild(
         el
       );
+
 
       continue;
     }
@@ -1979,21 +2618,18 @@ function montarMes(
         "button"
       );
 
+
     button.type =
       "button";
+
 
     button.className =
       "day";
 
+
     button.textContent =
       String(
         numero
-      );
-
-
-    const iso =
-      dataISO(
-        date
       );
 
 
@@ -2016,7 +2652,6 @@ function montarMes(
           iso,
           button
         );
-
       }
     );
 
@@ -2048,12 +2683,14 @@ async function selecionarData(
   if (
     reservaEmAndamento
   ) {
+
     return;
   }
 
 
   dataEscolhida =
     iso;
+
 
   horaEscolhida =
     "";
@@ -2070,7 +2707,6 @@ async function selecionarData(
           .remove(
             "selected"
           );
-
       }
     );
 
@@ -2083,11 +2719,14 @@ async function selecionarData(
   slots.hidden =
     false;
 
+
   summaryCard.hidden =
     true;
 
+
   continueButton.disabled =
     true;
+
 
   slotGroups.innerHTML =
     "";
@@ -2107,25 +2746,36 @@ async function selecionarData(
 
   try {
 
+    const url =
+      new URL(
+        ROTA_DISPONIBILIDADE
+      );
+
+
+    url.searchParams.set(
+      "landing_page",
+      landingPath
+    );
+
+
+    url.searchParams.set(
+      "date",
+      iso
+    );
+
+
+    url.searchParams.set(
+      "service_mode",
+      modalidade
+    );
+
+
     const response =
       await fetch(
-        ROTA_DISPONIBILIDADE,
+        url.toString(),
         {
-          method:
-            "POST",
-
-          headers: {
-            "Content-Type":
-              "application/json"
-          },
-
-          body:
-            JSON.stringify(
-              {
-                data:
-                  iso
-              }
-            )
+          cache:
+            "no-store"
         }
       );
 
@@ -2139,27 +2789,70 @@ async function selecionarData(
 
 
     if (
-      !response.ok ||
-      data.sucesso === false
+      !response.ok
     ) {
 
       throw new Error(
-        data.erro ||
-        "Não foi possível consultar a disponibilidade."
+        mensagemErroApi(
+          data,
+          "Não foi possível consultar a disponibilidade."
+        )
       );
     }
 
 
-    const disponiveis =
-      Array.isArray(
-        data.horarios_disponiveis
+    if (
+      data.minimum_date &&
+      iso <
+        data.minimum_date
+    ) {
+
+      minimumDates[
+        modalidade
+      ] =
+        data.minimum_date;
+
+
+      montarCalendario();
+
+
+      throw new Error(
+        "Esta data não está disponível para a modalidade escolhida. Selecione outra data."
+      );
+    }
+
+
+    if (
+      Number.isFinite(
+        Number(
+          data.price_cents
+        )
       )
-        ? data.horarios_disponiveis
-        : [];
+    ) {
+
+      valorAtendimentoCents =
+        Number(
+          data.price_cents
+        );
+
+
+      valorAtendimentoFormatado =
+        String(
+          data.price_formatted ||
+          ""
+        ).trim();
+
+
+      atualizarValor();
+    }
 
 
     renderizarHorarios(
-      disponiveis
+      Array.isArray(
+        data.slots
+      )
+        ? data.slots
+        : []
     );
 
   } catch (
@@ -2168,6 +2861,7 @@ async function selecionarData(
 
     slotGroups.innerHTML =
       "";
+
 
     mostrarStatus(
       slotStatus,
@@ -2183,6 +2877,44 @@ async function selecionarData(
    HORÁRIOS
 ============================================================ */
 
+function periodoDoHorario(
+  hora
+) {
+
+  const numero =
+    Number(
+      String(
+        hora ||
+        ""
+      ).slice(
+        0,
+        2
+      )
+    );
+
+
+  if (
+    numero <
+    12
+  ) {
+
+    return "Manhã";
+  }
+
+
+  if (
+    numero <
+    18
+  ) {
+
+    return "Tarde";
+  }
+
+
+  return "Noite";
+}
+
+
 function renderizarHorarios(
   disponiveis
 ) {
@@ -2191,78 +2923,57 @@ function renderizarHorarios(
     "";
 
 
-  const manha =
-    HORARIOS_MANHA.filter(
-      hora =>
-        disponiveis.includes(
-          hora
-        )
-    );
+  const normalizados =
+    disponiveis
+      .map(
+        slot => {
 
+          return typeof slot ===
+            "string"
+              ? {
+                  start_time:
+                    slot
+                }
+              : slot;
+        }
+      )
+      .filter(
+        slot => {
 
-  const tarde =
-    HORARIOS_TARDE.filter(
-      hora =>
-        disponiveis.includes(
-          hora
-        )
-    );
+          return (
+            slot &&
+            /^\d{2}:\d{2}$/.test(
+              String(
+                slot.start_time ||
+                ""
+              )
+            )
+          );
+        }
+      )
+      .sort(
+        (
+          a,
+          b
+        ) => {
 
-
-  /*
-   * Mantém o comportamento da versão anterior:
-   * oferece até um horário no período da manhã
-   * e até um horário no período da tarde.
-   */
-
-  const grupos =
-    [];
-
-
-  if (
-    manha.length
-  ) {
-
-    grupos.push(
-      {
-        titulo:
-          "Manhã",
-
-        horarios:
-          [
-            manha[0]
-          ]
-      }
-    );
-  }
+          return a.start_time
+            .localeCompare(
+              b.start_time
+            );
+        }
+      );
 
 
   if (
-    tarde.length
-  ) {
-
-    grupos.push(
-      {
-        titulo:
-          "Tarde",
-
-        horarios:
-          [
-            tarde[0]
-          ]
-      }
-    );
-  }
-
-
-  if (
-    !grupos.length
+    !normalizados.length
   ) {
 
     mostrarStatus(
       slotStatus,
       "Não há horários disponíveis neste dia. Escolha outra data."
     );
+
 
     return;
   }
@@ -2274,13 +2985,70 @@ function renderizarHorarios(
   );
 
 
-  grupos.forEach(
-    grupo => {
+  const grupos =
+    new Map();
+
+
+  normalizados.forEach(
+    slot => {
+
+      const titulo =
+        periodoDoHorario(
+          slot.start_time
+        );
+
+
+      if (
+        !grupos.has(
+          titulo
+        )
+      ) {
+
+        grupos.set(
+          titulo,
+          []
+        );
+      }
+
+
+      grupos
+        .get(
+          titulo
+        )
+        .push(
+          slot
+        );
+    }
+  );
+
+
+  [
+    "Manhã",
+    "Tarde",
+    "Noite"
+  ].forEach(
+    tituloGrupo => {
+
+      const grupo =
+        grupos.get(
+          tituloGrupo
+        );
+
+
+      if (
+        !grupo ||
+        !grupo.length
+      ) {
+
+        return;
+      }
+
 
       const period =
         document.createElement(
           "div"
         );
+
 
       period.className =
         "period";
@@ -2291,11 +3059,13 @@ function renderizarHorarios(
           "p"
         );
 
+
       titulo.className =
         "period-title";
 
+
       titulo.textContent =
-        grupo.titulo;
+        tituloGrupo;
 
 
       const lista =
@@ -2303,56 +3073,60 @@ function renderizarHorarios(
           "div"
         );
 
+
       lista.className =
         "slot-list";
 
 
-      grupo.horarios
-        .forEach(
-          hora => {
+      grupo.forEach(
+        slot => {
 
-            const button =
-              document.createElement(
-                "button"
+          const button =
+            document.createElement(
+              "button"
+            );
+
+
+          button.type =
+            "button";
+
+
+          button.className =
+            "slot";
+
+
+          button.textContent =
+            slot.start_time;
+
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              selecionarHorario(
+                slot.start_time,
+                button
               );
-
-            button.type =
-              "button";
-
-            button.className =
-              "slot";
-
-            button.textContent =
-              hora;
+            }
+          );
 
 
-            button.addEventListener(
-              "click",
-              () => {
-
-                selecionarHorario(
-                  hora,
-                  button
-                );
-
-              }
-            );
-
-
-            lista.appendChild(
-              button
-            );
-          }
-        );
+          lista.appendChild(
+            button
+          );
+        }
+      );
 
 
       period.appendChild(
         titulo
       );
 
+
       period.appendChild(
         lista
       );
+
 
       slotGroups.appendChild(
         period
@@ -2374,6 +3148,7 @@ function selecionarHorario(
   if (
     reservaEmAndamento
   ) {
+
     return;
   }
 
@@ -2393,7 +3168,6 @@ function selecionarHorario(
           .remove(
             "selected"
           );
-
       }
     );
 
@@ -2419,6 +3193,9 @@ function selecionarHorario(
     horaEscolhida;
 
 
+  atualizarValor();
+
+
   summaryCard.hidden =
     false;
 
@@ -2426,11 +3203,12 @@ function selecionarHorario(
   continueButton.disabled =
     !(
       protocolo &&
+      landingPath &&
       modalidade &&
       dataEscolhida &&
       horaEscolhida &&
       Number.isFinite(
-        valorAtendimento
+        valorAtendimentoCents
       )
     );
 
@@ -2459,12 +3237,14 @@ continueButton.addEventListener(
     if (
       reservaEmAndamento
     ) {
+
       return;
     }
 
 
     if (
       !protocolo ||
+      !landingPath ||
       !modalidade ||
       !dataEscolhida ||
       !horaEscolhida
@@ -2475,6 +3255,7 @@ continueButton.addEventListener(
         "Escolha modalidade, data e horário antes de prosseguir.",
         "error"
       );
+
 
       return;
     }
@@ -2487,6 +3268,7 @@ continueButton.addEventListener(
     continueButton.disabled =
       true;
 
+
     continueButton.textContent =
       "GERANDO PIX...";
 
@@ -2498,6 +3280,30 @@ continueButton.addEventListener(
 
 
     try {
+
+      const payload = {
+        protocolo:
+          protocolo,
+
+        service_mode:
+          modalidade,
+
+        date:
+          dataEscolhida,
+
+        time:
+          horaEscolhida
+      };
+
+
+      if (
+        tokenRetomada
+      ) {
+
+        payload.retake_token =
+          tokenRetomada;
+      }
+
 
       const response =
         await fetch(
@@ -2513,19 +3319,7 @@ continueButton.addEventListener(
 
             body:
               JSON.stringify(
-                {
-                  protocolo:
-                    protocolo,
-
-                  modalidade:
-                    modalidade,
-
-                  data:
-                    dataEscolhida,
-
-                  hora:
-                    horaEscolhida
-                }
+                payload
               )
           }
         );
@@ -2541,26 +3335,29 @@ continueButton.addEventListener(
 
       if (
         !response.ok ||
-        data.sucesso === false
+        data.success ===
+          false
       ) {
 
         throw new Error(
-          data.erro ||
-          "Não foi possível reservar o horário."
+          mensagemErroApi(
+            data,
+            "Não foi possível reservar o horário."
+          )
         );
       }
 
 
       const protocoloFinal =
-        (
+        String(
           data.protocolo ||
           protocolo
         ).trim();
 
 
       const token =
-        (
-          data.retomar_token ||
+        String(
+          data.retake_token ||
           ""
         ).trim();
 
@@ -2587,6 +3384,9 @@ continueButton.addEventListener(
               token:
                 token,
 
+              landing_page:
+                landingPath,
+
               modalidade:
                 modalidade,
 
@@ -2597,7 +3397,7 @@ continueButton.addEventListener(
                 horaEscolhida,
 
               expiraEm:
-                data.expira_em ||
+                data.expires_at ||
                 ""
             }
           )
@@ -2616,7 +3416,7 @@ continueButton.addEventListener(
       );
 
 
-      const destino =
+      window.location.href =
         PAGAMENTO_URL +
         "?protocolo=" +
         encodeURIComponent(
@@ -2626,10 +3426,6 @@ continueButton.addEventListener(
         encodeURIComponent(
           token
         );
-
-
-      window.location.href =
-        destino;
 
     } catch (
       error
@@ -2642,6 +3438,7 @@ continueButton.addEventListener(
       continueButton.disabled =
         false;
 
+
       continueButton.textContent =
         "CONTINUAR PARA PAGAMENTO";
 
@@ -2653,7 +3450,6 @@ continueButton.addEventListener(
         "error"
       );
     }
-
   }
 );
 
@@ -2673,11 +3469,71 @@ async function iniciar() {
     !protocolo
   ) {
 
-    initialError.hidden =
-      false;
+    mostrarStatus(
+      initialError,
+      "Não foi possível identificar a solicitação. Retorne ao formulário e conclua o preenchimento antes de acessar o agendamento.",
+      "error"
+    );
 
-    initialError.textContent =
-      "Não foi possível identificar a solicitação. Retorne ao formulário e conclua o preenchimento antes de acessar o agendamento.";
+
+    return;
+  }
+
+
+  try {
+
+    if (
+      tokenRetomada
+    ) {
+
+      const retomada =
+        await carregarRetomada();
+
+
+      if (
+        retomada.redirect
+      ) {
+
+        return;
+      }
+
+    } else if (
+      !landingPath
+    ) {
+
+      landingPath =
+        recuperarLandingDaSessao();
+    }
+
+
+    if (
+      !landingPath
+    ) {
+
+      throw new Error(
+        "Não foi possível identificar a situação vinculada a esta solicitação. Retorne ao formulário e acesse novamente o agendamento."
+      );
+    }
+
+
+    await carregarLanding(
+      landingPath
+    );
+
+
+    initialError.hidden =
+      true;
+
+  } catch (
+    error
+  ) {
+
+    mostrarStatus(
+      initialError,
+      error.message ||
+      "Não foi possível carregar os dados necessários para o agendamento.",
+      "error"
+    );
 
 
     document
@@ -2689,42 +3545,9 @@ async function iniciar() {
 
           button.disabled =
             true;
-
         }
       );
-
-
-    return;
   }
-
-
-  /*
-   * tokenRetomada pode existir quando o usuário retorna
-   * pelo link enviado após a expiração de uma reserva.
-   *
-   * A escolha de nova data permanece vinculada ao mesmo
-   * protocolo.
-   */
-
-  if (
-    tokenRetomada
-  ) {
-
-    try {
-
-      sessionStorage.setItem(
-        "analiseLegalRetomadaToken",
-        tokenRetomada
-      );
-
-    } catch {
-
-      /* não bloqueia */
-    }
-  }
-
-
-  await carregarValor();
 }
 
 
@@ -2733,5 +3556,4 @@ iniciar();
 </script>
 
 </body>
-
 </html>
