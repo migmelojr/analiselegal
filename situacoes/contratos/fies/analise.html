@@ -1841,6 +1841,8 @@
 
             <input
               x-model="formData.desconto"
+              @blur="formData.desconto = formatPercentBR(formData.desconto)"
+              inputmode="decimal"
               class="field"
               placeholder="Desconto informado (ex.: 77%)"
             >
@@ -2555,6 +2557,32 @@
             </p>
 
           </div>
+
+        </div>
+
+
+        <div
+          class="question-block"
+          x-show="!summaryReady"
+        >
+
+          <h3 class="question-title">
+            Qual é o seu nome completo?
+          </h3>
+
+          <input
+            x-model.trim="formData.nome"
+            @input="errors.nome = ''"
+            class="field"
+            placeholder="Nome completo *"
+            autocomplete="name"
+          >
+
+          <p
+            x-show="errors.nome"
+            class="error"
+            x-text="errors.nome"
+          ></p>
 
         </div>
 
@@ -4539,6 +4567,24 @@
 
 
           if (
+            !String(
+              this.formData
+                .nome ||
+              ""
+            ).trim()
+          ) {
+
+            this.errors
+              .nome =
+              "Informe seu nome completo.";
+
+
+            return;
+
+          }
+
+
+          if (
             !this.formData
               .objetivo
           ) {
@@ -5965,6 +6011,77 @@
         },
 
 
+        formatPercentBR(
+          value
+        ) {
+
+          if (
+            value ===
+              null ||
+            value ===
+              undefined ||
+            String(
+              value
+            ).trim() ===
+              ""
+          ) {
+
+            return "";
+
+          }
+
+
+          const raw =
+            String(
+              value
+            )
+              .trim()
+              .replace(
+                "%",
+                ""
+              )
+              .replace(
+                ",",
+                "."
+              )
+              .replace(
+                /[^0-9.]/g,
+                ""
+              );
+
+
+          const number =
+            Number(
+              raw
+            );
+
+
+          if (
+            !Number.isFinite(
+              number
+            )
+          ) {
+
+            return "";
+
+          }
+
+
+          return (
+            number
+              .toLocaleString(
+                "pt-BR",
+                {
+                  maximumFractionDigits:
+                    2
+                }
+              ) +
+            "%"
+          );
+
+        },
+
+
         formatMoneyBR(
           value
         ) {
@@ -6192,5 +6309,6 @@
     }
   </script>
 
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"47ff298b52d5443faf129a182858f8a0","r":1,"spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
