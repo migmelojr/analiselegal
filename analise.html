@@ -1388,7 +1388,7 @@
         </div>
 
         <div class="operational-note">
-          <strong>Valor: R$ 1.000,00.</strong> A contratação compreende consulta, análise e entrega técnica. Não inclui atuação ou representação perante terceiros, processos ou procedimentos. Eventual serviço posterior dependerá de contratação específica. Se houver contratação para atuação, os R$ 1.000,00 pagos por esta análise serão abatidos dos honorários correspondentes, observados os valores aplicáveis e a tabela da OAB/DF.
+          <strong>Valor: R$ 1.000,00.</strong> A contratação compreende consulta, análise e entrega técnica. Não inclui atuação ou representação perante terceiros, processos ou procedimentos. Eventual serviço posterior dependerá de contratação específica.
         </div>
 
         <p x-show="serviceError" class="error" x-text="serviceError"></p>
@@ -1862,7 +1862,7 @@ function homeFunnel() {
           throw new Error('Configuração de profissional divergente. O atendimento deve estar vinculado a Miguel Ferreira de Melo Junior.');
         }
 
-        this.analysisPriceLabel = data?.service?.price_formatted || 'R$ 1.000,00';
+        this.analysisPriceLabel = String(data?.service?.price_formatted || 'R$ 1.000,00').replace(/^r\$/i, 'R$');
         this.professionalDisplay = professionalName || EXPECTED_PROFESSIONAL;
         this.professionalRegistration = String(data?.professional?.registration || '').trim();
         this.minimumDates = data?.service?.minimum_dates || {};
@@ -1870,7 +1870,8 @@ function homeFunnel() {
         this.landingReady = true;
         this.prepareMonths();
       } catch (error) {
-        this.serviceError = error.message || 'Não foi possível validar as condições do atendimento.';
+        console.error('Falha ao carregar configuração do atendimento:', error);
+        this.serviceError = 'As opções de atendimento estão temporariamente indisponíveis.';
         this.landingReady = false;
       }
     },
@@ -1996,7 +1997,7 @@ function homeFunnel() {
       const docs = this.labelsOf(this.documentos, this.formData.documentos);
       const impacto = this.labelOf(this.impactos, this.formData.impacto);
       const urgencia = this.labelOf(this.urgencias, this.formData.urgencia);
-      return `Pelo que você informou, a situação envolve ${situacao.toLowerCase()}. No momento, ${estado.toLowerCase()}. Foram indicados como documentos ou registros: ${docs.toLowerCase()}. Quanto ao impacto, você informou: ${impacto.toLowerCase()}. Sobre prazo ou urgência: ${urgencia.toLowerCase()}.`;
+      return `Pelo que você informou, a situação envolve ${situacao.toLowerCase()}. No momento, ${estado.toLowerCase()}. Foram indicados como documentos ou registros: ${docs.toLowerCase()}. Quanto ao impacto, você informou: ${impacto}. Sobre prazo ou urgência: ${urgencia.toLowerCase()}.`;
     },
 
     continueToService() {
