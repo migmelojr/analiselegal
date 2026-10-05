@@ -1,0 +1,1761 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="index,follow">
+
+  <title>FIES: paguei a entrada da renegociação e depois o acordo mudou</title>
+  <meta name="description" content="Entenda quando merece atenção a alteração de uma renegociação do FIES depois da formalização e do pagamento da entrada.">
+  <link rel="canonical" href="https://www.analiselegal.com.br/situacoes/contratos/fies/paguei-a-entrada-e-o-acordo-mudou/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Análise Legal">
+  <meta property="og:title" content="FIES: paguei a entrada da renegociação e depois o acordo mudou">
+  <meta property="og:description" content="Entenda quando merece atenção a alteração de uma renegociação do FIES depois da formalização e do pagamento da entrada.">
+  <meta property="og:url" content="https://www.analiselegal.com.br/situacoes/contratos/fies/paguei-a-entrada-e-o-acordo-mudou/">
+
+  <link rel="icon" href="/favicon.ico">
+
+  <style>
+    @font-face {
+      font-family: "Crimson Text";
+      src: url("/assets/fonts/CrimsonText-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Crimson Text";
+      src: url("/assets/fonts/CrimsonText-SemiBold.ttf") format("truetype");
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Crimson Text";
+      src: url("/assets/fonts/CrimsonText-Bold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --green: #073d3a;
+      --green-dark: #043330;
+      --green-mid: #315f5d;
+      --green-soft: #eaf0ef;
+      --ink: #302f30;
+      --muted: #6d6a6b;
+      --line: rgba(7,61,58,.18);
+      --paper: #ffffff;
+      --soft: #f7f7f4;
+      --soft-2: #f0f1ed;
+      --danger: #8a3030;
+      --danger-soft: #f8eeee;
+      --ok: #275c47;
+      --shadow: 0 18px 45px rgba(21,48,46,.08);
+      --radius: 14px;
+      --shell: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--soft);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    [hidden] { display: none !important; }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 10px;
+      z-index: 999;
+      background: #fff;
+      color: var(--green-dark);
+      padding: 10px 14px;
+      border-radius: 8px;
+    }
+
+    .skip-link:focus { left: 10px; }
+
+    .shell {
+      width: min(var(--shell), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      background: rgba(247,247,244,.96);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+    }
+
+    .site-header .shell {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      flex: 0 0 auto;
+    }
+
+    .brand img {
+      width: 210px;
+      height: auto;
+      display: block;
+    }
+
+    .main-nav {
+      margin-left: auto;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      color: #444;
+      font-size: 14px;
+    }
+
+    .main-nav a,
+    .footer-nav a,
+    .mobile-prefooter-nav a {
+      text-decoration: none;
+    }
+
+    .main-nav a:hover,
+    .footer-nav a:hover,
+    .mobile-prefooter-nav a:hover { color: var(--green); }
+
+    .header-cta,
+    .primary-btn,
+    .secondary-btn {
+      border-radius: 8px;
+      font-weight: 700;
+      letter-spacing: .035em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid transparent;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: 12px 20px;
+      transition: .18s ease;
+    }
+
+    .header-cta,
+    .primary-btn {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .header-cta:hover,
+    .primary-btn:hover { background: var(--green-dark); }
+
+    .primary-btn:disabled {
+      opacity: .48;
+      cursor: not-allowed;
+    }
+
+    .secondary-btn {
+      background: transparent;
+      color: var(--green);
+      border-color: var(--green);
+    }
+
+    .secondary-btn:hover { background: var(--green-soft); }
+
+    .hero {
+      background:
+        radial-gradient(circle at 85% 15%, rgba(49,95,93,.12), transparent 32%),
+        linear-gradient(180deg, #f7f7f4 0%, #f1f3ef 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      min-height: 560px;
+      padding: 84px 0 74px;
+      display: grid;
+      grid-template-columns: minmax(0,1.45fr) minmax(300px,.75fr);
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow,
+    .section-kicker,
+    .stage-kicker {
+      margin: 0 0 12px;
+      color: var(--green-mid);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      font-family: "Crimson Text", Georgia, serif;
+      color: var(--green-dark);
+      line-height: 1.08;
+      font-weight: 600;
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(42px, 5vw, 70px);
+      max-width: 900px;
+      margin-bottom: 24px;
+      letter-spacing: -.025em;
+    }
+
+    h2 {
+      font-size: clamp(31px, 3.2vw, 46px);
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .hero .lead {
+      max-width: 780px;
+      margin: 0 0 28px;
+      font-size: 19px;
+      color: #484647;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.8);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card strong {
+      display: block;
+      color: var(--green-dark);
+      font-family: "Crimson Text", Georgia, serif;
+      font-size: 25px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .hero-card p { margin: 0; color: var(--muted); }
+
+    .content-section {
+      background: var(--paper);
+      padding: 76px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .content-section.alt { background: var(--soft); }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr);
+      gap: 70px;
+      align-items: start;
+    }
+
+    .content-copy {
+      max-width: 760px;
+    }
+
+    .content-copy p:first-child { margin-top: 0; }
+    .content-copy p:last-child { margin-bottom: 0; }
+
+    .attention-list {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .attention-list li {
+      position: relative;
+      padding-left: 22px;
+    }
+
+    .attention-list li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green-mid);
+      position: absolute;
+      left: 0;
+      top: .68em;
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .flow-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 22px;
+    }
+
+    .flow-card span {
+      display: block;
+      color: var(--green-mid);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .flow-card p { margin: 0; }
+
+    .analysis-zone {
+      padding: 78px 0 88px;
+      background: var(--soft);
+    }
+
+    .analysis-head {
+      max-width: 810px;
+      margin-bottom: 28px;
+    }
+
+    .analysis-head p:last-child { margin-bottom: 0; }
+
+    .stage {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .stage-head {
+      padding: 28px 32px 22px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .stage-number {
+      margin: 0;
+      color: var(--green-mid);
+      font-family: "Crimson Text", Georgia, serif;
+      font-size: 34px;
+      line-height: 1;
+      min-width: 42px;
+    }
+
+    .stage-head h2 {
+      font-size: 34px;
+      margin-bottom: 6px;
+    }
+
+    .stage-head p:last-child { margin: 0; color: var(--muted); }
+
+    .stage-body { padding: 30px 32px 34px; }
+
+    .question {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(7,61,58,.11);
+    }
+
+    .question:first-child { padding-top: 0; }
+    .question:last-child { border-bottom: 0; padding-bottom: 0; }
+
+    .question-label {
+      display: block;
+      color: var(--green-dark);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .option-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .option-btn,
+    .date-btn,
+    .slot-btn,
+    .mode-btn {
+      border: 1px solid rgba(7,61,58,.28);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 9px;
+      padding: 11px 15px;
+      min-height: 44px;
+      transition: .15s ease;
+    }
+
+    .option-btn:hover,
+    .date-btn:hover,
+    .slot-btn:hover,
+    .mode-btn:hover { border-color: var(--green); background: var(--green-soft); }
+
+    .option-btn.is-selected,
+    .date-btn.is-selected,
+    .slot-btn.is-selected,
+    .mode-btn.is-selected {
+      border-color: var(--green);
+      background: var(--green);
+      color: #fff;
+    }
+
+    .stage-actions {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .inline-error,
+    .status-box {
+      border-radius: 9px;
+      padding: 12px 14px;
+      font-size: 14px;
+      margin-top: 14px;
+    }
+
+    .inline-error {
+      background: var(--danger-soft);
+      color: var(--danger);
+      border: 1px solid rgba(138,48,48,.2);
+    }
+
+    .status-box {
+      background: var(--green-soft);
+      color: var(--green-dark);
+      border: 1px solid var(--line);
+    }
+
+    .summary-box {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .summary-row {
+      display: grid;
+      grid-template-columns: minmax(155px,.55fr) minmax(0,1.45fr);
+      gap: 18px;
+      padding-bottom: 13px;
+      border-bottom: 1px solid rgba(7,61,58,.1);
+    }
+
+    .summary-row:last-child { border-bottom: 0; padding-bottom: 0; }
+    .summary-row span { color: var(--muted); }
+    .summary-row strong { color: var(--green-dark); }
+
+    .decision-note {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--green);
+      background: var(--green-soft);
+    }
+
+    .decision-note p { margin: 0; }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) minmax(300px,.68fr);
+      gap: 26px;
+      align-items: start;
+    }
+
+    .booking-card,
+    .side-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 22px;
+      background: #fff;
+    }
+
+    .side-card {
+      background: var(--soft);
+      position: sticky;
+      top: 106px;
+    }
+
+    .mode-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .mode-btn {
+      text-align: left;
+      min-height: 84px;
+      padding: 15px 16px;
+    }
+
+    .mode-btn strong { display: block; margin-bottom: 3px; }
+    .mode-btn small { display: block; opacity: .82; line-height: 1.35; }
+
+    .dates {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .date-btn {
+      text-align: center;
+      padding: 10px 8px;
+    }
+
+    .date-btn small,
+    .date-btn strong { display: block; }
+    .date-btn small { font-size: 11px; opacity: .75; text-transform: uppercase; }
+
+    .slots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .price-card {
+      margin-top: 24px;
+      background: var(--green-dark);
+      color: #fff;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .price-card .label {
+      margin: 0 0 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      opacity: .8;
+    }
+
+    .price-card .amount {
+      font-family: "Crimson Text", Georgia, serif;
+      font-size: 40px;
+      line-height: 1;
+      margin: 0 0 10px;
+      font-weight: 600;
+    }
+
+    .price-card p:last-child { margin-bottom: 0; opacity: .92; }
+
+    .identity-card {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.18);
+    }
+
+    .identity-card strong { display: block; }
+    .identity-card small { opacity: .86; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .field label {
+      display: block;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .field input {
+      width: 100%;
+      border: 1px solid rgba(7,61,58,.28);
+      border-radius: 8px;
+      min-height: 48px;
+      padding: 10px 12px;
+      background: #fff;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .field input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(7,61,58,.08);
+    }
+
+    .microcopy {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 13px;
+    }
+
+    .no-docs {
+      margin: 22px 0 0;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 15px 16px;
+      font-size: 14px;
+    }
+
+    .loading-line {
+      display: inline-flex;
+      gap: 9px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    .spinner {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid rgba(7,61,58,.18);
+      border-top-color: var(--green);
+      animation: spin .75s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .closed-message {
+      text-align: center;
+      padding: 36px 20px;
+    }
+
+    .closed-message h2 { font-size: 38px; }
+
+    .mobile-prefooter-nav {
+      display: none;
+      padding: 24px 20px;
+      background: #fff;
+      border-top: 1px solid var(--line);
+      gap: 13px;
+      flex-direction: column;
+    }
+
+    .site-footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,.82);
+      padding: 42px 0;
+    }
+
+    .site-footer .shell {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    .footer-brand img {
+      width: 180px;
+      height: auto;
+      display: block;
+      filter: brightness(0) invert(1);
+      opacity: .9;
+    }
+
+    @media (max-width: 920px) {
+      .main-nav { display: none; }
+      .site-header .shell { min-height: 72px; }
+      .brand img { width: 182px; }
+      .header-cta { margin-left: auto; min-height: 42px; padding: 9px 13px; font-size: 12px; }
+
+      .hero-grid,
+      .content-grid,
+      .booking-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .hero-grid { min-height: 0; padding: 58px 0; }
+      .hero-card { max-width: 620px; }
+      .side-card { position: static; }
+      .flow-grid { grid-template-columns: repeat(2, 1fr); }
+      .dates { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    }
+
+    @media (max-width: 640px) {
+      .shell { width: min(100% - 28px, var(--shell)); }
+      .hero-grid { padding: 44px 0 48px; }
+      h1 { font-size: 43px; }
+      .hero .lead { font-size: 17px; }
+      .content-section { padding: 55px 0; }
+      .analysis-zone { padding: 54px 0 64px; }
+
+      .stage-head {
+        padding: 22px 18px 18px;
+        gap: 11px;
+      }
+
+      .stage-number { font-size: 28px; min-width: 32px; }
+      .stage-head h2 { font-size: 30px; }
+      .stage-body { padding: 24px 18px 26px; }
+      .question { padding: 20px 0; }
+      .option-row { gap: 8px; }
+      .option-btn { width: 100%; text-align: left; }
+      .flow-grid { grid-template-columns: 1fr; }
+      .summary-row { grid-template-columns: 1fr; gap: 3px; }
+      .mode-grid { grid-template-columns: 1fr; }
+      .dates { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .form-grid { grid-template-columns: 1fr; }
+      .stage-actions .primary-btn,
+      .stage-actions .secondary-btn { width: 100%; }
+      .mobile-prefooter-nav { display: flex; }
+      .site-footer .shell { grid-template-columns: 1fr; }
+      .footer-nav { gap: 12px 18px; }
+      .footer-brand { justify-self: start; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#analise">Pular para a análise</a>
+
+  <header class="site-header" role="banner">
+    <div class="shell">
+      <a class="brand" href="/" aria-label="Análise Legal — página inicial">
+        <img src="/assets/img/Marca.svg" alt="Análise Legal" width="620" height="112" decoding="async" fetchpriority="high">
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="/papel-da-plataforma.html">O papel da plataforma</a>
+        <a href="/como-funciona.html">Como funciona</a>
+        <a href="/quando-faz-sentido.html">Quando faz sentido</a>
+        <a href="/situacoes/">Situações reais</a>
+      </nav>
+
+      <a class="header-cta" href="#analise">Solicite análise</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Situação real • FIES</p>
+          <h1>Você pagou a entrada da renegociação do FIES e depois o acordo mudou?</h1>
+          <p class="lead">Uma situação merece atenção especial quando a renegociação foi formalizada, a entrada foi paga e, depois disso, o saldo, o desconto, as parcelas ou a própria forma de pagamento passaram a aparecer de maneira diferente.</p>
+          <a class="primary-btn" href="#analise">SOLICITE ANÁLISE</a>
+        </div>
+
+        <aside class="hero-card" aria-label="Sobre esta situação">
+          <strong>O ponto não é apenas saber quanto está sendo cobrado hoje.</strong>
+          <p>Quando as condições mudam depois da adesão, é importante verificar a situação concreta antes de decidir o próximo passo.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="shell content-grid">
+        <div>
+          <p class="section-kicker">Depois da entrada</p>
+          <h2>O acordo mudou?</h2>
+        </div>
+
+        <div class="content-copy">
+          <p>Há situações em que a entrada é paga normalmente, mas a parcela seguinte aparece em valor diferente, o saldo é recalculado, o desconto é reduzido ou o acordo deixa de aparecer no sistema.</p>
+          <p>Também podem surgir informações sobre revisão, reenquadramento ou reprocessamento. Nesses casos, a alteração posterior deve ser compreendida à luz da situação específica do contrato e da renegociação realizada.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section alt">
+      <div class="shell content-grid">
+        <div>
+          <p class="section-kicker">Pagamento da entrada</p>
+          <h2>Isso pode fazer diferença?</h2>
+        </div>
+
+        <div class="content-copy">
+          <p>Pode. Uma proposta apenas consultada no sistema não se confunde necessariamente com uma renegociação já formalizada e acompanhada do pagamento exigido para adesão.</p>
+          <p>Ao mesmo tempo, pagar a entrada não permite concluir, por si só, que qualquer alteração posterior esteja incorreta. É a situação concreta que precisa ser analisada.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="shell content-grid">
+        <div>
+          <p class="section-kicker">Continuidade do pagamento</p>
+          <h2>E se o sistema não permitir pagar como antes?</h2>
+        </div>
+
+        <div class="content-copy">
+          <p>Pode acontecer de você querer continuar cumprindo a renegociação, mas não encontrar mais boleto ou opção de pagamento correspondente às condições que apareciam anteriormente.</p>
+          <p>Antes de simplesmente deixar de pagar ou aceitar uma nova condição, faz sentido compreender o que ocorreu e quais alternativas podem ser consideradas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section alt">
+      <div class="shell content-grid">
+        <div>
+          <p class="section-kicker">Quando analisar</p>
+          <h2>Quando faz sentido buscar uma análise individual?</h2>
+        </div>
+
+        <div class="content-copy">
+          <p>Especialmente quando, depois do pagamento da entrada:</p>
+          <ul class="attention-list">
+            <li>o saldo aumentou;</li>
+            <li>o desconto apresentado foi reduzido ou deixou de aparecer;</li>
+            <li>as parcelas mudaram;</li>
+            <li>o acordo desapareceu do sistema;</li>
+            <li>não é mais possível pagar conforme a condição anterior;</li>
+            <li>foi apresentada uma justificativa que não ficou clara.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="shell">
+        <p class="section-kicker">Como funciona</p>
+        <h2>Você decide se quer seguir para o atendimento.</h2>
+
+        <div class="flow-grid">
+          <div class="flow-card"><span>01</span><p>Responda algumas perguntas objetivas sobre o que aconteceu.</p></div>
+          <div class="flow-card"><span>02</span><p>Confira um resumo das informações que você forneceu.</p></div>
+          <div class="flow-card"><span>03</span><p>Se ainda considerar necessário, escolha atendimento online ou presencial, data e horário.</p></div>
+          <div class="flow-card"><span>04</span><p>Depois da escolha do dia e horário, o valor da análise é apresentado.</p></div>
+          <div class="flow-card"><span>05</span><p>Se concordar, finalize o pedido e siga para o pagamento via PIX.</p></div>
+          <div class="flow-card"><span>06</span><p>Após o pagamento, você recebe a confirmação do atendimento. Os documentos necessários serão solicitados nessa fase.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="analysis-zone" id="analise">
+      <div class="shell">
+        <div class="analysis-head">
+          <p class="section-kicker">Para iniciar</p>
+          <h2>Responda apenas o necessário.</h2>
+          <p>Nenhum documento será solicitado antes de você decidir pela contratação da análise individual.</p>
+        </div>
+
+        <section class="stage" id="intakeStage">
+          <div class="stage-head">
+            <p class="stage-number">01</p>
+            <div>
+              <p class="stage-kicker">Situação</p>
+              <h2>O que aconteceu?</h2>
+              <p>Selecione as respostas que mais se aproximam da sua situação.</p>
+            </div>
+          </div>
+
+          <div class="stage-body">
+            <div class="question">
+              <span class="question-label">Qual instituição administra seu FIES?</span>
+              <div class="option-row" data-group="instituicao">
+                <button class="option-btn" type="button" data-value="caixa">Caixa</button>
+                <button class="option-btn" type="button" data-value="bb">Banco do Brasil</button>
+                <button class="option-btn" type="button" data-value="outra">Outra</button>
+              </div>
+            </div>
+
+            <div class="question">
+              <span class="question-label">A renegociação foi formalizada?</span>
+              <div class="option-row" data-group="formalizada">
+                <button class="option-btn" type="button" data-value="sim">Sim</button>
+                <button class="option-btn" type="button" data-value="nao">Não</button>
+                <button class="option-btn" type="button" data-value="nao_sei">Não sei</button>
+              </div>
+            </div>
+
+            <div class="question">
+              <span class="question-label">A entrada foi paga?</span>
+              <div class="option-row" data-group="entradaPaga">
+                <button class="option-btn" type="button" data-value="sim">Sim</button>
+                <button class="option-btn" type="button" data-value="nao">Não</button>
+              </div>
+            </div>
+
+            <div class="question">
+              <span class="question-label">O que mudou depois?</span>
+              <div class="option-row" data-group="mudancas" data-multiple="true">
+                <button class="option-btn" type="button" data-value="saldo">Saldo</button>
+                <button class="option-btn" type="button" data-value="desconto">Desconto</button>
+                <button class="option-btn" type="button" data-value="parcelas">Parcelas</button>
+                <button class="option-btn" type="button" data-value="acordo_sumiu">O acordo desapareceu</button>
+                <button class="option-btn" type="button" data-value="outro">Outro</button>
+              </div>
+            </div>
+
+            <div class="question">
+              <span class="question-label">Ainda é possível pagar conforme o acordo anterior?</span>
+              <div class="option-row" data-group="podePagarOriginal">
+                <button class="option-btn" type="button" data-value="sim">Sim</button>
+                <button class="option-btn" type="button" data-value="nao">Não</button>
+                <button class="option-btn" type="button" data-value="nao_sei">Não sei</button>
+              </div>
+            </div>
+
+            <div class="question">
+              <span class="question-label">Foi apresentada alguma justificativa para a mudança?</span>
+              <div class="option-row" data-group="justificativa">
+                <button class="option-btn" type="button" data-value="sim">Sim</button>
+                <button class="option-btn" type="button" data-value="nao">Não</button>
+                <button class="option-btn" type="button" data-value="nao_sei">Não sei</button>
+              </div>
+            </div>
+
+            <div id="intakeError" class="inline-error" hidden>Responda às perguntas acima para continuar.</div>
+
+            <div class="stage-actions">
+              <button id="toSummaryButton" class="primary-btn" type="button" disabled>VER MEU RESUMO</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="stage" id="summaryStage" hidden>
+          <div class="stage-head">
+            <p class="stage-number">02</p>
+            <div>
+              <p class="stage-kicker">Resumo</p>
+              <h2>Confira o que você informou.</h2>
+              <p>Este resumo apenas organiza as suas respostas. Não é uma avaliação profissional.</p>
+            </div>
+          </div>
+
+          <div class="stage-body">
+            <div class="summary-box" id="summaryBox"></div>
+
+            <div class="decision-note">
+              <p>Se você ainda considerar necessário compreender a alteração ocorrida no seu FIES, pode seguir para a escolha do atendimento.</p>
+            </div>
+
+            <div class="stage-actions">
+              <button id="editAnswersButton" class="secondary-btn" type="button">ALTERAR RESPOSTAS</button>
+              <button id="openBookingButton" class="primary-btn" type="button">QUERO UMA ANÁLISE INDIVIDUAL</button>
+              <button id="closeFlowButton" class="secondary-btn" type="button">ENCERRAR POR AQUI</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="stage" id="bookingStage" hidden>
+          <div class="stage-head">
+            <p class="stage-number">03</p>
+            <div>
+              <p class="stage-kicker">Atendimento</p>
+              <h2>Escolha modalidade, dia e horário.</h2>
+              <p>O valor será apresentado somente depois da escolha do dia e do horário.</p>
+            </div>
+          </div>
+
+          <div class="stage-body">
+            <div class="booking-grid">
+              <div class="booking-card">
+                <h3>Modalidade</h3>
+
+                <div class="mode-grid" id="modeGrid">
+                  <button class="mode-btn" type="button" data-mode="online">
+                    <strong>Online</strong>
+                    <small>Videoconferência. Disponibilidade a partir do próximo dia útil.</small>
+                  </button>
+
+                  <button class="mode-btn" type="button" data-mode="presencial">
+                    <strong>Presencial em Brasília</strong>
+                    <small>Disponibilidade a partir de dois dias úteis.</small>
+                  </button>
+                </div>
+
+                <div id="dateArea" hidden>
+                  <h3>Data</h3>
+                  <div class="dates" id="dateList"></div>
+                </div>
+
+                <div id="slotArea" hidden>
+                  <h3 style="margin-top:24px">Horário</h3>
+                  <div id="slotsLoading" class="loading-line" hidden><span class="spinner" aria-hidden="true"></span> Consultando horários disponíveis...</div>
+                  <div class="slots" id="slotList"></div>
+                  <div id="slotMessage" class="status-box" hidden></div>
+                </div>
+
+                <div id="priceArea" class="price-card" hidden>
+                  <p class="label">Valor da análise</p>
+                  <p class="amount" id="priceLabel">R$ 1.000,00</p>
+                  <p>Inclui atendimento individual de até 1 hora, análise das informações e documentos apresentados e, se necessária, devolutiva de até 1 hora.</p>
+
+                  <div class="identity-card" id="professionalIdentity" hidden>
+                    <strong id="professionalName"></strong>
+                    <small id="professionalRegistration"></small>
+                  </div>
+                </div>
+
+                <div id="personalArea" hidden>
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="nome">Nome completo</label>
+                      <input id="nome" name="nome" autocomplete="name" maxlength="160">
+                    </div>
+
+                    <div class="field">
+                      <label for="cpf">CPF</label>
+                      <input id="cpf" name="cpf" inputmode="numeric" autocomplete="off" maxlength="14" placeholder="000.000.000-00">
+                    </div>
+
+                    <div class="field">
+                      <label for="email">E-mail</label>
+                      <input id="email" name="email" type="email" autocomplete="email" maxlength="254">
+                    </div>
+
+                    <div class="field">
+                      <label for="telefone">Telefone</label>
+                      <input id="telefone" name="telefone" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="(61) 99999-9999">
+                    </div>
+                  </div>
+
+                  <div class="no-docs">Nenhum documento será solicitado nesta etapa. Após a contratação e a confirmação do pagamento, serão solicitados os documentos necessários ao atendimento.</div>
+
+                  <p class="microcopy">Ao finalizar, você concorda com os <a href="/termos-de-uso.html" target="_blank" rel="noopener">Termos de uso</a> e a <a href="/privacidade.html" target="_blank" rel="noopener">Política de privacidade</a>.</p>
+
+                  <div id="submitError" class="inline-error" hidden></div>
+
+                  <div class="stage-actions">
+                    <button id="backToSummaryButton" class="secondary-btn" type="button">VOLTAR</button>
+                    <button id="submitBookingButton" class="primary-btn" type="button">FINALIZAR PEDIDO E IR PARA O PIX</button>
+                  </div>
+                </div>
+              </div>
+
+              <aside class="side-card">
+                <p class="section-kicker">Seu pedido</p>
+                <h3>Resumo do atendimento</h3>
+                <div class="summary-box" id="bookingSummary">
+                  <div class="summary-row"><span>Modalidade</span><strong id="bookingMode">Ainda não escolhida</strong></div>
+                  <div class="summary-row"><span>Data</span><strong id="bookingDate">—</strong></div>
+                  <div class="summary-row"><span>Horário</span><strong id="bookingTime">—</strong></div>
+                  <div class="summary-row" id="bookingValueRow" hidden><span>Valor</span><strong id="bookingValue">R$ 1.000,00</strong></div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <section class="stage" id="closedStage" hidden>
+          <div class="closed-message">
+            <p class="section-kicker">Resumo concluído</p>
+            <h2>Você pode encerrar por aqui.</h2>
+            <p>Nenhuma solicitação de atendimento foi enviada.</p>
+            <div class="stage-actions" style="justify-content:center">
+              <button id="reopenButton" class="secondary-btn" type="button">VOLTAR AO RESUMO</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <nav class="mobile-prefooter-nav" aria-label="Navegação institucional principal">
+    <a href="/papel-da-plataforma.html">O papel da plataforma</a>
+    <a href="/como-funciona.html">Como funciona</a>
+    <a href="/quando-faz-sentido.html">Quando faz sentido</a>
+    <a href="/situacoes/">Situações reais</a>
+  </nav>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="shell">
+      <nav class="footer-nav" aria-label="Navegação institucional">
+        <a href="/perguntas-frequentes.html">Perguntas frequentes</a>
+        <a href="/privacidade.html">Privacidade</a>
+        <a href="/termos-de-uso.html">Termos de uso</a>
+        <a href="/contato.html">Contato</a>
+      </nav>
+
+      <a class="footer-brand" href="/" aria-label="Análise Legal — página inicial">
+        <img src="/assets/img/Marca-soft.svg" alt="Análise Legal" width="620" height="112" loading="lazy" decoding="async">
+      </a>
+    </div>
+  </footer>
+
+  <script>
+  "use strict";
+
+  const WORKER_BASE = "https://analiselegal-formulario.miguel-compras.workers.dev";
+  const LANDING_PAGE = "contratos/fies/paguei-a-entrada-e-o-acordo-mudou";
+  const TIMEZONE = "America/Sao_Paulo";
+
+  const state = {
+    instituicao: "",
+    formalizada: "",
+    entradaPaga: "",
+    mudancas: [],
+    podePagarOriginal: "",
+    justificativa: "",
+    modalidade: "",
+    data: "",
+    hora: "",
+    protocolo: "",
+    config: null,
+    submitting: false
+  };
+
+  const labels = {
+    instituicao: {
+      caixa: "Caixa",
+      bb: "Banco do Brasil",
+      outra: "Outra instituição"
+    },
+    formalizada: {
+      sim: "Sim",
+      nao: "Não",
+      nao_sei: "Não sei"
+    },
+    entradaPaga: {
+      sim: "Sim",
+      nao: "Não"
+    },
+    mudancas: {
+      saldo: "Saldo",
+      desconto: "Desconto",
+      parcelas: "Parcelas",
+      acordo_sumiu: "O acordo desapareceu",
+      outro: "Outro"
+    },
+    podePagarOriginal: {
+      sim: "Sim",
+      nao: "Não",
+      nao_sei: "Não sei"
+    },
+    justificativa: {
+      sim: "Sim",
+      nao: "Não",
+      nao_sei: "Não sei"
+    }
+  };
+
+  const els = {
+    intakeStage: document.getElementById("intakeStage"),
+    summaryStage: document.getElementById("summaryStage"),
+    bookingStage: document.getElementById("bookingStage"),
+    closedStage: document.getElementById("closedStage"),
+    toSummaryButton: document.getElementById("toSummaryButton"),
+    intakeError: document.getElementById("intakeError"),
+    summaryBox: document.getElementById("summaryBox"),
+    editAnswersButton: document.getElementById("editAnswersButton"),
+    openBookingButton: document.getElementById("openBookingButton"),
+    closeFlowButton: document.getElementById("closeFlowButton"),
+    reopenButton: document.getElementById("reopenButton"),
+    dateArea: document.getElementById("dateArea"),
+    dateList: document.getElementById("dateList"),
+    slotArea: document.getElementById("slotArea"),
+    slotsLoading: document.getElementById("slotsLoading"),
+    slotList: document.getElementById("slotList"),
+    slotMessage: document.getElementById("slotMessage"),
+    priceArea: document.getElementById("priceArea"),
+    priceLabel: document.getElementById("priceLabel"),
+    personalArea: document.getElementById("personalArea"),
+    professionalIdentity: document.getElementById("professionalIdentity"),
+    professionalName: document.getElementById("professionalName"),
+    professionalRegistration: document.getElementById("professionalRegistration"),
+    bookingMode: document.getElementById("bookingMode"),
+    bookingDate: document.getElementById("bookingDate"),
+    bookingTime: document.getElementById("bookingTime"),
+    bookingValueRow: document.getElementById("bookingValueRow"),
+    bookingValue: document.getElementById("bookingValue"),
+    nome: document.getElementById("nome"),
+    cpf: document.getElementById("cpf"),
+    email: document.getElementById("email"),
+    telefone: document.getElementById("telefone"),
+    submitError: document.getElementById("submitError"),
+    submitBookingButton: document.getElementById("submitBookingButton"),
+    backToSummaryButton: document.getElementById("backToSummaryButton")
+  };
+
+  function showStage(target) {
+    for (const stage of [els.intakeStage, els.summaryStage, els.bookingStage, els.closedStage]) {
+      stage.hidden = stage !== target;
+    }
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function intakeComplete() {
+    return Boolean(
+      state.instituicao &&
+      state.formalizada &&
+      state.entradaPaga &&
+      state.mudancas.length &&
+      state.podePagarOriginal &&
+      state.justificativa
+    );
+  }
+
+  function updateIntakeButton() {
+    els.toSummaryButton.disabled = !intakeComplete();
+    if (intakeComplete()) els.intakeError.hidden = true;
+  }
+
+  function handleOptionClick(button, group, multiple) {
+    const value = button.dataset.value;
+
+    if (multiple) {
+      const exists = state[group].includes(value);
+      state[group] = exists
+        ? state[group].filter(item => item !== value)
+        : [...state[group], value];
+      button.classList.toggle("is-selected", !exists);
+    } else {
+      state[group] = value;
+      button.parentElement.querySelectorAll(".option-btn").forEach(item => {
+        item.classList.toggle("is-selected", item === button);
+      });
+    }
+
+    updateIntakeButton();
+  }
+
+  function summaryRows() {
+    return [
+      ["Instituição", labels.instituicao[state.instituicao]],
+      ["Renegociação formalizada", labels.formalizada[state.formalizada]],
+      ["Entrada paga", labels.entradaPaga[state.entradaPaga]],
+      ["O que mudou", state.mudancas.map(item => labels.mudancas[item]).join(", ")],
+      ["Pagamento nas condições anteriores", labels.podePagarOriginal[state.podePagarOriginal]],
+      ["Justificativa apresentada", labels.justificativa[state.justificativa]]
+    ];
+  }
+
+  function renderSummary() {
+    els.summaryBox.innerHTML = summaryRows().map(([label, value]) => `
+      <div class="summary-row">
+        <span>${escapeHtml(label)}</span>
+        <strong>${escapeHtml(value || "—")}</strong>
+      </div>
+    `).join("");
+  }
+
+  function summaryText() {
+    return summaryRows()
+      .map(([label, value]) => `${label}: ${value || "não informado"}`)
+      .join("\n");
+  }
+
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  function todayISOInSaoPaulo() {
+    const parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: TIMEZONE,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).formatToParts(new Date());
+
+    const map = Object.fromEntries(parts.map(part => [part.type, part.value]));
+    return `${map.year}-${map.month}-${map.day}`;
+  }
+
+  function parseISODate(iso) {
+    const [y, m, d] = iso.split("-").map(Number);
+    return new Date(Date.UTC(y, m - 1, d, 12, 0, 0));
+  }
+
+  function isoFromDate(date) {
+    return date.toISOString().slice(0, 10);
+  }
+
+  function addDays(iso, amount) {
+    const date = parseISODate(iso);
+    date.setUTCDate(date.getUTCDate() + amount);
+    return isoFromDate(date);
+  }
+
+  function isBusinessDay(iso) {
+    const day = parseISODate(iso).getUTCDay();
+    return day !== 0 && day !== 6;
+  }
+
+  function addBusinessDays(iso, amount) {
+    let current = iso;
+    let added = 0;
+    while (added < amount) {
+      current = addDays(current, 1);
+      if (isBusinessDay(current)) added += 1;
+    }
+    return current;
+  }
+
+  function formatDateBR(iso, withWeekday = false) {
+    if (!iso) return "—";
+    const date = parseISODate(iso);
+    const options = withWeekday
+      ? { weekday: "short", day: "2-digit", month: "2-digit", timeZone: "UTC" }
+      : { day: "2-digit", month: "2-digit", year: "numeric", timeZone: "UTC" };
+    return new Intl.DateTimeFormat("pt-BR", options).format(date).replace(".", "");
+  }
+
+  function minimumDateFor(mode) {
+    const fromApi = state.config?.service?.minimum_dates?.[mode];
+    if (/^\d{4}-\d{2}-\d{2}$/.test(fromApi || "")) return fromApi;
+    return addBusinessDays(todayISOInSaoPaulo(), mode === "presencial" ? 2 : 1);
+  }
+
+  function buildEligibleDates(mode, count = 18) {
+    const dates = [];
+    let current = minimumDateFor(mode);
+    while (dates.length < count) {
+      if (isBusinessDay(current)) dates.push(current);
+      current = addDays(current, 1);
+    }
+    return dates;
+  }
+
+  function renderDates() {
+    state.data = "";
+    state.hora = "";
+    els.dateArea.hidden = false;
+    els.slotArea.hidden = true;
+    hidePriceAndPersonal();
+    els.bookingDate.textContent = "—";
+    els.bookingTime.textContent = "—";
+
+    els.dateList.innerHTML = "";
+    for (const iso of buildEligibleDates(state.modalidade)) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "date-btn";
+      button.dataset.date = iso;
+
+      const date = parseISODate(iso);
+      const weekday = new Intl.DateTimeFormat("pt-BR", { weekday: "short", timeZone: "UTC" })
+        .format(date)
+        .replace(".", "");
+      const dayMonth = new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "2-digit", timeZone: "UTC" })
+        .format(date);
+
+      button.innerHTML = `<small>${escapeHtml(weekday)}</small><strong>${escapeHtml(dayMonth)}</strong>`;
+      button.addEventListener("click", () => selectDate(iso, button));
+      els.dateList.appendChild(button);
+    }
+  }
+
+  async function selectDate(iso, button) {
+    state.data = iso;
+    state.hora = "";
+
+    els.dateList.querySelectorAll(".date-btn").forEach(item => {
+      item.classList.toggle("is-selected", item === button);
+    });
+
+    els.bookingDate.textContent = formatDateBR(iso);
+    els.bookingTime.textContent = "—";
+    els.slotArea.hidden = false;
+    hidePriceAndPersonal();
+    await loadSlots();
+  }
+
+  function slotHour(slot) {
+    if (typeof slot === "string") {
+      const match = slot.match(/\b(\d{2}:\d{2})\b/);
+      return match ? match[1] : slot.slice(0, 5);
+    }
+
+    const direct = slot?.time || slot?.hora || slot?.hour;
+    if (direct) return String(direct).slice(0, 5);
+
+    const raw = slot?.starts_at || slot?.startsAt || slot?.start;
+    if (!raw) return "";
+
+    const date = new Date(raw);
+    if (Number.isNaN(date.getTime())) return "";
+
+    return new Intl.DateTimeFormat("pt-BR", {
+      timeZone: TIMEZONE,
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false
+    }).format(date);
+  }
+
+  async function loadSlots() {
+    els.slotsLoading.hidden = false;
+    els.slotMessage.hidden = true;
+    els.slotList.innerHTML = "";
+
+    try {
+      const url = new URL(WORKER_BASE + "/api/availability");
+      url.searchParams.set("landing_page", LANDING_PAGE);
+      url.searchParams.set("date", state.data);
+      url.searchParams.set("service_mode", state.modalidade);
+
+      const response = await fetch(url.toString(), {
+        headers: { "Accept": "application/json" }
+      });
+
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error("availability_failed");
+
+      const rawSlots = Array.isArray(data.slots)
+        ? data.slots
+        : Array.isArray(data.horarios_disponiveis)
+          ? data.horarios_disponiveis
+          : [];
+
+      const hours = [...new Set(rawSlots.map(slotHour).filter(Boolean))].sort();
+
+      if (!hours.length) {
+        els.slotMessage.textContent = "Não há horários disponíveis nessa data. Escolha outro dia.";
+        els.slotMessage.hidden = false;
+        return;
+      }
+
+      for (const hour of hours) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "slot-btn";
+        button.textContent = hour;
+        button.addEventListener("click", () => selectTime(hour, button));
+        els.slotList.appendChild(button);
+      }
+    } catch {
+      els.slotMessage.textContent = "Não foi possível consultar os horários neste momento. Tente novamente.";
+      els.slotMessage.hidden = false;
+    } finally {
+      els.slotsLoading.hidden = true;
+    }
+  }
+
+  function selectTime(hour, button) {
+    state.hora = hour;
+    els.slotList.querySelectorAll(".slot-btn").forEach(item => {
+      item.classList.toggle("is-selected", item === button);
+    });
+
+    els.bookingTime.textContent = hour;
+    revealPriceAndPersonal();
+  }
+
+  function configuredPriceLabel() {
+    return state.config?.service?.price_formatted || "R$ 1.000,00";
+  }
+
+  function revealPriceAndPersonal() {
+    const price = configuredPriceLabel();
+    els.priceLabel.textContent = price;
+    els.bookingValue.textContent = price;
+    els.priceArea.hidden = false;
+    els.personalArea.hidden = false;
+    els.bookingValueRow.hidden = false;
+  }
+
+  function hidePriceAndPersonal() {
+    els.priceArea.hidden = true;
+    els.personalArea.hidden = true;
+    els.bookingValueRow.hidden = true;
+  }
+
+  function setMode(mode, button) {
+    state.modalidade = mode;
+    document.querySelectorAll(".mode-btn").forEach(item => {
+      item.classList.toggle("is-selected", item === button);
+    });
+
+    els.bookingMode.textContent = mode === "presencial" ? "Presencial em Brasília" : "Online";
+    renderDates();
+  }
+
+  async function loadLandingConfig() {
+    try {
+      const response = await fetch(
+        WORKER_BASE + "/api/landing-pages/" + encodeURIComponent(LANDING_PAGE),
+        { headers: { "Accept": "application/json" } }
+      );
+
+      if (!response.ok) throw new Error("config_failed");
+      const data = await response.json();
+      state.config = data;
+
+      if (data?.service?.price_formatted) {
+        els.priceLabel.textContent = data.service.price_formatted;
+        els.bookingValue.textContent = data.service.price_formatted;
+      }
+
+      const professional = data?.professional;
+      if (professional) {
+        const name = professional.display_name || professional.full_name || "";
+        const registration = professional.registration || "";
+        if (name) {
+          els.professionalName.textContent = name;
+          els.professionalRegistration.textContent = registration;
+          els.professionalIdentity.hidden = false;
+        }
+      }
+
+      const modes = data?.service?.service_modes || data?.professional?.service_modes;
+      if (Array.isArray(modes) && modes.length) {
+        document.querySelectorAll(".mode-btn").forEach(button => {
+          const enabled = modes.includes(button.dataset.mode);
+          button.hidden = !enabled;
+        });
+      }
+    } catch {
+      state.config = null;
+    }
+  }
+
+  function digits(value) {
+    return String(value || "").replace(/\D/g, "");
+  }
+
+  function validCPF(value) {
+    const cpf = digits(value);
+    if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+
+    let sum = 0;
+    for (let i = 0; i < 9; i++) sum += Number(cpf[i]) * (10 - i);
+    let first = (sum * 10) % 11;
+    if (first === 10) first = 0;
+    if (first !== Number(cpf[9])) return false;
+
+    sum = 0;
+    for (let i = 0; i < 10; i++) sum += Number(cpf[i]) * (11 - i);
+    let second = (sum * 10) % 11;
+    if (second === 10) second = 0;
+    return second === Number(cpf[10]);
+  }
+
+  function validEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || "").trim());
+  }
+
+  function validPhone(value) {
+    const phone = digits(value);
+    return phone.length >= 10 && phone.length <= 13;
+  }
+
+  function formatCPFInput(event) {
+    let value = digits(event.target.value).slice(0, 11);
+    value = value.replace(/(\d{3})(\d)/, "$1.$2");
+    value = value.replace(/(\d{3})(\d)/, "$1.$2");
+    value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    event.target.value = value;
+  }
+
+  function formatPhoneInput(event) {
+    let value = digits(event.target.value).slice(0, 11);
+    if (value.length > 10) {
+      value = value.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
+    } else if (value.length > 6) {
+      value = value.replace(/^(\d{2})(\d{4})(\d{0,4})$/, "($1) $2-$3");
+    } else if (value.length > 2) {
+      value = value.replace(/^(\d{2})(\d+)/, "($1) $2");
+    }
+    event.target.value = value;
+  }
+
+  function validatePersonalData() {
+    const name = els.nome.value.trim();
+    const cpf = els.cpf.value.trim();
+    const email = els.email.value.trim();
+    const phone = els.telefone.value.trim();
+
+    if (name.length < 3) return "Informe seu nome completo.";
+    if (!validCPF(cpf)) return "Informe um CPF válido.";
+    if (!validEmail(email)) return "Informe um e-mail válido.";
+    if (!validPhone(phone)) return "Informe um telefone válido.";
+    if (!state.modalidade || !state.data || !state.hora) return "Escolha modalidade, data e horário.";
+    return "";
+  }
+
+  async function createLeadIfNeeded() {
+    if (state.protocolo) return state.protocolo;
+
+    const response = await fetch(WORKER_BASE + "/api/leads", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        landing_page: LANDING_PAGE,
+        nome: els.nome.value.trim(),
+        email: els.email.value.trim(),
+        telefone: els.telefone.value.trim(),
+        cpf: digits(els.cpf.value),
+        resumo: summaryText(),
+        intake: {
+          produto: "analise_individual",
+          situacao: "fies_entrada_paga_acordo_mudou",
+          origem: window.location.pathname,
+          documentos: [],
+          detalhes: {
+            instituicao: state.instituicao,
+            formalizada: state.formalizada,
+            entrada_paga: state.entradaPaga,
+            mudancas: state.mudancas,
+            pode_pagar_acordo_original: state.podePagarOriginal,
+            justificativa_apresentada: state.justificativa
+          }
+        }
+      })
+    });
+
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || !data?.protocolo) {
+      throw new Error("Não foi possível registrar a solicitação neste momento.");
+    }
+
+    state.protocolo = data.protocolo;
+    return state.protocolo;
+  }
+
+  async function preReserve() {
+    const response = await fetch(WORKER_BASE + "/api/bookings/pre-reserve", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        protocolo: state.protocolo,
+        service_mode: state.modalidade,
+        date: state.data,
+        time: state.hora
+      })
+    });
+
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || !data?.retake_token) {
+      if (response.status === 409) {
+        throw new Error("Esse horário deixou de estar disponível. Escolha outro horário.");
+      }
+      throw new Error("Não foi possível reservar o horário neste momento.");
+    }
+
+    return data;
+  }
+
+  async function submitBooking() {
+    if (state.submitting) return;
+
+    const validationError = validatePersonalData();
+    if (validationError) {
+      els.submitError.textContent = validationError;
+      els.submitError.hidden = false;
+      return;
+    }
+
+    els.submitError.hidden = true;
+    state.submitting = true;
+    els.submitBookingButton.disabled = true;
+    els.submitBookingButton.textContent = "PREPARANDO PAGAMENTO...";
+
+    try {
+      await createLeadIfNeeded();
+      const reservation = await preReserve();
+
+      const token = reservation.retake_token;
+      const payload = {
+        protocolo: state.protocolo,
+        token,
+        booking_id: reservation.booking_id || "",
+        expires_at: reservation.expires_at || ""
+      };
+
+      try {
+        sessionStorage.setItem("analiseLegalPagamento", JSON.stringify(payload));
+      } catch {
+        /* O redirecionamento continua pela URL. */
+      }
+
+      const paymentUrl = new URL("/pagamento.html", window.location.origin);
+      paymentUrl.searchParams.set("protocolo", state.protocolo);
+      paymentUrl.searchParams.set("token", token);
+      window.location.assign(paymentUrl.toString());
+    } catch (error) {
+      const message = error?.message || "Não foi possível concluir o pedido.";
+      els.submitError.textContent = message;
+      els.submitError.hidden = false;
+
+      if (message.includes("horário")) {
+        state.hora = "";
+        els.bookingTime.textContent = "—";
+        hidePriceAndPersonal();
+        await loadSlots();
+      }
+    } finally {
+      state.submitting = false;
+      els.submitBookingButton.disabled = false;
+      els.submitBookingButton.textContent = "FINALIZAR PEDIDO E IR PARA O PIX";
+    }
+  }
+
+  document.querySelectorAll("[data-group]").forEach(group => {
+    const name = group.dataset.group;
+    const multiple = group.dataset.multiple === "true";
+    group.querySelectorAll(".option-btn").forEach(button => {
+      button.addEventListener("click", () => handleOptionClick(button, name, multiple));
+    });
+  });
+
+  els.toSummaryButton.addEventListener("click", () => {
+    if (!intakeComplete()) {
+      els.intakeError.hidden = false;
+      return;
+    }
+    renderSummary();
+    showStage(els.summaryStage);
+  });
+
+  els.editAnswersButton.addEventListener("click", () => showStage(els.intakeStage));
+  els.openBookingButton.addEventListener("click", () => showStage(els.bookingStage));
+  els.closeFlowButton.addEventListener("click", () => showStage(els.closedStage));
+  els.reopenButton.addEventListener("click", () => showStage(els.summaryStage));
+  els.backToSummaryButton.addEventListener("click", () => showStage(els.summaryStage));
+
+  document.querySelectorAll(".mode-btn").forEach(button => {
+    button.addEventListener("click", () => setMode(button.dataset.mode, button));
+  });
+
+  els.cpf.addEventListener("input", formatCPFInput);
+  els.telefone.addEventListener("input", formatPhoneInput);
+  els.submitBookingButton.addEventListener("click", submitBooking);
+
+  loadLandingConfig();
+  </script>
+</body>
+</html>
